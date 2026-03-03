@@ -1,0 +1,184 @@
+---
+// Hero section
+---
+
+<!-- ── Hero ── -->
+      <section class="hero">
+        <div class="inner">
+          <div>
+            <div class="hero__pill">
+              <div class="hero__pill-dot"></div>
+              <span data-i18n="hero.pill"
+                >Application iOS &amp; Android · Rapport en moins de 2 min</span
+              >
+            </div>
+            <h1 data-i18n-html="hero.title">Enregistrez.<br />L'IA <em>génère le rapport.</em></h1>
+            <p class="hero__sub" data-i18n="hero.sub">
+              Reedly transforme chaque rendez-vous terrain en rapport structuré en moins de 2
+              minutes — résumé, besoins, objections, engagements, prochaines étapes. Rien à taper.
+              Rien à oublier.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary btn--lg" href="#final-cta" data-i18n="hero.cta"
+                >Télécharger gratuitement</a
+              >
+              <a class="btn btn--ghost btn--lg" href="#hub" data-i18n="hero.cta_manager"
+                >Manager ? Créer un Hub →</a
+              >
+            </div>
+            <div class="hero__trust">
+              <span data-i18n="hero.trust1">Plan gratuit disponible</span>
+              <span class="hero__trust-sep"></span>
+              <span data-i18n="hero.trust2">Essai 7 jours sur les plans payants</span>
+              <span class="hero__trust-sep"></span>
+              <span data-i18n="hero.trust3">Sans engagement</span>
+            </div>
+            <div class="offline-banner" id="offline-banner" data-i18n="hero.offline">
+              Mode hors ligne détecté — connexion requise pour générer des rapports.
+            </div>
+          </div>
+
+          <!-- Phone mockup -->
+          <div class="phone-wrap reveal">
+            <div class="phone-glow"></div>
+            <div class="phone">
+              <div class="phone__notch">
+                <div class="phone__notch-pill"></div>
+              </div>
+              <div class="phone__status">
+                <span class="phone__status-time">9:41</span>
+                <div class="phone__status-icons">
+                  <div class="phone__status-bar">
+                    <span style="height: 5px"></span>
+                    <span style="height: 7px"></span>
+                    <span style="height: 10px"></span>
+                    <span style="height: 13px"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="phone__header">
+                <div class="phone__rec-dot"></div>
+                <div class="phone__rec-label" data-i18n="hero.rec_label">Enregistrement</div>
+                <div class="phone__timer">04:23</div>
+              </div>
+              <div class="phone__client-card">
+                <div class="phone__client-name">Agence Riviera — M. Laurent</div>
+                <div style="margin-top: 4px">
+                  <span class="phone__client-sector">
+                    <svg
+                      fill="none"
+                      viewBox="0 0 12 12"
+                      stroke-width="1.8"
+                      style="width: 9px; height: 9px; stroke: var(--green)"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        d="M6 1l1 3h3l-2.5 1.8.9 3L6 7.2 3.6 8.8l.9-3L2 4h3z"
+                      />
+                    </svg>
+                    Tourisme · Paris 8e
+                  </span>
+                </div>
+              </div>
+              <div class="phone__waveform">
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+              </div>
+              <div class="phone__actions">
+                <div class="phone__btn phone__btn--pause">⏸ PAUSE</div>
+                <div class="phone__btn phone__btn--stop" data-i18n="hero.stop_btn">■ GÉNÉRER</div>
+              </div>
+            </div>
+
+            <!-- Floating report card -->
+            <div class="phone__report-float">
+              <div class="phone__report-float-header">
+                <div class="phone__report-float-dot"></div>
+                <div class="phone__report-float-label" data-i18n="hero.report_float">
+                  Rapport généré
+                </div>
+              </div>
+              <div class="phone__report-float-sections">
+                <div class="phone__report-float-section">
+                  <span class="phone__report-section-icon">●</span>
+                  <span class="phone__report-section-name">Résumé exécutif</span>
+                </div>
+                <div class="phone__report-float-section">
+                  <span class="phone__report-section-icon">●</span>
+                  <span class="phone__report-section-name">Besoins exprimés</span>
+                </div>
+                <div class="phone__report-float-section">
+                  <span class="phone__report-section-icon">●</span>
+                  <span class="phone__report-section-name">Objections &amp; réponses</span>
+                </div>
+                <div class="phone__report-float-section">
+                  <span class="phone__report-section-icon">●</span>
+                  <span class="phone__report-section-name">Engagements &amp; prochaines étapes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ticker -->
+        <div class="ticker" style="margin-top: 48px">
+          <div class="ticker__track" id="ticker-track">
+            <span class="ticker__item" data-i18n="ticker.1"
+              >Enregistrement live pendant le rendez-vous</span
+            >
+            <span class="ticker__item" data-i18n="ticker.2"
+              >Transcription automatique haute précision</span
+            >
+            <span class="ticker__item" data-i18n="ticker.3">Rapport structuré en 11 sections</span>
+            <span class="ticker__item" data-i18n="ticker.4">Zéro saisie manuelle</span>
+            <span class="ticker__item" data-i18n="ticker.5">Export PDF en 1 clic</span>
+            <span class="ticker__item" data-i18n="ticker.6"
+              >Synthèses territoriales à la demande</span
+            >
+            <span class="ticker__item" data-i18n="ticker.7">Vocabulaire B2B sectoriel intégré</span>
+            <span class="ticker__item" data-i18n="ticker.8"
+              >Audio supprimé après génération — privacy by design</span
+            >
+            <span class="ticker__item" data-i18n="ticker.1" aria-hidden="true"
+              >Enregistrement live pendant le rendez-vous</span
+            >
+            <span class="ticker__item" data-i18n="ticker.2" aria-hidden="true"
+              >Transcription automatique haute précision</span
+            >
+            <span class="ticker__item" data-i18n="ticker.3" aria-hidden="true"
+              >Rapport structuré en 11 sections</span
+            >
+            <span class="ticker__item" data-i18n="ticker.4" aria-hidden="true"
+              >Zéro saisie manuelle</span
+            >
+            <span class="ticker__item" data-i18n="ticker.5" aria-hidden="true"
+              >Export PDF en 1 clic</span
+            >
+            <span class="ticker__item" data-i18n="ticker.6" aria-hidden="true"
+              >Synthèses territoriales à la demande</span
+            >
+            <span class="ticker__item" data-i18n="ticker.7" aria-hidden="true"
+              >Vocabulaire B2B sectoriel intégré</span
+            >
+            <span class="ticker__item" data-i18n="ticker.8" aria-hidden="true"
+              >Audio supprimé après génération — privacy by design</span
+            >
+          </div>
+        </div>
+      </section>
