@@ -5,9 +5,9 @@
 <section class="section section--alt" id="contact">
   <div class="inner">
     <div class="reveal">
-      <div class="section__eyebrow">Contact</div>
-      <h2>Une question ?<br /><em>On vous répond.</em></h2>
-      <p class="section__lead">
+      <div class="section__eyebrow" data-i18n="contact.eyebrow">Contact</div>
+      <h2 data-i18n-html="contact.title">Une question ?<br /><em>On vous répond.</em></h2>
+      <p class="section__lead" data-i18n="contact.lead">
         Démonstration, partenariat, retour terrain ou simple curiosité — écrivez-nous,
         on répond sous 24h.
       </p>
@@ -24,8 +24,8 @@
             </svg>
           </div>
           <div class="contact__feature-text">
-            <h4>Demande de démo</h4>
-            <p>Vous voulez voir Reedly en action ? On vous montre une session live de 20 min.</p>
+            <h4 data-i18n="contact.f1.title">Demande de démo</h4>
+            <p data-i18n="contact.f1.text">Vous voulez voir Reedly en action ? On vous montre une session live de 20 min.</p>
           </div>
         </div>
 
@@ -37,8 +37,8 @@
             </svg>
           </div>
           <div class="contact__feature-text">
-            <h4>Déploiement équipe</h4>
-            <p>Vous pilotez une équipe de commerciaux ? On vous accompagne pour l'onboarding.</p>
+            <h4 data-i18n="contact.f2.title">Déploiement équipe</h4>
+            <p data-i18n="contact.f2.text">Vous pilotez une équipe de commerciaux ? On vous accompagne pour l'onboarding.</p>
           </div>
         </div>
 
@@ -50,8 +50,8 @@
             </svg>
           </div>
           <div class="contact__feature-text">
-            <h4>Partenariat & intégration</h4>
-            <p>CRM, outil commercial, API — discutons d'une intégration sur mesure.</p>
+            <h4 data-i18n="contact.f3.title">Partenariat & intégration</h4>
+            <p data-i18n="contact.f3.text">CRM, outil commercial, API — discutons d'une intégration sur mesure.</p>
           </div>
         </div>
 
@@ -63,8 +63,8 @@
             </svg>
           </div>
           <div class="contact__feature-text">
-            <h4>contact@reedly.ai</h4>
-            <p>Réponse garantie sous 24h ouvrées.</p>
+            <h4 data-i18n="contact.f4.title">contact@reedly.ai</h4>
+            <p data-i18n="contact.f4.text">Réponse garantie sous 24h ouvrées.</p>
           </div>
         </div>
       </div>
@@ -74,25 +74,27 @@
         <form id="contact-form" novalidate>
           <div class="form__row">
             <div class="form__field">
-              <label class="form__label" for="cf-firstname">Prénom</label>
+              <label class="form__label" for="cf-firstname" data-i18n="contact.label.firstname">Prénom</label>
               <input
                 class="form__input"
                 type="text"
                 id="cf-firstname"
                 name="firstname"
                 placeholder="Marie"
+                data-i18n-placeholder="contact.ph.firstname"
                 required
                 autocomplete="given-name"
               />
             </div>
             <div class="form__field">
-              <label class="form__label" for="cf-lastname">Nom</label>
+              <label class="form__label" for="cf-lastname" data-i18n="contact.label.lastname">Nom</label>
               <input
                 class="form__input"
                 type="text"
                 id="cf-lastname"
                 name="lastname"
                 placeholder="Dupont"
+                data-i18n-placeholder="contact.ph.lastname"
                 required
                 autocomplete="family-name"
               />
@@ -100,62 +102,65 @@
           </div>
 
           <div class="form__field">
-            <label class="form__label" for="cf-email">Email professionnel</label>
+            <label class="form__label" for="cf-email" data-i18n="contact.label.email">Email professionnel</label>
             <input
               class="form__input"
               type="email"
               id="cf-email"
               name="email"
               placeholder="marie.dupont@entreprise.fr"
+              data-i18n-placeholder="contact.ph.email"
               required
               autocomplete="email"
             />
           </div>
 
           <div class="form__field">
-            <label class="form__label" for="cf-company">Société</label>
+            <label class="form__label" for="cf-company" data-i18n="contact.label.company">Société</label>
             <input
               class="form__input"
               type="text"
               id="cf-company"
               name="company"
               placeholder="Tourisme Pro SAS"
+              data-i18n-placeholder="contact.ph.company"
               autocomplete="organization"
             />
           </div>
 
           <div class="form__field">
-            <label class="form__label" for="cf-subject">Sujet</label>
+            <label class="form__label" for="cf-subject" data-i18n="contact.label.subject">Sujet</label>
             <select class="form__select" id="cf-subject" name="subject" required>
-              <option value="" disabled selected>Choisir un sujet…</option>
-              <option value="demo">Demande de démo</option>
-              <option value="team">Déploiement équipe / Hub</option>
-              <option value="partnership">Partenariat & intégration</option>
-              <option value="sector">Nouveau secteur</option>
-              <option value="support">Support technique</option>
-              <option value="other">Autre</option>
+              <option value="" disabled selected data-i18n="contact.opt.select">Choisir un sujet…</option>
+              <option value="demo" data-i18n="contact.opt.demo">Demande de démo</option>
+              <option value="team" data-i18n="contact.opt.team">Déploiement équipe / Hub</option>
+              <option value="partnership" data-i18n="contact.opt.partnership">Partenariat & intégration</option>
+              <option value="sector" data-i18n="contact.opt.sector">Nouveau secteur</option>
+              <option value="support" data-i18n="contact.opt.support">Support technique</option>
+              <option value="other" data-i18n="contact.opt.other">Autre</option>
             </select>
           </div>
 
           <div class="form__field">
-            <label class="form__label" for="cf-message">Message</label>
+            <label class="form__label" for="cf-message" data-i18n="contact.label.message">Message</label>
             <textarea
               class="form__textarea"
               id="cf-message"
               name="message"
               placeholder="Décrivez votre contexte, votre équipe, vos questions…"
+              data-i18n-placeholder="contact.ph.message"
               required
             ></textarea>
           </div>
 
-          <button class="btn btn--primary form__submit" type="submit" id="cf-submit">
+          <button class="btn btn--primary form__submit" type="submit" id="cf-submit" data-i18n="contact.form.submit">
             Envoyer le message →
           </button>
 
-          <div class="form__feedback form__feedback--success" id="cf-success" role="alert">
+          <div class="form__feedback form__feedback--success" id="cf-success" role="alert" data-i18n="contact.form.success">
             ✓ Message envoyé ! On vous répond sous 24h ouvrées.
           </div>
-          <div class="form__feedback form__feedback--error" id="cf-error" role="alert">
+          <div class="form__feedback form__feedback--error" id="cf-error" role="alert" data-i18n="contact.form.error">
             Une erreur est survenue. Veuillez réessayer ou écrire à contact@reedly.ai
           </div>
         </form>
@@ -170,6 +175,11 @@
   const successEl = document.getElementById('cf-success');
   const errorEl = document.getElementById('cf-error');
 
+  const t = (key: string): string => {
+    const lang = document.documentElement.lang || 'fr';
+    return (window as any)._reedlyT?.[lang]?.[key] ?? key;
+  };
+
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form || !submitBtn) return;
@@ -180,7 +190,7 @@
 
     // Disable button
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Envoi en cours…';
+    submitBtn.textContent = t('contact.form.sending');
 
     const data = Object.fromEntries(new FormData(form));
 
@@ -204,7 +214,7 @@
       errorEl?.classList.add('visible');
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Envoyer le message →';
+      submitBtn.textContent = t('contact.form.submit');
     }
   });
 </script>
