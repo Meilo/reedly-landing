@@ -1,9 +1,9 @@
 import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
-  // 'hybrid' = static pages by default, but allows server endpoints (like our contact API)
-  output: 'hybrid',
+  // 'static' = static pages by default, but allows server endpoints (like our contact API)
+  output: 'static',
   adapter: vercel(),
 });
