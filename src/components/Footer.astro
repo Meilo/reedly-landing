@@ -1,14 +1,35 @@
 ---
 // Footer
+interface Props {
+  lang?: 'fr' | 'en';
+  privacyHref?: string;
+  termsHref?: string;
+  contactHref?: string;
+}
+
+const {
+  lang = 'fr',
+  privacyHref = '/confidentialite',
+  termsHref = '/cgu',
+  contactHref = '/#contact',
+} = Astro.props as Props;
+
+const isEn = lang === 'en';
 ---
 
 <footer class="footer z1">
   <div class="footer__inner">
-    <div class="footer__copy" data-i18n="footer.copy">© 2026 Reedly — Tous droits réservés</div>
+    <div class="footer__copy" data-i18n="footer.copy">
+      {isEn ? '© 2026 Reedly — All rights reserved' : '© 2026 Reedly — Tous droits reserves'}
+    </div>
     <div class="footer__links">
-      <a href="#" data-i18n="footer.privacy">Confidentialité</a>
-      <a href="#" data-i18n="footer.terms">CGU</a>
-      <a href="#contact" data-i18n="footer.contact">Contact</a>
+      <a href={privacyHref} data-i18n="footer.privacy" data-link-fr="/confidentialite" data-link-en="/privacy-policy">
+        {isEn ? 'Privacy' : 'Confidentialite'}
+      </a>
+      <a href={termsHref} data-i18n="footer.terms" data-link-fr="/cgu" data-link-en="/terms-of-service">
+        {isEn ? 'Terms' : 'CGU'}
+      </a>
+      <a href={contactHref} data-i18n="footer.contact">Contact</a>
     </div>
   </div>
 </footer>

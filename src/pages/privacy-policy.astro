@@ -1,0 +1,98 @@
+---
+import Footer from '@/components/Footer.astro';
+import LegalPage from '@/components/LegalPage.astro';
+import Layout from '@/layouts/Layout.astro';
+
+const sections = [
+  {
+    title: 'Introduction',
+    paragraphs: [
+      'Reedly ("we", "our", or "us") operates the Reedly mobile application (the "App"). This Privacy Policy explains how we collect, use, and protect your information when you use our App.',
+      'Reedly is a meeting recording and report generation tool designed for business professionals. By using the App, you agree to the collection and use of information in accordance with this policy.',
+    ],
+  },
+  {
+    title: 'Information We Collect',
+    paragraphs: [
+      'Account information: When you create an account, we collect your email address, username, and optionally your first and last name.',
+      'Profile data: Any information you choose to add to your profile, including your name and avatar.',
+      'Audio recordings: When you use the recording feature, audio is temporarily processed to generate text transcriptions and structured reports. Audio files are sent to OpenAI for transcription.',
+      'Generated content: Reports and syntheses created from your recordings are stored in your account.',
+      'Usage data: We collect anonymous usage data (screens visited, features used) to improve the App via PostHog.',
+      'Device information: Device type, operating system version, and app version for compatibility and debugging.',
+    ],
+  },
+  {
+    title: 'Information We Do NOT Collect',
+    paragraphs: [
+      'We do not collect precise location data.',
+      'We do not access your contacts, calendar, or other personal data.',
+      'We do not sell your personal information to third parties.',
+      'We do not store raw audio files after transcription is complete.',
+    ],
+  },
+  {
+    title: 'How We Use Your Information',
+    paragraphs: [
+      'We use the collected information to:\n\n• Provide and maintain the App\n• Authenticate your account\n• Transcribe your meeting recordings using AI\n• Generate structured reports and syntheses\n• Send you important notifications (e.g., security alerts)\n• Improve the App based on usage patterns\n• Fix bugs and ensure stability',
+    ],
+  },
+  {
+    title: 'Third-Party Services',
+    paragraphs: [
+      'Our App uses the following third-party services:\n\n• Supabase — Authentication and database (supabase.com/privacy)\n• OpenAI — Audio transcription and report generation (openai.com/privacy)\n• PostHog — Analytics (posthog.com/privacy)\n• RevenueCat — In-app purchases (revenuecat.com/privacy)\n• Expo — Build and updates (expo.dev/privacy)',
+    ],
+  },
+  {
+    title: 'Data Storage and Security',
+    paragraphs: [
+      'Your data is stored on secure servers provided by Supabase (hosted on AWS).',
+      'All data is encrypted in transit (TLS/SSL) and at rest.',
+      'Audio recordings are processed in real-time and are not permanently stored on our servers.',
+      'We implement industry-standard security measures to protect your data.',
+    ],
+  },
+  {
+    title: 'Your Rights',
+    paragraphs: [
+      'You have the right to:\n\n• Access your personal data\n• Correct inaccurate data\n• Delete your account and associated data\n• Export your data in a portable format\n• Opt out of analytics',
+      'To exercise these rights, contact us at support@reedly.ai.',
+    ],
+  },
+  {
+    title: 'Data Retention',
+    paragraphs: [
+      'Account data is retained as long as your account is active.',
+      'If you delete your account, your data is permanently removed within 30 days.',
+      'Anonymous analytics data may be retained indefinitely in aggregate form.',
+    ],
+  },
+  {
+    title: "Children's Privacy",
+    paragraphs: [
+      'Our App is not intended for children under 13. We do not knowingly collect personal information from children under 13. If you believe we have collected such data, please contact us immediately.',
+    ],
+  },
+  {
+    title: 'Changes to This Policy',
+    paragraphs: [
+      'We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page, updating the "Last updated" date, and sending a notification through the App for significant changes.',
+    ],
+  },
+  {
+    title: 'Contact Us',
+    paragraphs: ['If you have questions about this Privacy Policy, contact us at:\n\nsupport@reedly.ai'],
+  },
+];
+---
+
+<Layout title="Privacy Policy | Reedly" description="Reedly Privacy Policy">
+  <LegalPage
+    title="Privacy Policy"
+    lastUpdated="Last updated: February 18, 2026"
+    backLabel="← Back to homepage"
+    kicker="Legal information"
+    sections={sections}
+  />
+  <Footer lang="en" privacyHref="/privacy-policy" termsHref="/terms-of-service" contactHref="/#contact" />
+</Layout>

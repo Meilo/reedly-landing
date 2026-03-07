@@ -1,0 +1,109 @@
+---
+import Footer from '@/components/Footer.astro';
+import LegalPage from '@/components/LegalPage.astro';
+import Layout from '@/layouts/Layout.astro';
+
+const sections = [
+  {
+    title: 'Acceptance of Terms',
+    paragraphs: [
+      'By downloading, installing, or using the Reedly mobile application (the "App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.',
+    ],
+  },
+  {
+    title: 'Description of Service',
+    paragraphs: [
+      'Reedly is a mobile application that allows business professionals to record meetings, automatically generate structured reports using artificial intelligence, and create periodic syntheses from those reports.',
+      'The App uses audio transcription and AI-powered analysis to transform spoken conversations into actionable written documents.',
+    ],
+  },
+  {
+    title: 'User Accounts',
+    paragraphs: [
+      'You must create an account to use the App. You are responsible for maintaining the confidentiality of your account credentials.',
+      'You must provide accurate and complete information when creating your account.',
+      'You must be at least 13 years old to use the App.',
+      'You are responsible for all activities that occur under your account.',
+    ],
+  },
+  {
+    title: 'Acceptable Use',
+    paragraphs: [
+      'You agree to use the App only for lawful purposes and in accordance with these Terms. You must not:\n\n• Record conversations without the consent of all participants where required by law\n• Use the App to collect or store sensitive personal data about third parties without their consent\n• Attempt to interfere with the proper functioning of the App\n• Use the App for any illegal or unauthorized purpose\n• Share your account credentials with others',
+    ],
+  },
+  {
+    title: 'Intellectual Property',
+    paragraphs: [
+      'The App and its original content (excluding user-generated content), features, and functionality are owned by Reedly and are protected by international copyright, trademark, and other intellectual property laws.',
+      'The AI models used for transcription and report generation are provided by third-party services (OpenAI) and are subject to their respective terms of service.',
+    ],
+  },
+  {
+    title: 'User Content',
+    paragraphs: [
+      'You retain ownership of all content you create through the App, including recordings, reports, and syntheses.',
+      'By using the App, you grant us a limited license to process your audio recordings for the purpose of generating transcriptions and reports.',
+      'We do not claim ownership over your generated reports or syntheses. You are free to export, share, and use them as you see fit.',
+    ],
+  },
+  {
+    title: 'Subscriptions and Payments',
+    paragraphs: [
+      'Some features of the App may require a paid subscription. Subscriptions are managed through the App Store (iOS) or Google Play Store (Android).',
+      'Prices are displayed in the App before purchase. Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period.',
+      'Refunds are handled according to the policies of the respective app stores.',
+    ],
+  },
+  {
+    title: 'Disclaimer',
+    paragraphs: [
+      'The App is provided "as is" and "as available" without warranties of any kind.',
+      'AI-generated reports and syntheses are automated outputs and may contain inaccuracies. You are responsible for reviewing and verifying all generated content before relying on it for business decisions.',
+      'We do not guarantee that the transcription or report generation will be error-free or perfectly accurate.',
+    ],
+  },
+  {
+    title: 'Limitation of Liability',
+    paragraphs: [
+      'To the maximum extent permitted by law, Reedly shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the App.',
+      'Our total liability for any claims arising from the use of the App shall not exceed the amount you paid us in the 12 months preceding the claim.',
+    ],
+  },
+  {
+    title: 'Termination',
+    paragraphs: [
+      'We may terminate or suspend your account at any time, without prior notice, for conduct that we believe violates these Terms or is harmful to other users or us.',
+      'You may delete your account at any time through the App settings. Upon deletion, your data will be permanently removed within 30 days.',
+    ],
+  },
+  {
+    title: 'Changes to Terms',
+    paragraphs: [
+      'We reserve the right to modify these Terms at any time. We will notify users of material changes through the App or by email.',
+      'Your continued use of the App after changes are posted constitutes your acceptance of the revised Terms.',
+    ],
+  },
+  {
+    title: 'Governing Law',
+    paragraphs: [
+      'These Terms shall be governed by and construed in accordance with the laws of France, without regard to its conflict of law provisions.',
+    ],
+  },
+  {
+    title: 'Contact Us',
+    paragraphs: ['If you have questions about these Terms, contact us at:\n\nsupport@reedly.ai'],
+  },
+];
+---
+
+<Layout title="Terms of Service | Reedly" description="Reedly Terms of Service">
+  <LegalPage
+    title="Terms of Service"
+    lastUpdated="Last updated: February 18, 2026"
+    backLabel="← Back to homepage"
+    kicker="Legal information"
+    sections={sections}
+  />
+  <Footer lang="en" privacyHref="/privacy-policy" termsHref="/terms-of-service" contactHref="/#contact" />
+</Layout>

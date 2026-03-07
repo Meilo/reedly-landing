@@ -214,7 +214,7 @@ const T = {
       "Téléchargez Reedly et générez votre premier rapport en moins de 5 minutes. Essai 7 jours gratuit.",
     "cta.store_sub": "Disponible sur",
     "cta.hub": "Créer un Hub →",
-    "footer.copy": "© 2026 Reedly — Tous droits réservés",
+    "footer.copy": "© {year} Reedly — Tous droits réservés",
     "footer.privacy": "Confidentialité",
     "footer.terms": "CGU",
     "footer.contact": "Contact",
@@ -497,7 +497,7 @@ const T = {
       "Download Reedly and generate your first report in less than 5 minutes. 7-day free trial.",
     "cta.store_sub": "Available on",
     "cta.hub": "Create a Hub →",
-    "footer.copy": "© 2026 Reedly — All rights reserved",
+    "footer.copy": "© {year} Reedly — All rights reserved",
     "footer.privacy": "Privacy",
     "footer.terms": "Terms",
     "footer.contact": "Contact",
@@ -597,7 +597,14 @@ if (pricingToggle) {
 }
 
 // ── i18n engine ──
-let currentLang = localStorage.getItem("reedly-lang") || "fr";
+let currentLang = localStorage.getItem("reedly-lang") || "en";
+const currentYear = String(new Date().getFullYear());
+
+function t(lang, key) {
+  const value = T[lang]?.[key];
+  if (value === undefined) return undefined;
+  return value.replace("{year}", currentYear);
+}
 
 function setLang(lang) {
   currentLang = lang;
@@ -606,27 +613,36 @@ function setLang(lang) {
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    if (T[lang][key] !== undefined) el.textContent = T[lang][key];
+    const value = t(lang, key);
+    if (value !== undefined) el.textContent = value;
   });
 
   document.querySelectorAll("[data-i18n-html]").forEach((el) => {
     const key = el.getAttribute("data-i18n-html");
-    if (T[lang][key] !== undefined) el.innerHTML = T[lang][key];
+    const value = t(lang, key);
+    if (value !== undefined) el.innerHTML = value;
   });
 
   document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
     const key = el.getAttribute("data-i18n-aria-label");
-    if (T[lang][key] !== undefined) el.setAttribute("aria-label", T[lang][key]);
+    const value = t(lang, key);
+    if (value !== undefined) el.setAttribute("aria-label", value);
   });
 
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.getAttribute("data-i18n-placeholder");
-    if (T[lang][key] !== undefined)
-      el.setAttribute("placeholder", T[lang][key]);
+    const value = t(lang, key);
+    if (value !== undefined) el.setAttribute("placeholder", value);
   });
 
   document.querySelectorAll(".lang-btn").forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.lang === lang);
+  });
+
+  // Update language-specific links (legal pages)
+  document.querySelectorAll("[data-link-fr][data-link-en]").forEach((el) => {
+    const href = lang === "en" ? el.getAttribute("data-link-en") : el.getAttribute("data-link-fr");
+    if (href) el.setAttribute("href", href);
   });
 
   // Update page title

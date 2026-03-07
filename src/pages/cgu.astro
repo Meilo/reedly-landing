@@ -1,0 +1,107 @@
+---
+import Footer from '@/components/Footer.astro';
+import LegalPage from '@/components/LegalPage.astro';
+import Layout from '@/layouts/Layout.astro';
+
+const sections = [
+  {
+    title: 'Acceptation des conditions',
+    paragraphs: [
+      "En telechargeant, installant ou utilisant l'application mobile Reedly (l'Application), vous acceptez d'etre lie par ces Conditions d'Utilisation (Conditions). Si vous n'acceptez pas ces Conditions, n'utilisez pas l'Application.",
+    ],
+  },
+  {
+    title: 'Description du service',
+    paragraphs: [
+      "Reedly est une application mobile qui permet aux professionnels d'enregistrer leurs reunions, de generer automatiquement des rapports structures grace a l'intelligence artificielle, et de creer des syntheses periodiques a partir de ces rapports.",
+      "L'Application utilise la transcription audio et l'analyse par IA pour transformer les conversations orales en documents ecrits exploitables.",
+    ],
+  },
+  {
+    title: 'Comptes utilisateurs',
+    paragraphs: [
+      "Vous devez creer un compte pour utiliser l'Application. Vous etes responsable de la confidentialite de vos identifiants.",
+      'Vous devez fournir des informations exactes et completes lors de la creation de votre compte.',
+      "Vous devez avoir au moins 13 ans pour utiliser l'Application.",
+      'Vous etes responsable de toutes les activites effectuees sous votre compte.',
+    ],
+  },
+  {
+    title: 'Utilisation acceptable',
+    paragraphs: [
+      "Vous acceptez d'utiliser l'Application uniquement a des fins legales et conformement a ces Conditions. Vous ne devez pas :\n\n• Enregistrer des conversations sans le consentement de tous les participants lorsque la loi l'exige\n• Utiliser l'Application pour collecter ou stocker des donnees personnelles sensibles de tiers sans leur consentement\n• Tenter d'interferer avec le bon fonctionnement de l'Application\n• Utiliser l'Application a des fins illegales ou non autorisees\n• Partager vos identifiants de connexion avec d'autres personnes",
+    ],
+  },
+  {
+    title: 'Propriete intellectuelle',
+    paragraphs: [
+      "L'Application et son contenu original (hors contenu genere par les utilisateurs), ses fonctionnalites et ses fonctions sont la propriete de Reedly et sont proteges par les lois internationales sur le droit d'auteur, les marques et autres droits de propriete intellectuelle.",
+      "Les modeles d'IA utilises pour la transcription et la generation de rapports sont fournis par des services tiers (OpenAI) et sont soumis a leurs conditions d'utilisation respectives.",
+    ],
+  },
+  {
+    title: 'Contenu utilisateur',
+    paragraphs: [
+      "Vous conservez la propriete de tout le contenu que vous creez via l'Application, y compris les enregistrements, rapports et syntheses.",
+      "En utilisant l'Application, vous nous accordez une licence limitee pour traiter vos enregistrements audio afin de generer des transcriptions et des rapports.",
+      "Nous ne revendiquons aucun droit de propriete sur vos rapports ou syntheses generes. Vous etes libre de les exporter, partager et utiliser comme bon vous semble.",
+    ],
+  },
+  {
+    title: 'Abonnements et paiements',
+    paragraphs: [
+      "Certaines fonctionnalites de l'Application peuvent necessiter un abonnement payant. Les abonnements sont geres via l'App Store (iOS) ou le Google Play Store (Android).",
+      "Les prix sont affiches dans l'Application avant l'achat. Les abonnements se renouvellent automatiquement sauf annulation au moins 24 heures avant la fin de la periode en cours.",
+      'Les remboursements sont geres selon les politiques des stores respectifs.',
+    ],
+  },
+  {
+    title: 'Avertissement',
+    paragraphs: [
+      "L'Application est fournie 'en l'etat' et 'selon disponibilite' sans garantie d'aucune sorte.",
+      "Les rapports et syntheses generes par l'IA sont des productions automatisees et peuvent contenir des inexactitudes. Vous etes responsable de la verification de tout contenu genere avant de vous y fier pour des decisions commerciales.",
+      "Nous ne garantissons pas que la transcription ou la generation de rapports sera exempte d'erreurs ou parfaitement precise.",
+    ],
+  },
+  {
+    title: 'Limitation de responsabilite',
+    paragraphs: [
+      "Dans la mesure maximale permise par la loi, Reedly ne sera pas responsable des dommages indirects, accessoires, speciaux, consecutifs ou punitifs resultant de votre utilisation de l'Application.",
+      "Notre responsabilite totale pour toute reclamation liee a l'utilisation de l'Application ne depassera pas le montant que vous nous avez verse au cours des 12 mois precedant la reclamation.",
+    ],
+  },
+  {
+    title: 'Resiliation',
+    paragraphs: [
+      'Nous pouvons resilier ou suspendre votre compte a tout moment, sans preavis, pour un comportement que nous considerons comme une violation de ces Conditions ou comme nuisible aux autres utilisateurs ou a nous-memes.',
+      "Vous pouvez supprimer votre compte a tout moment via les parametres de l'Application. Apres suppression, vos donnees seront definitivement effacees sous 30 jours.",
+    ],
+  },
+  {
+    title: 'Modifications des conditions',
+    paragraphs: [
+      "Nous nous reservons le droit de modifier ces Conditions a tout moment. Nous informerons les utilisateurs de tout changement significatif via l'Application ou par email.",
+      "Votre utilisation continue de l'Application apres la publication des modifications vaut acceptation des Conditions revisees.",
+    ],
+  },
+  {
+    title: 'Droit applicable',
+    paragraphs: [
+      'Ces Conditions sont regies par et interpretees conformement aux lois de la France, sans egard aux dispositions relatives aux conflits de lois.',
+    ],
+  },
+  {
+    title: 'Nous contacter',
+    paragraphs: ['Pour toute question concernant ces Conditions, contactez-nous a :\n\nsupport@reedly.ai'],
+  },
+];
+---
+
+<Layout title="CGU | Reedly" description="Conditions Generales d'Utilisation de Reedly">
+  <LegalPage
+    title="Conditions Generales d'Utilisation"
+    lastUpdated="Derniere mise a jour : 18 fevrier 2026"
+    sections={sections}
+  />
+  <Footer />
+</Layout>

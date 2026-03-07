@@ -1,0 +1,158 @@
+---
+interface LegalSection {
+  title: string;
+  paragraphs: string[];
+}
+
+interface Props {
+  title: string;
+  lastUpdated: string;
+  intro?: string;
+  sections: LegalSection[];
+  backLabel?: string;
+  backHref?: string;
+  kicker?: string;
+}
+
+const {
+  title,
+  lastUpdated,
+  intro,
+  sections,
+  backLabel = "← Retour a l'accueil",
+  backHref = '/',
+  kicker = 'Informations legales',
+} = Astro.props as Props;
+---
+
+<main class="legal z1">
+  <div class="inner">
+    <a class="legal__back" href={backHref}>{backLabel}</a>
+
+    <header class="legal__header">
+      <p class="legal__kicker">{kicker}</p>
+      <h1>{title}</h1>
+      <p class="legal__updated">{lastUpdated}</p>
+      {intro && <p class="legal__intro">{intro}</p>}
+    </header>
+
+    <div class="legal__sections">
+      {
+        sections.map((section) => (
+          <section class="legal__section">
+            <h2>{section.title}</h2>
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</main>
+
+<style>
+  .legal {
+    padding: 72px 0 96px;
+  }
+
+  .legal__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 14px;
+    transition: all 0.2s ease;
+  }
+
+  .legal__back:hover {
+    color: var(--text);
+    border-color: var(--border-bright);
+    background: rgba(22, 163, 74, 0.07);
+  }
+
+  .legal__header {
+    margin-top: 26px;
+    margin-bottom: 28px;
+  }
+
+  .legal__kicker {
+    display: inline-flex;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 14px;
+  }
+
+  .legal h1 {
+    font-family: var(--display);
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    line-height: 1.1;
+    font-weight: 400;
+  }
+
+  .legal__updated {
+    margin-top: 12px;
+    color: var(--faint);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+  }
+
+  .legal__intro {
+    margin-top: 16px;
+    max-width: 72ch;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .legal__sections {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .legal__section {
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface);
+    padding: 22px 22px 18px;
+  }
+
+  .legal__section h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    color: var(--text);
+  }
+
+  .legal__section p {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.72;
+    margin-bottom: 10px;
+    white-space: pre-line;
+  }
+
+  .legal__section p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 680px) {
+    .legal {
+      padding: 52px 0 72px;
+    }
+
+    .legal__section {
+      padding: 18px 16px 14px;
+    }
+  }
+</style>
