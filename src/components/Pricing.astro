@@ -21,6 +21,13 @@
               <button class="pricing-toggle__btn pricing-toggle__btn--active" data-panel="mobile" data-i18n="pricing.toggle.mobile" type="button">Commerciaux</button>
               <button class="pricing-toggle__btn" data-panel="managers" data-i18n="pricing.toggle.managers" type="button">Managers / Équipes</button>
             </div>
+            <div class="pricing-billing-toggle" id="pricing-billing-toggle">
+              <button class="pricing-billing-toggle__btn pricing-billing-toggle__btn--active" data-billing="monthly" data-i18n="pricing.billing.monthly" type="button">Mensuel</button>
+              <button class="pricing-billing-toggle__btn" data-billing="annual" data-i18n="pricing.billing.annual" type="button">Annuel (-20%)</button>
+            </div>
+            <div class="pricing-billing-note" id="pricing-billing-note">
+              Prix affiches par mois. Facturation annuelle disponible avec 7 % de reduction.
+            </div>
           </div>
 
           <!-- ── Panel Commerciaux ── -->
@@ -32,19 +39,27 @@
                 <div class="pricing-plan" data-i18n="pricing.free.plan">Gratuit</div>
                 <div class="pricing-price">
                   <span class="pricing-amount" style="font-size:2.8rem">0</span>
-                  <span class="pricing-per" data-i18n="pricing.free.per">€ / mois</span>
+                  <span class="pricing-per" data-i18n="pricing.free.per">$ / mois</span>
                 </div>
                 <div class="pricing-card__limit">
                   <svg fill="none" viewBox="0 0 16 16" stroke-width="1.8" style="width:12px;height:12px;stroke:var(--muted)"><path stroke-linecap="round" stroke-linejoin="round" d="M8 1v9M5 7l3 3 3-3"/><path stroke-linecap="round" d="M2 13h12"/></svg>
-                  <span data-i18n="pricing.free.limit">1 rapport / jour</span>
+                  <span data-i18n="pricing.free.limit">20 Crédits IA / mois</span>
                 </div>
                 <div class="pricing-divider"></div>
                 <div class="pricing-features">
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.free.feat1">5000 tokens par jours</span><pre style="font-size:0.4rem">(*)</pre></div>
+                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.free.feat1">20 Crédits IA / mois</span></div>
                   <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.free.feat2">15 minutes d'enregistrement par rendez-vous</span></div>
                   <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.free.feat3">1 génération de rapport par jour</span></div>
                 </div>
-                <a class="btn btn--ghost btn--md" href="#final-cta" style="width:100%;justify-content:center" data-i18n="pricing.free.cta">Commencer gratuitement</a>
+                <a
+                  class="btn btn--ghost btn--md"
+                  href="#final-cta"
+                  style="width:100%;justify-content:center"
+                  data-i18n="pricing.free.cta"
+                  data-track-id="pricing_free"
+                  data-track-type="download"
+                  data-track-section="pricing"
+                >Commencer gratuitement</a>
               </article>
 
               <!-- Pro -->
@@ -52,8 +67,8 @@
                 <div class="pricing-badge" data-i18n="pricing.pro.badge">Recommandé</div>
                 <div class="pricing-plan" data-i18n="pricing.pro.plan">Pro</div>
                 <div class="pricing-price">
-                  <span class="pricing-currency">€</span>
-                  <span class="pricing-amount">19</span>
+                  <span class="pricing-currency">$</span>
+                  <span class="pricing-amount js-billing-price" data-base-price="19">19</span>
                   <span class="pricing-per" data-i18n="pricing.pro.per">/ mois</span>
                 </div>
                 <div class="pricing-trial-badge">
@@ -62,21 +77,29 @@
                 </div>
                 <div class="pricing-divider" style="margin-top:18px"></div>
                 <div class="pricing-features">
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.pro.feat1">50 000 tokens par mois</span><pre style="font-size:0.4rem">(*)</pre></div>
+                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.pro.feat1">120 Crédits IA / mois</span></div>
                   <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.pro.feat2">1 heure d'enregistrement par rendez-vous</span></div>
                   <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.pro.feat3">4 génération de rapports par jour</span></div>
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.pro.feat4">1 génération de synthèse par semaine (7 jours d'historique)</span></div>
+                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.pro.feat4">1 génération de synthèse par semaine (7 jours d'historique, consomme des Crédits IA)</span></div>
                   <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.pro.feat5">Statistiques journalières</span></div>
                 </div>
-                <a class="btn btn--primary btn--md" href="#final-cta" style="width:100%;justify-content:center" data-i18n="pricing.pro.cta">Commencer →</a>
+                <a
+                  class="btn btn--primary btn--md"
+                  href="#final-cta"
+                  style="width:100%;justify-content:center"
+                  data-i18n="pricing.pro.cta"
+                  data-track-id="pricing_pro"
+                  data-track-type="download"
+                  data-track-section="pricing"
+                >Commencer →</a>
               </article>
 
               <!-- Business -->
               <article class="pricing-card reveal reveal-delay-3">
                 <div class="pricing-plan" data-i18n="pricing.business.plan">Business</div>
                 <div class="pricing-price">
-                  <span class="pricing-currency">€</span>
-                  <span class="pricing-amount">49</span>
+                  <span class="pricing-currency">$</span>
+                  <span class="pricing-amount js-billing-price" data-base-price="49">49</span>
                   <span class="pricing-per" data-i18n="pricing.business.per">/ mois</span>
                 </div>
                 <div class="pricing-trial-badge">
@@ -85,7 +108,7 @@
                 </div>
                 <div class="pricing-divider" style="margin-top:18px"></div>
                 <div class="pricing-features">
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.business.feat1">200 000 tokens par mois</span><pre style="font-size:0.4rem">(*)</pre></div>
+                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.business.feat1">450 Crédits IA / mois</span></div>
                   <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.business.feat2">Enregistrement illimité par rendez-vous</span></div>
                   <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.business.feat3">Génération de rapports illimités par jour</span></div>
                   <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.business.feat4">Génération de synthèse illimités par jour (Jusqu'à 90 jours d'historique)</span></div>
@@ -93,11 +116,18 @@
                   <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.business.feat6">Support prioritaire sous 8h</span></div>
                   <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.business.feat7">Accès anticipé aux nouvelles fonctionnalités</span></div>
                 </div>
-                <a class="btn btn--ghost btn--md" href="#final-cta" style="width:100%;justify-content:center" data-i18n="pricing.business.cta">Commencer →</a>
+                <a
+                  class="btn btn--ghost btn--md"
+                  href="#final-cta"
+                  style="width:100%;justify-content:center"
+                  data-i18n="pricing.business.cta"
+                  data-track-id="pricing_business"
+                  data-track-type="download"
+                  data-track-section="pricing"
+                >Commencer →</a>
               </article>
             </div>
-            <p class="pricing-note" style="margin-top:16px" data-i18n="pricing.mobile.note">Plans disponibles en abonnement mensuel. Annulation à tout moment.</p>
-            <p class="pricing-note" style="margin-top:16px" data-i18n="pricing.mobile.token">(*) Les tokens sont utilisés pour la génération de rapports et de synthèses. Plus le nombre de tokens utilisés est élevé, plus le rapport est précis.</p>
+            <p class="pricing-note" style="margin-top:16px" data-i18n="pricing.mobile.note">Plans disponibles en abonnement mensuel. Les actions consomment des Crédits IA. Annulation à tout moment.</p>
           </div>
 
           <!-- ── Panel Managers ── -->
@@ -108,8 +138,8 @@
               <div class="pricing-badge" data-i18n="pricing.team.badge">Recommandé</div>
               <div class="pricing-plan" data-i18n="pricing.team.plan">Équipe</div>
               <div class="pricing-price">
-                <span class="pricing-currency">€</span>
-                <span class="pricing-amount">39</span>
+                <span class="pricing-currency">$</span>
+                <span class="pricing-amount js-billing-price" data-base-price="39">39</span>
                 <span class="pricing-per" data-i18n="pricing.team.per"
                   >par commercial par mois</span
                 >
@@ -185,6 +215,9 @@
                 href="#final-cta"
                 style="width: 100%; justify-content: center"
                 data-i18n="pricing.team.cta"
+                data-track-id="pricing_team"
+                data-track-type="download"
+                data-track-section="pricing"
               >
                 Commencer →
               </a>
@@ -256,6 +289,9 @@
                 href="mailto:contact@reedly.ai"
                 style="width: 100%; justify-content: center"
                 data-i18n="pricing.enterprise.cta"
+                data-track-id="pricing_enterprise"
+                data-track-type="contact"
+                data-track-section="pricing"
               >
                 Nous contacter →
               </a>

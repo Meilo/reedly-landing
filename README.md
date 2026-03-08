@@ -60,6 +60,9 @@ pnpm dev       # http://localhost:4321
 | `RESEND_API_KEY`     | Clé API Resend (https://resend.com/api-keys)    | `re_xxxxxxxxxxxxxxxxxxxx`  |
 | `CONTACT_TO_EMAIL`   | Email qui reçoit les soumissions du formulaire  | `contact@reedly.ai`        |
 | `CONTACT_FROM_EMAIL` | Expéditeur (domaine vérifié dans Resend requis) | `noreply@reedly.ai`        |
+| `PUBLIC_POSTHOG_KEY` | Clé projet PostHog (frontend)                   | `phc_xxxxxxxxxxxxxxxxx`    |
+| `PUBLIC_POSTHOG_HOST` | Host API PostHog                                | `https://us.i.posthog.com` |
+| `PUBLIC_POSTHOG_DEFAULTS` | Snapshot de config par défaut PostHog      | `2026-01-30`               |
 
 ## Build & déploiement
 

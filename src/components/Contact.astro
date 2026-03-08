@@ -174,11 +174,55 @@
   const submitBtn = document.getElementById('cf-submit') as HTMLButtonElement | null;
   const successEl = document.getElementById('cf-success');
   const errorEl = document.getElementById('cf-error');
+  const ALLOWED_SUBJECTS = new Set(['demo', 'team', 'partnership', 'sector', 'support', 'other']);
+  let hasTrackedFormStart = false;
 
   const t = (key: string): string => {
     const lang = document.documentElement.lang || 'fr';
     return (window as any)._reedlyT?.[lang]?.[key] ?? key;
   };
+
+  const track = (eventName: string, props: Record<string, unknown> = {}) => {
+    const externalTracker = (window as any).reedlyTrackEvent;
+    if (typeof externalTracker === 'function') {
+      externalTracker(eventName, props);
+      return;
+    }
+
+    try {
+      const posthog = (window as any).posthog;
+      if (posthog && typeof posthog.capture === 'function') {
+        posthog.capture(eventName, props);
+      }
+    } catch (err) {
+      console.error('[tracking] capture error:', err);
+    }
+  };
+
+  const normalizeSubject = (value: unknown): string => {
+    if (typeof value !== 'string') return 'unknown';
+    return ALLOWED_SUBJECTS.has(value) ? value : 'unknown';
+  };
+
+  const getMessageLengthBucket = (value: unknown): string => {
+    const len = typeof value === 'string' ? value.trim().length : 0;
+    if (len <= 50) return '0_50';
+    if (len <= 200) return '51_200';
+    if (len <= 500) return '201_500';
+    return '500_plus';
+  };
+
+  const hasCompany = (value: unknown): boolean =>
+    typeof value === 'string' && value.trim().length > 0;
+
+  form?.addEventListener('focusin', () => {
+    if (hasTrackedFormStart) return;
+    hasTrackedFormStart = true;
+    track('landing_contact_form_started', {
+      form_id: 'contact_form',
+      entry_point: window.location.hash === '#contact' ? 'anchor_navigation' : 'direct',
+    });
+  });
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -193,6 +237,15 @@
     submitBtn.textContent = t('contact.form.sending');
 
     const data = Object.fromEntries(new FormData(form));
+    const subject = normalizeSubject(data.subject);
+    const startedAt = performance.now();
+
+    track('landing_contact_form_submitted', {
+      form_id: 'contact_form',
+      subject,
+      has_company: hasCompany(data.company),
+      message_length_bucket: getMessageLengthBucket(data.message),
+    });
 
     try {
       const res = await fetch('/api/contact', {
@@ -202,15 +255,34 @@
       });
 
       if (res.ok) {
+        track('landing_contact_form_succeeded', {
+          form_id: 'contact_form',
+          subject,
+          request_duration_ms: Math.round(performance.now() - startedAt),
+        });
         successEl?.classList.add('visible');
         form.reset();
+        hasTrackedFormStart = false;
       } else {
         const body = await res.json().catch(() => ({}));
         console.error('Contact form error:', body);
+        const errorType = res.status >= 500 ? 'server' : res.status >= 400 ? 'validation' : 'unknown';
+        track('landing_contact_form_failed', {
+          form_id: 'contact_form',
+          subject,
+          error_type: errorType,
+          http_status: res.status,
+        });
         errorEl?.classList.add('visible');
       }
     } catch (err) {
       console.error('Contact form network error:', err);
+      track('landing_contact_form_failed', {
+        form_id: 'contact_form',
+        subject,
+        error_type: 'network',
+        http_status: null,
+      });
       errorEl?.classList.add('visible');
     } finally {
       submitBtn.disabled = false;

@@ -130,10 +130,16 @@ const T = {
       "Que vous soyez commercial indépendant ou responsable d'une équipe, Reedly a un plan pour vous.",
     "pricing.toggle.mobile": "Commerciaux",
     "pricing.toggle.managers": "Managers / Équipes",
+    "pricing.billing.monthly": "Mensuel",
+    "pricing.billing.annual": "Annuel (-20%)",
+    "pricing.billing.note.monthly":
+      "Prix affichés par mois. Facturation annuelle disponible avec 20 % de réduction.",
+    "pricing.billing.note.annual":
+      "Mode annuel : -20 % appliqués sur tous les tarifs affichés (toujours exprimés par mois).",
     "pricing.free.plan": "Gratuit",
-    "pricing.free.per": "€ / mois",
-    "pricing.free.limit": "1 rapport / jour",
-    "pricing.free.feat1": "5000 crédits par mois",
+    "pricing.free.per": "$ / mois",
+    "pricing.free.limit": "20 Crédits IA / mois",
+    "pricing.free.feat1": "20 Crédits IA / mois",
     "pricing.free.feat2": "15 minutes d'enregistrement par rendez-vous",
     "pricing.free.feat3": "1 génération de rapport par jour",
     "pricing.free.feat4": "Export PDF des rapports",
@@ -142,18 +148,18 @@ const T = {
     "pricing.pro.plan": "Pro",
     "pricing.pro.per": "/ mois",
     "pricing.pro.trial": "Essai 7 jours gratuit",
-    "pricing.pro.feat1": "50 000 crédits par mois",
+    "pricing.pro.feat1": "120 Crédits IA / mois",
     "pricing.pro.feat2": "45 minutes d'enregistrement par rendez-vous",
     "pricing.pro.feat3": "4 générations de rapports par jour",
     "pricing.pro.feat4":
-      "1 génération de synthèse par semaine (7 jours d'historique)",
+      "1 génération de synthèse par semaine (7 jours d'historique, consomme des Crédits IA)",
     "pricing.pro.feat5": "Statistiques journalières",
     "pricing.pro.feat6": "Support email sous 24h",
     "pricing.pro.cta": "Commencer →",
     "pricing.business.plan": "Business",
     "pricing.business.per": "/ mois",
     "pricing.business.trial": "Essai 7 jours gratuit",
-    "pricing.business.feat1": "200 000 crédits par mois",
+    "pricing.business.feat1": "450 Crédits IA / mois",
     "pricing.business.feat2": "Enregistrement illimité par rendez-vous",
     "pricing.business.feat3": "Génération de rapports illimités par jour",
     "pricing.business.feat4":
@@ -163,9 +169,7 @@ const T = {
     "pricing.business.feat7": "Accès anticipé aux nouvelles fonctionnalités",
     "pricing.business.cta": "Commencer →",
     "pricing.mobile.note":
-      "Plans disponibles en abonnement mensuel. Annulation à tout moment.",
-    "pricing.mobile.token":
-      "(*) Les crédits sont utilisés pour la génération de rapports et de synthèses. Plus le nombre de crédits utilisés est élevé, plus le rapport est précis.",
+      "Plans disponibles en abonnement mensuel. Les actions consomment des Crédits IA. Annulation à tout moment.",
     "pricing.managers.note":
       "Aucun essai gratuit sur les plans managers. Déployez Reedly pour votre équipe en moins de 10 minutes.",
     "pricing.team.badge": "Recommandé",
@@ -417,10 +421,16 @@ const T = {
       "Whether you're an independent sales rep or managing a team, Reedly has a plan for you.",
     "pricing.toggle.mobile": "Sales reps",
     "pricing.toggle.managers": "Managers / Teams",
+    "pricing.billing.monthly": "Monthly",
+    "pricing.billing.annual": "Yearly (-20%)",
+    "pricing.billing.note.monthly":
+      "Prices are displayed per month. Yearly billing is available with a 20% discount.",
+    "pricing.billing.note.annual":
+      "Yearly mode: -20% applied on all displayed rates (still shown per month).",
     "pricing.free.plan": "Free",
-    "pricing.free.per": "€ / month",
-    "pricing.free.limit": "1 report / day",
-    "pricing.free.feat1": "5000 tokens per month",
+    "pricing.free.per": "$ / month",
+    "pricing.free.limit": "20 AI Credits / month",
+    "pricing.free.feat1": "20 AI Credits / month",
     "pricing.free.feat2": "15 minutes of recording per meeting",
     "pricing.free.feat3": "1 report generated per day",
     "pricing.free.feat4": "PDF export of reports",
@@ -429,17 +439,18 @@ const T = {
     "pricing.pro.plan": "Pro",
     "pricing.pro.per": "/ month",
     "pricing.pro.trial": "7-day free trial",
-    "pricing.pro.feat1": "50 000 tokens per month",
+    "pricing.pro.feat1": "120 AI Credits / month",
     "pricing.pro.feat2": "45 minutes of recording per meeting",
     "pricing.pro.feat3": "4 reports generated per day",
-    "pricing.pro.feat4": "1 weekly synthesis (7 days of history)",
+    "pricing.pro.feat4":
+      "1 weekly synthesis (7 days of history, consumes AI Credits)",
     "pricing.pro.feat5": "Daily statistics",
     "pricing.pro.feat6": "Email support within 24 hours",
     "pricing.pro.cta": "Get started →",
     "pricing.business.plan": "Business",
     "pricing.business.per": "/ month",
     "pricing.business.trial": "7-day free trial",
-    "pricing.business.feat1": "200 000 tokens per month",
+    "pricing.business.feat1": "450 AI Credits / month",
     "pricing.business.feat2": "Unlimited syntheses",
     "pricing.business.feat3": "Unlimited reports generated per day",
     "pricing.business.feat4":
@@ -448,9 +459,8 @@ const T = {
     "pricing.business.feat6": "Priority support within 8 hours",
     "pricing.business.feat7": "Early access to new features",
     "pricing.business.cta": "Get started →",
-    "pricing.mobile.note": "Monthly subscription. Cancel anytime.",
-    "pricing.mobile.token":
-      "(*) The tokens are used for report and synthesis generation. The more tokens used, the more precise the report is.",
+    "pricing.mobile.note":
+      "Monthly subscription. Actions consume AI Credits. Cancel anytime.",
     "pricing.managers.note":
       "No free trial on manager plans. Deploy Reedly for your team in under 10 minutes.",
     "pricing.team.badge": "Recommended",
@@ -577,13 +587,107 @@ const T = {
 // Expose translations globally for component scripts
 window._reedlyT = T;
 
+// ── Analytics helpers (PostHog-ready, safe fallback) ──
+const TRACKING_PAGE_NAME = "landing_home";
+const TRACKING_SESSION_KEY = "reedly-landing-session-id";
+const TRACKING_VISITOR_KEY = "reedly-landing-visited";
+
+function getOrCreateSessionId() {
+  try {
+    const existing = sessionStorage.getItem(TRACKING_SESSION_KEY);
+    if (existing) return existing;
+    const created =
+      Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10);
+    sessionStorage.setItem(TRACKING_SESSION_KEY, created);
+    return created;
+  } catch {
+    return "session_unavailable";
+  }
+}
+
+function getDeviceType() {
+  return window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop";
+}
+
+function getReferrerHost() {
+  try {
+    if (!document.referrer) return "";
+    return new URL(document.referrer).host;
+  } catch {
+    return "";
+  }
+}
+
+function getUtmProps() {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    utm_source: params.get("utm_source") || "",
+    utm_medium: params.get("utm_medium") || "",
+    utm_campaign: params.get("utm_campaign") || "",
+    utm_term: params.get("utm_term") || "",
+    utm_content: params.get("utm_content") || "",
+  };
+}
+
+function getTrackingCommonProps() {
+  return {
+    page_name: TRACKING_PAGE_NAME,
+    page_lang: document.documentElement.lang || "en",
+    device_type: getDeviceType(),
+    referrer_host: getReferrerHost(),
+    session_id: getOrCreateSessionId(),
+    ...getUtmProps(),
+  };
+}
+
+function trackEvent(eventName, props = {}) {
+  const payload = {
+    ...getTrackingCommonProps(),
+    ...props,
+  };
+
+  try {
+    const posthog = window.posthog;
+    if (posthog && typeof posthog.capture === "function") {
+      posthog.capture(eventName, payload);
+    }
+  } catch (err) {
+    console.error("[tracking] capture error:", err);
+  }
+}
+
+window.reedlyTrackEvent = trackEvent;
+
+const isReturningVisitor = (() => {
+  try {
+    const hasVisited = localStorage.getItem(TRACKING_VISITOR_KEY) === "1";
+    localStorage.setItem(TRACKING_VISITOR_KEY, "1");
+    return hasVisited;
+  } catch {
+    return false;
+  }
+})();
+
+trackEvent("landing_page_viewed", {
+  is_returning_visitor: isReturningVisitor,
+  initial_scroll_depth_percent: 0,
+});
+
 // ── Pricing toggle ──
 const pricingToggle = document.getElementById("pricing-toggle");
+const pricingBillingToggle = document.getElementById("pricing-billing-toggle");
+const pricingBillingNote = document.getElementById("pricing-billing-note");
+const BILLING_DISCOUNT_RATE = 0.2;
+let billingMode = "monthly";
 if (pricingToggle) {
   pricingToggle.addEventListener("click", (e) => {
     const btn = e.target.closest(".pricing-toggle__btn");
     if (!btn) return;
+    const previousPanel =
+      pricingToggle.querySelector(".pricing-toggle__btn--active")?.dataset.panel ||
+      "unknown";
     const target = btn.dataset.panel;
+    if (!target) return;
     pricingToggle
       .querySelectorAll(".pricing-toggle__btn")
       .forEach((b) => b.classList.remove("pricing-toggle__btn--active"));
@@ -593,6 +697,26 @@ if (pricingToggle) {
       .forEach((p) => p.classList.remove("pricing-panel--active"));
     const panel = document.getElementById("pricing-panel-" + target);
     if (panel) panel.classList.add("pricing-panel--active");
+
+    if (target !== previousPanel) {
+      trackEvent("landing_pricing_toggled", {
+        toggle_type: "audience",
+        from_value: previousPanel,
+        to_value: target,
+        active_panel: target,
+        billing_mode: billingMode,
+      });
+    }
+  });
+}
+
+if (pricingBillingToggle) {
+  pricingBillingToggle.addEventListener("click", (e) => {
+    const btn = e.target.closest(".pricing-billing-toggle__btn");
+    if (!btn) return;
+    const target = btn.dataset.billing;
+    if (!target) return;
+    setBillingMode(target);
   });
 }
 
@@ -606,7 +730,71 @@ function t(lang, key) {
   return value.replace("{year}", currentYear);
 }
 
+function formatBillingPrice(amount) {
+  const locale = currentLang === "fr" ? "fr-FR" : "en-US";
+  return new Intl.NumberFormat(locale, {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
+
+function updateBillingUI() {
+  const discountMultiplier = 1 - BILLING_DISCOUNT_RATE;
+
+  document.querySelectorAll(".js-billing-price").forEach((el) => {
+    const basePrice = Number(el.dataset.basePrice);
+    if (!Number.isFinite(basePrice)) return;
+    const displayedPrice =
+      billingMode === "annual"
+        ? Math.ceil(basePrice * discountMultiplier)
+        : basePrice;
+    el.textContent = formatBillingPrice(displayedPrice);
+  });
+
+  if (pricingBillingToggle) {
+    pricingBillingToggle
+      .querySelectorAll(".pricing-billing-toggle__btn")
+      .forEach((btn) => {
+        btn.classList.toggle(
+          "pricing-billing-toggle__btn--active",
+          btn.dataset.billing === billingMode,
+        );
+      });
+  }
+
+  if (pricingBillingNote) {
+    const noteKey =
+      billingMode === "annual"
+        ? "pricing.billing.note.annual"
+        : "pricing.billing.note.monthly";
+    const note = t(currentLang, noteKey);
+    if (note !== undefined) pricingBillingNote.textContent = note;
+  }
+}
+
+function setBillingMode(mode) {
+  if (mode !== "monthly" && mode !== "annual") return;
+  const previousMode = billingMode;
+  if (previousMode === mode) {
+    updateBillingUI();
+    return;
+  }
+  billingMode = mode;
+  updateBillingUI();
+  trackEvent("landing_pricing_toggled", {
+    toggle_type: "billing",
+    from_value: previousMode,
+    to_value: mode,
+    active_panel:
+      pricingToggle?.querySelector(".pricing-toggle__btn--active")?.dataset.panel ||
+      "unknown",
+    billing_mode: mode,
+  });
+}
+
 function setLang(lang) {
+  const previousLang = currentLang;
+  const hasChanged = previousLang !== lang;
   currentLang = lang;
   localStorage.setItem("reedly-lang", lang);
   document.documentElement.lang = lang;
@@ -650,6 +838,15 @@ function setLang(lang) {
     lang === "fr"
       ? "Reedly — L'agent IA qui transforme vos réunions terrain en rapports structurés"
       : "Reedly — The AI agent that turns your field meetings into structured reports";
+
+  updateBillingUI();
+
+  if (hasChanged) {
+    trackEvent("landing_language_changed", {
+      from_lang: previousLang,
+      to_lang: lang,
+    });
+  }
 }
 
 // ── Lang toggle buttons ──
@@ -659,6 +856,25 @@ document.querySelectorAll(".lang-btn").forEach((btn) => {
 
 // Init language
 setLang(currentLang);
+setBillingMode("monthly");
+
+// ── CTA click tracking ──
+document.querySelectorAll("[data-track-id]").forEach((el) => {
+  el.addEventListener("click", () => {
+    const href = el.getAttribute("href") || "";
+    let targetKind = "unknown";
+    if (href.startsWith("#")) targetKind = "anchor";
+    else if (href.startsWith("mailto:")) targetKind = "mailto";
+    else if (href.startsWith("http")) targetKind = "external";
+
+    trackEvent("landing_cta_clicked", {
+      cta_id: el.dataset.trackId || "unknown",
+      cta_type: el.dataset.trackType || "unknown",
+      section_id: el.dataset.trackSection || "unknown",
+      target_kind: targetKind,
+    });
+  });
+});
 
 // ── Cursor glow ──
 const glow = document.getElementById("cursor-glow");
