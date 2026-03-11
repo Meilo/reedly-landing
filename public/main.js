@@ -40,7 +40,7 @@ const T = {
       "Le rendez-vous rapporte.<br /><em>Le compte-rendu coûte.</em>",
     "problem.lead":
       "Les commerciaux terrain passent leurs journées en rendez-vous, pas devant un clavier. Les informations clés restent dans la tête — et s'évaporent avant même le retour au bureau.",
-    "problem.card1.title": "45 minutes perdues par RV",
+    "problem.card1.title": "45 minutes perdues par RDV",
     "problem.card1.text":
       "Rédiger un compte-rendu après chaque réunion, en voiture ou le soir. Chaque commercial y passe plus d'une heure par jour — qui ne génère aucun chiffre d'affaires.",
     "problem.card2.title": "Engagements oubliés",
@@ -128,7 +128,7 @@ const T = {
     "pricing.title": "Un tarif pour chaque<br /><em>profil terrain.</em>",
     "pricing.lead":
       "Que vous soyez commercial indépendant ou responsable d'une équipe, Reedly a un plan pour vous.",
-    "pricing.toggle.mobile": "Commerciaux",
+    "pricing.toggle.mobile": "Commerciaux solo",
     "pricing.toggle.managers": "Managers / Équipes",
     "pricing.billing.monthly": "Mensuel",
     "pricing.billing.annual": "Annuel (-20%)",
@@ -137,7 +137,7 @@ const T = {
     "pricing.billing.note.annual":
       "Mode annuel : -20 % appliqués sur tous les tarifs affichés (toujours exprimés par mois).",
     "pricing.free.plan": "Gratuit",
-    "pricing.free.per": "$ / mois",
+    "pricing.free.per": "€ / mois",
     "pricing.free.limit": "20 Crédits IA / mois",
     "pricing.free.feat1": "20 Crédits IA / mois",
     "pricing.free.feat2": "15 minutes d'enregistrement par rendez-vous",
@@ -175,7 +175,7 @@ const T = {
     "pricing.team.badge": "Recommandé",
     "pricing.team.plan": "Équipe",
     "pricing.team.per": "par commercial par mois",
-    "pricing.team.seats": "De 5 à 20 commerciaux",
+    "pricing.team.seats": "De 5 à 30 commerciaux",
     "pricing.team.feat1": "Tout le plan Business inclus - pour les commerciaux",
     "pricing.team.feat2": "Application iOS & Android - tous les commerciaux",
     "pricing.team.feat3": "Hub web de pilotage manager",
@@ -186,7 +186,7 @@ const T = {
     "pricing.team.cta": "Commencer →",
     "pricing.enterprise.plan": "Entreprise",
     "pricing.enterprise.price": "Sur devis",
-    "pricing.enterprise.seats": "Plus de 20 commerciaux",
+    "pricing.enterprise.seats": "Plus de 30 commerciaux",
     "pricing.enterprise.feat1": "Tout le plan Équipe inclus",
     "pricing.enterprise.feat2": "Utilisateurs illimités",
     "pricing.enterprise.feat3": "Templates sectoriels personnalisés",
@@ -218,6 +218,16 @@ const T = {
       "Téléchargez Reedly et générez votre premier rapport en moins de 5 minutes. Essai 7 jours gratuit.",
     "cta.store_sub": "Disponible sur",
     "cta.hub": "Créer un Hub →",
+    "notify.title": "Bientôt disponible",
+    "notify.text":
+      "L'application n'est pas encore sur les stores. Laissez votre email pour être prévenu(e) dès sa sortie.",
+    "notify.placeholder": "votre@email.com",
+    "notify.cta": "Me prévenir",
+    "notify.success": "Merci ! Vous serez prévenu(e) dès la sortie.",
+    "notify.error": "Une erreur est survenue, veuillez réessayer.",
+    "android.title": "Télécharger sur Android",
+    "android.text":
+      "L'application n'est pas encore sur le Play Store, mais vous pouvez déjà l'installer. Flashez ce QR code avec votre téléphone Android pour télécharger l'APK.",
     "footer.copy": "© {year} Reedly — Tous droits réservés",
     "footer.privacy": "Confidentialité",
     "footer.terms": "CGU",
@@ -419,7 +429,7 @@ const T = {
     "pricing.title": "A plan for every<br /><em>field profile.</em>",
     "pricing.lead":
       "Whether you're an independent sales rep or managing a team, Reedly has a plan for you.",
-    "pricing.toggle.mobile": "Sales reps",
+    "pricing.toggle.mobile": "Solo sales reps",
     "pricing.toggle.managers": "Managers / Teams",
     "pricing.billing.monthly": "Monthly",
     "pricing.billing.annual": "Yearly (-20%)",
@@ -428,7 +438,7 @@ const T = {
     "pricing.billing.note.annual":
       "Yearly mode: -20% applied on all displayed rates (still shown per month).",
     "pricing.free.plan": "Free",
-    "pricing.free.per": "$ / month",
+    "pricing.free.per": "€ / month",
     "pricing.free.limit": "20 AI Credits / month",
     "pricing.free.feat1": "20 AI Credits / month",
     "pricing.free.feat2": "15 minutes of recording per meeting",
@@ -466,7 +476,7 @@ const T = {
     "pricing.team.badge": "Recommended",
     "pricing.team.plan": "Team",
     "pricing.team.per": "per sales rep per month",
-    "pricing.team.seats": "5 to 20 sales reps",
+    "pricing.team.seats": "5 to 30 sales reps",
     "pricing.team.feat1": "Business plan included",
     "pricing.team.feat2": "iOS & Android mobile app - all sales reps",
     "pricing.team.feat3": "Manager web hub",
@@ -476,7 +486,7 @@ const T = {
     "pricing.team.cta": "Get started →",
     "pricing.enterprise.plan": "Enterprise",
     "pricing.enterprise.price": "Custom pricing",
-    "pricing.enterprise.seats": "20+ sales reps",
+    "pricing.enterprise.seats": "30+ sales reps",
     "pricing.enterprise.feat1": "Everything in Team included",
     "pricing.enterprise.feat2": "Unlimited users",
     "pricing.enterprise.feat3": "Custom sector templates",
@@ -507,6 +517,16 @@ const T = {
       "Download Reedly and generate your first report in less than 5 minutes. 7-day free trial.",
     "cta.store_sub": "Available on",
     "cta.hub": "Create a Hub →",
+    "notify.title": "Coming soon",
+    "notify.text":
+      "The app isn't on the stores yet. Leave your email to be notified as soon as it launches.",
+    "notify.placeholder": "your@email.com",
+    "notify.cta": "Notify me",
+    "notify.success": "Thanks! You'll be notified when it launches.",
+    "notify.error": "Something went wrong, please try again.",
+    "android.title": "Download on Android",
+    "android.text":
+      "The app isn't on the Play Store yet, but you can already install it. Scan this QR code with your Android phone to download the APK.",
     "footer.copy": "© {year} Reedly — All rights reserved",
     "footer.privacy": "Privacy",
     "footer.terms": "Terms",
@@ -684,8 +704,8 @@ if (pricingToggle) {
     const btn = e.target.closest(".pricing-toggle__btn");
     if (!btn) return;
     const previousPanel =
-      pricingToggle.querySelector(".pricing-toggle__btn--active")?.dataset.panel ||
-      "unknown";
+      pricingToggle.querySelector(".pricing-toggle__btn--active")?.dataset
+        .panel || "unknown";
     const target = btn.dataset.panel;
     if (!target) return;
     pricingToggle
@@ -696,7 +716,12 @@ if (pricingToggle) {
       .querySelectorAll(".pricing-panel")
       .forEach((p) => p.classList.remove("pricing-panel--active"));
     const panel = document.getElementById("pricing-panel-" + target);
-    if (panel) panel.classList.add("pricing-panel--active");
+    if (panel) {
+      panel.classList.add("pricing-panel--active");
+      panel
+        .querySelectorAll(".reveal")
+        .forEach((r) => r.classList.add("visible"));
+    }
 
     if (target !== previousPanel) {
       trackEvent("landing_pricing_toggled", {
@@ -786,8 +811,8 @@ function setBillingMode(mode) {
     from_value: previousMode,
     to_value: mode,
     active_panel:
-      pricingToggle?.querySelector(".pricing-toggle__btn--active")?.dataset.panel ||
-      "unknown",
+      pricingToggle?.querySelector(".pricing-toggle__btn--active")?.dataset
+        .panel || "unknown",
     billing_mode: mode,
   });
 }
@@ -829,7 +854,10 @@ function setLang(lang) {
 
   // Update language-specific links (legal pages)
   document.querySelectorAll("[data-link-fr][data-link-en]").forEach((el) => {
-    const href = lang === "en" ? el.getAttribute("data-link-en") : el.getAttribute("data-link-fr");
+    const href =
+      lang === "en"
+        ? el.getAttribute("data-link-en")
+        : el.getAttribute("data-link-fr");
     if (href) el.setAttribute("href", href);
   });
 
@@ -951,4 +979,100 @@ document.querySelectorAll(".nav__mobile-link").forEach((link) => {
     navToggle.setAttribute("aria-expanded", "false");
     navMobile.setAttribute("aria-hidden", "true");
   });
+});
+
+// ── Notify modal ──
+const notifyModal = document.getElementById("notify-modal");
+const notifyForm = document.getElementById("notify-form");
+const notifyEmail = document.getElementById("notify-email");
+const notifyFeedback = document.getElementById("notify-feedback");
+
+function openNotifyModal() {
+  notifyModal.classList.add("open");
+  notifyModal.setAttribute("aria-hidden", "false");
+  notifyEmail.focus();
+}
+
+function closeNotifyModal() {
+  notifyModal.classList.remove("open");
+  notifyModal.setAttribute("aria-hidden", "true");
+  notifyFeedback.className = "notify-modal__feedback";
+  notifyFeedback.textContent = "";
+  notifyForm.reset();
+}
+
+// ── Android QR modal ──
+const androidModal = document.getElementById("android-modal");
+
+function openAndroidModal() {
+  androidModal.classList.add("open");
+  androidModal.setAttribute("aria-hidden", "false");
+}
+
+function closeAndroidModal() {
+  androidModal.classList.remove("open");
+  androidModal.setAttribute("aria-hidden", "true");
+}
+
+document.querySelectorAll(".store-badge").forEach((badge) => {
+  badge.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (badge.dataset.store === "android") {
+      openAndroidModal();
+    } else {
+      openNotifyModal();
+    }
+  });
+});
+
+document
+  .getElementById("notify-modal-backdrop")
+  .addEventListener("click", closeNotifyModal);
+document
+  .getElementById("notify-modal-close")
+  .addEventListener("click", closeNotifyModal);
+document
+  .getElementById("android-modal-backdrop")
+  .addEventListener("click", closeAndroidModal);
+document
+  .getElementById("android-modal-close")
+  .addEventListener("click", closeAndroidModal);
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    if (notifyModal.classList.contains("open")) closeNotifyModal();
+    if (androidModal.classList.contains("open")) closeAndroidModal();
+  }
+});
+
+notifyForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = notifyEmail.value.trim();
+  if (!email) return;
+
+  const submitBtn = notifyForm.querySelector(".notify-modal__submit");
+  submitBtn.disabled = true;
+
+  try {
+    const res = await fetch("/api/notify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+
+    if (res.ok) {
+      notifyFeedback.textContent =
+        t(currentLang, "notify.success") || "Merci !";
+      notifyFeedback.className = "notify-modal__feedback visible success";
+      notifyForm.reset();
+      setTimeout(closeNotifyModal, 2500);
+    } else {
+      notifyFeedback.textContent = t(currentLang, "notify.error") || "Erreur";
+      notifyFeedback.className = "notify-modal__feedback visible error";
+    }
+  } catch {
+    notifyFeedback.textContent = t(currentLang, "notify.error") || "Erreur";
+    notifyFeedback.className = "notify-modal__feedback visible error";
+  } finally {
+    submitBtn.disabled = false;
+  }
 });
