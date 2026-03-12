@@ -8,26 +8,38 @@ interface Props {
 }
 
 const {
-  title = 'Reedly — The AI agent that turns your field meetings into structured reports',
+  title = "Reedly — L'IA qui transforme vos RDV terrain en rapports structurés",
   description =
-    'Reedly transforms every field meeting into a structured report in under 2 minutes — summary, needs, objections, commitments, and next steps. Nothing to type. Nothing to forget.',
+    'Enregistrez vos rendez-vous terrain, Reedly génère un rapport structuré en 11 sections en moins de 2 minutes. Résumé, besoins, objections, engagements, prochaines étapes. Essai gratuit.',
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://www.reedly.ai');
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL.href} />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://reedly.ai" />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:image" content="https://www.reedly.ai/og-image.png" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Reedly" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://www.reedly.ai/og-image.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,6 +50,103 @@ const {
     />
 
     <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Reedly",
+          "url": "https://www.reedly.ai",
+          "logo": "https://www.reedly.ai/favicon.png",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "contact@reedly.ai",
+            "contactType": "customer service"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "name": "Reedly",
+          "url": "https://www.reedly.ai"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Reedly",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "iOS, Android",
+          "description": "L'agent IA qui transforme vos rendez-vous terrain en rapports structurés en moins de 2 minutes.",
+          "url": "https://www.reedly.ai",
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Gratuit",
+              "price": "0",
+              "priceCurrency": "EUR"
+            },
+            {
+              "@type": "Offer",
+              "name": "Pro",
+              "price": "29",
+              "priceCurrency": "EUR"
+            },
+            {
+              "@type": "Offer",
+              "name": "Business",
+              "price": "69",
+              "priceCurrency": "EUR"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "À qui Reedly est-il destiné ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Aux commerciaux terrain B2B qui font des rendez-vous clients régulièrement — tourisme, immobilier, pharma, industrie, services. Et aux directeurs commerciaux qui veulent une vision consolidée de l'activité de leur équipe sans réunions de reporting supplémentaires."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "L'app fonctionne-t-elle hors connexion ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "L'enregistrement audio fonctionne intégralement hors connexion — vous pouvez capturer votre réunion même sans réseau. La génération du rapport nécessite une connexion internet car elle fait appel à nos modèles IA. Le rapport se génère automatiquement dès que vous retrouvez du réseau."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Combien de temps pour générer un rapport ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Moins de 2 minutes pour un rendez-vous d'une heure. La transcription prend environ 45 secondes, la génération environ 30 à 60 secondes selon la longueur."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Les données audio sont-elles conservées ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Non — jamais. L'audio est utilisé uniquement pour la transcription puis supprimé automatiquement et définitivement dès que le rapport est généré. Seul le rapport structuré est conservé. Privacy by design."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Qu'est-ce que le Hub et qui en a besoin ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Le Hub est une interface web réservée aux managers et directeurs commerciaux. Il affiche tous les rapports de l'équipe, les synthèses stratégiques et les statistiques membres. Il est inclus dans le plan Équipe."
+              }
+            }
+          ]
+        }
+      ]
+    })} />
+
     <PostHog />
   </head>
   <body>
