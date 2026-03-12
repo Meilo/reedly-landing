@@ -1,0 +1,22 @@
+# Reedly
+
+> Reedly est un agent IA qui transforme les rendez-vous terrain des commerciaux B2B en rapports structurés en moins de 2 minutes. L'application mobile (iOS & Android) enregistre la réunion, transcrit l'audio avec +95% de précision, puis génère automatiquement un rapport en 11 sections : résumé exécutif, profil client, besoins exprimés, objections et réponses, produits discutés, concurrents mentionnés, engagements mutuels, prochaines étapes, opportunités, risques, et recommandations stratégiques. L'audio est supprimé après génération (privacy by design).
+
+## Pages principales
+- [Accueil](https://www.reedly.ai/): Présentation du produit, fonctionnalités, tarifs et FAQ
+- [Hub Manager](https://hub.reedly.ai): Interface web pour les managers — vue centralisée des rapports d'équipe et synthèses stratégiques
+
+## Tarifs
+- Gratuit : 0€/mois, 20 crédits IA, 15 min d'enregistrement par RDV
+- Pro : 29€/mois, 120 crédits IA, 1h d'enregistrement, synthèses hebdomadaires
+- Business : 69€/mois, 450 crédits IA, enregistrement illimité, synthèses illimitées
+- Équipe : 49€/commercial/mois (5 à 20 commerciaux), Hub manager inclus
+- Entreprise : sur devis, utilisateurs illimités, templates personnalisés, intégration CRM
+
+## Secteurs couverts
+- Tourisme (vocabulaire TO, allotement, DMC, yield, MICE)
+- Immobilier, pharma, B2B services (bientôt disponibles)
+
+## Contact
+- Email : contact@reedly.ai
+- Réponse sous 24h ouvrées
