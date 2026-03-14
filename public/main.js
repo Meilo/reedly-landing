@@ -167,6 +167,7 @@ const T = {
     "pricing.business.feat5": "Statistiques journalières",
     "pricing.business.feat6": "Support prioritaire sous 8h",
     "pricing.business.feat7": "Accès anticipé aux nouvelles fonctionnalités",
+    "pricing.business.feat8": "Max — assistant IA pour répondre à toutes vos questions",
     "pricing.business.cta": "Commencer →",
     "pricing.mobile.note":
       "Plans disponibles en abonnement mensuel. Les actions consomment des Crédits IA. Annulation à tout moment.",
@@ -183,6 +184,7 @@ const T = {
     "pricing.team.feat5":
       "Administration des points à remonter sur les rapports",
     "pricing.team.feat6": "Support email sous 24h",
+    "pricing.team.feat7": "Max — assistant IA pour répondre à toutes vos questions",
     "pricing.team.cta": "Commencer →",
     "pricing.enterprise.plan": "Entreprise",
     "pricing.enterprise.price": "Sur devis",
@@ -468,6 +470,7 @@ const T = {
     "pricing.business.feat5": "Daily statistics",
     "pricing.business.feat6": "Priority support within 8 hours",
     "pricing.business.feat7": "Early access to new features",
+    "pricing.business.feat8": "Max — AI assistant to answer all your questions",
     "pricing.business.cta": "Get started →",
     "pricing.mobile.note":
       "Monthly subscription. Actions consume AI Credits. Cancel anytime.",
@@ -483,6 +486,7 @@ const T = {
     "pricing.team.feat4": "AI analysis of sales reports",
     "pricing.team.feat5": "Administration of points to report on reports",
     "pricing.team.feat6": "Email support within 24h",
+    "pricing.team.feat7": "Max — AI assistant to answer all your questions",
     "pricing.team.cta": "Get started →",
     "pricing.enterprise.plan": "Enterprise",
     "pricing.enterprise.price": "Custom pricing",
