@@ -17,10 +17,18 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://www.reedly.ai');
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script is:inline>
+      (function(){
+        var s=localStorage.getItem('theme')||'system';
+        var d=s==='system'?(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):s;
+        document.documentElement.setAttribute('data-theme',d);
+        document.documentElement.setAttribute('data-theme-setting',s);
+      })();
+    </script>
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />

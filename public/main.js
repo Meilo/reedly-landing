@@ -83,7 +83,7 @@ const T = {
     "how.step2.tag": "Privacy by design",
     "how.step3.title": "Partagez, exportez ou analysez",
     "how.step3.text":
-      "Lisez le rapport en 30 secondes, exportez-le en PDF, ou laissez Reedly agréger vos RVs en synthèses stratégiques pour piloter votre territoire.",
+      "Lisez le rapport en 30 secondes, exportez-le en PDF, ou laissez Reedly agréger vos RDVs en synthèses stratégiques pour piloter votre territoire.",
     "how.step3.tag": "Export PDF · Synthèses · Hub",
     "hub.eyebrow": "Pour les managers",
     "hub.title": "Pilotez l'équipe depuis<br /><em>le Hub.</em>",
@@ -167,7 +167,8 @@ const T = {
     "pricing.business.feat5": "Statistiques journalières",
     "pricing.business.feat6": "Support prioritaire sous 8h",
     "pricing.business.feat7": "Accès anticipé aux nouvelles fonctionnalités",
-    "pricing.business.feat8": "Max — assistant IA pour répondre à toutes vos questions",
+    "pricing.business.feat8":
+      "Max — assistant IA pour répondre à toutes vos questions",
     "pricing.business.cta": "Commencer →",
     "pricing.mobile.note":
       "Plans disponibles en abonnement mensuel. Les actions consomment des Crédits IA. Annulation à tout moment.",
@@ -184,7 +185,8 @@ const T = {
     "pricing.team.feat5":
       "Administration des points à remonter sur les rapports",
     "pricing.team.feat6": "Support email sous 24h",
-    "pricing.team.feat7": "Max — assistant IA pour répondre à toutes vos questions",
+    "pricing.team.feat7":
+      "Max — assistant IA pour répondre à toutes vos questions",
     "pricing.team.cta": "Commencer →",
     "pricing.enterprise.plan": "Entreprise",
     "pricing.enterprise.price": "Sur devis",
@@ -1047,6 +1049,53 @@ document.addEventListener("keydown", (e) => {
     if (androidModal.classList.contains("open")) closeAndroidModal();
   }
 });
+
+// ── Theme toggle ──
+(function () {
+  function setTheme(setting) {
+    var prefersDark = window.matchMedia("(prefers-color-scheme:dark)").matches;
+    var resolved =
+      setting === "system" ? (prefersDark ? "dark" : "light") : setting;
+    document.documentElement.classList.add("theme-transition");
+    document.documentElement.setAttribute("data-theme", resolved);
+    document.documentElement.setAttribute("data-theme-setting", setting);
+    localStorage.setItem("theme", setting);
+    updateThemeToggle(setting);
+    setTimeout(function () {
+      document.documentElement.classList.remove("theme-transition");
+    }, 350);
+  }
+
+  function updateThemeToggle(setting) {
+    document.querySelectorAll(".theme-btn").forEach(function (btn) {
+      btn.classList.toggle("active", btn.dataset.themeValue === setting);
+    });
+  }
+
+  // Init from stored setting
+  var stored = localStorage.getItem("theme") || "system";
+  updateThemeToggle(stored);
+
+  // Click handlers
+  document.querySelectorAll(".theme-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      setTheme(btn.dataset.themeValue);
+    });
+  });
+
+  // Watch system preference changes
+  window
+    .matchMedia("(prefers-color-scheme:dark)")
+    .addEventListener("change", function (e) {
+      var setting = localStorage.getItem("theme") || "system";
+      if (setting === "system") {
+        document.documentElement.setAttribute(
+          "data-theme",
+          e.matches ? "dark" : "light",
+        );
+      }
+    });
+})();
 
 notifyForm.addEventListener("submit", async (e) => {
   e.preventDefault();
