@@ -84,7 +84,7 @@ body::after {
   background-image:
     linear-gradient(rgba(34, 197, 94, 0.07) 1px, transparent 1px),
     linear-gradient(90deg, rgba(34, 197, 94, 0.07) 1px, transparent 1px);
-  background-size: 44px 44px;
+  background-size: 30px 30px;
   mask-image: radial-gradient(
     ellipse 90% 80% at 50% 50%,
     black 40%,
@@ -2899,7 +2899,9 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.18s ease, background 0.18s ease;
+  transition:
+    color 0.18s ease,
+    background 0.18s ease;
   line-height: 1;
 }
 
@@ -2924,7 +2926,11 @@ html.theme-transition,
 html.theme-transition *,
 html.theme-transition *::before,
 html.theme-transition *::after {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease !important;
   transition-delay: 0s !important;
 }
 
@@ -2951,9 +2957,21 @@ html[data-theme="light"] {
 /* Light: Body ambient effects */
 html[data-theme="light"] body::before {
   background:
-    radial-gradient(ellipse 70% 50% at 80% -5%, rgba(22, 163, 74, 0.05) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at -10% 80%, rgba(148, 163, 184, 0.08) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 40% at 50% 110%, rgba(148, 163, 184, 0.06) 0%, transparent 60%);
+    radial-gradient(
+      ellipse 70% 50% at 80% -5%,
+      rgba(22, 163, 74, 0.05) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 50% 60% at -10% 80%,
+      rgba(148, 163, 184, 0.08) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 40% 40% at 50% 110%,
+      rgba(148, 163, 184, 0.06) 0%,
+      transparent 60%
+    );
 }
 
 html[data-theme="light"] body::after {
@@ -3030,7 +3048,11 @@ html[data-theme="light"] .pricing-card:hover {
 
 /* Light: Section alt */
 html[data-theme="light"] .section--alt {
-  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(148, 163, 184, 0.08) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 50%,
+    rgba(148, 163, 184, 0.08) 0%,
+    transparent 70%
+  );
 }
 
 /* Light: Step numbers */
@@ -3067,8 +3089,14 @@ html[data-theme="light"] .pricing-billing-toggle {
 }
 
 html[data-theme="light"] .pricing-card--featured {
-  background: linear-gradient(145deg, rgba(240, 253, 244, 0.98) 0%, rgba(241, 245, 249, 0.98) 100%);
-  box-shadow: 0 0 0 1px rgba(22, 163, 74, 0.08) inset, 0 24px 56px rgba(22, 163, 74, 0.04);
+  background: linear-gradient(
+    145deg,
+    rgba(240, 253, 244, 0.98) 0%,
+    rgba(241, 245, 249, 0.98) 100%
+  );
+  box-shadow:
+    0 0 0 1px rgba(22, 163, 74, 0.08) inset,
+    0 24px 56px rgba(22, 163, 74, 0.04);
 }
 
 html[data-theme="light"] .pricing-badge,
@@ -3084,7 +3112,9 @@ html[data-theme="light"] .pricing-billing-toggle__btn--active {
 
 /* Light: Report preview */
 html[data-theme="light"] .report-mock {
-  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(22, 163, 74, 0.04) inset;
+  box-shadow:
+    0 32px 72px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(22, 163, 74, 0.04) inset;
 }
 
 html[data-theme="light"] .report-mock__header {
@@ -3095,7 +3125,9 @@ html[data-theme="light"] .report-mock__section--open {
   background: rgba(240, 253, 244, 0.4);
 }
 
-html[data-theme="light"] .report-mock__section--open .report-mock__section-title {
+html[data-theme="light"]
+  .report-mock__section--open
+  .report-mock__section-title {
   color: var(--green);
 }
 
@@ -3113,8 +3145,14 @@ html[data-theme="light"] .report-mock__action:hover {
 
 /* Light: Final CTA */
 html[data-theme="light"] .final-cta__box {
-  background: linear-gradient(135deg, rgba(241, 245, 249, 0.98) 0%, rgba(255, 255, 255, 0.99) 100%);
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.04), 0 0 120px rgba(22, 163, 74, 0.02);
+  background: linear-gradient(
+    135deg,
+    rgba(241, 245, 249, 0.98) 0%,
+    rgba(255, 255, 255, 0.99) 100%
+  );
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.04),
+    0 0 120px rgba(22, 163, 74, 0.02);
 }
 
 /* Light: Store badges */
@@ -3152,7 +3190,11 @@ html[data-theme="light"] .form__select option {
 
 /* Light: Cursor glow */
 html[data-theme="light"] #cursor-glow {
-  background: radial-gradient(circle, rgba(22, 163, 74, 0.03) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(22, 163, 74, 0.03) 0%,
+    transparent 70%
+  );
 }
 
 /* Light: Modal */
@@ -3183,7 +3225,11 @@ html[data-theme="light"] .theme-btn.active {
 /* Light: Glows */
 html[data-theme="light"] .phone-glow,
 html[data-theme="light"] .dash__glow {
-  background: radial-gradient(circle, rgba(22, 163, 74, 0.06) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(22, 163, 74, 0.06) 0%,
+    transparent 70%
+  );
 }
 
 /* Light: Phone mockup */
