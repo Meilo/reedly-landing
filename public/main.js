@@ -176,7 +176,7 @@ const T = {
       "Aucun essai gratuit sur les plans managers. Déployez Reedly pour votre équipe en moins de 10 minutes.",
     "pricing.team.badge": "Recommandé",
     "pricing.team.plan": "Équipe",
-    "pricing.team.per": "par commercial par mois",
+    "pricing.team.per": "par utilisateur par mois",
     "pricing.team.seats": "De 5 à 20 commerciaux",
     "pricing.team.feat1": "Tout le plan Business inclus - pour les commerciaux",
     "pricing.team.feat2": "Application iOS & Android - tous les commerciaux",
@@ -193,7 +193,7 @@ const T = {
     "pricing.enterprise.seats": "Plus de 20 commerciaux",
     "pricing.enterprise.feat1": "Tout le plan Équipe inclus",
     "pricing.enterprise.feat2": "Utilisateurs illimités",
-    "pricing.enterprise.feat3": "Templates sectoriels personnalisés",
+    "pricing.enterprise.feat3": "Vocabulaire et process de votre entreprise intégrés à l'IA",
     "pricing.enterprise.feat4": "Intégration CRM sur demande",
     "pricing.enterprise.feat5": "Account manager dédié",
     "pricing.enterprise.feat6": "Formation et onboarding équipe",
@@ -480,7 +480,7 @@ const T = {
       "No free trial on manager plans. Deploy Reedly for your team in under 10 minutes.",
     "pricing.team.badge": "Recommended",
     "pricing.team.plan": "Team",
-    "pricing.team.per": "per sales rep per month",
+    "pricing.team.per": "per user per month",
     "pricing.team.seats": "5 to 20 sales reps",
     "pricing.team.feat1": "Business plan included",
     "pricing.team.feat2": "iOS & Android mobile app - all sales reps",
@@ -495,7 +495,7 @@ const T = {
     "pricing.enterprise.seats": "20+ sales reps",
     "pricing.enterprise.feat1": "Everything in Team included",
     "pricing.enterprise.feat2": "Unlimited users",
-    "pricing.enterprise.feat3": "Custom sector templates",
+    "pricing.enterprise.feat3": "Your company vocabulary and processes built into the AI",
     "pricing.enterprise.feat4": "CRM integration on request",
     "pricing.enterprise.feat5": "Dedicated account manager",
     "pricing.enterprise.feat6": "Team training and onboarding",
@@ -703,7 +703,7 @@ trackEvent("landing_page_viewed", {
 const pricingToggle = document.getElementById("pricing-toggle");
 const pricingBillingToggle = document.getElementById("pricing-billing-toggle");
 const pricingBillingNote = document.getElementById("pricing-billing-note");
-const BILLING_DISCOUNT_RATE = 0.2;
+const BILLING_DISCOUNT_RATE = 0.145;
 let billingMode = "monthly";
 if (pricingToggle) {
   pricingToggle.addEventListener("click", (e) => {

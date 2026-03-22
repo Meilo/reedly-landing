@@ -1,5 +1,5 @@
 ---
-// Pricing section
+// Pricing section — enterprise-focused (solo plans available in mobile app only)
 ---
 
 <!-- ── Pricing ── -->
@@ -8,131 +8,23 @@
           <div class="reveal">
             <div class="section__eyebrow" data-i18n="pricing.eyebrow">Tarifs</div>
             <h2 data-i18n-html="pricing.title">
-              Un tarif pour chaque<br /><em>profil terrain.</em>
+              Équipez votre force de vente<br /><em>avec l'IA terrain.</em>
             </h2>
             <p class="section__lead" data-i18n="pricing.lead">
-              Que vous soyez commercial indépendant ou responsable d'une équipe, Reedly a un plan pour vous.
+              Les autres transcrivent les réunions. Reedly les comprend. — 3x moins cher que Modjo, 10x moins cher que Gong.
             </p>
           </div>
 
-          <!-- Toggle -->
+          <!-- Billing toggle -->
           <div class="pricing-toggle-wrap reveal">
-            <div class="pricing-toggle" id="pricing-toggle">
-              <button class="pricing-toggle__btn pricing-toggle__btn--active" data-panel="mobile" data-i18n="pricing.toggle.mobile" type="button">Commerciaux solo</button>
-              <button class="pricing-toggle__btn" data-panel="managers" data-i18n="pricing.toggle.managers" type="button">Managers / Équipes</button>
-            </div>
             <div class="pricing-billing-toggle" id="pricing-billing-toggle">
               <button class="pricing-billing-toggle__btn pricing-billing-toggle__btn--active" data-billing="monthly" data-i18n="pricing.billing.monthly" type="button">Mensuel</button>
-              <button class="pricing-billing-toggle__btn" data-billing="annual" data-i18n="pricing.billing.annual" type="button">Annuel (-20%)</button>
-            </div>
-            <div class="pricing-billing-note" id="pricing-billing-note">
-              Prix affiches par mois. Facturation annuelle disponible avec 7 % de reduction.
+              <button class="pricing-billing-toggle__btn" data-billing="annual" data-i18n="pricing.billing.annual" type="button">Annuel (-15%)</button>
             </div>
           </div>
 
-          <!-- ── Panel Commerciaux ── -->
-          <div class="pricing-panel pricing-panel--active" id="pricing-panel-mobile">
-            <div class="pricing-grid pricing-grid--3col" style="margin-top:32px; max-width:1000px">
-
-              <!-- Gratuit -->
-              <article class="pricing-card pricing-card--muted reveal reveal-delay-1">
-                <div class="pricing-plan" data-i18n="pricing.free.plan">Gratuit</div>
-                <div class="pricing-price">
-                  <span class="pricing-amount" style="font-size:2.8rem">0</span>
-                  <span class="pricing-per" data-i18n="pricing.free.per">€ / mois</span>
-                </div>
-                <div class="pricing-card__limit">
-                  <svg fill="none" viewBox="0 0 16 16" stroke-width="1.8" style="width:12px;height:12px;stroke:var(--muted)"><path stroke-linecap="round" stroke-linejoin="round" d="M8 1v9M5 7l3 3 3-3"/><path stroke-linecap="round" d="M2 13h12"/></svg>
-                  <span data-i18n="pricing.free.limit">20 Crédits IA / mois</span>
-                </div>
-                <div class="pricing-divider"></div>
-                <div class="pricing-features">
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.free.feat1">20 Crédits IA / mois</span></div>
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.free.feat2">15 minutes d'enregistrement par rendez-vous</span></div>
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.free.feat3">1 génération de rapport par jour</span></div>
-                </div>
-                <a
-                  class="btn btn--ghost btn--md"
-                  href="#final-cta"
-                  style="width:100%;justify-content:center"
-                  data-i18n="pricing.free.cta"
-                  data-track-id="pricing_free"
-                  data-track-type="download"
-                  data-track-section="pricing"
-                >Commencer gratuitement</a>
-              </article>
-
-              <!-- Pro -->
-              <article class="pricing-card pricing-card--featured reveal reveal-delay-2">
-                <div class="pricing-badge" data-i18n="pricing.pro.badge">Recommandé</div>
-                <div class="pricing-plan" data-i18n="pricing.pro.plan">Pro</div>
-                <div class="pricing-price">
-                  <span class="pricing-currency">€</span>
-                  <span class="pricing-amount js-billing-price" data-base-price="29">29</span>
-                  <span class="pricing-per" data-i18n="pricing.pro.per">/ mois</span>
-                </div>
-                <div class="pricing-trial-badge">
-                  <svg fill="none" viewBox="0 0 14 14" stroke-width="1.8" style="width:11px;height:11px;stroke:var(--green)"><circle cx="7" cy="7" r="5.5"/><path stroke-linecap="round" d="M7 4.5v2.5l1.5 1.5"/></svg>
-                  <span data-i18n="pricing.pro.trial">Essai 7 jours gratuit</span>
-                </div>
-                <div class="pricing-divider" style="margin-top:18px"></div>
-                <div class="pricing-features">
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.pro.feat1">120 Crédits IA / mois</span></div>
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.pro.feat2">1 heure d'enregistrement par rendez-vous</span></div>
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.pro.feat3">4 génération de rapports par jour</span></div>
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.pro.feat4">1 génération de synthèse par semaine (7 jours d'historique, consomme des Crédits IA)</span></div>
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.pro.feat5">Statistiques journalières</span></div>
-                </div>
-                <a
-                  class="btn btn--primary btn--md"
-                  href="#final-cta"
-                  style="width:100%;justify-content:center"
-                  data-i18n="pricing.pro.cta"
-                  data-track-id="pricing_pro"
-                  data-track-type="download"
-                  data-track-section="pricing"
-                >Commencer →</a>
-              </article>
-
-              <!-- Business -->
-              <article class="pricing-card reveal reveal-delay-3">
-                <div class="pricing-plan" data-i18n="pricing.business.plan">Business</div>
-                <div class="pricing-price">
-                  <span class="pricing-currency">€</span>
-                  <span class="pricing-amount js-billing-price" data-base-price="69">69</span>
-                  <span class="pricing-per" data-i18n="pricing.business.per">/ mois</span>
-                </div>
-                <div class="pricing-trial-badge">
-                  <svg fill="none" viewBox="0 0 14 14" stroke-width="1.8" style="width:11px;height:11px;stroke:var(--green)"><circle cx="7" cy="7" r="5.5"/><path stroke-linecap="round" d="M7 4.5v2.5l1.5 1.5"/></svg>
-                  <span data-i18n="pricing.business.trial">Essai 7 jours gratuit</span>
-                </div>
-                <div class="pricing-divider" style="margin-top:18px"></div>
-                <div class="pricing-features">
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.business.feat1">450 Crédits IA / mois</span></div>
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.business.feat2">Enregistrement illimité par rendez-vous</span></div>
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.business.feat3">Génération de rapports illimités par jour</span></div>
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.business.feat4">Génération de synthèse illimités par jour (Jusqu'à 90 jours d'historique)</span></div>
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.business.feat5">Statistiques journalières</span></div>
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.business.feat6">Support prioritaire sous 8h</span></div>
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.business.feat7">Accès anticipé aux nouvelles fonctionnalités</span></div>
-                  <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5"/></svg></div><span data-i18n="pricing.business.feat8">Max — assistant IA pour répondre à toutes vos questions</span></div>
-                </div>
-                <a
-                  class="btn btn--ghost btn--md"
-                  href="#final-cta"
-                  style="width:100%;justify-content:center"
-                  data-i18n="pricing.business.cta"
-                  data-track-id="pricing_business"
-                  data-track-type="download"
-                  data-track-section="pricing"
-                >Commencer →</a>
-              </article>
-            </div>
-            <p class="pricing-note" style="margin-top:16px" data-i18n="pricing.mobile.note">Plans disponibles en abonnement mensuel. Les actions consomment des Crédits IA. Annulation à tout moment.</p>
-          </div>
-
-          <!-- ── Panel Managers ── -->
-          <div class="pricing-panel pricing-panel--managers" id="pricing-panel-managers">
+          <!-- ── Plans ── -->
+          <div class="pricing-panel pricing-panel--active" id="pricing-panel-managers">
             <div class="pricing-grid" style="margin-top:32px">
             <!-- Plan Équipe -->
             <article class="pricing-card pricing-card--featured reveal reveal-delay-1">
@@ -140,9 +32,9 @@
               <div class="pricing-plan" data-i18n="pricing.team.plan">Équipe</div>
               <div class="pricing-price">
                 <span class="pricing-currency">€</span>
-                <span class="pricing-amount js-billing-price" data-base-price="49">49</span>
+                <span class="pricing-amount js-billing-price" data-base-price="69">69</span>
                 <span class="pricing-per" data-i18n="pricing.team.per"
-                  >par commercial par mois</span
+                  >par utilisateur par mois</span
                 >
               </div>
               <div class="pricing-seats">
@@ -157,66 +49,53 @@
               </div>
               <div class="pricing-divider"></div>
               <div class="pricing-features">
+                <!-- Per-rep features -->
+                <div class="pricing-feature-group-label" data-i18n="pricing.team.groupRep">Pour chaque commercial</div>
                 <div class="pricing-feature">
-                  <div class="pricing-feature__check">
-                    <svg fill="none" viewBox="0 0 12 12" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" />
-                    </svg>
-                  </div>
-                  <span data-i18n="pricing.team.feat2"
-                    >Application mobile iOS & Android - tous les commerciaux</span
-                  >
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
+                  <span data-i18n="pricing.team.featApp">Application mobile iOS & Android</span>
                 </div>
                 <div class="pricing-feature">
-                  <div class="pricing-feature__check">
-                    <svg fill="none" viewBox="0 0 12 12" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" />
-                    </svg>
-                  </div>
-                  <span data-i18n="pricing.team.feat1"
-                    >Plan Business inclus</span
-                  >
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
+                  <span data-i18n="pricing.team.featReports">Rapports structurés illimités</span>
+                </div>
+                <div class="pricing-feature">
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
+                  <span data-i18n="pricing.team.featRecording">Jusqu'à 2h d'enregistrement par rendez-vous</span>
+                </div>
+                <div class="pricing-feature">
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
+                  <span data-i18n="pricing.team.featSyntheses">Synthèses stratégiques</span>
+                </div>
+                <div class="pricing-feature">
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
+                  <span data-i18n="pricing.team.featDiarization">Distinction vocale</span>
                 </div>
 
+                <!-- Manager features -->
+                <div class="pricing-feature-group-label" style="margin-top:12px" data-i18n="pricing.team.groupManager">Pour le manager</div>
                 <div class="pricing-feature">
-                  <div class="pricing-feature__check">
-                    <svg fill="none" viewBox="0 0 12 12" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" />
-                    </svg>
-                  </div>
-                  <span data-i18n="pricing.team.feat3">Hub web de pilotage manager</span>
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
+                  <span data-i18n="pricing.team.featHub">Rapports, synthèses et stats de toute l'équipe</span>
                 </div>
                 <div class="pricing-feature">
-                  <div class="pricing-feature__check">
-                    <svg fill="none" viewBox="0 0 12 12" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" />
-                    </svg>
-                  </div>
-                  <span data-i18n="pricing.team.feat4">Analyse des rapports des commerciaux par IA</span>
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
+                  <span data-i18n="pricing.team.featAnalysis">Analyse IA des rapports de toute l'équipe</span>
+                </div>
+
+                <!-- Shared features -->
+                <div class="pricing-feature-group-label" style="margin-top:12px" data-i18n="pricing.team.groupShared">Pour tous</div>
+                <div class="pricing-feature">
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
+                  <span data-i18n="pricing.team.featCreditsShared">450 crédits IA / mois par utilisateur</span>
                 </div>
                 <div class="pricing-feature">
-                  <div class="pricing-feature__check">
-                    <svg fill="none" viewBox="0 0 12 12" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" />
-                    </svg>
-                  </div>
-                  <span data-i18n="pricing.team.feat5">Administration des points à remonter sur les rapports</span>
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
+                  <span data-i18n="pricing.team.featMaxAll">Max — assistant IA (mobile + hub web)</span>
                 </div>
                 <div class="pricing-feature">
-                  <div class="pricing-feature__check">
-                    <svg fill="none" viewBox="0 0 12 12" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" />
-                    </svg>
-                  </div>
-                  <span data-i18n="pricing.team.feat6">Support email sous 24h</span>
-                </div>
-                <div class="pricing-feature">
-                  <div class="pricing-feature__check">
-                    <svg fill="none" viewBox="0 0 12 12" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" />
-                    </svg>
-                  </div>
-                  <span data-i18n="pricing.team.feat7">Max — assistant IA pour répondre à toutes vos questions</span>
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
+                  <span data-i18n="pricing.team.featSupport">Support prioritaire sous 24h</span>
                 </div>
               </div>
               <a
@@ -251,45 +130,35 @@
               <div class="pricing-divider"></div>
               <div class="pricing-features">
                 <div class="pricing-feature">
-                  <div class="pricing-feature__check">
-                    <svg fill="none" viewBox="0 0 12 12" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" />
-                    </svg>
-                  </div>
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
                   <span data-i18n="pricing.enterprise.feat1">Tout le plan Équipe inclus</span>
                 </div>
                 <div class="pricing-feature">
-                  <div class="pricing-feature__check">
-                    <svg fill="none" viewBox="0 0 12 12" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" />
-                    </svg>
-                  </div>
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
                   <span data-i18n="pricing.enterprise.feat2">Utilisateurs illimités</span>
                 </div>
                 <div class="pricing-feature">
-                  <div class="pricing-feature__check">
-                    <svg fill="none" viewBox="0 0 12 12" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" />
-                    </svg>
-                  </div>
-                  <span data-i18n="pricing.enterprise.feat3"
-                    >Templates sectoriels personnalisés</span
-                  >
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
+                  <span data-i18n="pricing.enterprise.featMultiTeam">Multi-équipes / multi-secteurs</span>
                 </div>
                 <div class="pricing-feature">
-                  <div class="pricing-feature__check">
-                    <svg fill="none" viewBox="0 0 12 12" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" />
-                    </svg>
-                  </div>
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
+                  <span data-i18n="pricing.enterprise.featCredits">Volume de crédits IA sur mesure</span>
+                </div>
+                <div class="pricing-feature">
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
+                  <span data-i18n="pricing.enterprise.featAccountManager">Account manager dédié</span>
+                </div>
+                <div class="pricing-feature">
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
+                  <span data-i18n="pricing.enterprise.feat3">Vocabulaire et process de votre entreprise intégrés à l'IA</span>
+                </div>
+                <div class="pricing-feature">
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
                   <span data-i18n="pricing.enterprise.feat4">Intégration CRM sur demande</span>
                 </div>
                 <div class="pricing-feature">
-                  <div class="pricing-feature__check">
-                    <svg fill="none" viewBox="0 0 12 12" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" />
-                    </svg>
-                  </div>
+                  <div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div>
                   <span data-i18n="pricing.enterprise.feat6">Formation et onboarding équipe</span>
                 </div>
               </div>
@@ -309,8 +178,8 @@
               </div>
             </article>
           </div>
-          <p class="pricing-note pricing-note-managers" style="margin-top:16px" data-i18n="pricing.managers.note">Aucun essai gratuit sur les plans managers. Déployez Reedly pour votre équipe en moins de 10 minutes.</p>
-          </div><!-- end panel managers -->
+          <p class="pricing-note" style="margin-top:16px" data-i18n="pricing.managers.note">Déployez Reedly pour votre équipe en moins de 10 minutes. Annulation à tout moment.</p>
+          </div><!-- end plans -->
 
         </div>
       </section>

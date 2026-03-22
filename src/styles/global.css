@@ -1676,6 +1676,16 @@ body::after {
   stroke: var(--green);
 }
 
+.pricing-feature-group-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 6px;
+  margin-top: 4px;
+}
+
 .pricing-note {
   margin-top: 14px;
   font-family: var(--mono);
