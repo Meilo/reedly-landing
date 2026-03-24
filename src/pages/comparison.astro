@@ -1,0 +1,25 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Nav from '@/components/Nav.astro';
+import Comparatif from '@/components/Comparatif.astro';
+import FinalCta from '@/components/FinalCta.astro';
+import Footer from '@/components/Footer.astro';
+---
+
+<Layout
+  title="Reedly vs Gong, Noota, Modjo — Field report tools comparison"
+  description="Compare Reedly to alternatives: Gong, Noota, Leexi, Modjo, Fireflies, Otter. Structured reports, industry vocabulary, diarization, strategic syntheses. From 69 EUR/month."
+>
+  <div id="cursor-glow"></div>
+
+  <Nav />
+
+  <main class="z1">
+    <Comparatif />
+    <FinalCta />
+  </main>
+
+  <Footer />
+
+  <script src="/main.js" is:inline></script>
+</Layout>

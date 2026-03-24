@@ -1,36 +1,29 @@
 ---
 // Footer
-interface Props {
-  lang?: 'fr' | 'en';
-  privacyHref?: string;
-  termsHref?: string;
-  contactHref?: string;
-}
-
-const {
-  lang = 'fr',
-  privacyHref = '/confidentialite',
-  termsHref = '/cgu',
-  contactHref = '/#contact',
-} = Astro.props as Props;
-
-const isEn = lang === 'en';
 ---
 
 <footer class="footer z1">
   <div class="footer__inner">
-    <div class="footer__copy" data-i18n="footer.copy">
-      {isEn ? '© 2026 Reedly — All rights reserved' : '© 2026 Reedly — Tous droits reserves'}
+    <div class="footer__brand">
+      <a class="footer__logo" href="/">
+        <img src="/favicon.png" alt="Reedly" width="24" height="24" style="border-radius: 6px;" />
+        <span>REEDLY</span>
+      </a>
+      <div class="footer__copy" data-i18n="footer.copy">© 2026 Reedly — Tous droits reserves</div>
     </div>
-    <div class="footer__links">
-      <a href={privacyHref} data-i18n="footer.privacy" data-link-fr="/confidentialite" data-link-en="/privacy-policy">
-        {isEn ? 'Privacy' : 'Confidentialite'}
-      </a>
-      <a href={termsHref} data-i18n="footer.terms" data-link-fr="/cgu" data-link-en="/terms-of-service">
-        {isEn ? 'Terms' : 'CGU'}
-      </a>
-      <a href="/comparatif" data-i18n="footer.comparatif" data-link-fr="/comparatif" data-link-en="/comparatif">Comparatif</a>
-      <a href={contactHref} data-i18n="footer.contact">Contact</a>
+
+    <div class="footer__col">
+      <div class="footer__col-title" data-i18n="footer.col.product">Produit</div>
+      <a href="/solution" data-i18n="footer.solution" data-link-fr="/solution" data-link-en="/solution">Solution</a>
+      <a href="/tarifs" data-i18n="footer.pricing" data-link-fr="/tarifs" data-link-en="/pricing">Tarifs</a>
+      <a href="/comparatif" data-i18n="footer.comparatif" data-link-fr="/comparatif" data-link-en="/comparison">Comparatif</a>
+    </div>
+
+    <div class="footer__col">
+      <div class="footer__col-title" data-i18n="footer.col.legal">Legal</div>
+      <a href="/confidentialite" data-i18n="footer.privacy" data-link-fr="/confidentialite" data-link-en="/privacy-policy">Confidentialite</a>
+      <a href="/cgu" data-i18n="footer.terms" data-link-fr="/cgu" data-link-en="/terms-of-service">CGU</a>
+      <a href="/#contact" data-i18n="footer.contact">Contact</a>
     </div>
   </div>
 </footer>

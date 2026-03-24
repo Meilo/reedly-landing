@@ -1,3 +1,130 @@
+# Comparatif Page Implementation Plan
+
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+
+**Goal:** Build the `/comparatif` SEO comparison page on the Astro landing site comparing Reedly to 6 competitors.
+
+**Architecture:** Single Astro page (`comparatif.astro`) importing `Comparatif.astro` (4 sections: hero, table, differentiators, price bars) + existing `FinalCta.astro` (CTA + notify modal). Scoped CSS in the component reusing global design tokens. i18n keys added to the existing `T` dictionary in `public/main.js`.
+
+**Tech Stack:** Astro 5, CSS custom properties, vanilla JS i18n (`data-i18n` / `data-i18n-html` attributes)
+
+**Spec:** `docs/superpowers/specs/2026-03-23-comparatif-page-design.md`
+
+**Important:** `main.js` binds event listeners to `#notify-modal` elements on page load without null guards. If these elements are missing, the script crashes and breaks i18n/animations. That's why we import `FinalCta.astro` on the comparatif page — it provides both the CTA and the required modal markup.
+
+---
+
+## File Map
+
+| Action | File | Responsibility |
+|--------|------|----------------|
+| Create | `src/pages/comparatif.astro` | Page shell — imports Layout, Nav, Comparatif, FinalCta, Footer |
+| Create | `src/components/Comparatif.astro` | 4 sections (hero, table, differentiators, price bars) with scoped CSS |
+| Modify | `public/main.js` | Add FR+EN i18n keys (`comparatif.*`) to `T` dictionary |
+| Modify | `src/components/Footer.astro` | Add "Comparatif" link |
+
+---
+
+### Task 1: Add i18n keys to main.js
+
+**Files:**
+- Modify: `public/main.js`
+
+- [ ] **Step 1: Add FR keys**
+
+Search for `"hub.dash.nav": "Tableau de bord",` in the `fr:` block. Insert these lines immediately after it (before the closing `},` of the `fr:` block):
+
+```js
+    // ── Comparatif page ──
+    "comparatif.hero.eyebrow": "Comparatif",
+    "comparatif.hero.title": "Pourquoi les commerciaux terrain<br><em>choisissent Reedly.</em>",
+    "comparatif.hero.lead": "Les autres transcrivent vos réunions. Reedly les comprend — rapports structurés en 11 sections, vocabulaire métier, synthèses stratégiques. Le tout à un prix qui a du sens.",
+    "comparatif.table.eyebrow": "Comparaison",
+    "comparatif.table.title": "Reedly face aux <em>alternatives.</em>",
+    "comparatif.table.lead": "Transcription, rapports, terrain, management — voici comment Reedly se positionne face aux principaux outils du marché.",
+    "comparatif.table.row1": "Conçu pour le terrain",
+    "comparatif.table.row2": "Rapports structurés (11 sections)",
+    "comparatif.table.row3": "Distinction vocale",
+    "comparatif.table.row4": "Vocabulaire métier",
+    "comparatif.table.row5": "Synthèses stratégiques",
+    "comparatif.table.row6": "Hub management",
+    "comparatif.table.row7": "Prix / utilisateur / mois",
+    "comparatif.why.eyebrow": "Pourquoi Reedly",
+    "comparatif.why.title": "Ce que les autres <em>ne font pas.</em>",
+    "comparatif.why.lead": "Reedly n'est pas un outil de transcription reconverti. C'est un agent IA conçu dès le départ pour les commerciaux de terrain.",
+    "comparatif.why.card1.title": "Conçu pour le terrain",
+    "comparatif.why.card1.text": "Pas une app de visio reconvertie. Enregistrement via le micro du téléphone, mode hors-ligne, rapport généré automatiquement dès le retour en zone réseau.",
+    "comparatif.why.card2.title": "Rapports experts, pas des notes",
+    "comparatif.why.card2.text": "11 sections structurées par secteur : résumé exécutif, besoins client, objections, engagements, prochaines étapes. L'IA raisonne comme un consultant métier.",
+    "comparatif.why.card3.title": "Qui dit quoi",
+    "comparatif.why.card3.text": "La diarisation identifie automatiquement commercial vs client. Les besoins exprimés par le client sont distingués des arguments du commercial dans le rapport.",
+    "comparatif.why.card4.title": "Synthèses stratégiques",
+    "comparatif.why.card4.text": "Agrégez une semaine ou un trimestre de rendez-vous en tendances, risques et opportunités priorisées. De l'intelligence commerciale, pas juste de la documentation.",
+    "comparatif.price.eyebrow": "Tarifs",
+    "comparatif.price.title": "Plus complet. <em>Moins cher.</em>",
+    "comparatif.price.lead": "Prix par utilisateur par mois, plans équipe.",
+    "comparatif.price.note": "Fireflies et Otter sont moins chers mais ne font que de la transcription — pas de rapports structurés, pas de terrain, pas de synthèses.",
+    "footer.comparatif": "Comparatif",
+```
+
+- [ ] **Step 2: Add EN keys**
+
+Search for `"hub.dash.nav": "Dashboard",` in the `en:` block (NOTE: line numbers have shifted after Step 1 — search by text, not line number). Insert these lines immediately after it:
+
+```js
+    // ── Comparatif page ──
+    "comparatif.hero.eyebrow": "Compare",
+    "comparatif.hero.title": "Why field sales reps<br><em>choose Reedly.</em>",
+    "comparatif.hero.lead": "Others transcribe your meetings. Reedly understands them — structured reports in 11 sections, industry vocabulary, strategic syntheses. All at a price that makes sense.",
+    "comparatif.table.eyebrow": "Comparison",
+    "comparatif.table.title": "Reedly vs the <em>alternatives.</em>",
+    "comparatif.table.lead": "Transcription, reports, field work, management — here's how Reedly compares to the main tools on the market.",
+    "comparatif.table.row1": "Built for the field",
+    "comparatif.table.row2": "Structured reports (11 sections)",
+    "comparatif.table.row3": "Speaker identification",
+    "comparatif.table.row4": "Industry vocabulary",
+    "comparatif.table.row5": "Strategic syntheses",
+    "comparatif.table.row6": "Management hub",
+    "comparatif.table.row7": "Price / user / month",
+    "comparatif.why.eyebrow": "Why Reedly",
+    "comparatif.why.title": "What the others <em>don't do.</em>",
+    "comparatif.why.lead": "Reedly isn't a repurposed transcription tool. It's an AI agent built from day one for field sales reps.",
+    "comparatif.why.card1.title": "Built for the field",
+    "comparatif.why.card1.text": "Not a video call app repurposed. Records via the phone microphone, works offline, generates the report automatically when back in network.",
+    "comparatif.why.card2.title": "Expert reports, not notes",
+    "comparatif.why.card2.text": "11 sections structured by industry: executive summary, client needs, objections, commitments, next steps. The AI reasons like an industry consultant.",
+    "comparatif.why.card3.title": "Who said what",
+    "comparatif.why.card3.text": "Diarization automatically identifies sales rep vs client. Client-expressed needs are distinguished from the rep's arguments in the report.",
+    "comparatif.why.card4.title": "Strategic syntheses",
+    "comparatif.why.card4.text": "Aggregate a week or a quarter of meetings into prioritized trends, risks, and opportunities. Business intelligence, not just documentation.",
+    "comparatif.price.eyebrow": "Pricing",
+    "comparatif.price.title": "More complete. <em>Less expensive.</em>",
+    "comparatif.price.lead": "Price per user per month, team plans.",
+    "comparatif.price.note": "Fireflies and Otter are cheaper but only do transcription — no structured reports, no field support, no syntheses.",
+    "footer.comparatif": "Compare",
+```
+
+- [ ] **Step 3: Verify main.js is valid**
+
+Run: `cd /Users/lel/www/reedly-landing && node -c public/main.js`
+Expected: no syntax error
+
+- [ ] **Step 4: Commit**
+
+```bash
+cd /Users/lel/www/reedly-landing && git add public/main.js && git commit -m "feat(comparatif): add FR+EN i18n keys for comparison page"
+```
+
+---
+
+### Task 2: Create the Comparatif component
+
+**Files:**
+- Create: `src/components/Comparatif.astro`
+
+Create the file with the following exact content. The component contains 4 sections (hero, comparison table, differentiators, price bars). The CTA section is handled by the existing `FinalCta.astro` imported in the page.
+
+```astro
 ---
 // Comparatif — SEO comparison page (4 sections)
 ---
@@ -184,13 +311,13 @@
 
 <!-- ── Price Comparison ── -->
 <section class="section">
-  <div class="inner">
+  <div class="inner" style="text-align: center">
     <div class="reveal">
       <div class="section__eyebrow" data-i18n="comparatif.price.eyebrow">Tarifs</div>
       <h2 data-i18n-html="comparatif.price.title">
         Plus complet. <em>Moins cher.</em>
       </h2>
-      <p class="section__lead" data-i18n="comparatif.price.lead">
+      <p class="section__lead" style="margin: 14px auto 0" data-i18n="comparatif.price.lead">
         Prix par utilisateur par mois, plans équipe.
       </p>
     </div>
@@ -231,6 +358,23 @@
 </section>
 
 <style>
+  /* ── Hero ── */
+  .comp-hero { padding: 80px 0 60px; text-align: center; }
+  .comp-hero h1 {
+    font-family: var(--display);
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    line-height: 1.08;
+    font-weight: 400;
+  }
+  .comp-hero h1 em { font-style: italic; color: var(--green); }
+  .comp-hero__lead {
+    color: var(--muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 58ch;
+    margin: 18px auto 0;
+  }
+
   /* ── Comparison Table ── */
   .comp-table-wrap {
     overflow-x: auto;
@@ -387,6 +531,7 @@
     font-size: 0.75rem;
     font-weight: 500;
   }
+  /* Bar widths are arbitrary visual proportions for impact */
   .comp-price-row--reedly .comp-price-row__label { color: var(--green); font-weight: 700; }
   .comp-price-row--reedly .comp-price-row__fill {
     background: rgba(22, 163, 74, 0.25);
@@ -411,7 +556,107 @@
 
   /* ── Responsive ── */
   @media (max-width: 768px) {
+    .comp-hero h1 { font-size: 2rem; }
     .comp-diff-grid { grid-template-columns: 1fr; }
     .comp-price-row__label { width: 65px; font-size: 0.68rem; }
   }
 </style>
+```
+
+- [ ] **Step 1: Write the file**
+
+Create `src/components/Comparatif.astro` with the exact content above.
+
+- [ ] **Step 2: Commit**
+
+```bash
+cd /Users/lel/www/reedly-landing && git add src/components/Comparatif.astro && git commit -m "feat(comparatif): add Comparatif component with 4 sections"
+```
+
+---
+
+### Task 3: Create the page and update Footer
+
+**Files:**
+- Create: `src/pages/comparatif.astro`
+- Modify: `src/components/Footer.astro`
+
+- [ ] **Step 1: Create the page**
+
+Create `src/pages/comparatif.astro` with the exact content below. Note: `FinalCta` is imported to provide the CTA section AND the notify modal markup (required by main.js).
+
+```astro
+---
+import Layout from '@/layouts/Layout.astro';
+import Nav from '@/components/Nav.astro';
+import Comparatif from '@/components/Comparatif.astro';
+import FinalCta from '@/components/FinalCta.astro';
+import Footer from '@/components/Footer.astro';
+---
+
+<Layout
+  title="Reedly vs Gong, Noota, Modjo — Comparatif outils compte-rendu terrain"
+  description="Comparez Reedly aux alternatives : Gong, Noota, Leexi, Modjo, Fireflies, Otter. Rapports structurés, vocabulaire métier, diarisation, synthèses. À partir de 69 €/mois."
+>
+  <div id="cursor-glow"></div>
+
+  <Nav />
+
+  <main class="z1">
+    <Comparatif />
+    <FinalCta />
+  </main>
+
+  <Footer />
+
+  <script src="/main.js" is:inline></script>
+</Layout>
+```
+
+- [ ] **Step 2: Add Comparatif link to Footer**
+
+In `src/components/Footer.astro`, insert this line before the Contact link (before `<a href={contactHref} data-i18n="footer.contact">Contact</a>`):
+
+```astro
+      <a href="/comparatif" data-i18n="footer.comparatif" data-link-fr="/comparatif" data-link-en="/comparatif">Comparatif</a>
+```
+
+- [ ] **Step 3: Verify the page**
+
+Run: `cd /Users/lel/www/reedly-landing && pnpm dev`
+Check:
+1. `http://localhost:4321/comparatif` — all 4 sections + FinalCta render
+2. Language toggle (EN/FR) — all texts switch correctly
+3. Mobile viewport — table scrolls, cards stack
+4. Footer — "Comparatif" link appears
+5. Store badges in FinalCta — clicking opens notify modal (no JS crash)
+Stop the dev server.
+
+- [ ] **Step 4: Commit**
+
+```bash
+cd /Users/lel/www/reedly-landing && git add src/pages/comparatif.astro src/components/Footer.astro && git commit -m "feat(comparatif): add /comparatif page and footer link"
+```
+
+---
+
+### Task 4: Build verification
+
+**Files:** None (verification only)
+
+- [ ] **Step 1: Run production build**
+
+Run: `cd /Users/lel/www/reedly-landing && pnpm build`
+Expected: Build succeeds, `dist/comparatif/index.html` exists.
+
+- [ ] **Step 2: Preview production build**
+
+Run: `pnpm preview`
+Check: `http://localhost:4321/comparatif` — renders correctly with production assets.
+Stop the preview server.
+
+- [ ] **Step 3: Final commit if fixes needed**
+
+```bash
+cd /Users/lel/www/reedly-landing && git add -A && git commit -m "fix(comparatif): fix build issues"
+```

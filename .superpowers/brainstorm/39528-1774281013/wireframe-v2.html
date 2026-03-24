@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wireframe v2 — /comparatif</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0b1220;
+    --bg2: #131d30;
+    --surface: #131d30;
+    --surface2: #1a2640;
+    --border: rgba(30, 41, 59, 0.9);
+    --border-bright: rgba(34, 197, 94, 0.22);
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --faint: rgba(248, 250, 252, 0.35);
+    --green: #22c55e;
+    --green-dim: #16a34a;
+    --green-glow: rgba(22, 163, 74, 0.2);
+    --amber: #fbbf24;
+    --red: #ef4444;
+    --mono: "IBM Plex Mono", monospace;
+    --display: "Instrument Serif", serif;
+    --sans: "Syne", sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 70% 50% at 80% -5%, rgba(22,163,74,0.14) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at -10% 80%, rgba(11,30,60,0.6) 0%, transparent 55%);
+  }
+  body::after {
+    content: "";
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(34,197,94,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,197,94,0.07) 1px, transparent 1px);
+    background-size: 30px 30px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 40%, transparent 100%);
+  }
+  .z1 { position: relative; z-index: 1; }
+  .inner { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+
+  /* Section label (wireframe only) */
+  .wf-label {
+    font-size: 11px; font-family: var(--mono); color: var(--green);
+    background: rgba(22,163,74,0.1); border: 1px dashed rgba(22,163,74,0.3);
+    border-radius: 4px; padding: 4px 10px; display: inline-block;
+    margin-bottom: 16px; margin-top: 56px;
+  }
+
+  /* ── Section pattern (from landing) ── */
+  .section { padding: 80px 0; }
+  .section__eyebrow {
+    font-family: var(--mono); font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--green);
+    margin-bottom: 14px;
+  }
+  .section h2, h2.section-title {
+    font-family: var(--display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1; font-weight: 400;
+  }
+  .section h2 em, h2.section-title em { font-style: italic; color: var(--green); }
+  .section__lead {
+    color: var(--muted); font-size: 1.05rem; line-height: 1.72;
+    max-width: 60ch; margin-top: 14px;
+  }
+
+  /* ── Buttons (from landing) ── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    border-radius: 999px; font-family: var(--sans); font-weight: 700;
+    font-size: 0.87rem; cursor: pointer; text-decoration: none;
+    border: 1px solid transparent; transition: all 0.22s ease; white-space: nowrap;
+  }
+  .btn--md { padding: 13px 24px; font-size: 0.95rem; }
+  .btn--lg { padding: 16px 30px; font-size: 1rem; }
+  .btn--primary {
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-dim) 100%);
+    color: #042010;
+    box-shadow: 0 0 0 0 var(--green-glow), 0 8px 24px rgba(22,163,74,0.25);
+  }
+  .btn--ghost {
+    border-color: var(--border-bright);
+    background: rgba(255,255,255,0.03); color: var(--text);
+  }
+
+  /* ══════════════════════════════
+     SECTION 1: HERO
+     ══════════════════════════════ */
+  .comp-hero { padding: 80px 0 60px; text-align: center; }
+  .comp-hero .section__eyebrow { margin-bottom: 18px; }
+  .comp-hero h1 {
+    font-family: var(--display);
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    line-height: 1.08; font-weight: 400;
+  }
+  .comp-hero h1 em { font-style: italic; color: var(--green); }
+  .comp-hero__lead {
+    color: var(--muted); font-size: 1.1rem; line-height: 1.7;
+    max-width: 58ch; margin: 18px auto 0;
+  }
+
+  /* ══════════════════════════════
+     SECTION 2: COMPARISON TABLE
+     ══════════════════════════════ */
+  .comp-table-wrap {
+    overflow-x: auto; border: 1px solid var(--border);
+    border-radius: 16px; background: var(--surface);
+  }
+  .comp-table {
+    width: 100%; border-collapse: collapse; font-size: 14px; min-width: 820px;
+  }
+  .comp-table thead th {
+    background: var(--bg2); padding: 16px 14px; text-align: center;
+    font-weight: 700; font-family: var(--sans); font-size: 0.82rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .comp-table thead th:first-child { text-align: left; padding-left: 20px; }
+  .comp-table thead th.hl {
+    background: rgba(22,163,74,0.1); color: var(--green);
+    border-left: 2px solid rgba(34,197,94,0.25);
+    border-right: 2px solid rgba(34,197,94,0.25);
+    border-top: 2px solid rgba(34,197,94,0.25);
+  }
+  .comp-table tbody td {
+    padding: 14px; text-align: center;
+    border-bottom: 1px solid rgba(30,41,59,0.4); color: var(--muted);
+  }
+  .comp-table tbody td:first-child {
+    text-align: left; color: var(--text); font-weight: 600;
+    font-size: 0.88rem; padding-left: 20px;
+  }
+  .comp-table tbody td.hl {
+    background: rgba(22,163,74,0.04);
+    border-left: 2px solid rgba(34,197,94,0.25);
+    border-right: 2px solid rgba(34,197,94,0.25);
+  }
+  .comp-table tbody tr:last-child td { border-bottom: none; }
+  .comp-table tbody tr:last-child td.hl {
+    border-bottom: 2px solid rgba(34,197,94,0.25);
+  }
+  .comp-table .yes {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: rgba(22,163,74,0.15); color: var(--green); font-size: 14px;
+  }
+  .comp-table .no {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: rgba(239,68,68,0.08); color: rgba(239,68,68,0.5); font-size: 14px;
+  }
+  .comp-table .partial {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: rgba(251,191,36,0.1); color: var(--amber); font-size: 11px;
+    font-family: var(--mono);
+  }
+  .comp-table .price {
+    font-family: var(--mono); font-weight: 500; font-size: 0.8rem;
+  }
+  .comp-table .price.green { color: var(--green); }
+  .comp-table .price.red { color: var(--red); }
+
+  /* ══════════════════════════════
+     SECTION 3: WHY DIFFERENT
+     ══════════════════════════════ */
+  .diff-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px;
+  }
+  .diff-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 32px;
+  }
+  .diff-card__icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(22,163,74,0.1); border: 1px solid rgba(34,197,94,0.15);
+    display: grid; place-items: center; margin-bottom: 18px;
+  }
+  .diff-card__icon svg {
+    width: 22px; height: 22px; stroke: var(--green);
+  }
+  .diff-card h3 {
+    font-family: var(--sans); font-size: 1.05rem; font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .diff-card p { color: var(--muted); font-size: 0.92rem; line-height: 1.65; }
+
+  /* ══════════════════════════════
+     SECTION 4: PRICE COMPARISON
+     ══════════════════════════════ */
+  .price-visual { max-width: 680px; margin: 32px auto 0; }
+  .price-row {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 12px;
+  }
+  .price-row__label {
+    width: 90px; text-align: right; font-family: var(--mono);
+    font-size: 0.78rem; font-weight: 500; flex-shrink: 0;
+  }
+  .price-row__bar {
+    flex: 1; height: 34px; background: rgba(30,41,59,0.4);
+    border-radius: 8px; overflow: hidden; position: relative;
+  }
+  .price-row__fill {
+    height: 100%; border-radius: 8px; display: flex; align-items: center;
+    padding-left: 12px; font-family: var(--mono); font-size: 0.75rem; font-weight: 500;
+  }
+  .price-row--reedly .price-row__label { color: var(--green); font-weight: 700; }
+  .price-row--reedly .price-row__fill {
+    background: rgba(22,163,74,0.25); width: 28%; color: var(--green);
+    border: 1px solid rgba(34,197,94,0.3);
+  }
+  .price-row--gong .price-row__fill { background: rgba(239,68,68,0.12); width: 100%; color: rgba(239,68,68,0.7); }
+  .price-row--modjo .price-row__fill { background: rgba(148,163,184,0.1); width: 40%; color: var(--muted); }
+  .price-row--leexi .price-row__fill { background: rgba(148,163,184,0.1); width: 26%; color: var(--muted); }
+  .price-row--noota .price-row__fill { background: rgba(148,163,184,0.1); width: 20%; color: var(--muted); }
+  .price-row--fireflies .price-row__fill { background: rgba(148,163,184,0.1); width: 12%; color: var(--muted); }
+  .price-row--otter .price-row__fill { background: rgba(148,163,184,0.1); width: 8%; color: var(--muted); }
+
+  .price-note {
+    text-align: center; color: var(--faint); font-size: 0.82rem;
+    margin-top: 20px; font-family: var(--mono);
+  }
+
+  /* ══════════════════════════════
+     SECTION 5: CTA
+     ══════════════════════════════ */
+  .final-cta { padding: 80px 0; }
+  .final-cta__box {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 24px; padding: 56px 48px;
+    text-align: center;
+    background-image: radial-gradient(ellipse 60% 80% at 50% -20%, rgba(22,163,74,0.12) 0%, transparent 70%);
+  }
+  .final-cta__box h2 {
+    font-family: var(--display);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    line-height: 1.12; font-weight: 400;
+  }
+  .final-cta__box h2 em { font-style: italic; color: var(--green); }
+  .final-cta__sub {
+    color: var(--muted); font-size: 1rem; margin-top: 14px; margin-bottom: 32px;
+  }
+  .final-cta__actions {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .diff-grid { grid-template-columns: 1fr; }
+    .comp-hero h1 { font-size: 2rem; }
+    .final-cta__box { padding: 40px 24px; }
+    .final-cta__actions { flex-direction: column; align-items: center; }
+    .price-row__label { width: 65px; font-size: 0.68rem; }
+  }
+</style>
+</head>
+<body>
+<div class="z1">
+
+  <!-- ══ SECTION 1: HERO ══ -->
+  <div class="inner"><div class="wf-label">SECTION 1 — Hero</div></div>
+  <section class="comp-hero">
+    <div class="inner">
+      <div class="section__eyebrow">Comparatif</div>
+      <h1>Pourquoi les commerciaux terrain<br><em>choisissent Reedly.</em></h1>
+      <p class="comp-hero__lead">
+        Les autres transcrivent vos reunions. Reedly les comprend — rapports structures en 11 sections,
+        vocabulaire metier, syntheses strategiques. Le tout a un prix qui a du sens.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 2: TABLEAU COMPARATIF ══ -->
+  <div class="inner"><div class="wf-label">SECTION 2 — Tableau comparatif</div></div>
+  <section class="section">
+    <div class="inner">
+      <div class="section__eyebrow">Comparaison</div>
+      <h2 class="section-title">Reedly face aux <em>alternatives.</em></h2>
+      <p class="section__lead">
+        Transcription, rapports, terrain, management — voici comment Reedly se positionne face aux principaux outils du marche.
+      </p>
+      <div class="comp-table-wrap" style="margin-top: 32px;">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="hl">Reedly</th>
+              <th>Noota</th>
+              <th>Leexi</th>
+              <th>Modjo</th>
+              <th>Gong</th>
+              <th>Fireflies</th>
+              <th>Otter</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Concu pour le terrain</td>
+              <td class="hl"><span class="yes">&#10003;</span></td>
+              <td><span class="partial">~</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="no">&#10005;</span></td>
+            </tr>
+            <tr>
+              <td>Rapports structures (11 sections)</td>
+              <td class="hl"><span class="yes">&#10003;</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="no">&#10005;</span></td>
+            </tr>
+            <tr>
+              <td>Distinction vocale</td>
+              <td class="hl"><span class="yes">&#10003;</span></td>
+              <td><span class="yes">&#10003;</span></td>
+              <td><span class="yes">&#10003;</span></td>
+              <td><span class="yes">&#10003;</span></td>
+              <td><span class="yes">&#10003;</span></td>
+              <td><span class="yes">&#10003;</span></td>
+              <td><span class="no">&#10005;</span></td>
+            </tr>
+            <tr>
+              <td>Vocabulaire metier</td>
+              <td class="hl"><span class="yes">&#10003;</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="partial">~</span></td>
+              <td><span class="partial">~</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="no">&#10005;</span></td>
+            </tr>
+            <tr>
+              <td>Syntheses strategiques</td>
+              <td class="hl"><span class="yes">&#10003;</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="partial">~</span></td>
+              <td><span class="yes">&#10003;</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="no">&#10005;</span></td>
+            </tr>
+            <tr>
+              <td>Hub management</td>
+              <td class="hl"><span class="yes">&#10003;</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="partial">~</span></td>
+              <td><span class="yes">&#10003;</span></td>
+              <td><span class="yes">&#10003;</span></td>
+              <td><span class="no">&#10005;</span></td>
+              <td><span class="no">&#10005;</span></td>
+            </tr>
+            <tr>
+              <td>Prix / user / mois</td>
+              <td class="hl"><span class="price green">69 EUR</span></td>
+              <td><span class="price">19–49 EUR</span></td>
+              <td><span class="price">23–65 EUR</span></td>
+              <td><span class="price">~99 EUR</span></td>
+              <td><span class="price red">108–250 USD</span></td>
+              <td><span class="price">10–29 USD</span></td>
+              <td><span class="price">8–20 USD</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 3: ARGUMENTS DIFFERENCIANTS ══ -->
+  <div class="inner"><div class="wf-label">SECTION 3 — Arguments differenciants</div></div>
+  <section class="section">
+    <div class="inner">
+      <div class="section__eyebrow">Pourquoi Reedly</div>
+      <h2 class="section-title">Ce que les autres <em>ne font pas.</em></h2>
+      <p class="section__lead">
+        Reedly n'est pas un outil de transcription reconverti. C'est un agent IA concu des le depart pour les commerciaux de terrain.
+      </p>
+      <div class="diff-grid">
+        <article class="diff-card">
+          <div class="diff-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
+          </div>
+          <h3>Concu pour le terrain</h3>
+          <p>Pas une app de visio reconvertie. Enregistrement via le micro du telephone, mode hors-ligne, rapport genere automatiquement des le retour en zone reseau.</p>
+        </article>
+        <article class="diff-card">
+          <div class="diff-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <h3>Rapports experts, pas des notes</h3>
+          <p>11 sections structurees par secteur : resume executif, besoins client, objections, engagements, prochaines etapes. L'IA raisonne comme un consultant metier.</p>
+        </article>
+        <article class="diff-card">
+          <div class="diff-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
+          </div>
+          <h3>Qui dit quoi</h3>
+          <p>La diarisation identifie automatiquement commercial vs client. Les besoins exprimes par le client sont distingues des arguments du commercial dans le rapport.</p>
+        </article>
+        <article class="diff-card">
+          <div class="diff-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" /></svg>
+          </div>
+          <h3>Syntheses strategiques</h3>
+          <p>Agregez une semaine ou un trimestre de rendez-vous en tendances, risques et opportunites priorisees. De l'intelligence commerciale, pas juste de la documentation.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 4: COMPARATIF PRIX ══ -->
+  <div class="inner"><div class="wf-label">SECTION 4 — Comparatif prix</div></div>
+  <section class="section">
+    <div class="inner" style="text-align: center;">
+      <div class="section__eyebrow">Tarifs</div>
+      <h2 class="section-title">Plus complet. <em>Moins cher.</em></h2>
+      <p class="section__lead" style="margin: 14px auto 0;">
+        Prix par utilisateur par mois, plans equipe.
+      </p>
+      <div class="price-visual">
+        <div class="price-row price-row--gong">
+          <div class="price-row__label">Gong</div>
+          <div class="price-row__bar"><div class="price-row__fill">108–250 USD</div></div>
+        </div>
+        <div class="price-row price-row--modjo">
+          <div class="price-row__label">Modjo</div>
+          <div class="price-row__bar"><div class="price-row__fill">~99 EUR</div></div>
+        </div>
+        <div class="price-row price-row--reedly">
+          <div class="price-row__label">Reedly</div>
+          <div class="price-row__bar"><div class="price-row__fill">69 EUR</div></div>
+        </div>
+        <div class="price-row price-row--leexi">
+          <div class="price-row__label">Leexi</div>
+          <div class="price-row__bar"><div class="price-row__fill">23–65 EUR</div></div>
+        </div>
+        <div class="price-row price-row--noota">
+          <div class="price-row__label">Noota</div>
+          <div class="price-row__bar"><div class="price-row__fill">19–49 EUR</div></div>
+        </div>
+        <div class="price-row price-row--fireflies">
+          <div class="price-row__label">Fireflies</div>
+          <div class="price-row__bar"><div class="price-row__fill">10–29 USD</div></div>
+        </div>
+        <div class="price-row price-row--otter">
+          <div class="price-row__label">Otter</div>
+          <div class="price-row__bar"><div class="price-row__fill">8–20 USD</div></div>
+        </div>
+      </div>
+      <p class="price-note">Fireflies et Otter sont moins chers mais ne font que de la transcription — pas de rapports structures, pas de terrain, pas de syntheses.</p>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 5: CTA FINAL ══ -->
+  <div class="inner"><div class="wf-label">SECTION 5 — CTA Final</div></div>
+  <section class="final-cta">
+    <div class="inner">
+      <div class="final-cta__box">
+        <h2>Pret a passer aux<br><em>rapports intelligents ?</em></h2>
+        <p class="final-cta__sub">
+          Essai gratuit 7 jours. Sans engagement. Rapport en moins de 2 minutes.
+        </p>
+        <div class="final-cta__actions">
+          <a class="btn btn--primary btn--lg" href="#">Telecharger l'app &rarr;</a>
+          <a class="btn btn--ghost btn--lg" href="#">Creer un Hub equipe &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
