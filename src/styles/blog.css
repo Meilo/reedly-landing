@@ -176,6 +176,36 @@
   color: var(--text);
 }
 
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.blog-content thead {
+  border-bottom: 2px solid var(--border);
+}
+
+.blog-content th {
+  font-weight: 700;
+  text-align: left;
+  padding: 10px 14px;
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.blog-content td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.blog-content tr:last-child td {
+  border-bottom: none;
+}
+
 .blog-content blockquote {
   border-left: 3px solid var(--green);
   padding: 12px 20px;
