@@ -1,0 +1,37 @@
+name: Weekly Blog Post
+
+on:
+  schedule:
+    - cron: '0 8 * * 1' # Chaque lundi à 8h UTC
+  workflow_dispatch: {} # Déclenchement manuel
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Generate blog article
+        run: node scripts/generate-blog.mjs
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Commit & push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/content/blog/
+          git diff --cached --quiet && echo "No new articles" && exit 0
+          git commit -m "feat(blog): auto-generate weekly article"
+          git push
