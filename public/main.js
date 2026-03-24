@@ -23,7 +23,7 @@ const T = {
     "hero.offline":
       "Mode hors ligne détecté — connexion requise pour générer des rapports.",
     "hero.rec_label": "Enregistrement",
-    "hero.stop_btn": "■ GÉNÉRER",
+    "hero.recording_status": "Enregistrement en cours...",
     "hero.report_float": "Rapport généré",
     "ticker.1": "Enregistrement live pendant le rendez-vous",
     "ticker.2": "Transcription automatique haute précision",
@@ -236,8 +236,6 @@ const T = {
     "footer.privacy": "Confidentialité",
     "footer.terms": "CGU",
     "footer.contact": "Contact",
-    "hero.mockup.client": "Agence Riviera — M. Laurent",
-    "hero.mockup.sector": "Tourisme · Paris 8e",
     "hero.float.s1": "Résumé exécutif",
     "hero.float.s2": "Besoins exprimés",
     "hero.float.s3": "Objections & réponses",
@@ -398,7 +396,7 @@ const T = {
     "hero.offline":
       "Offline mode detected — connection required to generate reports.",
     "hero.rec_label": "Recording",
-    "hero.stop_btn": "■ GENERATE",
+    "hero.recording_status": "Recording in progress...",
     "hero.report_float": "Report generated",
     "ticker.1": "Live recording during the meeting",
     "ticker.2": "Automatic high-precision transcription",
@@ -604,8 +602,6 @@ const T = {
     "footer.privacy": "Privacy",
     "footer.terms": "Terms",
     "footer.contact": "Contact",
-    "hero.mockup.client": "Riviera Agency — Mr. Laurent",
-    "hero.mockup.sector": "Tourism · Paris 8e",
     "hero.float.s1": "Executive summary",
     "hero.float.s2": "Expressed needs",
     "hero.float.s3": "Objections & responses",
@@ -886,7 +882,13 @@ if (pricingBillingToggle) {
 }
 
 // ── i18n engine ──
-let currentLang = localStorage.getItem("reedly-lang") || "en";
+// Detect lang from URL prefix, fallback to localStorage, then "fr"
+let currentLang = (function() {
+  var p = window.location.pathname;
+  if (p.startsWith("/en")) return "en";
+  if (p.startsWith("/fr")) return "fr";
+  return localStorage.getItem("reedly-lang") || "fr";
+})();
 const currentYear = String(new Date().getFullYear());
 
 function t(lang, key) {
@@ -1001,38 +1003,41 @@ function setLang(lang) {
     if (href) el.setAttribute("href", href);
   });
 
-  // Redirect if current page has a translated URL
+  // Redirect to the other language prefix
   if (hasChanged) {
-    var urlMap = {
-      "/tarifs": "/pricing",
-      "/pricing": "/tarifs",
-      "/comparatif": "/comparison",
-      "/comparison": "/comparatif",
-    };
-    var currentPath = window.location.pathname.replace(/\/$/, "");
-    var targetPath = urlMap[currentPath];
-    if (targetPath) {
-      window.location.href = targetPath;
+    var currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+    // Determine current prefix and compute target
+    var currentPrefix = currentPath.startsWith("/en") ? "/en" : "/fr";
+    var targetPrefix = lang === "en" ? "/en" : "/fr";
+    if (currentPrefix !== targetPrefix) {
+      var pathSuffix = currentPath.substring(currentPrefix.length);
+      // Map slugs that differ between FR and EN
+      var slugMap = {
+        "/tarifs": "/pricing",
+        "/pricing": "/tarifs",
+        "/comparatif": "/comparison",
+        "/comparison": "/comparatif",
+        "/confidentialite": "/privacy-policy",
+        "/privacy-policy": "/confidentialite",
+        "/cgu": "/terms-of-service",
+        "/terms-of-service": "/cgu",
+      };
+      // Blog article mirror fallback
+      var mirrorMeta = document.querySelector('meta[name="blog-mirror"]');
+      if (mirrorMeta && pathSuffix.startsWith("/blog/")) {
+        var mirrorHref = lang === "en"
+          ? mirrorMeta.getAttribute("data-link-en")
+          : mirrorMeta.getAttribute("data-link-fr");
+        if (mirrorHref) {
+          window.location.href = mirrorHref;
+          return;
+        }
+      }
+      var targetSuffix = slugMap[pathSuffix] || pathSuffix;
+      window.location.href = targetPrefix + targetSuffix + window.location.hash;
       return;
     }
-    // Blog article mirror fallback
-    var mirrorMeta = document.querySelector('meta[name="blog-mirror"]');
-    if (mirrorMeta) {
-      var mirrorHref = lang === "en"
-        ? mirrorMeta.getAttribute("data-link-en")
-        : mirrorMeta.getAttribute("data-link-fr");
-      if (mirrorHref && mirrorHref !== currentPath) {
-        window.location.href = mirrorHref;
-        return;
-      }
-    }
   }
-
-  // Update page title
-  document.title =
-    lang === "fr"
-      ? "Reedly — L'agent IA qui transforme vos réunions terrain en rapports structurés"
-      : "Reedly — The AI agent that turns your field meetings into structured reports";
 
   updateBillingUI();
 
@@ -1103,6 +1108,21 @@ reveals.forEach((el) => revealObs.observe(el));
 document.querySelectorAll(".hero .reveal").forEach((el) => {
   el.classList.add("visible");
 });
+
+// ── Phone mockup timer ──
+(function () {
+  const timerEl = document.querySelector(".phone__big-timer");
+  if (!timerEl) return;
+  let seconds = 5;
+  function pad(n) { return n < 10 ? "0" + n : n; }
+  function format(s) {
+    return pad(Math.floor(s / 60)) + ":" + pad(s % 60);
+  }
+  setInterval(function () {
+    seconds++;
+    timerEl.textContent = format(seconds);
+  }, 1000);
+})();
 
 // ── FAQ accordion ──
 document.querySelectorAll(".faq-item").forEach((item) => {

@@ -1,107 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- FR pages -->
   <url>
-    <loc>https://www.reedly.ai/</loc>
+    <loc>https://www.reedly.ai/fr</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en" />
     <lastmod>2026-03-24</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/solution</loc>
+    <loc>https://www.reedly.ai/fr/solution</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solution" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solution" />
     <lastmod>2026-03-24</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/tarifs</loc>
+    <loc>https://www.reedly.ai/fr/tarifs</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/tarifs" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/pricing" />
     <lastmod>2026-03-24</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/comparatif</loc>
+    <loc>https://www.reedly.ai/fr/comparatif</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/comparatif" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/comparison" />
     <lastmod>2026-03-24</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/pricing</loc>
+    <loc>https://www.reedly.ai/fr/confidentialite</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/confidentialite" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/privacy-policy" />
+    <lastmod>2026-03-12</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.reedly.ai/fr/cgu</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/cgu" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/terms-of-service" />
+    <lastmod>2026-03-12</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.reedly.ai/fr/blog</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/blog" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog" />
     <lastmod>2026-03-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/comparison</loc>
+    <loc>https://www.reedly.ai/fr/blog/compte-rendu-reunion-client-automatique</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/blog/compte-rendu-reunion-client-automatique" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog/automatic-client-meeting-report" />
+    <lastmod>2026-03-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.reedly.ai/fr/blog/outil-compte-rendu-commercial-terrain</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/blog/outil-compte-rendu-commercial-terrain" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog/field-sales-report-tool" />
+    <lastmod>2026-03-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.reedly.ai/fr/blog/application-enregistrement-reunion-b2b</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/blog/application-enregistrement-reunion-b2b" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog/b2b-meeting-recording-app" />
+    <lastmod>2026-03-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.reedly.ai/fr/blog/rapport-visite-client-automatise-ia</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/blog/rapport-visite-client-automatise-ia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog/ai-automated-client-visit-report" />
+    <lastmod>2026-03-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.reedly.ai/fr/blog/alternative-gong-modjo-terrain</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/blog/alternative-gong-modjo-terrain" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog/gong-modjo-alternative-field-sales" />
+    <lastmod>2026-03-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.reedly.ai/fr/blog/temps-perdu-commercial-taches-administratives</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/blog/temps-perdu-commercial-taches-administratives" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog/time-wasted-field-sales-admin-tasks" />
+    <lastmod>2026-03-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- EN pages -->
+  <url>
+    <loc>https://www.reedly.ai/en</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en" />
+    <lastmod>2026-03-24</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.reedly.ai/en/solution</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solution" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solution" />
+    <lastmod>2026-03-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.reedly.ai/en/pricing</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/tarifs" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/pricing" />
+    <lastmod>2026-03-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.reedly.ai/en/comparison</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/comparatif" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/comparison" />
+    <lastmod>2026-03-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.reedly.ai/en/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/confidentialite" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/privacy-policy" />
+    <lastmod>2026-03-12</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.reedly.ai/en/terms-of-service</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/cgu" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/terms-of-service" />
+    <lastmod>2026-03-12</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.reedly.ai/en/blog</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/blog" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog" />
     <lastmod>2026-03-24</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/confidentialite</loc>
-    <lastmod>2026-03-12</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.reedly.ai/cgu</loc>
-    <lastmod>2026-03-12</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.reedly.ai/privacy-policy</loc>
-    <lastmod>2026-03-12</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.reedly.ai/terms-of-service</loc>
-    <lastmod>2026-03-12</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.reedly.ai/blog</loc>
-    <lastmod>2026-03-24</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.reedly.ai/blog/compte-rendu-reunion-client-automatique</loc>
+    <loc>https://www.reedly.ai/en/blog/automatic-client-meeting-report</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/blog/compte-rendu-reunion-client-automatique" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog/automatic-client-meeting-report" />
     <lastmod>2026-03-24</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/blog/outil-compte-rendu-commercial-terrain</loc>
+    <loc>https://www.reedly.ai/en/blog/field-sales-report-tool</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/blog/outil-compte-rendu-commercial-terrain" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog/field-sales-report-tool" />
     <lastmod>2026-03-24</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/blog/application-enregistrement-reunion-b2b</loc>
+    <loc>https://www.reedly.ai/en/blog/b2b-meeting-recording-app</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/blog/application-enregistrement-reunion-b2b" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog/b2b-meeting-recording-app" />
     <lastmod>2026-03-24</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/blog/rapport-visite-client-automatise-ia</loc>
+    <loc>https://www.reedly.ai/en/blog/ai-automated-client-visit-report</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/blog/rapport-visite-client-automatise-ia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog/ai-automated-client-visit-report" />
     <lastmod>2026-03-24</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/blog/alternative-gong-modjo-terrain</loc>
+    <loc>https://www.reedly.ai/en/blog/gong-modjo-alternative-field-sales</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/blog/alternative-gong-modjo-terrain" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog/gong-modjo-alternative-field-sales" />
     <lastmod>2026-03-24</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/blog/automatic-client-meeting-report</loc>
-    <lastmod>2026-03-24</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.reedly.ai/blog/field-sales-report-tool</loc>
-    <lastmod>2026-03-24</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.reedly.ai/blog/b2b-meeting-recording-app</loc>
-    <lastmod>2026-03-24</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.reedly.ai/blog/ai-automated-client-visit-report</loc>
-    <lastmod>2026-03-24</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.reedly.ai/blog/gong-modjo-alternative-field-sales</loc>
+    <loc>https://www.reedly.ai/en/blog/time-wasted-field-sales-admin-tasks</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/blog/temps-perdu-commercial-taches-administratives" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog/time-wasted-field-sales-admin-tasks" />
     <lastmod>2026-03-24</lastmod>
     <priority>0.7</priority>
   </url>

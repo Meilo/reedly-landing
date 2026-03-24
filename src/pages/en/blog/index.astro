@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import Nav from '@/components/Nav.astro';
+import Footer from '@/components/Footer.astro';
+import '@/styles/blog.css';
+
+const allPosts = await getCollection('blog');
+const posts = allPosts
+  .filter((p) => p.data.lang === 'en')
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+---
+
+<Layout
+  title="Blog — Reedly"
+  description="Practical guides for B2B field sales reps. Reports, tools, AI, productivity."
+  lang="en"
+  hreflang={{ fr: '/fr/blog', en: '/en/blog' }}
+>
+  <Nav />
+
+  <main class="z1">
+    <section class="blog-hero">
+      <div class="inner">
+        <h1>Blog</h1>
+        <p>Practical guides for field sales teams</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="inner">
+        <div class="blog-grid">
+          {posts.map((post) => (
+            <a class="blog-card reveal" href={`/en/blog/${post.id}`}>
+              <div class="blog-card__date">{formatDate(post.data.date)}</div>
+              <h2>{post.data.title}</h2>
+              <p>{post.data.description}</p>
+              <div class="blog-card__link">Read</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <script src="/main.js" is:inline></script>
+</Layout>

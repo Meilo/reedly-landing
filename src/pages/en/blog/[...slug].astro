@@ -7,49 +7,42 @@ import '@/styles/blog.css';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
-  }));
+  return posts
+    .filter((p) => p.data.lang === 'en')
+    .map((post) => ({
+      params: { slug: post.id },
+      props: { post },
+    }));
 }
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const { title, description, date, lang, mirror, readingTime, keywords, author } = post.data;
+const { title, description, date, mirror, readingTime, keywords, author } = post.data;
 
 const authors = {
   laura: {
     name: 'Laura',
-    role: { fr: 'Co-fondatrice & Directrice Commerciale', en: 'Co-founder & Head of Sales' },
-    bio: {
-      fr: 'Plus de 10 ans d\'expérience dans le développement commercial B2B — commerciale terrain, responsable commerciale, business development. Laura connaît la réalité du terrain et les défis quotidiens des équipes de vente.',
-      en: 'Over 10 years of experience in B2B sales — field sales, sales management, business development. Laura knows the reality of fieldwork and the daily challenges sales teams face.',
-    },
+    role: 'Co-founder & Head of Sales',
+    bio: 'Over 10 years of experience in B2B sales — field sales, sales management, business development. Laura knows the reality of fieldwork and the daily challenges sales teams face.',
     image: '/images/1768255642952.png',
   },
   ludovic: {
     name: 'Ludovic',
-    role: { fr: 'Co-fondateur & CTO', en: 'Co-founder & CTO' },
-    bio: {
-      fr: 'Plus de 10 ans d\'expérience dans la tech — développeur, engineering manager, architecte. Ludovic transforme les problèmes terrain en solutions techniques concrètes.',
-      en: 'Over 10 years in tech — developer, engineering manager, architect. Ludovic turns field problems into concrete technical solutions.',
-    },
+    role: 'Co-founder & CTO',
+    bio: 'Over 10 years in tech — developer, engineering manager, architect. Ludovic turns field problems into concrete technical solutions.',
     image: '/images/1629453571112.jpeg',
   },
 };
 
 const authorData = authors[author];
 
-const dateFormatted = date.toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', {
+const dateFormatted = date.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
 
-const mirrorSlug = mirror;
-const hreflangData = lang === 'fr'
-  ? { fr: `/blog/${post.id}`, en: `/blog/${mirrorSlug}` }
-  : { fr: `/blog/${mirrorSlug}`, en: `/blog/${post.id}` };
+const hreflangData = { fr: `/fr/blog/${mirror}`, en: `/en/blog/${post.id}` };
 
 const blogPostingLD = {
   "@context": "https://schema.org",
@@ -59,8 +52,8 @@ const blogPostingLD = {
   "datePublished": date.toISOString().split('T')[0],
   "author": { "@type": "Person", "name": authorData.name, "url": "https://www.reedly.ai" },
   "publisher": { "@type": "Organization", "name": "Reedly", "logo": { "@type": "ImageObject", "url": "https://www.reedly.ai/favicon.png" } },
-  "mainEntityOfPage": `https://www.reedly.ai/blog/${post.id}`,
-  "inLanguage": lang === 'fr' ? 'fr-FR' : 'en-US',
+  "mainEntityOfPage": `https://www.reedly.ai/en/blog/${post.id}`,
+  "inLanguage": "en-US",
   "keywords": keywords.join(', '),
 };
 ---
@@ -68,7 +61,7 @@ const blogPostingLD = {
 <Layout
   title={`${title} — Reedly Blog`}
   description={description}
-  lang={lang}
+  lang="en"
   ogType="article"
   hreflang={hreflangData}
   articleMeta={{ publishedTime: date.toISOString().split('T')[0], author: 'Reedly' }}
@@ -81,9 +74,9 @@ const blogPostingLD = {
   <main class="z1">
     <article class="blog-article">
       <nav class="blog-breadcrumb">
-        <a href="/" data-i18n="blog.breadcrumb.home">Accueil</a>
+        <a href="/en">Home</a>
         <span>&rsaquo;</span>
-        <a href="/blog" data-i18n="blog.breadcrumb.blog">Blog</a>
+        <a href="/en/blog">Blog</a>
         <span>&rsaquo;</span>
         {title}
       </nav>
@@ -92,10 +85,10 @@ const blogPostingLD = {
         <h1>{title}</h1>
         <div class="blog-article__meta">
           <span>{dateFormatted}</span>
-          <span>{readingTime} <span data-i18n="blog.min_read">min de lecture</span></span>
+          <span>{readingTime} min read</span>
           <span class="blog-article__author-inline">
             <img src={authorData.image} alt={authorData.name} width="20" height="20" />
-            {lang === 'fr' ? 'Écrit par' : 'Written by'} {authorData.name}
+            Written by {authorData.name}
           </span>
         </div>
       </header>
@@ -108,17 +101,17 @@ const blogPostingLD = {
         <img class="blog-author__photo" src={authorData.image} alt={authorData.name} width="64" height="64" />
         <div class="blog-author__info">
           <div class="blog-author__name">{authorData.name}</div>
-          <div class="blog-author__role">{authorData.role[lang]}</div>
-          <p class="blog-author__bio">{authorData.bio[lang]}</p>
+          <div class="blog-author__role">{authorData.role}</div>
+          <p class="blog-author__bio">{authorData.bio}</p>
         </div>
       </div>
 
       <div class="blog-cta">
         <img class="blog-cta__logo" src="/favicon.png" alt="Reedly" width="40" height="40" />
         <div class="blog-cta__body">
-          <p data-i18n="blog.cta.text">Reedly transforme vos RDV terrain en rapports structurés.</p>
+          <p>Reedly turns your field meetings into structured reports.</p>
         </div>
-        <a class="btn btn--primary btn--sm" href="/#final-cta" data-i18n="blog.cta.button">Essayer gratuitement</a>
+        <a class="btn btn--primary btn--sm" href="/en#final-cta">Try for free</a>
       </div>
     </article>
   </main>
