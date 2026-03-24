@@ -1,22 +1,49 @@
 # Reedly
 
-> Reedly est un agent IA qui transforme les rendez-vous terrain des commerciaux B2B en rapports structurés en moins de 2 minutes. L'application mobile (iOS & Android) enregistre la réunion, transcrit l'audio avec +95% de précision, puis génère automatiquement un rapport en 11 sections : résumé exécutif, profil client, besoins exprimés, objections et réponses, produits discutés, concurrents mentionnés, engagements mutuels, prochaines étapes, opportunités, risques, et recommandations stratégiques. L'audio est supprimé après génération (privacy by design).
+> Reedly is an AI agent that transforms B2B field sales meetings into structured reports in under 2 minutes. The mobile app (iOS & Android) records the meeting, transcribes audio with 95%+ accuracy, then automatically generates a report in 11 sections: executive summary, client profile, expressed needs, objections & responses, products discussed, competitors mentioned, mutual commitments, next steps, opportunities, risks, and strategic recommendations. Audio is deleted after generation (privacy by design).
 
-## Pages principales
-- [Accueil](https://www.reedly.ai/): Présentation du produit, fonctionnalités, tarifs et FAQ
-- [Hub Manager](https://hub.reedly.ai): Interface web pour les managers — vue centralisée des rapports d'équipe et synthèses stratégiques
+## Pages
 
-## Tarifs
-- Gratuit : 0€/mois, 20 crédits IA, 15 min d'enregistrement par RDV
-- Pro : 29€/mois, 120 crédits IA, 1h d'enregistrement, synthèses hebdomadaires
-- Business : 69€/mois, 450 crédits IA, enregistrement illimité, synthèses illimitées
-- Équipe : 49€/commercial/mois (5 à 20 commerciaux), Hub manager inclus
-- Entreprise : sur devis, utilisateurs illimités, templates personnalisés, intégration CRM
+### Product (French)
+- [Home](https://www.reedly.ai/): Product overview, social proof, pricing, FAQ
+- [Solution](https://www.reedly.ai/solution): Problem, how it works, features, report preview, Manager Hub, industry use cases
+- [Tarifs](https://www.reedly.ai/tarifs): Plans & pricing, ROI, FAQ
+- [Comparatif](https://www.reedly.ai/comparatif): Reedly vs Gong, Noota, Leexi, Modjo, Fireflies, Otter — comparison table, differentiators, price comparison
 
-## Secteurs couverts
-- Tourisme (vocabulaire TO, allotement, DMC, yield, MICE)
-- Immobilier, pharma, B2B services (bientôt disponibles)
+### Product (English)
+- [Pricing](https://www.reedly.ai/pricing): Plans & pricing, ROI, FAQ
+- [Comparison](https://www.reedly.ai/comparison): Reedly vs competitors
+
+### Hub
+- [Manager Hub](https://hub.reedly.ai): Web dashboard for managers — centralized team reports, strategic syntheses, member statistics
+
+### Legal
+- [Confidentialite](https://www.reedly.ai/confidentialite): Privacy policy (French)
+- [CGU](https://www.reedly.ai/cgu): Terms of service (French)
+- [Privacy Policy](https://www.reedly.ai/privacy-policy): Privacy policy (English)
+- [Terms of Service](https://www.reedly.ai/terms-of-service): Terms of service (English)
+
+## Key Features
+- One-tap recording (background mode, works offline)
+- High-fidelity transcription (95%+ accuracy, multilingual)
+- Structured report in 11 sections, generated in under 2 minutes
+- Built-in industry vocabulary (sector-specific AI expert)
+- Speaker diarization (sales rep vs client distinction)
+- One-click PDF export
+- Territorial syntheses (aggregation over any period)
+- Manager Hub: team reports, syntheses, member statistics
+- Max: AI assistant (mobile + web hub)
+
+## Pricing
+- Team: 69 EUR per user per month (5 to 20 sales reps), Manager Hub included, unlimited reports, 450 AI credits/month, priority support
+- Enterprise: custom pricing (20+ sales reps), unlimited users, multi-team, custom vocabulary, CRM integration, dedicated account manager, team onboarding
+
+## Industries
+- B2B Tourism (tour operators, allotment, DMC, yield, MICE vocabulary)
+- Real Estate (property visits, owner prospecting, mandates)
+- Pharma & Medical (medical visits, prescriber follow-up, conventions)
+- B2B Services & Industry (long sales cycles, technical specs)
 
 ## Contact
-- Email : contact@reedly.ai
-- Réponse sous 24h ouvrées
+- Email: contact@reedly.ai
+- Response within 24 business hours
