@@ -4,6 +4,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isSolution = path === '/solution';
 const isTarifs = path === '/tarifs' || path === '/pricing';
 const isComparatif = path === '/comparatif' || path === '/comparison';
+const isBlog = path.startsWith('/blog');
 ---
 
 <nav class="nav z1">
@@ -17,6 +18,7 @@ const isComparatif = path === '/comparatif' || path === '/comparison';
       <a class={`nav__menu-link${isSolution ? ' active' : ''}`} href="/solution" data-i18n="nav.solution" data-link-fr="/solution" data-link-en="/solution">Solution</a>
       <a class={`nav__menu-link${isTarifs ? ' active' : ''}`} href="/tarifs" data-i18n="nav.pricing" data-link-fr="/tarifs" data-link-en="/pricing">Tarifs</a>
       <a class={`nav__menu-link${isComparatif ? ' active' : ''}`} href="/comparatif" data-i18n="nav.comparatif" data-link-fr="/comparatif" data-link-en="/comparison">Comparatif</a>
+      <a class={`nav__menu-link${isBlog ? ' active' : ''}`} href="/blog" data-i18n="nav.blog" data-link-fr="/blog" data-link-en="/blog">Blog</a>
     </div>
 
     <div class="nav__actions">
@@ -64,6 +66,7 @@ const isComparatif = path === '/comparatif' || path === '/comparison';
     <a class={`nav__mobile-link${isSolution ? ' active' : ''}`} href="/solution" data-i18n="nav.solution" data-link-fr="/solution" data-link-en="/solution">Solution</a>
     <a class={`nav__mobile-link${isTarifs ? ' active' : ''}`} href="/tarifs" data-i18n="nav.pricing" data-link-fr="/tarifs" data-link-en="/pricing">Tarifs</a>
     <a class={`nav__mobile-link${isComparatif ? ' active' : ''}`} href="/comparatif" data-i18n="nav.comparatif" data-link-fr="/comparatif" data-link-en="/comparison">Comparatif</a>
+    <a class={`nav__mobile-link${isBlog ? ' active' : ''}`} href="/blog" data-i18n="nav.blog" data-link-fr="/blog" data-link-en="/blog">Blog</a>
     <div class="nav__mobile-actions">
       <a
         class="btn btn--ghost btn--md"
