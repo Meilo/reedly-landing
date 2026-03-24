@@ -1,0 +1,93 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import Nav from '@/components/Nav.astro';
+import Footer from '@/components/Footer.astro';
+import '@/styles/blog.css';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, date, lang, mirror, readingTime, keywords } = post.data;
+
+const dateFormatted = date.toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const mirrorSlug = mirror;
+const hreflangData = lang === 'fr'
+  ? { fr: `/blog/${post.id}`, en: `/blog/${mirrorSlug}` }
+  : { fr: `/blog/${mirrorSlug}`, en: `/blog/${post.id}` };
+
+const blogPostingLD = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "datePublished": date.toISOString().split('T')[0],
+  "author": { "@type": "Organization", "name": "Reedly", "url": "https://www.reedly.ai" },
+  "publisher": { "@type": "Organization", "name": "Reedly", "logo": { "@type": "ImageObject", "url": "https://www.reedly.ai/favicon.png" } },
+  "mainEntityOfPage": `https://www.reedly.ai/blog/${post.id}`,
+  "inLanguage": lang === 'fr' ? 'fr-FR' : 'en-US',
+  "keywords": keywords.join(', '),
+};
+---
+
+<Layout
+  title={`${title} — Reedly Blog`}
+  description={description}
+  lang={lang}
+  ogType="article"
+  hreflang={hreflangData}
+  articleMeta={{ publishedTime: date.toISOString().split('T')[0], author: 'Reedly' }}
+>
+  <meta slot="head" name="blog-mirror" data-link-fr={hreflangData.fr} data-link-en={hreflangData.en} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(blogPostingLD)} />
+
+  <Nav />
+
+  <main class="z1">
+    <article class="blog-article">
+      <nav class="blog-breadcrumb">
+        <a href="/" data-i18n="blog.breadcrumb.home">Accueil</a>
+        <span>&rsaquo;</span>
+        <a href="/blog" data-i18n="blog.breadcrumb.blog">Blog</a>
+        <span>&rsaquo;</span>
+        {title}
+      </nav>
+
+      <header class="blog-article__header">
+        <h1>{title}</h1>
+        <div class="blog-article__meta">
+          <span>{dateFormatted}</span>
+          <span>{readingTime} <span data-i18n="blog.min_read">min de lecture</span></span>
+        </div>
+      </header>
+
+      <div class="blog-content">
+        <Content />
+      </div>
+
+      <div class="blog-cta">
+        <img class="blog-cta__logo" src="/favicon.png" alt="Reedly" width="40" height="40" />
+        <div class="blog-cta__body">
+          <p data-i18n="blog.cta.text">Reedly transforme vos RDV terrain en rapports structurés.</p>
+        </div>
+        <a class="btn btn--primary btn--sm" href="/#final-cta" data-i18n="blog.cta.button">Essayer gratuitement</a>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+
+  <script src="/main.js" is:inline></script>
+</Layout>
