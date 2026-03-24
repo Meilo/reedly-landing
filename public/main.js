@@ -363,6 +363,17 @@ const T = {
     "tarifs.roi.card2.text": "À 69 €/mois par utilisateur, il suffit d'un rendez-vous supplémentaire converti pour couvrir le coût annuel de Reedly.",
     "tarifs.roi.card3.title": "0 information perdue",
     "tarifs.roi.card3.text": "Chaque engagement, chaque objection, chaque opportunité est capturée et structurée. Le manager voit tout en temps réel depuis le Hub.",
+    "nav.blog": "Blog",
+    "footer.blog": "Blog",
+    "blog.title": "Blog",
+    "blog.subtitle": "Guides pratiques pour les commerciaux terrain",
+    "blog.read": "Lire",
+    "blog.back": "Retour au blog",
+    "blog.cta.text": "Reedly transforme vos RDV terrain en rapports structurés.",
+    "blog.cta.button": "Essayer gratuitement",
+    "blog.breadcrumb.home": "Accueil",
+    "blog.breadcrumb.blog": "Blog",
+    "blog.min_read": "min de lecture",
   },
   en: {
     "nav.solution": "Solution",
@@ -719,6 +730,17 @@ const T = {
     "tarifs.roi.card2.text": "At 69 EUR/month per user, just one extra converted meeting covers the annual cost of Reedly.",
     "tarifs.roi.card3.title": "0 information lost",
     "tarifs.roi.card3.text": "Every commitment, every objection, every opportunity is captured and structured. The manager sees everything in real time from the Hub.",
+    "nav.blog": "Blog",
+    "footer.blog": "Blog",
+    "blog.title": "Blog",
+    "blog.subtitle": "Practical guides for field sales teams",
+    "blog.read": "Read",
+    "blog.back": "Back to blog",
+    "blog.cta.text": "Reedly turns your field meetings into structured reports.",
+    "blog.cta.button": "Try for free",
+    "blog.breadcrumb.home": "Home",
+    "blog.breadcrumb.blog": "Blog",
+    "blog.min_read": "min read",
   },
 };
 
@@ -992,6 +1014,17 @@ function setLang(lang) {
     if (targetPath) {
       window.location.href = targetPath;
       return;
+    }
+    // Blog article mirror fallback
+    var mirrorMeta = document.querySelector('meta[name="blog-mirror"]');
+    if (mirrorMeta) {
+      var mirrorHref = lang === "en"
+        ? mirrorMeta.getAttribute("data-link-en")
+        : mirrorMeta.getAttribute("data-link-fr");
+      if (mirrorHref && mirrorHref !== currentPath) {
+        window.location.href = mirrorHref;
+        return;
+      }
     }
   }
 
