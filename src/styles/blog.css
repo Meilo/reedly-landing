@@ -135,6 +135,21 @@
   color: var(--muted);
   display: flex;
   gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.blog-article__author-inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.blog-article__author-inline img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* Markdown content */

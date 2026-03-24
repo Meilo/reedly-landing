@@ -93,6 +93,10 @@ const blogPostingLD = {
         <div class="blog-article__meta">
           <span>{dateFormatted}</span>
           <span>{readingTime} <span data-i18n="blog.min_read">min de lecture</span></span>
+          <span class="blog-article__author-inline">
+            <img src={authorData.image} alt={authorData.name} width="20" height="20" />
+            {lang === 'fr' ? 'Écrit par' : 'Written by'} {authorData.name}
+          </span>
         </div>
       </header>
 
