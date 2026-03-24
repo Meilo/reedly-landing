@@ -6,6 +6,7 @@ lang: en
 mirror: compte-rendu-reunion-client-automatique
 keywords: ["automatic meeting report", "AI meeting report", "client meeting summary"]
 readingTime: 7
+author: laura
 ---
 
 You just walked out of the client's office. The meeting ran an hour and forty minutes. Three people on their side, two unexpected topics that came up in the last twenty minutes, and a pricing objection you managed to defuse with a case study you pulled from memory. You get in the car, and you know everything is still fresh. But there's another meeting forty-five minutes away on the other side of town. So you tell yourself: "I'll write it up tonight." Tonight becomes tomorrow morning. And by tomorrow morning, half the details are gone.

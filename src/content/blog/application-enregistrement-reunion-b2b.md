@@ -6,6 +6,7 @@ lang: fr
 mirror: b2b-meeting-recording-app
 keywords: ["application enregistrement réunion B2B", "enregistrer réunion client", "RGPD enregistrement réunion"]
 readingTime: 7
+author: laura
 ---
 
 Vous venez de passer une heure avec le directeur des achats d'un groupe industriel. Il a mentionné le nom exact de son fournisseur actuel, le montant de son contrat, la date de renouvellement, et une insatisfaction précise sur les délais de livraison. Vous le savez parce que vous l'avez entendu. Mais dans deux heures, quand vous essaierez de noter tout ça de mémoire, vous hésiterez sur le montant (c'était 340 000 ou 380 000 ?), vous aurez oublié le nom du fournisseur, et la date de renouvellement sera floue.

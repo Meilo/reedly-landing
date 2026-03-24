@@ -6,6 +6,7 @@ lang: fr
 mirror: ai-automated-client-visit-report
 keywords: ["rapport visite client automatisé IA", "intelligence artificielle commercial", "IA compte rendu"]
 readingTime: 6
+author: ludovic
 ---
 
 Vous venez de terminer votre troisième rendez-vous de la journée. Le premier était un premier contact froid, le deuxième un suivi de négociation tendu, le troisième une visite de courtoisie chez un client fidèle. Trois contextes différents, trois tons différents, trois types d'informations à capturer. Et il est 17h15, il reste un CR à faire pour chacun.

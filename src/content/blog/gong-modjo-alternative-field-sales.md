@@ -6,6 +6,7 @@ lang: en
 mirror: alternative-gong-modjo-terrain
 keywords: ["Gong alternative field sales", "Modjo alternative", "field sales tool vs Gong"]
 readingTime: 6
+author: laura
 ---
 
 Your VP of Sales just came back from a conference buzzing with excitement. He saw a Gong demo. Or maybe it was Modjo. He saw dashboards, automatic transcriptions, AI-powered coaching, conversation analytics. He wants to roll it out to the entire team. The problem is that your team sells in the field. Not from behind a screen.

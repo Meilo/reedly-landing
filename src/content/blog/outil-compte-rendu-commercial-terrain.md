@@ -6,6 +6,7 @@ lang: fr
 mirror: field-sales-report-tool
 keywords: ["outil compte rendu commercial terrain", "application commercial terrain", "CRM terrain"]
 readingTime: 6
+author: laura
 ---
 
 Il est 17h30, vous êtes sur le parking d'une zone industrielle, entre deux rendez-vous. Votre téléphone a 38 % de batterie. Vous avez un quart d'heure avant le prochain client. Vous ouvrez l'application qui est censée vous aider à rédiger vos comptes-rendus. Elle met 20 secondes à charger parce que le réseau 4G est instable. L'interface vous demande de remplir 14 champs dans des menus déroulants. Vous refermez l'application et vous vous dites que vous ferez ça plus tard, au bureau.

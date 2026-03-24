@@ -6,6 +6,7 @@ lang: en
 mirror: rapport-visite-client-automatise-ia
 keywords: ["AI client visit report", "automated sales report", "AI field sales"]
 readingTime: 6
+author: ludovic
 ---
 
 You just finished your third meeting of the day. The first was a cold intro, the second a tense negotiation follow-up, the third a courtesy visit with a long-standing account. Three different contexts, three different tones, three different sets of information to capture. It's 5:15 PM, and you still owe a report for each one.

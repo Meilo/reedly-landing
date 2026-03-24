@@ -6,6 +6,7 @@ lang: en
 mirror: application-enregistrement-reunion-b2b
 keywords: ["B2B meeting recording app", "record client meetings", "GDPR meeting recording"]
 readingTime: 7
+author: laura
 ---
 
 You just spent an hour with the VP of Procurement at an industrial group. He mentioned his current vendor by name, the contract value, the renewal date, and a specific frustration with delivery timelines. You know this because you heard it. But in two hours, when you try to write it all down from memory, you'll second-guess the contract value (was it $340K or $380K?), you'll have forgotten the vendor's name, and the renewal date will be fuzzy.

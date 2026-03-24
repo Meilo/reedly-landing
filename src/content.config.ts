@@ -11,6 +11,7 @@ const blog = defineCollection({
     mirror: z.string(),
     keywords: z.array(z.string()),
     readingTime: z.number(),
+    author: z.enum(['laura', 'ludovic']),
   }),
 });
 

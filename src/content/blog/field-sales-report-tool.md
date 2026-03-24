@@ -6,6 +6,7 @@ lang: en
 mirror: outil-compte-rendu-commercial-terrain
 keywords: ["field sales report tool", "mobile sales app", "field CRM tool"]
 readingTime: 6
+author: laura
 ---
 
 It's 5:30 PM. You're sitting in your car in an industrial park parking lot between meetings. Your phone is at 38% battery. You have fifteen minutes before the next client. You open the app that's supposed to help you write your meeting reports. It takes 20 seconds to load because the cell signal is spotty. The interface asks you to fill in 14 fields across a series of dropdown menus. You close the app and tell yourself you'll do it later, back at the office.

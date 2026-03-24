@@ -6,6 +6,7 @@ lang: fr
 mirror: gong-modjo-alternative-field-sales
 keywords: ["alternative Gong terrain", "alternative Modjo terrain", "outil commercial terrain vs Gong"]
 readingTime: 6
+author: laura
 ---
 
 Votre directeur commercial revient d'un salon professionnel enthousiaste. Il a vu une démo de Gong. Ou de Modjo. Il a vu des tableaux de bord, des transcriptions automatiques, du coaching par IA, de l'analyse de conversation. Il veut équiper toute l'équipe. Le problème, c'est que votre équipe est sur le terrain. Pas derrière un écran.

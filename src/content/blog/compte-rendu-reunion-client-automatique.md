@@ -6,6 +6,7 @@ lang: fr
 mirror: automatic-client-meeting-report
 keywords: ["compte rendu réunion client automatique", "rapport réunion IA", "CR automatique commercial"]
 readingTime: 7
+author: laura
 ---
 
 Vous sortez de chez le client. Le rendez-vous a duré une heure quarante. Trois interlocuteurs côté client, deux sujets imprévus qui ont émergé en fin de réunion, une objection sur le prix que vous avez réussi à désamorcer. Vous montez dans la voiture, vous savez que tout est encore frais. Mais il y a un autre rendez-vous dans quarante-cinq minutes de l'autre côté de la ville. Alors vous vous dites : "Je ferai le CR ce soir." Ce soir devient demain matin. Et demain matin, la moitié des détails a disparu.
