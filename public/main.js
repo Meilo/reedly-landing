@@ -1190,28 +1190,13 @@ function closeNotifyModal() {
   notifyForm.reset();
 }
 
-// ── Android QR modal ──
-const androidModal = document.getElementById("android-modal");
-
-function openAndroidModal() {
-  androidModal.classList.add("open");
-  androidModal.setAttribute("aria-hidden", "false");
-}
-
-function closeAndroidModal() {
-  androidModal.classList.remove("open");
-  androidModal.setAttribute("aria-hidden", "true");
-}
-
 document.querySelectorAll(".store-badge").forEach((badge) => {
-  badge.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (badge.dataset.store === "android") {
-      openAndroidModal();
-    } else {
+  if (!badge.href || badge.href.endsWith("#")) {
+    badge.addEventListener("click", (e) => {
+      e.preventDefault();
       openNotifyModal();
-    }
-  });
+    });
+  }
 });
 
 document
@@ -1220,16 +1205,9 @@ document
 document
   .getElementById("notify-modal-close")
   ?.addEventListener("click", closeNotifyModal);
-document
-  .getElementById("android-modal-backdrop")
-  ?.addEventListener("click", closeAndroidModal);
-document
-  .getElementById("android-modal-close")
-  ?.addEventListener("click", closeAndroidModal);
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     if (notifyModal?.classList.contains("open")) closeNotifyModal();
-    if (androidModal?.classList.contains("open")) closeAndroidModal();
   }
 });
 
