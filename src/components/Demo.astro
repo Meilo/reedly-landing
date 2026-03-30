@@ -1,0 +1,85 @@
+---
+// Demo video section — switches video based on lang + theme
+---
+
+<section class="section section--alt" id="demo">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section__eyebrow" data-i18n="demo.eyebrow">Démonstration</div>
+      <h2 data-i18n-html="demo.title">
+        Reedly<br /><em>en 30 secondes.</em>
+      </h2>
+      <p class="section__lead" data-i18n="demo.lead">
+        De l'enregistrement au rapport structuré, découvrez l'expérience complète en quelques secondes.
+      </p>
+    </div>
+    <div class="demo-video-wrap reveal">
+      <video
+        id="demo-video"
+        class="demo-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+      >
+        <source id="demo-video-source" src="/video/ReedlyPromo-FR-Dark.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</section>
+
+<style>
+  .demo-video-wrap {
+    margin-top: 40px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .demo-video {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+<script is:inline>
+(function () {
+  var video = document.getElementById("demo-video");
+  var source = document.getElementById("demo-video-source");
+  if (!video || !source) return;
+
+  function getVideoSrc() {
+    var lang = (document.documentElement.lang || "fr").toLowerCase() === "en" ? "EN" : "FR";
+    var theme = document.documentElement.getAttribute("data-theme") === "light" ? "Light" : "Dark";
+    return "/video/ReedlyPromo-" + lang + "-" + theme + ".mp4";
+  }
+
+  function updateVideo() {
+    var newSrc = getVideoSrc();
+    if (source.getAttribute("src") === newSrc) return;
+    var currentTime = video.currentTime;
+    source.setAttribute("src", newSrc);
+    video.load();
+    video.currentTime = currentTime;
+    video.play();
+  }
+
+  // Set initial src
+  updateVideo();
+
+  // Watch for theme changes
+  var observer = new MutationObserver(function (mutations) {
+    mutations.forEach(function (m) {
+      if (m.attributeName === "data-theme" || m.attributeName === "lang") {
+        updateVideo();
+      }
+    });
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "lang"] });
+})();
+</script>

@@ -16,7 +16,7 @@ const T = {
     "hero.sub":
       "Reedly transforme chaque rendez-vous terrain en rapport structuré en moins de 2 minutes — résumé, besoins, objections, engagements, prochaines étapes. Rien à taper. Rien à oublier.",
     "hero.cta": "Télécharger l'app",
-    "hero.cta_manager": "Créer un Hub →",
+    "hero.cta_manager": "Commencer →",
     "hero.trust1": "Plan gratuit disponible",
     "hero.trust2": "Essai 7 jours sur les plans payants",
     "hero.trust3": "Sans engagement",
@@ -83,6 +83,9 @@ const T = {
     "how.step3.text":
       "Lisez le rapport en 30 secondes, exportez-le en PDF, ou laissez Reedly agréger vos RDVs en synthèses stratégiques pour piloter votre territoire.",
     "how.step3.tag": "Export PDF · Synthèses · Hub",
+    "demo.eyebrow": "Démonstration",
+    "demo.title": "Reedly<br /><em>en 30 secondes.</em>",
+    "demo.lead": "De l'enregistrement au rapport structuré, découvrez l'expérience complète en quelques secondes.",
     "hub.eyebrow": "Pour les managers",
     "hub.title": "Pilotez l'équipe depuis<br /><em>le Hub.</em>",
     "hub.lead":
@@ -222,7 +225,7 @@ const T = {
     "cta.sub":
       "Téléchargez Reedly et générez votre premier rapport en moins de 5 minutes. Essai 7 jours gratuit.",
     "cta.store_sub": "Disponible sur",
-    "cta.hub": "Créer un Hub →",
+    "cta.hub": "Commencer →",
     "notify.title": "Bientôt disponible",
     "notify.text":
       "L'application n'est pas encore sur les stores. Laissez votre email pour être prévenu(e) dès sa sortie.",
@@ -392,7 +395,7 @@ const T = {
     "hero.sub":
       "Reedly transforms every field meeting into a structured report in less than 2 minutes — summary, needs, objections, commitments, next steps. Nothing to type. Nothing to forget.",
     "hero.cta": "Download the app",
-    "hero.cta_manager": "Create a Hub →",
+    "hero.cta_manager": "Get Started →",
     "hero.trust1": "Free plan available",
     "hero.trust2": "7-day trial on paid plans",
     "hero.trust3": "No commitment",
@@ -458,6 +461,9 @@ const T = {
     "how.step3.text":
       "Read the report in 30 seconds, export it as PDF, or let Reedly aggregate your meetings into strategic syntheses to manage your territory.",
     "how.step3.tag": "PDF Export · Syntheses · Hub",
+    "demo.eyebrow": "Demo",
+    "demo.title": "See Reedly<br /><em>in action.</em>",
+    "demo.lead": "From recording to structured report, discover the full experience in seconds.",
     "hub.eyebrow": "For managers",
     "hub.title": "Manage your team from<br /><em>the Hub.</em>",
     "hub.lead":
@@ -591,7 +597,7 @@ const T = {
     "cta.sub":
       "Download Reedly and generate your first report in less than 5 minutes. 7-day free trial.",
     "cta.store_sub": "Available on",
-    "cta.hub": "Create a Hub →",
+    "cta.hub": "Get Started →",
     "notify.title": "Coming soon",
     "notify.text":
       "The app isn't on the stores yet. Leave your email to be notified as soon as it launches.",
