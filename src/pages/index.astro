@@ -1,2 +1,13 @@
 ---
 ---
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0;url=/en" />
+    <script is:inline>
+      var lang = (navigator.language || "").slice(0, 2);
+      window.location.replace(lang === "fr" ? "/fr" : "/en");
+    </script>
+  </head>
+</html>

@@ -4,6 +4,61 @@
       "source": "/",
       "destination": "/en",
       "permanent": false
+    },
+    {
+      "source": "/solution",
+      "destination": "/en/solution",
+      "permanent": true
+    },
+    {
+      "source": "/tarifs",
+      "destination": "/en/pricing",
+      "permanent": true
+    },
+    {
+      "source": "/comparatif",
+      "destination": "/en/comparison",
+      "permanent": true
+    },
+    {
+      "source": "/pricing",
+      "destination": "/en/pricing",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/en/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "/en/blog/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/confidentialite",
+      "destination": "/en/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/cgu",
+      "destination": "/en/terms-of-service",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/en/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-service",
+      "destination": "/en/terms-of-service",
+      "permanent": true
+    },
+    {
+      "source": "/comparison",
+      "destination": "/en/comparison",
+      "permanent": true
     }
   ]
 }
