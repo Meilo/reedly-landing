@@ -1881,7 +1881,7 @@ body::after {
   margin: 0 auto;
   padding: 0 32px;
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr auto;
   gap: 40px;
 }
 
@@ -1922,6 +1922,15 @@ body::after {
   font-weight: 700;
   color: var(--text);
   margin-bottom: 4px;
+}
+
+.footer__col--ph {
+  display: flex;
+  align-items: flex-start;
+}
+
+.footer__ph-badge img {
+  display: block;
 }
 
 .footer__col a {

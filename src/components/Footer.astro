@@ -28,5 +28,22 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
       <a href={lang === 'fr' ? '/fr/cgu' : '/en/terms-of-service'} data-i18n="footer.terms" data-link-fr="/fr/cgu" data-link-en="/en/terms-of-service">CGU</a>
       <a href={`/${lang}#contact`} data-i18n="footer.contact">Contact</a>
     </div>
+
+    <div class="footer__col footer__col--ph">
+      <a
+        href="https://www.producthunt.com/products/reedly?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-reedly"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="footer__ph-badge"
+      >
+        <img
+          src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1111378&theme=neutral&t=1774876402712"
+          alt="Reedly - Turn field meetings into structured AI reports — in seconds. | Product Hunt"
+          width="250"
+          height="54"
+          loading="lazy"
+        />
+      </a>
+    </div>
   </div>
 </footer>
