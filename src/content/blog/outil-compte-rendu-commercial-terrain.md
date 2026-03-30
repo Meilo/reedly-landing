@@ -39,7 +39,7 @@ Voici les critères concrets qui séparent un outil adapté au terrain d'un outi
 
 ### 1. Zéro saisie manuelle obligatoire
 
-C'est le critère numéro un. Si l'outil exige que vous tapiez du texte sur un clavier de smartphone après chaque rendez-vous, il est inadapté. Un outil terrain doit pouvoir générer le compte-rendu à partir d'un enregistrement audio ou d'un dictée vocale. Vous parlez, l'outil rédige. Pas l'inverse.
+C'est le critère numéro un. Si l'outil exige que vous tapiez du texte sur un clavier de smartphone après chaque rendez-vous, il est inadapté. Un outil terrain doit pouvoir générer le compte-rendu à partir d'un [enregistrement vocal](/fr/blog/enregistrement-vocal-commercial-terrain) ou d'une dictée vocale. Vous parlez, l'outil rédige. Pas l'inverse.
 
 ### 2. Fonctionnement en mobilité totale
 

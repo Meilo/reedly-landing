@@ -106,6 +106,14 @@
     <lastmod>2026-03-24</lastmod>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://www.reedly.ai/fr/blog/enregistrement-vocal-commercial-terrain</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/blog/enregistrement-vocal-commercial-terrain" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog/voice-recording-field-sales" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/blog/voice-recording-field-sales" />
+    <lastmod>2026-03-30</lastmod>
+    <priority>0.7</priority>
+  </url>
 
   <!-- EN pages -->
   <url>
@@ -210,6 +218,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog/time-wasted-field-sales-admin-tasks" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/blog/time-wasted-field-sales-admin-tasks" />
     <lastmod>2026-03-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.reedly.ai/en/blog/voice-recording-field-sales</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/blog/enregistrement-vocal-commercial-terrain" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/blog/voice-recording-field-sales" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/blog/voice-recording-field-sales" />
+    <lastmod>2026-03-30</lastmod>
     <priority>0.7</priority>
   </url>
 </urlset>

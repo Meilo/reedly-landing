@@ -5,10 +5,14 @@ import Nav from '@/components/Nav.astro';
 import Footer from '@/components/Footer.astro';
 import '@/styles/blog.css';
 
+const POSTS_PER_PAGE = 6;
+
 const allPosts = await getCollection('blog');
 const posts = allPosts
   .filter((p) => p.data.lang === 'fr')
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
 
 function formatDate(date: Date) {
   return date.toLocaleDateString('fr-FR', {
@@ -36,9 +40,13 @@ function formatDate(date: Date) {
 
     <section class="section">
       <div class="inner">
-        <div class="blog-grid">
-          {posts.map((post) => (
-            <a class="blog-card reveal" href={`/fr/blog/${post.id}`}>
+        <div class="blog-grid" id="blog-grid">
+          {posts.map((post, i) => (
+            <a
+              class={`blog-card reveal ${i >= POSTS_PER_PAGE ? 'blog-card--hidden' : ''}`}
+              href={`/fr/blog/${post.id}`}
+              data-page={Math.floor(i / POSTS_PER_PAGE) + 1}
+            >
               <div class="blog-card__date">{formatDate(post.data.date)}</div>
               <h2>{post.data.title}</h2>
               <p>{post.data.description}</p>
@@ -46,6 +54,31 @@ function formatDate(date: Date) {
             </a>
           ))}
         </div>
+
+        {totalPages > 1 && (
+          <nav class="blog-pagination" id="blog-pagination" aria-label="Pagination du blog" data-total={totalPages}>
+            <button class="blog-pagination__btn" id="pagination-prev" disabled aria-label="Page précédente">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              <span>Précédent</span>
+            </button>
+            <div class="blog-pagination__pages" id="pagination-pages">
+              {Array.from({ length: totalPages }, (_, i) => (
+                <button
+                  class={`blog-pagination__page ${i === 0 ? 'blog-pagination__page--active' : ''}`}
+                  data-page={i + 1}
+                  aria-label={`Page ${i + 1}`}
+                  aria-current={i === 0 ? 'page' : undefined}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
+            <button class="blog-pagination__btn" id="pagination-next" aria-label="Page suivante">
+              <span>Suivant</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </nav>
+        )}
       </div>
     </section>
   </main>
@@ -53,4 +86,48 @@ function formatDate(date: Date) {
   <Footer />
 
   <script src="/main.js" is:inline></script>
+
+  {totalPages > 1 && (
+    <script is:inline>
+      (function () {
+        var current = 1;
+        var total = parseInt(document.getElementById('blog-pagination').dataset.total);
+        var cards = document.querySelectorAll('#blog-grid .blog-card');
+        var pages = document.querySelectorAll('.blog-pagination__page');
+        var prev = document.getElementById('pagination-prev');
+        var next = document.getElementById('pagination-next');
+
+        function go(page) {
+          current = page;
+          cards.forEach(function (c) {
+            var p = parseInt(c.dataset.page);
+            if (p === current) {
+              c.classList.remove('blog-card--hidden');
+            } else {
+              c.classList.add('blog-card--hidden');
+            }
+          });
+          pages.forEach(function (btn) {
+            var p = parseInt(btn.dataset.page);
+            if (p === current) {
+              btn.classList.add('blog-pagination__page--active');
+              btn.setAttribute('aria-current', 'page');
+            } else {
+              btn.classList.remove('blog-pagination__page--active');
+              btn.removeAttribute('aria-current');
+            }
+          });
+          prev.disabled = current === 1;
+          next.disabled = current === total;
+          document.querySelector('.blog-hero').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        pages.forEach(function (btn) {
+          btn.addEventListener('click', function () { go(parseInt(btn.dataset.page)); });
+        });
+        prev.addEventListener('click', function () { if (current > 1) go(current - 1); });
+        next.addEventListener('click', function () { if (current < total) go(current + 1); });
+      })();
+    </script>
+  )}
 </Layout>

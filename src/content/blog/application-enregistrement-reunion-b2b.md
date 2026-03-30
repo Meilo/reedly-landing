@@ -95,7 +95,7 @@ Cela arrive dans environ 5 % des cas. Respectez le refus sans insistance. Prenez
 
 ## Bonnes pratiques après l'enregistrement
 
-L'enregistrement n'est qu'un moyen. Ce qui compte, c'est ce que vous en faites.
+L'enregistrement n'est qu'un moyen. Ce qui compte, c'est ce que vous en faites. Pour un guide complet sur l'utilisation de l'[enregistrement vocal pour le commercial terrain](/fr/blog/enregistrement-vocal-commercial-terrain), consultez notre article dédié.
 
 ### Générer le CR rapidement
 

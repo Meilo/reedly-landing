@@ -89,7 +89,7 @@ Préparez le contexte : qui sont les interlocuteurs attendus, quel est l'histori
 
 ### Pendant le rendez-vous
 
-C'est le moment clé. L'enregistrement audio de la réunion (avec le consentement du client, évidemment) est ce qui permet l'automatisation. Plus besoin de prendre des notes frénétiquement. Vous êtes 100 % présent dans l'échange. Pour approfondir le cadre légal de l'enregistrement, consultez le guide sur [l'enregistrement des réunions B2B](/blog/application-enregistrement-reunion-b2b).
+C'est le moment clé. L'[enregistrement vocal](/fr/blog/enregistrement-vocal-commercial-terrain) de la réunion (avec le consentement du client, évidemment) est ce qui permet l'automatisation. Plus besoin de prendre des notes frénétiquement. Vous êtes 100 % présent dans l'échange. Pour approfondir le cadre légal de l'enregistrement, consultez le guide sur [l'enregistrement des réunions B2B](/fr/blog/application-enregistrement-reunion-b2b).
 
 ### Après le rendez-vous
 

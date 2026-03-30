@@ -51,9 +51,9 @@ const T = {
     "features.title": "Tout ce qu'il faut pour<br /><em>ne rien oublier.</em>",
     "features.lead":
       "De l'enregistrement au rapport partageable, Reedly automatise chaque étape du compte-rendu terrain. Votre seule tâche : appuyer sur Enregistrer.",
-    "features.card1.title": "Enregistrement en 1 tap",
+    "features.card1.title": "Enregistrement vocal en 1 tap",
     "features.card1.text":
-      "Lancez l'enregistrement avant d'entrer chez le client. L'app capture l'échange en arrière-plan — batterie optimisée, aucune action requise pendant le rendez-vous.",
+      "Lancez l'enregistrement vocal avant d'entrer chez le client. L'app capture l'échange en arrière-plan — batterie optimisée, aucune action requise pendant le rendez-vous.",
     "features.card2.title": "Transcription fidèle",
     "features.card2.text":
       "Reedly retranscrit chaque échange avec +95% de précision — même en environnement bruyant, même avec un accent, peut importe la langue.",
@@ -214,6 +214,9 @@ const T = {
     "faq.q5": "Qu'est-ce que le Hub et qui en a besoin ?",
     "faq.a5":
       "Le Hub est une interface web réservée aux managers et directeurs commerciaux. Il affiche tous les rapports de l'équipe affiliée, les synthèses stratégiques et les statistiques membres. Les commerciaux utilisent uniquement l'app mobile — le Hub est le point de pilotage du responsable. Il est inclus dans le plan Équipe.",
+    "faq.q6": "L'enregistrement vocal fonctionne-t-il dans un environnement bruyant ?",
+    "faq.a6":
+      "Oui. Reedly utilise des modèles de transcription entraînés sur des conditions audio réelles — restaurant d'affaires, salle de réunion avec écho, plusieurs voix simultanées. L'enregistrement vocal est conçu pour le terrain, pas pour un environnement de bureau silencieux.",
     "cta.title":
       "Chaque rendez-vous terrain<br /><em>mérite un vrai rapport.</em>",
     "cta.sub":
@@ -423,9 +426,9 @@ const T = {
     "features.title": "Everything you need<br /><em>to forget nothing.</em>",
     "features.lead":
       "From recording to shareable report, Reedly automates every step of field reporting. Your only task: press Record.",
-    "features.card1.title": "1-tap recording",
+    "features.card1.title": "1-tap voice recording",
     "features.card1.text":
-      "Start recording before you enter the client's premises. The app captures the exchange in the background — battery optimized, no action required during the meeting.",
+      "Start voice recording before you enter the client's premises. The app captures the exchange in the background — battery optimized, no action required during the meeting.",
     "features.card2.title": "Faithful transcription",
     "features.card2.text":
       "Reedly transcribes every exchange with +95% accuracy — even in noisy environments, even with an accent, regardless of language.",
@@ -581,6 +584,9 @@ const T = {
     "faq.q5": "What is the Hub and who needs it?",
     "faq.a5":
       "The Hub is a web interface reserved for managers and sales directors. It displays all reports from affiliated team members, strategic syntheses, and member statistics. Sales reps use only the mobile app — the Hub is the manager's control center. It's included in the Team plan.",
+    "faq.q6": "Does voice recording work in noisy environments?",
+    "faq.a6":
+      "Yes. Reedly uses transcription models trained on real-world audio conditions — business restaurants, meeting rooms with echo, multiple simultaneous voices. Voice recording is designed for the field, not for a quiet office environment.",
     "cta.title": "Every field meeting<br /><em>deserves a real report.</em>",
     "cta.sub":
       "Download Reedly and generate your first report in less than 5 minutes. 7-day free trial.",
