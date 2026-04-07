@@ -21,7 +21,8 @@ const {
   articleMeta,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, 'https://www.reedly.ai');
+const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const canonicalURL = new URL(pathname, 'https://www.reedly.ai');
 const ogLocale = lang === 'fr' ? 'fr_FR' : 'en_US';
 const ogLocaleAlt = lang === 'fr' ? 'en_US' : 'fr_FR';
 ---
