@@ -6,6 +6,7 @@ const isSolution = path.endsWith('/solution');
 const isTarifs = path.endsWith('/tarifs') || path.endsWith('/pricing');
 const isComparatif = path.endsWith('/comparatif') || path.endsWith('/comparison');
 const isBlog = path.includes('/blog');
+const trialHref = `/${lang}#trial`;
 ---
 
 <nav class="nav z1">
@@ -41,13 +42,15 @@ const isBlog = path.includes('/blog');
         <button class={`lang-btn${lang === 'fr' ? ' active' : ''}`} data-lang="fr" type="button">FR</button>
       </div>
       <a
-        class="btn btn--ghost btn--sm"
-        href="https://hub.reedly.ai"
-        data-i18n="nav.login"
-        data-track-id="nav_login"
-        data-track-type="login"
+        class="btn btn--primary btn--sm"
+        href={trialHref}
+        data-link-fr="/fr#trial"
+        data-link-en="/en#trial"
+        data-i18n="cta.try_free"
+        data-track-id="nav_try_free"
+        data-track-type="trial"
         data-track-section="nav"
-      >Se connecter</a>
+      >Essayer gratuitement</a>
     </div>
 
     <button
@@ -70,13 +73,15 @@ const isBlog = path.includes('/blog');
     <a class={`nav__mobile-link${isBlog ? ' active' : ''}`} href={`/${lang}/blog`} data-i18n="nav.blog" data-link-fr="/fr/blog" data-link-en="/en/blog">Blog</a>
     <div class="nav__mobile-actions">
       <a
-        class="btn btn--ghost btn--md"
-        href="https://hub.reedly.ai"
-        data-i18n="nav.login"
-        data-track-id="nav_login"
-        data-track-type="login"
-        data-track-section="nav"
-      >Se connecter</a>
+        class="btn btn--primary btn--md"
+        href={trialHref}
+        data-link-fr="/fr#trial"
+        data-link-en="/en#trial"
+        data-i18n="cta.try_free"
+        data-track-id="nav_try_free_mobile"
+        data-track-type="trial"
+        data-track-section="nav_mobile"
+      >Essayer gratuitement</a>
     </div>
   </div>
 </nav>

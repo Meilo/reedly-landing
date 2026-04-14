@@ -85,7 +85,30 @@ const T = {
     "how.step3.tag": "Export PDF · Synthèses · Hub",
     "demo.eyebrow": "Démonstration",
     "demo.title": "Reedly<br /><em>en 30 secondes.</em>",
-    "demo.lead": "De l'enregistrement au rapport structuré, découvrez l'expérience complète en quelques secondes.",
+    "demo.lead":
+      "De l'enregistrement au rapport structuré, découvrez l'expérience complète en quelques secondes.",
+    "integrations.eyebrow": "Écosystème",
+    "integrations.title": "Branchez Reedly à<br /><em>votre stack.</em>",
+    "integrations.lead":
+      "Vos rapports atterrissent là où votre équipe travaille déjà — canaux d'équipe, fiches CRM, alertes managers. Aucun copier-coller.",
+    "integrations.cat.crm": "CRM",
+    "integrations.cat.msg": "Messagerie & communauté",
+    "integrations.tag.crm": "CRM",
+    "integrations.tag.msg": "Messagerie",
+    "integrations.core.meta": "Rapports terrain",
+    "integrations.hubspot.desc":
+      "Push automatique du rapport sur la fiche contact & deal.",
+    "integrations.salesforce.desc":
+      "Sync des engagements, prochaines étapes et opportunités.",
+    "integrations.slack.desc":
+      "Notifie le canal d'équipe à chaque rapport généré.",
+    "integrations.discord.desc":
+      "Diffusion des synthèses dans vos canaux Discord.",
+    "integrations.tag.custom": "Sur mesure",
+    "integrations.custom.name": "Votre outil",
+    "integrations.custom.desc":
+      "CRM maison, dashboard interne, API privée — branchez ce que vous voulez via notre API.",
+    "integrations.custom.cta": "Discutons-en →",
     "hub.eyebrow": "Pour les managers",
     "hub.title": "Pilotez l'équipe depuis<br /><em>le Hub.</em>",
     "hub.lead":
@@ -126,7 +149,8 @@ const T = {
     "proof.stat4":
       "Données audio conservées — l'audio est supprimé dès la génération terminée",
     "pricing.eyebrow": "Tarifs",
-    "pricing.title": "Équipez votre force de vente<br /><em>avec l'IA terrain.</em>",
+    "pricing.title":
+      "Équipez votre force de vente<br /><em>avec l'IA terrain.</em>",
     "pricing.lead":
       "Rapports structurés illimités, vocabulaire métier, Hub manager. Déployez Reedly en moins de 10 minutes.",
     "pricing.toggle.mobile": "Commerciaux solo",
@@ -174,7 +198,7 @@ const T = {
     "pricing.mobile.note":
       "Plans disponibles en abonnement mensuel. Les actions consomment des Crédits IA. Annulation à tout moment.",
     "pricing.managers.note":
-      "Aucun essai gratuit sur les plans managers. Déployez Reedly pour votre équipe en moins de 10 minutes.",
+      "Essai gratuit disponible après un échange rapide. Déployez Reedly pour votre équipe en moins de 10 minutes.",
     "pricing.team.badge": "Recommandé",
     "pricing.team.plan": "Équipe",
     "pricing.team.per": "par utilisateur par mois",
@@ -188,13 +212,30 @@ const T = {
     "pricing.team.feat6": "Support email sous 24h",
     "pricing.team.feat7":
       "Max — assistant IA pour répondre à toutes vos questions",
-    "pricing.team.cta": "Commencer →",
+    "pricing.team.groupRep": "Pour chaque commercial",
+    "pricing.team.featApp": "Application mobile iOS & Android",
+    "pricing.team.featReports": "Rapports structurés illimités",
+    "pricing.team.featRecording": "Jusqu'à 2h d'enregistrement par rendez-vous",
+    "pricing.team.featSyntheses": "Synthèses stratégiques",
+    "pricing.team.featDiarization": "Distinction vocale",
+    "pricing.team.groupManager": "Pour le manager",
+    "pricing.team.featHub": "Rapports, synthèses et stats de toute l'équipe",
+    "pricing.team.featAnalysis": "Analyse IA des rapports de toute l'équipe",
+    "pricing.team.groupShared": "Pour tous",
+    "pricing.team.featCreditsShared": "450 crédits IA / mois par utilisateur",
+    "pricing.team.featMaxAll": "Max — assistant IA (mobile + hub web)",
+    "pricing.team.featSupport": "Support prioritaire sous 24h",
+    "pricing.team.cta": "Essayer gratuitement →",
     "pricing.enterprise.plan": "Entreprise",
     "pricing.enterprise.price": "Sur devis",
     "pricing.enterprise.seats": "Plus de 20 commerciaux",
     "pricing.enterprise.feat1": "Tout le plan Équipe inclus",
     "pricing.enterprise.feat2": "Utilisateurs illimités",
-    "pricing.enterprise.feat3": "Vocabulaire et process de votre entreprise intégrés à l'IA",
+    "pricing.enterprise.featMultiTeam": "Multi-équipes / multi-secteurs",
+    "pricing.enterprise.featCredits": "Volume de crédits IA sur mesure",
+    "pricing.enterprise.featAccountManager": "Account manager dédié",
+    "pricing.enterprise.feat3":
+      "Vocabulaire et process de votre entreprise intégrés à l'IA",
     "pricing.enterprise.feat4": "Intégration CRM sur demande",
     "pricing.enterprise.feat5": "Account manager dédié",
     "pricing.enterprise.feat6": "Formation et onboarding équipe",
@@ -217,7 +258,8 @@ const T = {
     "faq.q5": "Qu'est-ce que le Hub et qui en a besoin ?",
     "faq.a5":
       "Le Hub est une interface web réservée aux managers et directeurs commerciaux. Il affiche tous les rapports de l'équipe affiliée, les synthèses stratégiques et les statistiques membres. Les commerciaux utilisent uniquement l'app mobile — le Hub est le point de pilotage du responsable. Il est inclus dans le plan Équipe.",
-    "faq.q6": "L'enregistrement vocal fonctionne-t-il dans un environnement bruyant ?",
+    "faq.q6":
+      "L'enregistrement vocal fonctionne-t-il dans un environnement bruyant ?",
     "faq.a6":
       "Oui. Reedly utilise des modèles de transcription entraînés sur des conditions audio réelles — restaurant d'affaires, salle de réunion avec écho, plusieurs voix simultanées. L'enregistrement vocal est conçu pour le terrain, pas pour un environnement de bureau silencieux.",
     "cta.title":
@@ -271,23 +313,26 @@ const T = {
     "report.action.share": "Partager",
     "report.privacy": "Audio supprimé après génération — privacy by design",
     "contact.eyebrow": "Contact",
-    "contact.title": "Une question ?<br /><em>On vous répond.</em>",
+    "contact.title": "Discutons de votre projet.<br /><em>On vous répond sous 24h.</em>",
     "contact.lead":
-      "Démonstration, partenariat, retour terrain ou simple curiosité — écrivez-nous, on répond sous 24h.",
-    "contact.f1.title": "Demande de démo",
+      "Essai, démonstration, déploiement équipe ou intégration CRM — dites-nous votre besoin, on revient vers vous rapidement.",
+    "contact.f1.title": "Essai gratuit",
     "contact.f1.text":
-      "Vous voulez voir Reedly en action ? On vous montre une session live de 20 min.",
-    "contact.f2.title": "Déploiement équipe",
+      "Testez Reedly sur vos vrais rendez-vous terrain. On active votre accès après un rapide échange.",
+    "contact.f2.title": "Démonstration live",
     "contact.f2.text":
-      "Vous pilotez une équipe de commerciaux ? On vous accompagne pour l'onboarding.",
-    "contact.f3.title": "Partenariat & intégration",
+      "20 minutes pour voir Reedly en action et répondre à vos questions sur votre secteur.",
+    "contact.f3.title": "Déploiement équipe & Hub",
     "contact.f3.text":
-      "CRM, outil commercial, API — discutons d'une intégration sur mesure.",
-    "contact.f4.title": "contact@reedly.ai",
-    "contact.f4.text": "Réponse garantie sous 24h ouvrées.",
+      "Onboarding, formation et configuration du Hub manager — calibré pour votre équipe terrain.",
+    "contact.f4.title": "Intégration CRM",
+    "contact.f4.text":
+      "HubSpot, Salesforce, Slack, Discord — Reedly se connecte à votre stack existante.",
     "contact.label.firstname": "Prénom",
     "contact.label.lastname": "Nom",
     "contact.label.email": "Email professionnel",
+    "contact.label.phone": "Téléphone",
+    "contact.ph.phone": "+33 6 12 34 56 78",
     "contact.label.company": "Société",
     "contact.label.subject": "Sujet",
     "contact.label.message": "Message",
@@ -313,11 +358,14 @@ const T = {
     "hub.dash.nav": "Tableau de bord",
     // ── Comparatif page ──
     "comparatif.hero.eyebrow": "Comparatif",
-    "comparatif.hero.title": "Pourquoi les commerciaux terrain<br><em>choisissent Reedly.</em>",
-    "comparatif.hero.lead": "Les autres transcrivent vos réunions. Reedly les comprend — rapports structurés en 11 sections, vocabulaire métier, synthèses stratégiques. Le tout à un prix qui a du sens.",
+    "comparatif.hero.title":
+      "Pourquoi les commerciaux terrain<br><em>choisissent Reedly.</em>",
+    "comparatif.hero.lead":
+      "Les autres transcrivent vos réunions. Reedly les comprend — rapports structurés en 11 sections, vocabulaire métier, synthèses stratégiques. Le tout à un prix qui a du sens.",
     "comparatif.table.eyebrow": "Comparaison",
     "comparatif.table.title": "Reedly face aux <em>alternatives.</em>",
-    "comparatif.table.lead": "Transcription, rapports, terrain, management — voici comment Reedly se positionne face aux principaux outils du marché.",
+    "comparatif.table.lead":
+      "Transcription, rapports, terrain, management — voici comment Reedly se positionne face aux principaux outils du marché.",
     "comparatif.table.row1": "Conçu pour le terrain",
     "comparatif.table.row2": "Rapports structurés (11 sections)",
     "comparatif.table.row3": "Distinction vocale",
@@ -327,57 +375,92 @@ const T = {
     "comparatif.table.row7": "Prix / utilisateur / mois",
     "comparatif.why.eyebrow": "Pourquoi Reedly",
     "comparatif.why.title": "Ce que les autres <em>ne font pas.</em>",
-    "comparatif.why.lead": "Reedly n'est pas un outil de transcription reconverti. C'est un agent IA conçu dès le départ pour les commerciaux de terrain.",
+    "comparatif.why.lead":
+      "Reedly n'est pas un outil de transcription reconverti. C'est un agent IA conçu dès le départ pour les commerciaux de terrain.",
     "comparatif.why.card1.title": "Conçu pour le terrain",
-    "comparatif.why.card1.text": "Pas une app de visio reconvertie. Enregistrement via le micro du téléphone, mode hors-ligne, rapport généré automatiquement dès le retour en zone réseau.",
+    "comparatif.why.card1.text":
+      "Pas une app de visio reconvertie. Enregistrement via le micro du téléphone, mode hors-ligne, rapport généré automatiquement dès le retour en zone réseau.",
     "comparatif.why.card2.title": "Rapports experts, pas des notes",
-    "comparatif.why.card2.text": "11 sections structurées par secteur : résumé exécutif, besoins client, objections, engagements, prochaines étapes. L'IA raisonne comme un consultant métier.",
+    "comparatif.why.card2.text":
+      "11 sections structurées par secteur : résumé exécutif, besoins client, objections, engagements, prochaines étapes. L'IA raisonne comme un consultant métier.",
     "comparatif.why.card3.title": "Qui dit quoi",
-    "comparatif.why.card3.text": "La diarisation identifie automatiquement commercial vs client. Les besoins exprimés par le client sont distingués des arguments du commercial dans le rapport.",
+    "comparatif.why.card3.text":
+      "La diarisation identifie automatiquement commercial vs client. Les besoins exprimés par le client sont distingués des arguments du commercial dans le rapport.",
     "comparatif.why.card4.title": "Synthèses stratégiques",
-    "comparatif.why.card4.text": "Agrégez une semaine ou un trimestre de rendez-vous en tendances, risques et opportunités priorisées. De l'intelligence commerciale, pas juste de la documentation.",
+    "comparatif.why.card4.text":
+      "Agrégez une semaine ou un trimestre de rendez-vous en tendances, risques et opportunités priorisées. De l'intelligence commerciale, pas juste de la documentation.",
     "comparatif.price.eyebrow": "Tarifs",
     "comparatif.price.title": "Plus complet. <em>Moins cher.</em>",
     "comparatif.price.lead": "Prix par utilisateur par mois, plans équipe.",
-    "comparatif.price.note": "Fireflies et Otter sont moins chers mais ne font que de la transcription — pas de rapports structurés, pas de terrain, pas de synthèses.",
+    "comparatif.price.note":
+      "Fireflies et Otter sont moins chers mais ne font que de la transcription — pas de rapports structurés, pas de terrain, pas de synthèses.",
     "footer.comparatif": "Comparatif",
     "solution.hero.eyebrow": "Solution",
-    "solution.hero.title": "Vos commerciaux vendent.<br /><em>Reedly documente.</em>",
-    "solution.hero.lead": "Reedly est l'agent IA qui transforme chaque rendez-vous terrain en rapport structuré en 11 sections — sans rien taper, sans rien oublier. De l'enregistrement au pilotage d'équipe, découvrez comment ça fonctionne.",
+    "solution.hero.title":
+      "Vos commerciaux vendent.<br /><em>Reedly documente.</em>",
+    "solution.hero.lead":
+      "Reedly est l'agent IA qui transforme chaque rendez-vous terrain en rapport structuré en 11 sections — sans rien taper, sans rien oublier. De l'enregistrement au pilotage d'équipe, découvrez comment ça fonctionne.",
     "solution.usecases.eyebrow": "Cas d'usage",
     "solution.usecases.title": "Un outil. <em>Tous les secteurs terrain.</em>",
-    "solution.usecases.lead": "Reedly s'adapte au vocabulaire et aux enjeux de votre industrie. L'IA ne fait pas du générique — elle raisonne avec les termes de votre métier.",
+    "solution.usecases.lead":
+      "Reedly s'adapte au vocabulaire et aux enjeux de votre industrie. L'IA ne fait pas du générique — elle raisonne avec les termes de votre métier.",
     "solution.usecases.card1.title": "Tourisme B2B",
-    "solution.usecases.card1.text": "TO, allotement, DMC, yield, MICE — Reedly maîtrise le vocabulaire du tourisme professionnel. Vos rapports de visite agence parlent la langue du secteur.",
+    "solution.usecases.card1.text":
+      "TO, allotement, DMC, yield, MICE — Reedly maîtrise le vocabulaire du tourisme professionnel. Vos rapports de visite agence parlent la langue du secteur.",
     "solution.usecases.card2.title": "Immobilier",
-    "solution.usecases.card2.text": "Visites de biens, prospection propriétaires, mandats — capturez chaque échange terrain et retrouvez les engagements, les objections et les opportunités de chaque prospect.",
+    "solution.usecases.card2.text":
+      "Visites de biens, prospection propriétaires, mandats — capturez chaque échange terrain et retrouvez les engagements, les objections et les opportunités de chaque prospect.",
     "solution.usecases.card3.title": "Pharma & médical",
-    "solution.usecases.card3.text": "Visite médicale, suivi prescripteurs, conventions — Reedly structure les échanges complexes avec les professionnels de santé. Terminologie adaptée, conformité intégrée.",
+    "solution.usecases.card3.text":
+      "Visite médicale, suivi prescripteurs, conventions — Reedly structure les échanges complexes avec les professionnels de santé. Terminologie adaptée, conformité intégrée.",
     "solution.usecases.card4.title": "Services B2B & industrie",
-    "solution.usecases.card4.text": "Cycles de vente longs, multiples interlocuteurs, cahiers des charges techniques — Reedly capture la complexité de vos rendez-vous et la structure en actions concrètes.",
+    "solution.usecases.card4.text":
+      "Cycles de vente longs, multiples interlocuteurs, cahiers des charges techniques — Reedly capture la complexité de vos rendez-vous et la structure en actions concrètes.",
     "tarifs.hero.eyebrow": "Tarifs",
-    "tarifs.hero.title": "L'IA terrain la plus complète.<br /><em>Au prix le plus juste.</em>",
-    "tarifs.hero.lead": "Rapports structurés en 11 sections, vocabulaire métier intégré, Hub manager inclus. Déployez Reedly pour votre équipe en moins de 10 minutes.",
+    "tarifs.hero.title":
+      "L'IA terrain la plus complète.<br /><em>Au prix le plus juste.</em>",
+    "tarifs.hero.lead":
+      "Rapports structurés en 11 sections, vocabulaire métier intégré, Hub manager inclus. Déployez Reedly pour votre équipe en moins de 10 minutes.",
     "tarifs.roi.eyebrow": "Retour sur investissement",
-    "tarifs.roi.title": "Ce que Reedly fait gagner<br /><em>à votre équipe.</em>",
-    "tarifs.roi.lead": "Chaque commercial passe en moyenne 45 minutes par jour à rédiger des comptes-rendus. Avec Reedly, c'est 2 minutes. Faites le calcul.",
+    "tarifs.roi.title":
+      "Ce que Reedly fait gagner<br /><em>à votre équipe.</em>",
+    "tarifs.roi.lead":
+      "Chaque commercial passe en moyenne 45 minutes par jour à rédiger des comptes-rendus. Avec Reedly, c'est 2 minutes. Faites le calcul.",
     "tarifs.roi.card1.title": "3h30 récupérées par semaine",
-    "tarifs.roi.card1.text": "Par commercial. Soit 15 heures par mois réaffectées à la vente, à la relation client ou aux rendez-vous supplémentaires.",
+    "tarifs.roi.card1.text":
+      "Par commercial. Soit 15 heures par mois réaffectées à la vente, à la relation client ou aux rendez-vous supplémentaires.",
     "tarifs.roi.card2.title": "Rentabilisé dès le 1er mois",
-    "tarifs.roi.card2.text": "À 69 €/mois par utilisateur, il suffit d'un rendez-vous supplémentaire converti pour couvrir le coût annuel de Reedly.",
+    "tarifs.roi.card2.text":
+      "À 69 €/mois par utilisateur, il suffit d'un rendez-vous supplémentaire converti pour couvrir le coût annuel de Reedly.",
     "tarifs.roi.card3.title": "0 information perdue",
-    "tarifs.roi.card3.text": "Chaque engagement, chaque objection, chaque opportunité est capturée et structurée. Le manager voit tout en temps réel depuis le Hub.",
+    "tarifs.roi.card3.text":
+      "Chaque engagement, chaque objection, chaque opportunité est capturée et structurée. Le manager voit tout en temps réel depuis le Hub.",
     "nav.blog": "Blog",
     "footer.blog": "Blog",
     "blog.title": "Blog",
     "blog.subtitle": "Guides pratiques pour les commerciaux terrain",
     "blog.read": "Lire",
     "blog.back": "Retour au blog",
-    "blog.cta.text": "Reedly transforme vos RDV terrain en rapports structurés.",
+    "blog.cta.text":
+      "Reedly transforme vos RDV terrain en rapports structurés.",
     "blog.cta.button": "Essayer gratuitement",
     "blog.breadcrumb.home": "Accueil",
     "blog.breadcrumb.blog": "Blog",
     "blog.min_read": "min de lecture",
+    "cta.try_free": "Essayer gratuitement",
+    "contact.opt.trial": "Essai gratuit / Try for free",
+    "contact.label.role": "Rôle dans l'entreprise",
+    "contact.label.users": "Taille de l'équipe",
+    "contact.ph.users": "8",
+    "contact.role.select": "Choisir un rôle…",
+    "contact.role.sales_rep": "Commercial terrain",
+    "contact.role.sales_manager": "Responsable commercial",
+    "contact.role.head_of_sales": "Directeur commercial",
+    "contact.role.sales_ops": "Sales Ops / RevOps",
+    "contact.role.founder_ceo": "Fondateur / CEO",
+    "contact.role.other": "Autre",
+    "contact.form.success.trial":
+      "✓ Demande bien reçue ! Vous aurez une réponse très rapidement pour convenir d'une rencontre avec l'équipe.",
   },
   en: {
     "nav.solution": "Solution",
@@ -463,7 +546,30 @@ const T = {
     "how.step3.tag": "PDF Export · Syntheses · Hub",
     "demo.eyebrow": "Demo",
     "demo.title": "See Reedly<br /><em>in action.</em>",
-    "demo.lead": "From recording to structured report, discover the full experience in seconds.",
+    "demo.lead":
+      "From recording to structured report, discover the full experience in seconds.",
+    "integrations.eyebrow": "Ecosystem",
+    "integrations.title": "Plug Reedly into<br /><em>your stack.</em>",
+    "integrations.lead":
+      "Your reports land where your team already works — team channels, CRM records, manager alerts. Zero copy-paste.",
+    "integrations.cat.crm": "CRM",
+    "integrations.cat.msg": "Messaging & community",
+    "integrations.tag.crm": "CRM",
+    "integrations.tag.msg": "Messaging",
+    "integrations.core.meta": "Field reports",
+    "integrations.hubspot.desc":
+      "Auto-push the report to the contact and deal record.",
+    "integrations.salesforce.desc":
+      "Sync commitments, next steps, and opportunities.",
+    "integrations.slack.desc":
+      "Ping your team channel every time a report is generated.",
+    "integrations.discord.desc":
+      "Broadcast syntheses to your Discord channels.",
+    "integrations.tag.custom": "Custom",
+    "integrations.custom.name": "Your tool",
+    "integrations.custom.desc":
+      "In-house CRM, internal dashboard, private API — plug in anything via our API.",
+    "integrations.custom.cta": "Let's talk →",
     "hub.eyebrow": "For managers",
     "hub.title": "Manage your team from<br /><em>the Hub.</em>",
     "hub.lead":
@@ -549,7 +655,7 @@ const T = {
     "pricing.mobile.note":
       "Monthly subscription. Actions consume AI Credits. Cancel anytime.",
     "pricing.managers.note":
-      "No free trial on manager plans. Deploy Reedly for your team in under 10 minutes.",
+      "Free trial available after a quick call. Deploy Reedly for your team in under 10 minutes.",
     "pricing.team.badge": "Recommended",
     "pricing.team.plan": "Team",
     "pricing.team.per": "per user per month",
@@ -561,13 +667,31 @@ const T = {
     "pricing.team.feat5": "Administration of points to report on reports",
     "pricing.team.feat6": "Email support within 24h",
     "pricing.team.feat7": "Max — AI assistant to answer all your questions",
-    "pricing.team.cta": "Get started →",
+    "pricing.team.groupRep": "For each sales rep",
+    "pricing.team.featApp": "iOS & Android mobile app",
+    "pricing.team.featReports": "Unlimited structured reports",
+    "pricing.team.featRecording": "Up to 2h of recording per meeting",
+    "pricing.team.featSyntheses": "Strategic syntheses",
+    "pricing.team.featDiarization": "Voice diarization",
+    "pricing.team.groupManager": "For the manager",
+    "pricing.team.featHub":
+      "Reports, syntheses and stats across the entire team",
+    "pricing.team.featAnalysis": "AI analysis of the entire team's reports",
+    "pricing.team.groupShared": "For everyone",
+    "pricing.team.featCreditsShared": "450 AI credits / month per user",
+    "pricing.team.featMaxAll": "Max — AI assistant (mobile + web hub)",
+    "pricing.team.featSupport": "Priority support within 24h",
+    "pricing.team.cta": "Try for free →",
     "pricing.enterprise.plan": "Enterprise",
     "pricing.enterprise.price": "Custom pricing",
     "pricing.enterprise.seats": "20+ sales reps",
     "pricing.enterprise.feat1": "Everything in Team included",
     "pricing.enterprise.feat2": "Unlimited users",
-    "pricing.enterprise.feat3": "Your company vocabulary and processes built into the AI",
+    "pricing.enterprise.featMultiTeam": "Multi-team / multi-sector",
+    "pricing.enterprise.featCredits": "Custom AI credit volume",
+    "pricing.enterprise.featAccountManager": "Dedicated account manager",
+    "pricing.enterprise.feat3":
+      "Your company vocabulary and processes built into the AI",
     "pricing.enterprise.feat4": "CRM integration on request",
     "pricing.enterprise.feat5": "Dedicated account manager",
     "pricing.enterprise.feat6": "Team training and onboarding",
@@ -643,23 +767,26 @@ const T = {
     "report.action.share": "Share",
     "report.privacy": "Audio deleted after generation — privacy by design",
     "contact.eyebrow": "Contact",
-    "contact.title": "A question?<br /><em>We'll get back to you.</em>",
+    "contact.title": "Let's talk about your project.<br /><em>We reply within 24h.</em>",
     "contact.lead":
-      "Demo request, partnership, field feedback, or just curious — write to us, we'll respond within 24h.",
-    "contact.f1.title": "Demo request",
+      "Trial, live demo, team rollout, or CRM integration — tell us what you need, we'll get back to you quickly.",
+    "contact.f1.title": "Free trial",
     "contact.f1.text":
-      "Want to see Reedly in action? We'll show you a 20-min live session.",
-    "contact.f2.title": "Team deployment",
+      "Test Reedly on your real field meetings. We activate your access after a quick call.",
+    "contact.f2.title": "Live demo",
     "contact.f2.text":
-      "Managing a sales team? We'll help you with the onboarding.",
-    "contact.f3.title": "Partnership & integration",
+      "20 minutes to see Reedly in action and answer questions specific to your industry.",
+    "contact.f3.title": "Team rollout & Hub",
     "contact.f3.text":
-      "CRM, sales tool, API — let's discuss a custom integration.",
-    "contact.f4.title": "contact@reedly.ai",
-    "contact.f4.text": "Response guaranteed within 24 business hours.",
+      "Onboarding, training and manager Hub setup — tailored to your field sales team.",
+    "contact.f4.title": "CRM integration",
+    "contact.f4.text":
+      "HubSpot, Salesforce, Slack, Discord — Reedly plugs into your existing stack.",
     "contact.label.firstname": "First name",
     "contact.label.lastname": "Last name",
     "contact.label.email": "Work email",
+    "contact.label.phone": "Phone",
+    "contact.ph.phone": "+1 555 123 4567",
     "contact.label.company": "Company",
     "contact.label.subject": "Subject",
     "contact.label.message": "Message",
@@ -685,10 +812,12 @@ const T = {
     // ── Comparatif page ──
     "comparatif.hero.eyebrow": "Compare",
     "comparatif.hero.title": "Why field sales reps<br><em>choose Reedly.</em>",
-    "comparatif.hero.lead": "Others transcribe your meetings. Reedly understands them — structured reports in 11 sections, industry vocabulary, strategic syntheses. All at a price that makes sense.",
+    "comparatif.hero.lead":
+      "Others transcribe your meetings. Reedly understands them — structured reports in 11 sections, industry vocabulary, strategic syntheses. All at a price that makes sense.",
     "comparatif.table.eyebrow": "Comparison",
     "comparatif.table.title": "Reedly vs the <em>alternatives.</em>",
-    "comparatif.table.lead": "Transcription, reports, field work, management — here's how Reedly compares to the main tools on the market.",
+    "comparatif.table.lead":
+      "Transcription, reports, field work, management — here's how Reedly compares to the main tools on the market.",
     "comparatif.table.row1": "Built for the field",
     "comparatif.table.row2": "Structured reports (11 sections)",
     "comparatif.table.row3": "Speaker identification",
@@ -698,57 +827,90 @@ const T = {
     "comparatif.table.row7": "Price / user / month",
     "comparatif.why.eyebrow": "Why Reedly",
     "comparatif.why.title": "What the others <em>don't do.</em>",
-    "comparatif.why.lead": "Reedly isn't a repurposed transcription tool. It's an AI agent built from day one for field sales reps.",
+    "comparatif.why.lead":
+      "Reedly isn't a repurposed transcription tool. It's an AI agent built from day one for field sales reps.",
     "comparatif.why.card1.title": "Built for the field",
-    "comparatif.why.card1.text": "Not a video call app repurposed. Records via the phone microphone, works offline, generates the report automatically when back in network.",
+    "comparatif.why.card1.text":
+      "Not a video call app repurposed. Records via the phone microphone, works offline, generates the report automatically when back in network.",
     "comparatif.why.card2.title": "Expert reports, not notes",
-    "comparatif.why.card2.text": "11 sections structured by industry: executive summary, client needs, objections, commitments, next steps. The AI reasons like an industry consultant.",
+    "comparatif.why.card2.text":
+      "11 sections structured by industry: executive summary, client needs, objections, commitments, next steps. The AI reasons like an industry consultant.",
     "comparatif.why.card3.title": "Who said what",
-    "comparatif.why.card3.text": "Diarization automatically identifies sales rep vs client. Client-expressed needs are distinguished from the rep's arguments in the report.",
+    "comparatif.why.card3.text":
+      "Diarization automatically identifies sales rep vs client. Client-expressed needs are distinguished from the rep's arguments in the report.",
     "comparatif.why.card4.title": "Strategic syntheses",
-    "comparatif.why.card4.text": "Aggregate a week or a quarter of meetings into prioritized trends, risks, and opportunities. Business intelligence, not just documentation.",
+    "comparatif.why.card4.text":
+      "Aggregate a week or a quarter of meetings into prioritized trends, risks, and opportunities. Business intelligence, not just documentation.",
     "comparatif.price.eyebrow": "Pricing",
     "comparatif.price.title": "More complete. <em>Less expensive.</em>",
     "comparatif.price.lead": "Price per user per month, team plans.",
-    "comparatif.price.note": "Fireflies and Otter are cheaper but only do transcription — no structured reports, no field support, no syntheses.",
+    "comparatif.price.note":
+      "Fireflies and Otter are cheaper but only do transcription — no structured reports, no field support, no syntheses.",
     "footer.comparatif": "Compare",
     "solution.hero.eyebrow": "Solution",
     "solution.hero.title": "Your reps sell.<br /><em>Reedly documents.</em>",
-    "solution.hero.lead": "Reedly is the AI agent that transforms every field meeting into a structured report in 11 sections — nothing to type, nothing to forget. From recording to team management, see how it works.",
+    "solution.hero.lead":
+      "Reedly is the AI agent that transforms every field meeting into a structured report in 11 sections — nothing to type, nothing to forget. From recording to team management, see how it works.",
     "solution.usecases.eyebrow": "Use cases",
     "solution.usecases.title": "One tool. <em>Every field industry.</em>",
-    "solution.usecases.lead": "Reedly adapts to the vocabulary and challenges of your industry. The AI doesn't do generic — it reasons with the terms of your trade.",
+    "solution.usecases.lead":
+      "Reedly adapts to the vocabulary and challenges of your industry. The AI doesn't do generic — it reasons with the terms of your trade.",
     "solution.usecases.card1.title": "B2B Tourism",
-    "solution.usecases.card1.text": "Tour operators, allotment, DMC, yield, MICE — Reedly masters professional tourism vocabulary. Your agency visit reports speak the industry's language.",
+    "solution.usecases.card1.text":
+      "Tour operators, allotment, DMC, yield, MICE — Reedly masters professional tourism vocabulary. Your agency visit reports speak the industry's language.",
     "solution.usecases.card2.title": "Real Estate",
-    "solution.usecases.card2.text": "Property visits, owner prospecting, mandates — capture every field exchange and retrieve commitments, objections and opportunities for each prospect.",
+    "solution.usecases.card2.text":
+      "Property visits, owner prospecting, mandates — capture every field exchange and retrieve commitments, objections and opportunities for each prospect.",
     "solution.usecases.card3.title": "Pharma & Medical",
-    "solution.usecases.card3.text": "Medical visits, prescriber follow-up, conventions — Reedly structures complex exchanges with healthcare professionals. Adapted terminology, built-in compliance.",
+    "solution.usecases.card3.text":
+      "Medical visits, prescriber follow-up, conventions — Reedly structures complex exchanges with healthcare professionals. Adapted terminology, built-in compliance.",
     "solution.usecases.card4.title": "B2B Services & Industry",
-    "solution.usecases.card4.text": "Long sales cycles, multiple stakeholders, technical specs — Reedly captures the complexity of your meetings and structures it into concrete actions.",
+    "solution.usecases.card4.text":
+      "Long sales cycles, multiple stakeholders, technical specs — Reedly captures the complexity of your meetings and structures it into concrete actions.",
     "tarifs.hero.eyebrow": "Pricing",
-    "tarifs.hero.title": "The most complete field AI.<br /><em>At the fairest price.</em>",
-    "tarifs.hero.lead": "Structured reports in 11 sections, built-in industry vocabulary, Manager Hub included. Deploy Reedly for your team in under 10 minutes.",
+    "tarifs.hero.title":
+      "The most complete field AI.<br /><em>At the fairest price.</em>",
+    "tarifs.hero.lead":
+      "Structured reports in 11 sections, built-in industry vocabulary, Manager Hub included. Deploy Reedly for your team in under 10 minutes.",
     "tarifs.roi.eyebrow": "Return on investment",
     "tarifs.roi.title": "What Reedly saves<br /><em>your team.</em>",
-    "tarifs.roi.lead": "Each sales rep spends an average of 45 minutes a day writing reports. With Reedly, it's 2 minutes. Do the math.",
+    "tarifs.roi.lead":
+      "Each sales rep spends an average of 45 minutes a day writing reports. With Reedly, it's 2 minutes. Do the math.",
     "tarifs.roi.card1.title": "3.5 hours recovered per week",
-    "tarifs.roi.card1.text": "Per sales rep. That's 15 hours per month reallocated to selling, client relationships, or additional meetings.",
+    "tarifs.roi.card1.text":
+      "Per sales rep. That's 15 hours per month reallocated to selling, client relationships, or additional meetings.",
     "tarifs.roi.card2.title": "Pays for itself in month 1",
-    "tarifs.roi.card2.text": "At 69 EUR/month per user, just one extra converted meeting covers the annual cost of Reedly.",
+    "tarifs.roi.card2.text":
+      "At 69 EUR/month per user, just one extra converted meeting covers the annual cost of Reedly.",
     "tarifs.roi.card3.title": "0 information lost",
-    "tarifs.roi.card3.text": "Every commitment, every objection, every opportunity is captured and structured. The manager sees everything in real time from the Hub.",
+    "tarifs.roi.card3.text":
+      "Every commitment, every objection, every opportunity is captured and structured. The manager sees everything in real time from the Hub.",
     "nav.blog": "Blog",
     "footer.blog": "Blog",
     "blog.title": "Blog",
     "blog.subtitle": "Practical guides for field sales teams",
     "blog.read": "Read",
     "blog.back": "Back to blog",
-    "blog.cta.text": "Reedly turns your field meetings into structured reports.",
+    "blog.cta.text":
+      "Reedly turns your field meetings into structured reports.",
     "blog.cta.button": "Try for free",
     "blog.breadcrumb.home": "Home",
     "blog.breadcrumb.blog": "Blog",
     "blog.min_read": "min read",
+    "cta.try_free": "Try for free",
+    "contact.opt.trial": "Free trial / Try for free",
+    "contact.label.role": "Role at company",
+    "contact.label.users": "Team size",
+    "contact.ph.users": "8",
+    "contact.role.select": "Choose a role…",
+    "contact.role.sales_rep": "Field sales rep",
+    "contact.role.sales_manager": "Sales manager",
+    "contact.role.head_of_sales": "Head of Sales",
+    "contact.role.sales_ops": "Sales Ops / RevOps",
+    "contact.role.founder_ceo": "Founder / CEO",
+    "contact.role.other": "Other",
+    "contact.form.success.trial":
+      "✓ Request received! You'll get a response very quickly to set up a meeting with the team.",
   },
 };
 
@@ -763,13 +925,13 @@ function getPageName() {
   var path = window.location.pathname;
   var clean = path.replace(/^\/(en|fr)\/?/, "").replace(/\/$/, "") || "home";
   var map = {
-    "home": "landing_home",
-    "solution": "landing_solution",
-    "pricing": "landing_pricing",
-    "tarifs": "landing_pricing",
-    "comparison": "landing_comparison",
-    "comparatif": "landing_comparison",
-    "blog": "landing_blog_index",
+    home: "landing_home",
+    solution: "landing_solution",
+    pricing: "landing_pricing",
+    tarifs: "landing_pricing",
+    comparison: "landing_comparison",
+    comparatif: "landing_comparison",
+    blog: "landing_blog_index",
   };
   if (clean.startsWith("blog/")) return "landing_blog_article";
   return map[clean] || "landing_" + clean.replace(/[^a-z0-9]/g, "_");
@@ -818,9 +980,10 @@ function getOrCreateVisitorId() {
     var KEY = "reedly-visitor-id";
     var id = localStorage.getItem(KEY);
     if (!id) {
-      id = typeof crypto !== "undefined" && crypto.randomUUID
-        ? crypto.randomUUID()
-        : Date.now().toString(36) + "-" + Math.random().toString(36).slice(2);
+      id =
+        typeof crypto !== "undefined" && crypto.randomUUID
+          ? crypto.randomUUID()
+          : Date.now().toString(36) + "-" + Math.random().toString(36).slice(2);
       localStorage.setItem(KEY, id);
     }
     return id;
@@ -932,9 +1095,11 @@ const isReturningVisitor = (() => {
 trackEvent("landing_page_viewed", {
   is_returning_visitor: isReturningVisitor,
   initial_scroll_depth_percent: 0,
-  ...(getPageName() === "landing_blog_article" ? {
-    blog_article_slug: window.location.pathname.split("/").pop()
-  } : {}),
+  ...(getPageName() === "landing_blog_article"
+    ? {
+        blog_article_slug: window.location.pathname.split("/").pop(),
+      }
+    : {}),
 });
 
 // ── Pricing toggle ──
@@ -991,7 +1156,7 @@ if (pricingBillingToggle) {
 
 // ── i18n engine ──
 // Detect lang from URL prefix, fallback to localStorage, then "fr"
-let currentLang = (function() {
+let currentLang = (function () {
   var p = window.location.pathname;
   if (p.startsWith("/en")) return "en";
   if (p.startsWith("/fr")) return "fr";
@@ -1133,9 +1298,10 @@ function setLang(lang) {
       // Blog article mirror fallback
       var mirrorMeta = document.querySelector('meta[name="blog-mirror"]');
       if (mirrorMeta && pathSuffix.startsWith("/blog/")) {
-        var mirrorHref = lang === "en"
-          ? mirrorMeta.getAttribute("data-link-en")
-          : mirrorMeta.getAttribute("data-link-fr");
+        var mirrorHref =
+          lang === "en"
+            ? mirrorMeta.getAttribute("data-link-en")
+            : mirrorMeta.getAttribute("data-link-fr");
         if (mirrorHref) {
           window.location.href = mirrorHref;
           return;
@@ -1186,43 +1352,57 @@ document.querySelectorAll("[data-track-id]").forEach((el) => {
 
 // ── Section visibility tracking ──
 var TRACKABLE_SECTIONS = [
-  "problem", "how", "features", "report-preview", "hub",
-  "proof", "demo", "pricing", "contact", "faq", "final-cta",
-  "comparaison"
+  "problem",
+  "how",
+  "features",
+  "report-preview",
+  "hub",
+  "proof",
+  "demo",
+  "pricing",
+  "contact",
+  "faq",
+  "final-cta",
+  "comparaison",
 ];
 var sectionViewedSet = new Set();
-var sectionObs = new IntersectionObserver(function (entries) {
-  entries.forEach(function (entry) {
-    if (entry.isIntersecting) {
-      var id = entry.target.id;
-      if (!sectionViewedSet.has(id)) {
-        sectionViewedSet.add(id);
-        trackEvent("landing_section_viewed", {
-          section_id: id,
-          section_index: TRACKABLE_SECTIONS.indexOf(id),
-        });
-        sectionObs.unobserve(entry.target);
+var sectionObs = new IntersectionObserver(
+  function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var id = entry.target.id;
+        if (!sectionViewedSet.has(id)) {
+          sectionViewedSet.add(id);
+          trackEvent("landing_section_viewed", {
+            section_id: id,
+            section_index: TRACKABLE_SECTIONS.indexOf(id),
+          });
+          sectionObs.unobserve(entry.target);
+        }
       }
-    }
-  });
-}, { threshold: 0.5 });
+    });
+  },
+  { threshold: 0.5 },
+);
 TRACKABLE_SECTIONS.forEach(function (id) {
   var el = document.getElementById(id);
   if (el) sectionObs.observe(el);
 });
 
 // ── Navigation click tracking ──
-document.querySelectorAll(".nav__list a[href], .footer__links a[href]").forEach(function (link) {
-  var href = link.getAttribute("href");
-  if (href && href.startsWith("/") && !href.startsWith("/#")) {
-    link.addEventListener("click", function () {
-      trackEvent("landing_nav_clicked", {
-        nav_target: href,
-        nav_source: link.closest(".footer__links") ? "footer" : "header",
+document
+  .querySelectorAll(".nav__list a[href], .footer__links a[href]")
+  .forEach(function (link) {
+    var href = link.getAttribute("href");
+    if (href && href.startsWith("/") && !href.startsWith("/#")) {
+      link.addEventListener("click", function () {
+        trackEvent("landing_nav_clicked", {
+          nav_target: href,
+          nav_source: link.closest(".footer__links") ? "footer" : "header",
+        });
       });
-    });
-  }
-});
+    }
+  });
 
 // ── Cursor glow ──
 const glow = document.getElementById("cursor-glow");
@@ -1262,7 +1442,9 @@ document.querySelectorAll(".hero .reveal").forEach((el) => {
   const timerEl = document.querySelector(".phone__big-timer");
   if (!timerEl) return;
   let seconds = 5;
-  function pad(n) { return n < 10 ? "0" + n : n; }
+  function pad(n) {
+    return n < 10 ? "0" + n : n;
+  }
   function format(s) {
     return pad(Math.floor(s / 60)) + ":" + pad(s % 60);
   }
@@ -1389,7 +1571,7 @@ document.addEventListener("keydown", (e) => {
   }
 
   // Init from stored setting
-  var stored = localStorage.getItem("theme") || "system";
+  var stored = localStorage.getItem("theme") || "dark";
   updateThemeToggle(stored);
 
   // Click handlers
@@ -1403,7 +1585,7 @@ document.addEventListener("keydown", (e) => {
   window
     .matchMedia("(prefers-color-scheme:dark)")
     .addEventListener("change", function (e) {
-      var setting = localStorage.getItem("theme") || "system";
+      var setting = localStorage.getItem("theme") || "dark";
       if (setting === "system") {
         document.documentElement.setAttribute(
           "data-theme",
@@ -1438,12 +1620,18 @@ notifyForm?.addEventListener("submit", async (e) => {
     } else {
       notifyFeedback.textContent = t(currentLang, "notify.error") || "Erreur";
       notifyFeedback.className = "notify-modal__feedback visible error";
-      trackEvent("landing_notify_submitted", { success: false, http_status: res.status });
+      trackEvent("landing_notify_submitted", {
+        success: false,
+        http_status: res.status,
+      });
     }
   } catch {
     notifyFeedback.textContent = t(currentLang, "notify.error") || "Erreur";
     notifyFeedback.className = "notify-modal__feedback visible error";
-    trackEvent("landing_notify_submitted", { success: false, error_type: "network" });
+    trackEvent("landing_notify_submitted", {
+      success: false,
+      error_type: "network",
+    });
   } finally {
     submitBtn.disabled = false;
   }

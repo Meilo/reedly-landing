@@ -3359,3 +3359,28 @@ html[data-theme="light"] .dash__report-badge--processing {
   color: #d97706;
   border-color: rgba(217, 119, 6, 0.15);
 }
+
+/* ─── Contact form: trial-specific row alignment ─── */
+.form__row--trial {
+  align-items: end;
+}
+
+.form__row--trial .form__label {
+  min-height: 2.3em;
+  display: flex;
+  align-items: flex-end;
+}
+
+.scroll-anchor {
+  display: block;
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.contact__form-card {
+  position: relative;
+}
