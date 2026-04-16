@@ -201,7 +201,7 @@ body::after {
   position: absolute;
   top: calc(100% + 8px);
   left: -12px;
-  width: 300px;
+  width: 520px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -219,8 +219,8 @@ body::after {
   transform: translateY(0);
 }
 .nav__dropdown-list {
-  max-height: 360px;
-  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   padding: 8px;
 }
 .nav__dropdown-list::-webkit-scrollbar {
