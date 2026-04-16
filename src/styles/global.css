@@ -180,6 +180,98 @@ body::after {
   color: var(--green);
 }
 
+/* Nav dropdown */
+.nav__dropdown {
+  position: relative;
+}
+.nav__dropdown-chevron {
+  margin-left: 2px;
+  transition: transform 0.2s;
+  vertical-align: middle;
+}
+.nav__dropdown:hover .nav__dropdown-chevron {
+  transform: rotate(180deg);
+}
+.nav__dropdown-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: -12px;
+  width: 300px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: all 0.2s ease;
+  z-index: 200;
+  overflow: hidden;
+}
+.nav__dropdown:hover .nav__dropdown-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav__dropdown-list {
+  max-height: 360px;
+  overflow-y: auto;
+  padding: 8px;
+}
+.nav__dropdown-list::-webkit-scrollbar {
+  width: 4px;
+}
+.nav__dropdown-list::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+.nav__dropdown-item {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.nav__dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+.nav__dropdown-item-label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.nav__dropdown-item-desc {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 1px;
+}
+.nav__dropdown-footer {
+  border-top: 1px solid var(--border);
+  padding: 4px 8px 8px;
+}
+
+/* Nav mobile features sub-list */
+.nav__mobile-features {
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  margin-bottom: 4px;
+}
+.nav__mobile-feature {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 0;
+}
+.nav__mobile-feature:hover {
+  color: var(--green);
+}
+
 /* Nav actions */
 .nav__actions {
   display: flex;
@@ -2966,6 +3058,17 @@ html[data-theme="light"] .nav__mobile-link:hover {
 
 html[data-theme="light"] .nav__mobile {
   background: rgba(248, 250, 252, 0.97);
+}
+html[data-theme="light"] .nav__dropdown-panel {
+  background: #fff;
+  border-color: rgba(148, 163, 184, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+html[data-theme="light"] .nav__dropdown-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+html[data-theme="light"] .nav__dropdown-footer {
+  border-top-color: rgba(148, 163, 184, 0.25);
 }
 
 /* Light: Green-bg elements get white text */

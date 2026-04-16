@@ -7,6 +7,23 @@ const isTarifs = path.endsWith('/tarifs') || path.endsWith('/pricing');
 const isComparatif = path.endsWith('/comparatif') || path.endsWith('/comparison');
 const isBlog = path.includes('/blog');
 const trialHref = `/${lang}#trial`;
+
+const features = [
+  { slugFr: 'enregistrement-vocal-rdv', slugEn: 'meeting-voice-recording', labelFr: 'Enregistrement vocal', labelEn: 'Voice Recording', descFr: 'Capturez chaque RDV en 1 tap', descEn: 'Capture every meeting in 1 tap' },
+  { slugFr: 'transcription-ia', slugEn: 'ai-transcription', labelFr: 'Transcription IA', labelEn: 'AI Transcription', descFr: 'Transcription +95% de précision', descEn: '95%+ accuracy transcription' },
+  { slugFr: 'rapport-ia', slugEn: 'ai-report', labelFr: 'Rapport structuré IA', labelEn: 'AI Structured Report', descFr: 'Rapport en 11 sections en 2 min', descEn: '11-section report in 2 min' },
+  { slugFr: 'identification-interlocuteurs', slugEn: 'speaker-identification', labelFr: 'Identification des voix', labelEn: 'Speaker Identification', descFr: 'Qui a dit quoi dans le RDV', descEn: 'Who said what in the meeting' },
+  { slugFr: 'syntheses-territoriales', slugEn: 'territory-syntheses', labelFr: 'Synthèses territoriales', labelEn: 'Territory Syntheses', descFr: 'Vision stratégique du terrain', descEn: 'Strategic territory overview' },
+  { slugFr: 'hub-manager', slugEn: 'manager-hub', labelFr: 'Hub Manager', labelEn: 'Manager Hub', descFr: 'Dashboard équipe centralisé', descEn: 'Centralized team dashboard' },
+  { slugFr: 'preparation-rdv', slugEn: 'meeting-preparation', labelFr: 'Préparation de RDV', labelEn: 'Meeting Preparation', descFr: 'Briefing IA avant chaque visite', descEn: 'AI briefing before each visit' },
+  { slugFr: 'assistant-ia-manager', slugEn: 'ai-manager-assistant', labelFr: 'Max — Assistant IA', labelEn: 'Max — AI Assistant', descFr: 'Posez vos questions à l\'IA', descEn: 'Ask the AI your questions' },
+  { slugFr: 'portfolio-client', slugEn: 'client-portfolio', labelFr: 'Portfolio Client', labelEn: 'Client Portfolio', descFr: 'Fiches clients enrichies par l\'IA', descEn: 'AI-enriched client cards' },
+  { slugFr: 'base-de-connaissances', slugEn: 'knowledge-base', labelFr: 'Base de connaissances', labelEn: 'Knowledge Base', descFr: 'Documents et contexte métier', descEn: 'Documents & business context' },
+  { slugFr: 'directives-commerciales', slugEn: 'sales-directives', labelFr: 'Directives commerciales', labelEn: 'Sales Directives', descFr: 'Objectifs avec suivi IA', descEn: 'Goals with AI tracking' },
+];
+
+const allFeaturesLabel = lang === 'fr' ? 'Toutes les fonctionnalités' : 'All features';
+const allFeaturesDesc = lang === 'fr' ? 'Voir la vue d\'ensemble' : 'See the full overview';
 ---
 
 <nav class="nav z1">
@@ -17,7 +34,28 @@ const trialHref = `/${lang}#trial`;
     </a>
 
     <div class="nav__menu">
-      <a class={`nav__menu-link${isSolution ? ' active' : ''}`} href={`/${lang}/solution`} data-i18n="nav.solution" data-link-fr="/fr/solution" data-link-en="/en/solution">Solution</a>
+      <div class="nav__dropdown">
+        <a class={`nav__menu-link${isSolution ? ' active' : ''}`} href={`/${lang}/solution`} data-i18n="nav.solution" data-link-fr="/fr/solution" data-link-en="/en/solution">
+          Solution
+          <svg class="nav__dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="nav__dropdown-panel">
+          <div class="nav__dropdown-list">
+            {features.map((f) => (
+              <a class="nav__dropdown-item" href={`/${lang}/solutions/${lang === 'fr' ? f.slugFr : f.slugEn}`}>
+                <span class="nav__dropdown-item-label">{lang === 'fr' ? f.labelFr : f.labelEn}</span>
+                <span class="nav__dropdown-item-desc">{lang === 'fr' ? f.descFr : f.descEn}</span>
+              </a>
+            ))}
+          </div>
+          <div class="nav__dropdown-footer">
+            <a class="nav__dropdown-item" href={`/${lang}/solution`}>
+              <span class="nav__dropdown-item-label">{allFeaturesLabel}</span>
+              <span class="nav__dropdown-item-desc">{allFeaturesDesc}</span>
+            </a>
+          </div>
+        </div>
+      </div>
       <a class={`nav__menu-link${isTarifs ? ' active' : ''}`} href={lang === 'fr' ? '/fr/tarifs' : '/en/pricing'} data-i18n="nav.pricing" data-link-fr="/fr/tarifs" data-link-en="/en/pricing">Tarifs</a>
       <a class={`nav__menu-link${isComparatif ? ' active' : ''}`} href={lang === 'fr' ? '/fr/comparatif' : '/en/comparison'} data-i18n="nav.comparatif" data-link-fr="/fr/comparatif" data-link-en="/en/comparison">Comparatif</a>
       <a class={`nav__menu-link${isBlog ? ' active' : ''}`} href={`/${lang}/blog`} data-i18n="nav.blog" data-link-fr="/fr/blog" data-link-en="/en/blog">Blog</a>
@@ -68,6 +106,13 @@ const trialHref = `/${lang}#trial`;
 
   <div class="nav__mobile" id="nav-mobile" aria-hidden="true">
     <a class={`nav__mobile-link${isSolution ? ' active' : ''}`} href={`/${lang}/solution`} data-i18n="nav.solution" data-link-fr="/fr/solution" data-link-en="/en/solution">Solution</a>
+    <div class="nav__mobile-features">
+      {features.map((f) => (
+        <a class="nav__mobile-feature" href={`/${lang}/solutions/${lang === 'fr' ? f.slugFr : f.slugEn}`}>
+          {lang === 'fr' ? f.labelFr : f.labelEn}
+        </a>
+      ))}
+    </div>
     <a class={`nav__mobile-link${isTarifs ? ' active' : ''}`} href={lang === 'fr' ? '/fr/tarifs' : '/en/pricing'} data-i18n="nav.pricing" data-link-fr="/fr/tarifs" data-link-en="/en/pricing">Tarifs</a>
     <a class={`nav__mobile-link${isComparatif ? ' active' : ''}`} href={lang === 'fr' ? '/fr/comparatif' : '/en/comparison'} data-i18n="nav.comparatif" data-link-fr="/fr/comparatif" data-link-en="/en/comparison">Comparatif</a>
     <a class={`nav__mobile-link${isBlog ? ' active' : ''}`} href={`/${lang}/blog`} data-i18n="nav.blog" data-link-fr="/fr/blog" data-link-en="/en/blog">Blog</a>
