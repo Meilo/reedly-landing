@@ -1,0 +1,58 @@
+# Central registry mapping feature IDs to FR/EN slug pairs.
+# Each entry produces two pages: /fr/solutions/{slugFr} and /en/solutions/{slugEn}
+
+features:
+  - id: "voice-recording"
+    slugs:
+      fr: "enregistrement-vocal-rdv"
+      en: "meeting-voice-recording"
+
+  - id: "ai-transcription"
+    slugs:
+      fr: "transcription-ia"
+      en: "ai-transcription"
+
+  - id: "ai-report"
+    slugs:
+      fr: "rapport-ia"
+      en: "ai-report"
+
+  - id: "speaker-identification"
+    slugs:
+      fr: "identification-interlocuteurs"
+      en: "speaker-identification"
+
+  - id: "territory-syntheses"
+    slugs:
+      fr: "syntheses-territoriales"
+      en: "territory-syntheses"
+
+  - id: "manager-hub"
+    slugs:
+      fr: "hub-manager"
+      en: "manager-hub"
+
+  - id: "meeting-prep"
+    slugs:
+      fr: "preparation-rdv"
+      en: "meeting-preparation"
+
+  - id: "ai-assistant"
+    slugs:
+      fr: "assistant-ia-manager"
+      en: "ai-manager-assistant"
+
+  - id: "client-portfolio"
+    slugs:
+      fr: "portfolio-client"
+      en: "client-portfolio"
+
+  - id: "knowledge-base"
+    slugs:
+      fr: "base-de-connaissances"
+      en: "knowledge-base"
+
+  - id: "sales-directives"
+    slugs:
+      fr: "directives-commerciales"
+      en: "sales-directives"
