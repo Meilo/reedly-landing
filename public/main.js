@@ -1307,6 +1307,18 @@ function setLang(lang) {
           return;
         }
       }
+      // Feature page mirror fallback
+      var featureMirror = document.querySelector('meta[name="feature-mirror"]');
+      if (featureMirror && pathSuffix.startsWith("/solutions/")) {
+        var featureHref =
+          lang === "en"
+            ? featureMirror.getAttribute("data-link-en")
+            : featureMirror.getAttribute("data-link-fr");
+        if (featureHref) {
+          window.location.href = featureHref;
+          return;
+        }
+      }
       var targetSuffix = slugMap[pathSuffix] || pathSuffix;
       window.location.href = targetPrefix + targetSuffix + window.location.hash;
       return;

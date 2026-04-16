@@ -52,6 +52,7 @@ const faqLD = {
   lang="en"
   hreflang={hreflangData}
 >
+  <meta slot="head" name="feature-mirror" data-link-fr={`/fr/solutions/${mirrorSlug}`} data-link-en={`/en/solutions/${slug}`} />
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbLD)} />
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqLD)} />
 
