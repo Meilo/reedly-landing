@@ -4,41 +4,45 @@ interface Props {
   lang: 'fr' | 'en';
 }
 const { features, lang } = Astro.props;
-const sectionTitle = lang === 'fr' ? 'Fonctionnalités liées' : 'Related features';
 const prefix = `/${lang}/solutions`;
+const seeAlso = lang === 'fr' ? 'Voir aussi :' : 'See also:';
 ---
 
-<section class="section">
-  <div class="inner">
-    <div class="reveal">
-      <div class="section__eyebrow">{lang === 'fr' ? 'Découvrir aussi' : 'Discover also'}</div>
-      <h2>{sectionTitle}</h2>
-    </div>
-    <div class="features-grid">
-      {features.map((f, i) => (
-        <a href={`${prefix}/${f.slug}`} class={`feature-card feature-card--link reveal reveal-delay-${Math.min(i + 1, 3)}`}>
-          <h3>{f.label}</h3>
-          <span class="feature-card__arrow">&rarr;</span>
-        </a>
-      ))}
-    </div>
-  </div>
-</section>
+<div class="related-links">
+  <span class="related-links__label">{seeAlso}</span>
+  {features.map((f, i) => (
+    <>
+      {i > 0 && <span class="related-links__sep">·</span>}
+      <a href={`${prefix}/${f.slug}`} class="related-links__link">{f.label}</a>
+    </>
+  ))}
+</div>
 
 <style>
-  .feature-card--link {
-    text-decoration: none;
+  .related-links {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 24px 32px;
+    font-size: 0.85rem;
   }
-  .feature-card__arrow {
-    font-size: 1.5rem;
+  .related-links__label {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+  }
+  .related-links__sep {
+    color: var(--muted);
+  }
+  .related-links__link {
     color: var(--green);
-    transition: transform 0.2s;
+    text-decoration: none;
+    font-family: var(--sans);
+    font-weight: 600;
   }
-  .feature-card--link:hover .feature-card__arrow {
-    transform: translateX(4px);
+  .related-links__link:hover {
+    text-decoration: underline;
   }
 </style>
