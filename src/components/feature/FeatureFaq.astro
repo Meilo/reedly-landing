@@ -1,0 +1,30 @@
+---
+interface Props {
+  faq: { question: string; answer: string }[];
+  lang: 'fr' | 'en';
+}
+const { faq, lang } = Astro.props;
+const faqTitle = lang === 'fr' ? 'Questions fréquentes' : 'Frequently asked questions';
+---
+
+<section class="section section--alt">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section__eyebrow">FAQ</div>
+      <h2>{faqTitle}</h2>
+    </div>
+    <div class="faq-list">
+      {faq.map((item, i) => (
+        <article class={`faq-item reveal reveal-delay-${Math.min(i + 1, 3)}`} aria-expanded="false">
+          <button class="faq-btn" type="button">
+            <span>{item.question}</span>
+            <div class="faq-btn__icon">+</div>
+          </button>
+          <div class="faq-panel">
+            <p>{item.answer}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

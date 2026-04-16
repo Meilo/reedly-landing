@@ -1,0 +1,44 @@
+---
+interface Props {
+  features: { slug: string; label: string }[];
+  lang: 'fr' | 'en';
+}
+const { features, lang } = Astro.props;
+const sectionTitle = lang === 'fr' ? 'Fonctionnalités liées' : 'Related features';
+const prefix = `/${lang}/solutions`;
+---
+
+<section class="section">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section__eyebrow">{lang === 'fr' ? 'Découvrir aussi' : 'Discover also'}</div>
+      <h2>{sectionTitle}</h2>
+    </div>
+    <div class="features-grid">
+      {features.map((f, i) => (
+        <a href={`${prefix}/${f.slug}`} class={`feature-card feature-card--link reveal reveal-delay-${Math.min(i + 1, 3)}`}>
+          <h3>{f.label}</h3>
+          <span class="feature-card__arrow">&rarr;</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .feature-card--link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .feature-card__arrow {
+    font-size: 1.5rem;
+    color: var(--green);
+    transition: transform 0.2s;
+  }
+  .feature-card--link:hover .feature-card__arrow {
+    transform: translateX(4px);
+  }
+</style>
