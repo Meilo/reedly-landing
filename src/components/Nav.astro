@@ -10,17 +10,17 @@ const isBlog = path.includes('/blog');
 const trialHref = `/${lang}#trial`;
 
 const features = [
-  { slugFr: 'enregistrement-vocal-rdv', slugEn: 'meeting-voice-recording', labelFr: 'Enregistrement vocal', labelEn: 'Voice Recording', descFr: 'Capturez chaque RDV en 1 tap', descEn: 'Capture every meeting in 1 tap' },
-  { slugFr: 'transcription-ia', slugEn: 'ai-transcription', labelFr: 'Transcription IA', labelEn: 'AI Transcription', descFr: 'Transcription +95% de précision', descEn: '95%+ accuracy transcription' },
-  { slugFr: 'rapport-ia', slugEn: 'ai-report', labelFr: 'Rapport structuré IA', labelEn: 'AI Structured Report', descFr: 'Rapport en 11 sections en 2 min', descEn: '11-section report in 2 min' },
-  { slugFr: 'identification-interlocuteurs', slugEn: 'speaker-identification', labelFr: 'Identification des voix', labelEn: 'Speaker Identification', descFr: 'Qui a dit quoi dans le RDV', descEn: 'Who said what in the meeting' },
-  { slugFr: 'syntheses-territoriales', slugEn: 'territory-syntheses', labelFr: 'Synthèses territoriales', labelEn: 'Territory Syntheses', descFr: 'Vision stratégique du terrain', descEn: 'Strategic territory overview' },
-  { slugFr: 'hub-manager', slugEn: 'manager-hub', labelFr: 'Hub Manager', labelEn: 'Manager Hub', descFr: 'Dashboard équipe centralisé', descEn: 'Centralized team dashboard' },
-  { slugFr: 'preparation-rdv', slugEn: 'meeting-preparation', labelFr: 'Préparation de RDV', labelEn: 'Meeting Preparation', descFr: 'Briefing IA avant chaque visite', descEn: 'AI briefing before each visit' },
-  { slugFr: 'assistant-ia-manager', slugEn: 'ai-manager-assistant', labelFr: 'Max — Assistant IA', labelEn: 'Max — AI Assistant', descFr: 'Posez vos questions à l\'IA', descEn: 'Ask the AI your questions' },
-  { slugFr: 'portfolio-client', slugEn: 'client-portfolio', labelFr: 'Portfolio Client', labelEn: 'Client Portfolio', descFr: 'Fiches clients enrichies par l\'IA', descEn: 'AI-enriched client cards' },
-  { slugFr: 'base-de-connaissances', slugEn: 'knowledge-base', labelFr: 'Base de connaissances', labelEn: 'Knowledge Base', descFr: 'Documents et contexte métier', descEn: 'Documents & business context' },
-  { slugFr: 'directives-commerciales', slugEn: 'sales-directives', labelFr: 'Directives commerciales', labelEn: 'Sales Directives', descFr: 'Objectifs avec suivi IA', descEn: 'Goals with AI tracking' },
+  { slugFr: 'enregistrement-vocal-rdv', slugEn: 'meeting-voice-recording', labelFr: 'Enregistrement vocal', labelEn: 'Voice Recording', descFr: 'Capturez chaque RDV en 1 tap', descEn: 'Capture every meeting in 1 tap', icon: 'M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z' },
+  { slugFr: 'transcription-ia', slugEn: 'ai-transcription', labelFr: 'Transcription IA', labelEn: 'AI Transcription', descFr: 'Transcription +95% de précision', descEn: '95%+ accuracy transcription', icon: 'M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3' },
+  { slugFr: 'rapport-ia', slugEn: 'ai-report', labelFr: 'Rapport structuré IA', labelEn: 'AI Structured Report', descFr: 'Rapport en 11 sections en 2 min', descEn: '11-section report in 2 min', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
+  { slugFr: 'identification-interlocuteurs', slugEn: 'speaker-identification', labelFr: 'Identification des voix', labelEn: 'Speaker Identification', descFr: 'Qui a dit quoi dans le RDV', descEn: 'Who said what in the meeting', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z' },
+  { slugFr: 'syntheses-territoriales', slugEn: 'territory-syntheses', labelFr: 'Synthèses territoriales', labelEn: 'Territory Syntheses', descFr: 'Vision stratégique du terrain', descEn: 'Strategic territory overview', icon: 'M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z' },
+  { slugFr: 'hub-manager', slugEn: 'manager-hub', labelFr: 'Hub Manager', labelEn: 'Manager Hub', descFr: 'Dashboard équipe centralisé', descEn: 'Centralized team dashboard', icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 8a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zm10 0a1 1 0 011-1h4a1 1 0 011 1v6a1 1 0 01-1 1h-4a1 1 0 01-1-1v-6z' },
+  { slugFr: 'preparation-rdv', slugEn: 'meeting-preparation', labelFr: 'Préparation de RDV', labelEn: 'Meeting Preparation', descFr: 'Briefing IA avant chaque visite', descEn: 'AI briefing before each visit', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4' },
+  { slugFr: 'assistant-ia-manager', slugEn: 'ai-manager-assistant', labelFr: 'Max — Assistant IA', labelEn: 'Max — AI Assistant', descFr: 'Posez vos questions à l\'IA', descEn: 'Ask the AI your questions', icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z' },
+  { slugFr: 'portfolio-client', slugEn: 'client-portfolio', labelFr: 'Portfolio Client', labelEn: 'Client Portfolio', descFr: 'Fiches clients enrichies par l\'IA', descEn: 'AI-enriched client cards', icon: 'M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21' },
+  { slugFr: 'base-de-connaissances', slugEn: 'knowledge-base', labelFr: 'Base de connaissances', labelEn: 'Knowledge Base', descFr: 'Documents et contexte métier', descEn: 'Documents & business context', icon: 'M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25' },
+  { slugFr: 'directives-commerciales', slugEn: 'sales-directives', labelFr: 'Directives commerciales', labelEn: 'Sales Directives', descFr: 'Objectifs avec suivi IA', descEn: 'Goals with AI tracking', icon: 'M12 2a10 10 0 110 20 10 10 0 010-20zm0 4a6 6 0 100 12 6 6 0 000-12zm0 4a2 2 0 110 4 2 2 0 010-4z' },
 ];
 
 ---
@@ -42,8 +42,11 @@ const features = [
           <div class="nav__dropdown-list">
             {features.map((f) => (
               <a class="nav__dropdown-item" href={`/${lang}/solutions/${lang === 'fr' ? f.slugFr : f.slugEn}`}>
-                <span class="nav__dropdown-item-label">{lang === 'fr' ? f.labelFr : f.labelEn}</span>
-                <span class="nav__dropdown-item-desc">{lang === 'fr' ? f.descFr : f.descEn}</span>
+                <svg class="nav__dropdown-item-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d={f.icon} /></svg>
+                <div>
+                  <span class="nav__dropdown-item-label">{lang === 'fr' ? f.labelFr : f.labelEn}</span>
+                  <span class="nav__dropdown-item-desc">{lang === 'fr' ? f.descFr : f.descEn}</span>
+                </div>
               </a>
             ))}
           </div>

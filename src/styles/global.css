@@ -231,11 +231,20 @@ body::after {
   border-radius: 4px;
 }
 .nav__dropdown-item {
-  display: block;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
   padding: 10px 12px;
   border-radius: 8px;
   text-decoration: none;
   transition: background 0.15s;
+}
+.nav__dropdown-item-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--green);
+  margin-top: 1px;
 }
 .nav__dropdown-item:hover {
   background: rgba(255, 255, 255, 0.05);
