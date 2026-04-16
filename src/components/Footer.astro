@@ -22,6 +22,14 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
     </div>
 
     <div class="footer__col">
+      <div class="footer__col-title">{lang === 'fr' ? 'Fonctionnalités' : 'Features'}</div>
+      <a href={lang === 'fr' ? '/fr/solutions/enregistrement-vocal-rdv' : '/en/solutions/meeting-voice-recording'}>{lang === 'fr' ? 'Enregistrement vocal' : 'Voice Recording'}</a>
+      <a href={lang === 'fr' ? '/fr/solutions/rapport-ia' : '/en/solutions/ai-report'}>{lang === 'fr' ? 'Rapport structuré IA' : 'AI Report'}</a>
+      <a href={lang === 'fr' ? '/fr/solutions/hub-manager' : '/en/solutions/manager-hub'}>{lang === 'fr' ? 'Hub Manager' : 'Manager Hub'}</a>
+      <a href={lang === 'fr' ? '/fr/solutions/integrations-crm' : '/en/solutions/crm-integrations'}>{lang === 'fr' ? 'Intégrations CRM' : 'CRM Integrations'}</a>
+    </div>
+
+    <div class="footer__col">
       <div class="footer__col-title" data-i18n="footer.col.legal">Legal</div>
       <a href={lang === 'fr' ? '/fr/confidentialite' : '/en/privacy-policy'} data-i18n="footer.privacy" data-link-fr="/fr/confidentialite" data-link-en="/en/privacy-policy">Confidentialite</a>
       <a href={lang === 'fr' ? '/fr/cgu' : '/en/terms-of-service'} data-i18n="footer.terms" data-link-fr="/fr/cgu" data-link-en="/en/terms-of-service">CGU</a>
