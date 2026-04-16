@@ -116,6 +116,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.reedly.ai/fr/solutions/integrations-crm</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/integrations-crm" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/crm-integrations" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/crm-integrations" />
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.reedly.ai/fr/confidentialite</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/confidentialite" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/privacy-policy" />
@@ -307,6 +315,14 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/directives-commerciales" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/sales-directives" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/sales-directives" />
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.reedly.ai/en/solutions/crm-integrations</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/integrations-crm" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/crm-integrations" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/crm-integrations" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>

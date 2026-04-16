@@ -56,3 +56,8 @@ features:
     slugs:
       fr: "directives-commerciales"
       en: "sales-directives"
+
+  - id: "integrations"
+    slugs:
+      fr: "integrations-crm"
+      en: "crm-integrations"

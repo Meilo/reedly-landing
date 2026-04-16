@@ -107,6 +107,15 @@ export default {
       keywordsEn: ['sales team directives', 'sales objective management', 'AI sales report compliance'],
       relatedIds: ['manager-hub', 'ai-assistant', 'territory-syntheses'],
     },
+    'integrations': {
+      nameFr: 'Intégrations CRM & outils',
+      nameEn: 'CRM & Tool Integrations',
+      descriptionFr: "Connectez Reedly à vos outils existants : HubSpot, Salesforce, Slack, Discord. Les rapports, engagements et opportunités sont poussés automatiquement dans votre CRM et vos canaux d'équipe. API disponible pour les intégrations sur mesure.",
+      descriptionEn: 'Connect Reedly to your existing tools: HubSpot, Salesforce, Slack, Discord. Reports, commitments, and opportunities are automatically pushed to your CRM and team channels. API available for custom integrations.',
+      keywordsFr: ['intégration CRM commercial terrain', 'connecter outil vente CRM', 'synchronisation rapport CRM automatique'],
+      keywordsEn: ['field sales CRM integration', 'sales tool CRM connection', 'automatic report CRM sync'],
+      relatedIds: ['ai-report', 'manager-hub', 'client-portfolio'],
+    },
   },
 
   generation: {

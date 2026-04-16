@@ -308,6 +308,54 @@ const { featureId } = Astro.props;
         </div>
       )}
 
+      {/* ── Integrations: orbit with connected tools ── */}
+      {featureId === 'integrations' && (
+        <div class="fv__integ">
+          <div class="fv__integ-center">
+            <img src="/favicon.png" alt="Reedly" width="28" height="28" style="border-radius: 6px;" />
+            <span>REEDLY</span>
+          </div>
+          <div class="fv__integ-grid">
+            <div class="fv__integ-node fv__integ--1">
+              <img src="/integration/hubspot.png" alt="HubSpot" width="24" height="24" />
+              <div>
+                <div class="fv__integ-node-name">HubSpot</div>
+                <div class="fv__integ-node-desc">Push rapport → fiche contact</div>
+              </div>
+              <div class="fv__integ-node-status">Connecté</div>
+            </div>
+            <div class="fv__integ-node fv__integ--2">
+              <img src="/integration/salesforce.png" alt="Salesforce" width="24" height="24" />
+              <div>
+                <div class="fv__integ-node-name">Salesforce</div>
+                <div class="fv__integ-node-desc">Sync engagements & opportunités</div>
+              </div>
+              <div class="fv__integ-node-status">Connecté</div>
+            </div>
+            <div class="fv__integ-node fv__integ--3">
+              <img src="/integration/slack.png" alt="Slack" width="24" height="24" />
+              <div>
+                <div class="fv__integ-node-name">Slack</div>
+                <div class="fv__integ-node-desc">Notification à chaque rapport</div>
+              </div>
+              <div class="fv__integ-node-status">Connecté</div>
+            </div>
+            <div class="fv__integ-node fv__integ--4">
+              <img src="/integration/discord.png" alt="Discord" width="24" height="24" />
+              <div>
+                <div class="fv__integ-node-name">Discord</div>
+                <div class="fv__integ-node-desc">Synthèses dans vos canaux</div>
+              </div>
+              <div class="fv__integ-node-status fv__integ-node-status--pending">Configurer</div>
+            </div>
+          </div>
+          <div class="fv__integ-api">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+            <span>API REST disponible pour vos intégrations sur mesure</span>
+          </div>
+        </div>
+      )}
+
     </div>
   </div>
 </section>
@@ -523,6 +571,38 @@ const { featureId } = Astro.props;
   .fv__directive-ring-fill { fill: none; stroke: var(--green); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0, 100; animation: fvRingFill 1.5s ease forwards 0.5s; }
   @keyframes fvRingFill { to { stroke-dasharray: 64, 100; } }
   .fv__directive-ring-val { position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.75rem; font-weight: 700; color: var(--green); font-family: var(--mono); }
+
+  /* ── Integrations ── */
+  .fv__integ { padding: 20px; }
+  .fv__integ-center {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: var(--mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+    color: var(--text); margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border);
+  }
+  .fv__integ-grid { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+  .fv__integ-node {
+    display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+    opacity: 0; animation: fvFadeIn 0.4s ease forwards;
+  }
+  .fv__integ--1 { animation-delay: 0.3s; }
+  .fv__integ--2 { animation-delay: 0.5s; }
+  .fv__integ--3 { animation-delay: 0.7s; }
+  .fv__integ--4 { animation-delay: 0.9s; }
+  .fv__integ-node img { border-radius: 6px; flex-shrink: 0; }
+  .fv__integ-node-name { font-size: 0.82rem; font-weight: 600; color: var(--text); }
+  .fv__integ-node-desc { font-size: 0.7rem; color: var(--muted); }
+  .fv__integ-node-status {
+    margin-left: auto; font-size: 0.65rem; font-family: var(--mono); font-weight: 600;
+    padding: 2px 8px; border-radius: 4px; white-space: nowrap;
+    background: rgba(34,197,94,0.1); color: var(--green);
+  }
+  .fv__integ-node-status--pending { background: rgba(251,191,36,0.1); color: var(--amber); }
+  .fv__integ-api {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    padding: 10px; font-size: 0.72rem; color: var(--muted); font-family: var(--mono);
+    border-top: 1px solid var(--border);
+  }
 
   /* ── Responsive ── */
   @media (max-width: 580px) {
