@@ -1,0 +1,100 @@
+seo:
+  title: "Directives commerciales équipe · Reedly"
+  description: "Définissez des directives avec checkpoints. L'IA évalue automatiquement chaque rapport et remonte un score de conformité en temps réel."
+  keywords:
+    - directives commerciales équipe
+    - pilotage objectifs commerciaux
+    - conformité rapports commerciaux IA
+
+hero:
+  eyebrow: "Hub Manager · Directives commerciales"
+  title: "Définissez des <em>directives commerciales.</em><br />L'IA vérifie la conformité."
+  lead: "Créez des directives avec checkpoints pour cadrer vos rendez-vous terrain. L'IA évalue automatiquement chaque rapport par rapport aux directives actives et remonte un score de conformité — sans relecture manuelle."
+  cta_label: "Démarrer l'essai gratuit"
+  cta_url: "/fr#trial"
+
+problem:
+  eyebrow: "Problème"
+  title: "Des objectifs commerciaux définis.<br /><em>Mais aucune visibilité sur leur application.</em>"
+  lead: "Vous définissez des priorités — nouveaux produits à pousser, points de vigilance, questions obligatoires. Mais impossible de savoir si vos commerciaux les appliquent réellement sur le terrain."
+  cards:
+    - title: "Pas de traçabilité des consignes"
+      text: "Les directives sont partagées en réunion ou par email, mais rien ne garantit qu'elles sont suivies lors des rendez-vous clients."
+      icon: "alert"
+    - title: "Contrôle manuel chronophage"
+      text: "Pour vérifier la conformité, il faut relire chaque compte-rendu manuellement — une perte de temps impossible à tenir sur une équipe de 10 commerciaux."
+      icon: "clock"
+    - title: "Aucun indicateur objectif"
+      text: "Difficile de mesurer l'application des directives sans données chiffrées. Les feedbacks restent subjectifs et tardifs."
+      icon: "chart"
+
+solution:
+  eyebrow: "Solution"
+  title: "Des directives claires.<br /><em>Un contrôle automatique.</em>"
+  lead: "Définissez vos directives commerciales avec des checkpoints précis depuis le Hub Manager. L'IA évalue automatiquement chaque rapport généré et remonte un score de conformité en temps réel."
+  steps:
+    - title: "Créez vos directives avec checkpoints"
+      text: "Définissez des directives commerciales (lancement produit, grille de qualification, process de découverte) et listez les checkpoints attendus : points à aborder, questions à poser, informations à collecter."
+    - title: "L'IA évalue chaque rapport automatiquement"
+      text: "Dès qu'un commercial génère un rapport après un rendez-vous, l'IA analyse le contenu et vérifie la présence de chaque checkpoint. Le score de conformité apparaît instantanément."
+    - title: "Suivez la conformité en temps réel"
+      text: "Consultez les scores de conformité par commercial, par période ou par directive. Identifiez immédiatement les écarts et ajustez votre accompagnement terrain."
+
+benefits:
+  eyebrow: "Avantages"
+  title: "Pilotez vos objectifs commerciaux<br /><em>sans effort manuel.</em>"
+  cards:
+    - title: "Application des consignes garantie"
+      text: "Les commerciaux savent que leurs rapports sont évalués automatiquement. Les directives passent de recommandations à des standards appliqués."
+      icon: "target"
+    - title: "Gain de temps managérial"
+      text: "Plus besoin de relire chaque compte-rendu pour vérifier la conformité. L'IA fait le contrôle à votre place et remonte les écarts."
+      icon: "clock"
+    - title: "Pilotage objectif et chiffré"
+      text: "Des scores de conformité clairs par commercial et par directive. Vous identifiez immédiatement qui applique les consignes et qui a besoin d'accompagnement."
+      icon: "chart"
+    - title: "Adaptation rapide aux priorités"
+      text: "Changement de stratégie ou lancement produit ? Créez une nouvelle directive en quelques clics. L'évaluation démarre immédiatement sur tous les nouveaux rapports."
+      icon: "zap"
+    - title: "Amélioration continue du process"
+      text: "Analysez les taux de conformité dans le temps pour mesurer l'impact de vos formations et ajuster vos directives en fonction du terrain."
+      icon: "layers"
+
+use_cases:
+  eyebrow: "Cas d'usage"
+  title: "Des directives pour chaque contexte commercial"
+  cards:
+    - title: "Lancement d'un nouveau produit"
+      text: "Créez une directive avec checkpoints (présentation des bénéfices, démonstration, collecte des objections). Suivez en temps réel combien de commerciaux l'intègrent dans leurs rendez-vous."
+      icon: "zap"
+    - title: "Qualification des opportunités"
+      text: "Définissez une grille de qualification obligatoire (budget, timing, décideurs, concurrence). L'IA vérifie que chaque rapport contient les informations nécessaires avant passage en pipeline."
+      icon: "search"
+    - title: "Process de découverte standardisé"
+      text: "Imposez une méthode de découverte avec questions types et thématiques à aborder. Mesurez l'homogénéité de la démarche commerciale à travers toute l'équipe."
+      icon: "compass"
+    - title: "Conformité réglementaire ou contractuelle"
+      text: "Assurez-vous que certains points légaux, éthiques ou contractuels sont systématiquement abordés lors des rendez-vous clients (RGPD, clauses obligatoires, disclaimers)."
+      icon: "shield"
+
+faq:
+  - question: "Comment créer une directive commerciale ?"
+    answer: "Depuis le Hub Manager, accédez à la section Directives, cliquez sur Créer une directive, donnez-lui un nom (ex : Lancement Produit X), puis ajoutez les checkpoints attendus sous forme de points à vérifier. Activez la directive pour que l'IA commence à l'évaluer sur tous les nouveaux rapports."
+  - question: "L'IA évalue-t-elle tous les rapports automatiquement ?"
+    answer: "Oui. Dès qu'un commercial génère un rapport après un rendez-vous, l'IA analyse le contenu par rapport à toutes les directives actives et calcule un score de conformité pour chacune. Aucune action manuelle nécessaire."
+  - question: "Peut-on avoir plusieurs directives actives en même temps ?"
+    answer: "Oui. Vous pouvez activer plusieurs directives simultanément (ex : grille de qualification + process de découverte + lancement produit). Chaque rapport sera évalué sur l'ensemble des directives actives et affichera un score par directive."
+  - question: "Les commerciaux voient-ils les directives avant le rendez-vous ?"
+    answer: "Oui. Les directives actives sont visibles dans l'application mobile Reedly avant de démarrer l'enregistrement. Le commercial sait quels checkpoints seront évalués, ce qui l'aide à structurer son rendez-vous."
+  - question: "Comment interpréter le score de conformité ?"
+    answer: "Le score indique le pourcentage de checkpoints détectés dans le rapport par rapport au total défini dans la directive. Un score de 80% signifie que 4 checkpoints sur 5 ont été identifiés par l'IA dans le contenu du rendez-vous."
+  - question: "Peut-on modifier une directive après activation ?"
+    answer: "Oui. Vous pouvez modifier les checkpoints d'une directive à tout moment. Les rapports générés après la modification seront évalués sur la nouvelle version. Les rapports antérieurs conservent le score calculé avec l'ancienne version."
+
+related_features:
+  - slug: "hub-manager"
+    label: "Hub Manager"
+  - slug: "assistant-ia-manager"
+    label: "Max — Assistant IA Manager"
+  - slug: "syntheses-territoriales"
+    label: "Synthèses territoriales"

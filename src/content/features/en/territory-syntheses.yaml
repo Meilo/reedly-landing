@@ -1,0 +1,93 @@
+seo:
+  title: Territory Syntheses — Strategic Sales Insights | Reedly
+  description: Aggregate weeks of field reports into prioritized trends, risks, and opportunities. Get strategic territory analysis in seconds.
+  keywords: [field sales activity synthesis, sales territory analysis, sales report aggregation]
+hero:
+  eyebrow: Manager Hub · Territory Syntheses
+  title: Field sales activity synthesis.<br /><em>Strategic view in seconds.</em>
+  lead: Reedly automatically aggregates all your team's field reports into prioritized territory syntheses. Spot trends, identify risks, surface opportunities — no manual consolidation required.
+  cta_label: Start 14-day trial
+  cta_url: /en#trial
+problem:
+  eyebrow: Challenge
+  title: Buried in reports.<br /><em>Missing the patterns.</em>
+  lead: Sales managers collect dozens of individual reports every week. The strategic insights are trapped inside — but extracting them means hours of spreadsheet work and manual analysis.
+  cards:
+    - title: Signal lost in noise
+      text: Reading 30+ individual reports to understand what's happening across a territory. Critical patterns stay invisible until it's too late to act.
+      icon: alert
+    - title: Consolidation takes hours
+      text: Copying data into spreadsheets, tagging themes, tracking competitor mentions. Strategic analysis becomes a weekend task instead of daily practice.
+      icon: clock
+    - title: Decisions lag reality
+      text: By the time you've synthesized last month's reports, the market has moved. Reactive management instead of proactive strategy.
+      icon: shuffle
+solution:
+  eyebrow: How it works
+  title: From individual reports<br /><em>to territory intelligence.</em>
+  lead: Reedly analyzes every field report your team creates and generates comprehensive territory syntheses automatically. Choose your timeframe — week, month, quarter — and get prioritized insights instantly.
+  steps:
+    - title: Reports flow in automatically
+      text: Your team records meetings with the mobile app. Every structured report feeds directly into the territory synthesis engine — no export, no manual upload.
+    - title: AI aggregates across dimensions
+      text: Reedly identifies patterns across all reports — recurring objections, emerging needs, competitive threats, product feedback. Weighted by recency and deal size.
+    - title: Strategic synthesis in seconds
+      text: Generate a comprehensive territory view filtered by period, region, or rep. Prioritized trends, flagged risks, ranked opportunities — ready for your next strategy call.
+benefits:
+  eyebrow: Impact
+  title: Strategic decisions.<br /><em>Grounded in reality.</em>
+  cards:
+    - title: Territory view without the work
+      text: Get the strategic synthesis that used to take 4 hours of spreadsheet work — in under 10 seconds. Weekly territory reviews become actually weekly.
+      icon: target
+    - title: Spot trends as they emerge
+      text: See when three different reps hear the same objection. Notice when a competitor starts appearing in multiple meetings. React while it matters.
+      icon: compass
+    - title: Resource allocation on data
+      text: Prioritize coaching, adjust positioning, shift focus — based on aggregated field intelligence instead of gut feel or the loudest anecdote.
+      icon: layers
+    - title: Forecast with field context
+      text: Pipeline reviews backed by synthesized customer sentiment, competitive pressure, and deal velocity patterns across the entire territory.
+      icon: chart
+    - title: Onboard faster with real patterns
+      text: New managers see what's actually happening in their territory from day one. No need to wait months to understand recurring themes and local dynamics.
+      icon: zap
+    - title: Strategic coaching at scale
+      text: Identify knowledge gaps across the team when synthesis reveals inconsistent objection handling or missed opportunities in specific segments.
+      icon: users
+use_cases:
+  eyebrow: Use cases
+  title: Territory intelligence<br /><em>for every scenario.</em>
+  cards:
+    - title: Weekly sales reviews
+      text: Replace status update meetings with strategic discussions. Come prepared with synthesized trends, risks, and opportunities across the week's 40+ customer interactions.
+      icon: users
+    - title: Quarterly business reviews
+      text: Generate comprehensive territory analysis by segment, product line, or competitive situation. Executive-ready insights extracted from hundreds of field conversations.
+      icon: building
+    - title: Product and marketing feedback
+      text: Surface recurring feature requests, pricing objections, and positioning challenges aggregated across all customer meetings. Field voice to product team in minutes.
+      icon: brain
+    - title: Regional strategy planning
+      text: Compare synthesis across territories to spot geographic patterns. Understand why one region converts faster or where a competitor is gaining ground.
+      icon: globe
+faq:
+  - question: How does territory synthesis differ from reading individual reports?
+    answer: Individual reports show what happened in one meeting. Territory synthesis automatically identifies patterns, trends, and outliers across dozens or hundreds of reports — the strategic layer that's impossible to see manually. Reedly weighs by recency, deal size, and repetition to surface what actually matters.
+  - question: Can I filter syntheses by time period, rep, or segment?
+    answer: Yes. Generate syntheses for any date range (week, month, quarter, custom), filter by individual rep or team, and segment by customer type, product line, or region. Each synthesis is regenerated on demand with current data.
+  - question: What appears in a territory synthesis?
+    answer: Prioritized trends (recurring themes across reports), flagged risks (competitive threats, deal blockers, churn signals), ranked opportunities (upsell patterns, whitespace, emerging needs), and aggregated metrics (meeting volume, engagement quality, sentiment shifts). Structured for strategic action, not raw data.
+  - question: Does synthesis require manual tagging or categorization?
+    answer: No. Reedly's AI automatically extracts and categorizes insights from the structured reports your team creates. No taxonomy setup, no tagging workflow, no data entry. The synthesis engine works on the same 11-section reports generated from field recordings.
+  - question: How often should I generate territory syntheses?
+    answer: Most sales managers generate weekly syntheses for team meetings and monthly syntheses for pipeline reviews. The synthesis is always current — generate on demand whenever you need strategic perspective. No batch processing or scheduled reports required.
+  - question: Can I share syntheses with executives or other departments?
+    answer: Yes. Territory syntheses are shareable via link or export. Common use cases include executive briefings, product team feedback loops, and cross-functional strategy alignment. You control access within the Manager Hub.
+related_features:
+  - slug: ai-report
+    label: AI Structured Report
+  - slug: manager-hub
+    label: Manager Hub
+  - slug: sales-directives
+    label: Sales Directives
