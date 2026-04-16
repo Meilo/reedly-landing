@@ -10,7 +10,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate:feature": "node scripts/generate-feature.mjs",
+    "generate:features": "node scripts/generate-feature.mjs --all"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",
