@@ -5,20 +5,12 @@ interface Props {
   lead: string;
   cta_label: string;
   cta_url: string;
-  breadcrumb: { home: string; solutions: string; solutionsHref: string; current: string };
 }
-const { eyebrow, title, lead, cta_label, cta_url, breadcrumb } = Astro.props;
+const { eyebrow, title, lead, cta_label, cta_url } = Astro.props;
 ---
 
 <section class="comp-hero">
   <div class="inner">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href={breadcrumb.solutionsHref.replace('/solution', '')}>{breadcrumb.home}</a>
-      <span>&rsaquo;</span>
-      <a href={breadcrumb.solutionsHref}>{breadcrumb.solutions}</a>
-      <span>&rsaquo;</span>
-      <span>{breadcrumb.current}</span>
-    </nav>
     <div class="reveal">
       <div class="section__eyebrow">{eyebrow}</div>
       <h1 set:html={title} />
@@ -36,22 +28,3 @@ const { eyebrow, title, lead, cta_label, cta_url, breadcrumb } = Astro.props;
   </div>
 </section>
 
-<style>
-  .breadcrumb {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--muted);
-    margin-bottom: 2rem;
-  }
-  .breadcrumb a {
-    color: var(--muted);
-    text-decoration: none;
-  }
-  .breadcrumb a:hover {
-    color: var(--green);
-  }
-</style>
