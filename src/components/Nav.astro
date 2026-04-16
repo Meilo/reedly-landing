@@ -22,8 +22,6 @@ const features = [
   { slugFr: 'directives-commerciales', slugEn: 'sales-directives', labelFr: 'Directives commerciales', labelEn: 'Sales Directives', descFr: 'Objectifs avec suivi IA', descEn: 'Goals with AI tracking' },
 ];
 
-const allFeaturesLabel = lang === 'fr' ? 'Toutes les fonctionnalités' : 'All features';
-const allFeaturesDesc = lang === 'fr' ? 'Voir la vue d\'ensemble' : 'See the full overview';
 ---
 
 <nav class="nav z1">
@@ -35,10 +33,10 @@ const allFeaturesDesc = lang === 'fr' ? 'Voir la vue d\'ensemble' : 'See the ful
 
     <div class="nav__menu">
       <div class="nav__dropdown">
-        <a class={`nav__menu-link${isSolution ? ' active' : ''}`} href={`/${lang}/solution`} data-i18n="nav.solution" data-link-fr="/fr/solution" data-link-en="/en/solution">
+        <button class={`nav__menu-link nav__dropdown-trigger${isSolution ? ' active' : ''}`} type="button">
           Solution
           <svg class="nav__dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </a>
+        </button>
         <div class="nav__dropdown-panel">
           <div class="nav__dropdown-list">
             {features.map((f) => (
@@ -47,12 +45,6 @@ const allFeaturesDesc = lang === 'fr' ? 'Voir la vue d\'ensemble' : 'See the ful
                 <span class="nav__dropdown-item-desc">{lang === 'fr' ? f.descFr : f.descEn}</span>
               </a>
             ))}
-          </div>
-          <div class="nav__dropdown-footer">
-            <a class="nav__dropdown-item" href={`/${lang}/solution`}>
-              <span class="nav__dropdown-item-label">{allFeaturesLabel}</span>
-              <span class="nav__dropdown-item-desc">{allFeaturesDesc}</span>
-            </a>
           </div>
         </div>
       </div>
@@ -105,7 +97,7 @@ const allFeaturesDesc = lang === 'fr' ? 'Voir la vue d\'ensemble' : 'See the ful
   </div>
 
   <div class="nav__mobile" id="nav-mobile" aria-hidden="true">
-    <a class={`nav__mobile-link${isSolution ? ' active' : ''}`} href={`/${lang}/solution`} data-i18n="nav.solution" data-link-fr="/fr/solution" data-link-en="/en/solution">Solution</a>
+    <span class={`nav__mobile-link${isSolution ? ' active' : ''}`}>Solution</span>
     <div class="nav__mobile-features">
       {features.map((f) => (
         <a class="nav__mobile-feature" href={`/${lang}/solutions/${lang === 'fr' ? f.slugFr : f.slugEn}`}>

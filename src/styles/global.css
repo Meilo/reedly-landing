@@ -184,6 +184,11 @@ body::after {
 .nav__dropdown {
   position: relative;
 }
+.nav__dropdown-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 .nav__dropdown-chevron {
   margin-left: 2px;
   transition: transform 0.2s;

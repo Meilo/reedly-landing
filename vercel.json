@@ -7,7 +7,17 @@
     },
     {
       "source": "/solution",
-      "destination": "/en/solution",
+      "destination": "/en",
+      "permanent": true
+    },
+    {
+      "source": "/fr/solution",
+      "destination": "/fr",
+      "permanent": true
+    },
+    {
+      "source": "/en/solution",
+      "destination": "/en",
       "permanent": true
     },
     {
