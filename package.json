@@ -18,5 +18,9 @@
     "@astrojs/vercel": "^10.0.3",
     "astro": "^6.1.1",
     "resend": "^3.5.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "js-yaml": "^4.1.1"
   }
 }
