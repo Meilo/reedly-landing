@@ -4,6 +4,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const lang = path.startsWith('/en') ? 'en' : 'fr';
 const isFeatures = path.includes('/solutions/');
 const featuresLabel = lang === 'fr' ? 'Fonctionnalités' : 'Features';
+const currentSlug = path.split('/solutions/')[1] || '';
 const isTarifs = path.endsWith('/tarifs') || path.endsWith('/pricing');
 const isComparatif = path.endsWith('/comparatif') || path.endsWith('/comparison');
 const isBlog = path.includes('/blog');
@@ -41,7 +42,7 @@ const features = [
         <div class="nav__dropdown-panel">
           <div class="nav__dropdown-list">
             {features.map((f) => (
-              <a class="nav__dropdown-item" href={`/${lang}/solutions/${lang === 'fr' ? f.slugFr : f.slugEn}`}>
+              <a class={`nav__dropdown-item${currentSlug === (lang === 'fr' ? f.slugFr : f.slugEn) ? ' nav__dropdown-item--active' : ''}`} href={`/${lang}/solutions/${lang === 'fr' ? f.slugFr : f.slugEn}`}>
                 <svg class="nav__dropdown-item-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d={f.icon} /></svg>
                 <div>
                   <span class="nav__dropdown-item-label">{lang === 'fr' ? f.labelFr : f.labelEn}</span>

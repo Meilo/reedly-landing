@@ -249,6 +249,12 @@ body::after {
 .nav__dropdown-item:hover {
   background: rgba(255, 255, 255, 0.05);
 }
+.nav__dropdown-item--active {
+  background: rgba(34, 197, 94, 0.08);
+}
+.nav__dropdown-item--active .nav__dropdown-item-label {
+  color: var(--green);
+}
 .nav__dropdown-item-label {
   display: block;
   font-family: var(--sans);
