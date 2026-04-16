@@ -975,6 +975,17 @@ body::after {
   color: var(--muted);
   line-height: 1.65;
 }
+.feature-card__link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--green);
+  text-decoration: none;
+}
+.feature-card__link:hover {
+  text-decoration: underline;
+}
 
 /* ─── Hub section layout ─── */
 .hub-layout {

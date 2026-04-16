@@ -1,5 +1,18 @@
 ---
 // Features section
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const lang = path.startsWith('/en') ? 'en' : 'fr';
+
+const featureLinks: Record<number, { fr: string; en: string } | null> = {
+  1: { fr: '/fr/solutions/enregistrement-vocal-rdv', en: '/en/solutions/meeting-voice-recording' },
+  2: { fr: '/fr/solutions/transcription-ia', en: '/en/solutions/ai-transcription' },
+  3: { fr: '/fr/solutions/rapport-ia', en: '/en/solutions/ai-report' },
+  4: null,
+  5: null,
+  6: { fr: '/fr/solutions/syntheses-territoriales', en: '/en/solutions/territory-syntheses' },
+};
+
+const learnMore = lang === 'fr' ? 'En savoir plus →' : 'Learn more →';
 ---
 
 <!-- ── App Features ── -->
@@ -31,6 +44,7 @@
                 Lancez l'enregistrement vocal avant d'entrer chez le client. L'app capture l'échange en
                 arrière-plan — batterie optimisée, aucune action requise pendant le rendez-vous.
               </p>
+              <a class="feature-card__link" href={featureLinks[1]![lang]}>{learnMore}</a>
             </article>
             <article class="feature-card reveal reveal-delay-1">
               <div class="feature-card__icon">
@@ -47,6 +61,7 @@
                 Reedly retranscrit chaque échange avec +95% de précision — même en environnement
                 bruyant, même avec un accent, peut importe la langue.
               </p>
+              <a class="feature-card__link" href={featureLinks[2]![lang]}>{learnMore}</a>
             </article>
             <article class="feature-card reveal reveal-delay-2">
               <div class="feature-card__icon">
@@ -62,6 +77,7 @@
               <p data-i18n="features.card3.text">
                 Résumé exécutif, profil client, besoins exprimés, objections, engagements, prochaines étapes, opportunités, risques — prêt à envoyer en 30 secondes. Structuré comme votre meilleur commercial senior.
               </p>
+              <a class="feature-card__link" href={featureLinks[3]![lang]}>{learnMore}</a>
             </article>
             <article class="feature-card reveal reveal-delay-2">
               <div class="feature-card__icon">
@@ -109,6 +125,7 @@
                 Agrégez une semaine, un mois ou un trimestre de rendez-vous en tendances, risques et
                 opportunités priorisés. Votre vision stratégique en quelques secondes.
               </p>
+              <a class="feature-card__link" href={featureLinks[6]![lang]}>{learnMore}</a>
             </article>
           </div>
         </div>
