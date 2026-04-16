@@ -45,7 +45,9 @@ export function loadFeatureContent(lang: 'fr' | 'en', slug: string): FeatureCont
 
 export function getAllFeatureSlugs(lang: 'fr' | 'en'): string[] {
   const registry = loadRegistry();
-  return registry.features.map((f) => f.slugs[lang]);
+  return registry.features
+    .map((f) => f.slugs[lang])
+    .filter((slug) => fs.existsSync(path.join(CONTENT_DIR, lang, `${slug}.yaml`)));
 }
 
 export function findMirrorSlug(lang: 'fr' | 'en', slug: string): string {
