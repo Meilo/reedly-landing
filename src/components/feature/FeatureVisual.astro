@@ -1,8 +1,101 @@
 ---
 interface Props {
   featureId: string;
+  lang: 'fr' | 'en';
 }
-const { featureId } = Astro.props;
+const { featureId, lang } = Astro.props;
+const t = {
+  // Voice recording
+  recording: lang === 'fr' ? 'Enregistrement en cours...' : 'Recording in progress...',
+  // Transcription
+  salesRep: lang === 'fr' ? 'Commercial' : 'Sales Rep',
+  client: 'Client',
+  transcriptA1: lang === 'fr' ? 'Bonjour, merci de me recevoir. Je voulais revenir sur votre besoin en allotement pour la saison...' : 'Hello, thanks for seeing me. I wanted to revisit your allotment needs for the season...',
+  transcriptB1: lang === 'fr' ? "Oui, on a eu des difficultés l'année dernière avec les disponibilités en haute saison..." : 'Yes, we had difficulties last year with peak season availability...',
+  transcriptA2: lang === 'fr' ? 'Je comprends. On peut vous proposer un contrat garanti avec 20% de marge sur les périodes clés...' : 'I understand. We can offer a guaranteed contract with 20% margin on key periods...',
+  transcriptB2: lang === 'fr' ? "Ça m'intéresse. Il faudrait qu'on voie les conditions avant fin mars." : "That's interesting. We'd need to review the terms by end of March.",
+  // Report sections
+  reportSections: lang === 'fr'
+    ? ['Résumé exécutif', 'Profil client', 'Besoins exprimés', 'Objections & réponses', 'Produits discutés', 'Concurrents', 'Engagements', 'Prochaines étapes', 'Opportunités', 'Risques', 'Recommandations']
+    : ['Executive Summary', 'Client Profile', 'Expressed Needs', 'Objections & Responses', 'Products Discussed', 'Competitors', 'Commitments', 'Next Steps', 'Opportunities', 'Risks', 'Recommendations'],
+  // Speaker ID
+  speakerA: lang === 'fr' ? 'Commercial — Pierre D.' : 'Sales Rep — Pierre D.',
+  speakerB: lang === 'fr' ? 'Client — Marie L.' : 'Client — Marie L.',
+  diarizeA1: lang === 'fr' ? 'On peut vous proposer un allotement garanti sur la haute saison...' : 'We can offer you a guaranteed allotment for the peak season...',
+  diarizeB1: lang === 'fr' ? "Il faudrait qu'on voie les tarifs. L'année dernière c'était trop cher." : "We'd need to see the rates. Last year was too expensive.",
+  diarizeA2: lang === 'fr' ? "Je vous envoie la grille mise à jour d'ici vendredi." : "I'll send you the updated price list by Friday.",
+  // Syntheses
+  meetingsMonth: lang === 'fr' ? 'RDV ce mois' : 'Meetings this month',
+  opportunities: lang === 'fr' ? 'Opportunités' : 'Opportunities',
+  risksDetected: lang === 'fr' ? 'Risques détectés' : 'Risks detected',
+  weeks: lang === 'fr' ? ['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4'] : ['Wk 1', 'Wk 2', 'Wk 3', 'Wk 4'],
+  // Hub
+  reports: lang === 'fr' ? 'Rapports' : 'Reports',
+  members: lang === 'fr' ? 'Membres' : 'Members',
+  syntheses: lang === 'fr' ? 'Synthèses' : 'Syntheses',
+  hubReports: lang === 'fr' ? '12 rapports cette semaine' : '12 reports this week',
+  hubActive: lang === 'fr' ? '3 commerciaux actifs' : '3 active sales reps',
+  hubScore: lang === 'fr' ? 'Score équipe : 78%' : 'Team score: 78%',
+  hubLatest: lang === 'fr' ? 'Derniers rapports' : 'Latest reports',
+  hubRow1: lang === 'fr' ? 'Pierre D. · Agence Selectour · il y a 2h' : 'Pierre D. · Selectour Agency · 2h ago',
+  hubRow2: lang === 'fr' ? 'Julie M. · Club Med · il y a 5h' : 'Julie M. · Club Med · 5h ago',
+  hubRow3: lang === 'fr' ? 'Marc R. · TUI France · hier' : 'Marc R. · TUI France · yesterday',
+  // Meeting Prep
+  aiBriefing: lang === 'fr' ? 'Briefing IA' : 'AI Briefing',
+  prepTitle: lang === 'fr' ? 'RDV — Agence Selectour Lyon' : 'Meeting — Selectour Agency Lyon',
+  prepDate: lang === 'fr' ? 'Demain, 14h30' : 'Tomorrow, 2:30 PM',
+  history: lang === 'fr' ? 'Historique' : 'History',
+  historyText: lang === 'fr' ? '3 RDV précédents · Dernier : 12 mars · Ton positif' : '3 previous meetings · Last: March 12 · Positive tone',
+  ongoingCommitments: lang === 'fr' ? 'Engagements en cours' : 'Ongoing commitments',
+  commitText1: lang === 'fr' ? 'Grille tarifaire été → envoyée le 15 mars ✓' : 'Summer price list → sent March 15 ✓',
+  commitText2: lang === 'fr' ? 'Allotement Grèce → en attente de validation' : 'Greece allotment → pending validation',
+  watchPoints: lang === 'fr' ? 'Points de vigilance' : 'Watch points',
+  watchText: lang === 'fr' ? 'Objection prix mentionnée 2 fois' : 'Price objection mentioned 2 times',
+  // AI Assistant
+  aiAssistant: lang === 'fr' ? 'Assistant IA' : 'AI Assistant',
+  chatQ1: lang === 'fr' ? 'Quelles sont les principales objections remontées cette semaine ?' : 'What are the main objections raised this week?',
+  chatA1Fr: 'Cette semaine, 3 objections récurrentes sur 12 rapports :',
+  chatA1En: 'This week, 3 recurring objections across 12 reports:',
+  chatA1: lang === 'fr' ? 'Cette semaine, 3 objections récurrentes sur 12 rapports :' : 'This week, 3 recurring objections across 12 reports:',
+  chatObj1: lang === 'fr' ? 'Prix trop élevé (5 mentions)' : 'Price too high (5 mentions)',
+  chatObj2: lang === 'fr' ? 'Délais de livraison (3 mentions)' : 'Delivery delays (3 mentions)',
+  chatObj3: lang === 'fr' ? 'Manque de flexibilité contrat (2 mentions)' : 'Lack of contract flexibility (2 mentions)',
+  chatQ2: lang === 'fr' ? "Crée une directive pour adresser l'objection prix" : 'Create a directive to address the price objection',
+  // Client Portfolio
+  clientType: lang === 'fr' ? 'Agence de voyages · Lyon 2e' : 'Travel agency · Lyon 2nd',
+  meetings: lang === 'fr' ? 'RDV' : 'Meetings',
+  contacts: 'Contacts',
+  aggregatedNeeds: lang === 'fr' ? 'Besoins agrégés' : 'Aggregated needs',
+  lastContact: lang === 'fr' ? 'Dernier contact' : 'Last contact',
+  lastContactText: lang === 'fr' ? '12 mars — Visite terrain · Pierre D.' : 'March 12 — Field visit · Pierre D.',
+  summerAllot: lang === 'fr' ? 'Allotement été' : 'Summer allotment',
+  greeceCircuits: lang === 'fr' ? 'Circuits Grèce' : 'Greece circuits',
+  miceCorp: 'MICE corporate',
+  // Knowledge Base
+  kbSearch: lang === 'fr' ? 'Rechercher dans la base...' : 'Search the knowledge base...',
+  kbDoc1: lang === 'fr' ? 'Grille tarifaire été 2026' : 'Summer 2026 Price List',
+  kbMeta1: lang === 'fr' ? 'PDF · 12 pages · Importé le 3 mars' : 'PDF · 12 pages · Imported March 3',
+  kbDoc2: 'site-concurrent-voyagexpert.com',
+  kbMeta2: lang === 'fr' ? 'Site web · 23 pages · Crawlé le 8 mars' : 'Website · 23 pages · Crawled March 8',
+  kbDoc3: lang === 'fr' ? 'Argumentaire produit Grèce' : 'Greece Product Brief',
+  kbMeta3: lang === 'fr' ? 'DOCX · 5 pages · Importé le 10 mars' : 'DOCX · 5 pages · Imported March 10',
+  indexed: lang === 'fr' ? 'Indexé' : 'Indexed',
+  indexing: lang === 'fr' ? 'Indexation...' : 'Indexing...',
+  // Directives
+  directiveTitle: lang === 'fr' ? "Pousser l'offre Grèce été 2026" : 'Push Greece summer 2026 offer',
+  directiveCp1: lang === 'fr' ? 'Mentionner la destination Grèce' : 'Mention Greece as a destination',
+  directiveCp2: lang === 'fr' ? 'Présenter le tarif early booking' : 'Present early booking rates',
+  directiveCp3: lang === 'fr' ? 'Obtenir un engagement volume' : 'Get a volume commitment',
+  overallScore: lang === 'fr' ? 'Score global' : 'Overall score',
+  // Integrations
+  integHubspot: lang === 'fr' ? 'Push rapport → fiche contact' : 'Push report → contact card',
+  integSalesforce: lang === 'fr' ? 'Sync engagements & opportunités' : 'Sync commitments & opportunities',
+  integSlack: lang === 'fr' ? 'Notification à chaque rapport' : 'Notification on every report',
+  integDiscord: lang === 'fr' ? 'Synthèses dans vos canaux' : 'Syntheses in your channels',
+  connected: lang === 'fr' ? 'Connecté' : 'Connected',
+  configure: lang === 'fr' ? 'Configurer' : 'Configure',
+  integApi: lang === 'fr' ? 'API REST disponible pour vos intégrations sur mesure' : 'REST API available for custom integrations',
+};
 ---
 
 <section class="fv">
@@ -20,7 +113,7 @@ const { featureId } = Astro.props;
               <div class="fv__wave-bar" style={`--i:${i};--h:${20 + Math.sin(i * 0.8) * 15 + Math.random() * 20}%`}></div>
             ))}
           </div>
-          <div class="fv__phone-label">Enregistrement en cours...</div>
+          <div class="fv__phone-label">{t.recording}</div>
           <div class="fv__rec-dot"></div>
         </div>
       )}
@@ -29,20 +122,20 @@ const { featureId } = Astro.props;
       {featureId === 'ai-transcription' && (
         <div class="fv__transcript">
           <div class="fv__transcript-line fv__transcript-line--1">
-            <span class="fv__transcript-speaker fv__transcript-speaker--a">Commercial</span>
-            <span class="fv__transcript-text">Bonjour, merci de me recevoir. Je voulais revenir sur votre besoin en allotement pour la saison...</span>
+            <span class="fv__transcript-speaker fv__transcript-speaker--a">{t.salesRep}</span>
+            <span class="fv__transcript-text">{t.transcriptA1}</span>
           </div>
           <div class="fv__transcript-line fv__transcript-line--2">
-            <span class="fv__transcript-speaker fv__transcript-speaker--b">Client</span>
-            <span class="fv__transcript-text">Oui, on a eu des difficultés l'année dernière avec les disponibilités en haute saison...</span>
+            <span class="fv__transcript-speaker fv__transcript-speaker--b">{t.client}</span>
+            <span class="fv__transcript-text">{t.transcriptB1}</span>
           </div>
           <div class="fv__transcript-line fv__transcript-line--3">
-            <span class="fv__transcript-speaker fv__transcript-speaker--a">Commercial</span>
-            <span class="fv__transcript-text">Je comprends. On peut vous proposer un contrat garanti avec 20% de marge sur les périodes clés...</span>
+            <span class="fv__transcript-speaker fv__transcript-speaker--a">{t.salesRep}</span>
+            <span class="fv__transcript-text">{t.transcriptA2}</span>
           </div>
           <div class="fv__transcript-line fv__transcript-line--4">
-            <span class="fv__transcript-speaker fv__transcript-speaker--b">Client</span>
-            <span class="fv__transcript-text">Ça m'intéresse. Il faudrait qu'on voie les conditions avant fin mars.</span>
+            <span class="fv__transcript-speaker fv__transcript-speaker--b">{t.client}</span>
+            <span class="fv__transcript-text">{t.transcriptB2}</span>
           </div>
           <div class="fv__transcript-cursor"></div>
         </div>
@@ -58,7 +151,7 @@ const { featureId } = Astro.props;
               <div class="fv__report-date-bar"></div>
             </div>
           </div>
-          {['Résumé exécutif', 'Profil client', 'Besoins exprimés', 'Objections & réponses', 'Produits discutés', 'Concurrents', 'Engagements', 'Prochaines étapes', 'Opportunités', 'Risques', 'Recommandations'].map((section, i) => (
+          {t.reportSections.map((section, i) => (
             <div class="fv__report-row" style={`--delay:${0.3 + i * 0.15}s`}>
               <div class="fv__report-check">✓</div>
               <span>{section}</span>
@@ -73,22 +166,22 @@ const { featureId } = Astro.props;
           <div class="fv__diarize-bubble fv__diarize-bubble--a fv__diarize--1">
             <div class="fv__diarize-avatar fv__diarize-avatar--a">C</div>
             <div class="fv__diarize-content">
-              <div class="fv__diarize-name">Commercial — Pierre D.</div>
-              <div class="fv__diarize-msg">On peut vous proposer un allotement garanti sur la haute saison...</div>
+              <div class="fv__diarize-name">{t.speakerA}</div>
+              <div class="fv__diarize-msg">{t.diarizeA1}</div>
             </div>
           </div>
           <div class="fv__diarize-bubble fv__diarize-bubble--b fv__diarize--2">
             <div class="fv__diarize-content" style="text-align:right">
-              <div class="fv__diarize-name">Client — Marie L.</div>
-              <div class="fv__diarize-msg">Il faudrait qu'on voie les tarifs. L'année dernière c'était trop cher.</div>
+              <div class="fv__diarize-name">{t.speakerB}</div>
+              <div class="fv__diarize-msg">{t.diarizeB1}</div>
             </div>
             <div class="fv__diarize-avatar fv__diarize-avatar--b">C</div>
           </div>
           <div class="fv__diarize-bubble fv__diarize-bubble--a fv__diarize--3">
             <div class="fv__diarize-avatar fv__diarize-avatar--a">C</div>
             <div class="fv__diarize-content">
-              <div class="fv__diarize-name">Commercial — Pierre D.</div>
-              <div class="fv__diarize-msg">Je vous envoie la grille mise à jour d'ici vendredi.</div>
+              <div class="fv__diarize-name">{t.speakerA}</div>
+              <div class="fv__diarize-msg">{t.diarizeA2}</div>
             </div>
           </div>
         </div>
@@ -99,23 +192,23 @@ const { featureId } = Astro.props;
         <div class="fv__dashboard">
           <div class="fv__dash-row">
             <div class="fv__dash-card">
-              <div class="fv__dash-card-label">RDV ce mois</div>
+              <div class="fv__dash-card-label">{t.meetingsMonth}</div>
               <div class="fv__dash-card-value fv__count-up" data-target="47">47</div>
               <div class="fv__dash-card-trend fv__dash-card-trend--up">+12%</div>
             </div>
             <div class="fv__dash-card">
-              <div class="fv__dash-card-label">Opportunités</div>
+              <div class="fv__dash-card-label">{t.opportunities}</div>
               <div class="fv__dash-card-value fv__count-up" data-target="13">13</div>
               <div class="fv__dash-card-trend fv__dash-card-trend--up">+23%</div>
             </div>
             <div class="fv__dash-card">
-              <div class="fv__dash-card-label">Risques détectés</div>
+              <div class="fv__dash-card-label">{t.risksDetected}</div>
               <div class="fv__dash-card-value">5</div>
               <div class="fv__dash-card-trend fv__dash-card-trend--down">+2</div>
             </div>
           </div>
           <div class="fv__dash-bars">
-            {['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4'].map((label, i) => (
+            {t.weeks.map((label, i) => (
               <div class="fv__dash-bar-col">
                 <div class="fv__dash-bar" style={`--h:${[55, 72, 63, 85][i]}%;--delay:${i * 0.2}s`}></div>
                 <span>{label}</span>
@@ -131,24 +224,24 @@ const { featureId } = Astro.props;
           <div class="fv__hub-nav">
             <div class="fv__hub-nav-dot fv__hub-nav-dot--active"></div>
             <div class="fv__hub-nav-item">Dashboard</div>
-            <div class="fv__hub-nav-item">Rapports</div>
-            <div class="fv__hub-nav-item">Membres</div>
-            <div class="fv__hub-nav-item">Synthèses</div>
+            <div class="fv__hub-nav-item">{t.reports}</div>
+            <div class="fv__hub-nav-item">{t.members}</div>
+            <div class="fv__hub-nav-item">{t.syntheses}</div>
           </div>
           <div class="fv__hub-grid">
             <div class="fv__hub-card fv__hub--1">
-              <div class="fv__hub-card-h">12 rapports cette semaine</div>
-              <div class="fv__hub-card-sub">3 commerciaux actifs</div>
+              <div class="fv__hub-card-h">{t.hubReports}</div>
+              <div class="fv__hub-card-sub">{t.hubActive}</div>
             </div>
             <div class="fv__hub-card fv__hub--2">
-              <div class="fv__hub-card-h">Score équipe : 78%</div>
+              <div class="fv__hub-card-h">{t.hubScore}</div>
               <div class="fv__hub-progress"><div class="fv__hub-progress-fill"></div></div>
             </div>
             <div class="fv__hub-card fv__hub-card--wide fv__hub--3">
-              <div class="fv__hub-card-h">Derniers rapports</div>
-              <div class="fv__hub-table-row">Pierre D. · Agence Selectour · il y a 2h</div>
-              <div class="fv__hub-table-row">Julie M. · Club Med · il y a 5h</div>
-              <div class="fv__hub-table-row">Marc R. · TUI France · hier</div>
+              <div class="fv__hub-card-h">{t.hubLatest}</div>
+              <div class="fv__hub-table-row">{t.hubRow1}</div>
+              <div class="fv__hub-table-row">{t.hubRow2}</div>
+              <div class="fv__hub-table-row">{t.hubRow3}</div>
             </div>
           </div>
         </div>
@@ -158,22 +251,22 @@ const { featureId } = Astro.props;
       {featureId === 'meeting-prep' && (
         <div class="fv__prep">
           <div class="fv__prep-header">
-            <div class="fv__prep-badge">Briefing IA</div>
-            <div class="fv__prep-title">RDV — Agence Selectour Lyon</div>
-            <div class="fv__prep-date">Demain, 14h30</div>
+            <div class="fv__prep-badge">{t.aiBriefing}</div>
+            <div class="fv__prep-title">{t.prepTitle}</div>
+            <div class="fv__prep-date">{t.prepDate}</div>
           </div>
           <div class="fv__prep-section fv__prep--1">
-            <div class="fv__prep-section-h">Historique</div>
-            <div class="fv__prep-section-text">3 RDV précédents · Dernier : 12 mars · Ton positif</div>
+            <div class="fv__prep-section-h">{t.history}</div>
+            <div class="fv__prep-section-text">{t.historyText}</div>
           </div>
           <div class="fv__prep-section fv__prep--2">
-            <div class="fv__prep-section-h">Engagements en cours</div>
-            <div class="fv__prep-section-text">Grille tarifaire été → envoyée le 15 mars ✓</div>
-            <div class="fv__prep-section-text">Allotement Grèce → en attente de validation</div>
+            <div class="fv__prep-section-h">{t.ongoingCommitments}</div>
+            <div class="fv__prep-section-text">{t.commitText1}</div>
+            <div class="fv__prep-section-text">{t.commitText2}</div>
           </div>
           <div class="fv__prep-section fv__prep--3">
-            <div class="fv__prep-section-h">Points de vigilance</div>
-            <div class="fv__prep-section-text fv__prep-section-text--warn">Objection prix mentionnée 2 fois</div>
+            <div class="fv__prep-section-h">{t.watchPoints}</div>
+            <div class="fv__prep-section-text fv__prep-section-text--warn">{t.watchText}</div>
           </div>
         </div>
       )}
@@ -185,20 +278,20 @@ const { featureId } = Astro.props;
             <div class="fv__chat-avatar">M</div>
             <div>
               <div class="fv__chat-name">Max</div>
-              <div class="fv__chat-status">Assistant IA</div>
+              <div class="fv__chat-status">{t.aiAssistant}</div>
             </div>
           </div>
           <div class="fv__chat-msg fv__chat-msg--user fv__chat--1">
-            Quelles sont les principales objections remontées cette semaine ?
+            {t.chatQ1}
           </div>
           <div class="fv__chat-msg fv__chat-msg--ai fv__chat--2">
-            Cette semaine, 3 objections récurrentes sur 12 rapports :<br/>
-            <strong>1.</strong> Prix trop élevé (5 mentions)<br/>
-            <strong>2.</strong> Délais de livraison (3 mentions)<br/>
-            <strong>3.</strong> Manque de flexibilité contrat (2 mentions)
+            {t.chatA1}<br/>
+            <strong>1.</strong> {t.chatObj1}<br/>
+            <strong>2.</strong> {t.chatObj2}<br/>
+            <strong>3.</strong> {t.chatObj3}
           </div>
           <div class="fv__chat-msg fv__chat-msg--user fv__chat--3">
-            Crée une directive pour adresser l'objection prix
+            {t.chatQ2}
           </div>
           <div class="fv__chat-typing fv__chat--4">
             <span></span><span></span><span></span>
@@ -213,23 +306,23 @@ const { featureId } = Astro.props;
             <div class="fv__client-initials">S</div>
             <div>
               <div class="fv__client-name">Selectour Lyon Bellecour</div>
-              <div class="fv__client-type">Agence de voyages · Lyon 2e</div>
+              <div class="fv__client-type">{t.clientType}</div>
             </div>
           </div>
           <div class="fv__client-stats">
-            <div class="fv__client-stat"><span class="fv__client-stat-val">7</span><span class="fv__client-stat-label">RDV</span></div>
-            <div class="fv__client-stat"><span class="fv__client-stat-val">4</span><span class="fv__client-stat-label">Contacts</span></div>
+            <div class="fv__client-stat"><span class="fv__client-stat-val">7</span><span class="fv__client-stat-label">{t.meetings}</span></div>
+            <div class="fv__client-stat"><span class="fv__client-stat-val">4</span><span class="fv__client-stat-label">{t.contacts}</span></div>
             <div class="fv__client-stat"><span class="fv__client-stat-val fv__client-stat-val--green">82%</span><span class="fv__client-stat-label">Score</span></div>
           </div>
           <div class="fv__client-section fv__client--1">
-            <div class="fv__client-section-h">Besoins agrégés <span class="fv__client-ai-badge">IA</span></div>
-            <div class="fv__client-tag">Allotement été</div>
-            <div class="fv__client-tag">Circuits Grèce</div>
-            <div class="fv__client-tag">MICE corporate</div>
+            <div class="fv__client-section-h">{t.aggregatedNeeds} <span class="fv__client-ai-badge">IA</span></div>
+            <div class="fv__client-tag">{t.summerAllot}</div>
+            <div class="fv__client-tag">{t.greeceCircuits}</div>
+            <div class="fv__client-tag">{t.miceCorp}</div>
           </div>
           <div class="fv__client-section fv__client--2">
-            <div class="fv__client-section-h">Dernier contact</div>
-            <div class="fv__client-section-text">12 mars — Visite terrain · Pierre D.</div>
+            <div class="fv__client-section-h">{t.lastContact}</div>
+            <div class="fv__client-section-text">{t.lastContactText}</div>
           </div>
         </div>
       )}
@@ -239,32 +332,32 @@ const { featureId } = Astro.props;
         <div class="fv__kb">
           <div class="fv__kb-search">
             <svg class="fv__kb-search-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
-            <span>Rechercher dans la base...</span>
+            <span>{t.kbSearch}</span>
           </div>
           <div class="fv__kb-list">
             <div class="fv__kb-item fv__kb--1">
               <div class="fv__kb-icon">📄</div>
               <div>
-                <div class="fv__kb-item-title">Grille tarifaire été 2026</div>
-                <div class="fv__kb-item-meta">PDF · 12 pages · Importé le 3 mars</div>
+                <div class="fv__kb-item-title">{t.kbDoc1}</div>
+                <div class="fv__kb-item-meta">{t.kbMeta1}</div>
               </div>
-              <div class="fv__kb-item-status fv__kb-item-status--ready">Indexé</div>
+              <div class="fv__kb-item-status fv__kb-item-status--ready">{t.indexed}</div>
             </div>
             <div class="fv__kb-item fv__kb--2">
               <div class="fv__kb-icon">🌐</div>
               <div>
-                <div class="fv__kb-item-title">site-concurrent-voyagexpert.com</div>
-                <div class="fv__kb-item-meta">Site web · 23 pages · Crawlé le 8 mars</div>
+                <div class="fv__kb-item-title">{t.kbDoc2}</div>
+                <div class="fv__kb-item-meta">{t.kbMeta2}</div>
               </div>
-              <div class="fv__kb-item-status fv__kb-item-status--ready">Indexé</div>
+              <div class="fv__kb-item-status fv__kb-item-status--ready">{t.indexed}</div>
             </div>
             <div class="fv__kb-item fv__kb--3">
               <div class="fv__kb-icon">📄</div>
               <div>
-                <div class="fv__kb-item-title">Argumentaire produit Grèce</div>
-                <div class="fv__kb-item-meta">DOCX · 5 pages · Importé le 10 mars</div>
+                <div class="fv__kb-item-title">{t.kbDoc3}</div>
+                <div class="fv__kb-item-meta">{t.kbMeta3}</div>
               </div>
-              <div class="fv__kb-item-status fv__kb-item-status--processing">Indexation...</div>
+              <div class="fv__kb-item-status fv__kb-item-status--processing">{t.indexing}</div>
             </div>
           </div>
         </div>
@@ -275,28 +368,28 @@ const { featureId } = Astro.props;
         <div class="fv__directive">
           <div class="fv__directive-header">
             <div class="fv__directive-badge fv__directive-badge--active">Active</div>
-            <div class="fv__directive-title">Pousser l'offre Grèce été 2026</div>
+            <div class="fv__directive-title">{t.directiveTitle}</div>
             <div class="fv__directive-dates">1 mars → 30 avril 2026</div>
           </div>
           <div class="fv__directive-checkpoints">
             <div class="fv__directive-cp fv__directive--1">
               <div class="fv__directive-cp-check fv__directive-cp-check--done">✓</div>
-              <span>Mentionner la destination Grèce</span>
+              <span>{t.directiveCp1}</span>
               <span class="fv__directive-cp-score">87%</span>
             </div>
             <div class="fv__directive-cp fv__directive--2">
               <div class="fv__directive-cp-check fv__directive-cp-check--done">✓</div>
-              <span>Présenter le tarif early booking</span>
+              <span>{t.directiveCp2}</span>
               <span class="fv__directive-cp-score">72%</span>
             </div>
             <div class="fv__directive-cp fv__directive--3">
               <div class="fv__directive-cp-check fv__directive-cp-check--partial">~</div>
-              <span>Obtenir un engagement volume</span>
+              <span>{t.directiveCp3}</span>
               <span class="fv__directive-cp-score">34%</span>
             </div>
           </div>
           <div class="fv__directive-footer">
-            <div class="fv__directive-score-label">Score global</div>
+            <div class="fv__directive-score-label">{t.overallScore}</div>
             <div class="fv__directive-ring">
               <svg viewBox="0 0 36 36">
                 <path class="fv__directive-ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831 15.9155 15.9155 0 0 1 0 -31.831" />
@@ -320,38 +413,38 @@ const { featureId } = Astro.props;
               <img src="/integration/hubspot.png" alt="HubSpot" width="24" height="24" />
               <div>
                 <div class="fv__integ-node-name">HubSpot</div>
-                <div class="fv__integ-node-desc">Push rapport → fiche contact</div>
+                <div class="fv__integ-node-desc">{t.integHubspot}</div>
               </div>
-              <div class="fv__integ-node-status">Connecté</div>
+              <div class="fv__integ-node-status">{t.connected}</div>
             </div>
             <div class="fv__integ-node fv__integ--2">
               <img src="/integration/salesforce.png" alt="Salesforce" width="24" height="24" />
               <div>
                 <div class="fv__integ-node-name">Salesforce</div>
-                <div class="fv__integ-node-desc">Sync engagements & opportunités</div>
+                <div class="fv__integ-node-desc">{t.integSalesforce}</div>
               </div>
-              <div class="fv__integ-node-status">Connecté</div>
+              <div class="fv__integ-node-status">{t.connected}</div>
             </div>
             <div class="fv__integ-node fv__integ--3">
               <img src="/integration/slack.png" alt="Slack" width="24" height="24" />
               <div>
                 <div class="fv__integ-node-name">Slack</div>
-                <div class="fv__integ-node-desc">Notification à chaque rapport</div>
+                <div class="fv__integ-node-desc">{t.integSlack}</div>
               </div>
-              <div class="fv__integ-node-status">Connecté</div>
+              <div class="fv__integ-node-status">{t.connected}</div>
             </div>
             <div class="fv__integ-node fv__integ--4">
               <img src="/integration/discord.png" alt="Discord" width="24" height="24" />
               <div>
                 <div class="fv__integ-node-name">Discord</div>
-                <div class="fv__integ-node-desc">Synthèses dans vos canaux</div>
+                <div class="fv__integ-node-desc">{t.integDiscord}</div>
               </div>
-              <div class="fv__integ-node-status fv__integ-node-status--pending">Configurer</div>
+              <div class="fv__integ-node-status fv__integ-node-status--pending">{t.configure}</div>
             </div>
           </div>
           <div class="fv__integ-api">
             <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
-            <span>API REST disponible pour vos intégrations sur mesure</span>
+            <span>{t.integApi}</span>
           </div>
         </div>
       )}
