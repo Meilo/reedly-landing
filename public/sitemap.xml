@@ -11,14 +11,6 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/fr/solution</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solution" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solution" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solution" />
-    <lastmod>2026-03-24</lastmod>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://www.reedly.ai/fr/tarifs</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/tarifs" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/pricing" />
@@ -212,14 +204,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en" />
     <lastmod>2026-04-07</lastmod>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.reedly.ai/en/solution</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solution" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solution" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solution" />
-    <lastmod>2026-03-24</lastmod>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.reedly.ai/en/pricing</loc>
