@@ -16,7 +16,6 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
 
     <div class="footer__col">
       <div class="footer__col-title" data-i18n="footer.col.product">Produit</div>
-      <a href={`/${lang}/solution`} data-i18n="footer.solution" data-link-fr="/fr/solution" data-link-en="/en/solution">Solution</a>
       <a href={lang === 'fr' ? '/fr/tarifs' : '/en/pricing'} data-i18n="footer.pricing" data-link-fr="/fr/tarifs" data-link-en="/en/pricing">Tarifs</a>
       <a href={lang === 'fr' ? '/fr/comparatif' : '/en/comparison'} data-i18n="footer.comparatif" data-link-fr="/fr/comparatif" data-link-en="/en/comparison">Comparatif</a>
       <a href={`/${lang}/blog`} data-i18n="footer.blog" data-link-fr="/fr/blog" data-link-en="/en/blog">Blog</a>
