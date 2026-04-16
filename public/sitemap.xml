@@ -28,98 +28,98 @@
   </url>
   <!-- FR feature landing pages -->
   <url>
-    <loc>https://www.reedly.ai/fr/solutions/enregistrement-vocal-rdv</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/enregistrement-vocal-rdv" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/meeting-voice-recording" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/meeting-voice-recording" />
+    <loc>https://www.reedly.ai/fr/features/enregistrement-vocal-rdv</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/enregistrement-vocal-rdv" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/meeting-voice-recording" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/meeting-voice-recording" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/fr/solutions/transcription-ia</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/transcription-ia" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/ai-transcription" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/ai-transcription" />
+    <loc>https://www.reedly.ai/fr/features/transcription-ia</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/transcription-ia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/ai-transcription" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/ai-transcription" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/fr/solutions/rapport-ia</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/rapport-ia" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/ai-report" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/ai-report" />
+    <loc>https://www.reedly.ai/fr/features/rapport-ia</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/rapport-ia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/ai-report" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/ai-report" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/fr/solutions/identification-interlocuteurs</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/identification-interlocuteurs" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/speaker-identification" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/speaker-identification" />
+    <loc>https://www.reedly.ai/fr/features/identification-interlocuteurs</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/identification-interlocuteurs" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/speaker-identification" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/speaker-identification" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/fr/solutions/syntheses-territoriales</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/syntheses-territoriales" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/territory-syntheses" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/territory-syntheses" />
+    <loc>https://www.reedly.ai/fr/features/syntheses-territoriales</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/syntheses-territoriales" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/territory-syntheses" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/territory-syntheses" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/fr/solutions/hub-manager</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/hub-manager" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/manager-hub" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/manager-hub" />
+    <loc>https://www.reedly.ai/fr/features/hub-manager</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/hub-manager" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/manager-hub" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/manager-hub" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/fr/solutions/preparation-rdv</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/preparation-rdv" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/meeting-preparation" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/meeting-preparation" />
+    <loc>https://www.reedly.ai/fr/features/preparation-rdv</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/preparation-rdv" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/meeting-preparation" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/meeting-preparation" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/fr/solutions/assistant-ia-manager</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/assistant-ia-manager" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/ai-manager-assistant" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/ai-manager-assistant" />
+    <loc>https://www.reedly.ai/fr/features/assistant-ia-manager</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/assistant-ia-manager" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/ai-manager-assistant" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/ai-manager-assistant" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/fr/solutions/portfolio-client</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/portfolio-client" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/client-portfolio" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/client-portfolio" />
+    <loc>https://www.reedly.ai/fr/features/portfolio-client</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/portfolio-client" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/client-portfolio" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/client-portfolio" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/fr/solutions/base-de-connaissances</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/base-de-connaissances" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/knowledge-base" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/knowledge-base" />
+    <loc>https://www.reedly.ai/fr/features/base-de-connaissances</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/base-de-connaissances" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/knowledge-base" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/knowledge-base" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/fr/solutions/directives-commerciales</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/directives-commerciales" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/sales-directives" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/sales-directives" />
+    <loc>https://www.reedly.ai/fr/features/directives-commerciales</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/directives-commerciales" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/sales-directives" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/sales-directives" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/fr/solutions/integrations-crm</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/integrations-crm" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/crm-integrations" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/crm-integrations" />
+    <loc>https://www.reedly.ai/fr/features/integrations-crm</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/integrations-crm" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/crm-integrations" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/crm-integrations" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
@@ -231,98 +231,98 @@
   </url>
   <!-- EN feature landing pages -->
   <url>
-    <loc>https://www.reedly.ai/en/solutions/meeting-voice-recording</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/enregistrement-vocal-rdv" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/meeting-voice-recording" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/meeting-voice-recording" />
+    <loc>https://www.reedly.ai/en/features/meeting-voice-recording</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/enregistrement-vocal-rdv" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/meeting-voice-recording" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/meeting-voice-recording" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/en/solutions/ai-transcription</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/transcription-ia" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/ai-transcription" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/ai-transcription" />
+    <loc>https://www.reedly.ai/en/features/ai-transcription</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/transcription-ia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/ai-transcription" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/ai-transcription" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/en/solutions/ai-report</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/rapport-ia" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/ai-report" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/ai-report" />
+    <loc>https://www.reedly.ai/en/features/ai-report</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/rapport-ia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/ai-report" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/ai-report" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/en/solutions/speaker-identification</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/identification-interlocuteurs" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/speaker-identification" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/speaker-identification" />
+    <loc>https://www.reedly.ai/en/features/speaker-identification</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/identification-interlocuteurs" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/speaker-identification" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/speaker-identification" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/en/solutions/territory-syntheses</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/syntheses-territoriales" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/territory-syntheses" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/territory-syntheses" />
+    <loc>https://www.reedly.ai/en/features/territory-syntheses</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/syntheses-territoriales" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/territory-syntheses" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/territory-syntheses" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/en/solutions/manager-hub</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/hub-manager" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/manager-hub" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/manager-hub" />
+    <loc>https://www.reedly.ai/en/features/manager-hub</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/hub-manager" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/manager-hub" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/manager-hub" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/en/solutions/meeting-preparation</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/preparation-rdv" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/meeting-preparation" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/meeting-preparation" />
+    <loc>https://www.reedly.ai/en/features/meeting-preparation</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/preparation-rdv" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/meeting-preparation" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/meeting-preparation" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/en/solutions/ai-manager-assistant</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/assistant-ia-manager" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/ai-manager-assistant" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/ai-manager-assistant" />
+    <loc>https://www.reedly.ai/en/features/ai-manager-assistant</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/assistant-ia-manager" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/ai-manager-assistant" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/ai-manager-assistant" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/en/solutions/client-portfolio</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/portfolio-client" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/client-portfolio" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/client-portfolio" />
+    <loc>https://www.reedly.ai/en/features/client-portfolio</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/portfolio-client" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/client-portfolio" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/client-portfolio" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/en/solutions/knowledge-base</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/base-de-connaissances" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/knowledge-base" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/knowledge-base" />
+    <loc>https://www.reedly.ai/en/features/knowledge-base</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/base-de-connaissances" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/knowledge-base" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/knowledge-base" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/en/solutions/sales-directives</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/directives-commerciales" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/sales-directives" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/sales-directives" />
+    <loc>https://www.reedly.ai/en/features/sales-directives</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/directives-commerciales" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/sales-directives" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/sales-directives" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.reedly.ai/en/solutions/crm-integrations</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/solutions/integrations-crm" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/solutions/crm-integrations" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/solutions/crm-integrations" />
+    <loc>https://www.reedly.ai/en/features/crm-integrations</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.reedly.ai/fr/features/integrations-crm" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.reedly.ai/en/features/crm-integrations" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.reedly.ai/en/features/crm-integrations" />
     <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>

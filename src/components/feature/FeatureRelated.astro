@@ -4,7 +4,7 @@ interface Props {
   lang: 'fr' | 'en';
 }
 const { features, lang } = Astro.props;
-const prefix = `/${lang}/solutions`;
+const prefix = `/${lang}/features`;
 const seeAlso = lang === 'fr' ? 'Voir aussi :' : 'See also:';
 ---
 

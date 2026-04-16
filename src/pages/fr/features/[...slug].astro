@@ -14,25 +14,25 @@ import Footer from '@/components/Footer.astro';
 import { getAllFeatureSlugs, loadFeatureContent, findMirrorSlug, findFeatureId } from '@/lib/load-features';
 
 export function getStaticPaths() {
-  const slugs = getAllFeatureSlugs('en');
+  const slugs = getAllFeatureSlugs('fr');
   return slugs.map((slug) => ({ params: { slug } }));
 }
 
 const { slug } = Astro.params;
-const data = loadFeatureContent('en', slug!);
-const mirrorSlug = findMirrorSlug('en', slug!);
-const featureId = findFeatureId('en', slug!);
+const data = loadFeatureContent('fr', slug!);
+const mirrorSlug = findMirrorSlug('fr', slug!);
+const featureId = findFeatureId('fr', slug!);
 const hreflangData = {
-  fr: `/fr/solutions/${mirrorSlug}`,
-  en: `/en/solutions/${slug}`,
+  fr: `/fr/features/${slug}`,
+  en: `/en/features/${mirrorSlug}`,
 };
 
 const breadcrumbLD = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.reedly.ai/en" },
-    { "@type": "ListItem", "position": 2, "name": "Solution", "item": "https://www.reedly.ai/en/solution" },
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.reedly.ai/fr" },
+    { "@type": "ListItem", "position": 2, "name": "Solution", "item": "https://www.reedly.ai/fr/solution" },
     { "@type": "ListItem", "position": 3, "name": data.hero.eyebrow },
   ],
 };
@@ -51,10 +51,10 @@ const faqLD = {
 <Layout
   title={data.seo.title}
   description={data.seo.description}
-  lang="en"
+  lang="fr"
   hreflang={hreflangData}
 >
-  <meta slot="head" name="feature-mirror" data-link-fr={`/fr/solutions/${mirrorSlug}`} data-link-en={`/en/solutions/${slug}`} />
+  <meta slot="head" name="feature-mirror" data-link-fr={`/fr/features/${slug}`} data-link-en={`/en/features/${mirrorSlug}`} />
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbLD)} />
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqLD)} />
 
@@ -68,9 +68,9 @@ const faqLD = {
       title={data.hero.title}
       lead={data.hero.lead}
       cta_url={data.hero.cta_url}
-      lang="en"
+      lang="fr"
     />
-    <FeatureVisual featureId={featureId} lang="en" />
+    <FeatureVisual featureId={featureId} lang="fr" />
     <FeatureProblem
       eyebrow={data.problem.eyebrow}
       title={data.problem.title}
@@ -93,8 +93,8 @@ const faqLD = {
       title={data.use_cases.title}
       cards={data.use_cases.cards}
     />
-    <FeatureFaq faq={data.faq} lang="en" />
-    <FeatureRelated features={data.related_features} lang="en" />
+    <FeatureFaq faq={data.faq} lang="fr" />
+    <FeatureRelated features={data.related_features} lang="fr" />
     <FinalCta />
   </main>
 

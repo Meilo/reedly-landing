@@ -4,12 +4,12 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const lang = path.startsWith('/en') ? 'en' : 'fr';
 
 const featureLinks: Record<number, { fr: string; en: string } | null> = {
-  1: { fr: '/fr/solutions/enregistrement-vocal-rdv', en: '/en/solutions/meeting-voice-recording' },
-  2: { fr: '/fr/solutions/transcription-ia', en: '/en/solutions/ai-transcription' },
-  3: { fr: '/fr/solutions/rapport-ia', en: '/en/solutions/ai-report' },
+  1: { fr: '/fr/features/enregistrement-vocal-rdv', en: '/en/features/meeting-voice-recording' },
+  2: { fr: '/fr/features/transcription-ia', en: '/en/features/ai-transcription' },
+  3: { fr: '/fr/features/rapport-ia', en: '/en/features/ai-report' },
   4: null,
   5: null,
-  6: { fr: '/fr/solutions/syntheses-territoriales', en: '/en/solutions/territory-syntheses' },
+  6: { fr: '/fr/features/syntheses-territoriales', en: '/en/features/territory-syntheses' },
 };
 
 const learnMore = lang === 'fr' ? 'En savoir plus →' : 'Learn more →';

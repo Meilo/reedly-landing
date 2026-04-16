@@ -21,6 +21,16 @@
       "permanent": true
     },
     {
+      "source": "/fr/solutions/:slug",
+      "destination": "/fr/features/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/en/solutions/:slug",
+      "destination": "/en/features/:slug",
+      "permanent": true
+    },
+    {
       "source": "/tarifs",
       "destination": "/en/pricing",
       "permanent": true

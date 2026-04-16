@@ -1309,7 +1309,7 @@ function setLang(lang) {
       }
       // Feature page mirror fallback
       var featureMirror = document.querySelector('meta[name="feature-mirror"]');
-      if (featureMirror && pathSuffix.startsWith("/solutions/")) {
+      if (featureMirror && pathSuffix.startsWith("/features/")) {
         var featureHref =
           lang === "en"
             ? featureMirror.getAttribute("data-link-en")
