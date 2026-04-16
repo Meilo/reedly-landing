@@ -1,0 +1,101 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Nav from '@/components/Nav.astro';
+import FeatureHero from '@/components/feature/FeatureHero.astro';
+import FeatureProblem from '@/components/feature/FeatureProblem.astro';
+import FeatureSolution from '@/components/feature/FeatureSolution.astro';
+import FeatureBenefits from '@/components/feature/FeatureBenefits.astro';
+import FeatureUseCases from '@/components/feature/FeatureUseCases.astro';
+import FeatureFaq from '@/components/feature/FeatureFaq.astro';
+import FeatureRelated from '@/components/feature/FeatureRelated.astro';
+import FinalCta from '@/components/FinalCta.astro';
+import Footer from '@/components/Footer.astro';
+import { getAllFeatureSlugs, loadFeatureContent, findMirrorSlug } from '@/lib/load-features';
+
+export function getStaticPaths() {
+  const slugs = getAllFeatureSlugs('fr');
+  return slugs.map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const data = loadFeatureContent('fr', slug!);
+const mirrorSlug = findMirrorSlug('fr', slug!);
+const hreflangData = {
+  fr: `/fr/solutions/${slug}`,
+  en: `/en/solutions/${mirrorSlug}`,
+};
+
+const breadcrumbLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.reedly.ai/fr" },
+    { "@type": "ListItem", "position": 2, "name": "Solution", "item": "https://www.reedly.ai/fr/solution" },
+    { "@type": "ListItem", "position": 3, "name": data.hero.eyebrow },
+  ],
+};
+
+const faqLD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": data.faq.map((item) => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer },
+  })),
+};
+---
+
+<Layout
+  title={data.seo.title}
+  description={data.seo.description}
+  lang="fr"
+  hreflang={hreflangData}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbLD)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqLD)} />
+
+  <div id="cursor-glow"></div>
+
+  <Nav />
+
+  <main class="z1">
+    <FeatureHero
+      eyebrow={data.hero.eyebrow}
+      title={data.hero.title}
+      lead={data.hero.lead}
+      cta_label={data.hero.cta_label}
+      cta_url={data.hero.cta_url}
+      breadcrumb={{ home: "Accueil", solutions: "Solution", solutionsHref: "/fr/solution", current: data.hero.eyebrow }}
+    />
+    <FeatureProblem
+      eyebrow={data.problem.eyebrow}
+      title={data.problem.title}
+      lead={data.problem.lead}
+      cards={data.problem.cards}
+    />
+    <FeatureSolution
+      eyebrow={data.solution.eyebrow}
+      title={data.solution.title}
+      lead={data.solution.lead}
+      steps={data.solution.steps}
+    />
+    <FeatureBenefits
+      eyebrow={data.benefits.eyebrow}
+      title={data.benefits.title}
+      cards={data.benefits.cards}
+    />
+    <FeatureUseCases
+      eyebrow={data.use_cases.eyebrow}
+      title={data.use_cases.title}
+      cards={data.use_cases.cards}
+    />
+    <FeatureFaq faq={data.faq} lang="fr" />
+    <FeatureRelated features={data.related_features} lang="fr" />
+    <FinalCta />
+  </main>
+
+  <Footer />
+
+  <script src="/main.js" is:inline></script>
+</Layout>
