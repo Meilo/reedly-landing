@@ -2,7 +2,7 @@
 // Nav — sticky navigation bar
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const lang = path.startsWith('/en') ? 'en' : 'fr';
-const isSolution = path.endsWith('/solution');
+const isSolution = path.endsWith('/solution') || path.includes('/solutions/');
 const isTarifs = path.endsWith('/tarifs') || path.endsWith('/pricing');
 const isComparatif = path.endsWith('/comparatif') || path.endsWith('/comparison');
 const isBlog = path.includes('/blog');
