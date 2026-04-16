@@ -8,9 +8,10 @@ import FeatureBenefits from '@/components/feature/FeatureBenefits.astro';
 import FeatureUseCases from '@/components/feature/FeatureUseCases.astro';
 import FeatureFaq from '@/components/feature/FeatureFaq.astro';
 import FeatureRelated from '@/components/feature/FeatureRelated.astro';
+import FeatureVisual from '@/components/feature/FeatureVisual.astro';
 import FinalCta from '@/components/FinalCta.astro';
 import Footer from '@/components/Footer.astro';
-import { getAllFeatureSlugs, loadFeatureContent, findMirrorSlug } from '@/lib/load-features';
+import { getAllFeatureSlugs, loadFeatureContent, findMirrorSlug, findFeatureId } from '@/lib/load-features';
 
 export function getStaticPaths() {
   const slugs = getAllFeatureSlugs('en');
@@ -20,6 +21,7 @@ export function getStaticPaths() {
 const { slug } = Astro.params;
 const data = loadFeatureContent('en', slug!);
 const mirrorSlug = findMirrorSlug('en', slug!);
+const featureId = findFeatureId('en', slug!);
 const hreflangData = {
   fr: `/fr/solutions/${mirrorSlug}`,
   en: `/en/solutions/${slug}`,
@@ -68,6 +70,7 @@ const faqLD = {
       cta_url={data.hero.cta_url}
       lang="en"
     />
+    <FeatureVisual featureId={featureId} />
     <FeatureProblem
       eyebrow={data.problem.eyebrow}
       title={data.problem.title}

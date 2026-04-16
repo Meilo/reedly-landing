@@ -57,3 +57,10 @@ export function findMirrorSlug(lang: 'fr' | 'en', slug: string): string {
   if (!feature) throw new Error(`Feature not found for slug "${slug}" in lang "${lang}"`);
   return feature.slugs[otherLang];
 }
+
+export function findFeatureId(lang: 'fr' | 'en', slug: string): string {
+  const registry = loadRegistry();
+  const feature = registry.features.find((f) => f.slugs[lang] === slug);
+  if (!feature) throw new Error(`Feature not found for slug "${slug}" in lang "${lang}"`);
+  return feature.id;
+}

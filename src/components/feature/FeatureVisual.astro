@@ -1,0 +1,534 @@
+---
+interface Props {
+  featureId: string;
+}
+const { featureId } = Astro.props;
+---
+
+<section class="fv">
+  <div class="inner">
+    <div class="fv__stage reveal">
+
+      {/* ── Voice Recording: phone with live waveform ── */}
+      {featureId === 'voice-recording' && (
+        <div class="fv__phone">
+          <div class="fv__phone-notch"></div>
+          <div class="fv__phone-status">REC</div>
+          <div class="fv__phone-timer">01:23:45</div>
+          <div class="fv__waveform">
+            {Array.from({ length: 32 }).map((_, i) => (
+              <div class="fv__wave-bar" style={`--i:${i};--h:${20 + Math.sin(i * 0.8) * 15 + Math.random() * 20}%`}></div>
+            ))}
+          </div>
+          <div class="fv__phone-label">Enregistrement en cours...</div>
+          <div class="fv__rec-dot"></div>
+        </div>
+      )}
+
+      {/* ── AI Transcription: audio wave → text appearing ── */}
+      {featureId === 'ai-transcription' && (
+        <div class="fv__transcript">
+          <div class="fv__transcript-line fv__transcript-line--1">
+            <span class="fv__transcript-speaker fv__transcript-speaker--a">Commercial</span>
+            <span class="fv__transcript-text">Bonjour, merci de me recevoir. Je voulais revenir sur votre besoin en allotement pour la saison...</span>
+          </div>
+          <div class="fv__transcript-line fv__transcript-line--2">
+            <span class="fv__transcript-speaker fv__transcript-speaker--b">Client</span>
+            <span class="fv__transcript-text">Oui, on a eu des difficultés l'année dernière avec les disponibilités en haute saison...</span>
+          </div>
+          <div class="fv__transcript-line fv__transcript-line--3">
+            <span class="fv__transcript-speaker fv__transcript-speaker--a">Commercial</span>
+            <span class="fv__transcript-text">Je comprends. On peut vous proposer un contrat garanti avec 20% de marge sur les périodes clés...</span>
+          </div>
+          <div class="fv__transcript-line fv__transcript-line--4">
+            <span class="fv__transcript-speaker fv__transcript-speaker--b">Client</span>
+            <span class="fv__transcript-text">Ça m'intéresse. Il faudrait qu'on voie les conditions avant fin mars.</span>
+          </div>
+          <div class="fv__transcript-cursor"></div>
+        </div>
+      )}
+
+      {/* ── AI Report: document with sections checking off ── */}
+      {featureId === 'ai-report' && (
+        <div class="fv__report">
+          <div class="fv__report-header">
+            <div class="fv__report-logo"></div>
+            <div class="fv__report-meta">
+              <div class="fv__report-title-bar"></div>
+              <div class="fv__report-date-bar"></div>
+            </div>
+          </div>
+          {['Résumé exécutif', 'Profil client', 'Besoins exprimés', 'Objections & réponses', 'Produits discutés', 'Concurrents', 'Engagements', 'Prochaines étapes', 'Opportunités', 'Risques', 'Recommandations'].map((section, i) => (
+            <div class="fv__report-row" style={`--delay:${0.3 + i * 0.15}s`}>
+              <div class="fv__report-check">✓</div>
+              <span>{section}</span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* ── Speaker Identification: conversation with colored attribution ── */}
+      {featureId === 'speaker-identification' && (
+        <div class="fv__diarize">
+          <div class="fv__diarize-bubble fv__diarize-bubble--a fv__diarize--1">
+            <div class="fv__diarize-avatar fv__diarize-avatar--a">C</div>
+            <div class="fv__diarize-content">
+              <div class="fv__diarize-name">Commercial — Pierre D.</div>
+              <div class="fv__diarize-msg">On peut vous proposer un allotement garanti sur la haute saison...</div>
+            </div>
+          </div>
+          <div class="fv__diarize-bubble fv__diarize-bubble--b fv__diarize--2">
+            <div class="fv__diarize-content" style="text-align:right">
+              <div class="fv__diarize-name">Client — Marie L.</div>
+              <div class="fv__diarize-msg">Il faudrait qu'on voie les tarifs. L'année dernière c'était trop cher.</div>
+            </div>
+            <div class="fv__diarize-avatar fv__diarize-avatar--b">C</div>
+          </div>
+          <div class="fv__diarize-bubble fv__diarize-bubble--a fv__diarize--3">
+            <div class="fv__diarize-avatar fv__diarize-avatar--a">C</div>
+            <div class="fv__diarize-content">
+              <div class="fv__diarize-name">Commercial — Pierre D.</div>
+              <div class="fv__diarize-msg">Je vous envoie la grille mise à jour d'ici vendredi.</div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Territory Syntheses: mini dashboard with animated metrics ── */}
+      {featureId === 'territory-syntheses' && (
+        <div class="fv__dashboard">
+          <div class="fv__dash-row">
+            <div class="fv__dash-card">
+              <div class="fv__dash-card-label">RDV ce mois</div>
+              <div class="fv__dash-card-value fv__count-up" data-target="47">47</div>
+              <div class="fv__dash-card-trend fv__dash-card-trend--up">+12%</div>
+            </div>
+            <div class="fv__dash-card">
+              <div class="fv__dash-card-label">Opportunités</div>
+              <div class="fv__dash-card-value fv__count-up" data-target="13">13</div>
+              <div class="fv__dash-card-trend fv__dash-card-trend--up">+23%</div>
+            </div>
+            <div class="fv__dash-card">
+              <div class="fv__dash-card-label">Risques détectés</div>
+              <div class="fv__dash-card-value">5</div>
+              <div class="fv__dash-card-trend fv__dash-card-trend--down">+2</div>
+            </div>
+          </div>
+          <div class="fv__dash-bars">
+            {['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4'].map((label, i) => (
+              <div class="fv__dash-bar-col">
+                <div class="fv__dash-bar" style={`--h:${[55, 72, 63, 85][i]}%;--delay:${i * 0.2}s`}></div>
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ── Manager Hub: dashboard grid layout ── */}
+      {featureId === 'manager-hub' && (
+        <div class="fv__hub">
+          <div class="fv__hub-nav">
+            <div class="fv__hub-nav-dot fv__hub-nav-dot--active"></div>
+            <div class="fv__hub-nav-item">Dashboard</div>
+            <div class="fv__hub-nav-item">Rapports</div>
+            <div class="fv__hub-nav-item">Membres</div>
+            <div class="fv__hub-nav-item">Synthèses</div>
+          </div>
+          <div class="fv__hub-grid">
+            <div class="fv__hub-card fv__hub--1">
+              <div class="fv__hub-card-h">12 rapports cette semaine</div>
+              <div class="fv__hub-card-sub">3 commerciaux actifs</div>
+            </div>
+            <div class="fv__hub-card fv__hub--2">
+              <div class="fv__hub-card-h">Score équipe : 78%</div>
+              <div class="fv__hub-progress"><div class="fv__hub-progress-fill"></div></div>
+            </div>
+            <div class="fv__hub-card fv__hub-card--wide fv__hub--3">
+              <div class="fv__hub-card-h">Derniers rapports</div>
+              <div class="fv__hub-table-row">Pierre D. · Agence Selectour · il y a 2h</div>
+              <div class="fv__hub-table-row">Julie M. · Club Med · il y a 5h</div>
+              <div class="fv__hub-table-row">Marc R. · TUI France · hier</div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Meeting Prep: briefing card filling in ── */}
+      {featureId === 'meeting-prep' && (
+        <div class="fv__prep">
+          <div class="fv__prep-header">
+            <div class="fv__prep-badge">Briefing IA</div>
+            <div class="fv__prep-title">RDV — Agence Selectour Lyon</div>
+            <div class="fv__prep-date">Demain, 14h30</div>
+          </div>
+          <div class="fv__prep-section fv__prep--1">
+            <div class="fv__prep-section-h">Historique</div>
+            <div class="fv__prep-section-text">3 RDV précédents · Dernier : 12 mars · Ton positif</div>
+          </div>
+          <div class="fv__prep-section fv__prep--2">
+            <div class="fv__prep-section-h">Engagements en cours</div>
+            <div class="fv__prep-section-text">Grille tarifaire été → envoyée le 15 mars ✓</div>
+            <div class="fv__prep-section-text">Allotement Grèce → en attente de validation</div>
+          </div>
+          <div class="fv__prep-section fv__prep--3">
+            <div class="fv__prep-section-h">Points de vigilance</div>
+            <div class="fv__prep-section-text fv__prep-section-text--warn">Objection prix mentionnée 2 fois</div>
+          </div>
+        </div>
+      )}
+
+      {/* ── AI Assistant (Max): chat interface ── */}
+      {featureId === 'ai-assistant' && (
+        <div class="fv__chat">
+          <div class="fv__chat-header">
+            <div class="fv__chat-avatar">M</div>
+            <div>
+              <div class="fv__chat-name">Max</div>
+              <div class="fv__chat-status">Assistant IA</div>
+            </div>
+          </div>
+          <div class="fv__chat-msg fv__chat-msg--user fv__chat--1">
+            Quelles sont les principales objections remontées cette semaine ?
+          </div>
+          <div class="fv__chat-msg fv__chat-msg--ai fv__chat--2">
+            Cette semaine, 3 objections récurrentes sur 12 rapports :<br/>
+            <strong>1.</strong> Prix trop élevé (5 mentions)<br/>
+            <strong>2.</strong> Délais de livraison (3 mentions)<br/>
+            <strong>3.</strong> Manque de flexibilité contrat (2 mentions)
+          </div>
+          <div class="fv__chat-msg fv__chat-msg--user fv__chat--3">
+            Crée une directive pour adresser l'objection prix
+          </div>
+          <div class="fv__chat-typing fv__chat--4">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      )}
+
+      {/* ── Client Portfolio: enriched client card ── */}
+      {featureId === 'client-portfolio' && (
+        <div class="fv__client">
+          <div class="fv__client-header">
+            <div class="fv__client-initials">S</div>
+            <div>
+              <div class="fv__client-name">Selectour Lyon Bellecour</div>
+              <div class="fv__client-type">Agence de voyages · Lyon 2e</div>
+            </div>
+          </div>
+          <div class="fv__client-stats">
+            <div class="fv__client-stat"><span class="fv__client-stat-val">7</span><span class="fv__client-stat-label">RDV</span></div>
+            <div class="fv__client-stat"><span class="fv__client-stat-val">4</span><span class="fv__client-stat-label">Contacts</span></div>
+            <div class="fv__client-stat"><span class="fv__client-stat-val fv__client-stat-val--green">82%</span><span class="fv__client-stat-label">Score</span></div>
+          </div>
+          <div class="fv__client-section fv__client--1">
+            <div class="fv__client-section-h">Besoins agrégés <span class="fv__client-ai-badge">IA</span></div>
+            <div class="fv__client-tag">Allotement été</div>
+            <div class="fv__client-tag">Circuits Grèce</div>
+            <div class="fv__client-tag">MICE corporate</div>
+          </div>
+          <div class="fv__client-section fv__client--2">
+            <div class="fv__client-section-h">Dernier contact</div>
+            <div class="fv__client-section-text">12 mars — Visite terrain · Pierre D.</div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Knowledge Base: documents flowing in ── */}
+      {featureId === 'knowledge-base' && (
+        <div class="fv__kb">
+          <div class="fv__kb-search">
+            <svg class="fv__kb-search-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+            <span>Rechercher dans la base...</span>
+          </div>
+          <div class="fv__kb-list">
+            <div class="fv__kb-item fv__kb--1">
+              <div class="fv__kb-icon">📄</div>
+              <div>
+                <div class="fv__kb-item-title">Grille tarifaire été 2026</div>
+                <div class="fv__kb-item-meta">PDF · 12 pages · Importé le 3 mars</div>
+              </div>
+              <div class="fv__kb-item-status fv__kb-item-status--ready">Indexé</div>
+            </div>
+            <div class="fv__kb-item fv__kb--2">
+              <div class="fv__kb-icon">🌐</div>
+              <div>
+                <div class="fv__kb-item-title">site-concurrent-voyagexpert.com</div>
+                <div class="fv__kb-item-meta">Site web · 23 pages · Crawlé le 8 mars</div>
+              </div>
+              <div class="fv__kb-item-status fv__kb-item-status--ready">Indexé</div>
+            </div>
+            <div class="fv__kb-item fv__kb--3">
+              <div class="fv__kb-icon">📄</div>
+              <div>
+                <div class="fv__kb-item-title">Argumentaire produit Grèce</div>
+                <div class="fv__kb-item-meta">DOCX · 5 pages · Importé le 10 mars</div>
+              </div>
+              <div class="fv__kb-item-status fv__kb-item-status--processing">Indexation...</div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Sales Directives: directive card with progress ── */}
+      {featureId === 'sales-directives' && (
+        <div class="fv__directive">
+          <div class="fv__directive-header">
+            <div class="fv__directive-badge fv__directive-badge--active">Active</div>
+            <div class="fv__directive-title">Pousser l'offre Grèce été 2026</div>
+            <div class="fv__directive-dates">1 mars → 30 avril 2026</div>
+          </div>
+          <div class="fv__directive-checkpoints">
+            <div class="fv__directive-cp fv__directive--1">
+              <div class="fv__directive-cp-check fv__directive-cp-check--done">✓</div>
+              <span>Mentionner la destination Grèce</span>
+              <span class="fv__directive-cp-score">87%</span>
+            </div>
+            <div class="fv__directive-cp fv__directive--2">
+              <div class="fv__directive-cp-check fv__directive-cp-check--done">✓</div>
+              <span>Présenter le tarif early booking</span>
+              <span class="fv__directive-cp-score">72%</span>
+            </div>
+            <div class="fv__directive-cp fv__directive--3">
+              <div class="fv__directive-cp-check fv__directive-cp-check--partial">~</div>
+              <span>Obtenir un engagement volume</span>
+              <span class="fv__directive-cp-score">34%</span>
+            </div>
+          </div>
+          <div class="fv__directive-footer">
+            <div class="fv__directive-score-label">Score global</div>
+            <div class="fv__directive-ring">
+              <svg viewBox="0 0 36 36">
+                <path class="fv__directive-ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="fv__directive-ring-fill" stroke-dasharray="64, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <span class="fv__directive-ring-val">64%</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Stage container ── */
+  .fv { padding: 0 0 48px; }
+  .fv__stage {
+    max-width: 520px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+  }
+
+  /* ── Voice Recording ── */
+  .fv__phone { padding: 24px; text-align: center; }
+  .fv__phone-notch { width: 80px; height: 6px; background: var(--bg); border-radius: 3px; margin: 0 auto 20px; }
+  .fv__phone-status { font-family: var(--mono); font-size: 0.7rem; color: #ef4444; letter-spacing: 0.15em; font-weight: 600; }
+  .fv__phone-timer { font-family: var(--mono); font-size: 2.4rem; color: var(--text); font-weight: 500; margin: 8px 0 20px; }
+  .fv__waveform { display: flex; align-items: center; justify-content: center; gap: 2px; height: 48px; }
+  .fv__wave-bar {
+    width: 3px; border-radius: 2px; background: var(--green);
+    height: var(--h);
+    animation: fvWave 1.5s ease-in-out infinite alternate;
+    animation-delay: calc(var(--i) * 0.05s);
+  }
+  @keyframes fvWave { 0% { opacity: 0.4; transform: scaleY(0.5); } 100% { opacity: 1; transform: scaleY(1); } }
+  .fv__phone-label { font-size: 0.8rem; color: var(--muted); margin-top: 16px; }
+  .fv__rec-dot { width: 8px; height: 8px; border-radius: 50%; background: #ef4444; margin: 12px auto 0; animation: fvBlink 1.2s ease-in-out infinite; }
+  @keyframes fvBlink { 0%,100% { opacity: 1; } 50% { opacity: 0.2; } }
+
+  /* ── Transcription ── */
+  .fv__transcript { padding: 24px; }
+  .fv__transcript-line { margin-bottom: 16px; opacity: 0; animation: fvFadeIn 0.5s ease forwards; }
+  .fv__transcript-line--1 { animation-delay: 0.3s; }
+  .fv__transcript-line--2 { animation-delay: 1s; }
+  .fv__transcript-line--3 { animation-delay: 1.7s; }
+  .fv__transcript-line--4 { animation-delay: 2.4s; }
+  @keyframes fvFadeIn { to { opacity: 1; } }
+  .fv__transcript-speaker {
+    display: inline-block; font-family: var(--mono); font-size: 0.68rem; font-weight: 600;
+    padding: 2px 8px; border-radius: 4px; margin-bottom: 4px;
+  }
+  .fv__transcript-speaker--a { background: rgba(34,197,94,0.15); color: var(--green); }
+  .fv__transcript-speaker--b { background: rgba(96,165,250,0.15); color: #60a5fa; }
+  .fv__transcript-text { display: block; font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+  .fv__transcript-cursor {
+    display: inline-block; width: 2px; height: 14px; background: var(--green);
+    animation: fvBlink 0.8s step-end infinite; margin-top: 4px; margin-left: 24px;
+  }
+
+  /* ── Report ── */
+  .fv__report { padding: 24px; }
+  .fv__report-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .fv__report-logo { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, var(--green), var(--green-dim)); }
+  .fv__report-title-bar { width: 120px; height: 10px; background: var(--surface2); border-radius: 4px; margin-bottom: 4px; }
+  .fv__report-date-bar { width: 80px; height: 7px; background: var(--surface2); border-radius: 4px; }
+  .fv__report-row {
+    display: flex; align-items: center; gap: 10px; padding: 7px 0;
+    font-size: 0.8rem; color: var(--muted); font-family: var(--sans);
+    opacity: 0; animation: fvSlideIn 0.3s ease forwards;
+    animation-delay: var(--delay);
+  }
+  @keyframes fvSlideIn { to { opacity: 1; transform: translateX(0); } from { transform: translateX(-8px); } }
+  .fv__report-check { color: var(--green); font-weight: 700; font-size: 0.75rem; width: 18px; height: 18px; display: grid; place-items: center; background: rgba(34,197,94,0.12); border-radius: 50%; flex-shrink: 0; }
+
+  /* ── Speaker Identification ── */
+  .fv__diarize { padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .fv__diarize-bubble { display: flex; gap: 10px; opacity: 0; animation: fvFadeIn 0.4s ease forwards; }
+  .fv__diarize--1 { animation-delay: 0.3s; }
+  .fv__diarize--2 { animation-delay: 0.9s; }
+  .fv__diarize--3 { animation-delay: 1.5s; }
+  .fv__diarize-avatar {
+    width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center;
+    font-size: 0.7rem; font-weight: 700; flex-shrink: 0; font-family: var(--mono);
+  }
+  .fv__diarize-avatar--a { background: rgba(34,197,94,0.15); color: var(--green); }
+  .fv__diarize-avatar--b { background: rgba(96,165,250,0.15); color: #60a5fa; }
+  .fv__diarize-name { font-family: var(--mono); font-size: 0.68rem; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .fv__diarize-msg { font-size: 0.8rem; color: var(--muted); line-height: 1.45; }
+  .fv__diarize-bubble--b { justify-content: flex-end; }
+
+  /* ── Dashboard / Syntheses ── */
+  .fv__dashboard { padding: 24px; }
+  .fv__dash-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+  .fv__dash-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+  .fv__dash-card-label { font-size: 0.68rem; color: var(--muted); font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.05em; }
+  .fv__dash-card-value { font-size: 1.6rem; font-weight: 700; color: var(--text); margin: 4px 0 2px; }
+  .fv__dash-card-trend { font-size: 0.72rem; font-family: var(--mono); font-weight: 600; }
+  .fv__dash-card-trend--up { color: var(--green); }
+  .fv__dash-card-trend--down { color: var(--amber); }
+  .fv__dash-bars { display: flex; align-items: flex-end; gap: 16px; height: 100px; padding-top: 12px; }
+  .fv__dash-bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+  .fv__dash-bar-col span { font-size: 0.65rem; color: var(--muted); font-family: var(--mono); }
+  .fv__dash-bar {
+    width: 100%; border-radius: 4px 4px 0 0; background: linear-gradient(to top, var(--green-dim), var(--green));
+    height: 0; animation: fvBarGrow 0.8s ease forwards; animation-delay: var(--delay);
+  }
+  @keyframes fvBarGrow { to { height: var(--h); } }
+
+  /* ── Hub Manager ── */
+  .fv__hub { overflow: hidden; }
+  .fv__hub-nav { display: flex; align-items: center; gap: 16px; padding: 12px 20px; border-bottom: 1px solid var(--border); font-size: 0.75rem; color: var(--muted); }
+  .fv__hub-nav-dot { width: 20px; height: 20px; border-radius: 6px; background: linear-gradient(135deg, var(--green), var(--green-dim)); }
+  .fv__hub-nav-dot--active + .fv__hub-nav-item { color: var(--text); font-weight: 600; }
+  .fv__hub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 16px; }
+  .fv__hub-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px; opacity: 0; animation: fvFadeIn 0.4s ease forwards; }
+  .fv__hub--1 { animation-delay: 0.3s; }
+  .fv__hub--2 { animation-delay: 0.6s; }
+  .fv__hub--3 { animation-delay: 0.9s; }
+  .fv__hub-card--wide { grid-column: 1 / -1; }
+  .fv__hub-card-h { font-size: 0.8rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .fv__hub-card-sub { font-size: 0.72rem; color: var(--muted); }
+  .fv__hub-progress { height: 4px; background: var(--surface2); border-radius: 2px; margin-top: 8px; }
+  .fv__hub-progress-fill { height: 100%; width: 0; background: var(--green); border-radius: 2px; animation: fvProgressFill 1.5s ease forwards 0.8s; }
+  @keyframes fvProgressFill { to { width: 78%; } }
+  .fv__hub-table-row { font-size: 0.72rem; color: var(--muted); padding: 5px 0; border-bottom: 1px solid var(--border); }
+  .fv__hub-table-row:last-child { border: none; }
+
+  /* ── Meeting Prep ── */
+  .fv__prep { padding: 24px; }
+  .fv__prep-header { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .fv__prep-badge { display: inline-block; font-size: 0.65rem; font-family: var(--mono); padding: 3px 8px; border-radius: 4px; background: rgba(34,197,94,0.12); color: var(--green); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .fv__prep-title { font-size: 1rem; font-weight: 700; color: var(--text); }
+  .fv__prep-date { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+  .fv__prep-section { margin-bottom: 14px; opacity: 0; animation: fvFadeIn 0.4s ease forwards; }
+  .fv__prep--1 { animation-delay: 0.4s; }
+  .fv__prep--2 { animation-delay: 0.8s; }
+  .fv__prep--3 { animation-delay: 1.2s; }
+  .fv__prep-section-h { font-size: 0.72rem; font-family: var(--mono); color: var(--green); font-weight: 600; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .fv__prep-section-text { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+  .fv__prep-section-text--warn { color: var(--amber); }
+
+  /* ── AI Chat (Max) ── */
+  .fv__chat { padding: 20px; }
+  .fv__chat-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .fv__chat-avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--green), var(--green-dim)); display: grid; place-items: center; font-weight: 700; font-size: 0.8rem; color: #042010; }
+  .fv__chat-name { font-size: 0.85rem; font-weight: 700; color: var(--text); }
+  .fv__chat-status { font-size: 0.68rem; color: var(--green); }
+  .fv__chat-msg { padding: 10px 14px; border-radius: 12px; font-size: 0.8rem; line-height: 1.5; max-width: 85%; margin-bottom: 8px; opacity: 0; animation: fvFadeIn 0.4s ease forwards; }
+  .fv__chat--1 { animation-delay: 0.3s; }
+  .fv__chat--2 { animation-delay: 1s; }
+  .fv__chat--3 { animation-delay: 2s; }
+  .fv__chat--4 { animation-delay: 2.6s; }
+  .fv__chat-msg--user { background: rgba(34,197,94,0.1); color: var(--text); margin-left: auto; border-bottom-right-radius: 4px; }
+  .fv__chat-msg--ai { background: var(--bg); border: 1px solid var(--border); color: var(--muted); border-bottom-left-radius: 4px; }
+  .fv__chat-msg--ai strong { color: var(--text); }
+  .fv__chat-typing { display: flex; gap: 4px; padding: 12px 14px; opacity: 0; animation: fvFadeIn 0.4s ease forwards; }
+  .fv__chat-typing span { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); animation: fvTyping 1.2s ease-in-out infinite; }
+  .fv__chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+  .fv__chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes fvTyping { 0%,60%,100% { opacity: 0.3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+
+  /* ── Client Portfolio ── */
+  .fv__client { padding: 24px; }
+  .fv__client-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .fv__client-initials { width: 40px; height: 40px; border-radius: 10px; background: rgba(34,197,94,0.12); color: var(--green); display: grid; place-items: center; font-weight: 700; font-size: 1rem; }
+  .fv__client-name { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+  .fv__client-type { font-size: 0.75rem; color: var(--muted); }
+  .fv__client-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .fv__client-stat { text-align: center; }
+  .fv__client-stat-val { display: block; font-size: 1.2rem; font-weight: 700; color: var(--text); }
+  .fv__client-stat-val--green { color: var(--green); }
+  .fv__client-stat-label { font-size: 0.65rem; color: var(--muted); font-family: var(--mono); text-transform: uppercase; }
+  .fv__client-section { margin-bottom: 14px; opacity: 0; animation: fvFadeIn 0.4s ease forwards; }
+  .fv__client--1 { animation-delay: 0.4s; }
+  .fv__client--2 { animation-delay: 0.8s; }
+  .fv__client-section-h { font-size: 0.72rem; font-family: var(--mono); color: var(--text); font-weight: 600; margin-bottom: 6px; }
+  .fv__client-ai-badge { font-size: 0.6rem; padding: 1px 5px; border-radius: 3px; background: rgba(34,197,94,0.12); color: var(--green); vertical-align: middle; }
+  .fv__client-tag { display: inline-block; font-size: 0.72rem; padding: 3px 10px; border-radius: 6px; border: 1px solid var(--border); color: var(--muted); margin: 0 4px 4px 0; }
+  .fv__client-section-text { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── Knowledge Base ── */
+  .fv__kb { padding: 20px; }
+  .fv__kb-search { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; font-size: 0.8rem; color: var(--muted); margin-bottom: 16px; }
+  .fv__kb-search-icon { color: var(--muted); }
+  .fv__kb-list { display: flex; flex-direction: column; gap: 8px; }
+  .fv__kb-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; opacity: 0; animation: fvFadeIn 0.4s ease forwards; }
+  .fv__kb--1 { animation-delay: 0.3s; }
+  .fv__kb--2 { animation-delay: 0.6s; }
+  .fv__kb--3 { animation-delay: 0.9s; }
+  .fv__kb-icon { font-size: 1.2rem; }
+  .fv__kb-item-title { font-size: 0.8rem; font-weight: 600; color: var(--text); }
+  .fv__kb-item-meta { font-size: 0.68rem; color: var(--muted); }
+  .fv__kb-item-status { font-size: 0.65rem; font-family: var(--mono); font-weight: 600; margin-left: auto; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+  .fv__kb-item-status--ready { background: rgba(34,197,94,0.1); color: var(--green); }
+  .fv__kb-item-status--processing { background: rgba(251,191,36,0.1); color: var(--amber); }
+
+  /* ── Sales Directives ── */
+  .fv__directive { padding: 24px; }
+  .fv__directive-header { margin-bottom: 20px; }
+  .fv__directive-badge { display: inline-block; font-size: 0.65rem; font-family: var(--mono); padding: 3px 8px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .fv__directive-badge--active { background: rgba(34,197,94,0.12); color: var(--green); }
+  .fv__directive-title { font-size: 1rem; font-weight: 700; color: var(--text); }
+  .fv__directive-dates { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+  .fv__directive-checkpoints { margin-bottom: 20px; }
+  .fv__directive-cp { display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 0.82rem; color: var(--muted); opacity: 0; animation: fvFadeIn 0.4s ease forwards; }
+  .fv__directive--1 { animation-delay: 0.3s; }
+  .fv__directive--2 { animation-delay: 0.6s; }
+  .fv__directive--3 { animation-delay: 0.9s; }
+  .fv__directive-cp-check { width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0; }
+  .fv__directive-cp-check--done { background: rgba(34,197,94,0.15); color: var(--green); }
+  .fv__directive-cp-check--partial { background: rgba(251,191,36,0.15); color: var(--amber); }
+  .fv__directive-cp-score { margin-left: auto; font-family: var(--mono); font-size: 0.75rem; font-weight: 600; }
+  .fv__directive-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--border); }
+  .fv__directive-score-label { font-size: 0.78rem; color: var(--muted); }
+  .fv__directive-ring { position: relative; width: 56px; height: 56px; }
+  .fv__directive-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .fv__directive-ring-bg { fill: none; stroke: var(--surface2); stroke-width: 3; }
+  .fv__directive-ring-fill { fill: none; stroke: var(--green); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0, 100; animation: fvRingFill 1.5s ease forwards 0.5s; }
+  @keyframes fvRingFill { to { stroke-dasharray: 64, 100; } }
+  .fv__directive-ring-val { position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.75rem; font-weight: 700; color: var(--green); font-family: var(--mono); }
+
+  /* ── Responsive ── */
+  @media (max-width: 580px) {
+    .fv__stage { margin: 0 16px; }
+    .fv__dash-row { grid-template-columns: 1fr; }
+    .fv__hub-grid { grid-template-columns: 1fr; }
+    .fv__hub-card--wide { grid-column: 1; }
+  }
+</style>
