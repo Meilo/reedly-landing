@@ -922,6 +922,9 @@ body::after {
   max-width: 58ch;
   margin: 18px auto 0;
 }
+.comp-hero .hero__actions {
+  justify-content: center;
+}
 @media (max-width: 768px) {
   .comp-hero h1 { font-size: 2rem; }
 }
