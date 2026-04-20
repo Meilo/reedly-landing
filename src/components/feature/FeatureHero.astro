@@ -7,7 +7,8 @@ interface Props {
   lang: 'fr' | 'en';
 }
 const { eyebrow, title, lead, cta_url, lang } = Astro.props;
-const ctaLabel = lang === 'fr' ? 'Essayer gratuitement' : 'Try for free';
+const ctaLabel = lang === 'fr' ? 'Essayer gratuitement' : 'Get started free';
+const ctaHref = lang === 'en' ? 'https://hub.reedly.ai' : cta_url;
 ---
 
 <section class="comp-hero">
@@ -19,7 +20,7 @@ const ctaLabel = lang === 'fr' ? 'Essayer gratuitement' : 'Try for free';
       <div class="hero__actions">
         <a
           class="btn btn--primary btn--lg"
-          href={cta_url}
+          href={ctaHref}
           data-track-id="feature_hero_cta"
           data-track-type="trial"
           data-track-section="feature_hero"

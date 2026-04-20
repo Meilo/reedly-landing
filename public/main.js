@@ -198,7 +198,7 @@ const T = {
     "pricing.mobile.note":
       "Plans disponibles en abonnement mensuel. Les actions consomment des Crédits IA. Annulation à tout moment.",
     "pricing.managers.note":
-      "Essai gratuit disponible après un échange rapide. Déployez Reedly pour votre équipe en moins de 10 minutes.",
+      "Essai gratuit disponible immédiatement. Déployez Reedly pour votre équipe en moins de 10 minutes.",
     "pricing.team.badge": "Recommandé",
     "pricing.team.plan": "Équipe",
     "pricing.team.per": "par utilisateur par mois",
@@ -655,7 +655,7 @@ const T = {
     "pricing.mobile.note":
       "Monthly subscription. Actions consume AI Credits. Cancel anytime.",
     "pricing.managers.note":
-      "Free trial available after a quick call. Deploy Reedly for your team in under 10 minutes.",
+      "Free trial available instantly. Deploy Reedly for your team in under 10 minutes.",
     "pricing.team.badge": "Recommended",
     "pricing.team.plan": "Team",
     "pricing.team.per": "per user per month",
@@ -681,7 +681,7 @@ const T = {
     "pricing.team.featCreditsShared": "450 AI credits / month per user",
     "pricing.team.featMaxAll": "Max — AI assistant (mobile + web hub)",
     "pricing.team.featSupport": "Priority support within 24h",
-    "pricing.team.cta": "Try for free →",
+    "pricing.team.cta": "Get started free →",
     "pricing.enterprise.plan": "Enterprise",
     "pricing.enterprise.price": "Custom pricing",
     "pricing.enterprise.seats": "20+ sales reps",
@@ -893,11 +893,11 @@ const T = {
     "blog.back": "Back to blog",
     "blog.cta.text":
       "Reedly turns your field meetings into structured reports.",
-    "blog.cta.button": "Try for free",
+    "blog.cta.button": "Get started free",
     "blog.breadcrumb.home": "Home",
     "blog.breadcrumb.blog": "Blog",
     "blog.min_read": "min read",
-    "cta.try_free": "Try for free",
+    "cta.try_free": "Get started free",
     "contact.opt.trial": "Free trial / Try for free",
     "contact.label.role": "Role at company",
     "contact.label.users": "Team size",

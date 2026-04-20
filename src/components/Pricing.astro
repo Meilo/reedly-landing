@@ -2,7 +2,7 @@
 // Pricing section — enterprise-focused (solo plans available in mobile app only)
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const lang = path.startsWith('/en') ? 'en' : 'fr';
-const trialHref = `/${lang}#trial`;
+const trialHref = 'https://hub.reedly.ai';
 const contactHref = `/${lang}#contact`;
 ---
 
@@ -105,8 +105,6 @@ const contactHref = `/${lang}#contact`;
               <a
                 class="btn btn--primary btn--md"
                 href={trialHref}
-                data-link-fr="/fr#trial"
-                data-link-en="/en#trial"
                 style="width: 100%; justify-content: center"
                 data-i18n="pricing.team.cta"
                 data-track-id="pricing_team"

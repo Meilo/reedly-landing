@@ -8,7 +8,7 @@ const currentSlug = path.split('/features/')[1] || '';
 const isTarifs = path.endsWith('/tarifs') || path.endsWith('/pricing');
 const isComparatif = path.endsWith('/comparatif') || path.endsWith('/comparison');
 const isBlog = path.includes('/blog');
-const trialHref = `/${lang}#trial`;
+const trialHref = 'https://hub.reedly.ai';
 
 const features = [
   { slugFr: 'enregistrement-vocal-rdv', slugEn: 'meeting-voice-recording', labelFr: 'Enregistrement vocal', labelEn: 'Voice Recording', descFr: 'Capturez chaque RDV en 1 tap', descEn: 'Capture every meeting in 1 tap', icon: 'M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z' },
@@ -80,8 +80,6 @@ const features = [
       <a
         class="btn btn--primary btn--sm"
         href={trialHref}
-        data-link-fr="/fr#trial"
-        data-link-en="/en#trial"
         data-i18n="cta.try_free"
         data-track-id="nav_try_free"
         data-track-type="trial"
@@ -118,8 +116,6 @@ const features = [
       <a
         class="btn btn--primary btn--md"
         href={trialHref}
-        data-link-fr="/fr#trial"
-        data-link-en="/en#trial"
         data-i18n="cta.try_free"
         data-track-id="nav_try_free_mobile"
         data-track-type="trial"
