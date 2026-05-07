@@ -173,15 +173,6 @@ const T = {
       "Déployez Reedly pour votre équipe en moins de 10 minutes. Annulation à tout moment.",
     "pricing.ctaGetStarted": "Démarrer gratuitement →",
 
-    "pricing.trial.plan": "Essai gratuit",
-    "pricing.trial.price": "Gratuit · 7 jours",
-    "pricing.trial.feat1": "7 jours d'essai complet",
-    "pricing.trial.feat2": "Jusqu'à 5 commerciaux",
-    "pricing.trial.feat3": "Toutes les fonctionnalités Pro Team",
-    "pricing.trial.feat4": "Distinction vocale incluse",
-    "pricing.trial.feat5": "50 crédits IA par utilisateur",
-    "pricing.trial.feat6": "Sans carte bancaire",
-
     "pricing.pro.plan": "Pro Team",
     "pricing.pro.per": "par utilisateur par mois",
     "pricing.pro.feat1": "Application mobile iOS & Android",
@@ -189,8 +180,7 @@ const T = {
     "pricing.pro.feat3": "Rapports, synthèses et Max IA",
     "pricing.pro.feat4": "Hub web — visibilité équipe complète",
     "pricing.pro.feat5": "80 crédits IA / mois par utilisateur",
-    "pricing.pro.feat6": "Packs de crédits supplémentaires (dès 19,90€)",
-    "pricing.pro.feat7": "Support email",
+    "pricing.pro.feat6": "Support email",
 
     "pricing.team.badge": "Recommandé",
     "pricing.team.plan": "Équipe",
@@ -601,15 +591,6 @@ const T = {
       "Deploy Reedly for your team in under 10 minutes. Cancel anytime.",
     "pricing.ctaGetStarted": "Get started for free →",
 
-    "pricing.trial.plan": "Free trial",
-    "pricing.trial.price": "Free · 7 days",
-    "pricing.trial.feat1": "Full 7-day trial",
-    "pricing.trial.feat2": "Up to 5 sales reps",
-    "pricing.trial.feat3": "All Pro Team features",
-    "pricing.trial.feat4": "Voice diarization included",
-    "pricing.trial.feat5": "50 AI credits per user",
-    "pricing.trial.feat6": "No credit card required",
-
     "pricing.pro.plan": "Pro Team",
     "pricing.pro.per": "per user per month",
     "pricing.pro.feat1": "iOS & Android mobile app",
@@ -617,8 +598,7 @@ const T = {
     "pricing.pro.feat3": "Reports, syntheses and Max AI",
     "pricing.pro.feat4": "Web Hub — full team visibility",
     "pricing.pro.feat5": "80 AI credits / month per user",
-    "pricing.pro.feat6": "Top-up credit packs (from €19.90)",
-    "pricing.pro.feat7": "Email support",
+    "pricing.pro.feat6": "Email support",
 
     "pricing.team.badge": "Recommended",
     "pricing.team.plan": "Team",
