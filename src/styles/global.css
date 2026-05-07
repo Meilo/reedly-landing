@@ -1716,6 +1716,292 @@ body::after {
   stroke: var(--green);
 }
 
+.pricing-feature--missing {
+  color: var(--faint);
+}
+
+.pricing-feature--missing .pricing-feature__check {
+  background: rgba(160, 160, 160, 0.08);
+  border-color: rgba(160, 160, 160, 0.2);
+}
+
+.pricing-feature--missing .pricing-feature__check svg {
+  stroke: var(--faint);
+}
+
+/* Make pricing cards a flex column so the CTA sticks to the bottom
+   regardless of feature list length (CSS Grid stretches all cards
+   to the tallest, leaving extra space in shorter cards). */
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card .pricing-features {
+  flex-grow: 1;
+}
+
+/* ─── Pricing comparison table ─── */
+.pricing-table-wrap {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--bg);
+  border-radius: 22px;
+  /* No outer border — it would create a horizontal gray line at the top
+     that conflicts visually with the featured column's green top border,
+     producing an awkward T-junction. The solid bg over the page's gradient
+     overlays already provides enough visual containment. */
+  /* Keep overflow visible on desktop so the sticky <thead> activates against
+     the page viewport instead of being trapped inside a scroll container.
+     Horizontal scroll is only enabled on mobile via the media query below. */
+}
+
+.pricing-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: 14px 18px;
+  vertical-align: middle;
+  border-top: 1px solid var(--border);
+}
+
+/* Header (plan name + price) — sticky against the page so prices stay
+   visible while scrolling through the feature rows. The site nav is
+   sticky at top:0 with height ~60px, so the table head sits just below. */
+.pricing-table thead th {
+  border-top: none;
+  text-align: center;
+  vertical-align: bottom;
+  padding: 18px 18px 22px;
+  position: sticky;
+  top: 60px;
+  z-index: 5;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.pricing-table thead th:first-child {
+  background: var(--bg);
+}
+
+.pricing-table__plan-name {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--faint);
+  margin-bottom: 8px;
+}
+
+.pricing-table__plan-price {
+  font-family: var(--display);
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--text);
+}
+
+.pricing-table__plan-price .pricing-currency {
+  font-size: 1.1rem;
+  vertical-align: top;
+  margin-right: 2px;
+  color: var(--muted);
+}
+
+.pricing-table__plan-price--text {
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+.pricing-table__plan-per {
+  margin-top: 6px;
+  font-size: 0.72rem;
+  color: var(--faint);
+  letter-spacing: 0.02em;
+}
+
+/* Featured column (Équipe) — strong, clearly visible green wash so
+   the recommended plan really pops. Cell-level backgrounds (not <col>)
+   because some browsers don't paint <col> bg reliably with
+   border-collapse: collapse. */
+
+/* Sticky header cell — solid bg with strong green gradient. */
+.pricing-table__head-cell--featured {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(34, 197, 94, 0.28) 0%,
+      rgba(34, 197, 94, 0.18) 100%
+    ),
+    var(--bg);
+  border-left: 1px solid rgba(34, 197, 94, 0.55);
+  border-right: 1px solid rgba(34, 197, 94, 0.55);
+  border-top: 1px solid rgba(34, 197, 94, 0.55);
+  border-bottom: 1px solid rgba(34, 197, 94, 0.55);
+  border-radius: 14px 14px 0 0;
+}
+
+/* Featured column body + footer cells — strong solid tint on every cell.
+   At 0.22 alpha against #0b1220 → produces ~#15422f, clearly green. */
+.pricing-table tbody tr:not(.pricing-table__category) td:nth-child(3),
+.pricing-table tfoot tr td:nth-child(3) {
+  background: rgba(34, 197, 94, 0.22);
+  border-left: 1px solid rgba(34, 197, 94, 0.55);
+  border-right: 1px solid rgba(34, 197, 94, 0.55);
+}
+
+.pricing-table tfoot tr td:nth-child(3) {
+  border-radius: 0 0 14px 14px;
+  border-bottom: 1px solid rgba(34, 197, 94, 0.55);
+}
+
+/* Category rows span all columns (colspan=4) so we paint a horizontal
+   gradient at the exact column 3 range to keep the featured-column band
+   visually continuous through category dividers.
+   Col widths: 38% feature + 3 × 20.66% plans.
+   Featured column (col 3) sits between 58.66% and 79.32%. */
+.pricing-table__category td {
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 58.66%,
+    rgba(34, 197, 94, 0.22) 58.66%,
+    rgba(34, 197, 94, 0.22) 79.32%,
+    transparent 79.32%,
+    transparent 100%
+  );
+}
+
+.pricing-table__featured-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.14);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: var(--green);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* Feature column (left) */
+.pricing-table tbody td:first-child {
+  text-align: left;
+  color: var(--text);
+  font-weight: 500;
+  width: 38%;
+}
+
+/* Plan columns (right) */
+.pricing-table tbody td:not(:first-child) {
+  text-align: center;
+  color: var(--muted);
+  width: 20.66%;
+}
+
+/* Category divider rows */
+.pricing-table__category td {
+  padding-top: 24px;
+  padding-bottom: 8px;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--faint);
+  background: transparent;
+  border-top: 1px solid var(--border);
+  border-radius: 0 !important;
+}
+
+.pricing-table__category + tr td {
+  border-top: none;
+}
+
+/* Check & cross icons */
+.pricing-table__check,
+.pricing-table__cross {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
+.pricing-table__check {
+  background: rgba(22, 163, 74, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.28);
+}
+
+.pricing-table__check svg {
+  width: 11px;
+  height: 11px;
+  stroke: var(--green);
+}
+
+.pricing-table__cross {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.pricing-table__cross svg {
+  width: 9px;
+  height: 9px;
+  stroke: rgb(239, 68, 68);
+}
+
+/* CTA row at the bottom */
+.pricing-table tfoot td {
+  padding: 20px 14px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.pricing-table tfoot td:first-child {
+  border-top: none;
+}
+
+.pricing-table__cta {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 760px) {
+  /* On mobile, allow horizontal scroll for the table.
+     This makes the sticky <thead> stick against the wrap (not the page),
+     which is the right behavior on mobile where the wrap doesn't itself
+     scroll vertically against the page. */
+  .pricing-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 0 16px;
+  }
+  .pricing-table {
+    font-size: 0.84rem;
+    min-width: 640px;
+  }
+  .pricing-table th,
+  .pricing-table td {
+    padding: 10px 12px;
+  }
+  .pricing-table thead th {
+    /* Tighter sticky offset on mobile (no fixed nav height var; nav is still 60px) */
+    top: 56px;
+  }
+  .pricing-table__plan-price {
+    font-size: 1.5rem;
+  }
+}
+
 .pricing-feature-group-label {
   font-size: 0.7rem;
   font-weight: 600;
@@ -2442,11 +2728,18 @@ body::after {
 
 .pricing-grid--3col {
   grid-template-columns: repeat(3, 1fr);
+  max-width: 1100px;
+  gap: 18px;
+}
+
+.pricing-grid--3col .pricing-card {
+  padding: 30px 24px;
 }
 
 @media (max-width: 980px) {
   .pricing-grid--3col {
     grid-template-columns: repeat(2, 1fr);
+    max-width: 720px;
   }
 }
 
@@ -2454,6 +2747,34 @@ body::after {
   .pricing-grid--3col {
     grid-template-columns: 1fr;
     max-width: 420px;
+  }
+}
+
+.pricing-grid--4col {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1240px;
+  gap: 16px;
+}
+
+.pricing-grid--4col .pricing-card {
+  padding: 28px 22px;
+}
+
+@media (max-width: 1100px) {
+  .pricing-grid--4col {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 720px;
+    gap: 20px;
+  }
+  .pricing-grid--4col .pricing-card {
+    padding: 32px 28px;
+  }
+}
+
+@media (max-width: 580px) {
+  .pricing-grid--4col {
+    grid-template-columns: 1fr;
+    max-width: 460px;
   }
 }
 
