@@ -30,6 +30,44 @@ const contactHref = `/${lang}#contact`;
           <!-- ── Plans ── -->
           <div class="pricing-panel pricing-panel--active" id="pricing-panel-managers">
             <div class="pricing-grid" style="margin-top:32px">
+            <!-- Plan Pro Team -->
+            <article class="pricing-card reveal reveal-delay-1">
+              <div class="pricing-plan" data-i18n="pricing.pro.plan">Pro Team</div>
+              <div class="pricing-price">
+                <span class="pricing-currency">€</span>
+                <span class="pricing-amount js-billing-price" data-base-price="29">29</span>
+                <span class="pricing-per" data-i18n="pricing.pro.per">par utilisateur par mois</span>
+              </div>
+              <div class="pricing-seats">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0" />
+                </svg>
+                <span data-i18n="pricing.pro.seats">À partir de 1 commercial</span>
+              </div>
+              <div class="pricing-divider"></div>
+              <div class="pricing-features">
+                <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.pro.featApp">Application mobile iOS &amp; Android</span></div>
+                <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.pro.featReports">Rapports structurés (80 crédits IA / mois)</span></div>
+                <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.pro.featRecording">Jusqu'à 45 min d'enregistrement par rendez-vous</span></div>
+                <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.pro.featSyntheses">Synthèses stratégiques (via crédits)</span></div>
+                <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.pro.featMaxAll">Max — assistant IA (via crédits)</span></div>
+                <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.pro.featHub">Hub web complet</span></div>
+                <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.pro.featClientCard">Fiche client enrichie automatiquement</span></div>
+                <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.pro.featPacks">Packs de crédits supplémentaires (à partir de 19,90€)</span></div>
+                <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.pro.featSupport">Support email</span></div>
+              </div>
+              <a class="btn btn--outline btn--md"
+                 href="https://hub.reedly.ai"
+                 style="width: 100%; justify-content: center"
+                 data-i18n="pricing.pro.cta"
+                 data-track-id="pricing_pro"
+                 data-track-type="trial"
+                 data-track-section="pricing">
+                Essayer gratuitement →
+              </a>
+            </article>
+
             <!-- Plan Équipe -->
             <article class="pricing-card pricing-card--featured reveal reveal-delay-1">
               <div class="pricing-badge" data-i18n="pricing.team.badge">Recommandé</div>
@@ -49,7 +87,7 @@ const contactHref = `/${lang}#contact`;
                     d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"
                   />
                 </svg>
-                <span data-i18n="pricing.team.seats">De 5 à 20 commerciaux</span>
+                <span data-i18n="pricing.team.seats">À partir de 1 commercial</span>
               </div>
               <div class="pricing-divider"></div>
               <div class="pricing-features">
