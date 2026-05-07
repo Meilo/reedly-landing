@@ -1747,8 +1747,11 @@ body::after {
   margin-left: auto;
   margin-right: auto;
   background: var(--bg);
-  border: 1px solid var(--border);
   border-radius: 22px;
+  /* No outer border — it would create a horizontal gray line at the top
+     that conflicts visually with the featured column's green top border,
+     producing an awkward T-junction. The solid bg over the page's gradient
+     overlays already provides enough visual containment. */
   /* Keep overflow visible on desktop so the sticky <thead> activates against
      the page viewport instead of being trapped inside a scroll container.
      Horizontal scroll is only enabled on mobile via the media query below. */
