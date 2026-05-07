@@ -1716,6 +1716,31 @@ body::after {
   stroke: var(--green);
 }
 
+.pricing-feature--missing {
+  color: var(--faint);
+}
+
+.pricing-feature--missing .pricing-feature__check {
+  background: rgba(160, 160, 160, 0.08);
+  border-color: rgba(160, 160, 160, 0.2);
+}
+
+.pricing-feature--missing .pricing-feature__check svg {
+  stroke: var(--faint);
+}
+
+/* Make pricing cards a flex column so the CTA sticks to the bottom
+   regardless of feature list length (CSS Grid stretches all cards
+   to the tallest, leaving extra space in shorter cards). */
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card .pricing-features {
+  flex-grow: 1;
+}
+
 .pricing-feature-group-label {
   font-size: 0.7rem;
   font-weight: 600;

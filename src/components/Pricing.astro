@@ -48,10 +48,15 @@ const contactHref = `/${lang}#contact`;
                 <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.pro.feat6">Hub web — visibilité équipe complète</span></div>
                 <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.pro.feat7">80 crédits IA / mois par utilisateur</span></div>
                 <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.pro.feat8">Support email</span></div>
+
+                <div class="pricing-feature-group-label" style="margin-top:18px" data-i18n="pricing.pro.notIncludedLabel">Non inclus</div>
+                <div class="pricing-feature pricing-feature--missing"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3l6 6M9 3l-6 6" /></svg></div><span data-i18n="pricing.pro.missing1">Distinction vocale</span></div>
+                <div class="pricing-feature pricing-feature--missing"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3l6 6M9 3l-6 6" /></svg></div><span data-i18n="pricing.pro.missing2">Analyse IA croisée équipe</span></div>
+                <div class="pricing-feature pricing-feature--missing"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3l6 6M9 3l-6 6" /></svg></div><span data-i18n="pricing.pro.missing3">Intégration CRM (Axonaut, HubSpot…)</span></div>
               </div>
               <a class="btn btn--ghost btn--md"
                  href={trialHref}
-                 style="width: 100%; justify-content: center"
+                 style="width: 100%; justify-content: center; margin-top: 20px"
                  data-i18n="pricing.ctaGetStarted"
                  data-track-id="pricing_pro"
                  data-track-type="trial"
@@ -72,16 +77,18 @@ const contactHref = `/${lang}#contact`;
               <div class="pricing-divider"></div>
               <div class="pricing-features">
                 <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.team.feat1">Tout le plan Pro Team inclus</span></div>
-                <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.team.feat2">Jusqu'à 2h d'enregistrement par rendez-vous</span></div>
+
+                <div class="pricing-feature-group-label" style="margin-top:14px" data-i18n="pricing.team.plusLabel">En plus de Pro Team</div>
+                <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.team.feat2">Jusqu'à 2h d'enregistrement (vs 45 min)</span></div>
                 <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.team.feat3">Distinction vocale (qui parle quand)</span></div>
                 <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.team.feat4">Analyse IA croisée de toute l'équipe</span></div>
                 <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.team.feat5">Intégration CRM (Axonaut, HubSpot…)</span></div>
-                <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.team.feat6">450 crédits IA / mois par utilisateur</span></div>
+                <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.team.feat6">450 crédits IA / mois (vs 80)</span></div>
                 <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.team.feat7">Support prioritaire sous 24h</span></div>
               </div>
               <a class="btn btn--primary btn--md"
                  href={trialHref}
-                 style="width: 100%; justify-content: center"
+                 style="width: 100%; justify-content: center; margin-top: 20px"
                  data-i18n="pricing.ctaGetStarted"
                  data-track-id="pricing_team"
                  data-track-type="trial"
@@ -99,7 +106,9 @@ const contactHref = `/${lang}#contact`;
               <div class="pricing-divider"></div>
               <div class="pricing-features">
                 <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.enterprise.feat1">Tout le plan Équipe inclus</span></div>
-                <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.enterprise.feat2">Volume de crédits IA sur mesure</span></div>
+
+                <div class="pricing-feature-group-label" style="margin-top:14px" data-i18n="pricing.enterprise.plusLabel">En plus d'Équipe</div>
+                <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.enterprise.feat2">Volume de crédits IA sur mesure (vs 450)</span></div>
                 <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.enterprise.feat3">Vocabulaire métier custom</span></div>
                 <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.enterprise.feat4">Multi-équipes / multi-secteurs</span></div>
                 <div class="pricing-feature"><div class="pricing-feature__check"><svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg></div><span data-i18n="pricing.enterprise.feat5">Account manager dédié</span></div>
@@ -107,7 +116,7 @@ const contactHref = `/${lang}#contact`;
               </div>
               <a class="btn btn--ghost btn--md"
                  href={trialHref}
-                 style="width: 100%; justify-content: center"
+                 style="width: 100%; justify-content: center; margin-top: 20px"
                  data-i18n="pricing.ctaGetStarted"
                  data-track-id="pricing_enterprise"
                  data-track-type="trial"
