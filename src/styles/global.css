@@ -1741,6 +1741,217 @@ body::after {
   flex-grow: 1;
 }
 
+/* ─── Pricing comparison table ─── */
+.pricing-table-wrap {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pricing-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: 14px 18px;
+  vertical-align: middle;
+  border-top: 1px solid var(--border);
+}
+
+/* Header (plan name + price) */
+.pricing-table thead th {
+  border-top: none;
+  text-align: center;
+  vertical-align: bottom;
+  padding: 18px 18px 22px;
+  position: relative;
+}
+
+.pricing-table thead th:first-child {
+  background: transparent;
+}
+
+.pricing-table__plan-name {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--faint);
+  margin-bottom: 8px;
+}
+
+.pricing-table__plan-price {
+  font-family: var(--display);
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--text);
+}
+
+.pricing-table__plan-price .pricing-currency {
+  font-size: 1.1rem;
+  vertical-align: top;
+  margin-right: 2px;
+  color: var(--muted);
+}
+
+.pricing-table__plan-price--text {
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+.pricing-table__plan-per {
+  margin-top: 6px;
+  font-size: 0.72rem;
+  color: var(--faint);
+  letter-spacing: 0.02em;
+}
+
+/* Featured column (Équipe) */
+.pricing-table__head-cell--featured {
+  background: linear-gradient(
+    180deg,
+    rgba(34, 197, 94, 0.07) 0%,
+    rgba(34, 197, 94, 0.02) 100%
+  );
+  border-left: 1px solid rgba(34, 197, 94, 0.18);
+  border-right: 1px solid rgba(34, 197, 94, 0.18);
+  border-top: 1px solid rgba(34, 197, 94, 0.18);
+  border-radius: 14px 14px 0 0;
+}
+
+.pricing-table tbody tr td:nth-child(3),
+.pricing-table tfoot tr td:nth-child(3) {
+  background: rgba(34, 197, 94, 0.025);
+  border-left: 1px solid rgba(34, 197, 94, 0.14);
+  border-right: 1px solid rgba(34, 197, 94, 0.14);
+}
+
+.pricing-table tfoot tr td:nth-child(3) {
+  border-radius: 0 0 14px 14px;
+  border-bottom: 1px solid rgba(34, 197, 94, 0.18);
+}
+
+.pricing-table__featured-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.14);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: var(--green);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* Feature column (left) */
+.pricing-table tbody td:first-child {
+  text-align: left;
+  color: var(--text);
+  font-weight: 500;
+  width: 38%;
+}
+
+/* Plan columns (right) */
+.pricing-table tbody td:not(:first-child) {
+  text-align: center;
+  color: var(--muted);
+  width: 20.66%;
+}
+
+/* Category divider rows */
+.pricing-table__category td {
+  padding-top: 24px;
+  padding-bottom: 8px;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--faint);
+  background: transparent;
+  border-top: 1px solid var(--border);
+  border-radius: 0 !important;
+}
+
+.pricing-table__category + tr td {
+  border-top: none;
+}
+
+/* Check & cross icons */
+.pricing-table__check,
+.pricing-table__cross {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
+.pricing-table__check {
+  background: rgba(22, 163, 74, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.28);
+}
+
+.pricing-table__check svg {
+  width: 11px;
+  height: 11px;
+  stroke: var(--green);
+}
+
+.pricing-table__cross {
+  background: rgba(160, 160, 160, 0.06);
+  border: 1px solid rgba(160, 160, 160, 0.18);
+}
+
+.pricing-table__cross svg {
+  width: 9px;
+  height: 9px;
+  stroke: var(--faint);
+}
+
+/* CTA row at the bottom */
+.pricing-table tfoot td {
+  padding: 20px 14px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.pricing-table tfoot td:first-child {
+  border-top: none;
+}
+
+.pricing-table__cta {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 760px) {
+  .pricing-table-wrap {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 0 16px;
+  }
+  .pricing-table {
+    font-size: 0.84rem;
+    min-width: 640px;
+  }
+  .pricing-table th,
+  .pricing-table td {
+    padding: 10px 12px;
+  }
+  .pricing-table__plan-price {
+    font-size: 1.5rem;
+  }
+}
+
 .pricing-feature-group-label {
   font-size: 0.7rem;
   font-weight: 600;
