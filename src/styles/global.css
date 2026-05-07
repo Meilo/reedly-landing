@@ -1948,14 +1948,14 @@ body::after {
 }
 
 .pricing-table__cross {
-  background: rgba(160, 160, 160, 0.06);
-  border: 1px solid rgba(160, 160, 160, 0.18);
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.35);
 }
 
 .pricing-table__cross svg {
   width: 9px;
   height: 9px;
-  stroke: var(--faint);
+  stroke: rgb(239, 68, 68);
 }
 
 /* CTA row at the bottom */
