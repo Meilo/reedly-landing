@@ -26,7 +26,8 @@
   --amber: #fbbf24;
   --red: #ef4444;
   --info: #42a5f5;
-  --mono: "IBM Plex Mono", monospace;
+  /* Mono retired for Hub coherence — the Hub has no monospace; mock-up chrome now uses Geist too. */
+  --mono: "Geist", sans-serif;
   --display: "Geist", sans-serif;
   --sans: "Geist", sans-serif;
   color-scheme: dark;
