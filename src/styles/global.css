@@ -481,7 +481,7 @@ body::after {
 }
 
 .hero h1 em {
-  font-style: italic;
+  font-style: normal;
   color: var(--green);
 }
 
@@ -701,7 +701,7 @@ body::after {
 }
 
 .section h2 em {
-  font-style: italic;
+  font-style: normal;
   color: var(--green);
 }
 
@@ -722,7 +722,7 @@ body::after {
   letter-spacing: -0.025em;
   font-weight: 700;
 }
-.comp-hero h1 em { font-style: italic; color: var(--green); }
+.comp-hero h1 em { font-style: normal; color: var(--green); }
 .comp-hero__lead {
   color: var(--muted);
   font-size: 1.1rem;
@@ -2131,7 +2131,7 @@ body::after {
 }
 
 .final-cta h2 em {
-  font-style: italic;
+  font-style: normal;
   color: var(--green);
 }
 .final-cta__sub {
