@@ -27,8 +27,8 @@
   --red: #ef4444;
   --info: #42a5f5;
   --mono: "IBM Plex Mono", monospace;
-  --display: "Instrument Serif", serif;
-  --sans: "Syne", sans-serif;
+  --display: "Inter", sans-serif;
+  --sans: "IBM Plex Sans", sans-serif;
   color-scheme: dark;
 }
 
@@ -476,8 +476,8 @@ body::after {
   font-family: var(--display);
   font-size: clamp(2.4rem, 5vw, 4rem);
   line-height: 1.08;
-  letter-spacing: -0.01em;
-  font-weight: 400;
+  letter-spacing: -0.028em;
+  font-weight: 700;
 }
 
 .hero h1 em {
@@ -695,7 +695,8 @@ body::after {
   font-family: var(--display);
   font-size: clamp(1.9rem, 4vw, 3rem);
   line-height: 1.1;
-  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-weight: 700;
   max-width: 22ch;
 }
 
@@ -718,7 +719,8 @@ body::after {
   font-family: var(--display);
   font-size: clamp(2.4rem, 5vw, 3.8rem);
   line-height: 1.08;
-  font-weight: 400;
+  letter-spacing: -0.025em;
+  font-weight: 700;
 }
 .comp-hero h1 em { font-style: italic; color: var(--green); }
 .comp-hero__lead {
@@ -1301,8 +1303,9 @@ body::after {
   font-family: var(--display);
   font-size: 2.5rem;
   line-height: 1;
+  letter-spacing: -0.02em;
   color: var(--green);
-  font-style: italic;
+  font-weight: 700;
 }
 
 .proof-stat__label {
@@ -1412,22 +1415,25 @@ body::after {
   margin-bottom: 6px;
   align-self: flex-start;
   padding-top: 8px;
+  font-weight: 600;
 }
 
 .pricing-amount {
   font-family: var(--display);
   font-size: 3.4rem;
   line-height: 1;
+  letter-spacing: -0.02em;
   color: var(--text);
-  font-style: italic;
+  font-weight: 700;
 }
 
 .pricing-contact {
   font-family: var(--display);
   font-size: 2.2rem;
   line-height: 1;
+  letter-spacing: -0.02em;
   color: var(--text);
-  font-style: italic;
+  font-weight: 700;
 }
 
 .pricing-per {
@@ -1584,6 +1590,7 @@ body::after {
   font-size: 1.4rem;
   line-height: 1.1;
   color: var(--text);
+  font-weight: 700;
 }
 
 .pricing-card__subtitle {
@@ -1615,12 +1622,14 @@ body::after {
   font-size: 1.2rem;
   color: var(--muted);
   margin-left: 2px;
+  font-weight: 600;
 }
 
 .pricing-card__price--text {
   font-family: var(--display);
   font-size: 1.6rem;
-  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--text);
   display: inline-block;
 }
@@ -1765,7 +1774,9 @@ body::after {
   font-family: var(--display);
   font-size: 1.9rem;
   line-height: 1;
+  letter-spacing: -0.02em;
   color: var(--text);
+  font-weight: 700;
 }
 
 .pricing-table__plan-price .pricing-currency {
@@ -2114,7 +2125,8 @@ body::after {
   font-family: var(--display);
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   line-height: 1.1;
-  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-weight: 700;
   max-width: 24ch;
 }
 

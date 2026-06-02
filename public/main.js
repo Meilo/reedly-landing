@@ -11,7 +11,6 @@ const T = {
     "nav.open_menu": "Ouvrir le menu",
     "footer.solution": "Solution",
     "footer.pricing": "Tarifs",
-    "hero.pill": "Mobile pour le terrain · Hub pour le pilotage",
     "hero.title":
       "Ne perdez plus jamais<br /><em>ce qui se dit en rendez-vous client.</em>",
     "hero.sub":
@@ -21,9 +20,6 @@ const T = {
     "hero.trust1": "Plan gratuit disponible",
     "hero.trust2": "Essai 7 jours sur les plans payants",
     "hero.trust3": "Sans engagement",
-    "hero.offline":
-      "Mode hors ligne détecté — connexion requise pour générer des rapports.",
-    "hero.cta_demo": "Voir une démo",
     "hero.flow.tag_rep": "Commercial",
     "hero.flow.tag_mgr": "Manager",
     "hero.viz.capture_label": "Visite client en cours",
@@ -484,7 +480,6 @@ const T = {
     "nav.open_menu": "Open menu",
     "footer.solution": "Solution",
     "footer.pricing": "Pricing",
-    "hero.pill": "Mobile for the field · Hub for oversight",
     "hero.title":
       "Never lose<br /><em>what's said in a client meeting.</em>",
     "hero.sub":
@@ -494,9 +489,6 @@ const T = {
     "hero.trust1": "Free plan available",
     "hero.trust2": "7-day trial on paid plans",
     "hero.trust3": "No commitment",
-    "hero.offline":
-      "Offline mode detected — connection required to generate reports.",
-    "hero.cta_demo": "Watch a demo",
     "hero.flow.tag_rep": "Field rep",
     "hero.flow.tag_mgr": "Manager",
     "hero.viz.capture_label": "Client meeting in progress",
