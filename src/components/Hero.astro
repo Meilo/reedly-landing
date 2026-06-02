@@ -55,44 +55,70 @@
             </div>
           </div>
 
-          <!-- Team loop → Hub visual -->
-          <div class="hero-flow reveal">
-            <div class="hero-flow__glow"></div>
+          <!-- Field capture → Hub cockpit -->
+          <div class="hero-viz reveal">
+            <div class="hero-viz__glow"></div>
 
-            <div class="flow-chip">
-              <div class="flow-chip__ic">🎙️</div>
-              <div class="flow-chip__txt">
-                <div class="flow-chip__t" data-i18n="hero.flow.capture_t">Le commercial capte</div>
-                <div class="flow-chip__d" data-i18n="hero.flow.capture_d">Visite enregistrée, mains libres</div>
+            <div class="capture">
+              <span class="capture__mic">
+                <span class="capture__pulse"></span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z" />
+                  <path d="M19 11a7 7 0 0 1-14 0" />
+                  <line x1="12" y1="18" x2="12" y2="22" />
+                </svg>
+              </span>
+              <div class="capture__txt">
+                <div class="capture__label" data-i18n="hero.viz.capture_label">Visite client en cours</div>
+                <div class="capture__meta" data-i18n="hero.viz.capture_meta">Captée mains libres, sur le terrain</div>
               </div>
-              <span class="flow-tag flow-tag--rep" data-i18n="hero.flow.tag_rep">Commercial</span>
+              <span class="viz-tag viz-tag--rep" data-i18n="hero.flow.tag_rep">Commercial</span>
             </div>
 
-            <div class="flow-arrow" aria-hidden="true">↓</div>
-
-            <div class="flow-chip">
-              <div class="flow-chip__ic">📄</div>
-              <div class="flow-chip__txt">
-                <div class="flow-chip__t" data-i18n="hero.flow.report_t">Rapport structuré</div>
-                <div class="flow-chip__d" data-i18n="hero.flow.report_d">11 sections · en moins de 2 min</div>
-              </div>
+            <div class="pipe" aria-hidden="true">
+              <span class="pipe__flow"></span>
+              <span class="pipe__chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+                  <path d="M14 3v5h5" />
+                  <path d="M9 13h6M9 17h4" />
+                </svg>
+                <span data-i18n="hero.viz.pipe">Rapport structuré · moins de 2 min</span>
+              </span>
             </div>
 
-            <div class="flow-arrow" aria-hidden="true">↓</div>
-
-            <div class="flow-hub">
-              <div class="flow-hub__head">
-                <span class="flow-hub__vt" data-i18n="hero.flow.hub_t">Hub · Vue équipe</span>
-                <span class="flow-tag flow-tag--mgr" data-i18n="hero.flow.tag_mgr">Manager</span>
+            <div class="hubcard">
+              <div class="hubcard__bar">
+                <span class="hubcard__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="hubcard__url">reedly.ai/hub</span>
+                <span class="viz-tag viz-tag--mgr" data-i18n="hero.flow.tag_mgr">Manager</span>
               </div>
-              <div class="flow-hub__cards">
-                <div class="flow-hc"><div class="flow-hc__n">Agence Soleil</div><div class="flow-hc__m flow-hc__m--up" data-i18n="hero.hub.m1">↑ 2 engagements</div></div>
-                <div class="flow-hc"><div class="flow-hc__n">TO Évasion</div><div class="flow-hc__m flow-hc__m--up" data-i18n="hero.hub.m2">↑ opportunité</div></div>
-                <div class="flow-hc"><div class="flow-hc__n">Réceptif Sud</div><div class="flow-hc__m flow-hc__m--warn" data-i18n="hero.hub.m3">⚠ risque</div></div>
-                <div class="flow-hc"><div class="flow-hc__n">Voyages Lina</div><div class="flow-hc__m flow-hc__m--neu" data-i18n="hero.hub.m4">1 relance</div></div>
-              </div>
-              <div class="flow-hub__bars" aria-hidden="true">
-                <span style="height:45%"></span><span style="height:70%"></span><span style="height:55%"></span><span style="height:85%"></span><span style="height:65%"></span><span style="height:95%"></span><span style="height:72%"></span>
+              <div class="hubcard__body">
+                <div class="hubcard__head">
+                  <span class="hubcard__eyebrow" data-i18n="hero.viz.team">Activité de l'équipe</span>
+                  <span class="hubcard__live"><i aria-hidden="true"></i><span data-i18n="hero.viz.live">en direct</span></span>
+                </div>
+                <div class="hubrow">
+                  <div class="hubrow__info">
+                    <div class="hubrow__name" data-i18n="hub.dash.r1.name">RV Agence Riviera — M. Laurent</div>
+                    <div class="hubrow__meta" data-i18n="hub.dash.r1.meta">Sophie D. · il y a 23 min</div>
+                  </div>
+                  <span class="hubrow__badge hubrow__badge--done" data-i18n="hub.dash.r1.badge">Généré</span>
+                </div>
+                <div class="hubrow">
+                  <div class="hubrow__info">
+                    <div class="hubrow__name" data-i18n="hub.dash.r2.name">Client Hôtels Premium — Mme Dubois</div>
+                    <div class="hubrow__meta" data-i18n="hub.dash.r2.meta">Tom V. · il y a 1h</div>
+                  </div>
+                  <span class="hubrow__badge hubrow__badge--processing" data-i18n="hub.dash.r2.badge">En cours</span>
+                </div>
+                <div class="hubrow">
+                  <div class="hubrow__info">
+                    <div class="hubrow__name" data-i18n="hub.dash.r3.name">Suivi contrat TO Barcelone</div>
+                    <div class="hubrow__meta" data-i18n="hub.dash.r3.meta">Marc R. · il y a 3h</div>
+                  </div>
+                  <span class="hubrow__badge hubrow__badge--done" data-i18n="hub.dash.r3.badge">Généré</span>
+                </div>
               </div>
             </div>
           </div>
