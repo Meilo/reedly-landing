@@ -2761,6 +2761,16 @@ body::after {
   }
 }
 
+/* Small phones (≤420px): also drop the theme toggle from the top bar so the
+   language switch + hamburger fit down to 320px. Theme still follows the
+   system setting; the language switch stays (bilingual site). */
+@media (max-width: 420px) {
+  .nav__actions .theme-toggle,
+  .nav__actions .nav__sep {
+    display: none;
+  }
+}
+
 @media (max-width: 980px) {
   .hero .inner {
     grid-template-columns: minmax(0, 1fr);
