@@ -9,17 +9,16 @@
             <div class="hero__pill">
               <div class="hero__pill-dot"></div>
               <span data-i18n="hero.pill"
-                >Pour les directions commerciales · Hub manager inclus</span
+                >Mobile pour le terrain · Hub pour le pilotage</span
               >
             </div>
-            <h1 data-i18n-html="hero.title">Voyez ce qui se passe sur le terrain.<br /><em>En temps réel.</em></h1>
+            <h1 data-i18n-html="hero.title">Ne perdez plus jamais<br /><em>ce qui se dit en rendez-vous client.</em></h1>
             <p class="hero__sub" data-i18n="hero.sub">
-              Reedly transforme chaque rendez-vous client de votre équipe en rapport structuré —
-              engagements, opportunités et risques remontent en continu dans un Hub centralisé. Vous
-              reprenez la main sur l'activité commerciale, sans demander un effort de plus à vos
-              commerciaux.
+              Vos commerciaux enregistrent leurs visites — Reedly les transforme en rapports
+              structurés et fait remonter engagements, opportunités et risques dans un Hub
+              centralisé. Zéro saisie pour le terrain, vision complète pour le pilotage.
             </p>
-            <p class="hero__definition sr-only">
+            <p class="hero__definition sr-only" data-i18n-html="hero.definition">
               Reedly est une application mobile iOS et Android d'enregistrement vocal destinée aux commerciaux terrain B2B.
               Elle enregistre les rendez-vous clients en arrière-plan grâce à l'enregistrement vocal mains libres, transcrit l'audio avec plus de
               95% de précision, puis génère automatiquement un rapport structuré en 11 sections en
@@ -42,100 +41,58 @@
                 data-track-section="hero"
                 >Essayer gratuitement</a
               >
+              <a
+                class="btn btn--ghost btn--lg"
+                href="#demo"
+                data-i18n="hero.cta_demo"
+                data-track-id="hero_watch_demo"
+                data-track-section="hero"
+                >Voir une démo</a
+              >
             </div>
             <div class="offline-banner" id="offline-banner" data-i18n="hero.offline">
               Mode hors ligne détecté — connexion requise pour générer des rapports.
             </div>
           </div>
 
-          <!-- Phone mockup -->
-          <div class="phone-wrap reveal">
-            <div class="phone-glow"></div>
-            <div class="phone">
-              <div class="phone__notch">
-                <div class="phone__notch-pill"></div>
+          <!-- Team loop → Hub visual -->
+          <div class="hero-flow reveal">
+            <div class="hero-flow__glow"></div>
+
+            <div class="flow-chip">
+              <div class="flow-chip__ic">🎙️</div>
+              <div class="flow-chip__txt">
+                <div class="flow-chip__t" data-i18n="hero.flow.capture_t">Le commercial capte</div>
+                <div class="flow-chip__d" data-i18n="hero.flow.capture_d">Visite enregistrée, mains libres</div>
               </div>
-              <div class="phone__topbar">
-                <svg class="phone__close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-                  <path d="M18 6L6 18M6 6l12 12"/>
-                </svg>
-                <span class="phone__topbar-title" data-i18n="hero.rec_label">Enregistrement</span>
-                <span class="phone__topbar-spacer"></span>
-              </div>
-              <div class="phone__body">
-                <div class="phone__recording-status" data-i18n="hero.recording_status">Enregistrement en cours...</div>
-                <div class="phone__big-timer">00:05</div>
-                <div class="phone__waveform">
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                  <div class="wave-bar"></div>
-                </div>
-              </div>
-              <div class="phone__controls">
-                <div class="phone__ctrl phone__ctrl--secondary">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
-                </div>
-                <div class="phone__ctrl phone__ctrl--stop">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
-                </div>
-                <div class="phone__ctrl phone__ctrl--secondary">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M19 21l-7-4-7 4V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
-                </div>
+              <span class="flow-tag flow-tag--rep" data-i18n="hero.flow.tag_rep">Commercial</span>
+            </div>
+
+            <div class="flow-arrow" aria-hidden="true">↓</div>
+
+            <div class="flow-chip">
+              <div class="flow-chip__ic">📄</div>
+              <div class="flow-chip__txt">
+                <div class="flow-chip__t" data-i18n="hero.flow.report_t">Rapport structuré</div>
+                <div class="flow-chip__d" data-i18n="hero.flow.report_d">11 sections · en moins de 2 min</div>
               </div>
             </div>
 
-            <!-- Floating report card -->
-            <div class="phone__report-float">
-              <div class="phone__report-float-header">
-                <div class="phone__report-float-dot"></div>
-                <div class="phone__report-float-label" data-i18n="hero.report_float">
-                  Rapport généré
-                </div>
+            <div class="flow-arrow" aria-hidden="true">↓</div>
+
+            <div class="flow-hub">
+              <div class="flow-hub__head">
+                <span class="flow-hub__vt" data-i18n="hero.flow.hub_t">Hub · Vue équipe</span>
+                <span class="flow-tag flow-tag--mgr" data-i18n="hero.flow.tag_mgr">Manager</span>
               </div>
-              <div class="phone__report-float-sections">
-                <div class="phone__report-float-section">
-                  <span class="phone__report-section-icon">●</span>
-                  <span class="phone__report-section-name" data-i18n="hero.float.s1">Résumé exécutif</span>
-                </div>
-                <div class="phone__report-float-section">
-                  <span class="phone__report-section-icon">●</span>
-                  <span class="phone__report-section-name" data-i18n="hero.float.s2">Besoins exprimés</span>
-                </div>
-                <div class="phone__report-float-section">
-                  <span class="phone__report-section-icon">●</span>
-                  <span class="phone__report-section-name" data-i18n="hero.float.s3">Objections &amp; réponses</span>
-                </div>
-                <div class="phone__report-float-section">
-                  <span class="phone__report-section-icon">●</span>
-                  <span class="phone__report-section-name" data-i18n="hero.float.s4">Engagements &amp; prochaines étapes</span>
-                </div>
+              <div class="flow-hub__cards">
+                <div class="flow-hc"><div class="flow-hc__n">Agence Soleil</div><div class="flow-hc__m flow-hc__m--up" data-i18n="hero.hub.m1">↑ 2 engagements</div></div>
+                <div class="flow-hc"><div class="flow-hc__n">TO Évasion</div><div class="flow-hc__m flow-hc__m--up" data-i18n="hero.hub.m2">↑ opportunité</div></div>
+                <div class="flow-hc"><div class="flow-hc__n">Réceptif Sud</div><div class="flow-hc__m flow-hc__m--warn" data-i18n="hero.hub.m3">⚠ risque</div></div>
+                <div class="flow-hc"><div class="flow-hc__n">Voyages Lina</div><div class="flow-hc__m flow-hc__m--neu" data-i18n="hero.hub.m4">1 relance</div></div>
+              </div>
+              <div class="flow-hub__bars" aria-hidden="true">
+                <span style="height:45%"></span><span style="height:70%"></span><span style="height:55%"></span><span style="height:85%"></span><span style="height:65%"></span><span style="height:95%"></span><span style="height:72%"></span>
               </div>
             </div>
           </div>
