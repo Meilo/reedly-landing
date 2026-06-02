@@ -2753,6 +2753,14 @@ body::after {
   }
 }
 
+/* Phones: the nav CTA lives in the hamburger menu — drop it from the top bar
+   so the theme + language toggles fit alongside the logo without overflow. */
+@media (max-width: 600px) {
+  .nav__actions .btn--primary {
+    display: none;
+  }
+}
+
 @media (max-width: 980px) {
   .hero .inner {
     grid-template-columns: minmax(0, 1fr);
@@ -2840,6 +2848,15 @@ body::after {
     flex-direction: column;
   }
 }
+
+/* Phones: footer link columns are too wide to sit side by side — stack them.
+   Placed after the 680px 2-col rule so it wins the cascade at narrow widths. */
+@media (max-width: 540px) {
+  .footer__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* ─── Contact Section ─── */
 .contact {
   padding: 100px 0;
