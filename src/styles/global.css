@@ -540,9 +540,9 @@ body::after {
 
 /* Connector / pipe */
 .pipe { position: relative; height: 56px; display: flex; align-items: center; justify-content: center; }
-.pipe::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; transform: translateX(-0.5px); background: var(--border); }
-.pipe__flow { position: absolute; left: 50%; width: 1px; height: 42%; transform: translateX(-0.5px); background: linear-gradient(var(--green), transparent); animation: viz-flow 2.6s ease-in-out infinite; }
-@keyframes viz-flow { 0% { top: -42%; opacity: 0; } 18% { opacity: 1; } 82% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+.pipe__rail { position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; transform: translateX(-0.5px); background: var(--border); overflow: hidden; }
+.pipe__flow { position: absolute; left: 0; width: 100%; height: 38%; background: linear-gradient(transparent, var(--green), transparent); animation: viz-flow 2.8s ease-in-out infinite; }
+@keyframes viz-flow { 0% { top: -45%; } 100% { top: 100%; } }
 .pipe__chip { position: relative; display: inline-flex; align-items: center; gap: 7px; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 6px 13px; font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.02em; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25); }
 .pipe__chip svg { width: 12px; height: 12px; color: var(--green); flex-shrink: 0; }
 
