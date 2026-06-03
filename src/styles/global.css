@@ -434,7 +434,7 @@ body::after {
 
 .hero .inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.6fr 1fr;
   gap: 56px;
   align-items: center;
 }
@@ -475,8 +475,8 @@ body::after {
 
 .hero h1 {
   font-family: var(--display);
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  line-height: 1.08;
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  line-height: 1.1;
   letter-spacing: -0.028em;
   font-weight: 700;
 }
