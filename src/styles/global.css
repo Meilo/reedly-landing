@@ -3478,6 +3478,13 @@ html[data-theme="light"] .pricing-trial-badge {
   background: rgba(22, 163, 74, 0.06);
 }
 
+/* Featured "Recommandé" badge keeps a solid green fill in light mode so its
+   white text stays readable (the pale rule above would wash it out). */
+html[data-theme="light"] .pricing-card--v2 .pricing-badge {
+  background: var(--green);
+  color: #ffffff;
+}
+
 html[data-theme="light"] .pricing-billing-toggle__btn--active {
   background: rgba(22, 163, 74, 0.1);
   color: var(--green);
