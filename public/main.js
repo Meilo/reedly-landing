@@ -12,7 +12,7 @@ const T = {
     "footer.solution": "Solution",
     "footer.pricing": "Tarifs",
     "hero.title":
-      "Ne perdez plus jamais<br /><em>ce qui se dit en rendez-vous client.</em>",
+      "Ne perdez plus rien<br /><em>de vos rendez-vous clients.</em>",
     "hero.sub":
       "Vos commerciaux enregistrent leurs visites — Reedly les transforme en rapports structurés et fait remonter engagements, opportunités et risques dans un Hub centralisé. Zéro saisie pour le terrain, vision complète pour le pilotage.",
     "hero.cta": "Télécharger l'app",
@@ -481,7 +481,7 @@ const T = {
     "footer.solution": "Solution",
     "footer.pricing": "Pricing",
     "hero.title":
-      "Never lose<br /><em>what's said in a client meeting.</em>",
+      "Never lose a word<br /><em>from your client meetings.</em>",
     "hero.sub":
       "Your reps record their visits — Reedly turns them into structured reports and surfaces commitments, opportunities and risks in a centralized Hub. Zero data entry for the field, full visibility for management.",
     "hero.cta": "Download the app",
