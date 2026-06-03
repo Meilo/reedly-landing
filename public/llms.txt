@@ -35,7 +35,7 @@
 - Max: AI assistant (mobile + web hub)
 
 ## Pricing
-- Team: 69 EUR per user per month (5 to 20 sales reps), Manager Hub included, unlimited reports, 450 AI credits/month, priority support
+- Team: 69 EUR per user per month (5 to 20 sales reps), Manager Hub included, unlimited reports, priority support
 - Enterprise: custom pricing (20+ sales reps), unlimited users, multi-team, custom vocabulary, CRM integration, dedicated account manager, team onboarding
 
 ## Industries
