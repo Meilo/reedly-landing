@@ -30,6 +30,7 @@
   --mono: "Geist", sans-serif;
   --display: "Geist", sans-serif;
   --sans: "Geist", sans-serif;
+  --nav-h: 61px;
   color-scheme: dark;
 }
 
@@ -429,7 +430,11 @@ body::after {
 
 /* ─── Hero ─── */
 .hero {
-  padding: 72px 0 40px;
+  min-height: calc(100vh - var(--nav-h));
+  min-height: calc(100svh - var(--nav-h));
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0 28px;
 }
 
 .hero .inner {
@@ -437,6 +442,8 @@ body::after {
   grid-template-columns: 1.6fr 1fr;
   gap: 56px;
   align-items: center;
+  align-content: center;
+  flex: 1 1 auto;
 }
 
 .hero__pill {
