@@ -6,7 +6,6 @@ const isFeatures = path.includes('/features/');
 const featuresLabel = lang === 'fr' ? 'Fonctionnalités' : 'Features';
 const currentSlug = path.split('/features/')[1] || '';
 const isTarifs = path.endsWith('/tarifs') || path.endsWith('/pricing');
-const isComparatif = path.endsWith('/comparatif') || path.endsWith('/comparison');
 const isBlog = path.includes('/blog');
 const trialHref = 'https://hub.reedly.ai';
 
@@ -55,7 +54,6 @@ const features = [
         </div>
       </div>
       <a class={`nav__menu-link${isTarifs ? ' active' : ''}`} href={lang === 'fr' ? '/fr/tarifs' : '/en/pricing'} data-i18n="nav.pricing" data-link-fr="/fr/tarifs" data-link-en="/en/pricing">Tarifs</a>
-      <a class={`nav__menu-link${isComparatif ? ' active' : ''}`} href={lang === 'fr' ? '/fr/comparatif' : '/en/comparison'} data-i18n="nav.comparatif" data-link-fr="/fr/comparatif" data-link-en="/en/comparison">Comparatif</a>
       <a class={`nav__menu-link${isBlog ? ' active' : ''}`} href={`/${lang}/blog`} data-i18n="nav.blog" data-link-fr="/fr/blog" data-link-en="/en/blog">Blog</a>
     </div>
 
@@ -110,7 +108,6 @@ const features = [
       ))}
     </div>
     <a class={`nav__mobile-link${isTarifs ? ' active' : ''}`} href={lang === 'fr' ? '/fr/tarifs' : '/en/pricing'} data-i18n="nav.pricing" data-link-fr="/fr/tarifs" data-link-en="/en/pricing">Tarifs</a>
-    <a class={`nav__mobile-link${isComparatif ? ' active' : ''}`} href={lang === 'fr' ? '/fr/comparatif' : '/en/comparison'} data-i18n="nav.comparatif" data-link-fr="/fr/comparatif" data-link-en="/en/comparison">Comparatif</a>
     <a class={`nav__mobile-link${isBlog ? ' active' : ''}`} href={`/${lang}/blog`} data-i18n="nav.blog" data-link-fr="/fr/blog" data-link-en="/en/blog">Blog</a>
     <div class="nav__mobile-actions">
       <a
