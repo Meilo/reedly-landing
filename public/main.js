@@ -2,7 +2,6 @@
 const T = {
   fr: {
     "nav.solution": "Solution",
-    "nav.comparatif": "Comparatif",
     "nav.pricing": "Tarifs",
     "nav.contact": "Contact",
     "nav.login": "Se connecter",
@@ -11,21 +10,24 @@ const T = {
     "nav.open_menu": "Ouvrir le menu",
     "footer.solution": "Solution",
     "footer.pricing": "Tarifs",
-    "hero.pill": "Pour les directions commerciales · Hub manager inclus",
     "hero.title":
-      "Voyez ce qui se passe sur le terrain.<br /><em>En temps réel.</em>",
+      "Reprenez la main sur<br /><em>votre activité terrain.</em>",
     "hero.sub":
-      "Reedly transforme chaque rendez-vous client de votre équipe en rapport structuré — engagements, opportunités et risques remontent en continu dans un Hub centralisé. Vous reprenez la main sur l'activité commerciale, sans demander un effort de plus à vos commerciaux.",
+      "Vos commerciaux enregistrent leurs visites — Reedly les transforme en rapports structurés et fait remonter engagements, opportunités et risques dans un Hub centralisé. Zéro saisie pour le terrain, vision complète pour le pilotage.",
     "hero.cta": "Télécharger l'app",
     "hero.cta_manager": "Commencer →",
     "hero.trust1": "Plan gratuit disponible",
     "hero.trust2": "Essai 7 jours sur les plans payants",
     "hero.trust3": "Sans engagement",
-    "hero.offline":
-      "Mode hors ligne détecté — connexion requise pour générer des rapports.",
-    "hero.rec_label": "Enregistrement",
-    "hero.recording_status": "Enregistrement en cours...",
-    "hero.report_float": "Rapport généré",
+    "hero.flow.tag_rep": "Commercial",
+    "hero.flow.tag_mgr": "Manager",
+    "hero.viz.capture_label": "Visite client en cours",
+    "hero.viz.capture_meta": "Enregistrement mains libres, sur le terrain",
+    "hero.viz.pipe": "Rapport structuré · moins de 2 min",
+    "hero.viz.team": "Activité de l'équipe",
+    "hero.viz.live": "en direct",
+    "hero.definition":
+      "Reedly est une solution d'intelligence commerciale pour les équipes de vente terrain B2B. Une application mobile iOS et Android enregistre les rendez-vous clients et génère automatiquement un rapport structuré en 11 sections en moins de 2 minutes (résumé, besoins, objections, engagements, prochaines étapes, opportunités, risques, recommandations). Les rapports de toute l'équipe remontent dans un Hub web où les managers consultent les synthèses territoriales et l'activité agrégée. L'audio est supprimé après génération du rapport.",
     "ticker.1": "Vision unifiée de toute votre équipe",
     "ticker.2": "Synthèses stratégiques par territoire",
     "ticker.3": "Engagements clients tracés automatiquement",
@@ -87,11 +89,16 @@ const T = {
     "demo.eyebrow": "Démonstration",
     "demo.title": "Reedly<br /><em>en 30 secondes.</em>",
     "demo.lead":
-      "De l'enregistrement au rapport structuré, découvrez l'expérience complète en quelques secondes.",
-    "integrations.eyebrow": "Écosystème",
+      "Du rendez-vous client au rapport structuré remonté dans le Hub, découvrez l'expérience complète en quelques secondes.",
+    "integrations.eyebrow": "Intégrations",
     "integrations.title": "Branchez Reedly à<br /><em>votre stack.</em>",
     "integrations.lead":
       "Vos rapports atterrissent là où votre équipe travaille déjà — canaux d'équipe, fiches CRM, alertes managers. Aucun copier-coller.",
+    "integrations.source.status": "Rapport prêt",
+    "integrations.source.note":
+      "Chaque rapport part vers vos outils, sans copier-coller.",
+    "integrations.hub.tagline": "Vos rapports, dans tous vos outils.",
+    "integrations.hub.badge": "Sans copier-coller",
     "integrations.cat.crm": "CRM",
     "integrations.cat.msg": "Messagerie & communauté",
     "integrations.tag.crm": "CRM",
@@ -270,7 +277,7 @@ const T = {
       "L'enregistrement vocal fonctionne-t-il dans un environnement bruyant ?",
     "faq.a6":
       "Oui. Reedly utilise des modèles de transcription entraînés sur des conditions audio réelles — restaurant d'affaires, salle de réunion avec écho, plusieurs voix simultanées. L'enregistrement vocal est conçu pour le terrain, pas pour un environnement de bureau silencieux.",
-    "cta.title": "Reprenez la main sur<br /><em>votre activité terrain.</em>",
+    "cta.title": "Téléchargez Reedly,<br /><em>oubliez la saisie.</em>",
     "cta.sub":
       "Déployez Reedly dans votre équipe en moins de 10 minutes. Premier rapport remonté dans le Hub dès le jour même.",
     "cta.store_sub": "Disponible sur",
@@ -291,10 +298,6 @@ const T = {
     "footer.privacy": "Confidentialité",
     "footer.terms": "CGU",
     "footer.contact": "Contact",
-    "hero.float.s1": "Résumé exécutif",
-    "hero.float.s2": "Besoins exprimés",
-    "hero.float.s3": "Objections & réponses",
-    "hero.float.s4": "Engagements & prochaines étapes",
     "report.eyebrow": "Le rapport généré",
     "report.title": "Ce que vous recevez<br /><em>en 2 minutes.</em>",
     "report.lead":
@@ -364,45 +367,6 @@ const T = {
     "contact.form.error":
       "Une erreur est survenue. Veuillez réessayer ou écrire à contact@reedly.ai",
     "hub.dash.nav": "Tableau de bord",
-    // ── Comparatif page ──
-    "comparatif.hero.eyebrow": "Comparatif",
-    "comparatif.hero.title":
-      "Pourquoi les commerciaux terrain<br><em>choisissent Reedly.</em>",
-    "comparatif.hero.lead":
-      "Les autres transcrivent vos réunions. Reedly les comprend — rapports structurés en 11 sections, vocabulaire métier, synthèses stratégiques. Le tout à un prix qui a du sens.",
-    "comparatif.table.eyebrow": "Comparaison",
-    "comparatif.table.title": "Reedly face aux <em>alternatives.</em>",
-    "comparatif.table.lead":
-      "Transcription, rapports, terrain, management — voici comment Reedly se positionne face aux principaux outils du marché.",
-    "comparatif.table.row1": "Conçu pour le terrain",
-    "comparatif.table.row2": "Rapports structurés (11 sections)",
-    "comparatif.table.row3": "Distinction vocale",
-    "comparatif.table.row4": "Vocabulaire métier",
-    "comparatif.table.row5": "Synthèses stratégiques",
-    "comparatif.table.row6": "Hub management",
-    "comparatif.table.row7": "Prix / utilisateur / mois",
-    "comparatif.why.eyebrow": "Pourquoi Reedly",
-    "comparatif.why.title": "Ce que les autres <em>ne font pas.</em>",
-    "comparatif.why.lead":
-      "Reedly n'est pas un outil de transcription reconverti. C'est un agent IA conçu dès le départ pour les commerciaux de terrain.",
-    "comparatif.why.card1.title": "Conçu pour le terrain",
-    "comparatif.why.card1.text":
-      "Pas une app de visio reconvertie. Enregistrement via le micro du téléphone, mode hors-ligne, rapport généré automatiquement dès le retour en zone réseau.",
-    "comparatif.why.card2.title": "Rapports experts, pas des notes",
-    "comparatif.why.card2.text":
-      "11 sections structurées par secteur : résumé exécutif, besoins client, objections, engagements, prochaines étapes. L'IA raisonne comme un consultant métier.",
-    "comparatif.why.card3.title": "Qui dit quoi",
-    "comparatif.why.card3.text":
-      "La diarisation identifie automatiquement commercial vs client. Les besoins exprimés par le client sont distingués des arguments du commercial dans le rapport.",
-    "comparatif.why.card4.title": "Synthèses stratégiques",
-    "comparatif.why.card4.text":
-      "Agrégez une semaine ou un trimestre de rendez-vous en tendances, risques et opportunités priorisées. De l'intelligence commerciale, pas juste de la documentation.",
-    "comparatif.price.eyebrow": "Tarifs",
-    "comparatif.price.title": "Plus complet. <em>Moins cher.</em>",
-    "comparatif.price.lead": "Prix par utilisateur par mois, plans équipe.",
-    "comparatif.price.note":
-      "Fireflies et Otter sont moins chers mais ne font que de la transcription — pas de rapports structurés, pas de terrain, pas de synthèses.",
-    "footer.comparatif": "Comparatif",
     "solution.hero.eyebrow": "Solution",
     "solution.hero.title":
       "Vos commerciaux vendent.<br /><em>Reedly documente.</em>",
@@ -472,7 +436,6 @@ const T = {
   },
   en: {
     "nav.solution": "Solution",
-    "nav.comparatif": "Comparison",
     "nav.pricing": "Pricing",
     "nav.contact": "Contact",
     "nav.login": "Log in",
@@ -481,21 +444,24 @@ const T = {
     "nav.open_menu": "Open menu",
     "footer.solution": "Solution",
     "footer.pricing": "Pricing",
-    "hero.pill": "Built for sales leaders · Manager Hub included",
     "hero.title":
-      "See what's happening in the field.<br /><em>In real time.</em>",
+      "Take back control of<br /><em>your field activity.</em>",
     "hero.sub":
-      "Reedly turns every client meeting your team runs into a structured report — commitments, opportunities and risks flow into a centralized Hub. You take back control of field activity, without asking your reps for any extra effort.",
+      "Your reps record their visits — Reedly turns them into structured reports and surfaces commitments, opportunities and risks in a centralized Hub. Zero data entry for the field, full visibility for management.",
     "hero.cta": "Download the app",
     "hero.cta_manager": "Get Started →",
     "hero.trust1": "Free plan available",
     "hero.trust2": "7-day trial on paid plans",
     "hero.trust3": "No commitment",
-    "hero.offline":
-      "Offline mode detected — connection required to generate reports.",
-    "hero.rec_label": "Recording",
-    "hero.recording_status": "Recording in progress...",
-    "hero.report_float": "Report generated",
+    "hero.flow.tag_rep": "Field rep",
+    "hero.flow.tag_mgr": "Manager",
+    "hero.viz.capture_label": "Client meeting in progress",
+    "hero.viz.capture_meta": "Hands-free recording, in the field",
+    "hero.viz.pipe": "Structured report · under 2 min",
+    "hero.viz.team": "Team activity",
+    "hero.viz.live": "live",
+    "hero.definition":
+      "Reedly is a sales-intelligence solution for B2B field-sales teams. An iOS and Android mobile app records client meetings and automatically generates a structured 11-section report in under 2 minutes (summary, needs, objections, commitments, next steps, opportunities, risks, recommendations). Every team member's reports flow into a web Hub where managers review territory syntheses and aggregated activity. Audio is deleted after the report is generated.",
     "ticker.1": "Unified view across your entire team",
     "ticker.2": "Strategic syntheses by territory",
     "ticker.3": "Client commitments tracked automatically",
@@ -556,11 +522,16 @@ const T = {
     "demo.eyebrow": "Demo",
     "demo.title": "See Reedly<br /><em>in action.</em>",
     "demo.lead":
-      "From recording to structured report, discover the full experience in seconds.",
-    "integrations.eyebrow": "Ecosystem",
+      "From client meeting to structured report in the Hub, see the full experience in seconds.",
+    "integrations.eyebrow": "Integrations",
     "integrations.title": "Plug Reedly into<br /><em>your stack.</em>",
     "integrations.lead":
       "Your reports land where your team already works — team channels, CRM records, manager alerts. Zero copy-paste.",
+    "integrations.source.status": "Report ready",
+    "integrations.source.note":
+      "Every report flows to your tools — no copy-paste.",
+    "integrations.hub.tagline": "Your reports, in every tool.",
+    "integrations.hub.badge": "Zero copy-paste",
     "integrations.cat.crm": "CRM",
     "integrations.cat.msg": "Messaging & community",
     "integrations.tag.crm": "CRM",
@@ -736,7 +707,7 @@ const T = {
     "faq.q6": "Does voice recording work in noisy environments?",
     "faq.a6":
       "Yes. Reedly uses transcription models trained on real-world audio conditions — business restaurants, meeting rooms with echo, multiple simultaneous voices. Voice recording is designed for the field, not for a quiet office environment.",
-    "cta.title": "Take back control of<br /><em>your field activity.</em>",
+    "cta.title": "Download Reedly,<br /><em>forget the data entry.</em>",
     "cta.sub":
       "Deploy Reedly to your team in under 10 minutes. First report flowing into the Hub the same day.",
     "cta.store_sub": "Available on",
@@ -757,10 +728,6 @@ const T = {
     "footer.privacy": "Privacy",
     "footer.terms": "Terms",
     "footer.contact": "Contact",
-    "hero.float.s1": "Executive summary",
-    "hero.float.s2": "Expressed needs",
-    "hero.float.s3": "Objections & responses",
-    "hero.float.s4": "Commitments & next steps",
     "report.eyebrow": "The generated report",
     "report.title": "What you get<br /><em>in 2 minutes.</em>",
     "report.lead":
@@ -829,44 +796,6 @@ const T = {
     "contact.form.error":
       "An error occurred. Please try again or write to contact@reedly.ai",
     "hub.dash.nav": "Dashboard",
-    // ── Comparatif page ──
-    "comparatif.hero.eyebrow": "Compare",
-    "comparatif.hero.title": "Why field sales reps<br><em>choose Reedly.</em>",
-    "comparatif.hero.lead":
-      "Others transcribe your meetings. Reedly understands them — structured reports in 11 sections, industry vocabulary, strategic syntheses. All at a price that makes sense.",
-    "comparatif.table.eyebrow": "Comparison",
-    "comparatif.table.title": "Reedly vs the <em>alternatives.</em>",
-    "comparatif.table.lead":
-      "Transcription, reports, field work, management — here's how Reedly compares to the main tools on the market.",
-    "comparatif.table.row1": "Built for the field",
-    "comparatif.table.row2": "Structured reports (11 sections)",
-    "comparatif.table.row3": "Speaker identification",
-    "comparatif.table.row4": "Industry vocabulary",
-    "comparatif.table.row5": "Strategic syntheses",
-    "comparatif.table.row6": "Management hub",
-    "comparatif.table.row7": "Price / user / month",
-    "comparatif.why.eyebrow": "Why Reedly",
-    "comparatif.why.title": "What the others <em>don't do.</em>",
-    "comparatif.why.lead":
-      "Reedly isn't a repurposed transcription tool. It's an AI agent built from day one for field sales reps.",
-    "comparatif.why.card1.title": "Built for the field",
-    "comparatif.why.card1.text":
-      "Not a video call app repurposed. Records via the phone microphone, works offline, generates the report automatically when back in network.",
-    "comparatif.why.card2.title": "Expert reports, not notes",
-    "comparatif.why.card2.text":
-      "11 sections structured by industry: executive summary, client needs, objections, commitments, next steps. The AI reasons like an industry consultant.",
-    "comparatif.why.card3.title": "Who said what",
-    "comparatif.why.card3.text":
-      "Diarization automatically identifies sales rep vs client. Client-expressed needs are distinguished from the rep's arguments in the report.",
-    "comparatif.why.card4.title": "Strategic syntheses",
-    "comparatif.why.card4.text":
-      "Aggregate a week or a quarter of meetings into prioritized trends, risks, and opportunities. Business intelligence, not just documentation.",
-    "comparatif.price.eyebrow": "Pricing",
-    "comparatif.price.title": "More complete. <em>Less expensive.</em>",
-    "comparatif.price.lead": "Price per user per month, team plans.",
-    "comparatif.price.note":
-      "Fireflies and Otter are cheaper but only do transcription — no structured reports, no field support, no syntheses.",
-    "footer.comparatif": "Compare",
     "solution.hero.eyebrow": "Solution",
     "solution.hero.title": "Your reps sell.<br /><em>Reedly documents.</em>",
     "solution.hero.lead":
@@ -949,8 +878,6 @@ function getPageName() {
     solution: "landing_solution",
     pricing: "landing_pricing",
     tarifs: "landing_pricing",
-    comparison: "landing_comparison",
-    comparatif: "landing_comparison",
     blog: "landing_blog_index",
   };
   if (clean.startsWith("blog/")) return "landing_blog_article";
@@ -1308,8 +1235,6 @@ function setLang(lang) {
       var slugMap = {
         "/tarifs": "/pricing",
         "/pricing": "/tarifs",
-        "/comparatif": "/comparison",
-        "/comparison": "/comparatif",
         "/confidentialite": "/privacy-policy",
         "/privacy-policy": "/confidentialite",
         "/cgu": "/terms-of-service",

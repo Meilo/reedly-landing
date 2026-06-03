@@ -37,7 +37,12 @@
     },
     {
       "source": "/comparatif",
-      "destination": "/en/comparison",
+      "destination": "/fr",
+      "permanent": true
+    },
+    {
+      "source": "/fr/comparatif",
+      "destination": "/fr",
       "permanent": true
     },
     {
@@ -77,7 +82,12 @@
     },
     {
       "source": "/comparison",
-      "destination": "/en/comparison",
+      "destination": "/en",
+      "permanent": true
+    },
+    {
+      "source": "/en/comparison",
+      "destination": "/en",
       "permanent": true
     }
   ]
