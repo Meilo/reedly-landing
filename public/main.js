@@ -10,8 +10,7 @@ const T = {
     "nav.open_menu": "Ouvrir le menu",
     "footer.solution": "Solution",
     "footer.pricing": "Tarifs",
-    "hero.title":
-      "Reprenez la main sur<br /><em>votre activité terrain.</em>",
+    "hero.title": "Reprenez la main sur<br /><em>votre activité terrain.</em>",
     "hero.sub":
       "Vos commerciaux enregistrent leurs visites — Reedly les transforme en rapports structurés et fait remonter engagements, opportunités et risques dans un Hub centralisé. Zéro saisie pour le terrain, vision complète pour le pilotage.",
     "hero.cta": "Télécharger l'app",
@@ -164,11 +163,11 @@ const T = {
     "pricing.toggle.mobile": "Commerciaux solo",
     "pricing.toggle.managers": "Managers / Équipes",
     "pricing.billing.monthly": "Mensuel",
-    "pricing.billing.annual": "Annuel (-20%)",
+    "pricing.billing.annual": "Annuel (-14%)",
     "pricing.billing.note.monthly":
-      "Prix affichés par mois. Facturation annuelle disponible avec 20 % de réduction.",
+      "Prix affichés par mois. Facturation annuelle disponible avec 14 % de réduction.",
     "pricing.billing.note.annual":
-      "Mode annuel : -20 % appliqués sur tous les tarifs affichés (toujours exprimés par mois).",
+      "Mode annuel : -14 % appliqués sur tous les tarifs affichés (toujours exprimés par mois).",
     "pricing.free.plan": "Gratuit",
     "pricing.free.per": "€ / mois",
     "pricing.free.limit": "1 rapport / jour",
@@ -445,8 +444,7 @@ const T = {
     "nav.open_menu": "Open menu",
     "footer.solution": "Solution",
     "footer.pricing": "Pricing",
-    "hero.title":
-      "Take back control of<br /><em>your field activity.</em>",
+    "hero.title": "Take back control of<br /><em>your field activity.</em>",
     "hero.sub":
       "Your reps record their visits — Reedly turns them into structured reports and surfaces commitments, opportunities and risks in a centralized Hub. Zero data entry for the field, full visibility for management.",
     "hero.cta": "Download the app",
@@ -597,11 +595,11 @@ const T = {
     "pricing.toggle.mobile": "Solo sales reps",
     "pricing.toggle.managers": "Managers / Teams",
     "pricing.billing.monthly": "Monthly",
-    "pricing.billing.annual": "Yearly (-20%)",
+    "pricing.billing.annual": "Yearly (-14%)",
     "pricing.billing.note.monthly":
-      "Prices are displayed per month. Yearly billing is available with a 20% discount.",
+      "Prices are displayed per month. Yearly billing is available with a 14% discount.",
     "pricing.billing.note.annual":
-      "Yearly mode: -20% applied on all displayed rates (still shown per month).",
+      "Yearly mode: -14% applied on all displayed rates (still shown per month).",
     "pricing.free.plan": "Free",
     "pricing.free.per": "€ / month",
     "pricing.free.limit": "1 report / day",
