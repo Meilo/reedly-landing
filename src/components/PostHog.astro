@@ -66,6 +66,7 @@ const posthogDefaults = import.meta.env.PUBLIC_POSTHOG_DEFAULTS ?? '2026-01-30';
           defaults: posthogDefaults,
           autocapture: false,
           capture_pageview: false,
+          cross_subdomain_cookie: true,
         });
       }
     </script>
