@@ -44,18 +44,18 @@ const T = {
     "ticker.5": "Intégration CRM (HubSpot, Salesforce)",
     "ticker.6": "Rapport structuré en 11 sections",
     "ticker.7": "Vocabulaire B2B sectoriel intégré",
-    "ticker.8": "Audio supprimé après génération — privacy by design",
+    "ticker.8": "Audio supprimé après génération · privacy by design",
     "problem.eyebrow": "Problème",
     "problem.title":
       "Le rendez-vous rapporte.<br /><em>Le compte-rendu coûte.</em>",
     "problem.lead":
-      "Les commerciaux terrain passent leurs journées en rendez-vous, pas devant un clavier. Les informations clés restent dans la tête — et s'évaporent avant même le retour au bureau.",
+      "Les commerciaux terrain passent leurs journées en rendez-vous, pas devant un clavier. Les informations clés restent dans la tête et s'évaporent avant même le retour au bureau.",
     "problem.card1.title": "45 minutes perdues par RDV",
     "problem.card1.text":
-      "Rédiger un compte-rendu après chaque réunion, en voiture ou le soir. Chaque commercial y passe plus d'une heure par jour — qui ne génère aucun chiffre d'affaires.",
+      "Rédiger un compte-rendu après chaque réunion, en voiture ou le soir. Chaque commercial y passe plus d'une heure par jour, sans générer le moindre chiffre d'affaires.",
     "problem.card2.title": "Engagements oubliés",
     "problem.card2.text":
-      "Ce qui n'est pas écrit dans la foulée disparaît. Les promesses clients, les objections clés, les opportunités détectées — tout s'évapore avant la prochaine réunion d'équipe.",
+      "Ce qui n'est pas écrit dans la foulée disparaît. Les promesses clients, les objections clés, les opportunités détectées : tout s'évapore avant la prochaine réunion d'équipe.",
     "problem.card3.title": "Manager aveugle",
     "problem.card3.text":
       "Le responsable ne voit pas ce qui se passe sur le terrain tant que le commercial ne rapporte pas. Et ça arrive trop tard pour agir sur les opportunités ou les risques.",
@@ -65,16 +65,16 @@ const T = {
       "De l'enregistrement au rapport partageable, Reedly automatise chaque étape du compte-rendu terrain. Votre seule tâche : appuyer sur Enregistrer.",
     "features.card1.title": "Enregistrement vocal en 1 tap",
     "features.card1.text":
-      "Lancez l'enregistrement vocal avant d'entrer chez le client. L'app capture l'échange en arrière-plan — batterie optimisée, aucune action requise pendant le rendez-vous.",
+      "Lancez l'enregistrement vocal avant d'entrer chez le client. L'app capture l'échange en arrière-plan : batterie optimisée, aucune action requise pendant le rendez-vous.",
     "features.card2.title": "Transcription fidèle",
     "features.card2.text":
-      "Reedly retranscrit chaque échange avec +95% de précision — même en environnement bruyant, même avec un accent, peut importe la langue.",
+      "Reedly retranscrit chaque échange avec +95% de précision, même en environnement bruyant, même avec un accent, peut importe la langue.",
     "features.card3.title": "Rapport structuré en 11 sections",
     "features.card3.text":
-      "Résumé exécutif, profil client, besoins exprimés, objections, engagements, prochaines étapes, opportunités, risques — prêt à envoyer en 30 secondes. Structuré comme votre meilleur commercial senior.",
+      "Résumé exécutif, profil client, besoins exprimés, objections, engagements, prochaines étapes, opportunités, risques : prêt à envoyer en 30 secondes. Structuré comme votre meilleur commercial senior.",
     "features.card4.title": "Expert sectoriel intégré",
     "features.card4.text":
-      "L'IA comprend le vocabulaire métier de votre secteur : TO, allotement, DMC, yield, MICE pour le tourisme — et raisonne comme un expert terrain, pas comme un généraliste. Immobilier, pharma, B2B services bientôt disponibles.",
+      "L'IA comprend le vocabulaire métier de votre secteur : TO, allotement, DMC, yield, MICE pour le tourisme, et raisonne comme un expert terrain, pas comme un généraliste. Immobilier, pharma, B2B services bientôt disponibles.",
     "features.card5.title": "Export PDF en 1 clic",
     "features.card5.text":
       "Partagez le rapport directement par email ou messagerie depuis l'app. Idéal pour le manager, pour le client ou pour archiver dans votre outil commercial.",
@@ -85,7 +85,7 @@ const T = {
     "how.title": "3 étapes<br /><em>Du micro au rapport.</em>",
     "how.step1.title": "Appuyez sur Enregistrer avant d'entrer",
     "how.step1.text":
-      "L'app Reedly capture l'échange en arrière-plan. Aucune saisie, aucune interruption — vous restez concentré sur votre client.",
+      "L'app Reedly capture l'échange en arrière-plan. Aucune saisie, aucune interruption : vous restez concentré sur votre client.",
     "how.step1.tag": "iOS & Android · Arrière-plan",
     "how.step2.title": "L'IA transcrit et structure en moins de 2 min",
     "how.step2.text":
@@ -102,7 +102,7 @@ const T = {
     "integrations.eyebrow": "Intégrations",
     "integrations.title": "Branchez Reedly à<br /><em>votre stack.</em>",
     "integrations.lead":
-      "Vos rapports atterrissent là où votre équipe travaille déjà — canaux d'équipe, fiches CRM, alertes managers. Aucun copier-coller.",
+      "Vos rapports atterrissent là où votre équipe travaille déjà : canaux d'équipe, fiches CRM, alertes managers. Aucun copier-coller.",
     "integrations.source.status": "Rapport prêt",
     "integrations.source.note":
       "Chaque rapport part vers vos outils, sans copier-coller.",
@@ -124,32 +124,32 @@ const T = {
     "integrations.tag.custom": "Sur mesure",
     "integrations.custom.name": "Votre outil",
     "integrations.custom.desc":
-      "CRM maison, dashboard interne, API privée — branchez ce que vous voulez via notre API.",
+      "CRM maison, dashboard interne, API privée : branchez ce que vous voulez via notre API.",
     "integrations.custom.cta": "Discutons-en →",
     "hub.eyebrow": "Pour les managers",
     "hub.title": "Pilotez l'équipe depuis<br /><em>le Hub.</em>",
     "hub.lead":
-      "Vos commerciaux génèrent leurs rapports depuis l'app mobile. Vous pilotez depuis le Hub — vue transversale, synthèses, statistiques membres, tout en un coup d'œil.",
+      "Vos commerciaux génèrent leurs rapports depuis l'app mobile. Vous pilotez depuis le Hub : vue transversale, synthèses, statistiques membres, tout en un coup d'œil.",
     "hub.benefit1.title": "Vue unifiée de toute l'équipe",
     "hub.benefit1.text":
       "Tous les rapports de vos commerciaux centralisés, filtrables, avec statistiques d'activité par membre.",
     "hub.benefit2.title": "Synthèses stratégiques à la demande",
     "hub.benefit2.text":
-      "Tendances, risques et opportunités agrégés sur la période de votre choix — semaine, mois, trimestre.",
+      "Tendances, risques et opportunités agrégés sur la période de votre choix : semaine, mois, trimestre.",
     "hub.benefit3.title": "Invitations membres en 1 clic",
     "hub.benefit3.text":
       "Invitez vos commerciaux par email. Ils acceptent depuis l'app mobile et leurs rapports remontent automatiquement.",
-    "hub.dash.title": "reedly.ai/hub — Tableau de bord",
+    "hub.dash.title": "reedly.ai/hub · Tableau de bord",
     "hub.dash.reports": "Rapports",
     "hub.dash.syntheses": "Synthèses",
     "hub.dash.members": "Membres",
     "hub.dash.stat1": "Rapports ce mois",
     "hub.dash.stat2": "Membres actifs",
     "hub.dash.stat3": "Synthèses",
-    "hub.dash.r1.name": "RV Agence Riviera — M. Laurent",
+    "hub.dash.r1.name": "RV Agence Riviera, M. Laurent",
     "hub.dash.r1.meta": "Sophie D. · il y a 23 min",
     "hub.dash.r1.badge": "Généré",
-    "hub.dash.r2.name": "Client Hôtels Premium — Mme Dubois",
+    "hub.dash.r2.name": "Client Hôtels Premium, Mme Dubois",
     "hub.dash.r2.meta": "Tom V. · il y a 1h",
     "hub.dash.r2.badge": "En cours",
     "hub.dash.r3.name": "Suivi contrat TO Barcelone",
@@ -158,13 +158,13 @@ const T = {
     "proof.eyebrow": "Résultats",
     "proof.title": "Ce que vous gagnez<br /><em>en pilotage.</em>",
     "proof.stat1":
-      "Des engagements clients capturés et tracés — fini les promesses oubliées",
+      "Des engagements clients capturés et tracés. Fini les promesses oubliées",
     "proof.stat2":
-      "Moins de temps passé en reporting par votre équipe — plus de temps en clientèle",
+      "Moins de temps passé en reporting par votre équipe, plus de temps en clientèle",
     "proof.stat3":
       "Entre la fin du rendez-vous et la remontée du rapport dans votre Hub",
     "proof.stat4":
-      "Réunion de reporting hebdo nécessaire — la donnée terrain remonte en continu",
+      "Réunion de reporting hebdo nécessaire. La donnée terrain remonte en continu",
     "pricing.eyebrow": "Tarifs",
     "pricing.title":
       "Équipez votre force de vente<br /><em>avec l'IA terrain.</em>",
@@ -247,11 +247,11 @@ const T = {
     "pricing.tableRow.syntheses":
       "Synthèses stratégiques sur plusieurs rapports",
     "pricing.tableRow.history": "Historique des rapports",
-    "pricing.tableRow.max": "Max — assistant IA",
+    "pricing.tableRow.max": "Max, assistant IA",
     "pricing.tableRow.credits": "Rapports",
     "pricing.tableRow.diarization": "Distinction vocale (qui parle quand)",
     "pricing.tableRow.crossTeamAi": "Analyse IA croisée de toute l'équipe",
-    "pricing.tableRow.hub": "Hub web — visibilité équipe complète",
+    "pricing.tableRow.hub": "Hub web · visibilité équipe complète",
     "pricing.tableRow.crm": "Intégration CRM (Axonaut, HubSpot…)",
     "pricing.tableRow.vocab": "Vocabulaire métier custom",
     "pricing.tableRow.multiTeam": "Multi-équipes / multi-secteurs",
@@ -270,23 +270,23 @@ const T = {
     "faq.title": "Questions fréquentes.",
     "faq.q1": "À qui Reedly est-il destiné ?",
     "faq.a1":
-      "Aux commerciaux terrain B2B qui font des rendez-vous clients régulièrement — tourisme, immobilier, pharma, industrie, services. Et aux directeurs commerciaux qui veulent une vision consolidée de l'activité de leur équipe sans réunions de reporting supplémentaires.",
+      "Aux commerciaux terrain B2B qui font des rendez-vous clients régulièrement : tourisme, immobilier, pharma, industrie, services. Et aux directeurs commerciaux qui veulent une vision consolidée de l'activité de leur équipe sans réunions de reporting supplémentaires.",
     "faq.q2": "L'app fonctionne-t-elle hors connexion ?",
     "faq.a2":
-      "L'enregistrement audio fonctionne intégralement hors connexion — vous pouvez capturer votre réunion même sans réseau. La génération du rapport, elle, nécessite une connexion internet car elle fait appel à nos modèles IA. Le rapport se génère automatiquement dès que vous retrouvez du réseau.",
+      "L'enregistrement audio fonctionne intégralement hors connexion : vous pouvez capturer votre réunion même sans réseau. La génération du rapport, elle, nécessite une connexion internet car elle fait appel à nos modèles IA. Le rapport se génère automatiquement dès que vous retrouvez du réseau.",
     "faq.q3": "Combien de temps pour générer un rapport ?",
     "faq.a3":
       "Moins de 2 minutes pour un rendez-vous d'une heure. La transcription prend environ 45 secondes, la génération environ 30 à 60 secondes selon la longueur. Le rapport complet en 11 sections est disponible avant même que vous soyez remonté en voiture.",
     "faq.q4": "Les données audio sont-elles conservées ?",
     "faq.a4":
-      "Non — jamais. L'audio est utilisé uniquement pour la transcription puis supprimé automatiquement et définitivement dès que le rapport est généré. Seul le rapport structuré est conservé dans votre espace Reedly. C'est un principe non négociable : privacy by design.",
+      "Non, jamais. L'audio est utilisé uniquement pour la transcription puis supprimé automatiquement et définitivement dès que le rapport est généré. Seul le rapport structuré est conservé dans votre espace Reedly. C'est un principe non négociable : privacy by design.",
     "faq.q5": "Qu'est-ce que le Hub et qui en a besoin ?",
     "faq.a5":
-      "Le Hub est une interface web réservée aux managers et directeurs commerciaux. Il affiche tous les rapports de l'équipe affiliée, les synthèses stratégiques et les statistiques membres. Les commerciaux utilisent uniquement l'app mobile — le Hub est le point de pilotage du responsable. Il est inclus dans le plan Équipe.",
+      "Le Hub est une interface web réservée aux managers et directeurs commerciaux. Il affiche tous les rapports de l'équipe affiliée, les synthèses stratégiques et les statistiques membres. Les commerciaux utilisent uniquement l'app mobile. Le Hub est le point de pilotage du responsable. Il est inclus dans le plan Équipe.",
     "faq.q6":
       "L'enregistrement vocal fonctionne-t-il dans un environnement bruyant ?",
     "faq.a6":
-      "Oui. Reedly utilise des modèles de transcription entraînés sur des conditions audio réelles — restaurant d'affaires, salle de réunion avec écho, plusieurs voix simultanées. L'enregistrement vocal est conçu pour le terrain, pas pour un environnement de bureau silencieux.",
+      "Oui. Reedly utilise des modèles de transcription entraînés sur des conditions audio réelles : restaurant d'affaires, salle de réunion avec écho, plusieurs voix simultanées. L'enregistrement vocal est conçu pour le terrain, pas pour un environnement de bureau silencieux.",
     "cta.title": "Téléchargez Reedly,<br /><em>oubliez la saisie.</em>",
     "cta.sub":
       "Déployez Reedly dans votre équipe en moins de 10 minutes. Premier rapport remonté dans le Hub dès le jour même.",
@@ -302,7 +302,7 @@ const T = {
     "android.title": "Télécharger sur Android",
     "android.text":
       "L'application n'est pas encore sur le Play Store, mais vous pouvez déjà l'installer. Flashez ce QR code avec votre téléphone Android pour télécharger l'APK.",
-    "footer.copy": "© {year} Reedly — Tous droits réservés",
+    "footer.copy": "© {year} Reedly. Tous droits réservés.",
     "footer.col.product": "Produit",
     "footer.col.legal": "Légal",
     "footer.privacy": "Confidentialité",
@@ -311,10 +311,10 @@ const T = {
     "report.eyebrow": "Le rapport généré",
     "report.title": "Ce que vous recevez<br /><em>en 2 minutes.</em>",
     "report.lead":
-      "Pas un résumé vague. Chaque rendez-vous terrain génère un document complet en 11 sections — rédigé dans le vocabulaire de votre secteur, prêt à être envoyé ou archivé.",
+      "Pas un résumé vague. Chaque rendez-vous terrain génère un document complet en 11 sections, rédigé dans le vocabulaire de votre secteur, prêt à être envoyé ou archivé.",
     "report.mock.date": "03 mars 2026 · 14h30",
     "report.mock.badge": "Tourisme · Paris 8e",
-    "report.mock.title": "Agence Riviera — M. Laurent",
+    "report.mock.title": "Agence Riviera, M. Laurent",
     "report.mock.sub": "Entretien de 48 min · Rapport généré en 1 min 42",
     "report.mock.content":
       "Agence active, 3e année de collaboration. Forte progression du segment MICE (+22% YoY). M. Laurent cherche à consolider l'allotement estival sur le produit Riviera Club. Opportunité de renouvellement contrat TO confirmée pour Q3.",
@@ -331,12 +331,12 @@ const T = {
     "report.s11": "Recommandations stratégiques",
     "report.action.export": "Export PDF",
     "report.action.share": "Partager",
-    "report.privacy": "Audio supprimé après génération — privacy by design",
+    "report.privacy": "Audio supprimé après génération · privacy by design",
     "contact.eyebrow": "Contact",
     "contact.title":
       "Discutons de votre projet.<br /><em>On vous répond sous 24h.</em>",
     "contact.lead":
-      "Essai, démonstration, déploiement équipe ou intégration CRM — dites-nous votre besoin, on revient vers vous rapidement.",
+      "Essai, démonstration, déploiement équipe ou intégration CRM : dites-nous votre besoin, on revient vers vous rapidement.",
     "contact.f1.title": "Essai gratuit",
     "contact.f1.text":
       "Testez Reedly sur vos vrais rendez-vous terrain. On active votre accès après un rapide échange.",
@@ -345,10 +345,10 @@ const T = {
       "20 minutes pour voir Reedly en action et répondre à vos questions sur votre secteur.",
     "contact.f3.title": "Déploiement équipe & Hub",
     "contact.f3.text":
-      "Onboarding, formation et configuration du Hub manager — calibré pour votre équipe terrain.",
+      "Onboarding, formation et configuration du Hub manager, calibré pour votre équipe terrain.",
     "contact.f4.title": "Intégration CRM",
     "contact.f4.text":
-      "HubSpot, Salesforce, Slack, Discord — Reedly se connecte à votre stack existante.",
+      "HubSpot, Salesforce, Slack, Discord : Reedly se connecte à votre stack existante.",
     "contact.label.firstname": "Prénom",
     "contact.label.lastname": "Nom",
     "contact.label.email": "Email professionnel",
@@ -381,23 +381,23 @@ const T = {
     "solution.hero.title":
       "Vos commerciaux vendent.<br /><em>Reedly documente.</em>",
     "solution.hero.lead":
-      "Reedly est l'agent IA qui transforme chaque rendez-vous terrain en rapport structuré en 11 sections — sans rien taper, sans rien oublier. De l'enregistrement au pilotage d'équipe, découvrez comment ça fonctionne.",
+      "Reedly est l'agent IA qui transforme chaque rendez-vous terrain en rapport structuré en 11 sections, sans rien taper, sans rien oublier. De l'enregistrement au pilotage d'équipe, découvrez comment ça fonctionne.",
     "solution.usecases.eyebrow": "Cas d'usage",
     "solution.usecases.title": "Un outil. <em>Tous les secteurs terrain.</em>",
     "solution.usecases.lead":
-      "Reedly s'adapte au vocabulaire et aux enjeux de votre industrie. L'IA ne fait pas du générique — elle raisonne avec les termes de votre métier.",
+      "Reedly s'adapte au vocabulaire et aux enjeux de votre industrie. L'IA ne fait pas du générique : elle raisonne avec les termes de votre métier.",
     "solution.usecases.card1.title": "Tourisme B2B",
     "solution.usecases.card1.text":
-      "TO, allotement, DMC, yield, MICE — Reedly maîtrise le vocabulaire du tourisme professionnel. Vos rapports de visite agence parlent la langue du secteur.",
+      "TO, allotement, DMC, yield, MICE : Reedly maîtrise le vocabulaire du tourisme professionnel. Vos rapports de visite agence parlent la langue du secteur.",
     "solution.usecases.card2.title": "Immobilier",
     "solution.usecases.card2.text":
-      "Visites de biens, prospection propriétaires, mandats — capturez chaque échange terrain et retrouvez les engagements, les objections et les opportunités de chaque prospect.",
+      "Visites de biens, prospection propriétaires, mandats : capturez chaque échange terrain et retrouvez les engagements, les objections et les opportunités de chaque prospect.",
     "solution.usecases.card3.title": "Pharma & médical",
     "solution.usecases.card3.text":
-      "Visite médicale, suivi prescripteurs, conventions — Reedly structure les échanges complexes avec les professionnels de santé. Terminologie adaptée, conformité intégrée.",
+      "Visite médicale, suivi prescripteurs, conventions : Reedly structure les échanges complexes avec les professionnels de santé. Terminologie adaptée, conformité intégrée.",
     "solution.usecases.card4.title": "Services B2B & industrie",
     "solution.usecases.card4.text":
-      "Cycles de vente longs, multiples interlocuteurs, cahiers des charges techniques — Reedly capture la complexité de vos rendez-vous et la structure en actions concrètes.",
+      "Cycles de vente longs, multiples interlocuteurs, cahiers des charges techniques : Reedly capture la complexité de vos rendez-vous et la structure en actions concrètes.",
     "tarifs.hero.eyebrow": "Tarifs",
     "tarifs.hero.title":
       "L'IA terrain la plus complète.<br /><em>Au prix le plus juste.</em>",
@@ -488,17 +488,17 @@ const T = {
     "ticker.5": "CRM integration (HubSpot, Salesforce)",
     "ticker.6": "Structured report in 11 sections",
     "ticker.7": "Integrated B2B sector vocabulary",
-    "ticker.8": "Audio deleted after generation — privacy by design",
+    "ticker.8": "Audio deleted after generation · privacy by design",
     "problem.eyebrow": "Problem",
     "problem.title": "The meeting pays.<br /><em>The report costs.</em>",
     "problem.lead":
-      "Field sales reps spend their days in meetings, not at a keyboard. Key information stays in their heads — and evaporates before they even get back to the office.",
+      "Field sales reps spend their days in meetings, not at a keyboard. Key information stays in their heads and evaporates before they even get back to the office.",
     "problem.card1.title": "45 minutes lost per meeting",
     "problem.card1.text":
-      "Writing a report after every meeting, in the car or in the evening. Every sales rep spends over an hour a day on it — generating zero revenue.",
+      "Writing a report after every meeting, in the car or in the evening. Every sales rep spends over an hour a day on it, generating zero revenue.",
     "problem.card2.title": "Forgotten commitments",
     "problem.card2.text":
-      "What's not written down immediately disappears. Client promises, key objections, detected opportunities — everything evaporates before the next team meeting.",
+      "What's not written down immediately disappears. Client promises, key objections, detected opportunities: everything evaporates before the next team meeting.",
     "problem.card3.title": "Blind manager",
     "problem.card3.text":
       "The manager can't see what's happening in the field until the sales rep reports in. And that happens too late to act on opportunities or risks.",
@@ -508,16 +508,16 @@ const T = {
       "From recording to shareable report, Reedly automates every step of field reporting. Your only task: press Record.",
     "features.card1.title": "1-tap voice recording",
     "features.card1.text":
-      "Start voice recording before you enter the client's premises. The app captures the exchange in the background — battery optimized, no action required during the meeting.",
+      "Start voice recording before you enter the client's premises. The app captures the exchange in the background: battery optimized, no action required during the meeting.",
     "features.card2.title": "Faithful transcription",
     "features.card2.text":
-      "Reedly transcribes every exchange with +95% accuracy — even in noisy environments, even with an accent, regardless of language.",
+      "Reedly transcribes every exchange with +95% accuracy, even in noisy environments, even with an accent, regardless of language.",
     "features.card3.title": "Report structured in 11 sections",
     "features.card3.text":
-      "Executive summary, client profile, expressed needs, objections, commitments, next steps, opportunities, risks — ready to send in 30 seconds. Structured like your best senior sales rep.",
+      "Executive summary, client profile, expressed needs, objections, commitments, next steps, opportunities, risks: ready to send in 30 seconds. Structured like your best senior sales rep.",
     "features.card4.title": "Integrated sector expert",
     "features.card4.text":
-      "The AI understands your industry's business vocabulary — TO, allotment, DMC, yield, MICE for tourism — and reasons like a field expert, not a generalist. Real estate, pharma, B2B services coming soon.",
+      "The AI understands your industry's business vocabulary (TO, allotment, DMC, yield, MICE for tourism) and reasons like a field expert, not a generalist. Real estate, pharma, B2B services coming soon.",
     "features.card5.title": "1-click PDF export",
     "features.card5.text":
       "Share the report directly by email or messaging from the app. Ideal for the manager, the client, or for archiving in your CRM.",
@@ -528,7 +528,7 @@ const T = {
     "how.title": "3 steps.<br /><em>From first word to shareable report.</em>",
     "how.step1.title": "Press Record before you enter",
     "how.step1.text":
-      "The Reedly app captures the exchange in the background. No input, no interruption — you stay focused on your client.",
+      "The Reedly app captures the exchange in the background. No input, no interruption: you stay focused on your client.",
     "how.step1.tag": "iOS & Android · Background",
     "how.step2.title": "The AI transcribes and structures in under 2 min",
     "how.step2.text":
@@ -545,10 +545,10 @@ const T = {
     "integrations.eyebrow": "Integrations",
     "integrations.title": "Plug Reedly into<br /><em>your stack.</em>",
     "integrations.lead":
-      "Your reports land where your team already works — team channels, CRM records, manager alerts. Zero copy-paste.",
+      "Your reports land where your team already works: team channels, CRM records, manager alerts. Zero copy-paste.",
     "integrations.source.status": "Report ready",
     "integrations.source.note":
-      "Every report flows to your tools — no copy-paste.",
+      "Every report flows to your tools, no copy-paste.",
     "integrations.hub.tagline": "Your reports, in every tool.",
     "integrations.hub.badge": "Zero copy-paste",
     "integrations.cat.crm": "CRM",
@@ -567,32 +567,32 @@ const T = {
     "integrations.tag.custom": "Custom",
     "integrations.custom.name": "Your tool",
     "integrations.custom.desc":
-      "In-house CRM, internal dashboard, private API — plug in anything via our API.",
+      "In-house CRM, internal dashboard, private API: plug in anything via our API.",
     "integrations.custom.cta": "Let's talk →",
     "hub.eyebrow": "For managers",
     "hub.title": "Manage your team from<br /><em>the Hub.</em>",
     "hub.lead":
-      "Your sales reps generate their reports from the mobile app. You manage from the Hub — cross-sectional view, syntheses, member statistics, all at a glance.",
+      "Your sales reps generate their reports from the mobile app. You manage from the Hub: cross-sectional view, syntheses, member statistics, all at a glance.",
     "hub.benefit1.title": "Unified team view",
     "hub.benefit1.text":
       "All your sales reps' reports centralized, filterable, with activity statistics per member.",
     "hub.benefit2.title": "On-demand strategic syntheses",
     "hub.benefit2.text":
-      "Trends, risks, and opportunities aggregated over your chosen period — week, month, quarter.",
+      "Trends, risks, and opportunities aggregated over your chosen period: week, month, quarter.",
     "hub.benefit3.title": "1-click member invitations",
     "hub.benefit3.text":
       "Invite your sales reps by email. They accept from the mobile app and their reports sync automatically.",
-    "hub.dash.title": "reedly.ai/hub — Dashboard",
+    "hub.dash.title": "reedly.ai/hub · Dashboard",
     "hub.dash.reports": "Reports",
     "hub.dash.syntheses": "Syntheses",
     "hub.dash.members": "Members",
     "hub.dash.stat1": "Reports this month",
     "hub.dash.stat2": "Active members",
     "hub.dash.stat3": "Syntheses",
-    "hub.dash.r1.name": "Meeting Riviera Agency — Mr. Laurent",
+    "hub.dash.r1.name": "Meeting Riviera Agency, Mr. Laurent",
     "hub.dash.r1.meta": "Sophie D. · 23 min ago",
     "hub.dash.r1.badge": "Generated",
-    "hub.dash.r2.name": "Client Premium Hotels — Ms. Dubois",
+    "hub.dash.r2.name": "Client Premium Hotels, Ms. Dubois",
     "hub.dash.r2.meta": "Tom V. · 1h ago",
     "hub.dash.r2.badge": "Processing",
     "hub.dash.r3.name": "Follow-up TO Barcelona contract",
@@ -601,13 +601,13 @@ const T = {
     "proof.eyebrow": "Results",
     "proof.title": "What you gain<br /><em>in oversight.</em>",
     "proof.stat1":
-      "Of client commitments captured and tracked — no more forgotten promises",
+      "Of client commitments captured and tracked. No more forgotten promises",
     "proof.stat2":
-      "Less time your team spends on reporting — more time in front of clients",
+      "Less time your team spends on reporting, more time in front of clients",
     "proof.stat3":
       "Between the end of the meeting and the report landing in your Hub",
     "proof.stat4":
-      "Weekly reporting meetings needed — field data flows in continuously",
+      "Weekly reporting meetings needed. Field data flows in continuously",
     "pricing.eyebrow": "Pricing",
     "pricing.title": "Equip your sales team<br /><em>with field AI.</em>",
     "pricing.lead":
@@ -688,11 +688,11 @@ const T = {
     "pricing.tableRow.reports": "Structured reports after every meeting",
     "pricing.tableRow.syntheses": "Strategic syntheses across multiple reports",
     "pricing.tableRow.history": "Report history",
-    "pricing.tableRow.max": "Max — AI assistant",
+    "pricing.tableRow.max": "Max, AI assistant",
     "pricing.tableRow.credits": "Reports",
     "pricing.tableRow.diarization": "Voice diarization (who said what)",
     "pricing.tableRow.crossTeamAi": "Cross-team AI analysis",
-    "pricing.tableRow.hub": "Web Hub — full team visibility",
+    "pricing.tableRow.hub": "Web Hub · full team visibility",
     "pricing.tableRow.crm": "CRM integration (Axonaut, HubSpot…)",
     "pricing.tableRow.vocab": "Custom industry vocabulary",
     "pricing.tableRow.multiTeam": "Multi-team / multi-sector",
@@ -711,22 +711,22 @@ const T = {
     "faq.title": "Frequently asked questions.",
     "faq.q1": "Who is Reedly for?",
     "faq.a1":
-      "For B2B field sales reps who regularly meet with clients — tourism, real estate, pharma, industry, services. And for sales directors who want a consolidated view of their team's activity without extra reporting meetings.",
+      "For B2B field sales reps who regularly meet with clients: tourism, real estate, pharma, industry, services. And for sales directors who want a consolidated view of their team's activity without extra reporting meetings.",
     "faq.q2": "Does the app work offline?",
     "faq.a2":
-      "Audio recording works entirely offline — you can capture your meeting even without a network. Report generation, however, requires an internet connection as it calls our AI models. The report generates automatically as soon as you have network again.",
+      "Audio recording works entirely offline: you can capture your meeting even without a network. Report generation, however, requires an internet connection as it calls our AI models. The report generates automatically as soon as you have network again.",
     "faq.q3": "How long does it take to generate a report?",
     "faq.a3":
       "Less than 2 minutes for a one-hour meeting. Transcription takes about 45 seconds, generation about 30 to 60 seconds depending on length. The complete 11-section report is available before you even get back in your car.",
     "faq.q4": "Is audio data retained?",
     "faq.a4":
-      "No — never. Audio is used only for transcription and then automatically and permanently deleted once the report is generated. Only the structured report is kept in your Reedly space. This is a non-negotiable principle: privacy by design.",
+      "No, never. Audio is used only for transcription and then automatically and permanently deleted once the report is generated. Only the structured report is kept in your Reedly space. This is a non-negotiable principle: privacy by design.",
     "faq.q5": "What is the Hub and who needs it?",
     "faq.a5":
-      "The Hub is a web interface reserved for managers and sales directors. It displays all reports from affiliated team members, strategic syntheses, and member statistics. Sales reps use only the mobile app — the Hub is the manager's control center. It's included in the Team plan.",
+      "The Hub is a web interface reserved for managers and sales directors. It displays all reports from affiliated team members, strategic syntheses, and member statistics. Sales reps use only the mobile app. The Hub is the manager's control center. It's included in the Team plan.",
     "faq.q6": "Does voice recording work in noisy environments?",
     "faq.a6":
-      "Yes. Reedly uses transcription models trained on real-world audio conditions — business restaurants, meeting rooms with echo, multiple simultaneous voices. Voice recording is designed for the field, not for a quiet office environment.",
+      "Yes. Reedly uses transcription models trained on real-world audio conditions: business restaurants, meeting rooms with echo, multiple simultaneous voices. Voice recording is designed for the field, not for a quiet office environment.",
     "cta.title": "Download Reedly,<br /><em>forget the data entry.</em>",
     "cta.sub":
       "Deploy Reedly to your team in under 10 minutes. First report flowing into the Hub the same day.",
@@ -742,7 +742,7 @@ const T = {
     "android.title": "Download on Android",
     "android.text":
       "The app isn't on the Play Store yet, but you can already install it. Scan this QR code with your Android phone to download the APK.",
-    "footer.copy": "© {year} Reedly — All rights reserved",
+    "footer.copy": "© {year} Reedly. All rights reserved.",
     "footer.col.product": "Product",
     "footer.col.legal": "Legal",
     "footer.privacy": "Privacy",
@@ -751,10 +751,10 @@ const T = {
     "report.eyebrow": "The generated report",
     "report.title": "What you get<br /><em>in 2 minutes.</em>",
     "report.lead":
-      "Not a vague summary. Every field meeting generates a complete 11-section document — written in your industry's vocabulary, ready to send or archive.",
+      "Not a vague summary. Every field meeting generates a complete 11-section document, written in your industry's vocabulary, ready to send or archive.",
     "report.mock.date": "Mar 3, 2026 · 2:30 PM",
     "report.mock.badge": "Tourism · Paris 8e",
-    "report.mock.title": "Riviera Agency — Mr. Laurent",
+    "report.mock.title": "Riviera Agency, Mr. Laurent",
     "report.mock.sub": "48-min meeting · Report generated in 1 min 42",
     "report.mock.content":
       "Active agency, 3rd year of collaboration. Strong growth in the MICE segment (+22% YoY). Mr. Laurent is looking to consolidate summer allotment for the Riviera Club product. TO contract renewal opportunity confirmed for Q3.",
@@ -771,12 +771,12 @@ const T = {
     "report.s11": "Strategic recommendations",
     "report.action.export": "Export PDF",
     "report.action.share": "Share",
-    "report.privacy": "Audio deleted after generation — privacy by design",
+    "report.privacy": "Audio deleted after generation · privacy by design",
     "contact.eyebrow": "Contact",
     "contact.title":
       "Let's talk about your project.<br /><em>We reply within 24h.</em>",
     "contact.lead":
-      "Trial, live demo, team rollout, or CRM integration — tell us what you need, we'll get back to you quickly.",
+      "Trial, live demo, team rollout, or CRM integration: tell us what you need, we'll get back to you quickly.",
     "contact.f1.title": "Free trial",
     "contact.f1.text":
       "Test Reedly on your real field meetings. We activate your access after a quick call.",
@@ -785,10 +785,10 @@ const T = {
       "20 minutes to see Reedly in action and answer questions specific to your industry.",
     "contact.f3.title": "Team rollout & Hub",
     "contact.f3.text":
-      "Onboarding, training and manager Hub setup — tailored to your field sales team.",
+      "Onboarding, training and manager Hub setup, tailored to your field sales team.",
     "contact.f4.title": "CRM integration",
     "contact.f4.text":
-      "HubSpot, Salesforce, Slack, Discord — Reedly plugs into your existing stack.",
+      "HubSpot, Salesforce, Slack, Discord: Reedly plugs into your existing stack.",
     "contact.label.firstname": "First name",
     "contact.label.lastname": "Last name",
     "contact.label.email": "Work email",
@@ -819,23 +819,23 @@ const T = {
     "solution.hero.eyebrow": "Solution",
     "solution.hero.title": "Your reps sell.<br /><em>Reedly documents.</em>",
     "solution.hero.lead":
-      "Reedly is the AI agent that transforms every field meeting into a structured report in 11 sections — nothing to type, nothing to forget. From recording to team management, see how it works.",
+      "Reedly is the AI agent that transforms every field meeting into a structured report in 11 sections, nothing to type, nothing to forget. From recording to team management, see how it works.",
     "solution.usecases.eyebrow": "Use cases",
     "solution.usecases.title": "One tool. <em>Every field industry.</em>",
     "solution.usecases.lead":
-      "Reedly adapts to the vocabulary and challenges of your industry. The AI doesn't do generic — it reasons with the terms of your trade.",
+      "Reedly adapts to the vocabulary and challenges of your industry. The AI doesn't do generic: it reasons with the terms of your trade.",
     "solution.usecases.card1.title": "B2B Tourism",
     "solution.usecases.card1.text":
-      "Tour operators, allotment, DMC, yield, MICE — Reedly masters professional tourism vocabulary. Your agency visit reports speak the industry's language.",
+      "Tour operators, allotment, DMC, yield, MICE: Reedly masters professional tourism vocabulary. Your agency visit reports speak the industry's language.",
     "solution.usecases.card2.title": "Real Estate",
     "solution.usecases.card2.text":
-      "Property visits, owner prospecting, mandates — capture every field exchange and retrieve commitments, objections and opportunities for each prospect.",
+      "Property visits, owner prospecting, mandates: capture every field exchange and retrieve commitments, objections and opportunities for each prospect.",
     "solution.usecases.card3.title": "Pharma & Medical",
     "solution.usecases.card3.text":
-      "Medical visits, prescriber follow-up, conventions — Reedly structures complex exchanges with healthcare professionals. Adapted terminology, built-in compliance.",
+      "Medical visits, prescriber follow-up, conventions: Reedly structures complex exchanges with healthcare professionals. Adapted terminology, built-in compliance.",
     "solution.usecases.card4.title": "B2B Services & Industry",
     "solution.usecases.card4.text":
-      "Long sales cycles, multiple stakeholders, technical specs — Reedly captures the complexity of your meetings and structures it into concrete actions.",
+      "Long sales cycles, multiple stakeholders, technical specs: Reedly captures the complexity of your meetings and structures it into concrete actions.",
     "tarifs.hero.eyebrow": "Pricing",
     "tarifs.hero.title":
       "The most complete field AI.<br /><em>At the fairest price.</em>",
