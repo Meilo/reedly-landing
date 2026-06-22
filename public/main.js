@@ -165,6 +165,26 @@ const T = {
       "Entre la fin du rendez-vous et la remontée du rapport dans votre Hub",
     "proof.stat4":
       "Réunion de reporting hebdo nécessaire. La donnée terrain remonte en continu",
+    "roles.eyebrow": "Pour chaque rôle",
+    "roles.title": "Pensé pour le terrain<br /><em>comme pour le pilotage.</em>",
+    "roles.lead":
+      "Un même outil, deux promesses : du temps pour le commercial terrain, de la visibilité pour le manager.",
+    "roles.rep.role": "Commercial terrain",
+    "roles.rep.title": "Vendez. Reedly s'occupe du reste.",
+    "roles.rep.intro":
+      "Concentrez-vous sur votre client. Reedly enregistre le rendez-vous en arrière-plan et rédige le compte-rendu à votre place.",
+    "roles.rep.b1": "Zéro saisie : le rapport en 11 sections s'écrit tout seul.",
+    "roles.rep.b2": "Plus de temps en clientèle, fini les comptes-rendus le soir.",
+    "roles.rep.b3": "Préparez chaque rendez-vous avec l'historique client à portée de main.",
+    "roles.rep.b4": "Tous vos comptes-rendus au même endroit, prêts à partager.",
+    "roles.mgr.role": "Manager commercial",
+    "roles.mgr.title": "Pilotez sur du concret, en temps réel.",
+    "roles.mgr.intro":
+      "L'activité de toute votre équipe remonte automatiquement dans le Hub, sans réunion de reporting à organiser.",
+    "roles.mgr.b1": "Vision temps réel de chaque rendez-vous de l'équipe.",
+    "roles.mgr.b2": "Engagements, opportunités et risques tracés automatiquement.",
+    "roles.mgr.b3": "Synthèses stratégiques par territoire, par semaine ou par mois.",
+    "roles.mgr.b4": "Coachez sur ce qui s'est vraiment dit en rendez-vous.",
     "pricing.eyebrow": "Tarifs",
     "pricing.title":
       "Équipez votre force de vente<br /><em>avec l'IA terrain.</em>",
@@ -608,6 +628,26 @@ const T = {
       "Between the end of the meeting and the report landing in your Hub",
     "proof.stat4":
       "Weekly reporting meetings needed. Field data flows in continuously",
+    "roles.eyebrow": "For every role",
+    "roles.title": "Built for the field<br /><em>and for management.</em>",
+    "roles.lead":
+      "One tool, two promises: time for the field rep, visibility for the manager.",
+    "roles.rep.role": "Field rep",
+    "roles.rep.title": "Sell. Reedly handles the rest.",
+    "roles.rep.intro":
+      "Stay focused on your client. Reedly records the meeting in the background and writes the report for you.",
+    "roles.rep.b1": "Zero data entry: your 11-section report writes itself.",
+    "roles.rep.b2": "More time with clients, no more reports at night.",
+    "roles.rep.b3": "Walk into every meeting with the client history at hand.",
+    "roles.rep.b4": "All your reports in one place, ready to share.",
+    "roles.mgr.role": "Sales manager",
+    "roles.mgr.title": "Lead on facts, in real time.",
+    "roles.mgr.intro":
+      "Your whole team's activity flows into the Hub automatically, with no reporting meetings to run.",
+    "roles.mgr.b1": "Real-time view of every meeting across the team.",
+    "roles.mgr.b2": "Commitments, opportunities and risks tracked automatically.",
+    "roles.mgr.b3": "Strategic syntheses by territory, by week or by month.",
+    "roles.mgr.b4": "Coach on what was actually said in the meeting.",
     "pricing.eyebrow": "Pricing",
     "pricing.title": "Equip your sales team<br /><em>with field AI.</em>",
     "pricing.lead":
@@ -1358,6 +1398,7 @@ var TRACKABLE_SECTIONS = [
   "report-preview",
   "hub",
   "proof",
+  "roles",
   "demo",
   "pricing",
   "contact",

@@ -1,0 +1,158 @@
+---
+// Roles section — one tool, two promises: field rep (user) and sales manager (buyer)
+---
+
+<section class="section section--alt" id="roles">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section__eyebrow" data-i18n="roles.eyebrow">Pour chaque rôle</div>
+      <h2 data-i18n-html="roles.title">Pensé pour le terrain<br /><em>comme pour le pilotage.</em></h2>
+      <p class="section__lead" data-i18n="roles.lead">
+        Un même outil, deux promesses : du temps pour le commercial terrain, de la visibilité pour le manager.
+      </p>
+    </div>
+
+    <div class="roles-grid">
+      <article class="role-card reveal reveal-delay-1">
+        <div class="role-card__head">
+          <span class="role-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" />
+              <path d="M5 21v-1a7 7 0 0 1 14 0v1" />
+            </svg>
+          </span>
+          <span class="role-card__role" data-i18n="roles.rep.role">Commercial terrain</span>
+        </div>
+        <h3 data-i18n="roles.rep.title">Vendez. Reedly s'occupe du reste.</h3>
+        <p class="role-card__intro" data-i18n="roles.rep.intro">
+          Concentrez-vous sur votre client. Reedly enregistre le rendez-vous en arrière-plan et rédige le compte-rendu à votre place.
+        </p>
+        <ul class="role-card__list">
+          <li data-i18n="roles.rep.b1">Zéro saisie : le rapport en 11 sections s'écrit tout seul.</li>
+          <li data-i18n="roles.rep.b2">Plus de temps en clientèle, fini les comptes-rendus le soir.</li>
+          <li data-i18n="roles.rep.b3">Préparez chaque rendez-vous avec l'historique client à portée de main.</li>
+          <li data-i18n="roles.rep.b4">Tous vos comptes-rendus au même endroit, prêts à partager.</li>
+        </ul>
+      </article>
+
+      <article class="role-card reveal reveal-delay-2">
+        <div class="role-card__head">
+          <span class="role-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="9" rx="1.5" />
+              <rect x="14" y="3" width="7" height="5" rx="1.5" />
+              <rect x="14" y="12" width="7" height="9" rx="1.5" />
+              <rect x="3" y="16" width="7" height="5" rx="1.5" />
+            </svg>
+          </span>
+          <span class="role-card__role" data-i18n="roles.mgr.role">Manager commercial</span>
+        </div>
+        <h3 data-i18n="roles.mgr.title">Pilotez sur du concret, en temps réel.</h3>
+        <p class="role-card__intro" data-i18n="roles.mgr.intro">
+          L'activité de toute votre équipe remonte automatiquement dans le Hub, sans réunion de reporting à organiser.
+        </p>
+        <ul class="role-card__list">
+          <li data-i18n="roles.mgr.b1">Vision temps réel de chaque rendez-vous de l'équipe.</li>
+          <li data-i18n="roles.mgr.b2">Engagements, opportunités et risques tracés automatiquement.</li>
+          <li data-i18n="roles.mgr.b3">Synthèses stratégiques par territoire, par semaine ou par mois.</li>
+          <li data-i18n="roles.mgr.b4">Coachez sur ce qui s'est vraiment dit en rendez-vous.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .roles-grid {
+    margin-top: 44px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .role-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .role-card__head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .role-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--green);
+    flex-shrink: 0;
+  }
+  .role-card__icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  .role-card__role {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+  .role-card h3 {
+    font-size: 1.32rem;
+    line-height: 1.25;
+    margin: 0 0 10px;
+  }
+  .role-card__intro {
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .role-card__list {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+  .role-card__list li {
+    position: relative;
+    padding-left: 28px;
+    color: var(--text);
+    font-size: 0.94rem;
+    line-height: 1.5;
+  }
+  .role-card__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(34, 197, 94, 0.12);
+  }
+  .role-card__list li::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    width: 8px;
+    height: 4px;
+    border-left: 1.8px solid var(--green);
+    border-bottom: 1.8px solid var(--green);
+    transform: rotate(-45deg);
+  }
+  @media (max-width: 760px) {
+    .roles-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
