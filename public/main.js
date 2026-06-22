@@ -1298,6 +1298,24 @@ document.querySelectorAll("[data-track-id]").forEach((el) => {
     else if (href.startsWith("mailto:")) targetKind = "mailto";
     else if (href.startsWith("http")) targetKind = "external";
 
+    // Cross-domain identity fallback: carry the PostHog distinct_id to the Hub
+    try {
+      const ph = window.posthog;
+      if (
+        el.dataset.trackType === "trial" &&
+        href.indexOf("hub.reedly.ai") !== -1 &&
+        href.indexOf("ph_id=") === -1 &&
+        ph &&
+        typeof ph.get_distinct_id === "function"
+      ) {
+        const did = ph.get_distinct_id();
+        if (did) {
+          const sep = href.indexOf("?") === -1 ? "?" : "&";
+          el.setAttribute("href", href + sep + "ph_id=" + encodeURIComponent(did));
+        }
+      }
+    } catch (e) {}
+
     trackEvent("landing_cta_clicked", {
       cta_id: el.dataset.trackId || "unknown",
       cta_type: el.dataset.trackType || "unknown",
