@@ -15,9 +15,9 @@ const T = {
     "nav.open_menu": "Ouvrir le menu",
     "footer.solution": "Solution",
     "footer.pricing": "Tarifs",
-    "hero.title": "Reprenez la main sur<br /><em>votre activité terrain.</em>",
+    "hero.title": "Ce qui se dit en rendez-vous<br /><em>ne se perd plus.</em>",
     "hero.sub":
-      "Vos commerciaux enregistrent leurs visites — Reedly les transforme en rapports structurés et fait remonter engagements, opportunités et risques dans un Hub centralisé. Zéro saisie pour le terrain, vision complète pour le pilotage.",
+      "Chaque rendez-vous de votre équipe devient un rapport structuré. Engagements, opportunités, risques : tout remonte dans un Hub centralisé en moins de 2 minutes. Zéro saisie pour vos commerciaux, zéro réunion de reporting pour vous.",
     "hero.cta": "Télécharger l'app",
     "hero.cta_manager": "Commencer →",
     "hero.trust1": "Plan gratuit disponible",
@@ -459,9 +459,9 @@ const T = {
     "nav.open_menu": "Open menu",
     "footer.solution": "Solution",
     "footer.pricing": "Pricing",
-    "hero.title": "Take back control of<br /><em>your field activity.</em>",
+    "hero.title": "What's said in your meetings<br /><em>no longer gets lost.</em>",
     "hero.sub":
-      "Your reps record their visits — Reedly turns them into structured reports and surfaces commitments, opportunities and risks in a centralized Hub. Zero data entry for the field, full visibility for management.",
+      "Every meeting your team runs becomes a structured report. Commitments, opportunities and risks all surface in a central Hub in under 2 minutes. Zero data entry for your reps, zero reporting meetings for you.",
     "hero.cta": "Download the app",
     "hero.cta_manager": "Get Started →",
     "hero.trust1": "Free plan available",
