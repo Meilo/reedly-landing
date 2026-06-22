@@ -1,0 +1,171 @@
+---
+// Roles section — one tool, two promises: field rep (user) and sales manager (buyer)
+---
+
+<section class="section section--alt" id="roles">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section__eyebrow" data-i18n="roles.eyebrow">Pour chaque rôle</div>
+      <h2 data-i18n-html="roles.title">Pensé pour le terrain<br /><em>comme pour le pilotage.</em></h2>
+      <p class="section__lead" data-i18n="roles.lead">
+        Un même outil, deux promesses : du temps pour le commercial terrain, de la visibilité pour le manager.
+      </p>
+    </div>
+
+    <div class="roles-grid">
+      <!-- Field rep -->
+      <article class="role-card reveal reveal-delay-1">
+        <div class="role-scene role-scene--rec">
+          <div class="rsc-top">
+            <span class="rsc-mic">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z" />
+                <path d="M19 11a7 7 0 0 1-14 0" />
+                <line x1="12" y1="18" x2="12" y2="22" />
+              </svg>
+            </span>
+            <span class="rsc-chip"><i class="rsc-rec"></i><span data-i18n="how.viz1.label">Visite client</span><span class="rsc-time">0:42</span></span>
+          </div>
+          <div class="rsc-wave" aria-hidden="true">
+            <span style="--h:40%;--d:0s"></span><span style="--h:70%;--d:.12s"></span><span style="--h:100%;--d:.24s"></span><span style="--h:55%;--d:.36s"></span><span style="--h:85%;--d:.1s"></span><span style="--h:45%;--d:.3s"></span><span style="--h:90%;--d:.06s"></span><span style="--h:60%;--d:.26s"></span><span style="--h:100%;--d:.14s"></span><span style="--h:50%;--d:.34s"></span><span style="--h:75%;--d:.2s"></span><span style="--h:65%;--d:.08s"></span><span style="--h:95%;--d:.28s"></span><span style="--h:48%;--d:.16s"></span>
+          </div>
+        </div>
+        <span class="role-card__role" data-i18n="roles.rep.role">Commercial terrain</span>
+        <h3 data-i18n="roles.rep.title">Vendez. Reedly s'occupe du reste.</h3>
+        <p class="role-card__intro" data-i18n="roles.rep.intro">
+          Concentrez-vous sur votre client. Reedly enregistre le rendez-vous en arrière-plan et rédige le compte-rendu à votre place.
+        </p>
+        <ul class="role-card__list">
+          <li data-i18n="roles.rep.b1">Zéro saisie : le rapport en 11 sections s'écrit tout seul.</li>
+          <li data-i18n="roles.rep.b2">Plus de temps en clientèle, fini les comptes-rendus le soir.</li>
+          <li data-i18n="roles.rep.b3">Préparez chaque rendez-vous avec l'historique client à portée de main.</li>
+          <li data-i18n="roles.rep.b4">Tous vos comptes-rendus au même endroit, prêts à partager.</li>
+        </ul>
+      </article>
+
+      <!-- Sales manager -->
+      <article class="role-card reveal reveal-delay-2">
+        <div class="role-scene role-scene--hub">
+          <div class="rsh">
+            <div class="rsh__bar">
+              <span data-i18n="hero.viz.team">Activité de l'équipe</span>
+              <span class="rsh__live"><i></i><span data-i18n="hero.viz.live">en direct</span></span>
+            </div>
+            <div class="rsh__row">
+              <span class="rsh__name" data-i18n="hub.dash.r1.name">RV Agence Riviera · M. Laurent</span>
+              <span class="rsh__badge rsh__badge--done" data-i18n="hub.dash.r1.badge">Généré</span>
+            </div>
+            <div class="rsh__row">
+              <span class="rsh__name" data-i18n="hub.dash.r2.name">Client Hôtels Premium · Mme Dubois</span>
+              <span class="rsh__badge rsh__badge--proc" data-i18n="hub.dash.r2.badge">En cours</span>
+            </div>
+          </div>
+        </div>
+        <span class="role-card__role" data-i18n="roles.mgr.role">Manager commercial</span>
+        <h3 data-i18n="roles.mgr.title">Pilotez sur du concret, en temps réel.</h3>
+        <p class="role-card__intro" data-i18n="roles.mgr.intro">
+          L'activité de toute votre équipe remonte automatiquement dans le Hub, sans réunion de reporting à organiser.
+        </p>
+        <ul class="role-card__list">
+          <li data-i18n="roles.mgr.b1">Vision temps réel de chaque rendez-vous de l'équipe.</li>
+          <li data-i18n="roles.mgr.b2">Engagements, opportunités et risques tracés automatiquement.</li>
+          <li data-i18n="roles.mgr.b3">Synthèses stratégiques par territoire, par semaine ou par mois.</li>
+          <li data-i18n="roles.mgr.b4">Coachez sur ce qui s'est vraiment dit en rendez-vous.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+
+  <style>
+    .roles-grid {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .role-card {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 26px 28px;
+      overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .role-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.5), transparent);
+    }
+    .role-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-bright);
+    }
+
+    /* Scene (shared) */
+    .role-scene {
+      height: 104px;
+      box-sizing: border-box;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 13px 15px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    /* Rep scene — recording widget */
+    .role-scene--rec { display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+    .rsc-top { display: flex; align-items: center; justify-content: space-between; }
+    .rsc-mic {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 10px;
+      background: rgba(22, 163, 74, 0.1); border: 1px solid rgba(34, 197, 94, 0.22); color: var(--green);
+    }
+    .rsc-mic svg { width: 17px; height: 17px; }
+    .rsc-chip { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 0.62rem; color: var(--muted); }
+    .rsc-rec { width: 6px; height: 6px; border-radius: 50%; background: #f06464; animation: role-blink 1.5s ease-in-out infinite; }
+    .rsc-time { color: var(--green); }
+    .rsc-wave { display: flex; align-items: center; gap: 3px; height: 26px; }
+    .rsc-wave span { width: 3px; height: var(--h); border-radius: 3px; background: var(--green); transform-origin: center; animation: role-wave 1.05s ease-in-out infinite; animation-delay: var(--d); }
+
+    /* Manager scene — mini hub */
+    .role-scene--hub { display: flex; align-items: center; }
+    .rsh { width: 100%; display: flex; flex-direction: column; gap: 7px; }
+    .rsh__bar { display: flex; align-items: center; justify-content: space-between; padding-bottom: 7px; border-bottom: 1px solid var(--border); font-family: var(--mono); font-size: 0.54rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+    .rsh__live { display: inline-flex; align-items: center; gap: 4px; color: var(--green); }
+    .rsh__live i { width: 5px; height: 5px; border-radius: 50%; background: var(--green); animation: role-blink 1.7s ease-in-out infinite; }
+    .rsh__row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .rsh__name { min-width: 0; font-family: var(--sans); font-size: 0.74rem; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .rsh__badge { flex-shrink: 0; font-family: var(--mono); font-size: 0.52rem; padding: 2px 7px; border-radius: 999px; white-space: nowrap; }
+    .rsh__badge--done { color: var(--green); background: rgba(34, 197, 94, 0.12); }
+    .rsh__badge--proc { color: #f0b429; background: rgba(240, 180, 41, 0.12); }
+
+    /* Role badge */
+    .role-card__role {
+      display: inline-flex; align-items: center;
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(22, 163, 74, 0.1); border: 1px solid rgba(34, 197, 94, 0.22);
+      font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green);
+      margin-bottom: 12px;
+    }
+    .role-card h3 { font-size: 1.32rem; line-height: 1.25; margin: 0 0 10px; }
+    .role-card__intro { color: var(--muted); font-size: 0.98rem; line-height: 1.6; margin: 0; }
+    .role-card__list { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-direction: column; gap: 11px; }
+    .role-card__list li { position: relative; padding-left: 28px; color: var(--text); font-size: 0.94rem; line-height: 1.5; }
+    .role-card__list li::before { content: ""; position: absolute; left: 0; top: 1px; width: 18px; height: 18px; border-radius: 50%; background: rgba(34, 197, 94, 0.12); }
+    .role-card__list li::after { content: ""; position: absolute; left: 5px; top: 6px; width: 8px; height: 4px; border-left: 1.8px solid var(--green); border-bottom: 1.8px solid var(--green); transform: rotate(-45deg); }
+
+    @keyframes role-wave { 0%, 100% { transform: scaleY(0.35); opacity: 0.55; } 50% { transform: scaleY(1); opacity: 1; } }
+    @keyframes role-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    @media (max-width: 760px) {
+      .roles-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .rsc-wave span, .rsc-rec, .rsh__live i { animation: none; }
+    }
+  </style>
+</section>
