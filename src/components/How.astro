@@ -144,7 +144,7 @@
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 18px;
-            min-height: 196px;
+            height: 256px;
             box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
             overflow: hidden;
           }
@@ -157,7 +157,7 @@
           }
 
           /* Step 1 — recording */
-          .how-viz--rec { display: flex; flex-direction: column; align-items: center; text-align: center; }
+          .how-viz--rec { display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center; }
           .how-viz__bar { display: flex; align-items: center; justify-content: space-between; width: 100%; }
           .how-rec { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 0.64rem; color: var(--muted); letter-spacing: 0.02em; }
           .how-rec i { width: 7px; height: 7px; border-radius: 50%; background: #f06464; animation: how-blink 1.5s ease-in-out infinite; }
@@ -171,12 +171,12 @@
 
           /* Step 2 — structuring */
           .how-viz--ai { display: flex; flex-direction: column; }
-          .how-trans { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+          .how-trans { display: flex; flex-direction: column; gap: 5px; margin-bottom: 10px; }
           .how-trans span { height: 6px; border-radius: 3px; background: var(--border); }
           .how-badge { display: inline-flex; align-self: flex-start; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: rgba(22, 163, 74, 0.1); border: 1px solid rgba(34, 197, 94, 0.22); color: var(--green); font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.02em; margin-bottom: 12px; }
           .how-badge svg { width: 12px; height: 12px; }
-          .how-sections { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 7px; }
-          .how-sec { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 11px; border-radius: 9px; background: var(--surface2); border: 1px solid var(--border); font-family: var(--sans); font-size: 0.82rem; color: var(--text); animation: how-pop 0.5s ease both; animation-delay: var(--d); }
+          .how-sections { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+          .how-sec { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 7px 11px; border-radius: 9px; background: var(--surface2); border: 1px solid var(--border); font-family: var(--sans); font-size: 0.8rem; color: var(--text); animation: how-pop 0.5s ease both; animation-delay: var(--d); }
           .how-sec i { position: relative; width: 16px; height: 16px; flex-shrink: 0; border-radius: 50%; background: rgba(34, 197, 94, 0.14); }
           .how-sec i::after { content: ""; position: absolute; left: 5px; top: 4px; width: 6px; height: 3px; border-left: 1.6px solid var(--green); border-bottom: 1.6px solid var(--green); transform: rotate(-45deg); }
 
@@ -208,7 +208,7 @@
           @media (max-width: 900px) {
             .how-flow { flex-direction: column; gap: 18px; }
             .how-arrow { transform: rotate(90deg); }
-            .how-viz { min-height: 0; }
+            .how-viz { height: auto; min-height: 230px; }
           }
 
           @media (prefers-reduced-motion: reduce) {

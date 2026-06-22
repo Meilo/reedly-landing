@@ -98,7 +98,7 @@
             border: 1px solid var(--border);
             border-radius: 14px;
             padding: 18px;
-            min-height: 158px;
+            height: 196px;
             overflow: hidden;
             box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
           }
@@ -111,7 +111,7 @@
           }
 
           /* Card 1 — time */
-          .prob-viz--time { display: flex; flex-direction: column; }
+          .prob-viz--time { display: flex; flex-direction: column; justify-content: space-between; }
           .prob-viz__top { display: flex; align-items: center; gap: 7px; color: #f0b429; }
           .prob-moon svg { width: 15px; height: 15px; }
           .prob-time { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.04em; }
@@ -148,6 +148,7 @@
 
           @media (max-width: 880px) {
             .prob-grid { grid-template-columns: 1fr; }
+            .prob-viz { height: auto; min-height: 170px; }
           }
           @media (prefers-reduced-motion: reduce) {
             .prob-bar span, .prob-tag { animation: none; }
