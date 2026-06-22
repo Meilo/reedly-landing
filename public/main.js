@@ -95,6 +95,14 @@ const T = {
     "how.step3.text":
       "Lisez le rapport en 30 secondes, exportez-le en PDF, ou laissez Reedly agréger vos RDVs en synthèses stratégiques pour piloter votre territoire.",
     "how.step3.tag": "Export PDF · Synthèses · Hub",
+    "how.viz1.label": "Visite client",
+    "how.viz1.foot": "Enregistrement en arrière-plan",
+    "how.viz2.badge": "Rapport structuré · 11 sections",
+    "how.viz2.s1": "Besoins exprimés",
+    "how.viz2.s2": "Objections",
+    "how.viz2.s3": "Engagements",
+    "how.viz2.s4": "Prochaines étapes",
+    "how.viz3.share": "Partager",
     "demo.eyebrow": "Démonstration",
     "demo.title": "Reedly<br /><em>en 30 secondes.</em>",
     "demo.lead":
@@ -545,7 +553,7 @@ const T = {
     "features.card6.text":
       "Aggregate a week, month, or quarter of meetings into prioritized trends, risks, and opportunities. Your strategic vision in seconds.",
     "how.eyebrow": "How it works",
-    "how.title": "3 steps.<br /><em>From first word to shareable report.</em>",
+    "how.title": "3 steps<br /><em>From mic to report.</em>",
     "how.step1.title": "Press Record before you enter",
     "how.step1.text":
       "The Reedly app captures the exchange in the background. No input, no interruption: you stay focused on your client.",
@@ -558,6 +566,14 @@ const T = {
     "how.step3.text":
       "Read the report in 30 seconds, export it as PDF, or let Reedly aggregate your meetings into strategic syntheses to manage your territory.",
     "how.step3.tag": "PDF Export · Syntheses · Hub",
+    "how.viz1.label": "Client meeting",
+    "how.viz1.foot": "Recording in the background",
+    "how.viz2.badge": "Structured report · 11 sections",
+    "how.viz2.s1": "Stated needs",
+    "how.viz2.s2": "Objections",
+    "how.viz2.s3": "Commitments",
+    "how.viz2.s4": "Next steps",
+    "how.viz3.share": "Share",
     "demo.eyebrow": "Demo",
     "demo.title": "See Reedly<br /><em>in action.</em>",
     "demo.lead":

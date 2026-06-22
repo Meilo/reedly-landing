@@ -1,5 +1,5 @@
 ---
-// How section
+// How section — visual 3-step flow: record → structure → share
 ---
 
 <!-- ── How it works ── -->
@@ -7,46 +7,214 @@
         <div class="inner">
           <div class="reveal">
             <div class="section__eyebrow" data-i18n="how.eyebrow">Comment ça marche</div>
-            <h2 data-i18n-html="how.title">3 étapes.<br /><em>Du premier mot au rapport partageable.</em></h2>
+            <h2 data-i18n-html="how.title">3 étapes<br /><em>Du micro au rapport.</em></h2>
           </div>
-          <div class="steps-layout">
-            <article class="step-card reveal reveal-delay-1">
-              <div class="step-num">
-                <div class="step-num__inner">1</div>
+
+          <div class="how-flow">
+            <!-- Step 1 — Record -->
+            <article class="how-step reveal reveal-delay-1">
+              <div class="how-viz how-viz--rec">
+                <div class="how-viz__bar">
+                  <span class="how-rec"><i></i><span data-i18n="how.viz1.label">Visite client</span></span>
+                  <span class="how-viz__time">0:42</span>
+                </div>
+                <div class="how-mic">
+                  <span class="how-mic__ring"></span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z" />
+                    <path d="M19 11a7 7 0 0 1-14 0" />
+                    <line x1="12" y1="18" x2="12" y2="22" />
+                  </svg>
+                </div>
+                <div class="how-wave" aria-hidden="true">
+                  <span style="--h:35%;--d:0s"></span><span style="--h:60%;--d:.12s"></span><span style="--h:90%;--d:.24s"></span><span style="--h:50%;--d:.36s"></span><span style="--h:75%;--d:.1s"></span><span style="--h:100%;--d:.3s"></span><span style="--h:45%;--d:.18s"></span><span style="--h:80%;--d:.06s"></span><span style="--h:55%;--d:.26s"></span><span style="--h:95%;--d:.14s"></span><span style="--h:40%;--d:.34s"></span><span style="--h:70%;--d:.2s"></span><span style="--h:60%;--d:.08s"></span><span style="--h:85%;--d:.28s"></span><span style="--h:48%;--d:.16s"></span>
+                </div>
+                <div class="how-viz__foot" data-i18n="how.viz1.foot">Enregistrement en arrière-plan</div>
               </div>
-              <h3 data-i18n="how.step1.title">Appuyez sur Enregistrer avant d'entrer</h3>
-              <p data-i18n="how.step1.text">
-                L'app Reedly capture l'échange en arrière-plan. Aucune saisie, aucune interruption :
-                vous restez concentré sur votre client.
-              </p>
-              <div class="step-card__tag" data-i18n="how.step1.tag">
-                iOS &amp; Android · Arrière-plan
+              <div class="how-step__body">
+                <div class="how-step__head">
+                  <span class="how-step__num">1</span>
+                  <h3 data-i18n="how.step1.title">Appuyez sur Enregistrer avant d'entrer</h3>
+                </div>
+                <p data-i18n="how.step1.text">
+                  L'app Reedly capture l'échange en arrière-plan. Aucune saisie, aucune interruption :
+                  vous restez concentré sur votre client.
+                </p>
+                <div class="how-step__tag" data-i18n="how.step1.tag">iOS &amp; Android · Arrière-plan</div>
               </div>
             </article>
-            <article class="step-card reveal reveal-delay-2">
-              <div class="step-num">
-                <div class="step-num__inner">2</div>
+
+            <div class="how-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </div>
+
+            <!-- Step 2 — Structure -->
+            <article class="how-step reveal reveal-delay-2">
+              <div class="how-viz how-viz--ai">
+                <div class="how-trans" aria-hidden="true">
+                  <span style="width:88%"></span>
+                  <span style="width:72%"></span>
+                  <span style="width:80%"></span>
+                </div>
+                <div class="how-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15l-1.9-4.1L5.5 9l4.6-1.4L12 3z" /></svg>
+                  <span data-i18n="how.viz2.badge">Rapport structuré · 11 sections</span>
+                </div>
+                <ul class="how-sections">
+                  <li class="how-sec" style="--d:.05s"><span data-i18n="how.viz2.s1">Besoins exprimés</span><i></i></li>
+                  <li class="how-sec" style="--d:.18s"><span data-i18n="how.viz2.s2">Objections</span><i></i></li>
+                  <li class="how-sec" style="--d:.31s"><span data-i18n="how.viz2.s3">Engagements</span><i></i></li>
+                  <li class="how-sec" style="--d:.44s"><span data-i18n="how.viz2.s4">Prochaines étapes</span><i></i></li>
+                </ul>
               </div>
-              <h3 data-i18n="how.step2.title">L'IA transcrit et structure en moins de 2 min</h3>
-              <p data-i18n="how.step2.text">
-                L'IA transcrit l'audio et génère un rapport complet en 11 sections. L'audio est
-                supprimé dès la génération terminée.
-              </p>
-              <div class="step-card__tag" data-i18n="how.step2.tag">Privacy by design</div>
+              <div class="how-step__body">
+                <div class="how-step__head">
+                  <span class="how-step__num">2</span>
+                  <h3 data-i18n="how.step2.title">L'IA transcrit et structure en moins de 2 min</h3>
+                </div>
+                <p data-i18n="how.step2.text">
+                  L'IA transcrit l'audio et génère un rapport complet en 11 sections. L'audio est
+                  supprimé dès la génération terminée.
+                </p>
+                <div class="how-step__tag" data-i18n="how.step2.tag">Privacy by design</div>
+              </div>
             </article>
-            <article class="step-card reveal reveal-delay-3">
-              <div class="step-num">
-                <div class="step-num__inner">3</div>
+
+            <div class="how-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </div>
+
+            <!-- Step 3 — Share -->
+            <article class="how-step reveal reveal-delay-3">
+              <div class="how-viz how-viz--report">
+                <div class="how-doc">
+                  <div class="how-doc__row"><span class="how-doc__chip"></span><span class="how-doc__h"></span></div>
+                  <span class="how-doc__line" style="width:96%"></span>
+                  <span class="how-doc__line" style="width:84%"></span>
+                  <span class="how-doc__line" style="width:90%"></span>
+                  <span class="how-doc__line how-doc__line--em" style="width:60%"></span>
+                  <span class="how-doc__line" style="width:78%"></span>
+                </div>
+                <div class="how-actions">
+                  <span class="how-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /></svg>PDF</span>
+                  <span class="how-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" /></svg><span data-i18n="how.viz3.share">Partager</span></span>
+                  <span class="how-action how-action--hub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5" /><rect x="14" y="3" width="7" height="5" rx="1.5" /><rect x="14" y="12" width="7" height="9" rx="1.5" /><rect x="3" y="16" width="7" height="5" rx="1.5" /></svg>Hub</span>
+                </div>
               </div>
-              <h3 data-i18n="how.step3.title">Partagez, exportez ou analysez</h3>
-              <p data-i18n="how.step3.text">
-                Lisez le rapport en 30 secondes, exportez-le en PDF, ou laissez Reedly agréger vos
-                RDVs en synthèses stratégiques pour piloter votre territoire.
-              </p>
-              <div class="step-card__tag" data-i18n="how.step3.tag">
-                Export PDF · Synthèses · Hub
+              <div class="how-step__body">
+                <div class="how-step__head">
+                  <span class="how-step__num">3</span>
+                  <h3 data-i18n="how.step3.title">Partagez, exportez ou analysez</h3>
+                </div>
+                <p data-i18n="how.step3.text">
+                  Lisez le rapport en 30 secondes, exportez-le en PDF, ou laissez Reedly agréger vos
+                  RDVs en synthèses stratégiques pour piloter votre territoire.
+                </p>
+                <div class="how-step__tag" data-i18n="how.step3.tag">Export PDF · Synthèses · Hub</div>
               </div>
             </article>
           </div>
         </div>
+
+        <style>
+          .how-flow {
+            margin-top: 52px;
+            display: flex;
+            align-items: stretch;
+            gap: 6px;
+          }
+          .how-step {
+            flex: 1 1 0;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+          }
+          .how-arrow {
+            flex-shrink: 0;
+            align-self: center;
+            display: flex;
+            color: var(--faint);
+          }
+          .how-arrow svg { width: 22px; height: 22px; }
+
+          /* Shared viz frame */
+          .how-viz {
+            position: relative;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 18px;
+            min-height: 196px;
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+            overflow: hidden;
+          }
+          .how-viz::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.5), transparent);
+          }
+
+          /* Step 1 — recording */
+          .how-viz--rec { display: flex; flex-direction: column; align-items: center; text-align: center; }
+          .how-viz__bar { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+          .how-rec { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 0.64rem; color: var(--muted); letter-spacing: 0.02em; }
+          .how-rec i { width: 7px; height: 7px; border-radius: 50%; background: #f06464; animation: how-blink 1.5s ease-in-out infinite; }
+          .how-viz__time { font-family: var(--mono); font-size: 0.64rem; color: var(--green); letter-spacing: 0.04em; }
+          .how-mic { position: relative; width: 52px; height: 52px; margin: 14px 0 2px; border-radius: 15px; background: rgba(22, 163, 74, 0.1); border: 1px solid rgba(34, 197, 94, 0.22); color: var(--green); display: flex; align-items: center; justify-content: center; }
+          .how-mic svg { width: 24px; height: 24px; }
+          .how-mic__ring { position: absolute; inset: -1px; border-radius: 15px; border: 1px solid var(--green); opacity: 0; animation: viz-pulse 2.6s ease-out infinite; }
+          .how-wave { display: flex; align-items: center; justify-content: center; gap: 3px; height: 42px; width: 100%; margin: 8px 0; }
+          .how-wave span { width: 3px; height: var(--h); border-radius: 3px; background: var(--green); transform-origin: center; animation: how-wave 1.05s ease-in-out infinite; animation-delay: var(--d); }
+          .how-viz__foot { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); letter-spacing: 0.03em; }
+
+          /* Step 2 — structuring */
+          .how-viz--ai { display: flex; flex-direction: column; }
+          .how-trans { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+          .how-trans span { height: 6px; border-radius: 3px; background: var(--border); }
+          .how-badge { display: inline-flex; align-self: flex-start; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: rgba(22, 163, 74, 0.1); border: 1px solid rgba(34, 197, 94, 0.22); color: var(--green); font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.02em; margin-bottom: 12px; }
+          .how-badge svg { width: 12px; height: 12px; }
+          .how-sections { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 7px; }
+          .how-sec { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 11px; border-radius: 9px; background: var(--surface2); border: 1px solid var(--border); font-family: var(--sans); font-size: 0.82rem; color: var(--text); animation: how-pop 0.5s ease both; animation-delay: var(--d); }
+          .how-sec i { position: relative; width: 16px; height: 16px; flex-shrink: 0; border-radius: 50%; background: rgba(34, 197, 94, 0.14); }
+          .how-sec i::after { content: ""; position: absolute; left: 5px; top: 4px; width: 6px; height: 3px; border-left: 1.6px solid var(--green); border-bottom: 1.6px solid var(--green); transform: rotate(-45deg); }
+
+          /* Step 3 — report + share */
+          .how-viz--report { display: flex; flex-direction: column; }
+          .how-doc { flex: 1; background: var(--surface2); border: 1px solid var(--border); border-radius: 11px; padding: 13px; display: flex; flex-direction: column; gap: 8px; }
+          .how-doc__row { display: flex; align-items: center; gap: 8px; margin-bottom: 2px; }
+          .how-doc__chip { width: 22px; height: 22px; border-radius: 6px; background: rgba(34, 197, 94, 0.14); flex-shrink: 0; }
+          .how-doc__h { height: 8px; width: 52%; border-radius: 3px; background: var(--green); opacity: 0.85; }
+          .how-doc__line { height: 6px; border-radius: 3px; background: var(--border); }
+          .how-doc__line--em { background: rgba(34, 197, 94, 0.35); }
+          .how-actions { display: flex; gap: 7px; margin-top: 12px; }
+          .how-action { display: inline-flex; align-items: center; gap: 5px; padding: 6px 10px; border-radius: 8px; background: var(--surface2); border: 1px solid var(--border); font-family: var(--mono); font-size: 0.6rem; color: var(--muted); letter-spacing: 0.02em; }
+          .how-action svg { width: 12px; height: 12px; }
+          .how-action--hub { color: var(--green); border-color: rgba(34, 197, 94, 0.3); background: rgba(22, 163, 74, 0.08); }
+
+          /* Step body */
+          .how-step__body { padding: 20px 4px 0; }
+          .how-step__head { display: flex; align-items: center; gap: 11px; margin-bottom: 9px; }
+          .how-step__num { flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px; background: var(--green); color: #04130a; font-family: var(--mono); font-weight: 700; font-size: 0.82rem; display: flex; align-items: center; justify-content: center; }
+          .how-step__head h3 { font-size: 1.04rem; line-height: 1.3; margin: 0; }
+          .how-step__body p { color: var(--muted); font-size: 0.92rem; line-height: 1.6; margin: 0 0 12px; }
+          .how-step__tag { display: inline-block; font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.02em; padding: 5px 10px; border-radius: 7px; border: 1px solid var(--border); background: var(--surface); }
+
+          @keyframes how-wave { 0%, 100% { transform: scaleY(0.35); opacity: 0.55; } 50% { transform: scaleY(1); opacity: 1; } }
+          @keyframes how-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+          @keyframes how-pop { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+          @media (max-width: 900px) {
+            .how-flow { flex-direction: column; gap: 18px; }
+            .how-arrow { transform: rotate(90deg); }
+            .how-viz { min-height: 0; }
+          }
+
+          @media (prefers-reduced-motion: reduce) {
+            .how-wave span, .how-mic__ring, .how-rec i, .how-sec { animation: none; }
+            .how-mic__ring { opacity: 0; }
+            .how-sec { opacity: 1; transform: none; }
+          }
+        </style>
       </section>
