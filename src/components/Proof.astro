@@ -1,5 +1,5 @@
 ---
-// Proof section
+// Proof section — polished result stat cards
 ---
 
 <!-- ── Proof ── -->
@@ -11,24 +11,36 @@
           </div>
           <div class="proof-grid">
             <div class="proof-stat reveal reveal-delay-1">
+              <span class="proof-stat__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M8.5 12.5l2.4 2.4 4.6-5.3" /></svg>
+              </span>
               <div class="proof-stat__val">100%</div>
               <div class="proof-stat__label" data-i18n="proof.stat1">
                 Des engagements clients capturés et tracés. Fini les promesses oubliées
               </div>
             </div>
             <div class="proof-stat reveal reveal-delay-2">
+              <span class="proof-stat__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8" /><path d="M12 9.5V13l2.5 1.5" /><path d="M9 2.5h6" /><path d="M12 2.5v3" /></svg>
+              </span>
               <div class="proof-stat__val">8×</div>
               <div class="proof-stat__label" data-i18n="proof.stat2">
                 Moins de temps passé en reporting par votre équipe, plus de temps en clientèle
               </div>
             </div>
             <div class="proof-stat reveal reveal-delay-3">
-              <div class="proof-stat__val">&lt; 2min</div>
+              <span class="proof-stat__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6l1-8z" /></svg>
+              </span>
+              <div class="proof-stat__val">&lt; 2 min</div>
               <div class="proof-stat__label" data-i18n="proof.stat3">
                 Entre la fin du rendez-vous et la remontée du rapport dans votre Hub
               </div>
             </div>
             <div class="proof-stat reveal reveal-delay-3">
+              <span class="proof-stat__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2" /><path d="M4 9.5h16M8 3v4M16 3v4" /><path d="M10 14l4 4M14 14l-4 4" /></svg>
+              </span>
               <div class="proof-stat__val">0</div>
               <div class="proof-stat__label" data-i18n="proof.stat4">
                 Réunion de reporting hebdo nécessaire : la donnée terrain remonte en continu
@@ -36,4 +48,49 @@
             </div>
           </div>
         </div>
+
+        <style>
+          #proof .proof-grid { margin-top: 46px; gap: 18px; }
+          #proof .proof-stat {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 24px 22px 26px;
+            overflow: hidden;
+          }
+          #proof .proof-stat::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.55), transparent);
+          }
+          #proof .proof-stat__icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            background: rgba(22, 163, 74, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.22);
+            color: var(--green);
+            margin-bottom: 18px;
+          }
+          #proof .proof-stat__icon svg { width: 19px; height: 19px; }
+          #proof .proof-stat__val {
+            font-family: var(--display);
+            font-size: 2.7rem;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+            color: var(--green);
+          }
+          #proof .proof-stat__label {
+            margin-top: 12px;
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.55;
+          }
+        </style>
       </section>
