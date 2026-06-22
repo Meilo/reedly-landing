@@ -59,6 +59,12 @@ const T = {
     "problem.card3.title": "Manager aveugle",
     "problem.card3.text":
       "Le responsable ne voit pas ce qui se passe sur le terrain tant que le commercial ne rapporte pas. Et ça arrive trop tard pour agir sur les opportunités ou les risques.",
+    "problem.viz1.legend": "Reporting au lieu de vendre",
+    "problem.viz1.perday": "+1 h / jour",
+    "problem.viz2.t1": "Promesse client",
+    "problem.viz2.t2": "Objection clé",
+    "problem.viz2.t3": "Opportunité détectée",
+    "problem.viz3.team": "Activité de l'équipe",
     "features.eyebrow": "Fonctionnalités",
     "features.title": "Tout ce qu'il faut pour<br /><em>ne rien oublier.</em>",
     "features.lead":
@@ -530,6 +536,12 @@ const T = {
     "problem.card3.title": "Blind manager",
     "problem.card3.text":
       "The manager can't see what's happening in the field until the sales rep reports in. And that happens too late to act on opportunities or risks.",
+    "problem.viz1.legend": "Admin instead of selling",
+    "problem.viz1.perday": "+1 h / day",
+    "problem.viz2.t1": "Client promise",
+    "problem.viz2.t2": "Key objection",
+    "problem.viz2.t3": "Spotted opportunity",
+    "problem.viz3.team": "Team activity",
     "features.eyebrow": "Features",
     "features.title": "Everything you need<br /><em>to forget nothing.</em>",
     "features.lead":
