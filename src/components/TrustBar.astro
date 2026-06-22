@@ -1,0 +1,49 @@
+---
+// Trust bar — badges factuels (aucun claim inventé : tout est déjà dans la copy)
+---
+
+<section class="trustbar" aria-label="Points clés Reedly">
+  <div class="inner trustbar__inner">
+    <span class="trustbar__item" data-i18n="trustbar.platforms">iOS &amp; Android</span>
+    <span class="trustbar__sep"></span>
+    <span class="trustbar__item" data-i18n="trustbar.accuracy">Transcription +95 %</span>
+    <span class="trustbar__sep"></span>
+    <span class="trustbar__item" data-i18n="trustbar.privacy">Audio supprimé après génération</span>
+    <span class="trustbar__sep"></span>
+    <span class="trustbar__item" data-i18n="trustbar.report">Rapport en 11 sections · &lt; 2 min</span>
+  </div>
+</section>
+
+<style>
+  .trustbar {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .trustbar__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  .trustbar__item {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .trustbar__sep {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--faint);
+  }
+  @media (max-width: 640px) {
+    .trustbar__sep { display: none; }
+    .trustbar__inner { gap: 10px 18px; }
+  }
+</style>
