@@ -89,9 +89,9 @@ const T = {
       "Agrégez une semaine, un mois ou un trimestre de rendez-vous en tendances, risques et opportunités priorisés. Votre vision stratégique en quelques secondes.",
     "how.eyebrow": "Comment ça marche",
     "how.title": "3 étapes<br /><em>Du micro au rapport.</em>",
-    "how.step1.title": "Appuyez sur Enregistrer avant d'entrer",
+    "how.step1.title": "Lancez l'enregistrement",
     "how.step1.text":
-      "L'app Reedly capture l'échange en arrière-plan. Aucune saisie, aucune interruption : vous restez concentré sur votre client.",
+      "Vous demandez son accord au client, puis Reedly capture l'échange en arrière-plan. Aucune saisie, aucune interruption : vous restez concentré sur votre client.",
     "how.step1.tag": "iOS & Android · Arrière-plan",
     "how.step2.title": "L'IA transcrit et structure en moins de 2 min",
     "how.step2.text":
@@ -566,9 +566,9 @@ const T = {
       "Aggregate a week, month, or quarter of meetings into prioritized trends, risks, and opportunities. Your strategic vision in seconds.",
     "how.eyebrow": "How it works",
     "how.title": "3 steps<br /><em>From mic to report.</em>",
-    "how.step1.title": "Press Record before you enter",
+    "how.step1.title": "Start recording",
     "how.step1.text":
-      "The Reedly app captures the exchange in the background. No input, no interruption: you stay focused on your client.",
+      "You ask the client for their consent, then Reedly captures the conversation in the background. No typing, no interruptions: you stay focused on your client.",
     "how.step1.tag": "iOS & Android · Background",
     "how.step2.title": "The AI transcribes and structures in under 2 min",
     "how.step2.text":
