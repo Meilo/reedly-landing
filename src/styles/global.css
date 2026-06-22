@@ -2818,16 +2818,7 @@ body::after {
 /* Phones: the nav CTA lives in the hamburger menu — drop it from the top bar
    so the theme + language toggles fit alongside the logo without overflow. */
 @media (max-width: 600px) {
-  .nav__actions .btn--primary {
-    display: none;
-  }
-}
-
-/* Small phones (≤420px): also drop the theme toggle from the top bar so the
-   language switch + hamburger fit down to 320px. Theme still follows the
-   system setting; the language switch stays (bilingual site). */
-@media (max-width: 420px) {
-  .nav__actions .theme-toggle,
+  .nav__actions .btn--primary,
   .nav__actions .nav__sep {
     display: none;
   }
@@ -3299,6 +3290,117 @@ body::after {
   flex-shrink: 0;
 }
 
+/* ─── Nav select dropdowns (theme + language, click to open) ─── */
+.nav__select {
+  position: relative;
+}
+.nav__select-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 28px;
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--muted);
+  padding: 0 7px;
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
+  transition:
+    color 0.18s ease,
+    background 0.18s ease;
+}
+.nav__select-trigger:hover {
+  color: var(--text);
+}
+.nav__select.open .nav__select-trigger {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+.nav__select-ico {
+  display: none;
+  align-items: center;
+}
+html[data-theme-setting="light"] [data-select="theme"] .nav__select-ico--light,
+html[data-theme-setting="dark"] [data-select="theme"] .nav__select-ico--dark,
+html[data-theme-setting="system"]
+  [data-select="theme"]
+  .nav__select-ico--system {
+  display: inline-flex;
+}
+.nav__select-current {
+  line-height: 1;
+}
+.nav__select-chevron {
+  transition: transform 0.2s;
+}
+.nav__select.open .nav__select-chevron {
+  transform: rotate(180deg);
+}
+.nav__select-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 152px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    visibility 0.18s ease;
+  z-index: 200;
+}
+.nav__select.open .nav__select-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav__select-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 7px;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1;
+  transition: background 0.15s;
+}
+.nav__select-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+.nav__select-item-ico {
+  display: inline-flex;
+  color: var(--muted);
+}
+.nav__select-item.active,
+.nav__select-item.active .nav__select-item-ico {
+  color: var(--green);
+}
+
 /* ─── Theme Transition ─── */
 html.theme-transition,
 html.theme-transition *,
@@ -3382,6 +3484,15 @@ html[data-theme="light"] .nav__dropdown-item:hover {
 }
 html[data-theme="light"] .nav__dropdown-footer {
   border-top-color: rgba(148, 163, 184, 0.25);
+}
+html[data-theme="light"] .nav__select-panel {
+  background: #fff;
+  border-color: rgba(148, 163, 184, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+html[data-theme="light"] .nav__select-item:hover,
+html[data-theme="light"] .nav__select.open .nav__select-trigger {
+  background: rgba(0, 0, 0, 0.04);
 }
 
 /* Light: Green-bg elements get white text */

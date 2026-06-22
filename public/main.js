@@ -5,6 +5,11 @@ const T = {
     "nav.pricing": "Tarifs",
     "nav.contact": "Contact",
     "nav.login": "Se connecter",
+    "nav.theme": "Thème",
+    "nav.theme_light": "Clair",
+    "nav.theme_dark": "Sombre",
+    "nav.theme_system": "Système",
+    "nav.language": "Langue",
     "nav.download": "Télécharger",
     "nav.download_app": "Télécharger l'app",
     "nav.open_menu": "Ouvrir le menu",
@@ -444,6 +449,11 @@ const T = {
     "nav.pricing": "Pricing",
     "nav.contact": "Contact",
     "nav.login": "Log in",
+    "nav.theme": "Theme",
+    "nav.theme_light": "Light",
+    "nav.theme_dark": "Dark",
+    "nav.theme_system": "System",
+    "nav.language": "Language",
     "nav.download": "Download",
     "nav.download_app": "Download the app",
     "nav.open_menu": "Open menu",
@@ -1224,6 +1234,12 @@ function setLang(lang) {
     btn.classList.toggle("active", btn.dataset.lang === lang);
   });
 
+  document
+    .querySelectorAll('[data-select="lang"] .nav__select-current')
+    .forEach((el) => {
+      el.textContent = (lang || "fr").toUpperCase();
+    });
+
   // Update language-specific links
   document.querySelectorAll("[data-link-fr][data-link-en]").forEach((el) => {
     const href =
@@ -1312,7 +1328,6 @@ document.querySelectorAll("[data-track-id]").forEach((el) => {
     try {
       const ph = window.posthog;
       if (
-        el.dataset.trackType === "trial" &&
         href.indexOf("hub.reedly.ai") !== -1 &&
         href.indexOf("ph_id=") === -1 &&
         ph &&
@@ -1489,6 +1504,40 @@ document.querySelectorAll(".nav__mobile-link").forEach((link) => {
     navToggle.setAttribute("aria-expanded", "false");
     navMobile.setAttribute("aria-hidden", "true");
   });
+});
+
+// ── Nav select dropdowns (theme + language, click to open) ──
+function closeNavSelects() {
+  document.querySelectorAll(".nav__select.open").forEach((o) => {
+    o.classList.remove("open");
+    o.querySelector(".nav__select-trigger")?.setAttribute(
+      "aria-expanded",
+      "false",
+    );
+  });
+}
+document.querySelectorAll(".nav__select").forEach((sel) => {
+  const trigger = sel.querySelector(".nav__select-trigger");
+  if (!trigger) return;
+  trigger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const willOpen = !sel.classList.contains("open");
+    closeNavSelects();
+    if (willOpen) {
+      sel.classList.add("open");
+      trigger.setAttribute("aria-expanded", "true");
+    }
+  });
+  sel.querySelectorAll(".nav__select-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      sel.classList.remove("open");
+      trigger.setAttribute("aria-expanded", "false");
+    });
+  });
+});
+document.addEventListener("click", closeNavSelects);
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeNavSelects();
 });
 
 // ── Notify modal ──
