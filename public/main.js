@@ -15,9 +15,9 @@ const T = {
     "nav.open_menu": "Ouvrir le menu",
     "footer.solution": "Solution",
     "footer.pricing": "Tarifs",
-    "hero.title": "Ce qui se dit en rendez-vous<br /><em>ne se perd plus.</em>",
+    "hero.title": "Retrouvez le temps<br /><em>de vendre.</em>",
     "hero.sub":
-      "Chaque rendez-vous de votre équipe devient un rapport structuré. Engagements, opportunités, risques : tout remonte dans un Hub centralisé en moins de 2 minutes. Zéro saisie pour vos commerciaux, zéro réunion de reporting pour vous.",
+      "Reedly rédige vos comptes-rendus terrain et les intègre directement dans votre Hub central.",
     "hero.cta": "Télécharger l'app",
     "hero.cta_manager": "Commencer →",
     "hero.trust1": "Plan gratuit disponible",
@@ -459,9 +459,9 @@ const T = {
     "nav.open_menu": "Open menu",
     "footer.solution": "Solution",
     "footer.pricing": "Pricing",
-    "hero.title": "What's said in your meetings<br /><em>no longer gets lost.</em>",
+    "hero.title": "Get back the time<br /><em>to sell.</em>",
     "hero.sub":
-      "Every meeting your team runs becomes a structured report. Commitments, opportunities and risks all surface in a central Hub in under 2 minutes. Zero data entry for your reps, zero reporting meetings for you.",
+      "Reedly writes your field reports and integrates them straight into your central Hub.",
     "hero.cta": "Download the app",
     "hero.cta_manager": "Get Started →",
     "hero.trust1": "Free plan available",
