@@ -447,7 +447,7 @@ const T = {
       "Par commercial. Soit 15 heures par mois réaffectées à la vente, à la relation client ou aux rendez-vous supplémentaires.",
     "tarifs.roi.card2.title": "Rentabilisé dès le 1er mois",
     "tarifs.roi.card2.text":
-      "À 69 €/mois par utilisateur, il suffit d'un rendez-vous supplémentaire converti pour couvrir le coût annuel de Reedly.",
+      "À 49 €/mois par utilisateur, il suffit d'un rendez-vous supplémentaire converti pour couvrir le coût annuel de Reedly.",
     "tarifs.roi.card3.title": "0 information perdue",
     "tarifs.roi.card3.text":
       "Chaque engagement, chaque objection, chaque opportunité est capturée et structurée. Le manager voit tout en temps réel depuis le Hub.",
@@ -918,7 +918,7 @@ const T = {
       "Per sales rep. That's 15 hours per month reallocated to selling, client relationships, or additional meetings.",
     "tarifs.roi.card2.title": "Pays for itself in month 1",
     "tarifs.roi.card2.text":
-      "At 69 EUR/month per user, just one extra converted meeting covers the annual cost of Reedly.",
+      "At 49 EUR/month per user, just one extra converted meeting covers the annual cost of Reedly.",
     "tarifs.roi.card3.title": "0 information lost",
     "tarifs.roi.card3.text":
       "Every commitment, every objection, every opportunity is captured and structured. The manager sees everything in real time from the Hub.",
