@@ -2,6 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import Nav from '@/components/Nav.astro';
 import AltHero from '@/components/alternative/AltHero.astro';
+import AltVerdict from '@/components/alternative/AltVerdict.astro';
 import FinalCta from '@/components/FinalCta.astro';
 import Footer from '@/components/Footer.astro';
 import { getAllAlternativeSlugs, loadAlternativeContent, findMirrorSlug } from '@/lib/load-alternatives';
@@ -60,6 +61,7 @@ const faqLD = {
       cta_label={data.hero.cta_label}
       cta_url={data.hero.cta_url}
     />
+    <AltVerdict title={data.verdict.title} text={data.verdict.text} />
     <FinalCta />
   </main>
 
