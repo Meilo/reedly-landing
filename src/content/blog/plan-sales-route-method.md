@@ -27,7 +27,7 @@ Now look at your route. You're going to the industrial zone on Tuesday morning, 
 
 ## Step 4: Build in buffer time that actually exists
 
-Here's what nobody says: you can't schedule back-to-back meetings 45 minutes apart and expect it to work. You need 15 minutes after each appointment for the meeting to actually end, quick notes, and getting back to your car. Then actual travel time—not Google's estimate on a Tuesday at 11 AM, but real-world traffic at the time you'll actually be driving.
+Here's what nobody says: you can't schedule back-to-back meetings 45 minutes apart and expect it to work. You need 15 minutes after each appointment for the meeting to actually end, quick notes, and getting back to your car. Then actual travel time, not Google's estimate on a Tuesday at 11 AM, but real-world traffic at the time you'll actually be driving.
 
 ## Step 5: Keep Friday afternoon flexible
 

@@ -9,7 +9,7 @@ readingTime: 7
 author: laura
 ---
 
-Vous êtes dans le hall d'accueil de votre client. Le rendez-vous commence dans trois minutes. Vous avez les mains prises — mallette, carte de visite, téléphone. Ouvrir un bloc-notes ou taper sur un clavier n'est pas une option. Pourtant, dans une heure, il faudra se souvenir de tout ce qui a été dit : le budget mentionné entre deux phrases, le nom du décideur absent, la date limite du cahier des charges.
+Vous êtes dans le hall d'accueil de votre client. Le rendez-vous commence dans trois minutes. Vous avez les mains prises, mallette, carte de visite, téléphone. Ouvrir un bloc-notes ou taper sur un clavier n'est pas une option. Pourtant, dans une heure, il faudra se souvenir de tout ce qui a été dit : le budget mentionné entre deux phrases, le nom du décideur absent, la date limite du cahier des charges.
 
 L'enregistrement vocal règle ce problème. Vous appuyez sur un bouton, votre téléphone capture tout, et vous vous concentrez sur ce qui compte : vendre.
 
@@ -31,7 +31,7 @@ Sans enregistrement vocal, le CR est rédigé le soir ou le lendemain. Le résul
 
 ### 45 minutes deviennent 2 minutes
 
-Un compte-rendu rédigé manuellement prend en moyenne 45 minutes par rendez-vous. L'enregistrement vocal suivi d'une génération IA produit un rapport structuré en 11 sections en moins de 2 minutes. Sur une semaine de 4 rendez-vous, c'est **presque 3 heures récupérées** — du temps que vous pouvez réinvestir en prospection ou en relation client.
+Un compte-rendu rédigé manuellement prend en moyenne 45 minutes par rendez-vous. L'enregistrement vocal suivi d'une génération IA produit un rapport structuré en 11 sections en moins de 2 minutes. Sur une semaine de 4 rendez-vous, c'est **presque 3 heures récupérées**, du temps que vous pouvez réinvestir en prospection ou en relation client.
 
 ### Les CR sont enfin faits
 
@@ -47,7 +47,7 @@ Reedly est une application mobile conçue pour le terrain. Le processus tient en
 
 **3. Relisez et partagez.** Le rapport est prêt en moins de 2 minutes. Vous le relisez, ajustez une nuance si nécessaire, et l'exportez en PDF ou le partagez directement. Le manager y accède via le Hub sans attendre votre retour au bureau.
 
-L'enregistrement vocal est supprimé définitivement après la génération du rapport. Privacy by design — aucun audio n'est conservé.
+L'enregistrement vocal est supprimé définitivement après la génération du rapport. Privacy by design, aucun audio n'est conservé.
 
 ## Enregistrement vocal vs dictée vocale vs prise de notes
 
@@ -58,7 +58,7 @@ Ces trois approches sont souvent confondues. Elles ne résolvent pas le même pr
 | **Quand** | Pendant le rendez-vous | Après le rendez-vous | Pendant le rendez-vous |
 | **Ce qui est capté** | L'échange réel (client + commercial) | Ce dont le commercial se souvient | Ce que le commercial a le temps de noter |
 | **Précision** | Fidèle à la conversation | Dépend de la mémoire | Partielle, sélective |
-| **Impact sur le RDV** | Aucun — mains libres | Aucun — fait après | Négatif — attention divisée |
+| **Impact sur le RDV** | Aucun, mains libres | Aucun, fait après | Négatif, attention divisée |
 | **Temps de CR** | < 2 min (automatisé) | 15-20 min (dictée + relecture) | 30-45 min (rédaction) |
 
 L'enregistrement vocal est la seule approche qui capture la totalité de l'échange sans impacter la qualité du rendez-vous. La dictée vocale est un progrès par rapport aux notes, mais elle repose encore sur la mémoire du commercial.

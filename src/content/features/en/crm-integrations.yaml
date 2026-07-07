@@ -66,7 +66,7 @@ use_cases:
       text: "Post meeting summaries to Slack or Discord so account managers, engineers, and support teams have context in real time."
       icon: "globe"
     - title: "Sales ops automating pipeline management"
-      text: "Trigger workflows in CRM when opportunities are identified. Update stages, assign tasks, calculate forecasts—all from meeting intelligence."
+      text: "Trigger workflows in CRM when opportunities are identified. Update stages, assign tasks, calculate forecasts, all from meeting intelligence."
       icon: "chart"
     - title: "Enterprises with custom tech stacks"
       text: "Use Reedly's API to connect meeting data to proprietary platforms, ERP systems, or business intelligence tools unique to your organization."
@@ -81,7 +81,7 @@ faq:
   - question: "How does automatic CRM sync work?"
     answer: "After a meeting is recorded and the report generated, Reedly maps structured sections to CRM fields and pushes data via API. You configure field mappings once; every subsequent report syncs automatically."
   - question: "Can I control which data gets pushed to which tool?"
-    answer: "Yes. You define sync rules per integration—choose which report sections go to CRM, which summaries post to Slack, and which fields trigger automations. Full control over data routing."
+    answer: "Yes. You define sync rules per integration, choose which report sections go to CRM, which summaries post to Slack, and which fields trigger automations. Full control over data routing."
   - question: "Is meeting data secure when syncing to third-party tools?"
     answer: "All data transfers use encrypted API connections. Reedly never stores CRM credentials. OAuth authentication ensures secure, auditable access to integrated platforms."
 related_features:

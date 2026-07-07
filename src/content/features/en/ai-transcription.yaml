@@ -5,16 +5,16 @@ seo:
 hero:
   eyebrow: "AI Transcription Engine"
   title: "<em>Automatic meeting transcription</em><br />that actually works in the field."
-  lead: "Reedly converts every client conversation into accurate text in minutes — handling accents, technical terms, and noisy environments. No manual typing. No information loss."
+  lead: "Reedly converts every client conversation into accurate text in minutes, handling accents, technical terms, and noisy environments. No manual typing. No information loss."
   cta_label: "Try Reedly Free"
   cta_url: "/en#trial"
 problem:
   eyebrow: "The Challenge"
   title: "Generic transcription tools<br /><em>break in real sales situations.</em>"
-  lead: "Most AI transcription fails when it matters — struggling with industry jargon, background noise from cafés or job sites, and varied speaker accents. Field sales reps need accuracy, not rough drafts."
+  lead: "Most AI transcription fails when it matters, struggling with industry jargon, background noise from cafés or job sites, and varied speaker accents. Field sales reps need accuracy, not rough drafts."
   cards:
     - title: "Jargon kills accuracy"
-      text: "Standard transcription tools stumble over product names, technical specifications, and industry terminology — exactly what matters most in B2B sales conversations."
+      text: "Standard transcription tools stumble over product names, technical specifications, and industry terminology, exactly what matters most in B2B sales conversations."
       icon: "alert"
     - title: "Noisy environments ignored"
       text: "Client meetings happen in factories, warehouses, cafés, and busy offices. Consumer transcription apps can't filter ambient noise effectively."
@@ -32,7 +32,7 @@ solution:
     - title: "AI processes industry language"
       text: "The transcription engine recognizes technical vocabulary, brand names, and sector-specific terms. It learns from context to minimize errors in specialized conversations."
     - title: "Get structured output instantly"
-      text: "Clean, accurate transcription feeds directly into Reedly's report generator. Speaker identification and formatting happen automatically — no editing required."
+      text: "Clean, accurate transcription feeds directly into Reedly's report generator. Speaker identification and formatting happen automatically, no editing required."
 benefits:
   eyebrow: "Benefits"
   title: "What 95%+ accuracy<br /><em>actually delivers.</em>"
@@ -47,7 +47,7 @@ benefits:
       text: "Works across English variants, regional accents, and non-native speakers. Trained on diverse professional speech patterns."
       icon: "globe"
     - title: "Noisy location ready"
-      text: "Coffee shops, factory floors, construction sites, busy offices — the system filters background noise that defeats consumer apps."
+      text: "Coffee shops, factory floors, construction sites, busy offices, the system filters background noise that defeats consumer apps."
       icon: "compass"
     - title: "Speaker identification built-in"
       text: "Automatically distinguishes between you and the client. Transcripts show who said what, preserving conversation structure."

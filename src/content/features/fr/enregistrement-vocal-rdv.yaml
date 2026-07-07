@@ -28,14 +28,14 @@ problem:
 solution:
   eyebrow: "Solution"
   title: "Enregistrez tout.<br /><em>Sans y penser.</em>"
-  lead: "Reedly capture l'intégralité de vos rendez-vous terrain en audio haute qualité, en arrière-plan. Vous restez concentré sur le client — l'app s'occupe du reste."
+  lead: "Reedly capture l'intégralité de vos rendez-vous terrain en audio haute qualité, en arrière-plan. Vous restez concentré sur le client, l'app s'occupe du reste."
   steps:
     - title: "Un tap avant d'entrer"
       text: "Lancez l'enregistrement vocal depuis votre poche. L'app tourne en arrière-plan pendant tout le rendez-vous, même écran verrouillé."
     - title: "Enregistrement continu optimisé"
-      text: "Batterie économisée grâce à nos algorithmes de compression. Fonctionne hors connexion — l'audio se synchronise au retour réseau."
+      text: "Batterie économisée grâce à nos algorithmes de compression. Fonctionne hors connexion, l'audio se synchronise au retour réseau."
     - title: "Suppression automatique après traitement"
-      text: "L'audio est transcrit puis immédiatement supprimé. Seul le rapport structuré est conservé — aucun fichier audio stocké."
+      text: "L'audio est transcrit puis immédiatement supprimé. Seul le rapport structuré est conservé, aucun fichier audio stocké."
 benefits:
   eyebrow: "Avantages"
   title: "Conçu pour le terrain,<br /><em>pas pour le bureau.</em>"
@@ -56,14 +56,14 @@ benefits:
       text: "Capture audio optimisée pour les environnements bruyants : usines, chantiers, open spaces. Transcription à plus de 95% de précision."
       icon: "chart"
     - title: "Aucune distraction client"
-      text: "Pas de dictaphone visible sur la table. Votre smartphone reste dans votre poche — la relation client reste naturelle."
+      text: "Pas de dictaphone visible sur la table. Votre smartphone reste dans votre poche, la relation client reste naturelle."
       icon: "users"
 use_cases:
   eyebrow: "Cas d'usage"
   title: "Qui utilise l'enregistrement<br /><em>vocal de RDV ?</em>"
   cards:
     - title: "Commerciaux grands comptes"
-      text: "Rendez-vous longs avec multiples interlocuteurs. L'enregistrement vocal capture chaque objection, engagement et décision — impossible à noter manuellement."
+      text: "Rendez-vous longs avec multiples interlocuteurs. L'enregistrement vocal capture chaque objection, engagement et décision, impossible à noter manuellement."
       icon: "building"
     - title: "Technico-commerciaux terrain"
       text: "Environnements bruyants (usines, chantiers). L'enregistrement vocal capte les spécifications techniques et contraintes projet sans sortir un carnet."
@@ -82,11 +82,11 @@ faq:
   - question: "Dois-je informer mon client que j'enregistre le rendez-vous ?"
     answer: "Oui, le consentement oral est obligatoire en France et en Europe (RGPD). Reedly vous rappelle cette obligation au lancement de chaque enregistrement. La plupart des clients acceptent volontiers quand vous expliquez que cela garantit un meilleur suivi."
   - question: "L'audio est-il stocké quelque part après le rendez-vous ?"
-    answer: "Non. L'enregistrement audio est automatiquement supprimé après génération du rapport structuré. Seule la transcription texte et le rapport sont conservés — jamais le fichier audio."
+    answer: "Non. L'enregistrement audio est automatiquement supprimé après génération du rapport structuré. Seule la transcription texte et le rapport sont conservés, jamais le fichier audio."
   - question: "L'enregistrement vocal capte-t-il bien dans les environnements bruyants ?"
     answer: "Oui. Reedly utilise des algorithmes de traitement audio optimisés pour les environnements industriels, chantiers et open spaces. Le taux de transcription reste supérieur à 95% même en milieu bruyant."
   - question: "Puis-je mettre en pause l'enregistrement pendant le RDV ?"
-    answer: "Oui. Vous pouvez mettre en pause et reprendre l'enregistrement à tout moment — utile pour les pauses, interruptions ou discussions hors sujet."
+    answer: "Oui. Vous pouvez mettre en pause et reprendre l'enregistrement à tout moment, utile pour les pauses, interruptions ou discussions hors sujet."
 related_features:
   - slug: "transcription-ia"
     label: "Transcription IA"

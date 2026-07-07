@@ -9,7 +9,7 @@ readingTime: 5
 author: laura
 ---
 
-You just wrapped up a client meeting. Good progress, potential deal on the table. Now comes the forty-minute drive to the next prospect. You turn on the radio, grab a coffee at the drive-through, and watch the highway unfold. By the time you arrive, those forty minutes are gone—and so is any memory of what you needed to follow up on from the previous meeting.
+You just wrapped up a client meeting. Good progress, potential deal on the table. Now comes the forty-minute drive to the next prospect. You turn on the radio, grab a coffee at the drive-through, and watch the highway unfold. By the time you arrive, those forty minutes are gone, and so is any memory of what you needed to follow up on from the previous meeting.
 
 **Sales travel time is the black hole of field sales.** The average field rep spends 10 to 15 hours per week on the road. That's nearly two full working days that most people treat as dead time.
 
@@ -17,7 +17,7 @@ It doesn't have to be.
 
 ## The voice note ritual
 
-Here's what works: as soon as you get in the car, before you turn the key, record a 90-second voice note about what just happened. Not a formal report—just the raw facts. Who said what. What objection came up. What you promised to send. The competitor they mentioned in passing.
+Here's what works: as soon as you get in the car, before you turn the key, record a 90-second voice note about what just happened. Not a formal report, just the raw facts. Who said what. What objection came up. What you promised to send. The competitor they mentioned in passing.
 
 You're not writing anything. You're talking to yourself for ninety seconds. Do this after every meeting, and you'll never lose information again. Plus, you've got the raw material for your meeting reports without the mental effort of reconstructing the conversation six hours later.
 
@@ -29,7 +29,7 @@ That drive between two appointments? It's the perfect window for internal calls 
 
 ## The mental replay technique
 
-This one sounds simple, but most reps skip it: use five minutes of driving time to mentally rehearse the upcoming meeting. Not the full pitch—just the opening. How you'll break the ice. The first question you'll ask. The specific pain point you'll address based on what you know about them.
+This one sounds simple, but most reps skip it: use five minutes of driving time to mentally rehearse the upcoming meeting. Not the full pitch, just the opening. How you'll break the ice. The first question you'll ask. The specific pain point you'll address based on what you know about them.
 
 The difference between winging it and spending five focused minutes on your approach is often the difference between "I'll think about it" and a concrete next step.
 
@@ -41,10 +41,10 @@ Make it tactical, make it relevant, make it timely. That's when audio learning a
 
 ## The post-meeting debrief drive
 
-On the drive home, after your last appointment, use fifteen minutes to think about what worked today and what didn't. Not in a self-critical way—just factual observation. Which question opened up the conversation? When did you talk too much? What surprised you?
+On the drive home, after your last appointment, use fifteen minutes to think about what worked today and what didn't. Not in a self-critical way, just factual observation. Which question opened up the conversation? When did you talk too much? What surprised you?
 
 You won't write this down. You're just building the instinct that separates average field reps from the ones who close consistently.
 
 ---
 
-The reality is simple: **you can't eliminate sales travel time, but you can stop treating it like wasted time.** Every rep who figures this out gains back a full working day per week. Not by working harder—just by working smarter while the wheels are turning.
+The reality is simple: **you can't eliminate sales travel time, but you can stop treating it like wasted time.** Every rep who figures this out gains back a full working day per week. Not by working harder, just by working smarter while the wheels are turning.

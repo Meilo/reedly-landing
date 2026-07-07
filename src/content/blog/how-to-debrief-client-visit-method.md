@@ -15,7 +15,7 @@ A proper client visit debrief isn't a casual chat. It's a structured coaching mo
 
 ## Step 1: Let them talk first (uninterrupted)
 
-Give your rep three minutes to download everything while it's fresh. No questions, no interruptions. Just let them tell the story their way. You'll hear what they think matters, what stuck with them, and—crucially—what they're choosing to leave out. The gaps in their narrative tell you exactly where your coaching should focus.
+Give your rep three minutes to download everything while it's fresh. No questions, no interruptions. Just let them tell the story their way. You'll hear what they think matters, what stuck with them, and, crucially, what they're choosing to leave out. The gaps in their narrative tell you exactly where your coaching should focus.
 
 ## Step 2: Dig into the three critical zones
 
@@ -23,7 +23,7 @@ Now you guide the conversation with precision. Focus on three areas: what the cl
 
 ## Step 3: Identify the one thing to replicate
 
-Every field visit contains at least one moment that worked. Find it. Name it. Make your rep explain why it worked. This isn't cheerleading—it's pattern recognition. When a rep understands what they did right, they can repeat it deliberately instead of by accident.
+Every field visit contains at least one moment that worked. Find it. Name it. Make your rep explain why it worked. This isn't cheerleading, it's pattern recognition. When a rep understands what they did right, they can repeat it deliberately instead of by accident.
 
 ## Step 4: Choose one specific adjustment for next time
 

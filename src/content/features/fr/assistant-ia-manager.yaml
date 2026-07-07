@@ -1,11 +1,11 @@
 seo:
-  title: "Max — Assistant IA directeur commercial | Reedly"
+  title: "Max, Assistant IA directeur commercial | Reedly"
   description: "Posez des questions sur votre équipe commerciale en langage naturel. Max analyse l'activité, crée des directives, pilote vos actions."
   keywords: ["assistant IA directeur commercial", "chatbot manager vente", "IA pilotage équipe commerciale"]
 hero:
-  eyebrow: "Max — Assistant IA Manager"
+  eyebrow: "Max, Assistant IA Manager"
   title: "Votre <em>assistant IA directeur commercial</em><br />comprend vos questions."
-  lead: "Max analyse l'activité de votre équipe en langage naturel. Posez une question, obtenez des réponses — ratios de conversion, deals bloqués, territoires à risque, directives à diffuser. Zéro tableau de bord à déchiffrer."
+  lead: "Max analyse l'activité de votre équipe en langage naturel. Posez une question, obtenez des réponses, ratios de conversion, deals bloqués, territoires à risque, directives à diffuser. Zéro tableau de bord à déchiffrer."
   cta_label: "Démarrer l'essai gratuit"
   cta_url: "/fr#trial"
 problem:
@@ -14,7 +14,7 @@ problem:
   lead: "Vos commerciaux génèrent des centaines de rapports par mois. Mais extraire une tendance, comparer deux territoires ou repérer un signal faible vous prend des heures de tri manuel."
   cards:
     - title: "Données éparpillées dans 50 rapports"
-      text: "Impossible de savoir qui a évoqué tel concurrent, quel secteur convertit le mieux, ou quels deals stagnent — sans tout relire un par un."
+      text: "Impossible de savoir qui a évoqué tel concurrent, quel secteur convertit le mieux, ou quels deals stagnent, sans tout relire un par un."
       icon: "search"
     - title: "Tableaux de bord figés et muets"
       text: "Les outils classiques affichent des chiffres, pas des réponses. Vous voulez savoir pourquoi un commercial décroche, pas juste qu'il décroche."
@@ -25,12 +25,12 @@ problem:
 solution:
   eyebrow: "Solution"
   title: "Posez une question.<br /><em>Max répond en 3 secondes.</em>"
-  lead: "Max est un chatbot manager vente qui dialogue avec vous comme un analyste senior. Tapez votre question en français, obtenez une synthèse structurée — chiffres, tendances, recommandations. Pas de SQL. Pas de filtres. Du pilotage conversationnel."
+  lead: "Max est un chatbot manager vente qui dialogue avec vous comme un analyste senior. Tapez votre question en français, obtenez une synthèse structurée, chiffres, tendances, recommandations. Pas de SQL. Pas de filtres. Du pilotage conversationnel."
   steps:
     - title: "Posez votre question en français"
       text: "« Quels commerciaux ont le plus d'objections prix ? » « Liste les deals bloqués depuis 3 semaines. » « Crée une directive sur la nouvelle gamme produit. » Max comprend le langage naturel."
     - title: "Max analyse tous les rapports de l'équipe"
-      text: "L'IA parcourt l'historique complet — rapports de visite, besoins clients, objections, engagements — et croise les données en temps réel pour répondre précisément."
+      text: "L'IA parcourt l'historique complet, rapports de visite, besoins clients, objections, engagements, et croise les données en temps réel pour répondre précisément."
     - title: "Recevez une réponse structurée et actionnable"
       text: "Max affiche les résultats en liste claire, propose des actions concrètes, et génère même des directives prêtes à diffuser. Un copier-coller suffit pour piloter."
 benefits:
@@ -38,7 +38,7 @@ benefits:
   title: "L'IA de pilotage équipe commerciale<br /><em>qui fait gagner 5 heures par semaine.</em>"
   cards:
     - title: "Réponses en langage naturel"
-      text: "Plus besoin de filtrer, exporter, croiser. Posez une question comme à un collaborateur — Max répond en 3 secondes avec contexte et chiffres."
+      text: "Plus besoin de filtrer, exporter, croiser. Posez une question comme à un collaborateur, Max répond en 3 secondes avec contexte et chiffres."
       icon: "brain"
     - title: "Analyses croisées automatiques"
       text: "Comparez les performances par territoire, produit, objection, ou période. Max repère les corrélations invisibles dans les tableaux classiques."
@@ -47,13 +47,13 @@ benefits:
       text: "Demandez « Crée une directive sur la gestion objection prix ». Max rédige le texte, vous ajustez si besoin, et diffusez à l'équipe depuis le Hub."
       icon: "document"
     - title: "Alertes proactives sur les signaux faibles"
-      text: "Max vous notifie quand un commercial multiplie les objections, qu'un concurrent revient souvent, ou qu'un territoire décroche — avant que ça n'impacte les résultats."
+      text: "Max vous notifie quand un commercial multiplie les objections, qu'un concurrent revient souvent, ou qu'un territoire décroche, avant que ça n'impacte les résultats."
       icon: "alert"
     - title: "Historique des conversations sauvegardé"
       text: "Toutes vos questions et réponses sont archivées. Retrouvez une analyse passée, partagez un insight avec un N+1, ou reprenez un fil de réflexion semaines après."
       icon: "book"
     - title: "Accessible depuis le Hub web"
-      text: "Max est intégré au Hub Manager Reedly. Aucune installation, aucune formation — tapez et obtenez. Fonctionne sur tous les navigateurs."
+      text: "Max est intégré au Hub Manager Reedly. Aucune installation, aucune formation, tapez et obtenez. Fonctionne sur tous les navigateurs."
       icon: "globe"
 use_cases:
   eyebrow: "Cas d'usage"
@@ -66,7 +66,7 @@ use_cases:
       text: "« Quels besoins clients reviennent le plus ce mois ? » Max agrège les verbatims et vous donne la matière pour ajuster l'offre ou le discours produit."
       icon: "target"
     - title: "Débloquer un commercial en difficulté"
-      text: "« Pourquoi Jean convertit moins que la moyenne ? » Max compare ses objections, ses produits discutés, ses engagements — et vous suggère un axe de coaching précis."
+      text: "« Pourquoi Jean convertit moins que la moyenne ? » Max compare ses objections, ses produits discutés, ses engagements, et vous suggère un axe de coaching précis."
       icon: "compass"
     - title: "Créer une directive commerciale en 2 minutes"
       text: "« Rédige une directive sur le lancement produit X. » Max génère le texte structuré, vous le validez, et le diffusez à toute l'équipe via le Hub."

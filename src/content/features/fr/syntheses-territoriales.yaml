@@ -8,19 +8,19 @@ seo:
 hero:
   eyebrow: "Hub Manager · Synthèses territoriales"
   title: "Synthèse activité commerciale terrain<br />en <em>quelques secondes.</em>"
-  lead: "Reedly agrège automatiquement tous les rapports terrain sur la période choisie — semaine, mois, trimestre — et génère une synthèse priorisée : tendances du territoire, risques détectés, opportunités à saisir. La vision stratégique sans la lecture."
+  lead: "Reedly agrège automatiquement tous les rapports terrain sur la période choisie, semaine, mois, trimestre, et génère une synthèse priorisée : tendances du territoire, risques détectés, opportunités à saisir. La vision stratégique sans la lecture."
   cta_label: "Tester gratuitement"
   cta_url: "/fr#trial"
 problem:
   eyebrow: "Problème"
   title: "Vos commerciaux rapportent.<br /><em>Mais qui voit l'ensemble ?</em>"
-  lead: "Chaque commercial remonte ses rendez-vous. Mais pour le manager, transformer ces dizaines de rapports individuels en vision stratégique du territoire prend des heures — quand ça arrive."
+  lead: "Chaque commercial remonte ses rendez-vous. Mais pour le manager, transformer ces dizaines de rapports individuels en vision stratégique du territoire prend des heures, quand ça arrive."
   cards:
     - title: "Noyé sous les rapports individuels"
       text: "15 commerciaux × 4 rendez-vous par jour = 60 rapports par jour à lire. Impossible d'extraire les tendances du territoire manuellement."
       icon: "document"
     - title: "Les signaux faibles passent inaperçus"
-      text: "Un concurrent revient 3 fois cette semaine, une objection prix émerge sur la zone sud — mais ces patterns restent invisibles dans la masse."
+      text: "Un concurrent revient 3 fois cette semaine, une objection prix émerge sur la zone sud, mais ces patterns restent invisibles dans la masse."
       icon: "alert"
     - title: "Vision stratégique obsolète"
       text: "Le temps de compiler les infos et préparer le comité commercial, les données ont déjà 2 semaines. Les décisions se prennent sur du périmé."

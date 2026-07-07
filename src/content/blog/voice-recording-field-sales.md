@@ -9,7 +9,7 @@ readingTime: 7
 author: laura
 ---
 
-You're in your client's reception area. The meeting starts in three minutes. Your hands are full — briefcase, business card, phone. Opening a notebook or typing on a keyboard isn't an option. Yet in an hour, you'll need to remember everything that was said: the budget mentioned between two sentences, the name of the absent decision-maker, the deadline for the tender.
+You're in your client's reception area. The meeting starts in three minutes. Your hands are full, briefcase, business card, phone. Opening a notebook or typing on a keyboard isn't an option. Yet in an hour, you'll need to remember everything that was said: the budget mentioned between two sentences, the name of the absent decision-maker, the deadline for the tender.
 
 Voice recording solves this problem. You press a button, your phone captures everything, and you focus on what matters: selling.
 
@@ -31,7 +31,7 @@ Without voice recording, reports are written in the evening or the next day. The
 
 ### 45 minutes become 2 minutes
 
-A manually written meeting report takes an average of 45 minutes per meeting. Voice recording followed by AI generation produces a structured report in 11 sections in under 2 minutes. Over a week of 4 meetings, that's **nearly 3 hours recovered** — time you can reinvest in prospecting or client relationships.
+A manually written meeting report takes an average of 45 minutes per meeting. Voice recording followed by AI generation produces a structured report in 11 sections in under 2 minutes. Over a week of 4 meetings, that's **nearly 3 hours recovered**, time you can reinvest in prospecting or client relationships.
 
 ### Reports actually get done
 
@@ -47,7 +47,7 @@ Reedly is a mobile app designed for the field. The process takes three steps.
 
 **3. Review and share.** The report is ready in under 2 minutes. You review it, adjust a nuance if needed, and export it as PDF or share it directly. The manager accesses it via the Hub without waiting for you to get back to the office.
 
-The voice recording is permanently deleted after the report is generated. Privacy by design — no audio is ever retained.
+The voice recording is permanently deleted after the report is generated. Privacy by design, no audio is ever retained.
 
 ## Voice recording vs voice dictation vs note-taking
 
@@ -58,7 +58,7 @@ These three approaches are often confused. They don't solve the same problem.
 | **When** | During the meeting | After the meeting | During the meeting |
 | **What's captured** | The actual exchange (client + rep) | What the rep remembers | What the rep has time to write |
 | **Accuracy** | Faithful to conversation | Depends on memory | Partial, selective |
-| **Impact on meeting** | None — hands-free | None — done after | Negative — split attention |
+| **Impact on meeting** | None, hands-free | None, done after | Negative, split attention |
 | **Report time** | < 2 min (automated) | 15-20 min (dictation + review) | 30-45 min (writing) |
 
 Voice recording is the only approach that captures the entire exchange without impacting meeting quality. Voice dictation is an improvement over notes, but it still relies on the rep's memory.

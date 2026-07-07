@@ -41,4 +41,4 @@ When you're stuck, flip it: "What would it take for us to work together on this 
 
 You can't negotiate effectively if you don't know your floor. Before the visit, decide: what's the minimum acceptable margin? What's the discount threshold where you'd rather lose the deal? Negotiating prices face-to-face requires this clarity, or you'll concede too much under pressure.
 
-The best negotiators don't win by having the lowest price. They win by staying calm, structuring the conversation, and knowing exactly what they're willing to give up—and what they're not.
+The best negotiators don't win by having the lowest price. They win by staying calm, structuring the conversation, and knowing exactly what they're willing to give up, and what they're not.

@@ -1,24 +1,24 @@
 ---
-// Problem section — three visual "pain" cards
+// Problem section, three visual "pain" cards
 ---
 
 <!-- ── Problem ── -->
       <section class="section section--alt" id="problem">
         <div class="inner">
           <div class="reveal">
-            <div class="section__eyebrow" data-i18n="problem.eyebrow">Problème</div>
+            <div class="section__eyebrow" data-i18n="problem.eyebrow">L'angle mort de l'IA commerciale</div>
             <h2 data-i18n-html="problem.title">
-              Un rendez-vous rapporte.<br /><em>Un compte-rendu coûte.</em>
+              Le sédentaire est suréquipé.<br /><em>Le terrain, livré à lui-même.</em>
             </h2>
             <p class="section__lead" data-i18n="problem.lead">
-              Les commerciaux terrain passent leurs journées en rendez-vous, pas devant un clavier.
-              Les informations clés restent dans la tête et s'évaporent avant même le retour au
-              bureau.
+              Depuis 5 ans, chaque appel visio d'un commercial sédentaire est enregistré, analysé,
+              coaché, versé au CRM. Le commercial terrain, lui, ressort de son rendez-vous avec un
+              carnet et sa mémoire. La donnée la plus riche, celle du face-à-face, se perd.
             </p>
           </div>
 
           <div class="prob-grid">
-            <!-- Card 1 — time lost -->
+            <!-- Card 1, time lost -->
             <article class="prob-card reveal reveal-delay-1">
               <div class="prob-viz prob-viz--time">
                 <div class="prob-viz__top">
@@ -42,7 +42,7 @@
               </p>
             </article>
 
-            <!-- Card 2 — forgotten commitments -->
+            <!-- Card 2, forgotten commitments -->
             <article class="prob-card reveal reveal-delay-2">
               <div class="prob-viz prob-viz--fade">
                 <span class="prob-tag" style="--o:1;--y:0" data-i18n="problem.viz2.t1">Promesse client</span>
@@ -58,7 +58,7 @@
               </p>
             </article>
 
-            <!-- Card 3 — blind manager -->
+            <!-- Card 3, blind manager -->
             <article class="prob-card reveal reveal-delay-3">
               <div class="prob-viz prob-viz--blind">
                 <div class="prob-dash">
@@ -74,10 +74,10 @@
                   <span class="prob-dash__q" aria-hidden="true">?</span>
                 </div>
               </div>
-              <h3 data-i18n="problem.card3.title">Manager aveugle</h3>
+              <h3 data-i18n="problem.card3.title">Le terrain, invisible</h3>
               <p data-i18n="problem.card3.text">
-                Le responsable ne voit pas ce qui se passe sur le terrain tant que le commercial ne
-                rapporte pas. Et ça arrive trop tard pour agir sur les opportunités ou les risques.
+                L'inside-sales est tracé à 100 %. Le terrain, zéro. Le manager ne voit rien de ce
+                qui s'est dit en clientèle, jusqu'à ce qu'il soit trop tard.
               </p>
             </article>
           </div>
@@ -113,7 +113,7 @@
             background: linear-gradient(90deg, transparent, rgba(240, 180, 41, 0.55), transparent);
           }
 
-          /* Card 1 — time */
+          /* Card 1, time */
           .prob-viz--time { display: flex; flex-direction: column; justify-content: space-between; }
           .prob-viz__top { display: flex; align-items: center; gap: 7px; color: #f0b429; }
           .prob-moon svg { width: 15px; height: 15px; }
@@ -125,14 +125,14 @@
           .prob-bar__legend { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 9px; font-family: var(--mono); font-size: 0.6rem; color: var(--muted); letter-spacing: 0.02em; }
           .prob-warn { color: #f0b429; }
 
-          /* Card 2 — evaporating info */
+          /* Card 2, evaporating info */
           .prob-viz--fade { display: flex; flex-direction: column; gap: 9px; justify-content: center; }
           .prob-tag { align-self: flex-start; padding: 7px 12px; border-radius: 9px; background: var(--surface2); border: 1px solid var(--border); font-family: var(--sans); font-size: 0.82rem; color: var(--text); opacity: var(--o); transform: translateY(var(--y)); animation: prob-evap 4s ease-in-out infinite; }
           .prob-tag:nth-child(2) { animation-delay: 0.5s; }
           .prob-tag:nth-child(3) { animation-delay: 1s; }
           .prob-tag--gone { opacity: 0.22; letter-spacing: 0.3em; color: var(--muted); border-style: dashed; animation: none; }
 
-          /* Card 3 — blind dashboard */
+          /* Card 3, blind dashboard */
           .prob-viz--blind { display: flex; align-items: center; justify-content: center; }
           .prob-dash { position: relative; width: 100%; border: 1px solid var(--border); border-radius: 11px; background: var(--surface2); overflow: hidden; }
           .prob-dash__bar { display: flex; align-items: center; gap: 5px; padding: 8px 11px; border-bottom: 1px solid var(--border); background: rgba(0, 0, 0, 0.12); }

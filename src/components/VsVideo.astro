@@ -1,0 +1,144 @@
+---
+// "Reedly vs les outils de visio", honest, category-level differentiation (no competitor names).
+// See docs/positioning/2026-07-07-positionnement-concurrence.md §6.3
+const rows = [
+  { others: 'Rejoignent une visio pour prendre des notes', reedly: 'Capte le rendez-vous physique, mains libres' },
+  { others: 'Ont besoin d’une connexion en continu', reedly: 'Fonctionne hors-ligne, synchronise ensuite' },
+  { others: 'Rendent un transcript ou un résumé générique', reedly: 'Rend un rapport commercial en 11 sections' },
+  { others: 'Chaque compte-rendu repart d’une page blanche', reedly: 'Chaque rapport part de l’historique du client' },
+  { others: 'Pilotage pensé pour la revue d’appels', reedly: 'Pilotage pensé pour la couverture territoriale' },
+  { others: 'Un modèle généraliste, aveugle à votre métier', reedly: 'Expert sectoriel qui comprend votre jargon' },
+];
+---
+
+<!-- ── Reedly vs video-call tools ── -->
+      <section class="section" id="vs-video">
+        <div class="inner">
+          <div class="reveal">
+            <div class="section__eyebrow" data-i18n="vsvideo.eyebrow">Reedly vs les outils de visio</div>
+            <h2 data-i18n-html="vsvideo.title">
+              Les autres sont faits pour les appels.<br /><em>Reedly est fait pour le terrain.</em>
+            </h2>
+            <p class="section__lead" data-i18n="vsvideo.lead">
+              La vague de l'IA commerciale est née pour la réunion en ligne. Le rendez-vous physique
+              est resté son angle mort. C'est exactement là que Reedly commence.
+            </p>
+          </div>
+
+          <div class="vs-table reveal reveal-delay-1">
+            <div class="vs-table__head">
+              <span class="vs-col vs-col--others" data-i18n="vsvideo.col_others">Les outils d'IA commerciale classiques</span>
+              <span class="vs-col vs-col--reedly">
+                <i class="vs-dot" aria-hidden="true"></i><span data-i18n="vsvideo.col_reedly">Reedly</span>
+              </span>
+            </div>
+            {rows.map((row, i) => (
+              <div class="vs-row">
+                <div class="vs-cell vs-cell--others">
+                  <svg class="vs-ico vs-ico--x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                  <span data-i18n={`vsvideo.r${i + 1}.others`}>{row.others}</span>
+                </div>
+                <div class="vs-cell vs-cell--reedly">
+                  <svg class="vs-ico vs-ico--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span data-i18n={`vsvideo.r${i + 1}.reedly`}>{row.reedly}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <style>
+          .vs-table {
+            margin-top: 44px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--surface);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+          }
+          html[data-theme="light"] .vs-table {
+            box-shadow: 0 6px 20px rgba(2, 6, 23, 0.06);
+          }
+          .vs-table__head,
+          .vs-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+          }
+          .vs-table__head {
+            border-bottom: 1px solid var(--border);
+          }
+          .vs-col {
+            padding: 15px 22px;
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+          }
+          .vs-col--others {
+            color: var(--muted);
+          }
+          .vs-col--reedly {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--green);
+            font-weight: 600;
+            background: rgba(22, 163, 74, 0.07);
+            border-left: 1px solid var(--border);
+          }
+          .vs-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+          }
+          .vs-row {
+            border-top: 1px solid var(--border);
+          }
+          .vs-cell {
+            display: flex;
+            align-items: flex-start;
+            gap: 11px;
+            padding: 16px 22px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+          }
+          .vs-cell--others {
+            color: var(--muted);
+          }
+          .vs-cell--reedly {
+            color: var(--text);
+            background: rgba(22, 163, 74, 0.07);
+            border-left: 1px solid var(--border);
+          }
+          .vs-ico {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            margin-top: 1px;
+          }
+          .vs-ico--x {
+            color: var(--faint);
+          }
+          .vs-ico--check {
+            color: var(--green);
+          }
+
+          @media (max-width: 760px) {
+            .vs-table__head {
+              display: none;
+            }
+            .vs-row {
+              grid-template-columns: 1fr;
+            }
+            .vs-cell--reedly {
+              border-left: none;
+              border-top: 1px solid var(--border);
+            }
+          }
+        </style>
+      </section>

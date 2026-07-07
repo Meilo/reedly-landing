@@ -1,11 +1,11 @@
 seo:
   title: "Meeting Speaker Identification AI | Reedly"
-  description: "Reedly's conversation diarization identifies who spoke in meetings—distinguishing sales rep from client for accurate attribution in every report."
+  description: "Reedly's conversation diarization identifies who spoke in meetings, distinguishing sales rep from client for accurate attribution in every report."
   keywords: ["meeting speaker identification", "conversation diarization", "who spoke in a meeting AI"]
 hero:
   eyebrow: "Speaker Identification"
   title: "Meeting speaker identification.<br /><em>Know who said what.</em>"
-  lead: "Reedly's AI automatically identifies speakers in your client meetings—distinguishing your voice from the client's, and attributing every statement to the right person. No more confusion about who raised an objection or made a commitment."
+  lead: "Reedly's AI automatically identifies speakers in your client meetings, distinguishing your voice from the client's, and attributing every statement to the right person. No more confusion about who raised an objection or made a commitment."
   cta_label: "Try Reedly Free"
   cta_url: "/en#trial"
 problem:
@@ -25,26 +25,26 @@ problem:
 solution:
   eyebrow: "Solution"
   title: "Conversation diarization.<br /><em>Automatic attribution.</em>"
-  lead: "Reedly's AI listens to vocal patterns and automatically identifies who's speaking throughout the meeting—separating your voice from the client's with precision."
+  lead: "Reedly's AI listens to vocal patterns and automatically identifies who's speaking throughout the meeting, separating your voice from the client's with precision."
   steps:
     - title: "AI analyzes voice patterns"
-      text: "During transcription, the diarization engine identifies distinct speakers based on vocal characteristics, pace, and audio signatures—no manual setup required."
+      text: "During transcription, the diarization engine identifies distinct speakers based on vocal characteristics, pace, and audio signatures, no manual setup required."
     - title: "Statements attributed automatically"
       text: "Every sentence gets tagged: Sales Rep or Client. The AI knows which objections came from the prospect and which answers came from you."
     - title: "Reports show clear attribution"
-      text: "Your structured report separates client statements from rep responses. Objections, needs, and commitments are attributed to the right speaker—ready for review and coaching."
+      text: "Your structured report separates client statements from rep responses. Objections, needs, and commitments are attributed to the right speaker, ready for review and coaching."
 benefits:
   eyebrow: "Benefits"
   title: "Clear voices.<br /><em>Actionable insights.</em>"
   cards:
     - title: "Client concerns properly captured"
-      text: "Know exactly which objections and needs came from the client's mouth—not mixed up with your pitch. Every concern gets proper follow-up."
+      text: "Know exactly which objections and needs came from the client's mouth, not mixed up with your pitch. Every concern gets proper follow-up."
       icon: "target"
     - title: "Accurate coaching data"
       text: "Managers see precisely how reps respond to client questions. Coaching becomes data-driven when you can review actual rep-client exchanges."
       icon: "users"
     - title: "No manual transcript editing"
-      text: "Stop wasting time labeling who said what. The AI handles meeting speaker identification automatically—you get clean attribution in under 2 minutes."
+      text: "Stop wasting time labeling who said what. The AI handles meeting speaker identification automatically, you get clean attribution in under 2 minutes."
       icon: "zap"
     - title: "Reliable commitment tracking"
       text: "When a client says 'I'll send that budget next week,' it's clearly attributed. No confusion about who made which commitment."
@@ -73,13 +73,13 @@ use_cases:
       icon: "compass"
 faq:
   - question: "How does meeting speaker identification work?"
-    answer: "Reedly's conversation diarization analyzes vocal patterns, pitch, pace, and audio signatures during transcription. The AI identifies distinct speakers and labels each statement as Sales Rep or Client—automatically, with no training required."
+    answer: "Reedly's conversation diarization analyzes vocal patterns, pitch, pace, and audio signatures during transcription. The AI identifies distinct speakers and labels each statement as Sales Rep or Client, automatically, with no training required."
   - question: "Does speaker identification work with multiple clients in one meeting?"
     answer: "Yes. If multiple client contacts attend the meeting, Reedly identifies them as separate speakers and labels them as Client 1, Client 2, etc. You can manually rename them in the report after generation."
   - question: "Do I need to train the AI on my voice?"
-    answer: "No. The who spoke in a meeting AI works immediately without voice training. It distinguishes speakers based on real-time analysis during each recording—no setup or calibration needed."
+    answer: "No. The who spoke in a meeting AI works immediately without voice training. It distinguishes speakers based on real-time analysis during each recording, no setup or calibration needed."
   - question: "What if the client and I have similar-sounding voices?"
-    answer: "Reedly's diarization is optimized for typical vocal differences in conversation. In rare cases of very similar voices, the AI may occasionally misattribute a statement—but accuracy exceeds 90% in standard conditions."
+    answer: "Reedly's diarization is optimized for typical vocal differences in conversation. In rare cases of very similar voices, the AI may occasionally misattribute a statement, but accuracy exceeds 90% in standard conditions."
   - question: "Can I edit speaker attribution after the report is generated?"
     answer: "Yes. If the AI misattributes a statement, you can manually reassign it to the correct speaker in the Reedly app before sharing or exporting the report."
   - question: "Does speaker identification work in noisy environments?"

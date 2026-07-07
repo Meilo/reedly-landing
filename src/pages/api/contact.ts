@@ -28,7 +28,7 @@ const SUBJECT_LABELS: Record<string, string> = {
   partnership: 'Partenariat & intégration',
   sector: 'Nouveau secteur',
   support: 'Support technique',
-  trial: 'Demande d\'essai — Try for free',
+  trial: 'Demande d\'essai, Try for free',
   other: 'Autre',
 };
 
@@ -56,7 +56,7 @@ function buildEmailHtml(data: ContactPayload): string {
   };
   return `
     <div style="font-family: sans-serif; max-width: 600px; color: #111;">
-      <h2 style="color: #16a34a;">Nouveau message — ${safe.subject}</h2>
+      <h2 style="color: #16a34a;">Nouveau message, ${safe.subject}</h2>
       <table style="width: 100%; border-collapse: collapse;">
         <tr>
           <td style="padding: 8px 0; font-weight: 600; width: 160px;">Nom</td>
@@ -114,7 +114,7 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
-  // Validate required fields — for trial requests message is optional but role + users_count are required
+  // Validate required fields, for trial requests message is optional but role + users_count are required
   const baseRequired = ['firstname', 'lastname', 'email', 'subject'] as const;
   for (const field of baseRequired) {
     if (!data[field]?.trim()) {
@@ -176,7 +176,7 @@ export const POST: APIRoute = async ({ request }) => {
       from: `Reedly Contact <${fromEmail}>`,
       to: [toEmail],
       replyTo: data.email,
-      subject: `[Reedly] ${subjectLabel} — ${data.firstname} ${data.lastname}`,
+      subject: `[Reedly] ${subjectLabel}, ${data.firstname} ${data.lastname}`,
       html: buildEmailHtml(data),
     });
 

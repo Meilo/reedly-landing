@@ -14,7 +14,7 @@ hero:
 problem:
   eyebrow: "Problème"
   title: "Une transcription manuelle<br /><em>perd l'essentiel.</em>"
-  lead: "Prendre des notes en plein rendez-vous vous coupe de l'échange. Se fier à sa mémoire pour retranscrire après coup fait perdre 60% des détails cruciaux — chiffres exacts, objections formulées, engagements mutuels."
+  lead: "Prendre des notes en plein rendez-vous vous coupe de l'échange. Se fier à sa mémoire pour retranscrire après coup fait perdre 60% des détails cruciaux, chiffres exacts, objections formulées, engagements mutuels."
   cards:
     - title: "Impossible d'écouter et noter en même temps"
       text: "En griffonnant des notes, vous ratez les signaux faibles, le non-dit, les objections à peine formulées. Votre attention est divisée au pire moment."

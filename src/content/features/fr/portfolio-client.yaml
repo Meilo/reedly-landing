@@ -1,20 +1,20 @@
 seo:
-  title: "Portfolio Client IA — Reedly"
+  title: "Portfolio Client IA, Reedly"
   description: "Gestion de portefeuille client enrichie par IA. Fiches auto-complétées, historique unifié, score relationnel. Pour commerciaux terrain B2B."
   keywords: ["gestion portefeuille client commercial", "fiche client enrichie IA", "suivi client terrain"]
 hero:
   eyebrow: "Portfolio Client"
   title: "Votre <em>gestion portefeuille client</em><br />enrichie automatiquement."
-  lead: "Reedly transforme vos rapports de visite en base client vivante. Chaque rendez-vous alimente automatiquement les fiches — profil, besoins, historique, score relationnel. Tout centralisé, rien à ressaisir."
+  lead: "Reedly transforme vos rapports de visite en base client vivante. Chaque rendez-vous alimente automatiquement les fiches, profil, besoins, historique, score relationnel. Tout centralisé, rien à ressaisir."
   cta_label: "Essayer gratuitement"
   cta_url: "/fr#trial"
 problem:
   eyebrow: "Le problème"
   title: "Les infos clients <em>sont partout.</em><br />Sauf au bon endroit."
-  lead: "Les commerciaux terrain accumulent une connaissance client précieuse. Mais elle reste éparpillée dans des carnets, des emails, des CRM jamais mis à jour — et se perd au fil du temps."
+  lead: "Les commerciaux terrain accumulent une connaissance client précieuse. Mais elle reste éparpillée dans des carnets, des emails, des CRM jamais mis à jour, et se perd au fil du temps."
   cards:
     - title: "Données clients dispersées"
-      text: "Carnets manuscrits, notes vocales, emails, mémoire. Impossible de retrouver ce qui s'est dit il y a trois mois chez un client — encore moins d'avoir une vue d'ensemble."
+      text: "Carnets manuscrits, notes vocales, emails, mémoire. Impossible de retrouver ce qui s'est dit il y a trois mois chez un client, encore moins d'avoir une vue d'ensemble."
       icon: "shuffle"
     - title: "CRM jamais à jour"
       text: "Remplir le CRM après chaque visite demande du temps et de la discipline. Résultat : des fiches vides ou obsolètes qui ne servent à personne."
@@ -25,12 +25,12 @@ problem:
 solution:
   eyebrow: "La solution"
   title: "L'IA construit votre portfolio<br /><em>rapport après rapport.</em>"
-  lead: "Chaque visite enregistrée avec Reedly enrichit automatiquement la fiche client. Profil entreprise, contacts, besoins agrégés, historique complet — tout se met à jour sans effort."
+  lead: "Chaque visite enregistrée avec Reedly enrichit automatiquement la fiche client. Profil entreprise, contacts, besoins agrégés, historique complet, tout se met à jour sans effort."
   steps:
     - title: "Enregistrez vos rendez-vous"
       text: "L'application capture vos visites terrain. Chaque échange avec un client alimente automatiquement sa fiche dans votre portfolio."
     - title: "L'IA extrait et structure"
-      text: "Reedly identifie les informations clés — interlocuteurs, besoins exprimés, sujets sensibles, engagements pris — et les classe dans les bonnes sections."
+      text: "Reedly identifie les informations clés, interlocuteurs, besoins exprimés, sujets sensibles, engagements pris, et les classe dans les bonnes sections."
     - title: "Votre base client s'enrichit seule"
       text: "Profil entreprise, timeline d'interactions, besoins agrégés, score relationnel : chaque fiche devient un référentiel vivant sans saisie manuelle."
 benefits:
@@ -50,7 +50,7 @@ benefits:
       text: "Reedly analyse la qualité des échanges et génère un score relationnel par client. Identifiez les comptes à risque et les ambassadeurs."
       icon: "chart"
     - title: "Préparation de visite instantanée"
-      text: "Avant chaque rendez-vous, consultez la fiche client complète. Contexte, historique, derniers engagements — vous arrivez préparé."
+      text: "Avant chaque rendez-vous, consultez la fiche client complète. Contexte, historique, derniers engagements, vous arrivez préparé."
       icon: "book"
     - title: "Export vers votre CRM"
       text: "Synchronisez vos fiches enrichies avec Salesforce, HubSpot ou votre outil métier. Les données Reedly alimentent votre écosystème existant."
@@ -60,7 +60,7 @@ use_cases:
   title: "Qui utilise le Portfolio Client ?"
   cards:
     - title: "Commercial itinérant multicomptes"
-      text: "Vous gérez 40+ clients actifs. Le portfolio vous donne une vue instantanée de chaque relation — dernière visite, besoins en cours, prochaine action."
+      text: "Vous gérez 40+ clients actifs. Le portfolio vous donne une vue instantanée de chaque relation, dernière visite, besoins en cours, prochaine action."
       icon: "users"
     - title: "Équipe commerciale avec rotation"
       text: "Un collègue reprend un territoire ou remplace un absent. Il accède immédiatement à l'historique complet de chaque client sans briefing interminable."
@@ -69,7 +69,7 @@ use_cases:
       text: "Vous pilotez 8 commerciaux terrain. Le portfolio centralisé vous permet de voir l'état de chaque compte, d'identifier les risques et d'anticiper les opportunités."
       icon: "compass"
     - title: "Scale-up en forte croissance"
-      text: "Votre équipe double chaque année. Le portfolio client devient votre mémoire collective — aucune connaissance ne se perd entre deux départs."
+      text: "Votre équipe double chaque année. Le portfolio client devient votre mémoire collective, aucune connaissance ne se perd entre deux départs."
       icon: "chart"
 faq:
   - question: "Comment l'IA enrichit-elle les fiches clients ?"

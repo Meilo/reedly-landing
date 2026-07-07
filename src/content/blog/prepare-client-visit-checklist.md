@@ -9,7 +9,7 @@ readingTime: 5
 author: laura
 ---
 
-You're in the car, fifteen minutes from the client's office. You mentally review what you know about them. Company name, contact person, that's solid. But wait—what was the context of the last exchange? Did they mention a specific pain point in the last email? And damn, did you remember to charge your laptop?
+You're in the car, fifteen minutes from the client's office. You mentally review what you know about them. Company name, contact person, that's solid. But wait, what was the context of the last exchange? Did they mention a specific pain point in the last email? And damn, did you remember to charge your laptop?
 
 This scenario plays out every week for thousands of field salespeople. The difference between those who close and those who don't often comes down to one thing: preparation.
 
@@ -23,7 +23,7 @@ If you can't answer in under thirty seconds, you're not ready. A client visit wi
 
 This is where most salespeople lose the game. Preparing the morning of the meeting means you've already missed half the essentials.
 
-**The evening before**: verify the exact address (not just the company name in GPS—the specific building entrance), check if parking is available, review their LinkedIn profiles, re-read the last three email exchanges. Print the proposal if there's one. Charge everything that has a battery.
+**The evening before**: verify the exact address (not just the company name in GPS, the specific building entrance), check if parking is available, review their LinkedIn profiles, re-read the last three email exchanges. Print the proposal if there's one. Charge everything that has a battery.
 
 **The tactical stuff**: business cards, backup pen, notebook, phone charger, laptop charger, samples if relevant, contract templates ready to go. Sounds basic? Yet 40% of field sales reps have forgotten at least one critical item in their last five visits.
 
@@ -35,7 +35,7 @@ The goal isn't to become an expert on their business. It's to show you paid atte
 
 ## The question list you actually need
 
-Write down five open questions tailored to this specific client. Not generic discovery questions you could ask anyone—targeted questions based on what you already know about their situation.
+Write down five open questions tailored to this specific client. Not generic discovery questions you could ask anyone, targeted questions based on what you already know about their situation.
 
 Because here's the truth: clients don't remember your pitch. They remember whether you understood them. And understanding starts before you walk through their door.
 

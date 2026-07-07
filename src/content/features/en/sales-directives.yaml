@@ -5,13 +5,13 @@ seo:
 hero:
   eyebrow: "Sales Directives"
   title: "Set <em>sales team directives.</em><br />Track compliance automatically."
-  lead: "Define sales objectives with specific checkpoints. Reedly's AI evaluates every field report against active directives and surfaces a compliance score — no manual review needed."
+  lead: "Define sales objectives with specific checkpoints. Reedly's AI evaluates every field report against active directives and surfaces a compliance score, no manual review needed."
   cta_label: "Start free trial"
   cta_url: "/en#trial"
 problem:
   eyebrow: "Challenge"
   title: "Directives get communicated.<br /><em>Execution never gets tracked.</em>"
-  lead: "Sales managers issue objectives — new product focus, discovery questions, competitor intel. But there's no systematic way to verify what's actually happening in the field."
+  lead: "Sales managers issue objectives, new product focus, discovery questions, competitor intel. But there's no systematic way to verify what's actually happening in the field."
   cards:
     - title: "Directives lost in email threads"
       text: "Objectives get announced in Monday meetings and buried in Slack channels. Field reps forget what they're supposed to focus on by Wednesday."
@@ -25,12 +25,12 @@ problem:
 solution:
   eyebrow: "How it works"
   title: "Define once.<br /><em>Track everywhere.</em>"
-  lead: "Create directives with specific checkpoints. The AI automatically checks each report and flags what was covered — or missed."
+  lead: "Create directives with specific checkpoints. The AI automatically checks each report and flags what was covered, or missed."
   steps:
     - title: "Define your sales directives"
       text: "Create directives with clear checkpoints: discuss new product line, qualify budget, ask about current provider, gather competitive pricing. Set them active across your territory or specific reps."
     - title: "Reps record meetings as usual"
-      text: "Field salespeople use Reedly to record client meetings. They don't need to remember every directive — the AI does the checking for them after the meeting."
+      text: "Field salespeople use Reedly to record client meetings. They don't need to remember every directive, the AI does the checking for them after the meeting."
     - title: "AI evaluates compliance automatically"
       text: "The AI scans each report against active directives and surfaces a compliance score. Managers see at a glance which objectives were met and what was missed across all meetings."
 benefits:
@@ -41,7 +41,7 @@ benefits:
       text: "When reps know their reports are evaluated against objectives, execution improves. Checkpoints turn abstract goals into concrete actions."
       icon: "target"
     - title: "Instant compliance visibility"
-      text: "See which directives are being executed and which are being ignored — across the entire team, without reading a single report manually."
+      text: "See which directives are being executed and which are being ignored, across the entire team, without reading a single report manually."
       icon: "chart"
     - title: "Coach with real data"
       text: "Identify which reps consistently miss key checkpoints. Base coaching conversations on objective compliance scores, not gut feeling."
@@ -50,7 +50,7 @@ benefits:
       text: "If a directive shows low compliance across the board, you'll know immediately. Adjust messaging, provide training, or revise the objective before the quarter ends."
       icon: "zap"
     - title: "No extra work for field reps"
-      text: "Salespeople don't fill out compliance checklists. They record meetings as usual — the AI handles evaluation automatically from the report content."
+      text: "Salespeople don't fill out compliance checklists. They record meetings as usual, the AI handles evaluation automatically from the report content."
       icon: "shield"
     - title: "Objective performance measurement"
       text: "Replace subjective report reviews with consistent AI evaluation. Every directive is checked the same way across every report, every time."
@@ -73,7 +73,7 @@ use_cases:
       icon: "document"
 faq:
   - question: "How does the AI evaluate directive compliance?"
-    answer: "The AI analyzes the content of each report section against the checkpoints you've defined. It identifies whether topics were discussed, questions were asked, or information was gathered — then assigns a compliance score based on how many checkpoints were met."
+    answer: "The AI analyzes the content of each report section against the checkpoints you've defined. It identifies whether topics were discussed, questions were asked, or information was gathered, then assigns a compliance score based on how many checkpoints were met."
   - question: "Can I create different directives for different team members?"
     answer: "Yes. You can assign directives to specific reps, territories, or the entire team. This allows you to tailor objectives based on product focus, market segment, or rep experience level."
   - question: "Do salespeople see the compliance scores?"
@@ -88,6 +88,6 @@ related_features:
   - slug: "manager-hub"
     label: "Manager Hub"
   - slug: "ai-manager-assistant"
-    label: "Max — AI Manager Assistant"
+    label: "Max, AI Manager Assistant"
   - slug: "territory-syntheses"
     label: "Territory Syntheses"
