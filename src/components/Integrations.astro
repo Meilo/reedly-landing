@@ -1,5 +1,5 @@
 ---
-// Integrations — meetsponsors-style ecosystem wall: Reedly sits centre-stage as
+// Integrations, meetsponsors-style ecosystem wall: Reedly sits centre-stage as
 // the focal card, with the tools it connects to drifting around it in two slow
 // marquee rows (opposite directions), edges faded, a pinstripe + green glow
 // behind the centre. Reproduces the reference effect for the CRM/integrations
@@ -17,7 +17,7 @@ const tilesB = [tilesA[2], tilesA[4], tilesA[0], tilesA[3], tilesA[1]];
 
 // Repeat each set 4× per row. The track then holds two identical halves, each
 // wider than the viewport, so translateX(-50%) always lands on an identical
-// frame with no empty edge — a truly seamless infinite loop.
+// frame with no empty edge, a truly seamless infinite loop.
 const rowA = [...tilesA, ...tilesA, ...tilesA, ...tilesA];
 const rowB = [...tilesB, ...tilesB, ...tilesB, ...tilesB];
 ---

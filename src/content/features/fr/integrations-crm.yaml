@@ -5,7 +5,7 @@ seo:
 hero:
   eyebrow: "Intégrations CRM & outils"
   title: "<em>Intégration CRM commercial terrain</em><br />sans ressaisie."
-  lead: "Connectez Reedly à HubSpot, Salesforce, Slack ou Discord. Chaque rapport généré est automatiquement poussé dans votre CRM et vos canaux d'équipe — avec tous les engagements, opportunités et prochaines étapes. Zéro copier-coller."
+  lead: "Connectez Reedly à HubSpot, Salesforce, Slack ou Discord. Chaque rapport généré est automatiquement poussé dans votre CRM et vos canaux d'équipe, avec tous les engagements, opportunités et prochaines étapes. Zéro copier-coller."
   cta_label: "Essayer gratuitement"
   cta_url: "/fr#trial"
 problem:
@@ -25,7 +25,7 @@ problem:
 solution:
   eyebrow: "Solution"
   title: "Un rapport généré,<br /><em>tous vos outils synchronisés.</em>"
-  lead: "Reedly se connecte directement à vos outils existants. Dès qu'un rapport est généré, il est automatiquement poussé dans votre CRM et vos canaux d'équipe — avec toutes les métadonnées structurées."
+  lead: "Reedly se connecte directement à vos outils existants. Dès qu'un rapport est généré, il est automatiquement poussé dans votre CRM et vos canaux d'équipe, avec toutes les métadonnées structurées."
   steps:
     - title: "Connectez vos outils en 2 clics"
       text: "Liez votre compte HubSpot, Salesforce, Slack ou Discord depuis le Hub Manager. Configuration en moins de 3 minutes, sans intervention technique."
@@ -38,7 +38,7 @@ benefits:
   title: "Vos données terrain,<br /><em>enfin dans le CRM.</em>"
   cards:
     - title: "CRM à jour sans effort"
-      text: "Chaque rendez-vous devient une entrée CRM complète et structurée. Fini les fiches vides ou les résumés lapidaires — tout est capturé et synchronisé automatiquement."
+      text: "Chaque rendez-vous devient une entrée CRM complète et structurée. Fini les fiches vides ou les résumés lapidaires, tout est capturé et synchronisé automatiquement."
       icon: "zap"
     - title: "Visibilité temps réel pour les managers"
       text: "Suivez l'activité de vos commerciaux au fur et à mesure des rendez-vous. Les rapports apparaissent dans Slack ou le Hub dès qu'ils sont générés."

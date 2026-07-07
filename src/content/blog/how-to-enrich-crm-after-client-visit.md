@@ -35,4 +35,4 @@ I've analyzed hundreds of CRM records with sales teams. Here's what information 
 
 The best CRM enrichment isn't the most complete one. It's the one that's actually done, consistently, with the information that matters.
 
-If you can capture those core elements in under five minutes per visit, you'll do it. And you'll enrich CRM data that's actually worth having—not just fields filled to make a database look complete.
+If you can capture those core elements in under five minutes per visit, you'll do it. And you'll enrich CRM data that's actually worth having, not just fields filled to make a database look complete.

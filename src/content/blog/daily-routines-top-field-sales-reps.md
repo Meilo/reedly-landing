@@ -39,6 +39,6 @@ This isn't therapy. It's pattern recognition. After 90 days of five-minute dumps
 
 ## The compound effect of structure
 
-None of these habits is revolutionary. But here's the thing: a productive sales day structure isn't about working harder, it's about removing friction. When you eliminate daily decision fatigue about what to do next, you free up mental space for the only thing that matters—reading the client in front of you.
+None of these habits is revolutionary. But here's the thing: a productive sales day structure isn't about working harder, it's about removing friction. When you eliminate daily decision fatigue about what to do next, you free up mental space for the only thing that matters, reading the client in front of you.
 
 The rep who closes three times more deals than you? They're not three times smarter. They just removed three times more chaos from their routine.

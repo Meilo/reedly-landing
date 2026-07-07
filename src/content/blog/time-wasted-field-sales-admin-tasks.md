@@ -15,7 +15,7 @@ The actual sale took forty minutes. The aftermath will take ninety.
 
 ## The 6-hour black hole
 
-Field sales reps spend an average of **6 hours per week on administrative tasks**. That's not an estimate from a consulting firm—it's what reps report when you actually ask them to track their time for a month.
+Field sales reps spend an average of **6 hours per week on administrative tasks**. That's not an estimate from a consulting firm, it's what reps report when you actually ask them to track their time for a month.
 
 Six hours is nearly a full workday. On a forty-hour week, that's 15% of your time doing work that generates exactly zero revenue. You're not prospecting, not building relationships, not closing. You're filling in fields and writing summaries.
 
@@ -23,7 +23,7 @@ And here's the kicker: most of that admin work happens outside business hours. Y
 
 ## Where the time actually goes
 
-Let's break it down. **CRM updates take about 2 hours per week.** Logging calls, updating deal stages, noting next steps. Each entry feels quick—five minutes here, three minutes there—but it compounds fast across a dozen client interactions.
+Let's break it down. **CRM updates take about 2 hours per week.** Logging calls, updating deal stages, noting next steps. Each entry feels quick, five minutes here, three minutes there, but it compounds fast across a dozen client interactions.
 
 **Meeting reports eat another 2.5 hours.** Writing up what happened, what was discussed, what was promised. Especially painful when you're trying to reconstruct a conversation from two days ago based on scattered notes.
 
@@ -35,4 +35,4 @@ The brutal part isn't just the six hours. It's that **sales admin time directly 
 
 If you could reclaim even half of those six hours and redirect them to prospecting or relationship-building, you'd add 150+ hours of selling time per year. That's nearly four full work weeks of additional customer contact.
 
-Most reps know this. They feel the squeeze every week. The question isn't whether administrative tasks sales eat into performance—it's how much longer we'll accept it as inevitable.
+Most reps know this. They feel the squeeze every week. The question isn't whether administrative tasks sales eat into performance, it's how much longer we'll accept it as inevitable.

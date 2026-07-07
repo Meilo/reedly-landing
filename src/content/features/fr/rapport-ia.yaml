@@ -20,7 +20,7 @@ problem:
       text: "Griffonnées pendant la réunion ou en voiture juste après, vos notes sont fragmentaires et manquent de structure. Impossible d'en tirer un rapport exploitable."
       icon: "alert"
     - title: "Informations clés oubliées"
-      text: "Les objections précises, les deadlines évoquées, les noms des décideurs mentionnés en passant — tout ce qui fait la différence disparaît avant le retour au bureau."
+      text: "Les objections précises, les deadlines évoquées, les noms des décideurs mentionnés en passant, tout ce qui fait la différence disparaît avant le retour au bureau."
       icon: "shuffle"
     - title: "Rapports incomplets ou inexistants"
       text: "Faute de temps, les comptes-rendus sont bâclés, standardisés ou carrément sautés. Les managers n'ont aucune visibilité sur le terrain."

@@ -47,10 +47,10 @@ export const POST: APIRoute = async ({ request }) => {
       from: `Reedly Notify <${fromEmail}>`,
       to: [toEmail],
       replyTo: email,
-      subject: `[Reedly] Nouvelle inscription liste d'attente — ${email}`,
+      subject: `[Reedly] Nouvelle inscription liste d'attente, ${email}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; color: #111;">
-          <h2 style="color: #16a34a;">Nouvelle inscription — liste d'attente app</h2>
+          <h2 style="color: #16a34a;">Nouvelle inscription, liste d'attente app</h2>
           <p style="font-size: 16px;">
             <strong>${email}</strong> souhaite être prévenu(e) quand l'application sera disponible.
           </p>

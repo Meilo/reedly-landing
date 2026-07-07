@@ -5,11 +5,11 @@
 <!-- ── Hero ── -->
       <section class="hero">
         <div class="inner">
-          <div>
-            <h1 data-i18n-html="hero.title">Retrouvez le temps<br /><em>de vendre.</em></h1>
-            <p class="hero__sub" data-i18n="hero.sub">
-              Reedly rédige vos comptes-rendus terrain et les intègre directement dans
-              votre Hub central.
+          <div class="hero__content">
+            <div class="section__eyebrow hero__kicker" data-i18n="hero.kicker">L'IA commerciale, enfin pour le terrain</div>
+            <h1 data-i18n-html="hero.title">L'IA transforme vos rendez-vous<br /><em>en actions commerciales.</em></h1>
+            <p class="hero__sub" data-i18n-html="hero.sub">
+              Les autres IA commerciales enregistrent vos appels en ligne. Reedly capte vos <strong>vrais</strong> rendez-vous, en boutique, sur site ou en face-à-face, et les transforme en <strong>rapport commercial structuré</strong>. Mains libres, même hors-ligne.
             </p>
             <p class="hero__definition sr-only" data-i18n-html="hero.definition">
               Reedly est une application mobile iOS et Android d'enregistrement vocal destinée aux commerciaux terrain B2B.
@@ -32,7 +32,7 @@
                 data-track-id="hero_try_free"
                 data-track-type="trial"
                 data-track-section="hero"
-                >Essayer gratuitement</a
+                >Essayer 7 jours</a
               >
               <a
                 class="btn btn--ghost btn--lg"
@@ -45,79 +45,11 @@
               >
             </div>
             <div class="hero__trust">
-              <span data-i18n="hero.trust1">Plan gratuit disponible</span>
+              <span data-i18n="hero.trust1">Essai 7 jours</span>
               <span class="hero__trust-sep"></span>
-              <span data-i18n="hero.trust2">Essai 7 jours sur les plans payants</span>
+              <span data-i18n="hero.trust2">Sans engagement</span>
               <span class="hero__trust-sep"></span>
-              <span data-i18n="hero.trust3">Sans engagement</span>
-            </div>
-          </div>
-
-          <!-- Field capture → Hub cockpit -->
-          <div class="hero-viz reveal">
-            <div class="hero-viz__glow"></div>
-
-            <div class="capture">
-              <span class="capture__mic">
-                <span class="capture__pulse"></span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z" />
-                  <path d="M19 11a7 7 0 0 1-14 0" />
-                  <line x1="12" y1="18" x2="12" y2="22" />
-                </svg>
-              </span>
-              <div class="capture__txt">
-                <div class="capture__label" data-i18n="hero.viz.capture_label">Visite client en cours</div>
-                <div class="capture__meta" data-i18n="hero.viz.capture_meta">Enregistrement mains libres, sur le terrain</div>
-              </div>
-              <span class="viz-tag viz-tag--rep" data-i18n="hero.flow.tag_rep">Commercial</span>
-            </div>
-
-            <div class="pipe" aria-hidden="true">
-              <span class="pipe__rail"><span class="pipe__flow"></span></span>
-              <span class="pipe__chip">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
-                  <path d="M14 3v5h5" />
-                  <path d="M9 13h6M9 17h4" />
-                </svg>
-                <span data-i18n="hero.viz.pipe">Rapport structuré · moins de 2 min</span>
-              </span>
-            </div>
-
-            <div class="hubcard">
-              <div class="hubcard__bar">
-                <span class="hubcard__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="hubcard__url">reedly.ai/hub</span>
-                <span class="viz-tag viz-tag--mgr" data-i18n="hero.flow.tag_mgr">Manager</span>
-              </div>
-              <div class="hubcard__body">
-                <div class="hubcard__head">
-                  <span class="hubcard__eyebrow" data-i18n="hero.viz.team">Activité de l'équipe</span>
-                  <span class="hubcard__live"><i aria-hidden="true"></i><span data-i18n="hero.viz.live">en direct</span></span>
-                </div>
-                <div class="hubrow">
-                  <div class="hubrow__info">
-                    <div class="hubrow__name" data-i18n="hub.dash.r1.name">RV Agence Riviera · M. Laurent</div>
-                    <div class="hubrow__meta" data-i18n="hub.dash.r1.meta">Sophie D. · il y a 23 min</div>
-                  </div>
-                  <span class="hubrow__badge hubrow__badge--done" data-i18n="hub.dash.r1.badge">Généré</span>
-                </div>
-                <div class="hubrow">
-                  <div class="hubrow__info">
-                    <div class="hubrow__name" data-i18n="hub.dash.r2.name">Client Hôtels Premium · Mme Dubois</div>
-                    <div class="hubrow__meta" data-i18n="hub.dash.r2.meta">Tom V. · il y a 1h</div>
-                  </div>
-                  <span class="hubrow__badge hubrow__badge--processing" data-i18n="hub.dash.r2.badge">En cours</span>
-                </div>
-                <div class="hubrow">
-                  <div class="hubrow__info">
-                    <div class="hubrow__name" data-i18n="hub.dash.r3.name">Suivi contrat TO Barcelone</div>
-                    <div class="hubrow__meta" data-i18n="hub.dash.r3.meta">Marc R. · il y a 3h</div>
-                  </div>
-                  <span class="hubrow__badge hubrow__badge--done" data-i18n="hub.dash.r3.badge">Généré</span>
-                </div>
-              </div>
+              <span data-i18n="hero.trust3">Vos données restent en Europe</span>
             </div>
           </div>
         </div>

@@ -25,7 +25,7 @@ The key is to make it feel like a logical next step, not a pressure tactic. Your
 
 ## The Summary Close: Recap With Confirmation
 
-Go through every point the prospect cared about, one by one, and get verbal confirmation. "You mentioned response time was critical—we've covered that with the 2-hour SLA. You needed compatibility with your existing system—we've confirmed that works. And you wanted it operational before Q3—we can do June 20th."
+Go through every point the prospect cared about, one by one, and get verbal confirmation. "You mentioned response time was critical, we've covered that with the 2-hour SLA. You needed compatibility with your existing system, we've confirmed that works. And you wanted it operational before Q3, we can do June 20th."
 
 Then pause. Let the weight of all those yeses build momentum. Then: "Sounds like we've covered everything. Let's make this official."
 
@@ -45,7 +45,7 @@ This works because it reframes the decision from a permanent commitment to a low
 
 ## When the Close Doesn't Land
 
-If none of these work, you haven't failed—you've found information. The real closing technique is knowing when to stop pushing and start listening. "I can tell you're hesitating. What's the real concern here?"
+If none of these work, you haven't failed, you've found information. The real closing technique is knowing when to stop pushing and start listening. "I can tell you're hesitating. What's the real concern here?"
 
 Most field reps lose deals not because their closing techniques are weak, but because they're closing before the objections are actually resolved.
 

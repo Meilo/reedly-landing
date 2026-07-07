@@ -1,18 +1,5 @@
 ---
-// Features section
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const lang = path.startsWith('/en') ? 'en' : 'fr';
-
-const featureLinks: Record<number, { fr: string; en: string } | null> = {
-  1: { fr: '/fr/features/enregistrement-vocal-rdv', en: '/en/features/meeting-voice-recording' },
-  2: { fr: '/fr/features/transcription-ia', en: '/en/features/ai-transcription' },
-  3: { fr: '/fr/features/rapport-ia', en: '/en/features/ai-report' },
-  4: null,
-  5: null,
-  6: { fr: '/fr/features/syntheses-territoriales', en: '/en/features/territory-syntheses' },
-};
-
-const learnMore = lang === 'fr' ? 'En savoir plus →' : 'Learn more →';
+// Features section — the differentiator cards for the field-sales target
 ---
 
 <!-- ── App Features ── -->
@@ -24,8 +11,8 @@ const learnMore = lang === 'fr' ? 'En savoir plus →' : 'Learn more →';
               Tout ce qu'il faut pour<br /><em>ne rien oublier.</em>
             </h2>
             <p class="section__lead" data-i18n="features.lead">
-              De l'enregistrement au rapport partageable, Reedly automatise chaque étape du
-              compte-rendu terrain. Votre seule tâche : appuyer sur Enregistrer.
+              Reedly automatise tout le compte-rendu terrain, de la parole captée en clientèle au
+              rapport prêt à décider. Votre seule tâche : appuyer sur Enregistrer.
             </p>
           </div>
           <div class="features-grid">
@@ -39,31 +26,31 @@ const learnMore = lang === 'fr' ? 'En savoir plus →' : 'Learn more →';
                   />
                 </svg>
               </div>
-              <h3 data-i18n="features.card1.title">Enregistrement vocal en 1 tap</h3>
+              <h3 data-i18n="features.card1.title">Captation terrain, mains libres</h3>
               <p data-i18n="features.card1.text">
-                Lancez l'enregistrement vocal avant d'entrer chez le client. L'app capture l'échange en
-                arrière-plan, batterie optimisée, aucune action requise pendant le rendez-vous.
+                Lancez l'enregistrement avant d'entrer chez le client. Reedly capte le rendez-vous en
+                arrière-plan, mains libres, et continue même hors-ligne. La synchronisation se fait
+                dès le retour du réseau.
               </p>
-              <a class="feature-card__link" href={featureLinks[1]![lang]}>{learnMore}</a>
             </article>
-            <article class="feature-card reveal reveal-delay-1">
+            <article class="feature-card reveal reveal-delay-2">
               <div class="feature-card__icon">
                 <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8">
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
               </div>
-              <h3 data-i18n="features.card2.title">Transcription fidèle</h3>
+              <h3 data-i18n="features.card2.title">Mémoire client</h3>
               <p data-i18n="features.card2.text">
-                Reedly retranscrit chaque échange avec +95% de précision, même en environnement
-                bruyant, même avec un accent, peut importe la langue.
+                Chaque rapport part de l'historique du client, pas d'une page blanche. Reedly se
+                souvient de chaque visite et briefe la suivante : une relation, pas des rendez-vous
+                isolés.
               </p>
-              <a class="feature-card__link" href={featureLinks[2]![lang]}>{learnMore}</a>
             </article>
-            <article class="feature-card reveal reveal-delay-2">
+            <article class="feature-card reveal reveal-delay-3">
               <div class="feature-card__icon">
                 <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8">
                   <path
@@ -73,13 +60,12 @@ const learnMore = lang === 'fr' ? 'En savoir plus →' : 'Learn more →';
                   />
                 </svg>
               </div>
-              <h3 data-i18n="features.card3.title">Rapport structuré en 11 sections</h3>
+              <h3 data-i18n="features.card3.title">Rapport commercial en 11 sections</h3>
               <p data-i18n="features.card3.text">
                 Résumé exécutif, profil client, besoins exprimés, objections, engagements, prochaines étapes, opportunités, risques : prêt à envoyer en 30 secondes. Structuré comme votre meilleur commercial senior.
               </p>
-              <a class="feature-card__link" href={featureLinks[3]![lang]}>{learnMore}</a>
             </article>
-            <article class="feature-card reveal reveal-delay-2">
+            <article class="feature-card reveal reveal-delay-4">
               <div class="feature-card__icon">
                 <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8">
                   <path
@@ -93,39 +79,6 @@ const learnMore = lang === 'fr' ? 'En savoir plus →' : 'Learn more →';
               <p data-i18n="features.card4.text">
                 L'IA comprend le vocabulaire métier de votre secteur : TO, allotement, DMC, yield, MICE pour le tourisme. Elle raisonne comme un expert terrain, pas comme un généraliste. Immobilier, pharma, B2B services bientôt disponibles.
               </p>
-            </article>
-            <article class="feature-card reveal reveal-delay-3">
-              <div class="feature-card__icon">
-                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                  />
-                </svg>
-              </div>
-              <h3 data-i18n="features.card5.title">Export PDF en 1 clic</h3>
-              <p data-i18n="features.card5.text">
-                Partagez le rapport directement par email ou messagerie depuis l'app. Idéal pour le
-                manager, pour le client ou pour archiver dans votre outil commercial.
-              </p>
-            </article>
-            <article class="feature-card reveal reveal-delay-3">
-              <div class="feature-card__icon">
-                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
-                  />
-                </svg>
-              </div>
-              <h3 data-i18n="features.card6.title">Synthèses territoriales</h3>
-              <p data-i18n="features.card6.text">
-                Agrégez une semaine, un mois ou un trimestre de rendez-vous en tendances, risques et
-                opportunités priorisés. Votre vision stratégique en quelques secondes.
-              </p>
-              <a class="feature-card__link" href={featureLinks[6]![lang]}>{learnMore}</a>
             </article>
           </div>
         </div>

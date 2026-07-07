@@ -26,7 +26,7 @@
   --amber: #fbbf24;
   --red: #ef4444;
   --info: #42a5f5;
-  /* Mono retired for Hub coherence — the Hub has no monospace; mock-up chrome now uses Geist too. */
+  /* Mono retired for Hub coherence, the Hub has no monospace; mock-up chrome now uses Geist too. */
   --mono: "Geist", sans-serif;
   --display: "Geist", sans-serif;
   --sans: "Geist", sans-serif;
@@ -430,20 +430,43 @@ body::after {
 
 /* ─── Hero ─── */
 .hero {
+  position: relative;
   min-height: calc(100vh - var(--nav-h));
   min-height: calc(100svh - var(--nav-h));
   display: flex;
   flex-direction: column;
   padding: 24px 0 28px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(900px, 94%);
+  height: 500px;
+  background: radial-gradient(ellipse at center, var(--green-glow), transparent 70%);
+  opacity: 0.55;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .hero .inner {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 56px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  align-content: center;
+  justify-content: center;
+  text-align: center;
   flex: 1 1 auto;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1040px;
 }
 
 .hero__pill {
@@ -482,9 +505,10 @@ body::after {
 
 .hero h1 {
   font-family: var(--display);
-  font-size: clamp(2rem, 3.4vw, 3rem);
-  line-height: 1.1;
-  letter-spacing: -0.028em;
+  font-size: clamp(1.9rem, 5vw, 4rem);
+  line-height: 1.07;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
   font-weight: 700;
 }
 
@@ -493,12 +517,23 @@ body::after {
   color: var(--green);
 }
 
+.hero__kicker {
+  margin-bottom: 18px;
+}
+
 .hero__sub {
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
   color: var(--muted);
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   line-height: 1.72;
-  max-width: 46ch;
+  max-width: 56ch;
+}
+
+.hero__sub strong {
+  color: var(--text);
+  font-weight: 600;
 }
 
 .hero__actions {
@@ -507,12 +542,15 @@ body::after {
   flex-wrap: wrap;
   gap: 12px;
   align-items: center;
+  justify-content: center;
 }
 
 .hero__trust {
   margin-top: 18px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   font-size: 0.78rem;
   color: var(--faint);
@@ -820,7 +858,7 @@ body::after {
 .features-grid {
   margin-top: 44px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 14px;
 }
 
@@ -1643,7 +1681,7 @@ body::after {
   display: inline-block;
 }
 
-/* Text-based prices ("Custom pricing" / "Sur devis") can be long — let the
+/* Text-based prices ("Custom pricing" / "Sur devis") can be long, let the
    block shrink and wrap instead of crowding the plan name. */
 .pricing-card__price-block:has(.pricing-card__price--text) {
   flex-shrink: 1;
@@ -1726,7 +1764,7 @@ body::after {
   margin-right: auto;
   background: var(--bg);
   border-radius: 22px;
-  /* No outer border — it would create a horizontal gray line at the top
+  /* No outer border, it would create a horizontal gray line at the top
      that conflicts visually with the featured column's green top border,
      producing an awkward T-junction. The solid bg over the page's gradient
      overlays already provides enough visual containment. */
@@ -1750,7 +1788,7 @@ body::after {
   border-top: 1px solid var(--border);
 }
 
-/* Header (plan name + price) — sticky against the page so prices stay
+/* Header (plan name + price), sticky against the page so prices stay
    visible while scrolling through the feature rows. The site nav is
    sticky at top:0 with height ~60px, so the table head sits just below. */
 .pricing-table thead th {
@@ -1806,12 +1844,12 @@ body::after {
   letter-spacing: 0.02em;
 }
 
-/* Featured column (Équipe) — strong, clearly visible green wash so
+/* Featured column (Équipe), strong, clearly visible green wash so
    the recommended plan really pops. Cell-level backgrounds (not <col>)
    because some browsers don't paint <col> bg reliably with
    border-collapse: collapse. */
 
-/* Sticky header cell — solid bg with strong green gradient. */
+/* Sticky header cell, solid bg with strong green gradient. */
 .pricing-table__head-cell--featured {
   background:
     linear-gradient(
@@ -1827,7 +1865,7 @@ body::after {
   border-radius: 14px 14px 0 0;
 }
 
-/* Featured column body + footer cells — strong solid tint on every cell.
+/* Featured column body + footer cells, strong solid tint on every cell.
    At 0.22 alpha against #0b1220 → produces ~#15422f, clearly green. */
 .pricing-table tbody tr:not(.pricing-table__category) td:nth-child(3),
 .pricing-table tfoot tr td:nth-child(3) {
@@ -2361,6 +2399,9 @@ body::after {
 .reveal-delay-3 {
   transition-delay: 0.3s;
 }
+.reveal-delay-4 {
+  transition-delay: 0.4s;
+}
 
 /* ─── Lang toggle ─── */
 .lang-toggle {
@@ -2807,7 +2848,7 @@ body::after {
   }
 }
 
-/* Phones: the nav CTA lives in the hamburger menu — drop it from the top bar
+/* Phones: the nav CTA lives in the hamburger menu, drop it from the top bar
    so the theme + language toggles fit alongside the logo without overflow. */
 @media (max-width: 600px) {
   .nav__actions .btn--primary,
@@ -2904,7 +2945,7 @@ body::after {
   }
 }
 
-/* Phones: footer link columns are too wide to sit side by side — stack them.
+/* Phones: footer link columns are too wide to sit side by side, stack them.
    Placed after the 680px 2-col rule so it wins the cascade at narrow widths. */
 @media (max-width: 540px) {
   .footer__inner {

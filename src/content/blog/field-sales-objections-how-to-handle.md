@@ -27,25 +27,25 @@ This isn't a rejection. It's an invitation to differentiate.
 
 Translation: "I want you to leave." If you send a PDF and walk away, you're done.
 
-**The response:** "Absolutely. Just so I send you the right materials—what specifically would you like to see? Pricing structure, case studies, technical specs?" Force specificity. Then: "How about I send this over tonight and we schedule fifteen minutes Thursday to discuss what's relevant?" Lock the follow-up before you leave.
+**The response:** "Absolutely. Just so I send you the right materials, what specifically would you like to see? Pricing structure, case studies, technical specs?" Force specificity. Then: "How about I send this over tonight and we schedule fifteen minutes Thursday to discuss what's relevant?" Lock the follow-up before you leave.
 
 ## "Your price is too high"
 
 Price objections are rarely about price. They're about perceived value or budget authority.
 
-**The script:** "I hear that. When you say the price is high, are you comparing to a specific competitor, or is it a budget constraint this quarter?" Diagnose first. If it's budget: "What would make this a priority to fund?" If it's competitor pricing: "Help me understand what you're comparing—are the scope and deliverables identical?"
+**The script:** "I hear that. When you say the price is high, are you comparing to a specific competitor, or is it a budget constraint this quarter?" Diagnose first. If it's budget: "What would make this a priority to fund?" If it's competitor pricing: "Help me understand what you're comparing, are the scope and deliverables identical?"
 
 ## "We need to think about it"
 
 This means you haven't uncovered the real objection.
 
-**Your move:** "Of course. These decisions take consideration. Just so I understand—is there a specific concern we haven't addressed, or do you need to involve others in the decision?" Silence. Let them fill it. The real objection will surface.
+**Your move:** "Of course. These decisions take consideration. Just so I understand, is there a specific concern we haven't addressed, or do you need to involve others in the decision?" Silence. Let them fill it. The real objection will surface.
 
 ## "Call me next quarter"
 
 Sometimes genuine. Often a polite brush-off.
 
-**The approach:** "Fair enough. Before I do—what changes between now and next quarter that would make this a priority then?" If they have a concrete answer (budget refresh, contract renewal, project launch), calendar it. If they don't, it's not a timing issue.
+**The approach:** "Fair enough. Before I do, what changes between now and next quarter that would make this a priority then?" If they have a concrete answer (budget refresh, contract renewal, project launch), calendar it. If they don't, it's not a timing issue.
 
 ## "I need to talk to my team"
 
@@ -59,4 +59,4 @@ Budget is allocated to priorities. You're not a priority yet.
 
 **The counter:** "I understand budget is allocated. Most of our clients found budget once they saw the ROI. If we could show this pays for itself in X months, would that change the conversation?" Reframe from cost to investment.
 
-The difference between average and exceptional field sales performance isn't talent. It's preparation. Handle objections like you've heard them before—because you have.
+The difference between average and exceptional field sales performance isn't talent. It's preparation. Handle objections like you've heard them before, because you have.
