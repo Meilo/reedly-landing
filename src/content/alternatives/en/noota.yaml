@@ -10,7 +10,7 @@ hero:
   title: "The Noota alternative <em>built for field sales.</em>"
   lead: "Noota is a great notetaker for your online meetings. But if your reps sell in the field, Reedly turns every visit into a decision-ready sales report, builds a memory of every client, and never forgets a commitment. Hands-free, even offline."
   cta_label: "Start 7-day trial"
-  cta_url: "/en#trial"
+  cta_url: "https://hub.reedly.ai"
 verdict:
   title: "Two tools, <em>two jobs.</em>"
   text: "Noota captures and summarizes your meetings — online and in person — and also serves recruitment. Reedly is built for one job: B2B field sales. It doesn't just take notes on the meeting: it turns it into a commercial analysis, ties it to the client's history, and drives what happens next."
