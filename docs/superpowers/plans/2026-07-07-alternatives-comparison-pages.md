@@ -570,9 +570,9 @@ cd /Users/lel/projects/perso/reedly-landing-worktrees/alternative-pages && pnpm 
 ```
 Expected: build succeeds. Then confirm both pages exist and contain the H1:
 ```bash
-find dist -path '*alternatives*noota*' -name '*.html'
-grep -l "pensée pour la vente terrain" dist/fr/alternatives/noota*.html dist/fr/alternatives/noota/index.html 2>/dev/null
-grep -l "built for field sales" dist/en/alternatives/noota*.html dist/en/alternatives/noota/index.html 2>/dev/null
+find dist -path '*alternatives/noota*' -name 'index.html'   # actual path: dist/client/{fr,en}/alternatives/noota/index.html
+grep -l "pensée pour la vente terrain" dist/client/fr/alternatives/noota/index.html 2>/dev/null
+grep -l "built for field sales" dist/client/en/alternatives/noota/index.html 2>/dev/null
 ```
 Expected: two HTML files found, each grep matches.
 
@@ -647,8 +647,8 @@ Placement (after the `<AltHero ... />` block):
 
 ```bash
 pnpm build
-grep -l "deux métiers" dist/fr/alternatives/noota*.html dist/fr/alternatives/noota/index.html 2>/dev/null
-grep -l "two jobs" dist/en/alternatives/noota*.html dist/en/alternatives/noota/index.html 2>/dev/null
+grep -l "deux métiers" dist/client/fr/alternatives/noota/index.html 2>/dev/null
+grep -l "two jobs" dist/client/en/alternatives/noota/index.html 2>/dev/null
 ```
 Expected: build succeeds, both greps match.
 
@@ -811,8 +811,8 @@ Placement (after `<AltVerdict ... />`):
 
 ```bash
 pnpm build
-grep -l "du point de vue du terrain" dist/fr/alternatives/noota*.html dist/fr/alternatives/noota/index.html 2>/dev/null
-grep -o "alt-cmp__reedly" dist/fr/alternatives/noota*.html dist/fr/alternatives/noota/index.html 2>/dev/null | head -1
+grep -l "du point de vue du terrain" dist/client/fr/alternatives/noota/index.html 2>/dev/null
+grep -o "alt-cmp__reedly" dist/client/fr/alternatives/noota/index.html 2>/dev/null | head -1
 ```
 Expected: build succeeds; the title and the `alt-cmp__reedly` class appear in the built HTML.
 
@@ -921,8 +921,8 @@ Placement (after `<AltComparison ... />`):
 
 ```bash
 pnpm build
-grep -l "Ce qu'un notetaker ne fait pas" dist/fr/alternatives/noota*.html dist/fr/alternatives/noota/index.html 2>/dev/null
-grep -o "alt-block__items" dist/en/alternatives/noota*.html dist/en/alternatives/noota/index.html 2>/dev/null | head -1
+grep -l "Ce qu'un notetaker ne fait pas" dist/client/fr/alternatives/noota/index.html 2>/dev/null
+grep -o "alt-block__items" dist/client/en/alternatives/noota/index.html 2>/dev/null | head -1
 ```
 Expected: build succeeds; the FR title and the bullet-list class both appear.
 
@@ -1049,8 +1049,8 @@ Placement (after `<AltValueBlocks ... />`):
 
 ```bash
 pnpm build
-grep -l "Quand Noota est le bon choix" dist/fr/alternatives/noota*.html dist/fr/alternatives/noota/index.html 2>/dev/null
-grep -l "never kept" dist/en/alternatives/noota*.html dist/en/alternatives/noota/index.html 2>/dev/null
+grep -l "Quand Noota est le bon choix" dist/client/fr/alternatives/noota/index.html 2>/dev/null
+grep -l "never kept" dist/client/en/alternatives/noota/index.html 2>/dev/null
 ```
 Expected: build succeeds; both greps match.
 
@@ -1142,9 +1142,9 @@ Placement (after `<AltFair ... />`, before `<FinalCta />`):
 
 ```bash
 pnpm build
-grep -o "faq-item" dist/fr/alternatives/noota*.html dist/fr/alternatives/noota/index.html 2>/dev/null | head -1
-grep -o "related-links__link" dist/en/alternatives/noota*.html dist/en/alternatives/noota/index.html 2>/dev/null | head -1
-grep -o "FAQPage" dist/fr/alternatives/noota*.html dist/fr/alternatives/noota/index.html 2>/dev/null | head -1
+grep -o "faq-item" dist/client/fr/alternatives/noota/index.html 2>/dev/null | head -1
+grep -o "related-links__link" dist/client/en/alternatives/noota/index.html 2>/dev/null | head -1
+grep -o "FAQPage" dist/client/fr/alternatives/noota/index.html 2>/dev/null | head -1
 ```
 Expected: build succeeds; FAQ items, related links, and the `FAQPage` JSON-LD all present.
 
