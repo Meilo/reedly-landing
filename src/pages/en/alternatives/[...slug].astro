@@ -1,0 +1,97 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Nav from '@/components/Nav.astro';
+import AltHero from '@/components/alternative/AltHero.astro';
+import AltVerdict from '@/components/alternative/AltVerdict.astro';
+import AltComparison from '@/components/alternative/AltComparison.astro';
+import AltValueBlocks from '@/components/alternative/AltValueBlocks.astro';
+import AltPrivacy from '@/components/alternative/AltPrivacy.astro';
+import AltFair from '@/components/alternative/AltFair.astro';
+import FeatureFaq from '@/components/feature/FeatureFaq.astro';
+import AltRelated from '@/components/alternative/AltRelated.astro';
+import FinalCta from '@/components/FinalCta.astro';
+import Footer from '@/components/Footer.astro';
+import { getAllAlternativeSlugs, loadAlternativeContent } from '@/lib/load-alternatives';
+
+export function getStaticPaths() {
+  return getAllAlternativeSlugs('en').map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const data = loadAlternativeContent('en', slug!);
+const hreflangData = {
+  fr: `/fr/alternatives/${slug}`,
+  en: `/en/alternatives/${slug}`,
+};
+
+const breadcrumbLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.reedly.ai/en" },
+    { "@type": "ListItem", "position": 2, "name": data.hero.eyebrow, "item": `https://www.reedly.ai/en/alternatives/${slug}` },
+  ],
+};
+
+const faqLD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": data.faq.map((item) => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer },
+  })),
+};
+---
+
+<Layout
+  title={data.seo.title}
+  description={data.seo.description}
+  lang="en"
+  hreflang={hreflangData}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbLD)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqLD)} />
+
+  <div id="cursor-glow"></div>
+
+  <Nav />
+
+  <main class="z1">
+    <AltHero
+      eyebrow={data.hero.eyebrow}
+      title={data.hero.title}
+      lead={data.hero.lead}
+      cta_label={data.hero.cta_label}
+      cta_url={data.hero.cta_url}
+    />
+    <AltVerdict title={data.verdict.title} text={data.verdict.text} />
+    <AltComparison
+      eyebrow={data.comparison.eyebrow}
+      title={data.comparison.title}
+      lead={data.comparison.lead}
+      columns={data.comparison.columns}
+      rows={data.comparison.rows}
+      lang="en"
+    />
+    <AltValueBlocks
+      eyebrow={data.value_blocks.eyebrow}
+      title={data.value_blocks.title}
+      blocks={data.value_blocks.blocks}
+    />
+    <AltPrivacy text={data.privacy.text} />
+    <AltFair
+      eyebrow={data.fair.eyebrow}
+      title={data.fair.title}
+      lead={data.fair.lead}
+      cards={data.fair.cards}
+    />
+    <FeatureFaq faq={data.faq} lang="en" />
+    <AltRelated related={data.related} lang="en" />
+    <FinalCta />
+  </main>
+
+  <Footer />
+
+  <script src="/main.js" is:inline></script>
+</Layout>

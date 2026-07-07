@@ -1,0 +1,9 @@
+# Central registry mapping alternative IDs to competitor + slug.
+# Competitor brand names don't translate, so the slug is identical across languages
+# (/fr/alternatives/{slug} and /en/alternatives/{slug}). The nav language toggle's
+# generic fallback in public/main.js maps identical slugs across languages — no mirror-meta needed.
+
+alternatives:
+  - id: "noota"
+    competitor: "Noota"
+    slug: "noota"

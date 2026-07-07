@@ -1,0 +1,32 @@
+---
+interface Props {
+  text: string;
+}
+const { text } = Astro.props;
+---
+
+<section class="section">
+  <div class="inner">
+    <div class="alt-privacy reveal">
+      <p>{text}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .alt-privacy {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 28px 32px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+  }
+  .alt-privacy p {
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.7;
+    margin: 0;
+  }
+</style>

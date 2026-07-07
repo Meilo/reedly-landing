@@ -1,0 +1,47 @@
+---
+interface Props {
+  related: { href: string; label: string }[];
+  lang: 'fr' | 'en';
+}
+const { related, lang } = Astro.props;
+const seeAlso = lang === 'fr' ? 'Voir aussi :' : 'See also:';
+---
+
+<div class="related-links">
+  <span class="related-links__label">{seeAlso}</span>
+  {related.map((r, i) => (
+    <>
+      {i > 0 && <span class="related-links__sep">·</span>}
+      <a href={r.href} class="related-links__link">{r.label}</a>
+    </>
+  ))}
+</div>
+
+<style>
+  .related-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 24px 32px;
+    font-size: 0.85rem;
+  }
+  .related-links__label {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+  }
+  .related-links__sep {
+    color: var(--muted);
+  }
+  .related-links__link {
+    color: var(--green);
+    text-decoration: none;
+    font-family: var(--sans);
+    font-weight: 600;
+  }
+  .related-links__link:hover {
+    text-decoration: underline;
+  }
+</style>
