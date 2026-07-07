@@ -7,6 +7,8 @@ import AltComparison from '@/components/alternative/AltComparison.astro';
 import AltValueBlocks from '@/components/alternative/AltValueBlocks.astro';
 import AltPrivacy from '@/components/alternative/AltPrivacy.astro';
 import AltFair from '@/components/alternative/AltFair.astro';
+import FeatureFaq from '@/components/feature/FeatureFaq.astro';
+import AltRelated from '@/components/alternative/AltRelated.astro';
 import FinalCta from '@/components/FinalCta.astro';
 import Footer from '@/components/Footer.astro';
 import { getAllAlternativeSlugs, loadAlternativeContent, findMirrorSlug } from '@/lib/load-alternatives';
@@ -85,6 +87,8 @@ const faqLD = {
       lead={data.fair.lead}
       cards={data.fair.cards}
     />
+    <FeatureFaq faq={data.faq} lang="en" />
+    <AltRelated related={data.related} lang="en" />
     <FinalCta />
   </main>
 
