@@ -1,0 +1,669 @@
+<style>
+  :root {
+    color-scheme: light dark;
+    /* neutrals — cool navy bias, chosen not defaulted (light default) */
+    --bg: #eef1f6;
+    --bg-grad: radial-gradient(120% 90% at 50% -10%, #f7f9fc 0%, #eef1f6 55%, #e7ebf2 100%);
+    --panel: #ffffff;
+    --panel2: #f4f6fa;
+    --ink: #0b1220;
+    --muted: #55637a;
+    --faint: #8a95a8;
+    --border: rgba(15, 23, 42, 0.10);
+    --border-strong: rgba(15, 23, 42, 0.16);
+    /* brand + semantic */
+    --green: #15925a;
+    --green-ink: #0f7a4a;
+    --green-soft: rgba(21, 146, 90, 0.10);
+    --green-line: rgba(21, 146, 90, 0.32);
+    --amber: #b06d00;
+    --amber-soft: rgba(214, 158, 46, 0.14);
+    --red: #c0362c;
+    --red-soft: rgba(192, 54, 44, 0.09);
+    --shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 12px 30px rgba(11, 18, 32, 0.07);
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, monospace;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --maxw: 1060px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #080d18;
+      --bg-grad: radial-gradient(120% 90% at 50% -10%, #10192c 0%, #0a1120 52%, #070b15 100%);
+      --panel: #111a2c;
+      --panel2: #16223a;
+      --ink: #f4f7fc;
+      --muted: #9aa7bd;
+      --faint: #61708a;
+      --border: rgba(148, 163, 184, 0.16);
+      --border-strong: rgba(148, 163, 184, 0.26);
+      --green: #34d17e;
+      --green-ink: #46e08b;
+      --green-soft: rgba(34, 197, 94, 0.13);
+      --green-line: rgba(52, 209, 126, 0.42);
+      --amber: #fbbf24;
+      --amber-soft: rgba(251, 191, 36, 0.13);
+      --red: #ff6b60;
+      --red-soft: rgba(255, 107, 96, 0.11);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 20px 50px rgba(0, 0, 0, 0.45);
+    }
+  }
+  /* explicit toggle overrides media query, both directions */
+  :root[data-theme="light"] {
+    --bg: #eef1f6;
+    --bg-grad: radial-gradient(120% 90% at 50% -10%, #f7f9fc 0%, #eef1f6 55%, #e7ebf2 100%);
+    --panel: #ffffff; --panel2: #f4f6fa;
+    --ink: #0b1220; --muted: #55637a; --faint: #8a95a8;
+    --border: rgba(15, 23, 42, 0.10); --border-strong: rgba(15, 23, 42, 0.16);
+    --green: #15925a; --green-ink: #0f7a4a; --green-soft: rgba(21, 146, 90, 0.10); --green-line: rgba(21, 146, 90, 0.32);
+    --amber: #b06d00; --amber-soft: rgba(214, 158, 46, 0.14);
+    --red: #c0362c; --red-soft: rgba(192, 54, 44, 0.09);
+    --shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 12px 30px rgba(11, 18, 32, 0.07);
+  }
+  :root[data-theme="dark"] {
+    --bg: #080d18;
+    --bg-grad: radial-gradient(120% 90% at 50% -10%, #10192c 0%, #0a1120 52%, #070b15 100%);
+    --panel: #111a2c; --panel2: #16223a;
+    --ink: #f4f7fc; --muted: #9aa7bd; --faint: #61708a;
+    --border: rgba(148, 163, 184, 0.16); --border-strong: rgba(148, 163, 184, 0.26);
+    --green: #34d17e; --green-ink: #46e08b; --green-soft: rgba(34, 197, 94, 0.13); --green-line: rgba(52, 209, 126, 0.42);
+    --amber: #fbbf24; --amber-soft: rgba(251, 191, 36, 0.13);
+    --red: #ff6b60; --red-soft: rgba(255, 107, 96, 0.11);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 20px 50px rgba(0, 0, 0, 0.45);
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  .page {
+    background: var(--bg-grad);
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    padding: 0 24px 96px;
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; }
+
+  /* ---- shared type ---- */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin: 0 0 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 22px; height: 1px;
+    background: var(--green-line);
+  }
+  h1, h2, h3 { text-wrap: balance; letter-spacing: -0.025em; margin: 0; }
+  .lead { color: var(--muted); font-size: 1.08rem; max-width: 62ch; }
+
+  /* ---- top bar ---- */
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 26px 0 8px; gap: 16px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -0.02em; }
+  .brand .dot { width: 11px; height: 11px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px var(--green-soft); }
+  .brand small { font-family: var(--mono); font-weight: 500; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
+  .themebtn {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); background: var(--panel); border: 1px solid var(--border);
+    border-radius: 999px; padding: 8px 14px; cursor: pointer;
+  }
+  .themebtn:hover { border-color: var(--border-strong); color: var(--ink); }
+  .themebtn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+
+  /* ---- hero ---- */
+  .hero { padding: 40px 0 20px; }
+  .hero h1 { font-size: clamp(2.5rem, 6.2vw, 4.35rem); font-weight: 820; line-height: 1.02; }
+  .hero h1 em { font-style: normal; color: var(--green); }
+  .hero .lead { margin: 22px 0 0; font-size: 1.16rem; }
+  .hero .lead b { color: var(--ink); font-weight: 650; }
+
+  /* signature split motif: video vs field */
+  .split {
+    margin-top: 40px;
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 0;
+    border: 1px solid var(--border); border-radius: 18px; overflow: hidden;
+    background: var(--panel); box-shadow: var(--shadow);
+  }
+  .split__side { padding: 26px 26px 28px; display: flex; flex-direction: column; gap: 12px; }
+  .split__side--them { background: var(--panel2); }
+  .split__side--us { position: relative; }
+  .split__side--us::before {
+    content: ""; position: absolute; inset: 0 auto 0 0; width: 3px;
+    background: linear-gradient(180deg, transparent, var(--green), transparent);
+  }
+  .split__tag { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); }
+  .split__side--us .split__tag { color: var(--green); }
+  .split__h { font-size: 1.22rem; font-weight: 720; }
+  .split__desc { color: var(--muted); font-size: 0.95rem; }
+  .split__glyph { width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; border: 1px solid var(--border-strong); color: var(--faint); }
+  .split__side--us .split__glyph { color: var(--green); border-color: var(--green-line); background: var(--green-soft); }
+  .split__vs {
+    display: grid; place-items: center; padding: 0 4px; background: var(--panel2);
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--faint);
+    border-left: 1px solid var(--border); border-right: 1px solid var(--border);
+  }
+  @media (max-width: 720px) {
+    .split { grid-template-columns: 1fr; }
+    .split__vs { padding: 8px; border: none; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .split__side--us::before { inset: 0 0 auto 0; width: auto; height: 3px; background: linear-gradient(90deg, transparent, var(--green), transparent); }
+  }
+
+  /* ---- section scaffold ---- */
+  section.block { padding: 58px 0 0; }
+  .block__head { max-width: 64ch; margin-bottom: 26px; }
+  .block__head h2 { font-size: clamp(1.7rem, 3.4vw, 2.35rem); font-weight: 780; }
+  .block__head .lead { margin-top: 14px; }
+
+  /* ---- 3 familles ---- */
+  .fam-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .fam {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 15px;
+    padding: 20px 20px 22px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 8px;
+  }
+  .fam__k { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
+  .fam__names { font-weight: 720; font-size: 1.02rem; }
+  .fam__desc { color: var(--muted); font-size: 0.92rem; }
+  .fam__gravity { margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--border-strong); font-size: 0.86rem; }
+  .fam__gravity b { color: var(--ink); }
+  .fam--us { border-color: var(--green-line); background: linear-gradient(180deg, var(--green-soft), var(--panel) 60%); }
+  .fam--us .fam__k { color: var(--green); }
+  @media (max-width: 760px) { .fam-grid { grid-template-columns: 1fr; } }
+
+  /* ---- comparison table ---- */
+  .tablewrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 15px; box-shadow: var(--shadow); background: var(--panel); }
+  table.cmp { border-collapse: collapse; width: 100%; min-width: 860px; font-size: 0.9rem; }
+  table.cmp th, table.cmp td { text-align: left; padding: 13px 15px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  table.cmp thead th { position: sticky; top: 0; background: var(--panel2); font-size: 0.68rem; font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); z-index: 1; }
+  table.cmp thead th.us { color: var(--green); }
+  table.cmp tbody th { font-weight: 650; color: var(--ink); white-space: nowrap; }
+  table.cmp td.us { background: var(--green-soft); color: var(--ink); font-weight: 550; }
+  table.cmp tbody tr:last-child th, table.cmp tbody tr:last-child td { border-bottom: none; }
+  .num { font-variant-numeric: tabular-nums; }
+  .yes { color: var(--green); font-weight: 700; }
+  .warn { color: var(--amber); font-weight: 700; }
+  .no { color: var(--red); font-weight: 700; }
+
+  /* ---- killed claims ---- */
+  .kill-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .kill {
+    background: var(--red-soft); border: 1px solid color-mix(in srgb, var(--red) 26%, transparent);
+    border-radius: 13px; padding: 16px 18px; display: flex; flex-direction: column; gap: 7px;
+  }
+  .kill__claim { font-weight: 680; font-size: 1rem; text-decoration: line-through; text-decoration-color: var(--red); text-decoration-thickness: 2px; color: var(--muted); }
+  .kill__why { font-size: 0.88rem; color: var(--muted); }
+  .kill__why b { color: var(--ink); }
+  @media (max-width: 640px) { .kill-grid { grid-template-columns: 1fr; } }
+
+  /* ---- defensible differentiators ---- */
+  .diff-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .diff {
+    position: relative; background: var(--panel); border: 1px solid var(--border);
+    border-radius: 15px; padding: 22px 22px 24px 26px; box-shadow: var(--shadow); overflow: hidden;
+  }
+  .diff::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: var(--green); }
+  .diff__n { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--green); font-weight: 600; }
+  .diff__t { font-size: 1.12rem; font-weight: 730; margin: 8px 0 8px; }
+  .diff__d { color: var(--muted); font-size: 0.93rem; }
+  .diff__d b { color: var(--ink); font-weight: 620; }
+  @media (max-width: 700px) { .diff-grid { grid-template-columns: 1fr; } }
+
+  /* ---- message before/after ---- */
+  .msg { display: flex; flex-direction: column; gap: 14px; }
+  .msg__row {
+    display: grid; grid-template-columns: 128px 1fr 1fr; gap: 0;
+    border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--panel); box-shadow: var(--shadow);
+  }
+  .msg__label { padding: 18px 16px; background: var(--panel2); font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; }
+  .msg__cell { padding: 18px 20px; border-left: 1px solid var(--border); }
+  .msg__cell h4 { margin: 0 0 8px; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; }
+  .msg__cell--before h4 { color: var(--faint); }
+  .msg__cell--after h4 { color: var(--green); }
+  .msg__cell--before { color: var(--muted); }
+  .msg__cell--before .t { text-decoration: line-through; text-decoration-color: var(--faint); text-decoration-thickness: 1px; opacity: 0.75; }
+  .msg__cell--after .t { font-weight: 600; color: var(--ink); }
+  .msg__cell .t { font-size: 1.02rem; line-height: 1.4; display: block; }
+  .msg__cell .s { display: block; margin-top: 8px; font-size: 0.9rem; color: var(--muted); }
+  .msg__cell--after .s b { color: var(--green-ink); font-weight: 600; }
+  @media (max-width: 760px) {
+    .msg__row { grid-template-columns: 1fr; }
+    .msg__cell { border-left: none; border-top: 1px solid var(--border); }
+    .msg__label { border-bottom: 1px solid var(--border); }
+  }
+
+  /* two-column "pour qui" table */
+  .poq { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--border); border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); }
+  .poq__col { background: var(--panel); }
+  .poq__col--us { background: linear-gradient(180deg, var(--green-soft), var(--panel) 70%); }
+  .poq__cap { padding: 14px 18px; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); }
+  .poq__col--us .poq__cap { color: var(--green); }
+  .poq__col:first-child { border-right: 1px solid var(--border); }
+  .poq li { list-style: none; padding: 13px 18px; border-bottom: 1px solid var(--border); font-size: 0.94rem; color: var(--muted); display: flex; gap: 10px; align-items: flex-start; }
+  .poq__col--us li { color: var(--ink); }
+  .poq ul { margin: 0; padding: 0; }
+  .poq li:last-child { border-bottom: none; }
+  .poq li::before { content: "•"; color: var(--faint); }
+  .poq__col--us li::before { content: "→"; color: var(--green); font-weight: 700; }
+
+  /* pill / callout */
+  .thesis {
+    margin-top: 28px; border: 1px solid var(--green-line); background: var(--green-soft);
+    border-radius: 16px; padding: 26px 28px;
+  }
+  .thesis .q { font-size: 1.35rem; font-weight: 740; line-height: 1.28; }
+  .thesis .q b { color: var(--green-ink); }
+  .thesis .sub { margin-top: 12px; color: var(--muted); font-size: 0.98rem; max-width: 74ch; }
+
+  /* footer / method */
+  footer.foot { margin-top: 62px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--faint); font-size: 0.82rem; display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: space-between; }
+  footer.foot .method { font-family: var(--mono); letter-spacing: 0.04em; }
+  .hr { height: 1px; background: var(--border); border: none; margin: 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="page">
+  <div class="wrap">
+
+    <div class="topbar">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        Reedly&nbsp;·&nbsp;<small>Brief de positionnement</small>
+      </div>
+      <button class="themebtn" id="themebtn" type="button" aria-label="Basculer le thème">Thème</button>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero">
+      <p class="eyebrow">Analyse concurrentielle &amp; refonte du message · Juil. 2026</p>
+      <h1>Née pour le terrain,<br /><em>pas pour la visio.</em></h1>
+      <p class="lead">
+        Toute la vague « IA commerciale » — Gong, Modjo, Noota, Fireflies, Otter — est <b>née pour la réunion en ligne</b>.
+        Elle équipe le commercial <b>sédentaire</b>. Le commercial <b>terrain</b>, en rendez-vous physique, est resté l'angle mort.
+        <b>Reedly est conçu pour lui.</b>
+      </p>
+
+      <div class="split" role="group" aria-label="La visio contre le terrain">
+        <div class="split__side split__side--them">
+          <span class="split__glyph" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="14" height="14" rx="2"/><path d="m22 8-6 4 6 4V8z"/></svg>
+          </span>
+          <span class="split__tag">Les autres</span>
+          <span class="split__h">Faits pour l'appel en ligne</span>
+          <span class="split__desc">Un bot rejoint le Zoom/Teams/Meet, prend des notes, exige une connexion. Le présentiel est une extension récente, greffée.</span>
+        </div>
+        <div class="split__vs" aria-hidden="true">VS</div>
+        <div class="split__side split__side--us">
+          <span class="split__glyph" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 11a7 7 0 0 1-14 0"/><line x1="12" y1="18" x2="12" y2="22"/></svg>
+          </span>
+          <span class="split__tag">Reedly</span>
+          <span class="split__h">Fait pour le face-à-face</span>
+          <span class="split__desc">L'app capte le vrai rendez-vous — en boutique, sur site — mains libres, même hors-ligne, et rend un rapport commercial structuré.</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 3 FAMILLES -->
+    <section class="block">
+      <div class="block__head">
+        <p class="eyebrow">Le paysage</p>
+        <h2>Trois familles. Aucune ne recouvre Reedly.</h2>
+        <p class="lead">Les concurrents que tes prospects citent vivent dans deux mondes nés pour la visio. Le vrai terrain de bataille est ailleurs.</p>
+      </div>
+      <div class="fam-grid">
+        <article class="fam">
+          <span class="fam__k">Revenue intelligence</span>
+          <span class="fam__names">Gong · Modjo · Revenue.io</span>
+          <span class="fam__desc">Analyse d'appels + coaching + forecasting pour directions commerciales grands comptes.</span>
+          <span class="fam__gravity">Gravité : <b>appel visio/tél, inside-sales</b></span>
+        </article>
+        <article class="fam">
+          <span class="fam__k">Notetakers de réunion</span>
+          <span class="fam__names">Noota · Fireflies · Otter · Fathom · tl;dv</span>
+          <span class="fam__desc">Bots qui rejoignent les visios ; certains ont <em>ajouté</em> un mode présentiel mobile.</span>
+          <span class="fam__gravity">Gravité : <b>réunion en ligne</b></span>
+        </article>
+        <article class="fam fam--us">
+          <span class="fam__k">Field-natifs</span>
+          <span class="fam__names">Reedly · Siro · Speakwise · HandsOff</span>
+          <span class="fam__desc">Vrais outils terrain mobiles — mais chacun avec un angle différent (coaching, iOS-only, dictée…).</span>
+          <span class="fam__gravity">Gravité : <b>rendez-vous physique</b></span>
+        </article>
+      </div>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section class="block">
+      <div class="block__head">
+        <p class="eyebrow">Le comparatif vérifié</p>
+        <h2>Reedly vs Noota, Gong, Modjo &amp; la visio</h2>
+        <p class="lead">Sources 2025-2026, chaque ligne recoupée. Vert = avantage Reedly · ambre = nuance honnête · rouge = ils ne le font pas.</p>
+      </div>
+      <div class="tablewrap">
+        <table class="cmp">
+          <thead>
+            <tr>
+              <th scope="col">Dimension</th>
+              <th scope="col" class="us">Reedly</th>
+              <th scope="col">Noota</th>
+              <th scope="col">Gong</th>
+              <th scope="col">Modjo</th>
+              <th scope="col">Visio*</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Catégorie</th>
+              <td class="us">Field sales terrain</td>
+              <td>Notetaker + recrutement</td>
+              <td>Revenue intelligence</td>
+              <td>Intelligence conversation.</td>
+              <td>Notetakers de visio</td>
+            </tr>
+            <tr>
+              <th scope="row">Captation présentiel mobile</th>
+              <td class="us"><span class="yes">Oui</span> — cœur du produit</td>
+              <td><span class="warn">Ajouté</span> (app neuve)</td>
+              <td><span class="warn">Périphérique</span></td>
+              <td><span class="yes">Oui</span>, tap manuel</td>
+              <td><span class="warn">Otter/tl;dv oui</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Arrière-plan / mains libres</th>
+              <td class="us"><span class="yes">Oui</span></td>
+              <td><span class="warn">Non documenté</span></td>
+              <td><span class="no">Non</span></td>
+              <td><span class="no">Non</span> — Play/Stop</td>
+              <td><span class="no">Non</span> — setup micro</td>
+            </tr>
+            <tr>
+              <th scope="row">Offline-first</th>
+              <td class="us"><span class="yes">Oui</span></td>
+              <td><span class="warn">Résilience récente</span></td>
+              <td><span class="no">Non</span></td>
+              <td><span class="warn">Partiel</span></td>
+              <td><span class="no">Fallback dégradé</span></td>
+            </tr>
+            <tr>
+              <th scope="row">iOS + Android natif</th>
+              <td class="us"><span class="yes">Oui</span></td>
+              <td><span class="yes">Oui</span></td>
+              <td><span class="yes">Oui</span></td>
+              <td><span class="yes">Oui</span></td>
+              <td><span class="warn">Otter/tl;dv</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Output</th>
+              <td class="us"><b>Rapport structuré 11 sections</b></td>
+              <td>Notes + action items</td>
+              <td>Deal/pipeline, coaching</td>
+              <td>Coaching + remplissage CRM</td>
+              <td>Transcript + résumé</td>
+            </tr>
+            <tr>
+              <th scope="row">Mémoire client → nourrit le rapport</th>
+              <td class="us"><span class="yes">Native terrain</span> — le rapport part de l'historique</td>
+              <td><span class="warn">Archive consultable</span></td>
+              <td><span class="warn">Vue compte (analytics)</span></td>
+              <td><span class="warn">Contexte compte (CRM)</span></td>
+              <td><span class="warn">Archive (Granola/Notion)</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Expert sectoriel (jargon)</th>
+              <td class="us"><span class="yes">Oui</span></td>
+              <td><span class="no">Non</span></td>
+              <td><span class="no">Non</span></td>
+              <td><span class="no">Non</span></td>
+              <td><span class="no">Non</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Couche manager</th>
+              <td class="us">Synthèses territoriales, directives, Max</td>
+              <td><span class="warn">Limitée</span></td>
+              <td>Forecast inside-sales</td>
+              <td>Revue d'appels</td>
+              <td><span class="no">Non</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Prix</th>
+              <td class="us"><b>Essai 7 j · dès 29 €/u</b>, sans engagement</td>
+              <td class="num">Gratuit / 19-49 $/u</td>
+              <td class="num">5-50 k$ + 1 300-1 920 $/u/an</td>
+              <td class="num">~99 €/u/mois, 15 sièges</td>
+              <td class="num">0-30 $/mois</td>
+            </tr>
+            <tr>
+              <th scope="row">Français / hébergement UE</th>
+              <td class="us"><span class="yes">FR / UE</span></td>
+              <td><span class="yes">FR / UE</span></td>
+              <td><span class="no">US</span></td>
+              <td><span class="yes">FR / AWS Paris</span></td>
+              <td><span class="warn">Otter FR partiel</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Rétention audio</th>
+              <td class="us">Supprimé après rapport</td>
+              <td>Configurable 1 j-3 ans</td>
+              <td>Stocké (US)</td>
+              <td>Stocké (UE)</td>
+              <td>Stocké (Otter US)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color:var(--faint);font-size:0.8rem;margin-top:10px;">*Visio = catégorie Otter / Fireflies / Fathom / tl;dv (valeurs représentatives, variables selon l'acteur).</p>
+    </section>
+
+    <!-- KILLED CLAIMS -->
+    <section class="block">
+      <div class="block__head">
+        <p class="eyebrow">Garde-fous</p>
+        <h2>Ce qu'on ne dira jamais</h2>
+        <p class="lead">La vérification adversariale a réfuté ces claims « faciles ». Les écrire, c'est se faire prendre en défaut. L'honnêteté est notre force.</p>
+      </div>
+      <div class="kill-grid">
+        <div class="kill">
+          <span class="kill__claim">« Le seul à enregistrer les RDV physiques »</span>
+          <span class="kill__why"><b>Noota, Modjo, Otter, tl;dv, Siro, Speakwise, HandsOff</b> le font aussi.</span>
+        </div>
+        <div class="kill">
+          <span class="kill__claim">« Le seul sur mobile / offline / mains libres »</span>
+          <span class="kill__why"><b>Siro</b> et <b>Speakwise</b> (offline + mains libres), <b>Noota</b> (offline) le revendiquent.</span>
+        </div>
+        <div class="kill">
+          <span class="kill__claim">« Audio supprimé = notre exclusivité »</span>
+          <span class="kill__why"><b>HandsOff</b> supprime « immédiatement » ; <b>Noota</b> le fait en option configurable.</span>
+        </div>
+        <div class="kill">
+          <span class="kill__claim">« 95 % de précision, unique »</span>
+          <span class="kill__why"><b>Speakwise</b> annonce « 95%+ », <b>Modjo</b> ~95 % FR. C'est du <b>table-stakes</b>.</span>
+        </div>
+        <div class="kill">
+          <span class="kill__claim">« Français / UE = notre différenciateur »</span>
+          <span class="kill__why">Vrai contre <b>Gong / Siro / Speakwise</b> (US). Faux contre <b>Modjo / Noota</b>.</span>
+        </div>
+        <div class="kill">
+          <span class="kill__claim">« Les concurrents n'ont pas de mémoire »</span>
+          <span class="kill__why"><b>Gong, Modjo, Noota, Granola, Notion</b> ont tous une forme de mémoire. On dit « mémoire <b>native terrain</b> », jamais « eux n'ont rien ».</span>
+        </div>
+        <div class="kill">
+          <span class="kill__claim">« Plan gratuit disponible »</span>
+          <span class="kill__why"><b>Erreur live à corriger</b> : Reedly n'a pas de plan gratuit — seulement un <b>essai 7 jours</b>.</span>
+        </div>
+        <div class="kill" style="border-style:dashed;background:transparent;">
+          <span class="kill__claim" style="text-decoration:none;color:var(--ink);">La règle d'or</span>
+          <span class="kill__why">Jamais « le seul à <em>[capacité]</em> ». Toujours « le seul <b>conçu pour la vente terrain B2B</b> qui réunit X + Y + Z ». La <b>combinaison</b> + la <b>cible</b>, pas la capacité isolée.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEFENSIBLE -->
+    <section class="block">
+      <div class="block__head">
+        <p class="eyebrow">La différence qui tient</p>
+        <h2>Cinq avantages qu'aucun concurrent ne réunit</h2>
+      </div>
+      <div class="diff-grid">
+        <article class="diff">
+          <span class="diff__n">01</span>
+          <div class="diff__t">Field-first, pas visio-first</div>
+          <p class="diff__d">Conçu autour du présentiel — <b>arrière-plan, mains libres, offline-first</b> — là où la catégorie a greffé un « mode présentiel » sur un produit né pour la visio. Un choix de conception, pas un claim d'exclusivité.</p>
+        </article>
+        <article class="diff">
+          <span class="diff__n">02</span>
+          <div class="diff__t">Une mémoire client native terrain</div>
+          <p class="diff__d">Chaque rapport et chaque prépa partent de <b>l'historique du client</b>, pas d'une page blanche — et briefent la visite suivante. <i>Une relation, pas des RDV isolés.</i> Les autres ont une archive à fouiller ou une vue compte CRM ; la nôtre s'enrichit du <b>terrain</b>, offline, et remonte par territoire.</p>
+        </article>
+        <article class="diff">
+          <span class="diff__n">03</span>
+          <div class="diff__t">Un rapport, pas une transcription</div>
+          <p class="diff__d">Output opinioné en <b>11 sections décisionnelles</b> (besoins, objections, engagements, opportunités, risques, reco) + <b>expert sectoriel</b> qui comprend le jargon métier. Personne d'autre ne produit ce format.</p>
+        </article>
+        <article class="diff">
+          <span class="diff__n">04</span>
+          <div class="diff__t">Le manager voit enfin le terrain</div>
+          <p class="diff__d">Le trou que l'IA n'a jamais comblé : <b>synthèses territoriales</b>, directives + scoring, assistant Max. Un pilotage pensé pour la couverture terrain, pas la revue d'appels inside-sales.</p>
+        </article>
+        <article class="diff">
+          <span class="diff__n">05</span>
+          <div class="diff__t">La puissance sans le ticket enterprise</div>
+          <p class="diff__d"><b>Essai 7 jours</b>, self-serve, <b>dès 29 €/u/mois</b>, sans engagement ni minimum de sièges — face à Gong (194 k$/100 users), Modjo (99 €/u, 15 sièges min) et Siro (3 000 $/u/an).</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- NEW MESSAGE -->
+    <section class="block">
+      <div class="block__head">
+        <p class="eyebrow">Le nouveau message</p>
+        <h2>Avant → Après</h2>
+        <p class="lead">Le message actuel est 100 % bénéfice générique. Le nouveau porte l'angle « terrain » de bout en bout.</p>
+      </div>
+
+      <div class="msg">
+        <div class="msg__row">
+          <div class="msg__label">Hero</div>
+          <div class="msg__cell msg__cell--before">
+            <h4>Avant</h4>
+            <span class="t">Retrouvez le temps de vendre.</span>
+            <span class="s">Reedly rédige vos comptes-rendus terrain et les intègre dans votre Hub.</span>
+          </div>
+          <div class="msg__cell msg__cell--after">
+            <h4>Après</h4>
+            <span class="t">Née pour le terrain, pas pour la visio.</span>
+            <span class="s">Les autres IA enregistrent vos appels en ligne. Reedly capte vos <b>vrais</b> rendez-vous — en boutique, sur site — et les transforme en rapport commercial structuré. Mains libres, même hors-ligne.</span>
+          </div>
+        </div>
+
+        <div class="msg__row">
+          <div class="msg__label">Problème</div>
+          <div class="msg__cell msg__cell--before">
+            <h4>Avant</h4>
+            <span class="t">Un rendez-vous rapporte. Un compte-rendu coûte.</span>
+            <span class="s">45 min perdues · engagements oubliés · manager aveugle.</span>
+          </div>
+          <div class="msg__cell msg__cell--after">
+            <h4>Après</h4>
+            <span class="t">Le sédentaire est suréquipé. Le terrain, livré à lui-même.</span>
+            <span class="s">Chaque appel visio d'un sédentaire est enregistré, analysé, versé au CRM. Le terrain, lui, ressort avec un carnet et sa mémoire. <b>La donnée la plus riche se perd.</b></span>
+          </div>
+        </div>
+
+        <div class="msg__row">
+          <div class="msg__label">Mémoire client</div>
+          <div class="msg__cell msg__cell--before">
+            <h4>Avant</h4>
+            <span class="t">(absent du message)</span>
+            <span class="s">La mémoire client existe dans le produit mais n'est jamais racontée.</span>
+          </div>
+          <div class="msg__cell msg__cell--after">
+            <h4>Après</h4>
+            <span class="t">Une relation, pas des rendez-vous isolés.</span>
+            <span class="s">Chaque rapport part de <b>l'historique du client</b> — Reedly se souvient de chaque visite et briefe la suivante.</span>
+          </div>
+        </div>
+
+        <div class="msg__row">
+          <div class="msg__label">Manager (Roles)</div>
+          <div class="msg__cell msg__cell--before">
+            <h4>Avant</h4>
+            <span class="t">Pilotez sur du concret, en temps réel.</span>
+          </div>
+          <div class="msg__cell msg__cell--after">
+            <h4>Après</h4>
+            <span class="t">Voyez enfin le terrain.</span>
+            <span class="s">La visibilité que l'inside-sales a depuis des années, <b>enfin pour vos équipes terrain.</b></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- new section: pour qui -->
+      <div style="margin-top:30px;">
+        <h3 style="font-size:1.15rem;font-weight:720;margin-bottom:6px;">Nouvelle section proposée — « Les autres sont faits pour les appels. Reedly est fait pour le terrain. »</h3>
+        <p style="color:var(--muted);font-size:0.92rem;margin:0 0 16px;">Comparaison <b>au niveau catégorie</b> (pas de nom de marque en home — réservé à une page <span style="font-family:var(--mono);font-size:0.85em;">/comparatif</span> dédiée).</p>
+        <div class="poq">
+          <div class="poq__col">
+            <div class="poq__cap">Les outils d'IA commerciale classiques</div>
+            <ul>
+              <li>Rejoignent une visio pour prendre des notes</li>
+              <li>Ont besoin d'une connexion en continu</li>
+              <li>Rendent un transcript ou un résumé générique</li>
+              <li>Chaque compte-rendu repart d'une page blanche</li>
+              <li>Pilotage pensé pour la revue d'appels</li>
+              <li>Verrouillés enterprise (ou orientés recrutement)</li>
+            </ul>
+          </div>
+          <div class="poq__col poq__col--us">
+            <div class="poq__cap">Reedly</div>
+            <ul>
+              <li>Capte le rendez-vous physique, mains libres</li>
+              <li>Fonctionne hors-ligne, synchronise ensuite</li>
+              <li>Rend un rapport commercial en 11 sections</li>
+              <li>Chaque rapport part de l'historique du client</li>
+              <li>Pilotage pensé pour la couverture territoriale</li>
+              <li>Essai libre, dès 29 €/u, sans engagement</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="thesis">
+        <p class="q">« L'IA commerciale a tout donné aux sédentaires. <b>Rien au terrain.</b> Reedly comble ce trou. »</p>
+        <p class="sub">Honnête (jamais « seul à enregistrer », jamais « eux n'ont pas de mémoire »), émotionnel (le terrain, oublié de l'IA), et défendable (la combinaison field-first + mémoire client native terrain + rapport structuré + pilotage territorial, pour la PME terrain française — qu'aucun concurrent ne réunit).</p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span class="method">Recherche multi-agents · ~100 claims · vérification adversariale 3 votes · sources 2025-2026</span>
+      <span>Reedly — brief de positionnement · 07 juil. 2026</span>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById('themebtn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var root = document.documentElement;
+      var cur = root.getAttribute('data-theme');
+      if (!cur) {
+        cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      root.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
