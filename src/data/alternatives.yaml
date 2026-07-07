@@ -1,0 +1,12 @@
+# Central registry mapping alternative IDs to competitor + FR/EN slug pairs.
+# Each entry produces two pages: /fr/alternatives/{slugFr} and /en/alternatives/{slugEn}.
+# Slugs are identical across languages (competitor names don't translate),
+# so the generic language-toggle fallback in public/main.js handles switching —
+# no mirror-meta and no main.js change needed.
+
+alternatives:
+  - id: "noota"
+    competitor: "Noota"
+    slugs:
+      fr: "noota"
+      en: "noota"
