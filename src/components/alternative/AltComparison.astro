@@ -10,8 +10,10 @@ interface Props {
   lead: string;
   columns: { reedly: string; competitor: string };
   rows: Row[];
+  lang: 'fr' | 'en';
 }
-const { eyebrow, title, lead, columns, rows } = Astro.props;
+const { eyebrow, title, lead, columns, rows, lang } = Astro.props;
+const needLabel = lang === 'fr' ? 'Besoin' : 'Need';
 ---
 
 <section class="section section--alt">
@@ -25,15 +27,15 @@ const { eyebrow, title, lead, columns, rows } = Astro.props;
       <table class="alt-cmp__table">
         <thead>
           <tr>
-            <th class="alt-cmp__need"><span class="sr-only">Besoin</span></th>
-            <th class="alt-cmp__reedly">{columns.reedly}</th>
-            <th class="alt-cmp__comp">{columns.competitor}</th>
+            <th class="alt-cmp__need" scope="col"><span class="sr-only">{needLabel}</span></th>
+            <th class="alt-cmp__reedly" scope="col">{columns.reedly}</th>
+            <th class="alt-cmp__comp" scope="col">{columns.competitor}</th>
           </tr>
         </thead>
         <tbody>
           {rows.map((row) => (
             <tr>
-              <td class="alt-cmp__need">{row.need}</td>
+              <th class="alt-cmp__need" scope="row">{row.need}</th>
               <td class="alt-cmp__reedly" set:html={row.reedly} />
               <td class="alt-cmp__comp" set:html={row.competitor} />
             </tr>

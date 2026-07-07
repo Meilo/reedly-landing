@@ -3,7 +3,7 @@ import path from 'node:path';
 import yaml from 'js-yaml';
 
 export interface AlternativeRegistry {
-  alternatives: { id: string; competitor: string; slugs: { fr: string; en: string } }[];
+  alternatives: { id: string; competitor: string; slug: string }[];
 }
 
 export interface AlternativeContent {
@@ -50,14 +50,6 @@ export function loadAlternativeContent(lang: 'fr' | 'en', slug: string): Alterna
 export function getAllAlternativeSlugs(lang: 'fr' | 'en'): string[] {
   const registry = loadAlternativeRegistry();
   return registry.alternatives
-    .map((a) => a.slugs[lang])
+    .map((a) => a.slug)
     .filter((slug) => fs.existsSync(path.join(CONTENT_DIR, lang, `${slug}.yaml`)));
-}
-
-export function findMirrorSlug(lang: 'fr' | 'en', slug: string): string {
-  const registry = loadAlternativeRegistry();
-  const otherLang = lang === 'fr' ? 'en' : 'fr';
-  const alt = registry.alternatives.find((a) => a.slugs[lang] === slug);
-  if (!alt) throw new Error(`Alternative not found for slug "${slug}" in lang "${lang}"`);
-  return alt.slugs[otherLang];
 }

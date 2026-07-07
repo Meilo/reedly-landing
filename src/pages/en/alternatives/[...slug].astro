@@ -11,7 +11,7 @@ import FeatureFaq from '@/components/feature/FeatureFaq.astro';
 import AltRelated from '@/components/alternative/AltRelated.astro';
 import FinalCta from '@/components/FinalCta.astro';
 import Footer from '@/components/Footer.astro';
-import { getAllAlternativeSlugs, loadAlternativeContent, findMirrorSlug } from '@/lib/load-alternatives';
+import { getAllAlternativeSlugs, loadAlternativeContent } from '@/lib/load-alternatives';
 
 export function getStaticPaths() {
   return getAllAlternativeSlugs('en').map((slug) => ({ params: { slug } }));
@@ -19,9 +19,8 @@ export function getStaticPaths() {
 
 const { slug } = Astro.params;
 const data = loadAlternativeContent('en', slug!);
-const mirrorSlug = findMirrorSlug('en', slug!);
 const hreflangData = {
-  fr: `/fr/alternatives/${mirrorSlug}`,
+  fr: `/fr/alternatives/${slug}`,
   en: `/en/alternatives/${slug}`,
 };
 
@@ -30,8 +29,7 @@ const breadcrumbLD = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.reedly.ai/en" },
-    { "@type": "ListItem", "position": 2, "name": "Alternatives", "item": "https://www.reedly.ai/en" },
-    { "@type": "ListItem", "position": 3, "name": data.hero.eyebrow },
+    { "@type": "ListItem", "position": 2, "name": data.hero.eyebrow, "item": `https://www.reedly.ai/en/alternatives/${slug}` },
   ],
 };
 
@@ -74,6 +72,7 @@ const faqLD = {
       lead={data.comparison.lead}
       columns={data.comparison.columns}
       rows={data.comparison.rows}
+      lang="en"
     />
     <AltValueBlocks
       eyebrow={data.value_blocks.eyebrow}
