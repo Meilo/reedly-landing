@@ -3,6 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import Nav from '@/components/Nav.astro';
 import AltHero from '@/components/alternative/AltHero.astro';
 import AltVerdict from '@/components/alternative/AltVerdict.astro';
+import AltComparison from '@/components/alternative/AltComparison.astro';
 import FinalCta from '@/components/FinalCta.astro';
 import Footer from '@/components/Footer.astro';
 import { getAllAlternativeSlugs, loadAlternativeContent, findMirrorSlug } from '@/lib/load-alternatives';
@@ -62,6 +63,13 @@ const faqLD = {
       cta_url={data.hero.cta_url}
     />
     <AltVerdict title={data.verdict.title} text={data.verdict.text} />
+    <AltComparison
+      eyebrow={data.comparison.eyebrow}
+      title={data.comparison.title}
+      lead={data.comparison.lead}
+      columns={data.comparison.columns}
+      rows={data.comparison.rows}
+    />
     <FinalCta />
   </main>
 

@@ -1,0 +1,114 @@
+---
+interface Row {
+  need: string;
+  reedly: string;
+  competitor: string;
+}
+interface Props {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  columns: { reedly: string; competitor: string };
+  rows: Row[];
+}
+const { eyebrow, title, lead, columns, rows } = Astro.props;
+---
+
+<section class="section section--alt">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section__eyebrow">{eyebrow}</div>
+      <h2 set:html={title} />
+      <p class="alt-cmp__lead">{lead}</p>
+    </div>
+    <div class="alt-cmp__wrap reveal">
+      <table class="alt-cmp__table">
+        <thead>
+          <tr>
+            <th class="alt-cmp__need"><span class="sr-only">Besoin</span></th>
+            <th class="alt-cmp__reedly">{columns.reedly}</th>
+            <th class="alt-cmp__comp">{columns.competitor}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr>
+              <td class="alt-cmp__need">{row.need}</td>
+              <td class="alt-cmp__reedly" set:html={row.reedly} />
+              <td class="alt-cmp__comp" set:html={row.competitor} />
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .alt-cmp__lead {
+    color: var(--muted);
+    max-width: 640px;
+    margin-top: 10px;
+  }
+  .alt-cmp__wrap {
+    overflow-x: auto;
+    margin-top: 32px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+  }
+  .alt-cmp__table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 760px;
+  }
+  .alt-cmp__table th,
+  .alt-cmp__table td {
+    padding: 18px 20px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+  .alt-cmp__table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  .alt-cmp__need {
+    width: 26%;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .alt-cmp__reedly {
+    color: var(--text);
+    background: color-mix(in srgb, var(--green) 9%, transparent);
+  }
+  .alt-cmp__comp {
+    width: 30%;
+    color: var(--muted);
+  }
+  thead .alt-cmp__reedly {
+    color: var(--green);
+  }
+  thead .alt-cmp__reedly,
+  thead .alt-cmp__comp {
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .alt-cmp__reedly :global(strong) {
+    color: var(--green);
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
