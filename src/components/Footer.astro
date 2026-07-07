@@ -18,11 +18,6 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
       <div class="footer__col-title" data-i18n="footer.col.product">Produit</div>
       <a href={lang === 'fr' ? '/fr/tarifs' : '/en/pricing'} data-i18n="footer.pricing" data-link-fr="/fr/tarifs" data-link-en="/en/pricing">Tarifs</a>
       <a href={`/${lang}/blog`} data-i18n="footer.blog" data-link-fr="/fr/blog" data-link-en="/en/blog">Blog</a>
-      <a
-        href={lang === 'fr' ? '/fr/alternatives/noota' : '/en/alternatives/noota'}
-        data-link-fr="/fr/alternatives/noota"
-        data-link-en="/en/alternatives/noota"
-      >{lang === 'fr' ? 'Alternative à Noota' : 'Noota alternative'}</a>
     </div>
 
     <div class="footer__col">
@@ -31,6 +26,15 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
       <a href={lang === 'fr' ? '/fr/features/rapport-ia' : '/en/features/ai-report'}>{lang === 'fr' ? 'Rapport structuré IA' : 'AI Report'}</a>
       <a href={lang === 'fr' ? '/fr/features/hub-manager' : '/en/features/manager-hub'}>{lang === 'fr' ? 'Hub Manager' : 'Manager Hub'}</a>
       <a href={lang === 'fr' ? '/fr/features/integrations-crm' : '/en/features/crm-integrations'}>{lang === 'fr' ? 'Intégrations CRM' : 'CRM Integrations'}</a>
+    </div>
+
+    <div class="footer__col">
+      <div class="footer__col-title">{lang === 'fr' ? 'Comparatif' : 'Compare'}</div>
+      <a
+        href={lang === 'fr' ? '/fr/alternatives/noota' : '/en/alternatives/noota'}
+        data-link-fr="/fr/alternatives/noota"
+        data-link-en="/en/alternatives/noota"
+      >{lang === 'fr' ? 'Alternative à Noota' : 'Noota alternative'}</a>
     </div>
 
     <div class="footer__col">
