@@ -1,0 +1,62 @@
+---
+import FeatureIcon from '@/components/feature/FeatureIcon.astro';
+
+interface Block {
+  title: string;
+  tagline?: string;
+  text: string;
+  icon: string;
+  items?: string[];
+}
+interface Props {
+  eyebrow: string;
+  title: string;
+  blocks: Block[];
+}
+const { eyebrow, title, blocks } = Astro.props;
+---
+
+<section class="section">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section__eyebrow">{eyebrow}</div>
+      <h2 set:html={title} />
+    </div>
+    <div class="features-grid">
+      {blocks.map((block, i) => (
+        <article class={`feature-card reveal reveal-delay-${Math.min(i + 1, 3)}`}>
+          <div class="feature-card__icon">
+            <FeatureIcon name={block.icon} />
+          </div>
+          <h3>{block.title}</h3>
+          {block.tagline && <p class="alt-block__tagline">{block.tagline}</p>}
+          <p>{block.text}</p>
+          {block.items && (
+            <ul class="alt-block__items">
+              {block.items.map((item) => <li>{item}</li>)}
+            </ul>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .alt-block__tagline {
+    color: var(--green);
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .alt-block__items {
+    margin: 12px 0 0;
+    padding-left: 18px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .alt-block__items li {
+    margin-bottom: 2px;
+  }
+</style>

@@ -4,6 +4,7 @@ import Nav from '@/components/Nav.astro';
 import AltHero from '@/components/alternative/AltHero.astro';
 import AltVerdict from '@/components/alternative/AltVerdict.astro';
 import AltComparison from '@/components/alternative/AltComparison.astro';
+import AltValueBlocks from '@/components/alternative/AltValueBlocks.astro';
 import FinalCta from '@/components/FinalCta.astro';
 import Footer from '@/components/Footer.astro';
 import { getAllAlternativeSlugs, loadAlternativeContent, findMirrorSlug } from '@/lib/load-alternatives';
@@ -69,6 +70,11 @@ const faqLD = {
       lead={data.comparison.lead}
       columns={data.comparison.columns}
       rows={data.comparison.rows}
+    />
+    <AltValueBlocks
+      eyebrow={data.value_blocks.eyebrow}
+      title={data.value_blocks.title}
+      blocks={data.value_blocks.blocks}
     />
     <FinalCta />
   </main>
