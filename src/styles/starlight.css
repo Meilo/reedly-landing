@@ -44,6 +44,13 @@
   box-shadow: 0 1px 0 rgba(22, 163, 74, 0.12);
 }
 
+/* Match the marketing Nav, which renders this same mark at 28px with an 8px
+   radius (Nav.astro:43). The PNG is a full-bleed square carrying its own navy
+   background, so unrounded it reads as a hard tile pasted on the header. */
+.site-title img {
+  border-radius: 8px;
+}
+
 /* Tables carry the whole contract (envelope fields, delivery semantics), so they
    earn a little more room and a clearer header row than the default. */
 .sl-markdown-content table {
