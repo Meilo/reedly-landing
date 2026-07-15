@@ -1,13 +1,28 @@
 ---
 title: Webhooks
-description: Receive Reedly field intelligence — reports and syntheses — as signed HTTPS events.
+description: The Reedly integration contract — what we emit, its shape, and how to receive it as signed HTTPS events.
 ---
 
-Reedly captures what happens in field sales meetings and turns it into structured intelligence. Webhooks let your system receive that intelligence the moment it is produced.
+Reedly captures what happens in field sales meetings and turns it into structured intelligence. This page is the **contract for that intelligence**: what Reedly emits, in what shape, and how you receive it.
 
-## How it works
+## The contract and the transport are separate
 
-When a sales rep's meeting report is published, Reedly builds a **canonical event** and delivers it to every destination the organization has configured. Your endpoint is one of those destinations.
+Everything Reedly emits is one **canonical event** — a single, versioned, transport-agnostic payload. Webhooks are the delivery mode documented here, but the same event reaches every destination unchanged:
+
+| Destination | What it is | Who builds it |
+|---|---|---|
+| **Webhook** | The event `POST`ed to your HTTPS endpoint, signed | You — nothing needed on our side |
+| **Email** | The event's `rendered.html` / `rendered.text`, sent to an address | Nobody — configured in the hub |
+| **File export** | The event written as JSON to the customer's own S3 bucket, plus an aggregated `index.csv` | Nobody — configured in the hub |
+| **Native CRM** | The event turned into a note on the matching company/contact/deal in the CRM | Us — one connector per CRM |
+
+So if you are reading this to size up **what data you can get**, read [The envelope](#the-envelope), [Events](#events) and [Custom sections](#custom-sections) and ignore the transport chapters. The shape is the same whichever route the data takes.
+
+If webhooks turn out not to be your route, tell us — a native connector into your CRM is the other shape we build, and it consumes this exact event.
+
+## How webhook delivery works
+
+When a sales rep's meeting report is published, Reedly builds the event and delivers it to every destination the organization has configured. Your endpoint is one of those destinations.
 
 ```
 meeting recorded → AI pipeline → report published
@@ -145,7 +160,9 @@ Emitted when a rep publishes a meeting report. `payload.report` contains:
 | `objections` | `string[]` |
 | `commitments` | `string[]` |
 | `next_steps` | `{ description, deadline, responsible }[]` |
-| `additional_sections` | `{ key, title, type, content }[]` |
+| `additional_sections` | `{ key, title, type, content }[]` — see [Custom sections](#custom-sections) |
+
+That is the whole payload. A report carries more in Reedly's own UI — the agency profile, the commercial context, the products discussed — but those are **not** on the wire today. Do not build against fields you saw in a screenshot.
 
 Full example: [`report-published.json`](/docs/examples/report-published.json)
 
@@ -176,6 +193,50 @@ Full example: [`synthesis-created.json`](/docs/examples/synthesis-created.json)
 A synthesis spans an entire organization, not one company — so `client` is **always `null`** on this event.
 :::
 
+## Custom sections
+
+Every organization tailors what its reports contain. This is the part of the payload that varies between your customers, so it deserves its own read.
+
+An admin can do two things, from the Reports and Syntheses screens in their hub:
+
+- **Turn a standard section off.** Objections, key points, commitments, next steps — any of them, except `summary` (and `overview` on syntheses), which can never be disabled.
+- **Add a custom section.** They give it a **label** (what it's called) and an **instruction** in plain language — *"Describe the budget discussed and who arbitrates it"*. Reedly's AI fills it from the meeting, per report. Up to 20 per organization.
+
+Custom sections arrive in `additional_sections`:
+
+```json
+{
+  "key": "custom_5c8b1d24-9a3f-4e67-b012-7d4e9f2a6c85",
+  "title": "Budget et saisonnalité",
+  "type": "paragraph",
+  "content": "Budget groupes 2027 confirmé à **environ 180 000 €**, arbitré en comité fin septembre."
+}
+```
+
+### Mapping them
+
+**`key` is your anchor, not `title`.** The key is minted once, when the admin creates the section, and never changes — renaming the section leaves it intact. `title` is the admin's label and *will* change under you. Map on `key`.
+
+A key tells you where the section came from:
+
+| `key` looks like | Origin | `title` is | `type` |
+|---|---|---|---|
+| `custom_` + a UUID | The admin wrote this section | Their label — human, translated, mutable | Always `"paragraph"` |
+| A plain name (`accountProfile`, `productFit`) | A sector-standard section with no column of its own | **The raw key itself**, not a label | **Absent** |
+| Absent | A legacy or fixed section | A label | Varies |
+
+Two traps in that table. A sector-standard fold-in has `title` equal to its key — you'll see the literal string `"accountProfile"` where you expected a human title, so don't render it blind. And `type` is optional everywhere: **when it's missing, treat it as `paragraph`.**
+
+### Reading the content
+
+`content` is always a single plain-text string, never an object or an array. It uses a small markdown subset: `**bold**` for emphasis, blank lines between paragraphs. If the AI found nothing for a section, `content` is an explicit sentence saying so rather than an empty string — the section is still there.
+
+Custom sections are **additive**. They never alter the standard ones, and a failure to generate them never blocks the report — so an event can legitimately arrive with `additional_sections: []` even for an organization that configured some.
+
+:::note
+Sections and their instructions are configured per organization, by an admin, and take effect on the **next** report. They are not part of the versioned contract: a customer can add one tomorrow, and your integration must survive a key it has never seen.
+:::
+
 ## Gotchas
 
 Four things that will cost you time if you find them the hard way.
@@ -187,10 +248,10 @@ Four things that will cost you time if you find them the hard way.
 Not "sometimes" — always. Any code that files an event against a company must handle the client-less case, or it will throw on the first synthesis.
 
 **3. A disabled section is `[]`, not absent.**
-Organizations can turn report sections off. A disabled section arrives as an empty array, not a missing key. Do not read emptiness as "the section does not exist" — read it as "nothing to show".
+When an admin turns a standard section off, it arrives as an empty array, not a missing key. Do not read emptiness as "the section does not exist" — read it as "nothing to show".
 
 **4. `additional_sections` has no fixed schema.**
-Organizations configure their own custom sections, so keys vary between customers and change over time. Iterate over the array and render `title` + `content`. Never hard-code an expected key.
+Its keys differ per organization and appear without warning — see [Custom sections](#custom-sections). Iterate; never hard-code an expected key; anchor any mapping on `key`, never on `title`.
 
 ## Versioning
 
