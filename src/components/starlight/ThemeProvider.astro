@@ -1,0 +1,19 @@
+---
+/*
+ * Forces the docs to dark, overriding Starlight's stored-theme / OS-preference
+ * logic. reedly.ai is dark-only (src/styles/global.css declares
+ * `color-scheme: dark`), so a light docs page would be the only light surface on
+ * the domain — and our Starlight palette only defines the navy scale, which in
+ * light mode left a navy shell wrapping light code blocks.
+ *
+ * Paired with the ThemeSelect override, which renders nothing.
+ */
+---
+
+{/* Inlined rather than bundled — same reason as Starlight's own provider: avoid FOUC. */}
+<script is:inline>
+  document.documentElement.dataset.theme = 'dark';
+  // Starlight's ThemeSelect calls into this global. We render no picker, but keep
+  // a no-op so any future Starlight internal that expects it cannot throw.
+  window.StarlightThemeProvider = { updatePickers() {} };
+</script>
