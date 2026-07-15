@@ -1,0 +1,55 @@
+{
+  "apiVersion": "2026-06-15",
+  "event": "synthesis.created",
+  "eventId": "evt_synthesis_7c4e1b92-3a6f-4d8e-b105-9f2c6a8d3e40",
+  "occurredAt": "2026-07-15T06:00:04.000Z",
+  "organizationId": "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
+  "client": null,
+  "actor": {
+    "repName": "Thomas Mercier",
+    "repEmail": null
+  },
+  "payload": {
+    "synthesis": {
+      "id": "7c4e1b92-3a6f-4d8e-b105-9f2c6a8d3e40",
+      "created_at": "2026-07-15T06:00:04.000Z",
+      "scope": "team",
+      "period_start": "2026-06-01",
+      "period_end": "2026-06-30",
+      "report_count": 27,
+      "overview": "Le mois est porté par la demande groupes seniors, en hausse sur trois secteurs. La pression tarifaire s'accentue sur les circuits Europe du Sud.",
+      "trends": [
+        "Demande groupes seniors en hausse sur 3 des 5 secteurs",
+        "Allongement des délais de décision : 6 semaines en moyenne contre 4 en mai"
+      ],
+      "opportunities": [
+        "Quatre agences demandent des supports de vente personnalisés — offre non couverte aujourd'hui",
+        "Créneau avril-mai sous-exploité sur les circuits Portugal"
+      ],
+      "risks": [
+        "Un concurrent se positionne systématiquement 10 à 15 % sous nos tarifs groupes",
+        "Le délai d'annulation à J-30 est remonté comme objection dans 9 comptes rendus sur 27"
+      ],
+      "novelties": [
+        "Deux agences évoquent une demande émergente sur les séjours bien-être"
+      ],
+      "improvements": [
+        "Qualifier le budget dès le premier rendez-vous : absent de 11 comptes rendus sur 27"
+      ],
+      "manager_insights": [
+        {
+          "question": "Quelle objection revient le plus ce mois-ci ?",
+          "answer": "Le délai d'annulation à J-30, cité dans 9 comptes rendus sur 27, en particulier sur la clientèle senior."
+        }
+      ],
+      "additional_sections": []
+    }
+  },
+  "rendered": {
+    "html": "<p><em>Periode : 2026-06-01 — 2026-06-30</em></p><br/><p><em>27 rapports analyses</em></p><br/><p><strong>Vue d'ensemble</strong></p><p>Le mois est porté par la demande groupes seniors, en hausse sur trois secteurs. La pression tarifaire s&#39;accentue sur les circuits Europe du Sud.</p><br/><p><strong>Tendances</strong></p><ul><li>Demande groupes seniors en hausse sur 3 des 5 secteurs</li><li>Allongement des délais de décision : 6 semaines en moyenne contre 4 en mai</li></ul><br/><p><strong>Opportunites</strong></p><ul><li>Quatre agences demandent des supports de vente personnalisés — offre non couverte aujourd&#39;hui</li><li>Créneau avril-mai sous-exploité sur les circuits Portugal</li></ul><br/><p><strong>Risques</strong></p><ul><li>Un concurrent se positionne systématiquement 10 à 15 % sous nos tarifs groupes</li><li>Le délai d&#39;annulation à J-30 est remonté comme objection dans 9 comptes rendus sur 27</li></ul><br/><p><strong>Nouveautes</strong></p><ul><li>Deux agences évoquent une demande émergente sur les séjours bien-être</li></ul><br/><p><strong>Axes d'amelioration</strong></p><ul><li>Qualifier le budget dès le premier rendez-vous : absent de 11 comptes rendus sur 27</li></ul><br/><p><strong>Points d'attention manager</strong></p><ul><li><strong>Quelle objection revient le plus ce mois-ci ?</strong><br/>Le délai d&#39;annulation à J-30, cité dans 9 comptes rendus sur 27, en particulier sur la clientèle senior.</li></ul>",
+    "text": "Periode : 2026-06-01 — 2026-06-30\n\n27 rapports analyses\n\nVue d'ensemble\nLe mois est porté par la demande groupes seniors, en hausse sur trois secteurs. La pression tarifaire s'accentue sur les circuits Europe du Sud.\n\nTendances\n- Demande groupes seniors en hausse sur 3 des 5 secteurs\n- Allongement des délais de décision : 6 semaines en moyenne contre 4 en mai\n\nOpportunites\n- Quatre agences demandent des supports de vente personnalisés — offre non couverte aujourd'hui\n- Créneau avril-mai sous-exploité sur les circuits Portugal\n\nRisques\n- Un concurrent se positionne systématiquement 10 à 15 % sous nos tarifs groupes\n- Le délai d'annulation à J-30 est remonté comme objection dans 9 comptes rendus sur 27\n\nNouveautes\n- Deux agences évoquent une demande émergente sur les séjours bien-être\n\nAxes d'amelioration\n- Qualifier le budget dès le premier rendez-vous : absent de 11 comptes rendus sur 27\n\nPoints d'attention manager\n- Quelle objection revient le plus ce mois-ci ?\nLe délai d'annulation à J-30, cité dans 9 comptes rendus sur 27, en particulier sur la clientèle senior."
+  },
+  "links": {
+    "reedlyUrl": "https://hub.reedly.ai/syntheses/7c4e1b92-3a6f-4d8e-b105-9f2c6a8d3e40"
+  }
+}

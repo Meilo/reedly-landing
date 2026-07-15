@@ -1,0 +1,72 @@
+{
+  "apiVersion": "2026-06-15",
+  "event": "report.published",
+  "eventId": "evt_report_3f2a91c4-8e7d-4b6a-9c15-2d8e4f0a7b31",
+  "occurredAt": "2026-07-15T09:32:11.000Z",
+  "organizationId": "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
+  "client": {
+    "name": "Évasion Bleue Voyages",
+    "contact": {
+      "name": "Camille Rousseau",
+      "email": "camille.rousseau@evasion-bleue.example",
+      "phone": null,
+      "role": null
+    },
+    "domain": "evasion-bleue.example",
+    "externalIds": {}
+  },
+  "actor": {
+    "repName": "Thomas Mercier",
+    "repEmail": "thomas.mercier@example.com"
+  },
+  "payload": {
+    "report": {
+      "summary": "L'agence cherche à étoffer son offre groupes seniors pour la saison 2027. Budget confirmé, décision attendue avant fin septembre.",
+      "client_needs": [
+        "Circuits accompagnés 8-12 jours pour groupes de 20 à 30 personnes",
+        "Destinations Europe du Sud, hors haute saison",
+        "Supports de vente imprimés personnalisés à leur enseigne"
+      ],
+      "key_points": [
+        "Camille Rousseau est décisionnaire sur le référencement produit",
+        "Deux concurrents déjà consultés, dont un positionné 15 % moins cher",
+        "L'agence a réalisé 340 départs groupes en 2025"
+      ],
+      "objections": [
+        "Le délai d'annulation à J-30 est jugé trop contraignant face à leur clientèle senior",
+        "Crainte sur la disponibilité des accompagnateurs francophones en avril"
+      ],
+      "commitments": [
+        "Envoi de la grille tarifaire groupes 2027 avant le 22 juillet",
+        "Mise en relation avec deux agences référentes de taille comparable"
+      ],
+      "next_steps": [
+        {
+          "description": "Transmettre la grille tarifaire groupes 2027",
+          "deadline": "2026-07-22",
+          "responsible": "Thomas Mercier"
+        },
+        {
+          "description": "Obtenir un retour du service produit sur l'assouplissement du délai d'annulation",
+          "deadline": "2026-07-31",
+          "responsible": "Thomas Mercier"
+        }
+      ],
+      "additional_sections": [
+        {
+          "key": "agencyProfile",
+          "title": "Profil agence",
+          "type": "paragraph",
+          "content": "Agence indépendante, 6 salariés, implantée à Annecy depuis 1998. Clientèle **majoritairement senior** et fidélisée."
+        }
+      ]
+    }
+  },
+  "rendered": {
+    "html": "<p><strong>Synthese</strong></p><p>L&#39;agence cherche à étoffer son offre groupes seniors pour la saison 2027. Budget confirmé, décision attendue avant fin septembre.</p><br/><p><strong>Besoins client</strong></p><ul><li>Circuits accompagnés 8-12 jours pour groupes de 20 à 30 personnes</li><li>Destinations Europe du Sud, hors haute saison</li><li>Supports de vente imprimés personnalisés à leur enseigne</li></ul><br/><p><strong>Points cles</strong></p><ul><li>Camille Rousseau est décisionnaire sur le référencement produit</li><li>Deux concurrents déjà consultés, dont un positionné 15 % moins cher</li><li>L&#39;agence a réalisé 340 départs groupes en 2025</li></ul><br/><p><strong>Objections</strong></p><ul><li>Le délai d&#39;annulation à J-30 est jugé trop contraignant face à leur clientèle senior</li><li>Crainte sur la disponibilité des accompagnateurs francophones en avril</li></ul><br/><p><strong>Engagements</strong></p><ul><li>Envoi de la grille tarifaire groupes 2027 avant le 22 juillet</li><li>Mise en relation avec deux agences référentes de taille comparable</li></ul><br/><p><strong>Prochaines etapes</strong></p><ul><li>Transmettre la grille tarifaire groupes 2027 <em>(Echeance : 2026-07-22 | Responsable : Thomas Mercier)</em></li><li>Obtenir un retour du service produit sur l&#39;assouplissement du délai d&#39;annulation <em>(Echeance : 2026-07-31 | Responsable : Thomas Mercier)</em></li></ul><br/><p><strong>Profil agence</strong></p><p>Agence indépendante, 6 salariés, implantée à Annecy depuis 1998. Clientèle <strong>majoritairement senior</strong> et fidélisée.</p>",
+    "text": "Synthese\nL'agence cherche à étoffer son offre groupes seniors pour la saison 2027. Budget confirmé, décision attendue avant fin septembre.\n\nBesoins client\n- Circuits accompagnés 8-12 jours pour groupes de 20 à 30 personnes\n- Destinations Europe du Sud, hors haute saison\n- Supports de vente imprimés personnalisés à leur enseigne\n\nPoints cles\n- Camille Rousseau est décisionnaire sur le référencement produit\n- Deux concurrents déjà consultés, dont un positionné 15 % moins cher\n- L'agence a réalisé 340 départs groupes en 2025\n\nObjections\n- Le délai d'annulation à J-30 est jugé trop contraignant face à leur clientèle senior\n- Crainte sur la disponibilité des accompagnateurs francophones en avril\n\nEngagements\n- Envoi de la grille tarifaire groupes 2027 avant le 22 juillet\n- Mise en relation avec deux agences référentes de taille comparable\n\nProchaines etapes\n- Transmettre la grille tarifaire groupes 2027 (Echeance : 2026-07-22 | Responsable : Thomas Mercier)\n- Obtenir un retour du service produit sur l'assouplissement du délai d'annulation (Echeance : 2026-07-31 | Responsable : Thomas Mercier)\n\nProfil agence\nAgence indépendante, 6 salariés, implantée à Annecy depuis 1998. Clientèle majoritairement senior et fidélisée."
+  },
+  "links": {
+    "reedlyUrl": "https://hub.reedly.ai/reports/3f2a91c4-8e7d-4b6a-9c15-2d8e4f0a7b31"
+  }
+}
