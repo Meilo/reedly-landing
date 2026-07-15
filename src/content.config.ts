@@ -1,5 +1,13 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { docsLoader } from '@astrojs/starlight/loaders';
+import { docsSchema } from '@astrojs/starlight/schema';
+
+// Developer docs, served by Starlight. Content lives one level deeper
+// (src/content/docs/docs/) so Starlight owns `/docs/*` only and leaves the
+// marketing routes (`/`, `/fr/*`, `/en/*`) alone — the documented "Starlight at
+// a subpath" pattern.
+const docs = defineCollection({ loader: docsLoader(), schema: docsSchema() });
 
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
@@ -15,4 +23,4 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+export const collections = { blog, docs };

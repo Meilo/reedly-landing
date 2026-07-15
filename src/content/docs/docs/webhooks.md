@@ -5,7 +5,7 @@ description: Receive Reedly field intelligence — reports and syntheses — as 
 
 Reedly captures what happens in field sales meetings and turns it into structured intelligence. Webhooks let your system receive that intelligence the moment it is produced.
 
-## Overview
+## How it works
 
 When a sales rep's meeting report is published, Reedly builds a **canonical event** and delivers it to every destination the organization has configured. Your endpoint is one of those destinations.
 
@@ -70,9 +70,9 @@ Every request carries these headers:
 | `X-Reedly-Delivery` | The `eventId` |
 | `User-Agent` | `Reedly-Webhook/1` |
 
-> **Verify the raw body, exactly as received.**
->
-> Do not `JSON.parse` and re-serialize before verifying. Re-serialization changes the bytes — key order, spacing, unicode escaping — and the signature will not match. Capture the raw body first, verify it, and only then parse. This is the single most common webhook integration bug.
+:::caution[Verify the raw body, exactly as received]
+Do not `JSON.parse` and re-serialize before verifying. Re-serialization changes the bytes — key order, spacing, unicode escaping — and the signature will not match. Capture the raw body first, verify it, and only then parse. This is the single most common webhook integration bug.
+:::
 
 Always compare in **constant time** (`timingSafeEqual`, `hmac.compare_digest`). A plain `==` leaks the secret to a timing attack.
 
@@ -147,9 +147,11 @@ Emitted when a rep publishes a meeting report. `payload.report` contains:
 | `next_steps` | `{ description, deadline, responsible }[]` |
 | `additional_sections` | `{ key, title, type, content }[]` |
 
-Full example: [`report-published.json`](./examples/report-published.json)
+Full example: [`report-published.json`](/docs/examples/report-published.json)
 
-> Not every report produces an event: a report with no client name, or with no organization context, is never emitted.
+:::note
+Not every report produces an event: a report with no client name, or with no organization context, is never emitted.
+:::
 
 ### `synthesis.created`
 
@@ -168,9 +170,11 @@ Emitted when a synthesis — an aggregation of many reports over a period — is
 | `report_count` | `number` |
 | `scope` | `string` |
 
-Full example: [`synthesis-created.json`](./examples/synthesis-created.json)
+Full example: [`synthesis-created.json`](/docs/examples/synthesis-created.json)
 
-> A synthesis spans an entire organization, not one company — so `client` is **always `null`** on this event.
+:::note
+A synthesis spans an entire organization, not one company — so `client` is **always `null`** on this event.
+:::
 
 ## Gotchas
 
