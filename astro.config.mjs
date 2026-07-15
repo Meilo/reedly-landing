@@ -18,6 +18,16 @@ export default defineConfig({
     starlight({
       title: 'Reedly Docs',
       description: 'Integrate with Reedly — field meeting intelligence for B2B sales teams.',
+      // The real mark. Both must be set explicitly: Starlight's favicon defaults
+      // to `/favicon.svg`, and public/ happens to contain one — a stray
+      // placeholder drawing an "R" in monospace text, not the Reedly logo. So the
+      // docs were silently serving a different icon from the rest of the domain.
+      //
+      // logo.src points at a 64px copy rather than public/favicon.png: Starlight
+      // renders the logo through a plain <img> at its intrinsic size, so the
+      // 1023x1023 original shipped 778 KB to draw a 28px mark.
+      logo: { src: './src/assets/logo.png', alt: 'Reedly' },
+      favicon: '/favicon.png',
       customCss: ['./src/styles/starlight.css'],
       // Starlight renders through its own layout, so it never inherits the font
       // <link> from Layout.astro. Mirror it here or the docs fall back to a
