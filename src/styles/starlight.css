@@ -38,11 +38,19 @@
   --sl-font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-/* The green in the header rule ties the docs back to the marketing chrome. */
-.header {
-  border-bottom: 1px solid var(--sl-color-gray-5);
-  box-shadow: 0 1px 0 rgba(22, 163, 74, 0.12);
-}
+/*
+ * No `.header` rule here, deliberately.
+ *
+ * There are TWO nested `<header class="header">` — PageFrame's (the top bar) and
+ * Header.astro's own inside it. Starlight's own styles are Astro-scoped, so they
+ * only reach the outer one; an unscoped `.header {}` here hits both, and any
+ * border-bottom then draws a stray line across the middle of the bar.
+ *
+ * PageFrame already draws the divider (`border-bottom: 1px solid
+ * var(--sl-color-hairline-shade)`), which resolves to `--sl-color-black` in dark
+ * mode — a recess just darker than the header. It is themed by our navy scale
+ * for free. Nothing to add.
+ */
 
 /* Match the marketing Nav, which renders this same mark at 28px with an 8px
    radius (Nav.astro:43). The PNG is a full-bleed square carrying its own navy
