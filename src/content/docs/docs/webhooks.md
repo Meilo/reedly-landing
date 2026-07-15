@@ -22,17 +22,34 @@ If webhooks turn out not to be your route, tell us — a native connector into y
 
 ## How webhook delivery works
 
-When a sales rep's meeting report is published, Reedly builds the event and delivers it to every destination the organization has configured. Your endpoint is one of those destinations.
+Everything happens on our side until the last step. Your endpoint is one destination among those the organization has configured.
 
-```
-meeting recorded → AI pipeline → report published
-                                       ↓
-                              event queued (outbox)
-                                       ↓
-                     dispatcher (runs every 5 minutes)
-                                       ↓
-                          POST https://your-endpoint
-```
+<figure class="flow">
+<ol class="flow__steps">
+<li class="flow__step">
+<span class="flow__who">Reedly</span>
+<span class="flow__what">A rep records a client meeting, on their phone</span>
+</li>
+<li class="flow__step">
+<span class="flow__who">Reedly</span>
+<span class="flow__what">The AI transcribes it and drafts a structured report</span>
+</li>
+<li class="flow__step flow__step--trigger">
+<span class="flow__who">Reedly</span>
+<span class="flow__what">The rep publishes the report — <strong>this is the trigger</strong>, not the meeting</span>
+</li>
+<li class="flow__step">
+<span class="flow__who">Reedly</span>
+<span class="flow__what">The event is queued</span>
+<span class="flow__note">a dispatcher drains the queue every 5 minutes — this is where the delay comes from</span>
+</li>
+<li class="flow__step flow__step--you">
+<span class="flow__who">You</span>
+<span class="flow__what"><code>POST</code> to your endpoint, signed</span>
+<span class="flow__note">answer 2xx and it's done · anything else is retried, see <a href="#delivery-semantics">Delivery semantics</a></span>
+</li>
+</ol>
+</figure>
 
 Two things follow from this design, and they shape everything below:
 

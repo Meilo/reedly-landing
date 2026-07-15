@@ -51,6 +51,89 @@
   border-radius: 8px;
 }
 
+/*
+ * Delivery flow (webhooks.md, "How webhook delivery works").
+ *
+ * Hand-rolled rather than a code fence: the previous version was an ASCII
+ * drawing inside ```…```, which Starlight decorated with a copy button and set
+ * in the monospace face that means "code" everywhere else on the page.
+ * Semantic <ol> underneath, so it degrades to a plain ordered list without CSS
+ * and reads correctly to a screen reader.
+ */
+.flow {
+  margin: 1.5rem 0;
+}
+.flow__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.flow__step {
+  position: relative;
+  padding: 0 0 1.35rem 1.75rem;
+  /* The rail: a line from each dot down to the next one. gray-4 rather than
+     gray-5 — the darker one all but vanishes against the navy page. */
+  border-left: 1px solid var(--sl-color-gray-4);
+  margin-left: 0.3rem;
+}
+.flow__step:last-child {
+  border-left-color: transparent;
+  padding-bottom: 0;
+}
+/* The dot, straddling the rail. */
+.flow__step::before {
+  content: '';
+  position: absolute;
+  left: -0.3rem;
+  top: 0.4rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--sl-color-gray-4);
+}
+.flow__who {
+  display: inline-block;
+  min-width: 3.6rem;
+  font-size: var(--sl-text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sl-color-gray-3);
+}
+.flow__what {
+  color: var(--sl-color-white);
+}
+.flow__note {
+  display: block;
+  margin-top: 0.2rem;
+  margin-left: 3.6rem;
+  font-size: var(--sl-text-sm);
+  color: var(--sl-color-gray-3);
+}
+/* The trigger — worth marking, but neutral: the green is spent on the boundary
+   below, and the bold text already carries the emphasis. */
+.flow__step--trigger::before {
+  background: var(--sl-color-white);
+}
+/* The boundary: everything above is ours, this step is theirs. The only green
+   in the flow, so it reads as "here is where it becomes yours". */
+.flow__step--you::before {
+  background: var(--sl-color-accent-high);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.25);
+}
+.flow__step--you .flow__who {
+  color: var(--sl-color-accent-high);
+}
+
+/* Narrow screens: the WHO column stops earning its keep — stack it. */
+@media (max-width: 30rem) {
+  .flow__who {
+    display: block;
+  }
+  .flow__note {
+    margin-left: 0;
+  }
+}
+
 /* Tables carry the whole contract (envelope fields, delivery semantics), so they
    earn a little more room and a clearer header row than the default. */
 .sl-markdown-content table {
