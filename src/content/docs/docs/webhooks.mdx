@@ -3,6 +3,8 @@ title: Webhooks
 description: The Reedly integration contract — what we emit, its shape, and how to receive it as signed HTTPS events.
 ---
 
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
 Reedly captures what happens in field sales meetings and turns it into structured intelligence. This page is the **contract for that intelligence**: what Reedly emits, in what shape, and how you receive it.
 
 ## The contract and the transport are separate
@@ -108,8 +110,11 @@ Do not `JSON.parse` and re-serialize before verifying. Re-serialization changes 
 
 Always compare in **constant time** (`timingSafeEqual`, `hmac.compare_digest`). A plain `==` leaks the secret to a timing attack.
 
-### Node.js
-
+{/* Adding a language is one more <TabItem>, nothing else. syncKey ties every
+    Tabs block on the site to the same choice, so a reader who picks their
+    language once keeps it everywhere. */}
+<Tabs syncKey="lang">
+<TabItem label="Node.js">
 ```js
 import { createHmac, timingSafeEqual } from 'node:crypto';
 
@@ -121,9 +126,8 @@ function verify(rawBody, header, secret) {
   return a.length === b.length && timingSafeEqual(a, b);
 }
 ```
-
-### Python
-
+</TabItem>
+<TabItem label="Python">
 ```python
 import hmac, hashlib
 
@@ -132,6 +136,10 @@ def verify(raw_body: bytes, header: str, secret: str) -> bool:
     received = (header or "").removeprefix("sha256=")
     return hmac.compare_digest(expected, received)
 ```
+</TabItem>
+</Tabs>
+
+Your language isn't here? Ask us — the primitive is HMAC-SHA256 over the raw body, hex-encoded, and every stack has it.
 
 ### Worked example
 

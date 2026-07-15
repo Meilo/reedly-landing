@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
 import starlight from '@astrojs/starlight';
+import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
@@ -66,6 +67,10 @@ export default defineConfig({
         themes: ['night-owl'],
       },
     }),
+    // Needed to use Starlight's components (Tabs) inside docs content. Must come
+    // after starlight() so Starlight's own markdown config is applied first.
+    // Pinned to 5.x: 7.x requires astro ^7 and we are on 6.1.1.
+    mdx(),
     // Auto-generates a complete sitemap on every build (no more stale static file).
     // hreflang is emitted per-page in the <head> (Layout.astro), so a flat sitemap is fine.
     sitemap({
