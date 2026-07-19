@@ -1,0 +1,199 @@
+---
+// Book a demo (block 6), qualifying form + calendar embed placeholder.
+// Front-only for now: no POST, the submit reveals a calendar placeholder to wire
+// to Cal.com / Calendly later.
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const lang = path.startsWith('/en') ? 'en' : 'fr';
+---
+
+<!-- ── Book a demo ── -->
+<section class="section section--alt" id="rdv">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section__eyebrow" data-i18n="bookdemo.eyebrow">Réserver une démo</div>
+      <h2 data-i18n-html="bookdemo.title">[Titre section démo à valider]</h2>
+      <p class="section__lead" data-i18n="bookdemo.lead">
+        [Sous-titre : ce que la direction verra pendant la démo. À valider en passe copy.]
+      </p>
+    </div>
+
+    <div class="contact__grid">
+      <!-- Left: value / reassurance -->
+      <div class="bookdemo__intro reveal">
+        <p class="bookdemo__text" data-i18n="bookdemo.intro">
+          [Paragraphe valeur orienté direction. À valider en passe copy.]
+        </p>
+        <p class="bookdemo__alt">
+          <span data-i18n="bookdemo.alt_prefix">Vous préférez explorer d'abord ?</span>
+          <a class="bookdemo__alt-link" href={`/${lang}#demo`} data-i18n="bookdemo.alt_link"
+            >Voir la démo interactive →</a
+          >
+        </p>
+      </div>
+
+      <!-- Right: qualifying form -->
+      <div class="contact__form-card reveal">
+        <form id="bookdemo-form" novalidate>
+          <div class="form__field">
+            <label class="form__label" for="bd-role" data-i18n="bookdemo.role.label"
+              >Votre poste</label
+            >
+            <select class="form__select" id="bd-role" name="role" required>
+              <option value="" disabled selected data-i18n="bookdemo.role.select"
+                >Choisir…</option
+              >
+              <option value="head_of_sales" data-i18n="bookdemo.role.director"
+                >Directeur / Responsable commercial</option
+              >
+              <option value="founder_ceo" data-i18n="bookdemo.role.owner">Dirigeant / Gérant</option>
+              <option value="sales_rep" data-i18n="bookdemo.role.rep">Commercial terrain</option>
+              <option value="other" data-i18n="bookdemo.role.other">Autre</option>
+            </select>
+          </div>
+
+          <div class="form__field">
+            <label class="form__label" for="bd-team" data-i18n="bookdemo.team.label"
+              >Taille de l'équipe commerciale</label
+            >
+            <select class="form__select" id="bd-team" name="team_size" required>
+              <option value="" disabled selected data-i18n="bookdemo.team.select"
+                >Choisir…</option
+              >
+              <option value="1" data-i18n="bookdemo.team.1">1 commercial</option>
+              <option value="2-5" data-i18n="bookdemo.team.2_5">2 à 5</option>
+              <option value="6-15" data-i18n="bookdemo.team.6_15">6 à 15</option>
+              <option value="16+" data-i18n="bookdemo.team.16">16+</option>
+            </select>
+          </div>
+
+          <div class="form__field">
+            <label class="form__label" for="bd-sector" data-i18n="bookdemo.sector.label"
+              >Secteur</label
+            >
+            <input
+              class="form__input"
+              type="text"
+              id="bd-sector"
+              name="sector"
+              placeholder="[Secteur]"
+              data-i18n-placeholder="bookdemo.sector.ph"
+            />
+          </div>
+
+          <div class="form__field">
+            <label class="form__label" for="bd-email" data-i18n="bookdemo.email.label"
+              >Email professionnel</label
+            >
+            <input
+              class="form__input"
+              type="email"
+              id="bd-email"
+              name="email"
+              placeholder="vous@votre-organisation.fr"
+              data-i18n-placeholder="bookdemo.email.ph"
+              required
+              autocomplete="email"
+            />
+          </div>
+
+          <button
+            class="btn btn--primary form__submit"
+            type="submit"
+            id="bd-submit"
+            data-i18n="bookdemo.submit"
+            data-track-id="bookdemo_submit"
+            data-track-type="demo"
+            data-track-section="bookdemo"
+          >
+            Voir les créneaux disponibles →
+          </button>
+
+          <div class="bookdemo__hint" data-i18n="bookdemo.hint">
+            [Réassurance sous le formulaire à valider]
+          </div>
+        </form>
+
+        <!-- Calendar embed placeholder, revealed after the qualifying step.
+             Wire to Cal.com / Calendly here later. -->
+        <div class="bookdemo__calendar" id="bookdemo-calendar" hidden>
+          <div class="bookdemo__calendar-box">
+            <span data-i18n="bookdemo.calendar">[ Embed calendrier · Cal.com / Calendly à brancher ]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bookdemo__intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .bookdemo__text {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0 0 18px;
+  }
+  .bookdemo__alt {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0;
+  }
+  .bookdemo__alt-link {
+    color: var(--green);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .bookdemo__hint {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 12px;
+  }
+  .bookdemo__calendar {
+    margin-top: 20px;
+  }
+  .bookdemo__calendar-box {
+    display: grid;
+    place-items: center;
+    min-height: 220px;
+    padding: 24px;
+    text-align: center;
+    border: 1px dashed var(--faint);
+    border-radius: 12px;
+    background: var(--surface2);
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById("bookdemo-form");
+    var calendar = document.getElementById("bookdemo-calendar");
+    if (!form || !calendar) return;
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      // Front-only: no submission yet. Reveal the calendar embed placeholder.
+      form.setAttribute("hidden", "");
+      calendar.removeAttribute("hidden");
+      calendar.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+      try {
+        var tracker = window.reedlyTrackEvent;
+        if (typeof tracker === "function") {
+          tracker("landing_bookdemo_qualified", {
+            role: form.querySelector("#bd-role") ? form.querySelector("#bd-role").value : "",
+            team_size: form.querySelector("#bd-team") ? form.querySelector("#bd-team").value : "",
+          });
+        }
+      } catch (err) {}
+    });
+  })();
+</script>

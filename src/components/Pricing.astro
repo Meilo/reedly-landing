@@ -1,9 +1,9 @@
 ---
-// Pricing section, 3-card layout (Pro / Business / Enterprise)
+// Pricing section, team-seat framing (block 7), 2 plans: Équipe / Grandes équipes.
+// CTA is always "Réserver une démo", never a self-serve subscribe.
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const lang = path.startsWith('/en') ? 'en' : 'fr';
-const trialHref = 'https://hub.reedly.ai';
-const contactHref = `/${lang}#contact`;
+const bookHref = `/${lang}#rdv`;
 ---
 
 <!-- ── Pricing ── -->
@@ -12,266 +12,94 @@ const contactHref = `/${lang}#contact`;
     <div class="reveal">
       <div class="section__eyebrow" data-i18n="pricing.eyebrow">Tarifs</div>
       <h2 data-i18n-html="pricing.title">
-        Équipez votre force de vente<br /><em>avec l'IA terrain.</em>
+        [Titre tarifs, prix d'équipe.<br /><em>À valider.</em>]
       </h2>
       <p class="section__lead" data-i18n="pricing.lead">
-        Rapports structurés illimités, vocabulaire métier, Hub manager. Déployez Reedly en moins de
-        10 minutes.
+        [Sous-titre tarifs : prix par équipe, facturé à l'organisation. La démo reste le point
+        d'entrée. À valider en passe copy.]
       </p>
     </div>
 
-    <!-- Billing toggle -->
-    <div class="pricing-toggle-wrap reveal">
-      <div class="pricing-billing-toggle" id="pricing-billing-toggle">
-        <button
-          class="pricing-billing-toggle__btn pricing-billing-toggle__btn--active"
-          data-billing="monthly"
-          data-i18n="pricing.billing.monthly"
-          type="button">Mensuel</button>
-        <button
-          class="pricing-billing-toggle__btn"
-          data-billing="annual"
-          data-i18n="pricing.billing.annual"
-          type="button">Annuel (-14%)</button>
-      </div>
-    </div>
-
-    <!-- ── 3-card grid ── -->
-    <div class="pricing-cards reveal">
-      <!-- ── Pro Team ── -->
-      <article class="pricing-card pricing-card--v2">
-        <header class="pricing-card__head">
-          <div>
-            <div class="pricing-card__name" data-i18n="pricing.pro.plan">Pro</div>
-            <div class="pricing-card__subtitle" data-i18n="pricing.pro.subtitle">
-              Équipe découverte
-            </div>
-          </div>
-          <div class="pricing-card__price-block">
-            <div class="pricing-card__price">
-              <span class="pricing-amount js-billing-price" data-base-price="29">29</span><span
-                class="pricing-currency-inline">€</span>
-            </div>
-            <div class="pricing-card__per" data-i18n="pricing.tableHeader.per">
-              / utilisateur / mois
-            </div>
-          </div>
-        </header>
-
-        <div class="pricing-card__divider"></div>
-
-        <div class="pricing-card__section-label" data-i18n="pricing.cap.title">Capacités</div>
-        <div class="pricing-capacities">
-          <div class="pricing-capacity" style="--fill:35%">
-            <div class="pricing-capacity__row">
-              <span class="pricing-capacity__label" data-i18n="pricing.cap.recording"
-                >Durée par enregistrement</span
-              >
-              <span class="pricing-capacity__value" data-i18n="pricing.cap.recording.pro"
-                >45 min</span
-              >
-            </div>
-          </div>
-          <div class="pricing-capacity" style="--fill:100%">
-            <div class="pricing-capacity__row">
-              <span class="pricing-capacity__label" data-i18n="pricing.cap.reports"
-                >Rapports</span
-              >
-              <span class="pricing-capacity__value" data-i18n="pricing.tableVal.unlimited">Illimité</span>
-            </div>
-          </div>
-          <div class="pricing-capacity" style="--fill:35%">
-            <div class="pricing-capacity__row">
-              <span class="pricing-capacity__label" data-i18n="pricing.cap.history"
-                >Période de synthèse</span
-              >
-              <span class="pricing-capacity__value" data-i18n="pricing.cap.history.pro"
-                >30 jours</span
-              >
-            </div>
-          </div>
-          <div class="pricing-capacity" style="--fill:30%">
-            <div class="pricing-capacity__row">
-              <span class="pricing-capacity__label" data-i18n="pricing.cap.support">Support</span>
-              <span class="pricing-capacity__value" data-i18n="pricing.cap.support.pro">Email</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="pricing-card__section-label" data-i18n="pricing.included.title">Inclus</div>
-        <ul class="pricing-features">
-          <li class="pricing-feature">
-            <span class="pricing-feature__check"
-              ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
-                ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
-            ></span>
-            <span data-i18n="pricing.pro.feat1">Rapports structurés · synthèses · Max IA</span>
-          </li>
-          <li class="pricing-feature">
-            <span class="pricing-feature__check"
-              ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
-                ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
-            ></span>
-            <span data-i18n="pricing.pro.feat2">Hub web · visibilité équipe</span>
-          </li>
-          <li class="pricing-feature">
-            <span class="pricing-feature__check"
-              ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
-                ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
-            ></span>
-            <span data-i18n="pricing.pro.feat4">Intégrations CRM natives (HubSpot, Salesforce)</span>
-          </li>
-          <li class="pricing-feature pricing-feature--missing">
-            <span class="pricing-feature__check"
-              ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
-                ><path stroke-linecap="round" stroke-linejoin="round" d="M3 3l6 6M9 3l-6 6" /></svg
-            ></span>
-            <span data-i18n="pricing.pro.feat3">Distinction vocale</span>
-          </li>
-          <li class="pricing-feature pricing-feature--missing">
-            <span class="pricing-feature__check"
-              ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
-                ><path stroke-linecap="round" stroke-linejoin="round" d="M3 3l6 6M9 3l-6 6" /></svg
-            ></span>
-            <span data-i18n="pricing.pro.feat5">Analyse croisée équipe</span>
-          </li>
-        </ul>
-
-        <a
-          class="btn btn--ghost btn--md pricing-card__cta"
-          href={trialHref}
-          data-i18n="pricing.ctaGetStarted"
-          data-track-id="pricing_pro"
-          data-track-type="trial"
-          data-track-section="pricing">
-          Démarrer gratuitement →
-        </a>
-      </article>
-
+    <!-- ── 2-card grid (team seats) ── -->
+    <div class="pricing-cards pricing-cards--duo reveal">
       <!-- ── Équipe (featured) ── -->
       <article class="pricing-card pricing-card--v2 pricing-card--featured">
-        <div class="pricing-badge" data-i18n="pricing.team.badge">Recommandé</div>
+        <div class="pricing-badge" data-i18n="pricing.team.badge">Le plus choisi</div>
         <header class="pricing-card__head">
           <div>
-            <div class="pricing-card__name" data-i18n="pricing.team.plan">Business</div>
+            <div class="pricing-card__name" data-i18n="pricing.team.plan">Équipe</div>
             <div class="pricing-card__subtitle" data-i18n="pricing.team.subtitle">
-              Force de vente structurée
+              À partir de [X] commerciaux · facturé à l'organisation
             </div>
           </div>
           <div class="pricing-card__price-block">
             <div class="pricing-card__price">
-              <span class="pricing-amount js-billing-price" data-base-price="49">49</span><span
-                class="pricing-currency-inline">€</span>
+              <span class="pricing-amount">49</span><span class="pricing-currency-inline">€</span>
             </div>
-            <div class="pricing-card__per" data-i18n="pricing.tableHeader.per">
-              / utilisateur / mois
+            <div class="pricing-card__per" data-i18n="pricing.team.per">
+              / commercial / mois
             </div>
           </div>
         </header>
 
         <div class="pricing-card__divider"></div>
 
-        <div class="pricing-card__section-label" data-i18n="pricing.cap.title">Capacités</div>
-        <div class="pricing-capacities">
-          <div class="pricing-capacity" style="--fill:55%">
-            <div class="pricing-capacity__row">
-              <span class="pricing-capacity__label" data-i18n="pricing.cap.recording"
-                >Durée par enregistrement</span
-              >
-              <span class="pricing-capacity__value" data-i18n="pricing.cap.recording.team">1 h</span
-              >
-            </div>
-          </div>
-          <div class="pricing-capacity" style="--fill:100%">
-            <div class="pricing-capacity__row">
-              <span class="pricing-capacity__label" data-i18n="pricing.cap.reports"
-                >Rapports</span
-              >
-              <span class="pricing-capacity__value" data-i18n="pricing.tableVal.unlimited">Illimité</span>
-            </div>
-          </div>
-          <div class="pricing-capacity" style="--fill:90%">
-            <div class="pricing-capacity__row">
-              <span class="pricing-capacity__label" data-i18n="pricing.cap.history"
-                >Période de synthèse</span
-              >
-              <span class="pricing-capacity__value" data-i18n="pricing.cap.history.team"
-                >90 jours</span
-              >
-            </div>
-          </div>
-          <div class="pricing-capacity" style="--fill:75%">
-            <div class="pricing-capacity__row">
-              <span class="pricing-capacity__label" data-i18n="pricing.cap.support">Support</span>
-              <span class="pricing-capacity__value" data-i18n="pricing.cap.support.team"
-                >Prioritaire 24h</span
-              >
-            </div>
-          </div>
-        </div>
-
-        <div class="pricing-card__section-label" data-i18n="pricing.included.title">Inclus</div>
         <ul class="pricing-features">
           <li class="pricing-feature">
             <span class="pricing-feature__check"
               ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
                 ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
             ></span>
-            <span data-i18n="pricing.team.feat1">Tout Pro</span>
+            <span data-i18n="pricing.team.feat1">Rapports IA illimités</span>
           </li>
           <li class="pricing-feature">
             <span class="pricing-feature__check"
               ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
                 ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
             ></span>
-            <span data-i18n="pricing.team.feat2">Distinction vocale (qui parle quand)</span>
+            <span data-i18n="pricing.team.feat2">Hub direction + synthèses d'équipe</span>
           </li>
           <li class="pricing-feature">
             <span class="pricing-feature__check"
               ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
                 ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
             ></span>
-            <span data-i18n="pricing.team.feat3">Intégrations CRM sur mesure (votre CRM)</span>
+            <span data-i18n="pricing.team.feat3">Fiches clients auto-enrichies</span>
           </li>
           <li class="pricing-feature">
             <span class="pricing-feature__check"
               ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
                 ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
             ></span>
-            <span data-i18n="pricing.team.feat4">Analyse IA croisée de l'équipe entière</span>
-          </li>
-          <li class="pricing-feature pricing-feature--missing">
-            <span class="pricing-feature__check"
-              ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
-                ><path stroke-linecap="round" stroke-linejoin="round" d="M3 3l6 6M9 3l-6 6" /></svg
-            ></span>
-            <span data-i18n="pricing.team.feat5">Vocabulaire métier custom</span>
+            <span data-i18n="pricing.team.feat4">Assistant Max</span>
           </li>
         </ul>
 
         <a
           class="btn btn--primary btn--md pricing-card__cta"
-          href={trialHref}
-          data-i18n="pricing.ctaGetStarted"
-          data-track-id="pricing_team"
-          data-track-type="trial"
+          href={bookHref}
+          data-link-fr="/fr#rdv"
+          data-link-en="/en#rdv"
+          data-i18n="pricing.book_demo"
+          data-track-id="pricing_team_book_demo"
+          data-track-type="demo"
           data-track-section="pricing">
-          Démarrer gratuitement →
+          Réserver une démo →
         </a>
       </article>
 
-      <!-- ── Entreprise ── -->
+      <!-- ── Grandes équipes ── -->
       <article class="pricing-card pricing-card--v2">
         <header class="pricing-card__head">
           <div>
-            <div class="pricing-card__name" data-i18n="pricing.enterprise.plan">Entreprise</div>
-            <div class="pricing-card__subtitle" data-i18n="pricing.enterprise.subtitle">
-              Multi-secteurs · sur mesure
+            <div class="pricing-card__name" data-i18n="pricing.large.plan">Grandes équipes</div>
+            <div class="pricing-card__subtitle" data-i18n="pricing.large.subtitle">
+              [X]+ commerciaux · intégration CRM
             </div>
           </div>
           <div class="pricing-card__price-block">
             <div class="pricing-card__price pricing-card__price--text">
-              <span data-i18n="pricing.enterprise.price">Sur devis</span>
+              <span data-i18n="pricing.large.price">Sur devis</span>
             </div>
             <div class="pricing-card__per">&nbsp;</div>
           </div>
@@ -279,101 +107,67 @@ const contactHref = `/${lang}#contact`;
 
         <div class="pricing-card__divider"></div>
 
-        <div class="pricing-card__section-label" data-i18n="pricing.cap.title">Capacités</div>
-        <div class="pricing-capacities">
-          <div class="pricing-capacity" style="--fill:100%">
-            <div class="pricing-capacity__row">
-              <span class="pricing-capacity__label" data-i18n="pricing.cap.recording"
-                >Durée par enregistrement</span
-              >
-              <span class="pricing-capacity__value" data-i18n="pricing.cap.recording.enterprise"
-                >2 h</span
-              >
-            </div>
-          </div>
-          <div class="pricing-capacity" style="--fill:100%">
-            <div class="pricing-capacity__row">
-              <span class="pricing-capacity__label" data-i18n="pricing.cap.reports"
-                >Rapports</span
-              >
-              <span class="pricing-capacity__value" data-i18n="pricing.tableVal.custom"
-                >Sur mesure</span
-              >
-            </div>
-          </div>
-          <div class="pricing-capacity" style="--fill:100%">
-            <div class="pricing-capacity__row">
-              <span class="pricing-capacity__label" data-i18n="pricing.cap.history"
-                >Période de synthèse</span
-              >
-              <span class="pricing-capacity__value" data-i18n="pricing.cap.history.enterprise"
-                >Illimité</span
-              >
-            </div>
-          </div>
-          <div class="pricing-capacity" style="--fill:100%">
-            <div class="pricing-capacity__row">
-              <span class="pricing-capacity__label" data-i18n="pricing.cap.support">Support</span>
-              <span class="pricing-capacity__value" data-i18n="pricing.cap.support.enterprise"
-                >Account manager</span
-              >
-            </div>
-          </div>
-        </div>
-
-        <div class="pricing-card__section-label" data-i18n="pricing.custom.title">Sur-mesure</div>
         <ul class="pricing-features">
           <li class="pricing-feature">
             <span class="pricing-feature__check"
               ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
                 ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
             ></span>
-            <span data-i18n="pricing.enterprise.feat1">Tout Business</span>
+            <span data-i18n="pricing.large.feat1">Tout le plan Équipe</span>
           </li>
           <li class="pricing-feature">
             <span class="pricing-feature__check"
               ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
                 ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
             ></span>
-            <span data-i18n="pricing.enterprise.feat2">Vocabulaire métier personnalisé</span>
+            <span data-i18n="pricing.large.feat2">Connecteur CRM (HubSpot, Salesforce…)</span>
           </li>
           <li class="pricing-feature">
             <span class="pricing-feature__check"
               ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
                 ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
             ></span>
-            <span data-i18n="pricing.enterprise.feat3">Multi-équipes / multi-secteurs</span>
+            <span data-i18n="pricing.large.feat3">Accompagnement au déploiement</span>
           </li>
           <li class="pricing-feature">
             <span class="pricing-feature__check"
               ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
                 ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
             ></span>
-            <span data-i18n="pricing.enterprise.feat4">Account manager dédié</span>
-          </li>
-          <li class="pricing-feature">
-            <span class="pricing-feature__check"
-              ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
-                ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
-            ></span>
-            <span data-i18n="pricing.enterprise.feat5">Formation & onboarding sur site</span>
+            <span data-i18n="pricing.large.feat4">Facturation annuelle</span>
           </li>
         </ul>
 
         <a
           class="btn btn--ghost btn--md pricing-card__cta"
-          href={contactHref}
-          data-i18n="pricing.enterprise.cta"
-          data-track-id="pricing_enterprise"
-          data-track-type="contact"
+          href={bookHref}
+          data-link-fr="/fr#rdv"
+          data-link-en="/en#rdv"
+          data-i18n="pricing.contact_us"
+          data-track-id="pricing_large_contact"
+          data-track-type="demo"
           data-track-section="pricing">
           Nous contacter →
         </a>
       </article>
     </div>
 
-    <p class="pricing-note" style="margin-top:24px" data-i18n="pricing.managers.note">
-      Déployez Reedly pour votre équipe en moins de 10 minutes. Annulation à tout moment.
+    <p class="pricing-note" style="margin-top:24px" data-i18n="pricing.note">
+      [Note tarifs, ex. essai après la démo, à valider.]
     </p>
   </div>
 </section>
+
+<style>
+  .pricing-cards--duo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 720px) {
+    .pricing-cards--duo {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

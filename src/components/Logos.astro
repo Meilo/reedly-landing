@@ -1,0 +1,53 @@
+---
+// Trust / logos band (block 3), placeholders only, no fake clients
+---
+
+<!-- ── Trust logos band ── -->
+<section class="logos" aria-label="Ils utilisent Reedly">
+  <div class="inner">
+    <p class="logos__caption" data-i18n="logos.caption">[Légende confiance à valider]</p>
+    <div class="logos__row">
+      <span class="logos__ph" data-i18n="logos.placeholder">logo client</span>
+      <span class="logos__ph" data-i18n="logos.placeholder">logo client</span>
+      <span class="logos__ph" data-i18n="logos.placeholder">logo client</span>
+      <span class="logos__ph" data-i18n="logos.placeholder">logo client</span>
+      <span class="logos__ph" data-i18n="logos.placeholder">logo client</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .logos {
+    border-bottom: 1px solid var(--border);
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .logos__caption {
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 22px;
+  }
+  .logos__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px 28px;
+    opacity: 0.85;
+  }
+  .logos__ph {
+    display: grid;
+    place-items: center;
+    height: 30px;
+    padding: 0 20px;
+    border: 1px dashed var(--faint);
+    border-radius: 8px;
+    font-size: 0.75rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+</style>
