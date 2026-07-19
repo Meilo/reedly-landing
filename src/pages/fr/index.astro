@@ -2,7 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import Nav from '@/components/Nav.astro';
 import Hero from '@/components/Hero.astro';
-import Logos from '@/components/Logos.astro';
+// import Logos from '@/components/Logos.astro'; // masqué : réactiver quand de vrais logos clients existeront
 import How from '@/components/How.astro';
 import Hub from '@/components/Hub.astro';
 import Demo from '@/components/Demo.astro';
@@ -21,10 +21,10 @@ import Footer from '@/components/Footer.astro';
 
   <main class="z1">
     <Hero />
-    <Logos />
+    <Demo />
     <How />
     <Hub />
-    <Demo />
+    {/* <Logos /> masqué jusqu'à avoir de vrais logos clients */}
     <BookDemo />
     <Pricing />
   </main>
