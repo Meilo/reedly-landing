@@ -493,7 +493,7 @@ const T = {
       "✓ Demande bien reçue ! Vous aurez une réponse très rapidement pour convenir d'une rencontre avec l'équipe.",
 
     // ── Sales-led restructure: overrides + new keys (placeholders to finalize in copy pass) ──
-    "hero.kicker": "La 1re intelligence terrain du tourisme",
+    "hero.kicker": "La première intelligence terrain du tourisme",
     "hero.title": "Comprenez pourquoi vos produits<br /><em>se vendent ou décrochent sur le terrain.</em>",
     "hero.sub":
       "Reedly capte ce que vos commerciaux entendent en agence et le transforme en lecture claire pour la direction : ce que veulent les agences, ce qui les freine, ce qui les fait choisir un concurrent.",
