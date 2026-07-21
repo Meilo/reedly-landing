@@ -578,6 +578,7 @@ const T = {
     "hub.benefit2.text": "Reedly agrège les signaux du terrain en synthèses sur la période de votre choix. Vous voyez ce qui bouge avant que ça touche vos chiffres.",
     "hub.benefit3.title": "L'explication derrière la baisse",
     "hub.benefit3.text": "Pourquoi telle destination ne se vend plus, pourquoi une agence a lâché : l'information que vos chiffres ne donnent pas, tracée jusqu'au rendez-vous source.",
+    "hub.dash.org": "Tourisme Pro",
   },
   en: {
     "nav.solution": "Solution",
@@ -1150,6 +1151,7 @@ const T = {
     "hub.benefit2.text": "Reedly aggregates field signals into syntheses over any period. You see what's shifting before it hits your numbers.",
     "hub.benefit3.title": "The why behind the drop",
     "hub.benefit3.text": "Why a destination stopped selling, why an agency went quiet: the insight your numbers don't give you, traced back to the source meeting.",
+    "hub.dash.org": "Tourism Pro",
   },
 };
 
