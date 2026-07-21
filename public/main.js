@@ -496,7 +496,7 @@ const T = {
     "hero.kicker": "La première intelligence terrain du tourisme",
     "hero.title": "Comprenez pourquoi vos produits<br /><em>se vendent ou décrochent sur le terrain.</em>",
     "hero.sub":
-      "Reedly capte ce que vos commerciaux entendent en agence et le transforme en lecture claire pour la direction : ce que veulent les agences, ce qui les freine, ce qui les fait choisir un concurrent.",
+      "Reedly capte ce que vos commerciaux entendent en agence et le transforme en lecture claire pour toute l'équipe : ce que veulent les agences, ce qui les freine, ce qui les fait choisir un concurrent.",
     "hero.trust1": "Aucune saisie pour vos commerciaux",
     "hero.trust2": "Pensé pour le tourisme B2B",
     "hero.see_demo": "Voir la démo interactive",
@@ -516,7 +516,7 @@ const T = {
     "pricing.team.feat1": "Application iOS et Android",
     "pricing.team.feat2": "Comptes rendus IA illimités",
     "pricing.team.feat3": "Synthèses stratégiques périodiques",
-    "pricing.team.feat4": "Hub direction · visibilité de toute l'équipe",
+    "pricing.team.feat4": "Hub manager · vision 360° de l'équipe",
     "pricing.team.feat5": "Identification des interlocuteurs",
     "pricing.team.feat6": "Fiches clients auto-enrichies",
     "pricing.team.feat7": "Analyse IA transversale de l'équipe",
@@ -538,7 +538,7 @@ const T = {
     "bookdemo.title": "En 15 minutes, voyez<br /><em>ce que vos agences vous disent vraiment.</em>",
     "bookdemo.lead":
       "Une démo cadrée sur vos destinations et vos agences.",
-    "bookdemo.intro": "Vous repartez en sachant ce que la direction verrait, dès la première semaine.",
+    "bookdemo.intro": "Vous repartez en sachant ce que ça change pour votre équipe, dès la première semaine.",
     "bookdemo.alt_prefix": "Vous préférez explorer d'abord ?",
     "bookdemo.alt_link": "Voir la démo interactive →",
     "bookdemo.role.label": "Votre poste",
@@ -566,9 +566,9 @@ const T = {
 
     // ── Home sections retargeted to the tourism vertical ──
     "demo.lead":
-      "Suivez un rendez-vous en agence jusqu'à la synthèse qui remonte à la direction.",
+      "Suivez un rendez-vous en agence jusqu'à la synthèse partagée par toute l'équipe.",
     "how.viz1.label": "Visite agence",
-    "hub.eyebrow": "Pour la direction",
+    "hub.eyebrow": "Pour le manager",
     "hub.title": "Vos chiffres disent quoi.<br /><em>Reedly dit pourquoi.</em>",
     "hub.lead":
       "Vos tableaux de bord montrent qu'une destination baisse. Ils ne vous diront jamais pourquoi. Reedly agrège ce que vos commerciaux entendent en agence et vous rend l'explication, sur toute l'équipe, en continu.",
@@ -1068,7 +1068,7 @@ const T = {
     "hero.kicker": "The first field intelligence in tourism",
     "hero.title": "Understand why your products<br /><em>sell or stall in the field.</em>",
     "hero.sub":
-      "Reedly captures what your reps hear in agency meetings and turns it into a clear read for leadership: what agencies want, what holds them back, what makes them choose a competitor.",
+      "Reedly captures what your reps hear in agency meetings and turns it into a clear read for the whole team: what agencies want, what holds them back, what makes them choose a competitor.",
     "hero.trust1": "No data entry for your reps",
     "hero.trust2": "Built for tourism B2B",
     "hero.see_demo": "See the interactive demo",
@@ -1088,7 +1088,7 @@ const T = {
     "pricing.team.feat1": "iOS & Android app",
     "pricing.team.feat2": "Unlimited AI reports",
     "pricing.team.feat3": "Periodic strategic syntheses",
-    "pricing.team.feat4": "Leadership Hub · full team visibility",
+    "pricing.team.feat4": "Manager Hub · 360° team view",
     "pricing.team.feat5": "Speaker identification",
     "pricing.team.feat6": "Auto-enriched client cards",
     "pricing.team.feat7": "Cross-team AI analysis",
@@ -1110,7 +1110,7 @@ const T = {
     "bookdemo.title": "In 15 minutes, see<br /><em>what your agencies are really telling you.</em>",
     "bookdemo.lead":
       "A demo built around your destinations and your agencies.",
-    "bookdemo.intro": "You leave knowing what leadership would see from week one.",
+    "bookdemo.intro": "You leave knowing what it changes for your team, from week one.",
     "bookdemo.alt_prefix": "Rather explore first?",
     "bookdemo.alt_link": "See the interactive demo →",
     "bookdemo.role.label": "Your role",
@@ -1138,9 +1138,9 @@ const T = {
 
     // ── Home sections retargeted to the tourism vertical ──
     "demo.lead":
-      "Follow one agency meeting all the way to the synthesis that reaches leadership.",
+      "Follow one agency meeting all the way to the synthesis the whole team shares.",
     "how.viz1.label": "Agency visit",
-    "hub.eyebrow": "For leadership",
+    "hub.eyebrow": "For the manager",
     "hub.title": "Your numbers say what.<br /><em>Reedly says why.</em>",
     "hub.lead":
       "Your dashboards show a destination is down. They'll never tell you why. Reedly aggregates what your reps hear in agencies and gives you the explanation, across the whole team, continuously.",
