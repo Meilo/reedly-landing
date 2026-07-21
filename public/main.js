@@ -493,12 +493,12 @@ const T = {
       "✓ Demande bien reçue ! Vous aurez une réponse très rapidement pour convenir d'une rencontre avec l'équipe.",
 
     // ── Sales-led restructure: overrides + new keys (placeholders to finalize in copy pass) ──
-    "hero.kicker": "L'intelligence terrain de vos équipes commerciales",
-    "hero.title": "Ce qui se passe en rendez-vous,<br /><em>capté à la source.</em>",
+    "hero.kicker": "L'intelligence terrain n°1 du tourisme",
+    "hero.title": "Comprenez pourquoi vos produits<br /><em>se vendent sur le terrain.</em>",
     "hero.sub":
-      "Vos commerciaux enregistrent leurs rendez-vous d'un simple tap. L'IA en tire des comptes rendus structurés, des fiches clients enrichies et des synthèses d'équipe. Vous pilotez sur des faits, pas sur des souvenirs.",
-    "hero.trust1": "15 min avec l'équipe",
-    "hero.trust2": "Aucune saisie pour vos commerciaux",
+      "Reedly écoute les rendez-vous de vos commerciaux en agence et en tire l'intelligence dont la direction a besoin : ce que veulent les agences, ce qui les freine, ce qui les fait choisir un concurrent.",
+    "hero.trust1": "Aucune saisie pour vos commerciaux",
+    "hero.trust2": "Pensé pour le tourisme B2B",
     "hero.see_demo": "Voir la démo interactive",
     "nav.demo": "Démo interactive",
     "cta.book_demo": "Réserver une démo",
@@ -556,6 +556,21 @@ const T = {
     "footer.stores.label": "Pour vos commerciaux",
     "footer.demo": "Démo interactive",
     "footer.book_demo": "Réserver une démo",
+
+    // ── Home sections retargeted to the tourism vertical ──
+    "demo.lead":
+      "De la visite en agence au rapport structuré, découvrez l'expérience complète en quelques secondes.",
+    "how.viz1.label": "Visite agence",
+    "hub.eyebrow": "Pour la direction",
+    "hub.title": "Vos chiffres disent quoi.<br /><em>Reedly dit pourquoi.</em>",
+    "hub.lead":
+      "Vos tableaux de bord montrent qu'une destination baisse. Ils ne vous diront jamais pourquoi. Reedly agrège ce que vos commerciaux entendent en agence et vous rend l'explication, sur toute l'équipe, en continu.",
+    "hub.benefit1.title": "Vue unifiée de tout le terrain",
+    "hub.benefit1.text": "Tous les comptes rendus de vos commerciaux centralisés : ce que veulent les agences, ce qui les freine, qui pousse le concurrent.",
+    "hub.benefit2.title": "Tendances, opportunités, risques",
+    "hub.benefit2.text": "Reedly agrège les signaux du terrain en synthèses sur la période de votre choix. Vous voyez ce qui bouge avant que ça touche vos chiffres.",
+    "hub.benefit3.title": "L'explication derrière la baisse",
+    "hub.benefit3.text": "Pourquoi telle destination ne se vend plus, pourquoi une agence a lâché : l'information que vos chiffres ne donnent pas, tracée jusqu'au rendez-vous source.",
   },
   en: {
     "nav.solution": "Solution",
@@ -1043,12 +1058,12 @@ const T = {
       "✓ Request received! You'll get a response very quickly to set up a meeting with the team.",
 
     // ── Sales-led restructure: overrides + new keys (placeholders to finalize in copy pass) ──
-    "hero.kicker": "Field intelligence for your sales teams",
-    "hero.title": "What happens in meetings,<br /><em>captured at the source.</em>",
+    "hero.kicker": "The #1 field intelligence in tourism",
+    "hero.title": "Understand why your products<br /><em>sell in the field.</em>",
     "hero.sub":
-      "Your reps record their meetings with a single tap. AI turns them into structured reports, enriched client cards and team syntheses. You lead on facts, not on memories.",
-    "hero.trust1": "15 min with our team",
-    "hero.trust2": "No data entry for your reps",
+      "Reedly listens to your reps' meetings with travel agencies and turns them into the intelligence leadership needs: what agencies want, what holds them back, what makes them choose a competitor.",
+    "hero.trust1": "No data entry for your reps",
+    "hero.trust2": "Built for tourism B2B",
     "hero.see_demo": "See the interactive demo",
     "nav.demo": "Interactive demo",
     "cta.book_demo": "Book a demo",
@@ -1106,6 +1121,21 @@ const T = {
     "footer.stores.label": "For your reps",
     "footer.demo": "Interactive demo",
     "footer.book_demo": "Book a demo",
+
+    // ── Home sections retargeted to the tourism vertical ──
+    "demo.lead":
+      "From the agency visit to the structured report, see the full experience in seconds.",
+    "how.viz1.label": "Agency visit",
+    "hub.eyebrow": "For leadership",
+    "hub.title": "Your numbers say what.<br /><em>Reedly says why.</em>",
+    "hub.lead":
+      "Your dashboards show a destination is down. They'll never tell you why. Reedly aggregates what your reps hear in agencies and gives you the explanation, across the whole team, continuously.",
+    "hub.benefit1.title": "One view of the whole field",
+    "hub.benefit1.text": "Every rep's report in one place: what agencies want, what holds them back, who's pushing the competitor.",
+    "hub.benefit2.title": "Trends, opportunities, risks",
+    "hub.benefit2.text": "Reedly aggregates field signals into syntheses over any period. You see what's shifting before it hits your numbers.",
+    "hub.benefit3.title": "The why behind the drop",
+    "hub.benefit3.text": "Why a destination stopped selling, why an agency went quiet: the insight your numbers don't give you, traced back to the source meeting.",
   },
 };
 
