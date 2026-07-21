@@ -26,7 +26,7 @@ const teamFeaturesFallback = [
   'Analyse IA transversale de l’équipe',
   'Connecteurs CRM connus',
   'Assistant IA (Max)',
-  'Key Account Manager',
+  'Support prioritaire',
 ];
 const largeFeatures = [
   'pricing.large.feat1', 'pricing.large.feat2', 'pricing.large.feat3',
@@ -178,7 +178,15 @@ const largeFeaturesFallback = [
     max-width: 760px;
     margin-left: auto;
     margin-right: auto;
-    align-items: start;
+    align-items: stretch;
+  }
+  .pricing-cards--duo .pricing-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .pricing-cards--duo .pricing-card__cta {
+    margin-top: auto;
   }
   #pricing-billing-toggle {
     margin: 22px auto 0;
