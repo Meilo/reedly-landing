@@ -535,7 +535,7 @@ const T = {
     "pricing.contact_us": "Nous contacter →",
     "pricing.note": "Sans engagement · résiliable à tout moment",
     "bookdemo.eyebrow": "Réserver une démo",
-    "bookdemo.title": "En 15 minutes, voyez ce que vos agences vous disent vraiment",
+    "bookdemo.title": "En 15 minutes, voyez<br /><em>ce que vos agences vous disent vraiment.</em>",
     "bookdemo.lead":
       "Une démo cadrée sur vos destinations et vos agences.",
     "bookdemo.intro": "Vous repartez en sachant ce que la direction verrait, dès la première semaine.",
@@ -1107,7 +1107,7 @@ const T = {
     "pricing.contact_us": "Contact us →",
     "pricing.note": "No commitment · cancel anytime",
     "bookdemo.eyebrow": "Book a demo",
-    "bookdemo.title": "In 15 minutes, see what your agencies are really telling you",
+    "bookdemo.title": "In 15 minutes, see<br /><em>what your agencies are really telling you.</em>",
     "bookdemo.lead":
       "A demo built around your destinations and your agencies.",
     "bookdemo.intro": "You leave knowing what leadership would see from week one.",
