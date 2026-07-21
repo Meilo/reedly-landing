@@ -537,7 +537,7 @@ const T = {
     "bookdemo.eyebrow": "Réserver une démo",
     "bookdemo.title": "En 15 minutes, voyez ce que vos agences vous disent vraiment",
     "bookdemo.lead":
-      "Une démo cadrée sur vos destinations et vos agences, pas une présentation générique.",
+      "Une démo cadrée sur vos destinations et vos agences.",
     "bookdemo.intro": "Vous repartez en sachant ce que la direction verrait, dès la première semaine.",
     "bookdemo.alt_prefix": "Vous préférez explorer d'abord ?",
     "bookdemo.alt_link": "Voir la démo interactive →",
@@ -1109,7 +1109,7 @@ const T = {
     "bookdemo.eyebrow": "Book a demo",
     "bookdemo.title": "In 15 minutes, see what your agencies are really telling you",
     "bookdemo.lead":
-      "A demo built around your destinations and your agencies, not a generic pitch.",
+      "A demo built around your destinations and your agencies.",
     "bookdemo.intro": "You leave knowing what leadership would see from week one.",
     "bookdemo.alt_prefix": "Rather explore first?",
     "bookdemo.alt_link": "See the interactive demo →",
