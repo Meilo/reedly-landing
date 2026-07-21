@@ -105,7 +105,7 @@ const T = {
     "how.viz2.s4": "Prochaines étapes",
     "how.viz3.share": "Partager",
     "demo.eyebrow": "En 30 secondes",
-    "demo.title": "Du terrain à la décision,<br /><em>en 30 secondes.</em>",
+    "demo.title": "Le parcours complet,<br /><em>d'un simple tap.</em>",
     "demo.lead":
       "Du rendez-vous client au rapport structuré remonté dans le Hub, découvrez l'expérience complète en quelques secondes.",
     "integrations.eyebrow": "Intégrations",
@@ -493,7 +493,7 @@ const T = {
       "✓ Demande bien reçue ! Vous aurez une réponse très rapidement pour convenir d'une rencontre avec l'équipe.",
 
     // ── Sales-led restructure: overrides + new keys (placeholders to finalize in copy pass) ──
-    "hero.kicker": "L'intelligence terrain n°1 du tourisme",
+    "hero.kicker": "La 1re intelligence terrain du tourisme",
     "hero.title": "Comprenez pourquoi vos produits<br /><em>se vendent ou décrochent sur le terrain.</em>",
     "hero.sub":
       "Reedly capte ce que vos commerciaux entendent en agence et le transforme en lecture claire pour la direction : ce que veulent les agences, ce qui les freine, ce qui les fait choisir un concurrent.",
@@ -676,7 +676,7 @@ const T = {
     "how.viz2.s4": "Next steps",
     "how.viz3.share": "Share",
     "demo.eyebrow": "In 30 seconds",
-    "demo.title": "From the field to the decision,<br /><em>in 30 seconds.</em>",
+    "demo.title": "The whole flow,<br /><em>from a single tap.</em>",
     "demo.lead":
       "From client meeting to structured report in the Hub, see the full experience in seconds.",
     "integrations.eyebrow": "Integrations",
@@ -1058,7 +1058,7 @@ const T = {
       "✓ Request received! You'll get a response very quickly to set up a meeting with the team.",
 
     // ── Sales-led restructure: overrides + new keys (placeholders to finalize in copy pass) ──
-    "hero.kicker": "The #1 field intelligence in tourism",
+    "hero.kicker": "The first field intelligence in tourism",
     "hero.title": "Understand why your products<br /><em>sell or stall in the field.</em>",
     "hero.sub":
       "Reedly captures what your reps hear in agency meetings and turns it into a clear read for leadership: what agencies want, what holds them back, what makes them choose a competitor.",
