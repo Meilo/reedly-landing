@@ -88,7 +88,7 @@ const T = {
     "how.step1.text":
       "Un tap en fin de rendez-vous, et Reedly capture l'échange en arrière-plan. Aucune saisie, aucune interruption : c'est tout ce que vous demandez à vos commerciaux.",
     "how.step1.tag": "iOS & Android · Arrière-plan",
-    "how.step2.title": "L'IA transcrit et structure en moins de 2 min",
+    "how.step2.title": "L'échange devient de l'information exploitable, en moins de 2 min",
     "how.step2.text":
       "L'IA transcrit l'échange et en tire un compte rendu structuré : besoins, objections, engagements, prochaines étapes. L'audio est supprimé dès la génération terminée.",
     "how.step2.tag": "Privacy by design",
@@ -104,8 +104,8 @@ const T = {
     "how.viz2.s3": "Engagements",
     "how.viz2.s4": "Prochaines étapes",
     "how.viz3.share": "Partager",
-    "demo.eyebrow": "Démonstration",
-    "demo.title": "Reedly<br /><em>en 30 secondes.</em>",
+    "demo.eyebrow": "En 30 secondes",
+    "demo.title": "Du terrain à la décision,<br /><em>en 30 secondes.</em>",
     "demo.lead":
       "Du rendez-vous client au rapport structuré remonté dans le Hub, découvrez l'expérience complète en quelques secondes.",
     "integrations.eyebrow": "Intégrations",
@@ -494,9 +494,9 @@ const T = {
 
     // ── Sales-led restructure: overrides + new keys (placeholders to finalize in copy pass) ──
     "hero.kicker": "L'intelligence terrain n°1 du tourisme",
-    "hero.title": "Comprenez pourquoi vos produits<br /><em>se vendent sur le terrain.</em>",
+    "hero.title": "Comprenez pourquoi vos produits<br /><em>se vendent ou décrochent sur le terrain.</em>",
     "hero.sub":
-      "Reedly écoute les rendez-vous de vos commerciaux en agence et en tire l'intelligence dont la direction a besoin : ce que veulent les agences, ce qui les freine, ce qui les fait choisir un concurrent.",
+      "Reedly capte ce que vos commerciaux entendent en agence et le transforme en lecture claire pour la direction : ce que veulent les agences, ce qui les freine, ce qui les fait choisir un concurrent.",
     "hero.trust1": "Aucune saisie pour vos commerciaux",
     "hero.trust2": "Pensé pour le tourisme B2B",
     "hero.see_demo": "Voir la démo interactive",
@@ -506,9 +506,9 @@ const T = {
     "cta.sub": "Besoins, objections, engagements, opportunités : tout ce qui remonte de vos rendez-vous, structuré et exploitable.",
     "logos.caption": "Conçu avec des équipes commerciales du tourisme",
     "logos.placeholder": "logo client",
-    "pricing.title": "Un prix par équipe,<br /><em>sans mauvaise surprise.</em>",
+    "pricing.title": "Un prix par commercial.<br /><em>Zéro surprise.</em>",
     "pricing.lead":
-      "Transparent, à l'usage réel de votre équipe terrain.",
+      "Facturé à l'organisation, à la taille réelle de votre équipe terrain.",
     "pricing.team.badge": "Le plus choisi",
     "pricing.team.plan": "Équipe",
     "pricing.team.subtitle": "À partir de 3 commerciaux · facturé à l'organisation",
@@ -516,7 +516,7 @@ const T = {
     "pricing.team.feat1": "Rapports IA illimités",
     "pricing.team.feat2": "Hub direction + synthèses d'équipe",
     "pricing.team.feat3": "Fiches clients auto-enrichies",
-    "pricing.team.feat4": "Assistant Max",
+    "pricing.team.feat4": "Assistant IA (Max)",
     "pricing.large.plan": "Grandes équipes",
     "pricing.large.subtitle": "16+ commerciaux · intégration CRM",
     "pricing.large.price": "Sur devis",
@@ -528,10 +528,10 @@ const T = {
     "pricing.contact_us": "Nous contacter →",
     "pricing.note": "Sans engagement · résiliable à tout moment",
     "bookdemo.eyebrow": "Réserver une démo",
-    "bookdemo.title": "Voyez Reedly à l'œuvre en 15 minutes",
+    "bookdemo.title": "En 15 minutes, voyez ce que vos agences vous disent vraiment",
     "bookdemo.lead":
-      "Une démo concrète, cadrée sur votre équipe et vos clients.",
-    "bookdemo.intro": "Vous repartez avec une vision claire de ce que ça change pour votre équipe.",
+      "Une démo cadrée sur vos destinations et vos agences, pas une présentation générique.",
+    "bookdemo.intro": "Vous repartez en sachant ce que la direction verrait, dès la première semaine.",
     "bookdemo.alt_prefix": "Vous préférez explorer d'abord ?",
     "bookdemo.alt_link": "Voir la démo interactive →",
     "bookdemo.role.label": "Votre poste",
@@ -559,7 +559,7 @@ const T = {
 
     // ── Home sections retargeted to the tourism vertical ──
     "demo.lead":
-      "De la visite en agence au rapport structuré, découvrez l'expérience complète en quelques secondes.",
+      "Suivez un rendez-vous en agence jusqu'à la synthèse qui remonte à la direction.",
     "how.viz1.label": "Visite agence",
     "hub.eyebrow": "Pour la direction",
     "hub.title": "Vos chiffres disent quoi.<br /><em>Reedly dit pourquoi.</em>",
@@ -659,7 +659,7 @@ const T = {
     "how.step1.text":
       "One tap at the end of a meeting, and Reedly captures the conversation in the background. No typing, no interruptions: that's all you ask of your reps.",
     "how.step1.tag": "iOS & Android · Background",
-    "how.step2.title": "The AI transcribes and structures in under 2 min",
+    "how.step2.title": "The conversation becomes usable intelligence, in under 2 min",
     "how.step2.text":
       "The AI transcribes the conversation into a structured report: needs, objections, commitments, next steps. The audio is deleted once generation is complete.",
     "how.step2.tag": "Privacy by design",
@@ -675,8 +675,8 @@ const T = {
     "how.viz2.s3": "Commitments",
     "how.viz2.s4": "Next steps",
     "how.viz3.share": "Share",
-    "demo.eyebrow": "Demo",
-    "demo.title": "See Reedly<br /><em>in action.</em>",
+    "demo.eyebrow": "In 30 seconds",
+    "demo.title": "From the field to the decision,<br /><em>in 30 seconds.</em>",
     "demo.lead":
       "From client meeting to structured report in the Hub, see the full experience in seconds.",
     "integrations.eyebrow": "Integrations",
@@ -1059,9 +1059,9 @@ const T = {
 
     // ── Sales-led restructure: overrides + new keys (placeholders to finalize in copy pass) ──
     "hero.kicker": "The #1 field intelligence in tourism",
-    "hero.title": "Understand why your products<br /><em>sell in the field.</em>",
+    "hero.title": "Understand why your products<br /><em>sell or stall in the field.</em>",
     "hero.sub":
-      "Reedly listens to your reps' meetings with travel agencies and turns them into the intelligence leadership needs: what agencies want, what holds them back, what makes them choose a competitor.",
+      "Reedly captures what your reps hear in agency meetings and turns it into a clear read for leadership: what agencies want, what holds them back, what makes them choose a competitor.",
     "hero.trust1": "No data entry for your reps",
     "hero.trust2": "Built for tourism B2B",
     "hero.see_demo": "See the interactive demo",
@@ -1071,9 +1071,9 @@ const T = {
     "cta.sub": "Needs, objections, commitments, opportunities: everything from your meetings, structured and actionable.",
     "logos.caption": "Built with tourism sales teams",
     "logos.placeholder": "client logo",
-    "pricing.title": "One price per team,<br /><em>no surprises.</em>",
+    "pricing.title": "One price per rep.<br /><em>Zero surprises.</em>",
     "pricing.lead":
-      "Transparent, based on your field team's real usage.",
+      "Billed to the organization, at the real size of your field team.",
     "pricing.team.badge": "Most chosen",
     "pricing.team.plan": "Team",
     "pricing.team.subtitle": "From 3 reps · billed to the organization",
@@ -1081,7 +1081,7 @@ const T = {
     "pricing.team.feat1": "Unlimited AI reports",
     "pricing.team.feat2": "Leadership Hub + team syntheses",
     "pricing.team.feat3": "Auto-enriched client cards",
-    "pricing.team.feat4": "Max assistant",
+    "pricing.team.feat4": "AI assistant (Max)",
     "pricing.large.plan": "Large teams",
     "pricing.large.subtitle": "16+ reps · CRM integration",
     "pricing.large.price": "Custom quote",
@@ -1093,10 +1093,10 @@ const T = {
     "pricing.contact_us": "Contact us →",
     "pricing.note": "No commitment · cancel anytime",
     "bookdemo.eyebrow": "Book a demo",
-    "bookdemo.title": "See Reedly in action in 15 minutes",
+    "bookdemo.title": "In 15 minutes, see what your agencies are really telling you",
     "bookdemo.lead":
-      "A concrete demo, focused on your team and your clients.",
-    "bookdemo.intro": "You leave with a clear picture of what it changes for your team.",
+      "A demo built around your destinations and your agencies, not a generic pitch.",
+    "bookdemo.intro": "You leave knowing what leadership would see from week one.",
     "bookdemo.alt_prefix": "Rather explore first?",
     "bookdemo.alt_link": "See the interactive demo →",
     "bookdemo.role.label": "Your role",
@@ -1124,7 +1124,7 @@ const T = {
 
     // ── Home sections retargeted to the tourism vertical ──
     "demo.lead":
-      "From the agency visit to the structured report, see the full experience in seconds.",
+      "Follow one agency meeting all the way to the synthesis that reaches leadership.",
     "how.viz1.label": "Agency visit",
     "hub.eyebrow": "For leadership",
     "hub.title": "Your numbers say what.<br /><em>Reedly says why.</em>",
