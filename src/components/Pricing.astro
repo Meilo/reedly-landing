@@ -1,9 +1,42 @@
 ---
 // Pricing section, team-seat framing (block 7), 2 plans: Équipe / Grandes équipes.
-// CTA is always "Réserver une démo", never a self-serve subscribe.
+// Monthly/annual billing toggle is wired to the shared JS in public/main.js
+// (#pricing-billing-toggle + .js-billing-price[data-base-price] -> -14% annual).
+// CTA is always "Réserver une démo" / "Nous contacter", never a self-serve subscribe.
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const lang = path.startsWith('/en') ? 'en' : 'fr';
 const bookHref = `/${lang}#rdv`;
+
+// Reused check icon markup.
+const check = `<svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg>`;
+
+const teamFeatures = [
+  'pricing.team.feat1', 'pricing.team.feat2', 'pricing.team.feat3',
+  'pricing.team.feat4', 'pricing.team.feat5', 'pricing.team.feat6',
+  'pricing.team.feat7', 'pricing.team.feat8', 'pricing.team.feat9',
+];
+const teamFeaturesFallback = [
+  'Comptes rendus IA illimités',
+  'Synthèses stratégiques périodiques',
+  'Hub direction · visibilité de toute l’équipe',
+  'Identification des interlocuteurs (qui a dit quoi)',
+  'Fiches clients auto-enrichies',
+  'Analyse IA transversale de l’équipe',
+  'Connecteurs CRM (HubSpot, Salesforce, ou le vôtre)',
+  'Assistant IA (Max)',
+  'Support prioritaire · accompagnement au déploiement',
+];
+const largeFeatures = [
+  'pricing.large.feat1', 'pricing.large.feat2', 'pricing.large.feat3',
+  'pricing.large.feat4', 'pricing.large.feat5',
+];
+const largeFeaturesFallback = [
+  'Tout le plan Équipe',
+  'Vocabulaire métier sur mesure',
+  'Multi-équipes / multi-secteurs',
+  'Account manager dédié',
+  'Formation & onboarding sur site',
+];
 ---
 
 <!-- ── Pricing ── -->
@@ -17,6 +50,26 @@ const bookHref = `/${lang}#rdv`;
       <p class="section__lead" data-i18n="pricing.lead">
         Facturé à l'organisation, à la taille réelle de votre équipe terrain.
       </p>
+
+      <!-- Monthly / annual billing toggle (wired to shared JS) -->
+      <div class="pricing-billing-toggle" id="pricing-billing-toggle" role="tablist" aria-label="Facturation">
+        <button
+          type="button"
+          class="pricing-billing-toggle__btn pricing-billing-toggle__btn--active"
+          data-billing="monthly"
+          data-i18n="pricing.billing.monthly"
+          data-track-id="pricing_billing_monthly"
+          data-track-type="toggle"
+          data-track-section="pricing">Mensuel</button>
+        <button
+          type="button"
+          class="pricing-billing-toggle__btn"
+          data-billing="annual"
+          data-i18n="pricing.billing.annual"
+          data-track-id="pricing_billing_annual"
+          data-track-type="toggle"
+          data-track-section="pricing">Annuel (-14%)</button>
+      </div>
     </div>
 
     <!-- ── 2-card grid (team seats) ── -->
@@ -28,12 +81,12 @@ const bookHref = `/${lang}#rdv`;
           <div>
             <div class="pricing-card__name" data-i18n="pricing.team.plan">Équipe</div>
             <div class="pricing-card__subtitle" data-i18n="pricing.team.subtitle">
-              À partir de [X] commerciaux · facturé à l'organisation
+              À partir de 3 commerciaux · facturé à l'organisation
             </div>
           </div>
           <div class="pricing-card__price-block">
             <div class="pricing-card__price">
-              <span class="pricing-amount">49</span><span class="pricing-currency-inline">€</span>
+              <span class="pricing-amount js-billing-price" data-base-price="49">49</span><span class="pricing-currency-inline">€</span>
             </div>
             <div class="pricing-card__per" data-i18n="pricing.team.per">
               / commercial / mois
@@ -44,34 +97,12 @@ const bookHref = `/${lang}#rdv`;
         <div class="pricing-card__divider"></div>
 
         <ul class="pricing-features">
-          <li class="pricing-feature">
-            <span class="pricing-feature__check"
-              ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
-                ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
-            ></span>
-            <span data-i18n="pricing.team.feat1">Rapports IA illimités</span>
-          </li>
-          <li class="pricing-feature">
-            <span class="pricing-feature__check"
-              ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
-                ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
-            ></span>
-            <span data-i18n="pricing.team.feat2">Hub direction + synthèses d'équipe</span>
-          </li>
-          <li class="pricing-feature">
-            <span class="pricing-feature__check"
-              ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
-                ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
-            ></span>
-            <span data-i18n="pricing.team.feat3">Fiches clients auto-enrichies</span>
-          </li>
-          <li class="pricing-feature">
-            <span class="pricing-feature__check"
-              ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
-                ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
-            ></span>
-            <span data-i18n="pricing.team.feat4">Assistant IA (Max)</span>
-          </li>
+          {teamFeatures.map((key, i) => (
+            <li class="pricing-feature">
+              <span class="pricing-feature__check" set:html={check}></span>
+              <span data-i18n={key}>{teamFeaturesFallback[i]}</span>
+            </li>
+          ))}
         </ul>
 
         <a
@@ -93,7 +124,7 @@ const bookHref = `/${lang}#rdv`;
           <div>
             <div class="pricing-card__name" data-i18n="pricing.large.plan">Grandes équipes</div>
             <div class="pricing-card__subtitle" data-i18n="pricing.large.subtitle">
-              [X]+ commerciaux · intégration CRM
+              16+ commerciaux · multi-secteur, sur mesure
             </div>
           </div>
           <div class="pricing-card__price-block">
@@ -107,34 +138,12 @@ const bookHref = `/${lang}#rdv`;
         <div class="pricing-card__divider"></div>
 
         <ul class="pricing-features">
-          <li class="pricing-feature">
-            <span class="pricing-feature__check"
-              ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
-                ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
-            ></span>
-            <span data-i18n="pricing.large.feat1">Tout le plan Équipe</span>
-          </li>
-          <li class="pricing-feature">
-            <span class="pricing-feature__check"
-              ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
-                ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
-            ></span>
-            <span data-i18n="pricing.large.feat2">Connecteur CRM (HubSpot, Salesforce…)</span>
-          </li>
-          <li class="pricing-feature">
-            <span class="pricing-feature__check"
-              ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
-                ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
-            ></span>
-            <span data-i18n="pricing.large.feat3">Accompagnement au déploiement</span>
-          </li>
-          <li class="pricing-feature">
-            <span class="pricing-feature__check"
-              ><svg fill="none" viewBox="0 0 12 12" stroke-width="2"
-                ><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg
-            ></span>
-            <span data-i18n="pricing.large.feat4">Facturation annuelle</span>
-          </li>
+          {largeFeatures.map((key, i) => (
+            <li class="pricing-feature">
+              <span class="pricing-feature__check" set:html={check}></span>
+              <span data-i18n={key}>{largeFeaturesFallback[i]}</span>
+            </li>
+          ))}
         </ul>
 
         <a
@@ -151,7 +160,11 @@ const bookHref = `/${lang}#rdv`;
       </article>
     </div>
 
-    <p class="pricing-note" style="margin-top:24px" data-i18n="pricing.note">
+    <p class="pricing-billing-note" id="pricing-billing-note" style="margin-top:20px" data-i18n="pricing.billing.note.monthly">
+      Prix affichés par mois. Facturation annuelle disponible avec 14 % de réduction.
+    </p>
+
+    <p class="pricing-note" style="margin-top:8px" data-i18n="pricing.note">
       Sans engagement · résiliable à tout moment
     </p>
   </div>
@@ -163,6 +176,10 @@ const bookHref = `/${lang}#rdv`;
     max-width: 760px;
     margin-left: auto;
     margin-right: auto;
+    align-items: start;
+  }
+  #pricing-billing-toggle {
+    margin: 22px auto 0;
   }
   @media (max-width: 720px) {
     .pricing-cards--duo {
