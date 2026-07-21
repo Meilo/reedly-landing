@@ -2,7 +2,6 @@
 // Footer
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const lang = path.startsWith('/en') ? 'en' : 'fr';
-const loginHref = 'https://hub.reedly.ai';
 ---
 
 <footer class="footer z1">
@@ -89,7 +88,6 @@ const loginHref = 'https://hub.reedly.ai';
         data-link-fr="/fr/alternatives/noota"
         data-link-en="/en/alternatives/noota"
       >{lang === 'fr' ? 'Alternative à Noota' : 'Noota alternative'}</a>
-      <a href={loginHref} class="footer__signin" data-i18n="nav.login" data-track-id="footer_login" data-track-type="login" data-track-section="footer">Se connecter</a>
     </div>
 
     <div class="footer__col">
