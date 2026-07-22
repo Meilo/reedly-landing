@@ -506,7 +506,7 @@ body::after {
 .hero h1 {
   font-family: var(--display);
   font-size: clamp(1.9rem, 5vw, 4rem);
-  line-height: 1.07;
+  line-height: 1.08;
   letter-spacing: -0.03em;
   text-wrap: balance;
   font-weight: 700;

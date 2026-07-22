@@ -494,9 +494,9 @@ const T = {
 
     // ── Sales-led restructure: overrides + new keys (placeholders to finalize in copy pass) ──
     "hero.kicker": "La première intelligence terrain du tourisme",
-    "hero.title": "Comprenez pourquoi vos produits<br /><em>se vendent ou décrochent sur le terrain.</em>",
+    "hero.title": "Pourquoi cette agence de voyage<br /><em>ne vous vend pas ?</em>",
     "hero.sub":
-      "Reedly capte ce que vos commerciaux entendent en agence et le transforme en lecture claire pour toute l'équipe : ce que veulent les agences, ce qui les freine, ce qui les fait choisir un concurrent.",
+      "Reedly transforme chaque retour terrain en information immédiatement partagée avec les équipes concernées. Vous comprenez enfin ce qui fait décoller ou chuter les ventes d'un produit, et ce qui fait basculer une agence chez le concurrent.",
     "hero.trust1": "Aucune saisie pour vos commerciaux",
     "hero.trust2": "Pensé pour le tourisme B2B",
     "hero.see_demo": "Voir la démo interactive",
@@ -1067,9 +1067,9 @@ const T = {
 
     // ── Sales-led restructure: overrides + new keys (placeholders to finalize in copy pass) ──
     "hero.kicker": "The first field intelligence in tourism",
-    "hero.title": "Understand why your products<br /><em>sell or stall in the field.</em>",
+    "hero.title": "Why isn't this travel agency<br /><em>selling you?</em>",
     "hero.sub":
-      "Reedly captures what your reps hear in agency meetings and turns it into a clear read for the whole team: what agencies want, what holds them back, what makes them choose a competitor.",
+      "Reedly turns every field report into information that's instantly shared with the relevant teams. You finally understand what makes a product's sales take off or crash, and what makes an agency switch to a competitor.",
     "hero.trust1": "No data entry for your reps",
     "hero.trust2": "Built for tourism B2B",
     "hero.see_demo": "See the interactive demo",
