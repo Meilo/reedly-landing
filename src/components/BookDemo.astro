@@ -203,12 +203,49 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
   .bookdemo__cal-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 18px; }
   @media (max-width: 640px) { .bookdemo__cal-grid { grid-template-columns: 1fr; } }
   .bookdemo__cal-label { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px; }
-  .bookdemo__cal-days { display: flex; flex-direction: column; gap: 6px; max-height: 300px; overflow-y: auto; }
-  .bookdemo__cal-slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 8px; align-content: start; max-height: 300px; overflow-y: auto; }
-  .bookdemo__cal-day, .bookdemo__cal-slot { padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface2); color: var(--text); font-size: 0.9rem; cursor: pointer; text-align: center; transition: border-color 0.15s, background 0.15s; }
-  .bookdemo__cal-day { text-align: left; }
-  .bookdemo__cal-day:hover, .bookdemo__cal-slot:hover { border-color: var(--green); }
-  .bookdemo__cal-day[aria-selected="true"] { border-color: var(--green); background: rgba(34, 197, 94, 0.1); }
+  .bookdemo__cal-days { display: flex; flex-direction: column; gap: 6px; max-height: 320px; overflow-y: auto; padding-right: 4px; }
+  .bookdemo__cal-slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)); gap: 8px; align-content: start; max-height: 320px; overflow-y: auto; padding-right: 4px; }
+  /* Day/slot buttons are created in JS, so they miss Astro's scope attribute.
+     Anchor to the scoped container and target the dynamic children with :global(). */
+  .bookdemo__calendar :global(.bookdemo__cal-day),
+  .bookdemo__calendar :global(.bookdemo__cal-slot) {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.025);
+    color: var(--text);
+    font-size: 0.9rem;
+    font-family: var(--sans);
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+  }
+  .bookdemo__calendar :global(.bookdemo__cal-day) { text-align: left; }
+  .bookdemo__calendar :global(.bookdemo__cal-slot) {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+    color: var(--green);
+  }
+  .bookdemo__calendar :global(.bookdemo__cal-day):hover,
+  .bookdemo__calendar :global(.bookdemo__cal-slot):hover {
+    border-color: var(--green);
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--text);
+  }
+  .bookdemo__calendar :global(.bookdemo__cal-slot):hover { color: var(--green); }
+  .bookdemo__calendar :global(.bookdemo__cal-day):active,
+  .bookdemo__calendar :global(.bookdemo__cal-slot):active { transform: translateY(1px); }
+  .bookdemo__calendar :global(.bookdemo__cal-day):focus-visible,
+  .bookdemo__calendar :global(.bookdemo__cal-slot):focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+  .bookdemo__calendar :global(.bookdemo__cal-day[aria-selected="true"]) {
+    border-color: var(--green);
+    background: rgba(34, 197, 94, 0.14);
+    color: var(--text);
+    font-weight: 600;
+  }
+  .bookdemo__cal-days::-webkit-scrollbar, .bookdemo__cal-slots::-webkit-scrollbar { width: 6px; }
+  .bookdemo__cal-days::-webkit-scrollbar-thumb, .bookdemo__cal-slots::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
   .bookdemo__cal-confirm { display: flex; flex-direction: column; gap: 12px; }
   .bookdemo__cal-recap { font-size: 1rem; color: var(--text); font-weight: 600; }
   .bookdemo__cal-actions { display: flex; gap: 10px; justify-content: space-between; flex-wrap: wrap; }
