@@ -149,8 +149,8 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
             <div class="bookdemo__cal-recap" id="cal-recap"></div>
             <input type="text" class="form__input" id="cal-name" name="name" required
               data-i18n-placeholder="bookdemo.cal.name" placeholder="Votre nom" autocomplete="name" />
-            <textarea class="form__textarea bookdemo__cal-note" id="cal-note" name="note" rows="3"
-              data-i18n-placeholder="bookdemo.cal.note" placeholder="Un mot sur votre besoin (optionnel)"></textarea>
+            <textarea class="form__textarea bookdemo__cal-note" id="cal-note" name="note" rows="3" required
+              data-i18n-placeholder="bookdemo.cal.note" placeholder="Un mot sur votre besoin"></textarea>
             <input type="text" id="cal-hp" name="company_website" tabindex="-1" autocomplete="off"
               aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
             <div class="bookdemo__cal-actions">
@@ -298,6 +298,7 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (!form.reportValidity()) return;
       hide(form);
       show(calendar);
       setBack("form");
@@ -385,9 +386,9 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
 
     confirmEl.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (!confirmEl.reportValidity()) return;
       var submitBtn = document.getElementById("cal-submit");
       var name = document.getElementById("cal-name").value.trim();
-      if (!name) { document.getElementById("cal-name").focus(); return; }
       submitBtn.disabled = true; submitBtn.textContent = tr("bookdemo.cal.booking");
       hide(confirmErr);
 
