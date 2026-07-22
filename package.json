@@ -29,9 +29,11 @@
     "resend": "^3.5.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.9",
     "@types/js-yaml": "^4.0.9",
     "@types/luxon": "^3.7.2",
     "js-yaml": "^4.1.1",
+    "typescript": "^6.0.3",
     "vitest": "^4.1.10"
   }
 }
