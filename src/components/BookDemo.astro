@@ -153,7 +153,7 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
             <input type="text" id="cal-hp" name="company_website" tabindex="-1" autocomplete="off"
               aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
             <div class="bookdemo__cal-actions">
-              <button type="button" class="btn btn--ghost" id="cal-back" data-i18n="bookdemo.cal.back">← Changer de créneau</button>
+              <button type="button" class="bookdemo__cal-back" id="cal-back" data-i18n="bookdemo.cal.back">← Changer de créneau</button>
               <button type="submit" class="btn btn--primary" id="cal-submit" data-i18n="bookdemo.cal.confirm">Confirmer le rendez-vous</button>
             </div>
             <div class="bookdemo__cal-err" id="cal-confirm-err" hidden></div>
@@ -247,8 +247,12 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
   .bookdemo__cal-days::-webkit-scrollbar, .bookdemo__cal-slots::-webkit-scrollbar { width: 6px; }
   .bookdemo__cal-days::-webkit-scrollbar-thumb, .bookdemo__cal-slots::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
   .bookdemo__cal-confirm { display: flex; flex-direction: column; gap: 12px; }
-  .bookdemo__cal-recap { font-size: 1rem; color: var(--text); font-weight: 600; }
-  .bookdemo__cal-actions { display: flex; gap: 10px; justify-content: space-between; flex-wrap: wrap; }
+  .bookdemo__cal-recap { font-size: 1.05rem; color: var(--text); font-weight: 600; }
+  .bookdemo__cal-recap::first-letter { text-transform: uppercase; }
+  .bookdemo__cal-actions { display: flex; gap: 12px; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 4px; }
+  .bookdemo__cal-back { background: none; border: none; padding: 6px 2px; color: var(--muted); font-size: 0.88rem; font-family: var(--sans); cursor: pointer; transition: color 0.15s ease; }
+  .bookdemo__cal-back:hover { color: var(--text); }
+  .bookdemo__cal-back:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
   .bookdemo__cal-err { color: var(--red); font-size: 0.85rem; }
   .bookdemo__cal-success { text-align: center; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
   .bookdemo__cal-success-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(34,197,94,0.15); color: var(--green); display: grid; place-items: center; font-size: 1.4rem; }
