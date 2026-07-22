@@ -506,7 +506,7 @@ body::after {
 .hero h1 {
   font-family: var(--display);
   font-size: clamp(1.9rem, 5vw, 4rem);
-  line-height: 1.07;
+  line-height: 1.08;
   letter-spacing: -0.03em;
   text-wrap: balance;
   font-weight: 700;
@@ -704,7 +704,9 @@ body::after {
 
 /* ─── Sections ─── */
 .section {
-  padding: 84px 0;
+  /* generous vertical rhythm so each section reads as its own beat and users
+     have room to absorb one before the next */
+  padding: clamp(88px, 9vw, 128px) 0;
 }
 
 .section--alt {
@@ -939,15 +941,14 @@ body::after {
 /* ─── Hub section layout ─── */
 .hub-layout {
   margin-top: 44px;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 48px;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .hub-benefits {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
@@ -1229,6 +1230,380 @@ body::after {
   top: -40px;
   right: -40px;
   pointer-events: none;
+}
+
+/* ─── Hub "Max" home mockup (mirrors the real /max screen) ─── */
+.mx {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  overflow: hidden;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(22, 163, 74, 0.05) inset;
+}
+.mx__bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+}
+.mx__dots {
+  display: flex;
+  gap: 6px;
+}
+.mx__dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.mx__dots span:nth-child(1) { background: #f06464; }
+.mx__dots span:nth-child(2) { background: #f0b429; }
+.mx__dots span:nth-child(3) { background: var(--green); }
+.mx__url {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
+.mx__body {
+  display: flex;
+  min-height: 478px;
+}
+
+.mx__side {
+  width: 58px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 12px 0;
+}
+.mx__logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 7px;
+}
+.mx__ico {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+.mx__ico svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.mx__ico--on {
+  background: rgba(34, 197, 94, 0.12);
+  color: var(--green);
+}
+.mx__sep {
+  width: 22px;
+  height: 1px;
+  background: var(--border);
+  margin: 5px 0;
+}
+
+.mx__main {
+  flex: 1;
+  min-width: 0;
+  padding: 30px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.mx__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+.mx__mascot {
+  width: 58px;
+  height: 58px;
+  image-rendering: pixelated;
+  margin-bottom: 4px;
+}
+.mx__greet {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1.28;
+  color: var(--text);
+}
+.mx__greet-sub {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 560px;
+  margin-top: 5px;
+}
+
+.mx__today {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mx__today-label {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+}
+.mx__cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.mx__card {
+  display: flex;
+  flex-direction: column;
+  min-height: 96px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 13px 15px;
+  background: var(--surface2);
+}
+.mx__card-lbl {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--faint);
+  line-height: 1.35;
+}
+.mx__card-val {
+  margin-top: auto;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.mx__card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--faint);
+}
+.mx__card-ico {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.mx__card-ico svg {
+  width: 13px;
+  height: 13px;
+  stroke: var(--green);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.mx__card-txt {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.mx__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.mx__col {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+}
+.mx__col-h {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  margin-bottom: 2px;
+}
+.mx__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--display);
+  font-size: 0.58rem;
+  color: var(--green);
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.22);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+.mx__badge::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.mx__chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 13px;
+  font-size: 0.82rem;
+  line-height: 1.3;
+  color: var(--text);
+  background: var(--surface);
+}
+.mx__chip--act {
+  background: rgba(34, 197, 94, 0.08);
+  border-color: rgba(34, 197, 94, 0.28);
+}
+.mx__chip--act svg {
+  width: 15px;
+  height: 15px;
+  stroke: var(--green);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.mx__composer {
+  margin-top: auto;
+  align-self: center;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border-bright);
+  border-radius: 11px;
+  padding: 6px 7px 6px 12px;
+  background: var(--surface2);
+}
+.mx__composer-input {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.mx__composer-txt {
+  font-size: 0.78rem;
+  color: var(--text);
+}
+.mx__caret {
+  display: inline-block;
+  width: 1.5px;
+  height: 0.95em;
+  margin-left: 2px;
+  background: var(--green);
+  flex-shrink: 0;
+  animation: mxBlink 1.05s step-end infinite;
+}
+@keyframes mxBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mx__caret { animation: none; }
+}
+.mx__send {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: var(--green);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.mx__send svg {
+  width: 13px;
+  height: 13px;
+  stroke: #ffffff;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mx__glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(22, 163, 74, 0.1) 0%, transparent 70%);
+  top: -70px;
+  right: -70px;
+  pointer-events: none;
+}
+
+@media (max-width: 860px) {
+  .hub-benefits {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 720px) {
+  .mx__main {
+    padding: 22px 20px;
+    gap: 18px;
+  }
+  .mx__greet {
+    font-size: 1.15rem;
+  }
+  .mx__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .mx__side {
+    display: none;
+  }
+  .mx__cols {
+    grid-template-columns: 1fr;
+  }
+  .mx__card {
+    min-height: 0;
+  }
 }
 
 /* ─── Steps ─── */
@@ -2866,9 +3241,6 @@ body::after {
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .hub-layout {
-    grid-template-columns: 1fr;
-  }
   .proof-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -3612,6 +3984,23 @@ html[data-theme="light"] .problem-card__icon {
 /* Light: Benefit hover */
 html[data-theme="light"] .benefit:hover {
   background: rgba(22, 163, 74, 0.04);
+}
+
+/* Light: Max mockup — the default --faint/--muted greys wash out on white */
+html[data-theme="light"] .mx__today-label,
+html[data-theme="light"] .mx__card-lbl,
+html[data-theme="light"] .mx__card-head,
+html[data-theme="light"] .mx__col-h {
+  color: #64748b;
+}
+html[data-theme="light"] .mx__greet-sub,
+html[data-theme="light"] .mx__card-txt,
+html[data-theme="light"] .mx__url {
+  color: #475569;
+}
+/* Light: the chat panel is a soft grey so the white cards/chips read as elevated */
+html[data-theme="light"] .mx__main {
+  background: #f4f5f8;
 }
 
 /* Light: Pricing */

@@ -87,6 +87,11 @@ Required env (`.env`):
 - `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` — contact form.
 - `PUBLIC_POSTHOG_KEY`, `PUBLIC_POSTHOG_HOST`, `PUBLIC_POSTHOG_DEFAULTS` — analytics (the `PUBLIC_` prefix exposes them to the client).
 - `ANTHROPIC_API_KEY` — only needed for `scripts/generate-*.mjs`, not the site itself.
+- `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN`, `GOOGLE_CALENDAR_ID` (default `primary`) — native demo booking. Generate the refresh token once with `node scripts/google-oauth.mjs`.
+
+### Native demo booking
+
+The "Réserver une démo" section (`BookDemo.astro`, `#rdv`) hosts a self-hosted, Calendly-like flow: after the qualifying form it reveals a 15-min slot picker. Availability = Mon–Fri 09:00–18:00 Europe/Paris minus the host calendar's Google FreeBusy; booking creates a Google Meet event and invites the visitor. No database — the calendar is the source of truth. Pure logic (`generateSlots`, `isSlotBookable`) lives in `src/lib/booking/*` and is unit-tested with vitest (`pnpm test`); the Google client is `src/lib/booking/google.ts`; endpoints are `/api/availability` and `/api/book` (both `prerender = false`). Booking parameters are in `src/lib/booking/config.ts`.
 
 ## Deployment
 

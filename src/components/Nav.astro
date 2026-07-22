@@ -3,11 +3,11 @@
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const lang = path.startsWith('/en') ? 'en' : 'fr';
 const isFeatures = path.includes('/features/');
-const featuresLabel = lang === 'fr' ? 'Fonctionnalités' : 'Features';
+const featuresLabel = lang === 'fr' ? 'Produit' : 'Product';
 const currentSlug = path.split('/features/')[1] || '';
 const isTarifs = path.endsWith('/tarifs') || path.endsWith('/pricing');
-const isBlog = path.includes('/blog');
-const trialHref = 'https://hub.reedly.ai';
+const loginHref = 'https://hub.reedly.ai';
+const bookHref = `/${lang}#rdv`;
 
 const features = [
   { slugFr: 'enregistrement-vocal-rdv', slugEn: 'meeting-voice-recording', labelFr: 'Enregistrement vocal', labelEn: 'Voice Recording', descFr: 'Capturez chaque RDV en 1 tap', descEn: 'Capture every meeting in 1 tap', icon: 'M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z' },
@@ -35,6 +35,8 @@ const features = [
   html[data-theme-setting='light'] [data-select='theme'] .nav__select-ico--light,
   html[data-theme-setting='dark'] [data-select='theme'] .nav__select-ico--dark,
   html[data-theme-setting='system'] [data-select='theme'] .nav__select-ico--system { display: inline-flex; }
+  .nav__signin { font-size: 14px; color: var(--muted); transition: color .15s; white-space: nowrap; }
+  .nav__signin:hover { color: var(--text); }
 </style>
 
 <nav class="nav z1">
@@ -65,7 +67,6 @@ const features = [
         </div>
       </div>
       <a class={`nav__menu-link${isTarifs ? ' active' : ''}`} href={lang === 'fr' ? '/fr/tarifs' : '/en/pricing'} data-i18n="nav.pricing" data-link-fr="/fr/tarifs" data-link-en="/en/pricing">Tarifs</a>
-      <a class={`nav__menu-link${isBlog ? ' active' : ''}`} href={`/${lang}/blog`} data-i18n="nav.blog" data-link-fr="/fr/blog" data-link-en="/en/blog">Blog</a>
     </div>
 
     <div class="nav__actions">
@@ -108,8 +109,8 @@ const features = [
       <span class="nav__sep"></span>
 
       <a
-        class="btn btn--ghost btn--sm"
-        href={trialHref}
+        class="nav__signin"
+        href={loginHref}
         data-i18n="nav.login"
         data-track-id="nav_login"
         data-track-type="login"
@@ -117,12 +118,14 @@ const features = [
       >Se connecter</a>
       <a
         class="btn btn--primary btn--sm"
-        href={trialHref}
-        data-i18n="cta.try_free"
-        data-track-id="nav_try_free"
-        data-track-type="trial"
+        href={bookHref}
+        data-link-fr="/fr#rdv"
+        data-link-en="/en#rdv"
+        data-i18n="cta.book_demo"
+        data-track-id="nav_book_demo"
+        data-track-type="demo"
         data-track-section="nav"
-      >Essayer gratuitement</a>
+      >Réserver une démo</a>
     </div>
 
     <button
@@ -148,11 +151,10 @@ const features = [
       ))}
     </div>
     <a class={`nav__mobile-link${isTarifs ? ' active' : ''}`} href={lang === 'fr' ? '/fr/tarifs' : '/en/pricing'} data-i18n="nav.pricing" data-link-fr="/fr/tarifs" data-link-en="/en/pricing">Tarifs</a>
-    <a class={`nav__mobile-link${isBlog ? ' active' : ''}`} href={`/${lang}/blog`} data-i18n="nav.blog" data-link-fr="/fr/blog" data-link-en="/en/blog">Blog</a>
     <div class="nav__mobile-actions">
       <a
         class="btn btn--ghost btn--md"
-        href={trialHref}
+        href={loginHref}
         data-i18n="nav.login"
         data-track-id="nav_login_mobile"
         data-track-type="login"
@@ -160,12 +162,14 @@ const features = [
       >Se connecter</a>
       <a
         class="btn btn--primary btn--md"
-        href={trialHref}
-        data-i18n="cta.try_free"
-        data-track-id="nav_try_free_mobile"
-        data-track-type="trial"
+        href={bookHref}
+        data-link-fr="/fr#rdv"
+        data-link-en="/en#rdv"
+        data-i18n="cta.book_demo"
+        data-track-id="nav_book_demo_mobile"
+        data-track-type="demo"
         data-track-section="nav_mobile"
-      >Essayer gratuitement</a>
+      >Réserver une démo</a>
     </div>
   </div>
 </nav>

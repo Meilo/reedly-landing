@@ -2,19 +2,11 @@
 import Layout from '@/layouts/Layout.astro';
 import Nav from '@/components/Nav.astro';
 import Hero from '@/components/Hero.astro';
-import TrustBar from '@/components/TrustBar.astro';
-import Problem from '@/components/Problem.astro';
-import VsVideo from '@/components/VsVideo.astro';
-import How from '@/components/How.astro';
-import Features from '@/components/Features.astro';
+// import Logos from '@/components/Logos.astro'; // masqué : réactiver quand de vrais logos clients existeront
+import Hub from '@/components/Hub.astro';
 import Demo from '@/components/Demo.astro';
-import Proof from '@/components/Proof.astro';
-import Roles from '@/components/Roles.astro';
-import Integrations from '@/components/Integrations.astro';
+import BookDemo from '@/components/BookDemo.astro';
 import Pricing from '@/components/Pricing.astro';
-import Contact from '@/components/Contact.astro';
-import Faq from '@/components/Faq.astro';
-import FinalCta from '@/components/FinalCta.astro';
 import Footer from '@/components/Footer.astro';
 ---
 
@@ -28,19 +20,11 @@ import Footer from '@/components/Footer.astro';
 
   <main class="z1">
     <Hero />
-    <TrustBar />
-    <Problem />
-    <VsVideo />
-    <How />
-    <Features />
     <Demo />
-    <Proof />
-    <Roles />
-    <Integrations />
+    <Hub />
+    {/* <Logos /> masqué jusqu'à avoir de vrais logos clients */}
+    <BookDemo />
     <Pricing />
-    <Faq />
-    <Contact />
-    <FinalCta />
   </main>
 
   <Footer />
