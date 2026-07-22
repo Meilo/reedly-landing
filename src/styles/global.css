@@ -2716,6 +2716,38 @@ body::after {
   letter-spacing: 0.04em;
 }
 
+.footer__social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.footer__social-link svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.footer__social-link:hover {
+  color: var(--text);
+  border-color: var(--text);
+}
+
 .footer__col {
   display: flex;
   flex-direction: column;
