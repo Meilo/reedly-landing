@@ -23,12 +23,6 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
         <p class="bookdemo__text" data-i18n="bookdemo.intro">
           Vous repartez en sachant ce que ça change pour votre équipe, dès la première semaine.
         </p>
-        <p class="bookdemo__alt">
-          <span data-i18n="bookdemo.alt_prefix">Vous préférez explorer d'abord ?</span>
-          <a class="bookdemo__alt-link" href={`/${lang}#demo`} data-i18n="bookdemo.alt_link"
-            >Voir la démo interactive →</a
-          >
-        </p>
       </div>
 
       <!-- Right: qualifying form -->
@@ -70,14 +64,34 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
             <label class="form__label" for="bd-sector" data-i18n="bookdemo.sector.label"
               >Secteur</label
             >
-            <input
-              class="form__input"
-              type="text"
-              id="bd-sector"
-              name="sector"
-              placeholder="[Secteur]"
-              data-i18n-placeholder="bookdemo.sector.ph"
-            />
+            <select class="form__select" id="bd-sector" name="sector">
+              <option value="" disabled selected data-i18n="bookdemo.sector.select"
+                >Choisir…</option
+              >
+              <option value="tour_operateur" data-i18n="bookdemo.sector.to"
+                >Tour-opérateur / Voyagiste</option
+              >
+              <option value="agence_voyages" data-i18n="bookdemo.sector.agency"
+                >Agence de voyages</option
+              >
+              <option value="receptif_dmc" data-i18n="bookdemo.sector.dmc"
+                >Réceptif / DMC</option
+              >
+              <option value="mice" data-i18n="bookdemo.sector.mice"
+                >MICE &amp; événementiel</option
+              >
+              <option value="transport" data-i18n="bookdemo.sector.transport"
+                >Transport &amp; mobilité</option
+              >
+              <option value="croisiere" data-i18n="bookdemo.sector.cruise">Croisière</option>
+              <option value="hotellerie" data-i18n="bookdemo.sector.hospitality"
+                >Hôtellerie &amp; hébergement</option
+              >
+              <option value="loisirs" data-i18n="bookdemo.sector.leisure"
+                >Loisirs &amp; billetterie</option
+              >
+              <option value="other" data-i18n="bookdemo.sector.other">Autre secteur</option>
+            </select>
           </div>
 
           <div class="form__field">
@@ -137,16 +151,9 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
     line-height: 1.7;
     margin: 0 0 18px;
   }
-  .bookdemo__alt {
-    font-size: 0.9rem;
-    color: var(--muted);
-    margin: 0;
-  }
-  .bookdemo__alt-link {
-    color: var(--green);
-    font-weight: 600;
-    white-space: nowrap;
-  }
+  /* lift the global 22ch cap so "ce que vos agences vous disent vraiment."
+     stays on one line (wraps only on small phones) */
+  #rdv h2 { max-width: none; }
   .bookdemo__hint {
     text-align: center;
     font-size: 0.78rem;

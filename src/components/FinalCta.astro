@@ -3,7 +3,6 @@
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const lang = path.startsWith('/en') ? 'en' : 'fr';
 const bookHref = `/${lang}#rdv`;
-const demoHref = `/${lang}#demo`;
 ---
 
 <!-- ── Final CTA ── -->
@@ -27,17 +26,6 @@ const demoHref = `/${lang}#demo`;
                 data-track-type="demo"
                 data-track-section="final_cta"
                 >Réserver une démo</a
-              >
-              <a
-                class="btn btn--ghost btn--lg"
-                href={demoHref}
-                data-link-fr="/fr#demo"
-                data-link-en="/en#demo"
-                data-i18n="hero.see_demo"
-                data-track-id="final_see_demo"
-                data-track-type="demo"
-                data-track-section="final_cta"
-                >Voir la démo interactive</a
               >
             </div>
           </div>
