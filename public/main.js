@@ -315,25 +315,25 @@ const T = {
     "pricing.tableVal.support.enterprise": "Account manager",
     "faq.eyebrow": "FAQ",
     "faq.title": "Questions fréquentes.",
-    "faq.q1": "À qui Reedly est-il destiné ?",
+    "faq.q1": "À quels métiers du tourisme Reedly s'adresse-t-il ?",
     "faq.a1":
-      "Aux commerciaux terrain B2B qui font des rendez-vous clients régulièrement : tourisme, immobilier, pharma, industrie, services. Et aux directeurs commerciaux qui veulent une vision consolidée de l'activité de leur équipe sans réunions de reporting supplémentaires.",
+      "Aux tour-opérateurs, voyagistes et réceptifs dont les commerciaux animent un réseau d'agences de voyage. Et aux directions commerciales qui veulent savoir, agence par agence, ce qui se dit vraiment sur le terrain, sans multiplier les réunions de reporting.",
     "faq.q2": "L'app fonctionne-t-elle hors connexion ?",
     "faq.a2":
-      "L'enregistrement audio fonctionne intégralement hors connexion : vous pouvez capturer votre réunion même sans réseau. La génération du rapport, elle, nécessite une connexion internet car elle fait appel à nos modèles IA. Le rapport se génère automatiquement dès que vous retrouvez du réseau.",
-    "faq.q3": "Combien de temps pour générer un rapport ?",
+      "Oui. L'enregistrement fonctionne intégralement hors ligne : votre commercial capture sa visite même sans réseau, en agence comme sur la route. Le compte rendu, lui, a besoin d'une connexion pour faire appel à nos modèles IA. Il se génère automatiquement dès que le réseau revient.",
+    "faq.q3": "En combien de temps le compte rendu est-il prêt ?",
     "faq.a3":
-      "Moins de 2 minutes pour un rendez-vous d'une heure. La transcription prend environ 45 secondes, la génération environ 30 à 60 secondes selon la longueur. Le rapport complet en 11 sections est disponible avant même que vous soyez remonté en voiture.",
+      "Moins de 2 minutes après une visite d'une heure. Votre commercial repart de l'agence avec un compte rendu déjà structuré en 11 sections, avant même de reprendre la route vers le point de vente suivant.",
     "faq.q4": "Les données audio sont-elles conservées ?",
     "faq.a4":
-      "Non, jamais. L'audio est utilisé uniquement pour la transcription puis supprimé automatiquement et définitivement dès que le rapport est généré. Seul le rapport structuré est conservé dans votre espace Reedly. C'est un principe non négociable : privacy by design.",
-    "faq.q5": "Qu'est-ce que le Hub et qui en a besoin ?",
+      "Non, jamais. L'audio sert uniquement à la transcription, puis il est supprimé automatiquement et définitivement dès que le compte rendu est généré. Seul le rapport structuré reste dans votre espace Reedly. C'est un principe non négociable : privacy by design.",
+    "faq.q5": "Qu'est-ce que le Hub et qui l'utilise ?",
     "faq.a5":
-      "Le Hub est une interface web réservée aux managers et directeurs commerciaux. Il affiche tous les rapports de l'équipe affiliée, les synthèses stratégiques et les statistiques membres. Les commerciaux utilisent uniquement l'app mobile. Le Hub est le point de pilotage du responsable. Il est inclus dans le plan Équipe.",
+      "Le Hub est l'interface web réservée aux managers et aux directions commerciales. Il réunit tous les comptes rendus de vos commerciaux, les synthèses par destination ou par région, et l'activité de chaque membre du réseau. Les commerciaux n'utilisent que l'app mobile ; le Hub est votre poste de pilotage. Il est inclus dans le plan Équipe.",
     "faq.q6":
-      "L'enregistrement vocal fonctionne-t-il dans un environnement bruyant ?",
+      "L'enregistrement tient-il dans un environnement bruyant ?",
     "faq.a6":
-      "Oui. Reedly utilise des modèles de transcription entraînés sur des conditions audio réelles : restaurant d'affaires, salle de réunion avec écho, plusieurs voix simultanées. L'enregistrement vocal est conçu pour le terrain, pas pour un environnement de bureau silencieux.",
+      "Oui. Reedly s'appuie sur des modèles entraînés sur des conditions réelles : accueil d'agence animé, comptoir, plusieurs voix en même temps. C'est pensé pour une visite en agence, pas pour un bureau silencieux.",
     "cta.title": "Téléchargez Reedly,<br /><em>oubliez la saisie.</em>",
     "cta.sub":
       "Déployez Reedly dans votre équipe en moins de 10 minutes. Premier rapport remonté dans le Hub dès le jour même.",
@@ -447,23 +447,23 @@ const T = {
       "Cycles de vente longs, multiples interlocuteurs, cahiers des charges techniques : Reedly capture la complexité de vos rendez-vous et la structure en actions concrètes.",
     "tarifs.hero.eyebrow": "Tarifs",
     "tarifs.hero.title":
-      "L'IA terrain la plus complète.<br /><em>Au prix le plus juste.</em>",
+      "L'intelligence terrain du tourisme,<br /><em>pour toute votre équipe.</em>",
     "tarifs.hero.lead":
-      "Rapports structurés en 11 sections, vocabulaire métier intégré, Hub manager inclus. Déployez Reedly pour votre équipe en moins de 10 minutes.",
+      "Un tarif simple, par commercial. Chaque visite en agence devient une information partagée avec les bonnes équipes. Tout est inclus, sans engagement.",
     "tarifs.roi.eyebrow": "Retour sur investissement",
     "tarifs.roi.title":
-      "Ce que Reedly fait gagner<br /><em>à votre équipe.</em>",
+      "Ce que Reedly fait gagner,<br /><em>du commercial à la direction.</em>",
     "tarifs.roi.lead":
-      "Chaque commercial passe en moyenne 45 minutes par jour à rédiger des comptes-rendus. Avec Reedly, c'est 2 minutes. Faites le calcul.",
-    "tarifs.roi.card1.title": "3h30 récupérées par semaine",
+      "Chaque commercial passe près de 45 minutes par jour à rédiger ses comptes rendus. Avec Reedly, c'est 2 minutes, et l'information part directement vers les bonnes équipes.",
+    "tarifs.roi.card1.title": "3h30 rendues à chaque commercial, chaque semaine",
     "tarifs.roi.card1.text":
-      "Par commercial. Soit 15 heures par mois réaffectées à la vente, à la relation client ou aux rendez-vous supplémentaires.",
-    "tarifs.roi.card2.title": "Rentabilisé dès le 1er mois",
+      "Soit 15 heures par mois et par personne, réinvesties sur le terrain : plus de visites en agence, plus de temps pour animer votre réseau.",
+    "tarifs.roi.card2.title": "Rentabilisé dès le premier mois",
     "tarifs.roi.card2.text":
-      "À 49 €/mois par utilisateur, il suffit d'un rendez-vous supplémentaire converti pour couvrir le coût annuel de Reedly.",
-    "tarifs.roi.card3.title": "0 information perdue",
+      "À 49 € par commercial, une seule agence réactivée ou un produit mieux vendu par le réseau suffit à couvrir l'année.",
+    "tarifs.roi.card3.title": "Plus aucun signal terrain perdu",
     "tarifs.roi.card3.text":
-      "Chaque engagement, chaque objection, chaque opportunité est capturée et structurée. Le manager voit tout en temps réel depuis le Hub.",
+      "Ce qui fait vendre ou décrocher une agence remonte automatiquement. Votre direction le voit en temps réel, produit par produit, agence par agence.",
     "nav.blog": "Blog",
     "footer.blog": "Blog",
     "blog.title": "Blog",
@@ -505,7 +505,7 @@ const T = {
     "logos.placeholder": "logo client",
     "pricing.title": "Un prix par commercial.<br /><em>Zéro surprise.</em>",
     "pricing.lead":
-      "Facturé à l'organisation, à la taille réelle de votre équipe terrain.",
+      "Facturé à votre organisation, à la taille réelle de l'équipe qui anime votre réseau d'agences.",
     "pricing.team.badge": "Le plus choisi",
     "pricing.team.plan": "Équipe",
     "pricing.team.subtitle": "À partir de 3 commerciaux",
@@ -515,7 +515,7 @@ const T = {
     "pricing.team.feat3": "Synthèses stratégiques périodiques",
     "pricing.team.feat4": "Hub manager · vision 360° de l'équipe",
     "pricing.team.feat5": "Identification des interlocuteurs",
-    "pricing.team.feat6": "Fiches clients auto-enrichies",
+    "pricing.team.feat6": "Fiches agences auto-enrichies",
     "pricing.team.feat7": "Analyse IA transversale de l'équipe",
     "pricing.team.feat8": "Connecteurs CRM connus",
     "pricing.team.feat9": "Assistant IA (Max)",
@@ -937,24 +937,24 @@ const T = {
     "pricing.tableVal.support.enterprise": "Account manager",
     "faq.eyebrow": "FAQ",
     "faq.title": "Frequently asked questions.",
-    "faq.q1": "Who is Reedly for?",
+    "faq.q1": "Which tourism businesses is Reedly for?",
     "faq.a1":
-      "For B2B field sales reps who regularly meet with clients: tourism, real estate, pharma, industry, services. And for sales directors who want a consolidated view of their team's activity without extra reporting meetings.",
+      "For tour operators, wholesalers and DMCs whose reps manage a network of travel agencies. And for sales leadership who want to know, agency by agency, what's really being said in the field, without piling on reporting meetings.",
     "faq.q2": "Does the app work offline?",
     "faq.a2":
-      "Audio recording works entirely offline: you can capture your meeting even without a network. Report generation, however, requires an internet connection as it calls our AI models. The report generates automatically as soon as you have network again.",
-    "faq.q3": "How long does it take to generate a report?",
+      "Yes. Recording works entirely offline: your rep captures a visit even with no network, in the agency or on the road. The report itself needs a connection to call our AI models, and generates automatically as soon as the network is back.",
+    "faq.q3": "How fast is the report ready?",
     "faq.a3":
-      "Less than 2 minutes for a one-hour meeting. Transcription takes about 45 seconds, generation about 30 to 60 seconds depending on length. The complete 11-section report is available before you even get back in your car.",
+      "Under 2 minutes after a one-hour visit. Your rep leaves the agency with a report already structured into 11 sections, before even driving to the next point of sale.",
     "faq.q4": "Is audio data retained?",
     "faq.a4":
-      "No, never. Audio is used only for transcription and then automatically and permanently deleted once the report is generated. Only the structured report is kept in your Reedly space. This is a non-negotiable principle: privacy by design.",
-    "faq.q5": "What is the Hub and who needs it?",
+      "No, never. Audio is used only for transcription, then automatically and permanently deleted once the report is generated. Only the structured report stays in your Reedly space. This is a non-negotiable principle: privacy by design.",
+    "faq.q5": "What is the Hub and who uses it?",
     "faq.a5":
-      "The Hub is a web interface reserved for managers and sales directors. It displays all reports from affiliated team members, strategic syntheses, and member statistics. Sales reps use only the mobile app. The Hub is the manager's control center. It's included in the Team plan.",
-    "faq.q6": "Does voice recording work in noisy environments?",
+      "The Hub is the web interface reserved for managers and sales leadership. It brings together every rep's reports, syntheses by destination or region, and each network member's activity. Reps use only the mobile app; the Hub is your control center. It's included in the Team plan.",
+    "faq.q6": "Does recording hold up in a noisy environment?",
     "faq.a6":
-      "Yes. Reedly uses transcription models trained on real-world audio conditions: business restaurants, meeting rooms with echo, multiple simultaneous voices. Voice recording is designed for the field, not for a quiet office environment.",
+      "Yes. Reedly relies on models trained on real-world conditions: a busy agency front desk, a counter, several voices at once. It's built for an agency visit, not a quiet office.",
     "cta.title": "Download Reedly,<br /><em>forget the data entry.</em>",
     "cta.sub":
       "Deploy Reedly to your team in under 10 minutes. First report flowing into the Hub the same day.",
@@ -1066,22 +1066,22 @@ const T = {
       "Long sales cycles, multiple stakeholders, technical specs: Reedly captures the complexity of your meetings and structures it into concrete actions.",
     "tarifs.hero.eyebrow": "Pricing",
     "tarifs.hero.title":
-      "The most complete field AI.<br /><em>At the fairest price.</em>",
+      "Field intelligence for tourism,<br /><em>across your whole team.</em>",
     "tarifs.hero.lead":
-      "Structured reports in 11 sections, built-in industry vocabulary, Manager Hub included. Deploy Reedly for your team in under 10 minutes.",
+      "One simple price per rep. Every agency visit becomes information shared with the right teams. Everything included, no commitment.",
     "tarifs.roi.eyebrow": "Return on investment",
-    "tarifs.roi.title": "What Reedly saves<br /><em>your team.</em>",
+    "tarifs.roi.title": "What Reedly delivers,<br /><em>from rep to leadership.</em>",
     "tarifs.roi.lead":
-      "Each sales rep spends an average of 45 minutes a day writing reports. With Reedly, it's 2 minutes. Do the math.",
-    "tarifs.roi.card1.title": "3.5 hours recovered per week",
+      "Each rep spends nearly 45 minutes a day writing reports. With Reedly, it's 2 minutes, and the information flows straight to the right teams.",
+    "tarifs.roi.card1.title": "3.5 hours back per rep, every week",
     "tarifs.roi.card1.text":
-      "Per sales rep. That's 15 hours per month reallocated to selling, client relationships, or additional meetings.",
-    "tarifs.roi.card2.title": "Pays for itself in month 1",
+      "That's 15 hours a month per person, reinvested in the field: more agency visits, more time to grow your network.",
+    "tarifs.roi.card2.title": "Pays for itself in the first month",
     "tarifs.roi.card2.text":
-      "At 49 EUR/month per user, just one extra converted meeting covers the annual cost of Reedly.",
-    "tarifs.roi.card3.title": "0 information lost",
+      "At 49 EUR per rep, a single reactivated agency or one product better sold across the network covers the year.",
+    "tarifs.roi.card3.title": "No field signal lost",
     "tarifs.roi.card3.text":
-      "Every commitment, every objection, every opportunity is captured and structured. The manager sees everything in real time from the Hub.",
+      "What makes an agency buy or drift away surfaces automatically. Leadership sees it in real time, product by product, agency by agency.",
     "nav.blog": "Blog",
     "footer.blog": "Blog",
     "blog.title": "Blog",
@@ -1123,7 +1123,7 @@ const T = {
     "logos.placeholder": "client logo",
     "pricing.title": "One price per rep.<br /><em>Zero surprises.</em>",
     "pricing.lead":
-      "Billed to the organization, at the real size of your field team.",
+      "Billed to your organization, at the real size of the team that runs your agency network.",
     "pricing.team.badge": "Most chosen",
     "pricing.team.plan": "Team",
     "pricing.team.subtitle": "From 3 reps",
@@ -1133,7 +1133,7 @@ const T = {
     "pricing.team.feat3": "Periodic strategic syntheses",
     "pricing.team.feat4": "Manager Hub · 360° team view",
     "pricing.team.feat5": "Speaker identification",
-    "pricing.team.feat6": "Auto-enriched client cards",
+    "pricing.team.feat6": "Auto-enriched agency records",
     "pricing.team.feat7": "Cross-team AI analysis",
     "pricing.team.feat8": "Connectors to major CRMs",
     "pricing.team.feat9": "AI assistant (Max)",
