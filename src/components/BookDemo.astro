@@ -148,8 +148,8 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
             <div class="bookdemo__cal-recap" id="cal-recap"></div>
             <input type="text" class="form__input" id="cal-name" name="name" required
               data-i18n-placeholder="bookdemo.cal.name" placeholder="Votre nom" autocomplete="name" />
-            <input type="text" class="form__input" id="cal-note" name="note"
-              data-i18n-placeholder="bookdemo.cal.note" placeholder="Un mot sur votre besoin (optionnel)" />
+            <textarea class="form__textarea bookdemo__cal-note" id="cal-note" name="note" rows="3"
+              data-i18n-placeholder="bookdemo.cal.note" placeholder="Un mot sur votre besoin (optionnel)"></textarea>
             <input type="text" id="cal-hp" name="company_website" tabindex="-1" autocomplete="off"
               aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
             <div class="bookdemo__cal-actions">
@@ -247,6 +247,7 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
   .bookdemo__cal-days::-webkit-scrollbar, .bookdemo__cal-slots::-webkit-scrollbar { width: 6px; }
   .bookdemo__cal-days::-webkit-scrollbar-thumb, .bookdemo__cal-slots::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
   .bookdemo__cal-confirm { display: flex; flex-direction: column; gap: 12px; }
+  .bookdemo__cal-note { min-height: 78px; }
   .bookdemo__cal-recap { font-size: 1.05rem; color: var(--text); font-weight: 600; }
   .bookdemo__cal-recap::first-letter { text-transform: uppercase; }
   .bookdemo__cal-actions { display: flex; gap: 12px; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 4px; }
