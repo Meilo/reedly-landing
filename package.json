@@ -11,6 +11,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "generate:feature": "node scripts/generate-feature.mjs",
     "generate:features": "node scripts/generate-feature.mjs --all"
   },
@@ -22,10 +24,14 @@
     "@astrojs/starlight": "0.39.3",
     "@astrojs/vercel": "^10.0.3",
     "astro": "^6.1.1",
+    "google-auth-library": "^10.9.0",
+    "luxon": "^3.7.2",
     "resend": "^3.5.0"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
-    "js-yaml": "^4.1.1"
+    "@types/luxon": "^3.7.2",
+    "js-yaml": "^4.1.1",
+    "vitest": "^4.1.10"
   }
 }
