@@ -129,7 +129,10 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
 
         <!-- Native booking calendar, revealed after the qualifying step. -->
         <div class="bookdemo__calendar" id="bookdemo-calendar" hidden>
-          <p class="bookdemo__cal-tznote" data-i18n="bookdemo.cal.tznote">Créneaux affichés dans votre fuseau horaire.</p>
+          <div class="bookdemo__cal-head" id="cal-head">
+            <button type="button" class="bookdemo__cal-back" id="cal-form-back" data-i18n="bookdemo.cal.back_form">← Retour</button>
+            <p class="bookdemo__cal-tznote" data-i18n="bookdemo.cal.tznote">Créneaux affichés dans votre fuseau horaire.</p>
+          </div>
 
           <div class="bookdemo__cal-status" id="cal-status" data-i18n="bookdemo.cal.loading">Chargement des disponibilités…</div>
 
@@ -198,7 +201,8 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
   }
   /* Ensure the [hidden] attribute wins over the explicit display rules below. */
   .bookdemo__calendar [hidden] { display: none !important; }
-  .bookdemo__cal-tznote { font-size: 0.78rem; color: var(--muted); margin: 0 0 14px; }
+  .bookdemo__cal-head { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 14px; }
+  .bookdemo__cal-tznote { font-size: 0.78rem; color: var(--muted); margin: 0; }
   .bookdemo__cal-status { padding: 28px; text-align: center; color: var(--muted); font-family: var(--mono); font-size: 0.85rem; }
   .bookdemo__cal-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 18px; }
   @media (max-width: 640px) { .bookdemo__cal-grid { grid-template-columns: 1fr; } }
@@ -280,6 +284,7 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
     var recapEl = document.getElementById("cal-recap");
     var successEl = document.getElementById("cal-success");
     var confirmErr = document.getElementById("cal-confirm-err");
+    var headEl = document.getElementById("cal-head");
     var selectedSlot = null;
 
     function show(el) { el.removeAttribute("hidden"); }
@@ -289,6 +294,7 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
       e.preventDefault();
       hide(form);
       show(calendar);
+      show(headEl);
       calendar.scrollIntoView({ behavior: "smooth", block: "nearest" });
       loadAvailability();
       try {
@@ -356,13 +362,18 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
       });
       recapEl.textContent = fmt.format(new Date(iso));
       hide(confirmErr); confirmErr.textContent = "";
-      hide(gridEl); show(confirmEl);
+      hide(gridEl); hide(headEl); show(confirmEl);
       var emailField = document.getElementById("bd-email");
       confirmEl.dataset.email = emailField ? emailField.value : "";
     }
 
     document.getElementById("cal-back").addEventListener("click", function () {
-      hide(confirmEl); show(gridEl);
+      hide(confirmEl); show(headEl); show(gridEl);
+    });
+
+    document.getElementById("cal-form-back").addEventListener("click", function () {
+      hide(calendar); show(form);
+      form.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
 
     confirmEl.addEventListener("submit", function (e) {
@@ -394,7 +405,7 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
             showSuccess(res.body);
           } else if (res.status === 409) {
             show(confirmErr); confirmErr.textContent = tr("bookdemo.cal.slot_taken");
-            hide(confirmEl); show(gridEl); loadAvailability();
+            hide(confirmEl); show(headEl); show(gridEl); loadAvailability();
           } else {
             show(confirmErr); confirmErr.textContent = tr("bookdemo.cal.error");
           }
@@ -406,7 +417,7 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
     });
 
     function showSuccess(body) {
-      hide(confirmEl); hide(gridEl); hide(statusEl); show(successEl);
+      hide(confirmEl); hide(gridEl); hide(statusEl); hide(headEl); show(successEl);
       var fmt = new Intl.DateTimeFormat(locale, {
         weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit",
       });
