@@ -565,8 +565,12 @@ const T = {
     "footer.book_demo": "Réserver une démo",
 
     // ── Home sections retargeted to the tourism vertical ──
+    "demo.eyebrow": "De la visite à vos outils",
+    "demo.title": "Un rendez-vous enregistré,<br /><em>un compte rendu aussitôt partagé.</em>",
+    "demo.label_record": "Enregistrement en agence",
+    "demo.label_report": "Compte rendu en 2 minutes",
     "demo.lead":
-      "Suivez un rendez-vous en agence jusqu'à la synthèse partagée par toute l'équipe.",
+      "Votre commercial enregistre son rendez-vous en agence, mains libres. Reedly en génère un compte rendu structuré et le distribue là où votre équipe travaille, sans une seule ressaisie.",
     "how.viz1.label": "Visite agence",
     "hub.eyebrow": "Pour le manager",
     "hub.title": "Vos chiffres disent quoi.<br /><em>Reedly dit pourquoi.</em>",
@@ -1138,8 +1142,12 @@ const T = {
     "footer.book_demo": "Book a demo",
 
     // ── Home sections retargeted to the tourism vertical ──
+    "demo.eyebrow": "From the visit to your tools",
+    "demo.title": "One meeting recorded,<br /><em>a report instantly shared.</em>",
+    "demo.label_record": "Recording in the agency",
+    "demo.label_report": "Report in 2 minutes",
     "demo.lead":
-      "Follow one agency meeting all the way to the synthesis the whole team shares.",
+      "Your rep records the meeting in the agency, hands-free. Reedly turns it into a structured report and pushes it wherever your team works, with zero re-entry.",
     "how.viz1.label": "Agency visit",
     "hub.eyebrow": "For the manager",
     "hub.title": "Your numbers say what.<br /><em>Reedly says why.</em>",

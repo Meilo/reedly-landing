@@ -1,85 +1,340 @@
 ---
-// Demo video section, switches video based on lang + theme
+// App showcase: recording → report iPhone mockups, with the report's
+// destinations (CRM, WhatsApp, email, PDF) wired to the report screen.
 ---
 
 <section class="section section--alt" id="demo">
   <div class="inner">
     <div class="reveal">
-      <div class="section__eyebrow" data-i18n="demo.eyebrow">En 30 secondes</div>
+      <div class="section__eyebrow" data-i18n="demo.eyebrow">De la visite à vos outils</div>
       <h2 data-i18n-html="demo.title">
-        Le parcours complet,<br /><em>d'un simple tap.</em>
+        Un rendez-vous enregistré,<br /><em>un compte rendu aussitôt partagé.</em>
       </h2>
       <p class="section__lead" data-i18n="demo.lead">
-        Suivez un rendez-vous en agence jusqu'à la synthèse partagée par toute l'équipe.
+        Votre commercial enregistre son rendez-vous en agence, mains libres. Reedly en génère un compte rendu structuré et le distribue là où votre équipe travaille, sans une seule ressaisie.
       </p>
     </div>
-    <div class="demo-video-wrap reveal">
-      <video
-        id="demo-video"
-        class="demo-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-      >
-        <source id="demo-video-source" src="/video/ReedlyPromo-FR-Dark.mp4" type="video/mp4" />
-      </video>
+
+    <div class="demo-stage reveal reveal-delay-1">
+      <!-- the two phones -->
+      <div class="demo-phones">
+        <figure class="phone phone--record">
+          <div class="phone__device">
+            <div class="phone__screen">
+              <img class="is-dark" src="/app/record-dark.png" alt="Écran d'enregistrement de l'app Reedly" width="1179" height="2556" loading="lazy" decoding="async" />
+              <img class="is-light" src="/app/record-light.png" alt="Écran d'enregistrement de l'app Reedly" width="1179" height="2556" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <figcaption class="phone__label">
+            <span class="phone__idx">1</span>
+            <span data-i18n="demo.label_record">Enregistrement en agence</span>
+          </figcaption>
+        </figure>
+
+        <figure class="phone phone--report">
+          <div class="phone__device">
+            <div class="phone__screen">
+              <img class="is-dark" src="/app/report-dark.png" alt="Compte rendu structuré généré par Reedly" width="1179" height="2556" loading="lazy" decoding="async" />
+              <img class="is-light" src="/app/report-light.png" alt="Compte rendu structuré généré par Reedly" width="1179" height="2556" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <figcaption class="phone__label">
+            <span class="phone__idx">2</span>
+            <span data-i18n="demo.label_report">Compte rendu en 2 minutes</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- destinations -->
+      <div class="node-group node--crm">
+        <span class="crm-chip"><img src="/integration/hubspot.png" alt="HubSpot" loading="lazy" /></span>
+        <span class="crm-chip"><img src="/integration/salesforce.png" alt="Salesforce" loading="lazy" /></span>
+        <span class="crm-chip"><img src="/integration/whatsapp.svg" alt="WhatsApp" loading="lazy" /></span>
+        <span class="crm-chip"><img src="/integration/email.svg" alt="Email" loading="lazy" /></span>
+        <span class="crm-chip"><img src="/integration/pdf.svg" alt="Export PDF" loading="lazy" /></span>
+      </div>
+
+      <!-- connectors: drawn once on scroll, then static (paths set in JS) -->
+      <svg class="demo-links" aria-hidden="true">
+        <path class="link" data-a="crm0"></path>
+        <path class="link" data-a="crm1"></path>
+        <path class="link" data-a="crm2"></path>
+        <path class="link" data-a="crm3"></path>
+        <path class="link" data-a="crm4"></path>
+      </svg>
     </div>
   </div>
 </section>
 
 <style>
-  .demo-video-wrap {
-    margin-top: 40px;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    max-width: 960px;
+  /* title: keep the emphasised second line on one line (wraps on narrow screens) */
+  #demo h2 { max-width: none; }
+  #demo h2 em { white-space: nowrap; }
+  @media (max-width: 700px) {
+    #demo h2 em { white-space: normal; }
+  }
+
+  .demo-stage {
+    position: relative;
+    margin-top: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(28px, 6vw, 92px);
+    max-width: 1120px;
     margin-left: auto;
     margin-right: auto;
   }
-  .demo-video {
-    display: block;
+  .demo-stage::before {
+    content: "";
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(760px, 88%);
+    height: 440px;
+    background: radial-gradient(ellipse at center, var(--green-glow), transparent 70%);
+    opacity: 0.8;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .demo-phones {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(16px, 4vw, 52px);
+    flex: 0 0 auto;
+  }
+
+  .phone {
+    container-type: inline-size;
+    position: relative;
+    width: clamp(150px, 34vw, 278px);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
+  .phone--record { transform: translateY(28px); }
+  .phone--report { transform: translateY(-28px); }
+
+  .phone__device {
+    position: relative;
     width: 100%;
-    height: auto;
+    padding: 2.8cqw;
+    border-radius: 15.5cqw;
+    background: linear-gradient(145deg, #454a55 0%, #1c2027 42%, #0c0e12 100%);
+    box-shadow:
+      0 0.6cqw 0.6cqw rgba(255, 255, 255, 0.14) inset,
+      0 0 0 1px rgba(0, 0, 0, 0.5),
+      0 40px 70px -22px rgba(0, 0, 0, 0.62),
+      0 14px 30px -14px rgba(0, 0, 0, 0.5);
+  }
+  .phone__screen {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1179 / 2556;
+    border-radius: 12.5cqw;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.55);
+  }
+  .phone__screen img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+  }
+  .phone__screen .is-light { opacity: 0; }
+  :global(html[data-theme="light"]) .phone__screen .is-light { opacity: 1; }
+  :global(html[data-theme="light"]) .phone__screen .is-dark { opacity: 0; }
+
+  .phone__label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
+    color: var(--muted);
+  }
+  .phone__idx {
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 auto;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background: var(--green);
+    color: #06140b;
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+
+  /* destinations ---------------------------------------------------- */
+  .node--crm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    flex: 0 0 auto;
+    /* aligned vertically with the (raised) report phone */
+    transform: translateY(-28px);
+  }
+  .crm-chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 12px 26px -14px rgba(0, 0, 0, 0.5);
+    /* appear one-by-one; scale from the left edge so the line anchor stays put */
+    transform-origin: left center;
+    opacity: 0;
+    transform: scale(0.72);
+    transition: opacity 0.4s ease, transform 0.45s cubic-bezier(0.22, 1.2, 0.4, 1);
+  }
+  .demo-stage.is-revealed .crm-chip { opacity: 1; transform: scale(1); }
+  .crm-chip img {
+    height: 24px;
+    width: 24px;
+    object-fit: contain;
+    display: block;
+  }
+  :global(html[data-theme="light"]) .crm-chip {
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 22px -14px rgba(0, 0, 0, 0.22);
+  }
+
+  /* connectors ------------------------------------------------------ */
+  .demo-links {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 4;
+  }
+  .demo-links .link {
+    fill: none;
+    stroke: var(--green);
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    opacity: 0.78;
+  }
+
+  /* responsive: drop the wiring on narrow screens, keep the phones --- */
+  @media (max-width: 980px) {
+    .node--crm,
+    .demo-links { display: none; }
+    .demo-stage { gap: 0; }
+  }
+  @media (max-width: 600px) {
+    .demo-phones { gap: 12px; }
+    .phone--record { transform: translateY(16px); }
+    .phone--report { transform: translateY(-16px); }
+    .phone__label { font-size: 0.72rem; gap: 7px; }
+    .phone__idx { width: 18px; height: 18px; font-size: 0.66rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .phone__screen img { transition: none; }
+    .demo-links .link { transition: none !important; }
+    .crm-chip { transition: none; opacity: 1; transform: scale(1); }
   }
 </style>
 
 <script is:inline>
-(function () {
-  var video = document.getElementById("demo-video");
-  var source = document.getElementById("demo-video-source");
-  if (!video || !source) return;
+  (function () {
+    var stage = document.querySelector("#demo .demo-stage");
+    if (!stage) return;
+    var svg = stage.querySelector(".demo-links");
+    var rep = stage.querySelector(".phone--report .phone__device");
+    var crmGroup = stage.querySelector(".node--crm");
+    var chips = stage.querySelectorAll(".node--crm .crm-chip");
+    if (!svg || !rep || !crmGroup) return;
+    var revealed = false;
+    var GAP = 11; // keep the lines off the phone edge
 
-  function getVideoSrc() {
-    var lang = (document.documentElement.lang || "fr").toLowerCase() === "en" ? "EN" : "FR";
-    var theme = document.documentElement.getAttribute("data-theme") === "light" ? "Light" : "Dark";
-    return "/video/ReedlyPromo-" + lang + "-" + theme + ".mp4";
-  }
+    function anchor(el, ax, ay, sr) {
+      var r = el.getBoundingClientRect();
+      return { x: r.left - sr.left + r.width * ax, y: r.top - sr.top + r.height * ay };
+    }
+    function curve(p1, p2) {
+      var c = Math.max(30, Math.abs(p2.x - p1.x) * 0.45);
+      return "M " + p1.x + " " + p1.y + " C " + (p1.x + c) + " " + p1.y + ", " + (p2.x - c) + " " + p2.y + ", " + p2.x + " " + p2.y;
+    }
+    function setPath(key, d) {
+      var p = svg.querySelector('.link[data-a="' + key + '"]');
+      if (!p) return;
+      p.setAttribute("d", d);
+      var len = p.getTotalLength();
+      p.style.transition = "none";
+      p.style.strokeDasharray = len + "px";
+      p.style.strokeDashoffset = (revealed ? 0 : len) + "px";
+    }
+    function geometry() {
+      if (getComputedStyle(crmGroup).display === "none") { svg.style.opacity = "0"; return; }
+      svg.style.opacity = "";
+      var sr = stage.getBoundingClientRect();
+      svg.setAttribute("viewBox", "0 0 " + sr.width + " " + sr.height);
 
-  function updateVideo() {
-    var newSrc = getVideoSrc();
-    if (source.getAttribute("src") === newSrc) return;
-    var currentTime = video.currentTime;
-    source.setAttribute("src", newSrc);
-    video.load();
-    video.currentTime = currentTime;
-    video.play();
-  }
-
-  // Set initial src
-  updateVideo();
-
-  // Watch for theme changes
-  var observer = new MutationObserver(function (mutations) {
-    mutations.forEach(function (m) {
-      if (m.attributeName === "data-theme" || m.attributeName === "lang") {
-        updateVideo();
+      // single hub, offset off the phone edge and centered on the report phone
+      var repRect = rep.getBoundingClientRect();
+      var hub = { x: repRect.right - sr.left + GAP, y: repRect.top - sr.top + repRect.height / 2 };
+      for (var j = 0; j < chips.length; j++) {
+        setPath("crm" + j, curve(hub, anchor(chips[j], 0, 0.5, sr)));
       }
-    });
-  });
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "lang"] });
-})();
+    }
+    function reveal() {
+      if (revealed) return;
+      revealed = true;
+      var LS = 0.14, LD = 0.6;
+      for (var j = 0; j < chips.length; j++) {
+        chips[j].style.transitionDelay = (j * LS + 0.25) + "s";
+      }
+      stage.classList.add("is-revealed");
+      var links = svg.querySelectorAll(".link");
+      for (var i = 0; i < links.length; i++) {
+        (function (p, idx) {
+          var len = p.getTotalLength();
+          p.style.transition = "none";
+          p.style.strokeDasharray = len + "px";
+          p.style.strokeDashoffset = len + "px";
+          void p.getBoundingClientRect();
+          p.style.transition = "stroke-dashoffset " + LD + "s ease";
+          p.style.transitionDelay = idx * LS + "s";
+          p.style.strokeDashoffset = "0px";
+        })(links[i], i);
+      }
+    }
+
+    var raf;
+    function schedule() { cancelAnimationFrame(raf); raf = requestAnimationFrame(geometry); }
+    window.addEventListener("resize", schedule);
+    window.addEventListener("load", geometry);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(geometry);
+    schedule();
+    setTimeout(geometry, 300);
+
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) { geometry(); reveal(); io.disconnect(); break; }
+        }
+      }, { threshold: 0.3 });
+      io.observe(stage);
+    } else {
+      geometry();
+      reveal();
+    }
+  })();
 </script>
