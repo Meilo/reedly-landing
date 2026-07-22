@@ -71,7 +71,8 @@ export const POST: APIRoute = async ({ request }) => {
     return json(200, { start: data.start, end: data.start, meetLink: '' });
   }
 
-  for (const field of ['start', 'email', 'name'] as const) {
+  // Required fields, enforced server-side (mirror of the client-side form rules).
+  for (const field of ['start', 'email', 'name', 'role', 'team_size', 'note'] as const) {
     if (!data[field]?.trim()) return json(400, { error: `missing_${field}` });
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
