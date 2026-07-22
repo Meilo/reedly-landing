@@ -129,10 +129,8 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
 
         <!-- Native booking calendar, revealed after the qualifying step. -->
         <div class="bookdemo__calendar" id="bookdemo-calendar" hidden>
-          <div class="bookdemo__cal-head" id="cal-head">
-            <button type="button" class="bookdemo__cal-back" id="cal-form-back" data-i18n="bookdemo.cal.back_form">← Retour</button>
-            <p class="bookdemo__cal-tznote" data-i18n="bookdemo.cal.tznote">Créneaux affichés dans votre fuseau horaire.</p>
-          </div>
+          <button type="button" class="bookdemo__cal-back bookdemo__cal-back--top" id="cal-back-top">← Retour</button>
+          <p class="bookdemo__cal-tznote" id="cal-tznote" data-i18n="bookdemo.cal.tznote">Créneaux affichés dans votre fuseau horaire.</p>
 
           <div class="bookdemo__cal-status" id="cal-status" data-i18n="bookdemo.cal.loading">Chargement des disponibilités…</div>
 
@@ -156,7 +154,6 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
             <input type="text" id="cal-hp" name="company_website" tabindex="-1" autocomplete="off"
               aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
             <div class="bookdemo__cal-actions">
-              <button type="button" class="bookdemo__cal-back" id="cal-back" data-i18n="bookdemo.cal.back">← Changer de créneau</button>
               <button type="submit" class="btn btn--primary btn--md" id="cal-submit" data-i18n="bookdemo.cal.confirm">Confirmer le rendez-vous</button>
             </div>
             <div class="bookdemo__cal-err" id="cal-confirm-err" hidden></div>
@@ -201,8 +198,8 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
   }
   /* Ensure the [hidden] attribute wins over the explicit display rules below. */
   .bookdemo__calendar [hidden] { display: none !important; }
-  .bookdemo__cal-head { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 14px; }
-  .bookdemo__cal-tznote { font-size: 0.78rem; color: var(--muted); margin: 0; }
+  .bookdemo__cal-back--top { display: inline-block; margin-bottom: 8px; }
+  .bookdemo__cal-tznote { font-size: 0.78rem; color: var(--muted); margin: 0 0 14px; }
   .bookdemo__cal-status { padding: 28px; text-align: center; color: var(--muted); font-family: var(--mono); font-size: 0.85rem; }
   .bookdemo__cal-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 18px; }
   @media (max-width: 640px) { .bookdemo__cal-grid { grid-template-columns: 1fr; } }
@@ -254,7 +251,7 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
   .bookdemo__cal-note { min-height: 78px; }
   .bookdemo__cal-recap { font-size: 1.05rem; color: var(--text); font-weight: 600; }
   .bookdemo__cal-recap::first-letter { text-transform: uppercase; }
-  .bookdemo__cal-actions { display: flex; gap: 12px; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 4px; }
+  .bookdemo__cal-actions { display: flex; gap: 12px; justify-content: flex-end; align-items: center; flex-wrap: wrap; margin-top: 4px; }
   .bookdemo__cal-back { background: none; border: none; padding: 6px 2px; color: var(--muted); font-size: 0.88rem; font-family: var(--sans); cursor: pointer; transition: color 0.15s ease; }
   .bookdemo__cal-back:hover { color: var(--text); }
   .bookdemo__cal-back:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
@@ -284,17 +281,27 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
     var recapEl = document.getElementById("cal-recap");
     var successEl = document.getElementById("cal-success");
     var confirmErr = document.getElementById("cal-confirm-err");
-    var headEl = document.getElementById("cal-head");
+    var backTopEl = document.getElementById("cal-back-top");
+    var tznoteEl = document.getElementById("cal-tznote");
+    var backMode = "form";
     var selectedSlot = null;
 
     function show(el) { el.removeAttribute("hidden"); }
     function hide(el) { el.setAttribute("hidden", ""); }
 
+    // One top-of-panel back control whose label + action adapt to the step.
+    function setBack(mode) {
+      backMode = mode;
+      backTopEl.textContent = tr(mode === "grid" ? "bookdemo.cal.back" : "bookdemo.cal.back_form");
+      show(backTopEl);
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       hide(form);
       show(calendar);
-      show(headEl);
+      setBack("form");
+      show(tznoteEl);
       calendar.scrollIntoView({ behavior: "smooth", block: "nearest" });
       loadAvailability();
       try {
@@ -362,18 +369,18 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
       });
       recapEl.textContent = fmt.format(new Date(iso));
       hide(confirmErr); confirmErr.textContent = "";
-      hide(gridEl); hide(headEl); show(confirmEl);
+      hide(gridEl); hide(tznoteEl); setBack("grid"); show(confirmEl);
       var emailField = document.getElementById("bd-email");
       confirmEl.dataset.email = emailField ? emailField.value : "";
     }
 
-    document.getElementById("cal-back").addEventListener("click", function () {
-      hide(confirmEl); show(headEl); show(gridEl);
-    });
-
-    document.getElementById("cal-form-back").addEventListener("click", function () {
-      hide(calendar); show(form);
-      form.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    backTopEl.addEventListener("click", function () {
+      if (backMode === "grid") {
+        hide(confirmEl); show(tznoteEl); show(gridEl); setBack("form");
+      } else {
+        hide(calendar); show(form);
+        form.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
     });
 
     confirmEl.addEventListener("submit", function (e) {
@@ -405,7 +412,7 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
             showSuccess(res.body);
           } else if (res.status === 409) {
             show(confirmErr); confirmErr.textContent = tr("bookdemo.cal.slot_taken");
-            hide(confirmEl); show(headEl); show(gridEl); loadAvailability();
+            hide(confirmEl); show(tznoteEl); show(gridEl); setBack("form"); loadAvailability();
           } else {
             show(confirmErr); confirmErr.textContent = tr("bookdemo.cal.error");
           }
@@ -417,7 +424,7 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
     });
 
     function showSuccess(body) {
-      hide(confirmEl); hide(gridEl); hide(statusEl); hide(headEl); show(successEl);
+      hide(confirmEl); hide(gridEl); hide(statusEl); hide(tznoteEl); hide(backTopEl); show(successEl);
       var fmt = new Intl.DateTimeFormat(locale, {
         weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit",
       });
