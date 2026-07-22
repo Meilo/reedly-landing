@@ -210,31 +210,46 @@
     var txt = input && input.querySelector(".mx__composer-txt");
     if (!mx || !txt) return;
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var done = false;
+    var full = (txt.textContent || "").trim();
+    if (!full) return;
+    var typing = false;
 
     function type() {
-      if (done) return;
-      done = true;
-      var full = (txt.textContent || "").trim();
-      if (!full) return;
       if (reduce) { txt.textContent = full; return; }
+      if (typing) return;
+      typing = true;
       txt.textContent = "";
       var i = 0;
       (function step() {
         txt.textContent = full.slice(0, i);
         if (i++ < full.length) setTimeout(step, 32);
+        else typing = false;
       })();
+    }
+
+    // Replay the typing animation on a loop, but only while the mockup is
+    // on-screen. Types once on reveal, then every 15s after.
+    var timer = null;
+    function start() {
+      if (reduce) { txt.textContent = full; return; }
+      if (timer) return;
+      type();
+      timer = setInterval(type, 15000);
+    }
+    function stop() {
+      if (timer) { clearInterval(timer); timer = null; }
     }
 
     if ("IntersectionObserver" in window) {
       var io = new IntersectionObserver(function (entries) {
         for (var k = 0; k < entries.length; k++) {
-          if (entries[k].isIntersecting) { type(); io.disconnect(); break; }
+          if (entries[k].isIntersecting) start();
+          else stop();
         }
       }, { threshold: 0.35 });
       io.observe(mx);
     } else {
-      type();
+      start();
     }
     }
     if (document.readyState === "loading") {
