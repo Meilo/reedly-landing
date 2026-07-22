@@ -22,10 +22,13 @@ if (!clientId || !clientSecret) {
 }
 
 const client = new OAuth2Client(clientId, clientSecret, REDIRECT);
+// Optional: pre-select which account organizes the meetings (e.g. laura@reedly.ai).
+const loginHint = process.env.GOOGLE_LOGIN_HINT;
 const authUrl = client.generateAuthUrl({
   access_type: 'offline',
   prompt: 'consent',
   scope: SCOPES,
+  ...(loginHint ? { login_hint: loginHint } : {}),
 });
 
 const server = http.createServer(async (req, res) => {
