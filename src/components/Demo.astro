@@ -262,6 +262,7 @@
     var chips = stage.querySelectorAll(".node--crm .crm-chip");
     if (!svg || !rep || !crmGroup) return;
     var revealed = false;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var GAP = 11; // keep the lines off the phone edge
     var CHIP_GAP = 13; // keep the lines off the tool chips
 
@@ -319,6 +320,25 @@
         })(links[i], i);
       }
     }
+    // Re-arm for replay: undraw the lines instantly (off-screen) and drop the
+    // chip stagger, so the next reveal() re-animates from scratch.
+    function hide() {
+      if (!revealed) return;
+      revealed = false;
+      stage.classList.remove("is-revealed");
+      for (var j = 0; j < chips.length; j++) {
+        chips[j].style.transitionDelay = "";
+      }
+      var links = svg.querySelectorAll(".link");
+      for (var i = 0; i < links.length; i++) {
+        var p = links[i];
+        var len = p.getTotalLength();
+        p.style.transition = "none";
+        p.style.transitionDelay = "";
+        p.style.strokeDasharray = len + "px";
+        p.style.strokeDashoffset = len + "px";
+      }
+    }
 
     var raf;
     function schedule() { cancelAnimationFrame(raf); raf = requestAnimationFrame(geometry); }
@@ -329,9 +349,12 @@
     setTimeout(geometry, 300);
 
     if ("IntersectionObserver" in window) {
+      // Toggle on enter/exit so the connectors redraw each time the section
+      // scrolls back into view. Reduced motion keeps them drawn (no replay).
       var io = new IntersectionObserver(function (entries) {
         for (var i = 0; i < entries.length; i++) {
-          if (entries[i].isIntersecting) { geometry(); reveal(); io.disconnect(); break; }
+          if (entries[i].isIntersecting) { geometry(); reveal(); }
+          else if (!reduce) { hide(); }
         }
       }, { threshold: 0.3 });
       io.observe(stage);

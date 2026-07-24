@@ -439,21 +439,74 @@ body::after {
   overflow: hidden;
 }
 
-.hero::before {
+/* Terrain backdrop. The navy scrim is densest at the top (nav join) and bottom
+   (dissolve into the next section), and holds a steady veil over the sky band so
+   the kicker stays legible where the sunset is brightest. */
+.hero__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  /* Dissolve the whole layer in alpha rather than closing it on an opaque colour,
+     so the page grid behind it emerges gradually instead of at a hard edge. */
+  mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 62%,
+    rgba(0, 0, 0, 0.86) 74%,
+    rgba(0, 0, 0, 0.5) 86%,
+    rgba(0, 0, 0, 0.16) 95%,
+    transparent 100%
+  );
+}
+
+.hero__backdrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 92%;
+  transform: scale(1.08);
+  animation: hero-dawn 1400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hero-dawn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* The scrim must sit above the photo. `transform` on the img makes it paint like
+   positioned z-index:0 content, so a ::before would fall behind it — use ::after. */
+.hero__backdrop::after {
   content: "";
   position: absolute;
-  top: 42%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(900px, 94%);
-  height: 500px;
-  background: radial-gradient(ellipse at center, var(--green-glow), transparent 70%);
-  opacity: 0.55;
-  z-index: -1;
-  pointer-events: none;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 100% 75% at 50% 45%,
+      rgba(11, 18, 32, 0) 0%,
+      rgba(11, 18, 32, 0.18) 76%,
+      rgba(11, 18, 32, 0.42) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(11, 18, 32, 0.68) 0%,
+      rgba(11, 18, 32, 0.64) 10%,
+      rgba(11, 18, 32, 0.71) 34%,
+      rgba(11, 18, 32, 0.24) 46%,
+      rgba(11, 18, 32, 0.22) 72%,
+      rgba(11, 18, 32, 0.4) 88%,
+      rgba(11, 18, 32, 0.5) 100%
+    );
 }
 
 .hero .inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -512,9 +565,18 @@ body::after {
   font-weight: 700;
 }
 
+/* Highlighted block: a solid fill carries its own contrast, so the accent no
+   longer competes with whatever the photo puts behind it. inline-block gives the
+   fill its own line-height, otherwise the font's content box is 1.3em tall and
+   the block would cover the descenders of the line above. */
 .hero h1 em {
   font-style: normal;
-  color: var(--green);
+  display: inline-block;
+  line-height: 0.94;
+  padding: 0.03em 0.2em 0.17em;
+  color: #fff;
+  background: #15803d;
+  border-radius: 10px;
 }
 
 .hero__kicker {
@@ -563,6 +625,68 @@ body::after {
   height: 3px;
   border-radius: 50%;
   background: var(--faint);
+}
+
+/* Secondary text sits over the photo, so it needs more presence than --muted/--faint */
+.hero .hero__kicker {
+  color: #4ade80;
+}
+.hero .hero__sub {
+  color: #cbd5e1;
+}
+.hero .hero__trust {
+  color: rgba(248, 250, 252, 0.66);
+}
+.hero .hero__trust-sep {
+  background: rgba(248, 250, 252, 0.4);
+}
+
+/* Portrait crops the photo by height, so the horizon lands behind the title
+   instead of above it: veil that band harder and let the field carry the text. */
+@media (max-width: 720px) {
+  .hero__backdrop img {
+    transform: scale(1.06);
+  }
+
+  /* Portrait stacks the copy taller, so the trust line ends near 86% of the hero.
+     Start the dissolve below it: mid-dissolve the backdrop is a mid grey that no
+     ink can meet 4.5:1 against, light or dark. */
+  .hero__backdrop {
+    mask-image: linear-gradient(
+      180deg,
+      #000 0%,
+      #000 88%,
+      rgba(0, 0, 0, 0.62) 93%,
+      rgba(0, 0, 0, 0.22) 97%,
+      transparent 100%
+    );
+  }
+
+  .hero__backdrop::after {
+    background:
+      radial-gradient(
+        ellipse 120% 55% at 50% 52%,
+        rgba(11, 18, 32, 0) 0%,
+        rgba(11, 18, 32, 0.3) 74%,
+        rgba(11, 18, 32, 0.6) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(11, 18, 32, 0.72) 0%,
+        rgba(11, 18, 32, 0.68) 12%,
+        rgba(11, 18, 32, 0.75) 42%,
+        rgba(11, 18, 32, 0.3) 54%,
+        rgba(11, 18, 32, 0.26) 74%,
+        rgba(11, 18, 32, 0.42) 88%,
+        rgba(11, 18, 32, 0.52) 100%
+      );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__backdrop img {
+    animation: none;
+  }
 }
 
 /* ─── Hero visual: field capture → Hub cockpit ─── */
@@ -2678,8 +2802,10 @@ body::after {
 
 /* ─── Footer ─── */
 .footer {
+  /* Solid panel so the page grid (body::after) doesn't show through the footer. */
+  background: var(--bg);
   border-top: 1px solid var(--border);
-  padding: 48px 0 32px;
+  padding: 48px 0 0;
 }
 
 .footer__inner {
@@ -2720,7 +2846,45 @@ body::after {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 2px;
+}
+
+/* Bottom bar: hairline-separated row under the link columns. */
+.footer__bottom {
+  border-top: 1px solid var(--border);
+  margin-top: 44px;
+}
+
+.footer__bottom-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 22px 32px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 40px;
+}
+
+.footer__bottom-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer__bottom-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+@media (max-width: 620px) {
+  .footer__bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer__bottom-right {
+    align-items: flex-start;
+  }
 }
 
 .footer__social-link {
@@ -2796,6 +2960,14 @@ body::after {
 .reveal.visible {
   opacity: 1;
   transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 .reveal-delay-1 {
   transition-delay: 0.1s;
@@ -3954,6 +4126,13 @@ html[data-theme="light"] .btn--ghost:hover {
 html[data-theme="light"] .hero__pill {
   color: var(--green);
   background: rgba(22, 163, 74, 0.06);
+}
+
+/* Light: the hero keeps the dark treatment. A paper-white veil washes the photo
+   into pastel; the navy one preserves its saturation, so light mode reuses the
+   dark backdrop and its light-on-dark ink rather than inverting them. */
+html[data-theme="light"] .hero h1 {
+  color: #f8fafc;
 }
 
 /* Light: Cards base shadow for depth */
