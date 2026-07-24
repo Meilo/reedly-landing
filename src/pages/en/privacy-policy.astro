@@ -39,14 +39,23 @@ const sections = [
   },
   {
     title: 'Third-Party Services',
-    paragraphs: [
-      'Our App uses the following third-party services:\n\n• Supabase · Authentication and database (supabase.com/privacy)\n• Mistral · Audio transcription and report generation (mistral.ai/terms#privacy)\n• PostHog · Analytics (posthog.com/privacy)\n• RevenueCat · In-app purchases (revenuecat.com/privacy)\n• Expo · Build and updates (expo.dev/privacy)',
+    id: 'sous-traitants',
+    paragraphs: ['Our App uses the following subprocessors:'],
+    links: [
+      { name: 'Supabase', purpose: 'Authentication and database', url: 'https://supabase.com/privacy' },
+      { name: 'Mistral', purpose: 'Audio transcription and report generation', url: 'https://mistral.ai/terms#privacy' },
+      { name: 'PostHog', purpose: 'Analytics', url: 'https://posthog.com/privacy' },
+      { name: 'RevenueCat', purpose: 'In-app purchases', url: 'https://www.revenuecat.com/privacy' },
+      { name: 'Stripe', purpose: 'Purchases', url: 'https://stripe.com/privacy' },
+      { name: 'Sentry', purpose: 'Error tracking', url: 'https://sentry.io/privacy' },
+      { name: 'Expo', purpose: 'Build and updates', url: 'https://expo.dev/privacy' },
     ],
+    note: 'A Data Processing Agreement (DPA) is available on request at support@reedly.ai.',
   },
   {
     title: 'Data Storage and Security',
     paragraphs: [
-      'Your data is stored on secure servers provided by Supabase (hosted on AWS).',
+      'Your data is stored on secure servers provided by Supabase, hosted on AWS in the European Union.',
       'All data is encrypted in transit (TLS/SSL) and at rest.',
       'Audio recordings are processed in real-time and are not permanently stored on our servers.',
       'We implement industry-standard security measures to protect your data.',
