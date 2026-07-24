@@ -480,27 +480,31 @@ body::after {
 }
 
 /* The scrim must sit above the photo. `transform` on the img makes it paint like
-   positioned z-index:0 content, so a ::before would fall behind it — use ::after. */
+   positioned z-index:0 content, so a ::before would fall behind it — use ::after.
+   The copy is centered and runs the full height of the hero over a bright, warm
+   indoor photo, so the veil stays dense and even across the whole copy band (no
+   mid "window") and only dissolves below the trust line into the page grid. A
+   centered radial adds extra weight behind the headline where the photo is
+   brightest (cream wall left, white shirt right). */
 .hero__backdrop::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
     radial-gradient(
-      ellipse 100% 75% at 50% 45%,
-      rgba(11, 18, 32, 0) 0%,
-      rgba(11, 18, 32, 0.18) 76%,
-      rgba(11, 18, 32, 0.42) 100%
+      ellipse 92% 72% at 50% 42%,
+      rgba(11, 18, 32, 0.5) 0%,
+      rgba(11, 18, 32, 0.4) 58%,
+      rgba(11, 18, 32, 0.32) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(11, 18, 32, 0.68) 0%,
-      rgba(11, 18, 32, 0.64) 10%,
-      rgba(11, 18, 32, 0.71) 34%,
-      rgba(11, 18, 32, 0.24) 46%,
-      rgba(11, 18, 32, 0.22) 72%,
-      rgba(11, 18, 32, 0.4) 88%,
-      rgba(11, 18, 32, 0.5) 100%
+      rgba(11, 18, 32, 0.82) 0%,
+      rgba(11, 18, 32, 0.68) 22%,
+      rgba(11, 18, 32, 0.62) 42%,
+      rgba(11, 18, 32, 0.6) 58%,
+      rgba(11, 18, 32, 0.64) 78%,
+      rgba(11, 18, 32, 0.72) 100%
     );
 }
 
@@ -665,20 +669,19 @@ body::after {
   .hero__backdrop::after {
     background:
       radial-gradient(
-        ellipse 120% 55% at 50% 52%,
-        rgba(11, 18, 32, 0) 0%,
-        rgba(11, 18, 32, 0.3) 74%,
-        rgba(11, 18, 32, 0.6) 100%
+        ellipse 130% 62% at 50% 44%,
+        rgba(11, 18, 32, 0.42) 0%,
+        rgba(11, 18, 32, 0.32) 70%,
+        rgba(11, 18, 32, 0.28) 100%
       ),
       linear-gradient(
         180deg,
-        rgba(11, 18, 32, 0.72) 0%,
-        rgba(11, 18, 32, 0.68) 12%,
-        rgba(11, 18, 32, 0.75) 42%,
-        rgba(11, 18, 32, 0.3) 54%,
-        rgba(11, 18, 32, 0.26) 74%,
-        rgba(11, 18, 32, 0.42) 88%,
-        rgba(11, 18, 32, 0.52) 100%
+        rgba(11, 18, 32, 0.8) 0%,
+        rgba(11, 18, 32, 0.72) 20%,
+        rgba(11, 18, 32, 0.66) 44%,
+        rgba(11, 18, 32, 0.6) 62%,
+        rgba(11, 18, 32, 0.62) 80%,
+        rgba(11, 18, 32, 0.7) 100%
       );
   }
 }
@@ -830,7 +833,7 @@ body::after {
 .section {
   /* generous vertical rhythm so each section reads as its own beat and users
      have room to absorb one before the next */
-  padding: clamp(88px, 9vw, 128px) 0;
+  padding: clamp(116px, 11.5vw, 172px) 0;
 }
 
 .section--alt {

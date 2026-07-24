@@ -624,6 +624,17 @@ const T = {
     "hub.max.act3": "Programme une relance",
     "hub.max.act4": "Crée une directive d'équipe",
     "hub.max.composer": "Pourquoi le Pérou se vend moins ces deux derniers mois ?",
+    "compliance.eyebrow": "Conformité & sécurité",
+    "compliance.title": "Enregistrer le terrain,<br /><em>en toute conformité.</em>",
+    "compliance.lead":
+      "Vos commerciaux enregistrent de vraies conversations client. Voici les garanties qui encadrent chaque enregistrement, du consentement à la suppression.",
+    "compliance.panel": "Conformité RGPD",
+    "compliance.item1": "Données hébergées dans l'UE",
+    "compliance.item2": "DPA disponible sur demande",
+    "compliance.item3": "Liste des sous-traitants publiée",
+    "compliance.item4": "Chiffrement au repos et en transit",
+    "compliance.item5": "Suppression sur demande sous 30 jours",
+    "compliance.item6": "Consentement des participants intégré au parcours",
   },
   en: {
     "nav.solution": "Solution",
@@ -1242,6 +1253,17 @@ const T = {
     "hub.max.act3": "Schedule a follow-up",
     "hub.max.act4": "Create a team directive",
     "hub.max.composer": "Why is Peru selling less over the past two months?",
+    "compliance.eyebrow": "Compliance & security",
+    "compliance.title": "Record the field,<br /><em>fully compliant.</em>",
+    "compliance.lead":
+      "Your reps record real client conversations. Here are the guarantees around every recording, from consent to deletion.",
+    "compliance.panel": "GDPR compliance",
+    "compliance.item1": "Data hosted in the EU",
+    "compliance.item2": "DPA available on request",
+    "compliance.item3": "Subprocessor list published",
+    "compliance.item4": "Encryption at rest and in transit",
+    "compliance.item5": "Deletion on request within 30 days",
+    "compliance.item6": "Participant consent built into the flow",
   },
 };
 
@@ -1719,6 +1741,7 @@ var TRACKABLE_SECTIONS = [
   "features",
   "report-preview",
   "hub",
+  "conformite",
   "proof",
   "roles",
   "demo",
