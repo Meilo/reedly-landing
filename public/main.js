@@ -1780,25 +1780,33 @@ window.addEventListener("mouseenter", () => {
   glow.style.opacity = "1";
 });
 
-// ── Scroll reveal ──
+// ── Scroll reveal (replays every time a section re-enters the viewport) ──
 const reveals = document.querySelectorAll(".reveal");
-const revealObs = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        revealObs.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
-);
-reveals.forEach((el) => revealObs.observe(el));
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
 
-// Hero sections animate immediately
-document.querySelectorAll(".hero .reveal").forEach((el) => {
-  el.classList.add("visible");
-});
+if (prefersReducedMotion) {
+  // No motion: show everything, don't observe.
+  reveals.forEach((el) => el.classList.add("visible"));
+} else {
+  // Toggle on enter AND exit so the animation re-plays on the way back.
+  const revealObs = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle("visible", entry.isIntersecting);
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+  );
+  reveals.forEach((el) => revealObs.observe(el));
+
+  // Hero is above the fold: show it on first paint to avoid a flash before
+  // the observer's first (async) callback.
+  document.querySelectorAll(".hero .reveal").forEach((el) => {
+    el.classList.add("visible");
+  });
+}
 
 // ── Phone mockup timer ──
 (function () {

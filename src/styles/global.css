@@ -2961,6 +2961,14 @@ body::after {
   opacity: 1;
   transform: none;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 .reveal-delay-1 {
   transition-delay: 0.1s;
 }
