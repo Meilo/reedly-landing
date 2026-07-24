@@ -2,6 +2,7 @@
 interface LegalSection {
   title: string;
   paragraphs: string[];
+  id?: string;
 }
 
 interface Props {
@@ -39,7 +40,7 @@ const {
     <div class="legal__sections">
       {
         sections.map((section) => (
-          <section class="legal__section">
+          <section class="legal__section" id={section.id}>
             <h2>{section.title}</h2>
             {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
           </section>
@@ -124,6 +125,8 @@ const {
     border-radius: 18px;
     background: var(--surface);
     padding: 22px 22px 18px;
+    /* clear the sticky nav when reached via an in-page anchor */
+    scroll-margin-top: 80px;
   }
 
   .legal__section h2 {

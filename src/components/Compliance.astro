@@ -16,6 +16,8 @@ const items = [
     key: 'compliance.item3',
     text: 'Liste des sous-traitants publiée',
     icon: '<path d="M9 6h11M9 12h11M9 18h11" /><path d="M4 6h.01M4 12h.01M4 18h.01" />',
+    linkFr: '/fr/confidentialite#sous-traitants',
+    linkEn: '/en/privacy-policy#sous-traitants',
   },
   {
     key: 'compliance.item4',
@@ -64,7 +66,19 @@ const items = [
                     <span class="cf-item__ico" aria-hidden="true">
                       <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={item.icon} />
                     </span>
-                    <span class="cf-item__label" data-i18n={item.key}>{item.text}</span>
+                    {item.linkFr ? (
+                      <a
+                        class="cf-item__label cf-item__label--link"
+                        href={item.linkFr}
+                        data-link-fr={item.linkFr}
+                        data-link-en={item.linkEn}
+                        data-i18n={item.key}
+                      >
+                        {item.text}
+                      </a>
+                    ) : (
+                      <span class="cf-item__label" data-i18n={item.key}>{item.text}</span>
+                    )}
                     <span class="cf-item__tick" aria-hidden="true">
                       <svg fill="none" viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 12.5l5 5L20 6.5" />
@@ -178,6 +192,18 @@ const items = [
     color: var(--text);
     font-weight: 500;
     padding-right: 20px;
+  }
+
+  /* item 3 links to the published subprocessor list in the privacy policy */
+  a.cf-item__label--link {
+    text-decoration: none;
+    text-decoration-color: var(--border-bright);
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
+  a.cf-item__label--link:hover {
+    color: var(--green);
+    text-decoration: underline;
   }
 
   .cf-item__tick {
