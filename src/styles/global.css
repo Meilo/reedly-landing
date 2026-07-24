@@ -4137,11 +4137,43 @@ html[data-theme="light"] .hero__pill {
   background: rgba(22, 163, 74, 0.06);
 }
 
-/* Light: the hero keeps the dark treatment. A paper-white veil washes the photo
-   into pastel; the navy one preserves its saturation, so light mode reuses the
-   dark backdrop and its light-on-dark ink rather than inverting them. */
+/* Light: an airy hero. A paper-white veil (instead of the navy one) washes the
+   photo bright, and the ink flips to dark. The copy is centered over both the
+   cream wall and the darker subjects, so the veil stays strong enough (~0.75
+   white in the copy band) that dark text clears 4.5:1 over the whole photo. */
+html[data-theme="light"] .hero__backdrop::after {
+  background:
+    radial-gradient(
+      ellipse 92% 72% at 50% 42%,
+      rgba(248, 250, 252, 0.52) 0%,
+      rgba(248, 250, 252, 0.42) 58%,
+      rgba(248, 250, 252, 0.36) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(248, 250, 252, 0.66) 0%,
+      rgba(248, 250, 252, 0.56) 22%,
+      rgba(248, 250, 252, 0.54) 42%,
+      rgba(248, 250, 252, 0.52) 58%,
+      rgba(248, 250, 252, 0.58) 78%,
+      rgba(248, 250, 252, 0.72) 100%
+    );
+}
+
 html[data-theme="light"] .hero h1 {
-  color: #f8fafc;
+  color: #0f172a;
+}
+html[data-theme="light"] .hero .hero__kicker {
+  color: #15803d;
+}
+html[data-theme="light"] .hero .hero__sub {
+  color: #334155;
+}
+html[data-theme="light"] .hero .hero__trust {
+  color: rgba(15, 23, 42, 0.66);
+}
+html[data-theme="light"] .hero .hero__trust-sep {
+  background: rgba(15, 23, 42, 0.4);
 }
 
 /* Light: Cards base shadow for depth */
