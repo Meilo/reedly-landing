@@ -1,8 +1,16 @@
 ---
+interface LegalLink {
+  name: string;
+  purpose: string;
+  url: string;
+}
+
 interface LegalSection {
   title: string;
   paragraphs: string[];
   id?: string;
+  links?: LegalLink[];
+  note?: string;
 }
 
 interface Props {
@@ -43,6 +51,14 @@ const {
           <section class="legal__section" id={section.id}>
             <h2>{section.title}</h2>
             {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            {section.links && (
+              <ul class="legal__list">
+                {section.links.map((link) => (
+                  <li><strong>{link.name}</strong> · {link.purpose} (<a href={link.url} target="_blank" rel="noopener noreferrer">{link.url.replace(/^https?:\/\//, '')}</a>)</li>
+                ))}
+              </ul>
+            )}
+            {section.note && <p>{section.note}</p>}
           </section>
         ))
       }
@@ -147,6 +163,45 @@ const {
 
   .legal__section p:last-child {
     margin-bottom: 0;
+  }
+
+  .legal__list {
+    list-style: none;
+    margin: 2px 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .legal__list li {
+    position: relative;
+    padding-left: 18px;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .legal__list li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    color: var(--faint);
+  }
+
+  .legal__list strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .legal__list a {
+    color: var(--green);
+    text-decoration: none;
+    word-break: break-word;
+  }
+
+  .legal__list a:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   @media (max-width: 680px) {
