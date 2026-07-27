@@ -1,7 +1,10 @@
 ---
 // Footer
+import { t } from '@/lib/i18n';
+
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const lang = path.startsWith('/en') ? 'en' : 'fr';
+const currentYear = String(new Date().getFullYear());
 ---
 
 <footer class="footer z1">
@@ -14,10 +17,10 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
     </div>
 
     <div class="footer__col">
-      <div class="footer__col-title" data-i18n="footer.col.product">Produit</div>
-      <a href={`/${lang}#rdv`} data-i18n="footer.book_demo" data-link-fr="/fr#rdv" data-link-en="/en#rdv">Réserver une démo</a>
-      <a href={lang === 'fr' ? '/fr/tarifs' : '/en/pricing'} data-i18n="footer.pricing" data-link-fr="/fr/tarifs" data-link-en="/en/pricing">Tarifs</a>
-      <a href={`/${lang}/blog`} data-i18n="footer.blog" data-link-fr="/fr/blog" data-link-en="/en/blog">Blog</a>
+      <div class="footer__col-title">{t(lang, 'footer.col.product')}</div>
+      <a href={`/${lang}#rdv`} data-link-fr="/fr#rdv" data-link-en="/en#rdv">{t(lang, 'footer.book_demo')}</a>
+      <a href={lang === 'fr' ? '/fr/tarifs' : '/en/pricing'} data-link-fr="/fr/tarifs" data-link-en="/en/pricing">{t(lang, 'footer.pricing')}</a>
+      <a href={`/${lang}/blog`} data-link-fr="/fr/blog" data-link-en="/en/blog">{t(lang, 'footer.blog')}</a>
     </div>
 
     <div class="footer__col">
@@ -38,10 +41,10 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
     </div>
 
     <div class="footer__col">
-      <div class="footer__col-title" data-i18n="footer.col.legal">Legal</div>
-      <a href={lang === 'fr' ? '/fr/confidentialite' : '/en/privacy-policy'} data-i18n="footer.privacy" data-link-fr="/fr/confidentialite" data-link-en="/en/privacy-policy">Confidentialite</a>
-      <a href={lang === 'fr' ? '/fr/cgu' : '/en/terms-of-service'} data-i18n="footer.terms" data-link-fr="/fr/cgu" data-link-en="/en/terms-of-service">CGU</a>
-      <a href={`/${lang}#rdv`} data-i18n="footer.contact" data-link-fr="/fr#rdv" data-link-en="/en#rdv">Contact</a>
+      <div class="footer__col-title">{t(lang, 'footer.col.legal')}</div>
+      <a href={lang === 'fr' ? '/fr/confidentialite' : '/en/privacy-policy'} data-link-fr="/fr/confidentialite" data-link-en="/en/privacy-policy">{t(lang, 'footer.privacy')}</a>
+      <a href={lang === 'fr' ? '/fr/cgu' : '/en/terms-of-service'} data-link-fr="/fr/cgu" data-link-en="/en/terms-of-service">{t(lang, 'footer.terms')}</a>
+      <a href={`/${lang}#rdv`} data-link-fr="/fr#rdv" data-link-en="/en#rdv">{t(lang, 'footer.contact')}</a>
     </div>
 
   </div>
@@ -50,7 +53,7 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
   <div class="footer__bottom">
     <div class="footer__bottom-inner">
       <div class="footer__bottom-left">
-        <div class="footer__copy" data-i18n="footer.copy">© 2026 Reedly. Tous droits reserves</div>
+        <div class="footer__copy">{t(lang, 'footer.copy').replace('{year}', currentYear)}</div>
 
         <!-- Social links -->
         <div class="footer__social">
@@ -91,7 +94,7 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
 
       <!-- App stores, the reps' tool (demoted from any primary position) -->
       <div class="footer__bottom-right">
-        <span class="footer__stores-label" data-i18n="footer.stores.label">Pour vos commerciaux</span>
+        <span class="footer__stores-label">{t(lang, 'footer.stores.label')}</span>
         <div class="footer__stores-row">
           <a
             class="store-badge store-badge--sm"
@@ -111,7 +114,7 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
               />
             </svg>
             <div class="store-badge__text">
-              <span class="store-badge__sub" data-i18n="cta.store_sub">Disponible sur</span>
+              <span class="store-badge__sub">{t(lang, 'cta.store_sub')}</span>
               <span class="store-badge__name">App Store</span>
             </div>
           </a>
@@ -133,7 +136,7 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
               />
             </svg>
             <div class="store-badge__text">
-              <span class="store-badge__sub" data-i18n="cta.store_sub">Disponible sur</span>
+              <span class="store-badge__sub">{t(lang, 'cta.store_sub')}</span>
               <span class="store-badge__name">Google Play</span>
             </div>
           </a>
@@ -167,22 +170,19 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
 <div class="notify-modal" id="notify-modal" aria-hidden="true">
   <div class="notify-modal__backdrop" id="notify-modal-backdrop"></div>
   <div class="notify-modal__dialog">
-    <button class="notify-modal__close" id="notify-modal-close" type="button" aria-label="Fermer">&times;</button>
-    <h3 class="notify-modal__title" data-i18n="notify.title">Bientôt disponible</h3>
-    <p class="notify-modal__text" data-i18n="notify.text">
-      L'application n'est pas encore sur les stores. Laissez votre email pour être prévenu(e) dès sa sortie.
-    </p>
+    <button class="notify-modal__close" id="notify-modal-close" type="button" aria-label={lang === 'fr' ? 'Fermer' : 'Close'}>&times;</button>
+    <h3 class="notify-modal__title">{t(lang, 'notify.title')}</h3>
+    <p class="notify-modal__text">{t(lang, 'notify.text')}</p>
     <form class="notify-modal__form" id="notify-form">
       <input
         class="notify-modal__input"
         type="email"
         id="notify-email"
         required
-        data-i18n-placeholder="notify.placeholder"
-        placeholder="votre@email.com"
+        placeholder={t(lang, 'notify.placeholder')}
       />
       <button class="btn btn--primary btn--md notify-modal__submit" type="submit">
-        <span data-i18n="notify.cta">Me prévenir</span>
+        <span>{t(lang, 'notify.cta')}</span>
       </button>
     </form>
     <div class="notify-modal__feedback" id="notify-feedback"></div>

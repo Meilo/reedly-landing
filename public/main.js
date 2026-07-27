@@ -1590,29 +1590,14 @@ function setLang(lang) {
   localStorage.setItem("reedly-lang", lang);
   document.documentElement.lang = lang;
 
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.getAttribute("data-i18n");
-    const value = t(lang, key);
-    if (value !== undefined) el.textContent = value;
-  });
-
-  document.querySelectorAll("[data-i18n-html]").forEach((el) => {
-    const key = el.getAttribute("data-i18n-html");
-    const value = t(lang, key);
-    if (value !== undefined) el.innerHTML = value;
-  });
-
-  document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
-    const key = el.getAttribute("data-i18n-aria-label");
-    const value = t(lang, key);
-    if (value !== undefined) el.setAttribute("aria-label", value);
-  });
-
-  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
-    const key = el.getAttribute("data-i18n-placeholder");
-    const value = t(lang, key);
-    if (value !== undefined) el.setAttribute("placeholder", value);
-  });
+  // Note: the components rendered on public pages (Nav, Footer, Hero, Demo,
+  // Hub, Compliance, BookDemo, Pricing, Faq, FinalCta) now render their text
+  // server-side in the correct language (see src/lib/i18n.ts), so the DOM no
+  // longer carries [data-i18n]/[data-i18n-html]/[data-i18n-aria-label]/
+  // [data-i18n-placeholder] attributes and the rewrite loops that used to
+  // live here have been removed. T/t()/window._reedlyT are kept: interactive
+  // scripts (booking calendar, pricing billing toggle, notify modal) still
+  // read strings from them dynamically.
 
   document.querySelectorAll(".lang-btn").forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.lang === lang);

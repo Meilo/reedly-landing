@@ -1,16 +1,17 @@
 ---
 // Hub section
+import { getLang, t } from '@/lib/i18n';
+
+const lang = getLang(Astro.url.pathname);
 ---
 
 <!-- ── Hub for managers ── -->
       <section class="section" id="hub">
         <div class="inner">
           <div class="reveal">
-            <div class="section__eyebrow" data-i18n="hub.eyebrow">Une vision à 360°</div>
-            <h2 data-i18n-html="hub.title">Vos chiffres répondent au «&nbsp;quoi&nbsp;»<br /><em>Reedly répond au «&nbsp;pourquoi&nbsp;»</em></h2>
-            <p class="section__lead" data-i18n="hub.lead">
-              Vos tableaux de bord montrent qu'une destination baisse. Ils ne vous diront jamais pourquoi. Reedly agrège ce que vos commerciaux entendent en agence et vous rend l'explication, sur toute l'équipe, en continu.
-            </p>
+            <div class="section__eyebrow">{t(lang, 'hub.eyebrow')}</div>
+            <h2 set:html={t(lang, 'hub.title')} />
+            <p class="section__lead">{t(lang, 'hub.lead')}</p>
           </div>
 
           <div class="hub-layout">
@@ -26,10 +27,8 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 data-i18n="hub.benefit1.title">Vue unifiée de tout le terrain</h3>
-                  <p data-i18n="hub.benefit1.text">
-                    Tous les comptes rendus de vos commerciaux centralisés : ce que veulent les agences, ce qui les freine, qui pousse le concurrent.
-                  </p>
+                  <h3>{t(lang, 'hub.benefit1.title')}</h3>
+                  <p>{t(lang, 'hub.benefit1.text')}</p>
                 </div>
               </article>
               <article class="benefit reveal reveal-delay-2">
@@ -43,10 +42,8 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 data-i18n="hub.benefit2.title">Tendances, opportunités, risques</h3>
-                  <p data-i18n="hub.benefit2.text">
-                    Reedly agrège les signaux du terrain en synthèses sur la période de votre choix. Vous voyez ce qui bouge avant que ça touche vos chiffres.
-                  </p>
+                  <h3>{t(lang, 'hub.benefit2.title')}</h3>
+                  <p>{t(lang, 'hub.benefit2.text')}</p>
                 </div>
               </article>
               <article class="benefit reveal reveal-delay-3">
@@ -60,10 +57,8 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 data-i18n="hub.benefit3.title">L'explication derrière la baisse</h3>
-                  <p data-i18n="hub.benefit3.text">
-                    Pourquoi telle destination ne se vend plus, pourquoi une agence a lâché : l'information que vos chiffres ne donnent pas, tracée jusqu'au rendez-vous source.
-                  </p>
+                  <h3>{t(lang, 'hub.benefit3.title')}</h3>
+                  <p>{t(lang, 'hub.benefit3.text')}</p>
                 </div>
               </article>
             </div>
@@ -72,7 +67,7 @@
               <div class="mx">
                 <div class="mx__bar">
                   <div class="mx__dots"><span></span><span></span><span></span></div>
-                  <div class="mx__url" data-i18n="hub.max.url">hub.reedly.ai/max</div>
+                  <div class="mx__url">{t(lang, 'hub.max.url')}</div>
                 </div>
                 <div class="mx__body">
                   <nav class="mx__side" aria-hidden="true">
@@ -80,27 +75,27 @@
                     <span class="mx__ico mx__ico--on" title="Max">
                       <svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3" /><path d="M12 8V4M9 4h6" /><path d="M9 14h.01M15 14h.01" /></svg>
                     </span>
-                    <span class="mx__ico" title="Contexte">
+                    <span class="mx__ico" title={t(lang, 'hub.max.nav.context')}>
                       <svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4" /><path d="M12 3a6 6 0 0 0-4 10.5c.6.6.9 1.4 1 2.5h6c.1-1.1.4-1.9 1-2.5A6 6 0 0 0 12 3z" /></svg>
                     </span>
                     <div class="mx__sep"></div>
-                    <span class="mx__ico" title="Comptes-rendus">
+                    <span class="mx__ico" title={t(lang, 'hub.max.nav.reports')}>
                       <svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5M9 13h6M9 17h4" /></svg>
                     </span>
-                    <span class="mx__ico" title="Synthèses">
+                    <span class="mx__ico" title={t(lang, 'hub.max.nav.syntheses')}>
                       <svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8" /><path d="M17 7h4v4" /></svg>
                     </span>
-                    <span class="mx__ico" title="Clients">
+                    <span class="mx__ico" title={t(lang, 'hub.max.nav.clients')}>
                       <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2" /><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18" /></svg>
                     </span>
                     <div class="mx__sep"></div>
-                    <span class="mx__ico" title="Tournées">
+                    <span class="mx__ico" title={t(lang, 'hub.max.nav.routes')}>
                       <svg viewBox="0 0 24 24"><circle cx="6" cy="19" r="2.5" /><circle cx="18" cy="5" r="2.5" /><path d="M8.5 19H14a3.5 3.5 0 0 0 0-7h-4a3.5 3.5 0 0 1 0-7h5.5" /></svg>
                     </span>
-                    <span class="mx__ico" title="Actions">
+                    <span class="mx__ico" title={t(lang, 'hub.max.nav.actions')}>
                       <svg viewBox="0 0 24 24"><path d="M11 6h9M11 12h9M11 18h9" /><path d="M3 6l1.5 1.5L7 5M3 12l1.5 1.5L7 11" /></svg>
                     </span>
-                    <span class="mx__ico" title="Directives">
+                    <span class="mx__ico" title={t(lang, 'hub.max.nav.directives')}>
                       <svg viewBox="0 0 24 24"><path d="M4 10v3a1 1 0 0 0 1 1h2l4 4V5L7 9H5a1 1 0 0 0-1 1z" /><path d="M15 8a4 4 0 0 1 0 8" /></svg>
                     </span>
                   </nav>
@@ -108,22 +103,20 @@
                   <div class="mx__main">
                     <div class="mx__hero">
                       <img class="mx__mascot" src="/max-creature.png" alt="Max" width="58" height="58" />
-                      <div class="mx__greet" data-i18n="hub.max.greeting">Salut Sophie !</div>
-                      <div class="mx__greet" data-i18n="hub.max.greeting_sub">Qu'est-ce que tu veux creuser aujourd'hui ?</div>
-                      <div class="mx__greet-sub" data-i18n="hub.max.intro">
-                        Pose une question, ou demande-moi d'agir : je fouille les données terrain de ton équipe et je peux créer des actions, emails ou relances pour toi.
-                      </div>
+                      <div class="mx__greet">{t(lang, 'hub.max.greeting')}</div>
+                      <div class="mx__greet">{t(lang, 'hub.max.greeting_sub')}</div>
+                      <div class="mx__greet-sub">{t(lang, 'hub.max.intro')}</div>
                     </div>
 
                     <div class="mx__today">
-                      <div class="mx__today-label" data-i18n="hub.max.today">Aujourd'hui</div>
+                      <div class="mx__today-label">{t(lang, 'hub.max.today')}</div>
                       <div class="mx__cards">
                         <div class="mx__card">
-                          <div class="mx__card-lbl" data-i18n="hub.max.kpi_team">Équipe</div>
+                          <div class="mx__card-lbl">{t(lang, 'hub.max.kpi_team')}</div>
                           <div class="mx__card-val">6</div>
                         </div>
                         <div class="mx__card">
-                          <div class="mx__card-lbl" data-i18n="hub.max.kpi_reports">Comptes-rendus cette semaine</div>
+                          <div class="mx__card-lbl">{t(lang, 'hub.max.kpi_reports')}</div>
                           <div class="mx__card-val">24</div>
                         </div>
                         <div class="mx__card mx__card--insight">
@@ -131,57 +124,57 @@
                             <span class="mx__card-ico">
                               <svg viewBox="0 0 24 24"><path d="M3 12h4l2.5 7 4-14L16 12h5" /></svg>
                             </span>
-                            <span data-i18n="hub.max.brief_label">Briefing matinal</span>
+                            <span>{t(lang, 'hub.max.brief_label')}</span>
                           </div>
-                          <div class="mx__card-txt" data-i18n="hub.max.brief_text">Opportunités et risques repérés dans les comptes-rendus d'hier</div>
+                          <div class="mx__card-txt">{t(lang, 'hub.max.brief_text')}</div>
                         </div>
                         <div class="mx__card mx__card--insight">
                           <div class="mx__card-head">
                             <span class="mx__card-ico">
                               <svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4" /><path d="M12 3a6 6 0 0 0-4 10.5c.6.6.9 1.4 1 2.5h6c.1-1.1.4-1.9 1-2.5A6 6 0 0 0 12 3z" /></svg>
                             </span>
-                            <span data-i18n="hub.max.insights_label">Max insights</span>
+                            <span>{t(lang, 'hub.max.insights_label')}</span>
                           </div>
-                          <div class="mx__card-txt" data-i18n="hub.max.insights_text">Explore les opportunités du moment</div>
+                          <div class="mx__card-txt">{t(lang, 'hub.max.insights_text')}</div>
                         </div>
                       </div>
                     </div>
 
                     <div class="mx__cols">
                       <div class="mx__col">
-                        <div class="mx__col-h" data-i18n="hub.max.ask_col">Demander à Max</div>
-                        <div class="mx__chip" data-i18n="hub.max.ask1">Fais-moi le bilan de l'équipe cette semaine</div>
-                        <div class="mx__chip" data-i18n="hub.max.ask2">Quels clients sont à risque ?</div>
-                        <div class="mx__chip" data-i18n="hub.max.ask3">Montre-moi les actions en retard dans l'équipe</div>
-                        <div class="mx__chip" data-i18n="hub.max.ask4">Quelles opportunités ressortent des récents rendez-vous ?</div>
+                        <div class="mx__col-h">{t(lang, 'hub.max.ask_col')}</div>
+                        <div class="mx__chip">{t(lang, 'hub.max.ask1')}</div>
+                        <div class="mx__chip">{t(lang, 'hub.max.ask2')}</div>
+                        <div class="mx__chip">{t(lang, 'hub.max.ask3')}</div>
+                        <div class="mx__chip">{t(lang, 'hub.max.ask4')}</div>
                       </div>
                       <div class="mx__col">
                         <div class="mx__col-h">
-                          <span data-i18n="hub.max.act_col">Agir avec Max</span>
-                          <span class="mx__badge" data-i18n="hub.max.act_badge">Max le fait pour toi</span>
+                          <span>{t(lang, 'hub.max.act_col')}</span>
+                          <span class="mx__badge">{t(lang, 'hub.max.act_badge')}</span>
                         </div>
                         <div class="mx__chip mx__chip--act">
                           <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m2 6 10 7 10-7" /></svg>
-                          <span data-i18n="hub.max.act1">Rédige un email pour un client</span>
+                          <span>{t(lang, 'hub.max.act1')}</span>
                         </div>
                         <div class="mx__chip mx__chip--act">
                           <svg viewBox="0 0 24 24"><path d="M14 5h7M14 12h7M14 19h7" /><path d="M3 6l1.7 1.7L8 4.5M3 17l1.7 1.7L8 15.5" /></svg>
-                          <span data-i18n="hub.max.act2">Crée une action de suivi</span>
+                          <span>{t(lang, 'hub.max.act2')}</span>
                         </div>
                         <div class="mx__chip mx__chip--act">
                           <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.7 21a2 2 0 0 1-3.4 0" /></svg>
-                          <span data-i18n="hub.max.act3">Programme une relance</span>
+                          <span>{t(lang, 'hub.max.act3')}</span>
                         </div>
                         <div class="mx__chip mx__chip--act">
                           <svg viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h2l9 4V6L6 10H4a1 1 0 0 0-1 1z" /><path d="M8 15v3a2 2 0 0 0 4 0" /><path d="M18 9a3 3 0 0 1 0 6" /></svg>
-                          <span data-i18n="hub.max.act4">Crée une directive d'équipe</span>
+                          <span>{t(lang, 'hub.max.act4')}</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="mx__composer">
                       <div class="mx__composer-input">
-                        <span class="mx__composer-txt" data-i18n="hub.max.composer">Pourquoi le Pérou se vend moins ces deux derniers mois ?</span><span class="mx__caret" aria-hidden="true"></span>
+                        <span class="mx__composer-txt">{t(lang, 'hub.max.composer')}</span><span class="mx__caret" aria-hidden="true"></span>
                       </div>
                       <span class="mx__send">
                         <svg viewBox="0 0 24 24"><path d="M22 2 11 13" /><path d="M22 2 15 22l-4-9-9-4 20-7z" /></svg>

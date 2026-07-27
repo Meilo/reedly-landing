@@ -1,5 +1,8 @@
 ---
 // Hero section
+import { getLang, t } from '@/lib/i18n';
+
+const lang = getLang(Astro.url.pathname);
 ---
 
 <!-- ── Hero ── -->
@@ -13,41 +16,25 @@
         </div>
         <div class="inner">
           <div class="hero__content">
-            <div class="section__eyebrow hero__kicker" data-i18n="hero.kicker">La première intelligence terrain du tourisme</div>
-            <h1 data-i18n-html="hero.title">Pourquoi cette agence de voyage<br /><em>ne vous vend pas ?</em></h1>
-            <p class="hero__sub" data-i18n-html="hero.sub">
-              Reedly transforme chaque retour terrain en information immédiatement partagée avec les équipes concernées. Vous comprenez enfin ce qui fait décoller ou chuter les ventes d'un produit, et ce qui fait basculer une agence chez le concurrent.
-            </p>
-            <p class="hero__definition sr-only" data-i18n-html="hero.definition">
-              Reedly est une application mobile iOS et Android d'enregistrement vocal destinée aux commerciaux terrain B2B.
-              Elle enregistre les rendez-vous clients en arrière-plan grâce à l'enregistrement vocal mains libres, transcrit l'audio avec plus de
-              95% de précision, puis génère automatiquement un rapport structuré en 11 sections en
-              moins de 2 minutes. Les sections incluent le résumé exécutif, le profil client, les
-              besoins exprimés, les objections et réponses, les produits discutés, les concurrents
-              mentionnés, les engagements mutuels, les prochaines étapes et échéances, les
-              opportunités identifiées, les risques et points de vigilance, et les recommandations
-              stratégiques. L'audio est supprimé définitivement après la génération du rapport.
-              Reedly propose également un Hub web pour les managers, permettant de centraliser les
-              rapports de toute l'équipe et de générer des synthèses territoriales agrégées par
-              semaine, mois ou trimestre.
-            </p>
+            <div class="section__eyebrow hero__kicker">{t(lang, 'hero.kicker')}</div>
+            <h1 set:html={t(lang, 'hero.title')} />
+            <p class="hero__sub" set:html={t(lang, 'hero.sub')} />
             <div class="hero__actions">
               <a
                 class="btn btn--primary btn--lg"
                 href="#rdv"
-                data-i18n="cta.book_demo"
                 data-track-id="hero_book_demo"
                 data-track-type="demo"
                 data-track-section="hero"
-                >Réserver une démo</a
+                >{t(lang, 'cta.book_demo')}</a
               >
             </div>
             <div class="hero__trust">
-              <span data-i18n="hero.trust1">Aucune saisie pour vos commerciaux</span>
+              <span>{t(lang, 'hero.trust1')}</span>
               <span class="hero__trust-sep"></span>
-              <span data-i18n="hero.trust2">Pensé pour le tourisme B2B</span>
+              <span>{t(lang, 'hero.trust2')}</span>
               <span class="hero__trust-sep"></span>
-              <span data-i18n="hero.trust3">Vos données restent en Europe</span>
+              <span>{t(lang, 'hero.trust3')}</span>
             </div>
           </div>
         </div>
