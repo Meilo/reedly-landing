@@ -2,109 +2,76 @@
 // Book a demo (block 6), qualifying form + calendar embed placeholder.
 // Front-only for now: no POST, the submit reveals a calendar placeholder to wire
 // to Cal.com / Calendly later.
+import { getLang, t } from '@/lib/i18n';
+
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const lang = path.startsWith('/en') ? 'en' : 'fr';
+const lang = getLang(path);
 ---
 
 <!-- ── Book a demo ── -->
 <section class="section section--alt" id="rdv">
   <div class="inner">
     <div class="reveal">
-      <div class="section__eyebrow" data-i18n="bookdemo.eyebrow">Réserver une démo</div>
-      <h2 data-i18n-html="bookdemo.title">En 15 minutes, voyez<br /><em>ce que vos agences vous disent vraiment.</em></h2>
-      <p class="section__lead" data-i18n="bookdemo.lead">
-        Une démo cadrée sur vos destinations et vos agences.
-      </p>
+      <div class="section__eyebrow">{t(lang, 'bookdemo.eyebrow')}</div>
+      <h2 set:html={t(lang, 'bookdemo.title')} />
+      <p class="section__lead">{t(lang, 'bookdemo.lead')}</p>
     </div>
 
     <div class="contact__grid">
       <!-- Left: value / reassurance -->
       <div class="bookdemo__intro reveal">
-        <p class="bookdemo__text" data-i18n="bookdemo.intro">
-          Vous repartez en sachant ce que ça change pour votre équipe, dès la première semaine.
-        </p>
+        <p class="bookdemo__text">{t(lang, 'bookdemo.intro')}</p>
       </div>
 
       <!-- Right: qualifying form -->
       <div class="contact__form-card reveal">
         <form id="bookdemo-form" novalidate>
           <div class="form__field">
-            <label class="form__label" for="bd-role" data-i18n="bookdemo.role.label"
-              >Votre poste</label
-            >
+            <label class="form__label" for="bd-role">{t(lang, 'bookdemo.role.label')}</label>
             <select class="form__select" id="bd-role" name="role" required>
-              <option value="" disabled selected data-i18n="bookdemo.role.select"
-                >Choisir…</option
-              >
-              <option value="head_of_sales" data-i18n="bookdemo.role.director"
-                >Directeur / Responsable commercial</option
-              >
-              <option value="founder_ceo" data-i18n="bookdemo.role.owner">Dirigeant / Gérant</option>
-              <option value="sales_rep" data-i18n="bookdemo.role.rep">Commercial terrain</option>
-              <option value="other" data-i18n="bookdemo.role.other">Autre</option>
+              <option value="" disabled selected>{t(lang, 'bookdemo.role.select')}</option>
+              <option value="head_of_sales">{t(lang, 'bookdemo.role.director')}</option>
+              <option value="founder_ceo">{t(lang, 'bookdemo.role.owner')}</option>
+              <option value="sales_rep">{t(lang, 'bookdemo.role.rep')}</option>
+              <option value="other">{t(lang, 'bookdemo.role.other')}</option>
             </select>
           </div>
 
           <div class="form__field">
-            <label class="form__label" for="bd-team" data-i18n="bookdemo.team.label"
-              >Taille de l'équipe commerciale</label
-            >
+            <label class="form__label" for="bd-team">{t(lang, 'bookdemo.team.label')}</label>
             <select class="form__select" id="bd-team" name="team_size" required>
-              <option value="" disabled selected data-i18n="bookdemo.team.select"
-                >Choisir…</option
-              >
-              <option value="1" data-i18n="bookdemo.team.1">1 commercial</option>
-              <option value="2-5" data-i18n="bookdemo.team.2_5">2 à 5</option>
-              <option value="6-15" data-i18n="bookdemo.team.6_15">6 à 15</option>
-              <option value="16+" data-i18n="bookdemo.team.16">16+</option>
+              <option value="" disabled selected>{t(lang, 'bookdemo.team.select')}</option>
+              <option value="1">{t(lang, 'bookdemo.team.1')}</option>
+              <option value="2-5">{t(lang, 'bookdemo.team.2_5')}</option>
+              <option value="6-15">{t(lang, 'bookdemo.team.6_15')}</option>
+              <option value="16+">{t(lang, 'bookdemo.team.16')}</option>
             </select>
           </div>
 
           <div class="form__field">
-            <label class="form__label" for="bd-sector" data-i18n="bookdemo.sector.label"
-              >Secteur</label
-            >
+            <label class="form__label" for="bd-sector">{t(lang, 'bookdemo.sector.label')}</label>
             <select class="form__select" id="bd-sector" name="sector">
-              <option value="" disabled selected data-i18n="bookdemo.sector.select"
-                >Choisir…</option
-              >
-              <option value="tour_operateur" data-i18n="bookdemo.sector.to"
-                >Tour-opérateur / Voyagiste</option
-              >
-              <option value="agence_voyages" data-i18n="bookdemo.sector.agency"
-                >Agence de voyages</option
-              >
-              <option value="receptif_dmc" data-i18n="bookdemo.sector.dmc"
-                >Réceptif / DMC</option
-              >
-              <option value="mice" data-i18n="bookdemo.sector.mice"
-                >MICE &amp; événementiel</option
-              >
-              <option value="transport" data-i18n="bookdemo.sector.transport"
-                >Transport &amp; mobilité</option
-              >
-              <option value="croisiere" data-i18n="bookdemo.sector.cruise">Croisière</option>
-              <option value="hotellerie" data-i18n="bookdemo.sector.hospitality"
-                >Hôtellerie &amp; hébergement</option
-              >
-              <option value="loisirs" data-i18n="bookdemo.sector.leisure"
-                >Loisirs &amp; billetterie</option
-              >
-              <option value="other" data-i18n="bookdemo.sector.other">Autre secteur</option>
+              <option value="" disabled selected>{t(lang, 'bookdemo.sector.select')}</option>
+              <option value="tour_operateur">{t(lang, 'bookdemo.sector.to')}</option>
+              <option value="agence_voyages">{t(lang, 'bookdemo.sector.agency')}</option>
+              <option value="receptif_dmc">{t(lang, 'bookdemo.sector.dmc')}</option>
+              <option value="mice">{t(lang, 'bookdemo.sector.mice')}</option>
+              <option value="transport">{t(lang, 'bookdemo.sector.transport')}</option>
+              <option value="croisiere">{t(lang, 'bookdemo.sector.cruise')}</option>
+              <option value="hotellerie">{t(lang, 'bookdemo.sector.hospitality')}</option>
+              <option value="loisirs">{t(lang, 'bookdemo.sector.leisure')}</option>
+              <option value="other">{t(lang, 'bookdemo.sector.other')}</option>
             </select>
           </div>
 
           <div class="form__field">
-            <label class="form__label" for="bd-email" data-i18n="bookdemo.email.label"
-              >Email professionnel</label
-            >
+            <label class="form__label" for="bd-email">{t(lang, 'bookdemo.email.label')}</label>
             <input
               class="form__input"
               type="email"
               id="bd-email"
               name="email"
-              placeholder="vous@votre-organisation.fr"
-              data-i18n-placeholder="bookdemo.email.ph"
+              placeholder={t(lang, 'bookdemo.email.ph')}
               required
               autocomplete="email"
             />
@@ -114,33 +81,30 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
             class="btn btn--primary form__submit"
             type="submit"
             id="bd-submit"
-            data-i18n="bookdemo.submit"
             data-track-id="bookdemo_submit"
             data-track-type="demo"
             data-track-section="bookdemo"
           >
-            Voir les créneaux disponibles →
+            {t(lang, 'bookdemo.submit')}
           </button>
 
-          <div class="bookdemo__hint" data-i18n="bookdemo.hint">
-            Aucune carte bancaire · réponse sous 24h
-          </div>
+          <div class="bookdemo__hint">{t(lang, 'bookdemo.hint')}</div>
         </form>
 
         <!-- Native booking calendar, revealed after the qualifying step. -->
         <div class="bookdemo__calendar" id="bookdemo-calendar" hidden>
-          <button type="button" class="bookdemo__cal-back bookdemo__cal-back--top" id="cal-back-top">← Retour</button>
-          <p class="bookdemo__cal-tznote" id="cal-tznote" data-i18n="bookdemo.cal.tznote">Créneaux affichés dans votre fuseau horaire.</p>
+          <button type="button" class="bookdemo__cal-back bookdemo__cal-back--top" id="cal-back-top">{t(lang, 'bookdemo.cal.back_form')}</button>
+          <p class="bookdemo__cal-tznote" id="cal-tznote">{t(lang, 'bookdemo.cal.tznote')}</p>
 
-          <div class="bookdemo__cal-status" id="cal-status" data-i18n="bookdemo.cal.loading">Chargement des disponibilités…</div>
+          <div class="bookdemo__cal-status" id="cal-status">{t(lang, 'bookdemo.cal.loading')}</div>
 
           <div class="bookdemo__cal-grid" id="cal-grid" hidden>
             <div class="bookdemo__cal-col">
-              <div class="bookdemo__cal-label" data-i18n="bookdemo.cal.pickday">Choisissez un jour</div>
+              <div class="bookdemo__cal-label">{t(lang, 'bookdemo.cal.pickday')}</div>
               <div class="bookdemo__cal-days" id="cal-days"></div>
             </div>
             <div class="bookdemo__cal-col">
-              <div class="bookdemo__cal-label" data-i18n="bookdemo.cal.pickslot">Choisissez un créneau</div>
+              <div class="bookdemo__cal-label">{t(lang, 'bookdemo.cal.pickslot')}</div>
               <div class="bookdemo__cal-slots" id="cal-slots"></div>
             </div>
           </div>
@@ -148,23 +112,23 @@ const lang = path.startsWith('/en') ? 'en' : 'fr';
           <form class="bookdemo__cal-confirm" id="cal-confirm" hidden novalidate>
             <div class="bookdemo__cal-recap" id="cal-recap"></div>
             <input type="text" class="form__input" id="cal-name" name="name" required
-              data-i18n-placeholder="bookdemo.cal.name" placeholder="Votre nom" autocomplete="name" />
+              placeholder={t(lang, 'bookdemo.cal.name')} autocomplete="name" />
             <textarea class="form__textarea bookdemo__cal-note" id="cal-note" name="note" rows="3" required
-              data-i18n-placeholder="bookdemo.cal.note" placeholder="Un mot sur votre besoin"></textarea>
+              placeholder={t(lang, 'bookdemo.cal.note')}></textarea>
             <input type="text" id="cal-hp" name="company_website" tabindex="-1" autocomplete="off"
               aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
             <div class="bookdemo__cal-actions">
-              <button type="submit" class="btn btn--primary btn--md" id="cal-submit" data-i18n="bookdemo.cal.confirm">Confirmer le rendez-vous</button>
+              <button type="submit" class="btn btn--primary btn--md" id="cal-submit">{t(lang, 'bookdemo.cal.confirm')}</button>
             </div>
             <div class="bookdemo__cal-err" id="cal-confirm-err" hidden></div>
           </form>
 
           <div class="bookdemo__cal-success" id="cal-success" hidden>
             <div class="bookdemo__cal-success-icon">✓</div>
-            <h3 data-i18n="bookdemo.cal.success_title">C'est réservé.</h3>
+            <h3>{t(lang, 'bookdemo.cal.success_title')}</h3>
             <p id="cal-success-when"></p>
-            <p data-i18n="bookdemo.cal.success_body">Une invitation Google Agenda avec le lien Meet vient de partir sur votre email.</p>
-            <a class="btn btn--primary btn--md" id="cal-meet" href="#" target="_blank" rel="noopener" data-i18n="bookdemo.cal.meet">Ouvrir le lien Google Meet</a>
+            <p>{t(lang, 'bookdemo.cal.success_body')}</p>
+            <a class="btn btn--primary btn--md" id="cal-meet" href="#" target="_blank" rel="noopener">{t(lang, 'bookdemo.cal.meet')}</a>
           </div>
         </div>
       </div>

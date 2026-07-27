@@ -3,8 +3,10 @@
 // Monthly/annual billing toggle is wired to the shared JS in public/main.js
 // (#pricing-billing-toggle + .js-billing-price[data-base-price] -> -14% annual).
 // CTA is always "Réserver une démo" / "Nous contacter", never a self-serve subscribe.
+import { getLang, t } from '@/lib/i18n';
+
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const lang = path.startsWith('/en') ? 'en' : 'fr';
+const lang = getLang(path);
 const bookHref = `/${lang}#rdv`;
 
 // Reused check icon markup.
@@ -16,28 +18,9 @@ const teamFeatures = [
   'pricing.team.feat7', 'pricing.team.feat8', 'pricing.team.feat9',
   'pricing.team.feat10',
 ];
-const teamFeaturesFallback = [
-  'Application iOS et Android',
-  'Comptes rendus IA illimités',
-  'Synthèses stratégiques périodiques',
-  'Hub manager · vision 360° de l’équipe',
-  'Identification des interlocuteurs',
-  'Fiches agences auto-enrichies',
-  'Analyse IA transversale de l’équipe',
-  'Connecteurs CRM connus',
-  'Assistant IA (Max)',
-  'Support prioritaire',
-];
 const largeFeatures = [
   'pricing.large.feat1', 'pricing.large.feat2', 'pricing.large.feat3',
   'pricing.large.feat4', 'pricing.large.feat5',
-];
-const largeFeaturesFallback = [
-  'Tout le plan Équipe',
-  'Vocabulaire métier sur mesure',
-  'Multi-équipes / multi-secteurs',
-  'Account manager dédié',
-  'Formation & onboarding sur site',
 ];
 ---
 
@@ -45,32 +28,26 @@ const largeFeaturesFallback = [
 <section class="section" id="pricing">
   <div class="inner">
     <div class="reveal">
-      <div class="section__eyebrow" data-i18n="pricing.eyebrow">Tarifs</div>
-      <h2 data-i18n-html="pricing.title">
-        Un prix par commercial.<br /><em>Zéro surprise.</em>
-      </h2>
-      <p class="section__lead" data-i18n="pricing.lead">
-        Facturé à votre organisation, à la taille réelle de l'équipe qui anime votre réseau d'agences.
-      </p>
+      <div class="section__eyebrow">{t(lang, 'pricing.eyebrow')}</div>
+      <h2 set:html={t(lang, 'pricing.title')} />
+      <p class="section__lead">{t(lang, 'pricing.lead')}</p>
 
       <!-- Monthly / annual billing toggle (wired to shared JS) -->
-      <div class="pricing-billing-toggle" id="pricing-billing-toggle" role="tablist" aria-label="Facturation">
+      <div class="pricing-billing-toggle" id="pricing-billing-toggle" role="tablist" aria-label={t(lang, 'pricing.billing.aria')}>
         <button
           type="button"
           class="pricing-billing-toggle__btn pricing-billing-toggle__btn--active"
           data-billing="monthly"
-          data-i18n="pricing.billing.monthly"
           data-track-id="pricing_billing_monthly"
           data-track-type="toggle"
-          data-track-section="pricing">Mensuel</button>
+          data-track-section="pricing">{t(lang, 'pricing.billing.monthly')}</button>
         <button
           type="button"
           class="pricing-billing-toggle__btn"
           data-billing="annual"
-          data-i18n="pricing.billing.annual"
           data-track-id="pricing_billing_annual"
           data-track-type="toggle"
-          data-track-section="pricing">Annuel (-14%)</button>
+          data-track-section="pricing">{t(lang, 'pricing.billing.annual')}</button>
       </div>
     </div>
 
@@ -78,31 +55,27 @@ const largeFeaturesFallback = [
     <div class="pricing-cards pricing-cards--duo reveal">
       <!-- ── Équipe (featured) ── -->
       <article class="pricing-card pricing-card--v2 pricing-card--featured">
-        <div class="pricing-badge" data-i18n="pricing.team.badge">Le plus choisi</div>
+        <div class="pricing-badge">{t(lang, 'pricing.team.badge')}</div>
         <header class="pricing-card__head">
           <div>
-            <div class="pricing-card__name" data-i18n="pricing.team.plan">Équipe</div>
-            <div class="pricing-card__subtitle" data-i18n="pricing.team.subtitle">
-              À partir de 3 commerciaux
-            </div>
+            <div class="pricing-card__name">{t(lang, 'pricing.team.plan')}</div>
+            <div class="pricing-card__subtitle">{t(lang, 'pricing.team.subtitle')}</div>
           </div>
           <div class="pricing-card__price-block">
             <div class="pricing-card__price">
               <span class="pricing-amount js-billing-price" data-base-price="49">49</span><span class="pricing-currency-inline">€</span>
             </div>
-            <div class="pricing-card__per" data-i18n="pricing.team.per">
-              / commercial / mois
-            </div>
+            <div class="pricing-card__per">{t(lang, 'pricing.team.per')}</div>
           </div>
         </header>
 
         <div class="pricing-card__divider"></div>
 
         <ul class="pricing-features">
-          {teamFeatures.map((key, i) => (
+          {teamFeatures.map((key) => (
             <li class="pricing-feature">
               <span class="pricing-feature__check" set:html={check}></span>
-              <span data-i18n={key}>{teamFeaturesFallback[i]}</span>
+              <span>{t(lang, key)}</span>
             </li>
           ))}
         </ul>
@@ -112,11 +85,10 @@ const largeFeaturesFallback = [
           href={bookHref}
           data-link-fr="/fr#rdv"
           data-link-en="/en#rdv"
-          data-i18n="pricing.book_demo"
           data-track-id="pricing_team_book_demo"
           data-track-type="demo"
           data-track-section="pricing">
-          Réserver une démo →
+          {t(lang, 'pricing.book_demo')}
         </a>
       </article>
 
@@ -124,14 +96,12 @@ const largeFeaturesFallback = [
       <article class="pricing-card pricing-card--v2">
         <header class="pricing-card__head">
           <div>
-            <div class="pricing-card__name" data-i18n="pricing.large.plan">Entreprise</div>
-            <div class="pricing-card__subtitle" data-i18n="pricing.large.subtitle">
-              16+ commerciaux
-            </div>
+            <div class="pricing-card__name">{t(lang, 'pricing.large.plan')}</div>
+            <div class="pricing-card__subtitle">{t(lang, 'pricing.large.subtitle')}</div>
           </div>
           <div class="pricing-card__price-block">
             <div class="pricing-card__price pricing-card__price--text">
-              <span data-i18n="pricing.large.price">Sur devis</span>
+              <span>{t(lang, 'pricing.large.price')}</span>
             </div>
             <div class="pricing-card__per">&nbsp;</div>
           </div>
@@ -140,10 +110,10 @@ const largeFeaturesFallback = [
         <div class="pricing-card__divider"></div>
 
         <ul class="pricing-features">
-          {largeFeatures.map((key, i) => (
+          {largeFeatures.map((key) => (
             <li class="pricing-feature">
               <span class="pricing-feature__check" set:html={check}></span>
-              <span data-i18n={key}>{largeFeaturesFallback[i]}</span>
+              <span>{t(lang, key)}</span>
             </li>
           ))}
         </ul>
@@ -153,22 +123,19 @@ const largeFeaturesFallback = [
           href={bookHref}
           data-link-fr="/fr#rdv"
           data-link-en="/en#rdv"
-          data-i18n="pricing.contact_us"
           data-track-id="pricing_large_contact"
           data-track-type="demo"
           data-track-section="pricing">
-          Nous contacter →
+          {t(lang, 'pricing.contact_us')}
         </a>
       </article>
     </div>
 
-    <p class="pricing-billing-note" id="pricing-billing-note" style="margin-top:20px;text-align:center" data-i18n="pricing.billing.note.monthly">
-      Prix affichés par mois. Facturation annuelle disponible avec 14 % de réduction.
+    <p class="pricing-billing-note" id="pricing-billing-note" style="margin-top:20px;text-align:center">
+      {t(lang, 'pricing.billing.note.monthly')}
     </p>
 
-    <p class="pricing-note" style="margin-top:8px" data-i18n="pricing.note">
-      Sans engagement · résiliable à tout moment
-    </p>
+    <p class="pricing-note" style="margin-top:8px">{t(lang, 'pricing.note')}</p>
   </div>
 </section>
 

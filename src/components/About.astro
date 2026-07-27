@@ -1,0 +1,30 @@
+---
+// "What is Reedly?": a short, visible, plain-language explainer.
+// Replaces the old hero__definition (an sr-only keyword-stuffed paragraph,
+// a hidden-text SEO risk). Sits between Pricing and the Footer on the home
+// page so the facts are still crawlable, just not hidden from real visitors.
+import { getLang, t } from '@/lib/i18n';
+
+const lang = getLang(Astro.url.pathname);
+---
+
+<section class="section section--alt" id="about">
+  <div class="inner">
+    <div class="reveal about-block">
+      <div class="section__eyebrow">{t(lang, 'about.eyebrow')}</div>
+      <h2 set:html={t(lang, 'about.title')} />
+      <p class="section__lead">{t(lang, 'about.text1')}</p>
+      <p class="section__lead">{t(lang, 'about.text2')}</p>
+      <p class="section__lead">{t(lang, 'about.text3')}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-block h2 {
+    max-width: 30ch;
+  }
+  .about-block .section__lead + .section__lead {
+    margin-top: 14px;
+  }
+</style>

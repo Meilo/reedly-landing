@@ -1,98 +1,58 @@
 ---
-// Faq section
+// Faq section. Also emits the page's FAQPage JSON-LD, built from the same
+// Q/A pairs actually rendered below (so a page only ever gets one FAQPage,
+// and it always matches the visible content). Feature pages build their own
+// FAQPage from feature-specific content and don't render this component.
+import { getLang, t } from '@/lib/i18n';
+
+const lang = getLang(Astro.url.pathname);
+
+const qaKeys = [
+  ['faq.q1', 'faq.a1'],
+  ['faq.q2', 'faq.a2'],
+  ['faq.q3', 'faq.a3'],
+  ['faq.q4', 'faq.a4'],
+  ['faq.q5', 'faq.a5'],
+  ['faq.q6', 'faq.a6'],
+] as const;
+
+const qa = qaKeys.map(([qKey, aKey]) => ({
+  question: t(lang, qKey),
+  answer: t(lang, aKey),
+}));
+
+const faqLD = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: qa.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqLD)} />
 
 <!-- ── FAQ ── -->
       <section class="section section--alt" id="faq">
         <div class="inner">
           <div class="reveal">
-            <div class="section__eyebrow" data-i18n="faq.eyebrow">FAQ</div>
-            <h2 data-i18n="faq.title">Questions fréquentes.</h2>
+            <div class="section__eyebrow">{t(lang, 'faq.eyebrow')}</div>
+            <h2>{t(lang, 'faq.title')}</h2>
           </div>
           <div class="faq-list">
-            <article class="faq-item reveal reveal-delay-1" aria-expanded="false">
-              <button class="faq-btn" type="button">
-                <span data-i18n="faq.q1">À quels métiers du tourisme Reedly s'adresse-t-il ?</span>
-                <div class="faq-btn__icon">+</div>
-              </button>
-              <div class="faq-panel">
-                <p data-i18n="faq.a1">
-                  Aux tour-opérateurs, voyagistes et réceptifs dont les commerciaux animent un
-                  réseau d'agences de voyage. Et aux directions commerciales qui veulent savoir,
-                  agence par agence, ce qui se dit vraiment sur le terrain, sans multiplier les
-                  réunions de reporting.
-                </p>
-              </div>
-            </article>
-            <article class="faq-item reveal reveal-delay-1" aria-expanded="false">
-              <button class="faq-btn" type="button">
-                <span data-i18n="faq.q2">L'app fonctionne-t-elle hors connexion ?</span>
-                <div class="faq-btn__icon">+</div>
-              </button>
-              <div class="faq-panel">
-                <p data-i18n="faq.a2">
-                  Oui. L'enregistrement fonctionne intégralement hors ligne : votre commercial
-                  capture sa visite même sans réseau, en agence comme sur la route. Le compte rendu,
-                  lui, a besoin d'une connexion pour faire appel à nos modèles IA. Il se génère
-                  automatiquement dès que le réseau revient.
-                </p>
-              </div>
-            </article>
-            <article class="faq-item reveal reveal-delay-2" aria-expanded="false">
-              <button class="faq-btn" type="button">
-                <span data-i18n="faq.q3">En combien de temps le compte rendu est-il prêt ?</span>
-                <div class="faq-btn__icon">+</div>
-              </button>
-              <div class="faq-panel">
-                <p data-i18n="faq.a3">
-                  Moins de 2 minutes après une visite d'une heure. Votre commercial repart de
-                  l'agence avec un compte rendu déjà structuré en 11 sections, avant même de
-                  reprendre la route vers le point de vente suivant.
-                </p>
-              </div>
-            </article>
-            <article class="faq-item reveal reveal-delay-2" aria-expanded="false">
-              <button class="faq-btn" type="button">
-                <span data-i18n="faq.q4">Les données audio sont-elles conservées ?</span>
-                <div class="faq-btn__icon">+</div>
-              </button>
-              <div class="faq-panel">
-                <p data-i18n="faq.a4">
-                  Non, jamais. L'audio sert uniquement à la transcription, puis il est supprimé
-                  automatiquement et définitivement dès que le compte rendu est généré. Seul le
-                  rapport structuré reste dans votre espace Reedly. C'est un principe non négociable
-                  : privacy by design.
-                </p>
-              </div>
-            </article>
-            <article class="faq-item reveal reveal-delay-3" aria-expanded="false">
-              <button class="faq-btn" type="button">
-                <span data-i18n="faq.q5">Qu'est-ce que le Hub et qui l'utilise ?</span>
-                <div class="faq-btn__icon">+</div>
-              </button>
-              <div class="faq-panel">
-                <p data-i18n="faq.a5">
-                  Le Hub est l'interface web réservée aux managers et aux directions commerciales.
-                  Il réunit tous les comptes rendus de vos commerciaux, les synthèses par
-                  destination ou par région, et l'activité de chaque membre du réseau. Les
-                  commerciaux n'utilisent que l'app mobile ; le Hub est votre poste de pilotage.
-                  Il est inclus dans le plan Équipe.
-                </p>
-              </div>
-            </article>
-            <article class="faq-item reveal reveal-delay-3" aria-expanded="false">
-              <button class="faq-btn" type="button">
-                <span data-i18n="faq.q6">L'enregistrement tient-il dans un environnement bruyant ?</span>
-                <div class="faq-btn__icon">+</div>
-              </button>
-              <div class="faq-panel">
-                <p data-i18n="faq.a6">
-                  Oui. Reedly s'appuie sur des modèles entraînés sur des conditions réelles :
-                  accueil d'agence animé, comptoir, plusieurs voix en même temps. C'est pensé pour
-                  une visite en agence, pas pour un bureau silencieux.
-                </p>
-              </div>
-            </article>
+            {qa.map((item, i) => (
+              <article class={`faq-item reveal reveal-delay-${Math.min(Math.floor(i / 2) + 1, 3)}`} aria-expanded="false">
+                <button class="faq-btn" type="button">
+                  <span>{item.question}</span>
+                  <div class="faq-btn__icon">+</div>
+                </button>
+                <div class="faq-panel">
+                  <p>{item.answer}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
