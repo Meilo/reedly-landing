@@ -225,7 +225,7 @@ const fr: Dict = {
     "Oui. Reedly s'appuie sur des modèles entraînés sur des conditions réelles : accueil d'agence animé, comptoir, plusieurs voix en même temps. C'est pensé pour une visite en agence, pas pour un bureau silencieux.",
 
   'about.eyebrow': "Qu'est-ce que Reedly ?",
-  'about.title': "Une application mobile qui écoute le terrain<br /><em>à la place de vos commerciaux.</em>",
+  'about.title': "Une application mobile qui rédige les comptes rendus<br /><em>à la place de vos commerciaux.</em>",
   'about.text1':
     "Reedly est une application mobile iOS et Android d'enregistrement vocal conçue pour les commerciaux terrain B2B. Un tap avant le rendez-vous suffit : elle capture l'échange en arrière-plan, mains libres, y compris hors connexion, puis transcrit l'audio avec plus de 95 % de précision.",
   'about.text2':
@@ -440,7 +440,7 @@ const en: Dict = {
     "Yes. Reedly relies on models trained on real-world conditions: a busy agency front desk, a counter, several voices at once. It's built for an agency visit, not a quiet office.",
 
   'about.eyebrow': 'What is Reedly?',
-  'about.title': 'A mobile app that listens to the field<br /><em>on behalf of your sales reps.</em>',
+  'about.title': "A mobile app that writes the meeting reports<br /><em>so your reps don't have to.</em>",
   'about.text1':
     "Reedly is an iOS and Android voice-recording mobile app built for B2B field sales reps. One tap before the meeting is enough: it captures the conversation in the background, hands-free, even offline, then transcribes the audio with over 95% accuracy.",
   'about.text2':
