@@ -32,7 +32,7 @@ solution:
     - title: "AI indexes and understands content"
       text: "Vector knowledge base processes every document. The AI learns your product portfolio, pricing structure, competitive positioning, sales methodology, ready to surface the right context instantly."
     - title: "Reports auto-enriched with accurate data"
-      text: "When generating reports from meeting recordings, the AI pulls relevant information from your knowledge base. Correct product codes, current pricing, technical specifications, automatically embedded in the right sections."
+      text: "When generating reports from your meetings, the AI pulls relevant information from your knowledge base. Correct product codes, current pricing, technical specifications, automatically embedded in the right sections."
 benefits:
   eyebrow: "Benefits"
   title: "Turn tribal knowledge<br />into <em>team intelligence.</em>"

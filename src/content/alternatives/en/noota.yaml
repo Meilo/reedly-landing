@@ -58,7 +58,7 @@ value_blocks:
       text: "Ask in plain language — \"which clients mentioned budget this month?\", \"where do we stand in the south region?\" — and get a sourced answer drawn from the entire team's reports."
       icon: "search"
 privacy:
-  text: "Your client conversations are never kept: audio is automatically deleted after the report is generated. Your data is hosted in Europe."
+  text: "Your client conversations are never kept: the voice is neither recorded nor stored, only the transcript is used to generate the report. Your data is hosted in Europe."
 fair:
   eyebrow: "In all honesty"
   title: "When Noota is the right choice."
@@ -81,9 +81,9 @@ faq:
   - question: "Does Noota record in-person meetings?"
     answer: "Yes, Noota added in-person recording. Reedly is built around the field (hands-free, background, offline) and turns it into a sales report, not just meeting notes."
   - question: "Can I switch from Noota to Reedly easily?"
-    answer: "Yes: just start recording your meetings. The client memory builds up from the very first visits, with no setup."
+    answer: "Yes: just start running your meetings with Reedly. The client memory builds up from the very first visits, with no setup."
   - question: "Is my data kept in Europe?"
-    answer: "Yes, your data is hosted in Europe, and audio is deleted after the report is generated."
+    answer: "Yes, your data is hosted in Europe, and the voice is neither recorded nor stored."
 related:
   - href: "/en/features/ai-report"
     label: "AI Report"

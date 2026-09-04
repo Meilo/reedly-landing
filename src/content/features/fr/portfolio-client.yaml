@@ -25,7 +25,7 @@ problem:
 solution:
   eyebrow: "La solution"
   title: "L'IA construit votre portfolio<br /><em>rapport après rapport.</em>"
-  lead: "Chaque visite enregistrée avec Reedly enrichit automatiquement la fiche client. Profil entreprise, contacts, besoins agrégés, historique complet, tout se met à jour sans effort."
+  lead: "Chaque visite menée avec Reedly enrichit automatiquement la fiche client. Profil entreprise, contacts, besoins agrégés, historique complet, tout se met à jour sans effort."
   steps:
     - title: "Enregistrez vos rendez-vous"
       text: "L'application capture vos visites terrain. Chaque échange avec un client alimente automatiquement sa fiche dans votre portfolio."

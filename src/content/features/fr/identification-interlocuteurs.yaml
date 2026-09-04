@@ -28,10 +28,10 @@ problem:
 solution:
   eyebrow: "Solution"
   title: "L'IA reconnaît<br /><em>chaque voix.</em>"
-  lead: "Reedly analyse l'audio et distingue automatiquement les différents interlocuteurs. Chaque phrase est attribuée à la bonne personne dans la transcription et le rapport structuré."
+  lead: "Reedly analyse la conversation et distingue automatiquement les différents interlocuteurs. Chaque phrase est attribuée à la bonne personne dans la transcription et le rapport structuré."
   steps:
     - title: "Enregistrement multi-voix"
-      text: "L'app capture toutes les voix pendant le RDV, commercial, client, acheteur, prescripteur. L'enregistrement distingue les différentes sources sonores."
+      text: "L'app suit toutes les voix pendant le RDV, commercial, client, acheteur, prescripteur. Le moteur distingue les différentes sources sonores."
     - title: "Diarisation automatique"
       text: "L'IA analyse les caractéristiques vocales et segmente la conversation par interlocuteur. Chaque prise de parole est identifiée et numérotée (Interlocuteur 1, 2, 3...)."
     - title: "Attribution dans le rapport"
@@ -83,7 +83,7 @@ faq:
   - question: "Puis-je renommer les interlocuteurs après le RDV ?"
     answer: "Oui. Une fois le rapport généré, vous pouvez éditer les noms d'interlocuteurs (passer d'Interlocuteur 1 à 'Pierre Dupont - Acheteur'). Cette personnalisation rend le rapport encore plus exploitable pour les suivis et le partage avec le manager."
   - question: "Cette fonctionnalité est-elle conforme au RGPD ?"
-    answer: "Oui. L'enregistrement doit respecter les obligations légales en vigueur (information et consentement des participants). L'audio et les données transcrites sont stockés de manière sécurisée, conformément au RGPD. Consultez nos CGU pour plus de détails."
+    answer: "Oui. La retranscription doit respecter les obligations légales en vigueur (information et consentement des participants). La voix n'est ni enregistrée ni conservée ; seules les données transcrites sont stockées, de manière sécurisée et conformément au RGPD. Consultez nos CGU pour plus de détails."
 related_features:
   - slug: "transcription-ia"
     label: "Transcription IA"

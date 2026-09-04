@@ -2,7 +2,7 @@ export default {
   product: {
     name: 'Reedly',
     description:
-      "Reedly est une application mobile iOS et Android d'enregistrement vocal destinée aux commerciaux terrain B2B. Elle enregistre les rendez-vous clients en arrière-plan, transcrit l'audio avec plus de 95% de précision, puis génère automatiquement un rapport structuré en 11 sections en moins de 2 minutes. Reedly propose également un Hub web pour les managers, permettant de centraliser les rapports de toute l'équipe et de générer des synthèses territoriales.",
+      "Reedly est une application mobile iOS et Android destinée aux commerciaux terrain B2B. Pendant le rendez-vous, elle retranscrit la conversation en temps réel en arrière-plan avec plus de 95% de précision ; le commercial peut aussi dicter son compte rendu juste après l'échange. La voix n'est ni enregistrée ni conservée : seule la retranscription sert à générer automatiquement un rapport structuré en 11 sections, en moins de 2 minutes. Reedly propose également un Hub web pour les managers, permettant de centraliser les rapports de toute l'équipe et de générer des synthèses territoriales.",
     url: 'https://www.reedly.ai',
     audiences: ['commerciaux terrain B2B', 'directeurs commerciaux', 'sales managers'],
   },
@@ -11,8 +11,8 @@ export default {
     'voice-recording': {
       nameFr: 'Enregistrement vocal de RDV',
       nameEn: 'Meeting Voice Recording',
-      descriptionFr: "Enregistrement audio en arrière-plan pendant les rendez-vous terrain. Un seul tap pour démarrer, batterie optimisée, fonctionne hors connexion. L'audio est supprimé après génération du rapport.",
-      descriptionEn: 'Background audio recording during field meetings. One tap to start, battery optimized, works offline. Audio is deleted after report generation.',
+      descriptionFr: "Retranscription en arrière-plan pendant les rendez-vous terrain, ou dictée du compte rendu juste après. Un seul tap pour démarrer, batterie optimisée, fonctionne hors connexion. La voix n'est ni enregistrée ni conservée.",
+      descriptionEn: 'Background transcription during field meetings, or dictation of the report right afterwards. One tap to start, battery optimized, works offline. The voice is neither recorded nor stored.',
       keywordsFr: ['enregistrement vocal réunion', 'application enregistrement rendez-vous client', 'enregistrement audio commercial terrain'],
       keywordsEn: ['meeting voice recording app', 'client meeting recording', 'field sales audio recording'],
       relatedIds: ['ai-transcription', 'ai-report', 'speaker-identification'],
@@ -20,8 +20,8 @@ export default {
     'ai-transcription': {
       nameFr: 'Transcription IA',
       nameEn: 'AI Transcription',
-      descriptionFr: "Transcription automatique de l'audio avec plus de 95% de précision. Fonctionne avec les accents, le vocabulaire métier sectoriel, et en environnement bruyant. Modèles Deepgram et Voxtral.",
-      descriptionEn: 'Automatic audio transcription with 95%+ accuracy. Works with accents, sector-specific vocabulary, and noisy environments. Deepgram and Voxtral models.',
+      descriptionFr: "Transcription automatique de la conversation avec plus de 95% de précision. Fonctionne avec les accents, le vocabulaire métier sectoriel, et en environnement bruyant. Modèles Deepgram et Voxtral.",
+      descriptionEn: 'Automatic conversation transcription with 95%+ accuracy. Works with accents, sector-specific vocabulary, and noisy environments. Deepgram and Voxtral models.',
       keywordsFr: ['transcription automatique réunion', 'transcription IA rendez-vous commercial', 'transcription vocale professionnelle'],
       keywordsEn: ['automatic meeting transcription', 'AI business meeting transcription', 'professional voice transcription'],
       relatedIds: ['voice-recording', 'ai-report', 'speaker-identification'],

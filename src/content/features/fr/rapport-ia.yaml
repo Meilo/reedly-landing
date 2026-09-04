@@ -7,8 +7,8 @@ seo:
     - rapport commercial automatisé
 hero:
   eyebrow: "Rapport structuré IA"
-  title: "<em>Rapport de visite client automatique</em><br />en 11 sections."
-  lead: "Reedly génère un compte rendu structuré en moins de 2 minutes à partir de votre rendez-vous enregistré : résumé exécutif, besoins identifiés, objections levées, engagements pris, prochaines étapes. Export PDF en 1 clic."
+  title: "Un compte rendu complet,<br /><em>structuré en 11 sections.</em>"
+  lead: "À partir de la retranscription de vos échanges, Reedly génère automatiquement un compte rendu clair et structuré en moins de 2 minutes : résumé exécutif, besoins identifiés, objections, engagements, prochaines étapes, opportunités, risques et recommandations."
   cta_label: "Essayer 14 jours gratuits"
   cta_url: "/fr#trial"
 problem:
@@ -31,9 +31,9 @@ solution:
   lead: "Reedly analyse la transcription complète de votre rendez-vous et génère automatiquement un rapport commercial structuré en 11 sections. Chaque information trouve sa place."
   steps:
     - title: "Enregistrez le rendez-vous"
-      text: "Lancez l'enregistrement vocal en 1 tap avant d'entrer chez le client. L'app capture tout l'échange en arrière-plan."
+      text: "Lancez Reedly en 1 tap avant d'entrer chez le client. L'app suit tout l'échange en arrière-plan."
     - title: "L'IA analyse et structure"
-      text: "Reedly transcrit l'audio et extrait automatiquement les informations clés pour chaque section du rapport : besoins, objections, engagements, prochaines étapes."
+      text: "Reedly transcrit la conversation et extrait automatiquement les informations clés pour chaque section du rapport : besoins, objections, engagements, prochaines étapes."
     - title: "Recevez le rapport en 2 minutes"
       text: "Un compte rendu complet en 11 sections apparaît dans l'app. Relisez, ajustez si besoin, exportez en PDF et partagez en 1 clic."
 benefits:
@@ -78,7 +78,7 @@ faq:
   - question: "Quelles sont les 11 sections du rapport généré par Reedly ?"
     answer: "Le rapport structuré comprend : résumé exécutif, profil client, besoins exprimés, objections et réponses, produits ou services discutés, concurrents mentionnés, engagements mutuels, prochaines étapes et échéances, opportunités identifiées, risques détectés, et recommandations."
   - question: "Combien de temps faut-il pour générer un rapport de visite ?"
-    answer: "Moins de 2 minutes après la fin de l'enregistrement. Reedly transcrit l'audio et génère automatiquement le rapport structuré en 11 sections pendant que vous quittez le rendez-vous."
+    answer: "Moins de 2 minutes après la fin du rendez-vous. Reedly transcrit la conversation et génère automatiquement le rapport structuré en 11 sections pendant que vous quittez les lieux."
   - question: "Puis-je modifier le rapport généré par l'IA avant de l'exporter ?"
     answer: "Oui, chaque section du rapport est éditable directement dans l'app. Vous pouvez ajuster, compléter ou supprimer des informations avant l'export PDF."
   - question: "Le rapport est-il exportable en PDF ?"
