@@ -4,8 +4,8 @@ seo:
   keywords: ["automatic client visit report", "AI meeting report", "automated sales report"]
 hero:
   eyebrow: "AI Structured Report"
-  title: "The <em>automatic client visit report</em><br />your CRM has been waiting for."
-  lead: "Reedly turns every field conversation into a complete 11-section report in under 2 minutes. Executive summary, needs, objections, commitments, next steps, structured, searchable, shareable. No typing required."
+  title: "A complete report,<br /><em>structured into 11 sections.</em>"
+  lead: "From the transcript of your conversations, Reedly automatically generates a clear, structured report in under 2 minutes: executive summary, needs identified, objections, commitments, next steps, opportunities, risks and recommendations."
   cta_label: "Try free for 14 days"
   cta_url: "/en#trial"
 problem:
@@ -24,7 +24,7 @@ problem:
       icon: "shuffle"
 solution:
   eyebrow: "How It Works"
-  title: "From recording to<br /><em>structured report.</em>"
+  title: "From conversation to<br /><em>structured report.</em>"
   lead: "Reedly's AI doesn't just transcribe, it analyzes the conversation and automatically organizes insights into 11 standardized sections."
   steps:
     - title: "Record the client meeting"
@@ -79,7 +79,7 @@ faq:
   - question: "Can I customize the report sections?"
     answer: "The 11 core sections are standardized to ensure consistency across teams. You can add free-form notes to any section and edit AI-generated content before finalizing the report."
   - question: "How long does it take to generate an automated sales report?"
-    answer: "Under 2 minutes from the end of recording. A 45-minute client meeting produces a complete structured report faster than you can return to your car."
+    answer: "Under 2 minutes from the end of the meeting. A 45-minute client meeting produces a complete structured report faster than you can return to your car."
   - question: "Does the PDF export include all 11 sections?"
     answer: "Yes. The 1-click PDF export generates a formatted document with all sections, your company branding options, meeting metadata, and any edits you've made to the AI-generated content."
   - question: "Can managers access reports from the entire team?"

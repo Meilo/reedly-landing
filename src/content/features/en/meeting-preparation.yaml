@@ -4,8 +4,8 @@ seo:
   keywords: [B2B client meeting preparation, pre-meeting sales briefing, AI client visit preparation]
 hero:
   eyebrow: AI Meeting Preparation
-  title: Walk into every meeting<br /><em>fully prepared.</em>
-  lead: Powered by your client memory, Reedly's AI compiles your history, pending commitments, and critical context before each visit. No more scrambling through old notes or arriving blind, just open the app and you're ready.
+  title: "Walk into every meeting<br /><em>one step ahead.</em>"
+  lead: "Reedly draws on the history of your conversations to automatically surface what matters: topics covered, open commitments, opportunities, watch points and next actions. You arrive prepared, without having to hunt for information across several tools."
   cta_label: Start free trial
   cta_url: /en#trial
 problem:
@@ -73,13 +73,13 @@ use_cases:
       icon: users
 faq:
   - question: How does Reedly generate the pre-meeting briefing?
-    answer: Reedly's AI analyzes all past meeting reports for that specific client, summaries, needs, objections, products discussed, commitments made, and compiles the most relevant points into a structured brief. It pulls from your actual recorded conversations, not generic CRM fields.
+    answer: Reedly's AI analyzes all past meeting reports for that specific client, summaries, needs, objections, products discussed, commitments made, and compiles the most relevant points into a structured brief. It pulls from your actual client conversations, not generic CRM fields.
   - question: Does the briefing include commitments I haven't fulfilled yet?
     answer: Yes. The AI flags any commitments you or the client made in previous meetings that don't have documented follow-through. This ensures you address open action items proactively instead of being caught off-guard.
   - question: Can I access the briefing offline in the field?
     answer: Yes. Once generated, the pre-meeting brief is stored locally on your device. You can review it without an internet connection, perfect for areas with weak signal between client sites.
   - question: How far back does the AI look when preparing the briefing?
-    answer: Reedly compiles context from all past meetings you've recorded with that client, regardless of how long ago. If you recorded a conversation six months ago, relevant points from that visit will surface if they're still pertinent.
+    answer: Reedly compiles context from all past meetings you've had with that client, regardless of how long ago. If a conversation happened six months ago, relevant points from that visit will surface if they're still pertinent.
   - question: Do I need to manually request a briefing before each meeting?
     answer: No. If you use Reedly's calendar integration or client portfolio feature, the AI automatically generates a pre-meeting brief when you have an upcoming appointment. Just open the app and it's ready.
   - question: Can managers see if reps reviewed their pre-meeting briefs?

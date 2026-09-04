@@ -7,8 +7,8 @@ seo:
     - agrégation rapports commerciaux
 hero:
   eyebrow: "Hub Manager · Synthèses territoriales"
-  title: "Synthèse activité commerciale terrain<br />en <em>quelques secondes.</em>"
-  lead: "Reedly agrège automatiquement tous les rapports terrain sur la période choisie, semaine, mois, trimestre, et génère une synthèse priorisée : tendances du territoire, risques détectés, opportunités à saisir. La vision stratégique sans la lecture."
+  title: "Toute votre activité commerciale,<br /><em>synthétisée en quelques secondes.</em>"
+  lead: "Reedly analyse et regroupe automatiquement les comptes rendus de votre équipe sur la période de votre choix : semaine, mois, trimestre ou période personnalisée. Vous obtenez une synthèse claire des tendances, opportunités, freins, risques et informations clés remontées du terrain."
   cta_label: "Tester gratuitement"
   cta_url: "/fr#trial"
 problem:

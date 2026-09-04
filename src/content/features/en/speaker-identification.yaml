@@ -77,7 +77,7 @@ faq:
   - question: "Does speaker identification work with multiple clients in one meeting?"
     answer: "Yes. If multiple client contacts attend the meeting, Reedly identifies them as separate speakers and labels them as Client 1, Client 2, etc. You can manually rename them in the report after generation."
   - question: "Do I need to train the AI on my voice?"
-    answer: "No. The who spoke in a meeting AI works immediately without voice training. It distinguishes speakers based on real-time analysis during each recording, no setup or calibration needed."
+    answer: "No. The who spoke in a meeting AI works immediately without voice training. It distinguishes speakers based on real-time analysis during each meeting, no setup or calibration needed."
   - question: "What if the client and I have similar-sounding voices?"
     answer: "Reedly's diarization is optimized for typical vocal differences in conversation. In rare cases of very similar voices, the AI may occasionally misattribute a statement, but accuracy exceeds 90% in standard conditions."
   - question: "Can I edit speaker attribution after the report is generated?"

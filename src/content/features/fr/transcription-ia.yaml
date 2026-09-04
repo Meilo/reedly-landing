@@ -28,12 +28,12 @@ problem:
 solution:
   eyebrow: "Solution"
   title: "Une transcription IA<br /><em>qui comprend votre métier.</em>"
-  lead: "Reedly enregistre et transcrit automatiquement chaque rendez-vous avec une précision supérieure à 95%, grâce à des modèles IA spécialisés (Deepgram et Voxtral) entraînés pour le contexte commercial B2B."
+  lead: "Reedly transcrit automatiquement chaque rendez-vous avec une précision supérieure à 95%, grâce à des modèles IA spécialisés (Deepgram et Voxtral) entraînés pour le contexte commercial B2B."
   steps:
     - title: "Enregistrement en arrière-plan"
-      text: "L'app capture l'audio pendant que vous restez concentré sur l'échange. Rien à surveiller, rien à manipuler pendant le rendez-vous."
+      text: "L'app suit la conversation pendant que vous restez concentré sur l'échange. Rien à surveiller, rien à manipuler pendant le rendez-vous."
     - title: "Transcription IA en temps réel"
-      text: "Le moteur IA transcrit l'audio au fil de l'eau, identifie les interlocuteurs, comprend le vocabulaire sectoriel et filtre le bruit ambiant."
+      text: "Le moteur IA transcrit la conversation au fil de l'eau, identifie les interlocuteurs, comprend le vocabulaire sectoriel et filtre le bruit ambiant."
     - title: "Texte intégral prêt à exploiter"
       text: "Vous récupérez une transcription complète, horodatée, avec identification des locuteurs. Base parfaite pour le rapport structuré généré ensuite."
 benefits:
@@ -53,10 +53,10 @@ benefits:
       text: "Le moteur IA distingue les voix et identifie qui parle à quel moment. Idéal pour les rendez-vous à plusieurs participants côté client."
       icon: "users"
     - title: "Transcription sécurisée et confidentielle"
-      text: "Audio et transcriptions chiffrés de bout en bout. Hébergement en Europe, conformité RGPD. Vos échanges clients restent strictement confidentiels."
+      text: "Transcriptions et comptes rendus chiffrés de bout en bout. Hébergement en Europe, conformité RGPD. Vos échanges clients restent strictement confidentiels."
       icon: "shield"
     - title: "Base du rapport structuré IA"
-      text: "La transcription alimente directement la génération du rapport en 11 sections. Vous passez de l'audio brut au compte-rendu structuré en moins de 2 minutes."
+      text: "La transcription alimente directement la génération du rapport en 11 sections. Vous passez de la conversation au compte rendu structuré en moins de 2 minutes."
       icon: "document"
 use_cases:
   eyebrow: "Cas d'usage"
@@ -81,7 +81,7 @@ faq:
     answer: "Oui. Les algorithmes de filtrage audio de Reedly sont conçus pour capter la voix en environnement bruyant : atelier, chantier, entrepôt, point de vente. Le moteur IA isole la parole et réduit le bruit ambiant pour garantir une transcription exploitable."
   - question: "La transcription IA comprend-elle le vocabulaire métier de mon secteur ?"
     answer: "Oui. Les modèles IA de Reedly sont entraînés sur du vocabulaire commercial B2B multi-sectoriel. Ils reconnaissent les termes techniques, les acronymes métier et s'adaptent au contexte de votre industrie (industrie, santé, construction, distribution, services)."
-  - question: "Que deviennent les transcriptions audio après le rendez-vous ?"
+  - question: "Que deviennent les transcriptions après le rendez-vous ?"
     answer: "Les transcriptions sont chiffrées de bout en bout et stockées de manière sécurisée sur des serveurs en Europe, conformément au RGPD. Vous seul et votre équipe (si partagé) y avez accès. Vous pouvez supprimer une transcription à tout moment depuis l'app."
   - question: "La transcription identifie-t-elle automatiquement les interlocuteurs ?"
     answer: "Oui. Le moteur IA de Reedly distingue les voix et identifie automatiquement les différents interlocuteurs pendant le rendez-vous. Idéal pour les réunions à plusieurs participants côté client, où il est crucial de savoir qui a exprimé quel besoin ou objection."

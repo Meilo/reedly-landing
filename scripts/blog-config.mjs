@@ -2,7 +2,7 @@ export default {
   niche: {
     domain: 'commerciaux terrain B2B',
     product:
-      'Reedly — app qui enregistre les RDV terrain et génère des comptes-rendus automatiques par IA',
+      'Reedly — app qui retranscrit les RDV terrain et génère des comptes-rendus automatiques par IA',
     audiences: [
       'commerciaux terrain',
       'directeurs commerciaux',

@@ -13,15 +13,15 @@ export interface FeatureContent {
     eyebrow: string; title: string; lead: string;
     cards: { title: string; text: string; icon: string }[];
   };
-  solution: {
+  solution?: {
     eyebrow: string; title: string; lead: string;
     steps: { title: string; text: string }[];
   };
   benefits: {
-    eyebrow: string; title: string;
+    eyebrow?: string; title?: string;
     cards: { title: string; text: string; icon: string }[];
   };
-  use_cases: {
+  use_cases?: {
     eyebrow: string; title: string;
     cards: { title: string; text: string; icon: string }[];
   };

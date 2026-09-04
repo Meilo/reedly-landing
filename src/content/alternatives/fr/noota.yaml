@@ -58,7 +58,7 @@ value_blocks:
       text: "Posez une question en langage naturel — « quels clients ont parlé budget ce mois-ci ? », « où en est-on sur la zone sud ? » — et obtenez une réponse sourcée, tirée de tous les rapports de l'équipe."
       icon: "search"
 privacy:
-  text: "Vos conversations client ne sont jamais conservées : l'audio est automatiquement supprimé après la génération du rapport. Vos données sont hébergées en Europe."
+  text: "Vos conversations client ne sont jamais conservées : la voix n'est ni enregistrée ni stockée, seule la retranscription sert à générer le rapport. Vos données sont hébergées en Europe."
 fair:
   eyebrow: "En toute honnêteté"
   title: "Quand Noota est le bon choix."
@@ -81,9 +81,9 @@ faq:
   - question: "Noota enregistre-t-il les rendez-vous physiques ?"
     answer: "Oui, Noota a ajouté le présentiel. Reedly est conçu autour du terrain (mains libres, arrière-plan, hors-ligne) et en tire un rapport commercial, pas seulement des notes de réunion."
   - question: "Peut-on passer de Noota à Reedly facilement ?"
-    answer: "Oui : il suffit de commencer à enregistrer vos rendez-vous. La mémoire client s'enrichit dès les premières visites, sans configuration."
+    answer: "Oui : il suffit de mener vos rendez-vous avec Reedly. La mémoire client s'enrichit dès les premières visites, sans configuration."
   - question: "Mes données restent-elles en Europe ?"
-    answer: "Oui, vos données sont hébergées en Europe, et l'audio est supprimé après la génération du rapport."
+    answer: "Oui, vos données sont hébergées en Europe, et la voix n'est ni enregistrée ni conservée."
 related:
   - href: "/fr/features/rapport-ia"
     label: "Rapport structuré IA"

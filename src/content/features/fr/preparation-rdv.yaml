@@ -7,8 +7,8 @@ seo:
     - préparation visite client IA
 hero:
   eyebrow: "Préparation de RDV assistée par IA"
-  title: "Préparez chaque<br /><em>rendez-vous client B2B</em><br />en 30 secondes."
-  lead: "Reedly puise dans la mémoire client, l'historique enrichi à chaque visite, pour compiler automatiquement les échanges passés, les engagements en cours et les points de vigilance avant chaque RDV. Vous arrivez préparé, sans rouvrir 15 onglets."
+  title: "Arrivez à chaque rendez-vous<br /><em>avec une longueur d'avance.</em>"
+  lead: "Reedly s'appuie sur l'historique de vos échanges pour faire ressortir automatiquement les informations utiles : sujets abordés, engagements en cours, opportunités, points de vigilance et prochaines actions. Vous arrivez préparé, sans avoir à rechercher l'information dans plusieurs outils."
   cta_label: "Tester gratuitement"
   cta_url: "/fr#trial"
 problem:

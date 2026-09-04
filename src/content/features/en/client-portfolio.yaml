@@ -14,7 +14,7 @@ problem:
   lead: "Field sales teams collect valuable client insights daily, but most of it stays scattered across notes, memory, and old CRMs. Without a complete picture, relationships weaken and opportunities slip through."
   cards:
     - title: "Fragmented client history"
-      text: "Notes in email, details in your head, last meeting recorded nowhere. When you need context before a call, you're piecing together fragments from three different places."
+      text: "Notes in email, details in your head, last meeting logged nowhere. When you need context before a call, you're piecing together fragments from three different places."
       icon: "shuffle"
     - title: "No relationship visibility"
       text: "How strong is your relationship with each account? Which clients are engaged, which are drifting? Without tracking interaction quality over time, you're flying blind."
@@ -28,7 +28,7 @@ solution:
   lead: "Every meeting you record with Reedly automatically enriches your client portfolio. AI extracts companies, contacts, needs, and sentiment, then aggregates everything into intelligent client cards."
   steps:
     - title: "Record meetings, enrich automatically"
-      text: "Each recorded meeting updates the relevant client card. AI extracts mentioned needs, discussed products, key contacts, and relationship signals, no manual logging required."
+      text: "Each meeting updates the relevant client card. AI extracts mentioned needs, discussed products, key contacts, and relationship signals, no manual logging required."
     - title: "View aggregated client intelligence"
       text: "Every client card shows a complete timeline of interactions, aggregated needs across meetings, key contacts involved, and an AI-calculated relationship score based on engagement quality."
     - title: "Track portfolio health at a glance"
@@ -38,7 +38,7 @@ benefits:
   title: "From scattered notes<br />to structured intelligence"
   cards:
     - title: "Zero-effort portfolio updates"
-      text: "Client cards update automatically from every recorded meeting. No forms to fill, no fields to update, just accurate, current client data."
+      text: "Client cards update automatically from every meeting. No forms to fill, no fields to update, just accurate, current client data."
       icon: "zap"
     - title: "Complete interaction history"
       text: "See every meeting, call, and touchpoint with a client in chronological order. Know exactly what was discussed, when, and with whom."
@@ -83,7 +83,7 @@ faq:
   - question: "Can managers see the entire team's client portfolio?"
     answer: "Yes. In the manager hub, you can view aggregated portfolio data across your entire territory, see all client interactions, relationship scores, and needs by account or by rep."
   - question: "What happens if multiple reps meet the same client?"
-    answer: "Reedly consolidates all interactions with the same client into one card, regardless of which rep recorded the meeting. You get a complete multi-rep interaction history for each account."
+    answer: "Reedly consolidates all interactions with the same client into one card, regardless of which rep ran the meeting. You get a complete multi-rep interaction history for each account."
 related_features:
   - slug: "ai-report"
     label: "AI Structured Report"

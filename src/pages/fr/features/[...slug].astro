@@ -77,22 +77,26 @@ const faqLD = {
       lead={data.problem.lead}
       cards={data.problem.cards}
     />
-    <FeatureSolution
-      eyebrow={data.solution.eyebrow}
-      title={data.solution.title}
-      lead={data.solution.lead}
-      steps={data.solution.steps}
-    />
+    {data.solution && (
+      <FeatureSolution
+        eyebrow={data.solution.eyebrow}
+        title={data.solution.title}
+        lead={data.solution.lead}
+        steps={data.solution.steps}
+      />
+    )}
     <FeatureBenefits
       eyebrow={data.benefits.eyebrow}
       title={data.benefits.title}
       cards={data.benefits.cards}
     />
-    <FeatureUseCases
-      eyebrow={data.use_cases.eyebrow}
-      title={data.use_cases.title}
-      cards={data.use_cases.cards}
-    />
+    {data.use_cases && (
+      <FeatureUseCases
+        eyebrow={data.use_cases.eyebrow}
+        title={data.use_cases.title}
+        cards={data.use_cases.cards}
+      />
+    )}
     <FeatureFaq faq={data.faq} lang="fr" />
     <FeatureRelated features={data.related_features} lang="fr" />
     <FinalCta />

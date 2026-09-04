@@ -4,8 +4,8 @@ seo:
   keywords: [field sales activity synthesis, sales territory analysis, sales report aggregation]
 hero:
   eyebrow: Manager Hub · Territory Syntheses
-  title: Field sales activity synthesis.<br /><em>Strategic view in seconds.</em>
-  lead: Reedly automatically aggregates all your team's field reports into prioritized territory syntheses. Spot trends, identify risks, surface opportunities, no manual consolidation required.
+  title: "Your entire sales activity,<br /><em>summarized in seconds.</em>"
+  lead: "Reedly automatically analyzes and groups your team's reports over the period of your choice: week, month, quarter or a custom range. You get a clear synthesis of the trends, opportunities, blockers, risks and key information coming back from the field."
   cta_label: Start 14-day trial
   cta_url: /en#trial
 problem:
@@ -79,7 +79,7 @@ faq:
   - question: What appears in a territory synthesis?
     answer: Prioritized trends (recurring themes across reports), flagged risks (competitive threats, deal blockers, churn signals), ranked opportunities (upsell patterns, whitespace, emerging needs), and aggregated metrics (meeting volume, engagement quality, sentiment shifts). Structured for strategic action, not raw data.
   - question: Does synthesis require manual tagging or categorization?
-    answer: No. Reedly's AI automatically extracts and categorizes insights from the structured reports your team creates. No taxonomy setup, no tagging workflow, no data entry. The synthesis engine works on the same 11-section reports generated from field recordings.
+    answer: No. Reedly's AI automatically extracts and categorizes insights from the structured reports your team creates. No taxonomy setup, no tagging workflow, no data entry. The synthesis engine works on the same 11-section reports generated from field meetings.
   - question: How often should I generate territory syntheses?
     answer: Most sales managers generate weekly syntheses for team meetings and monthly syntheses for pipeline reviews. The synthesis is always current, generate on demand whenever you need strategic perspective. No batch processing or scheduled reports required.
   - question: Can I share syntheses with executives or other departments?

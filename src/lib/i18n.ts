@@ -48,36 +48,36 @@ const fr: Dict = {
   'hero.kicker': 'La première intelligence terrain du tourisme',
   'hero.title': 'Pourquoi cette agence de voyage<br /><em>ne vous vend pas ?</em>',
   'hero.sub':
-    "Reedly transforme chaque retour terrain en information immédiatement partagée avec les équipes concernées. Vous comprenez enfin ce qui fait décoller ou chuter les ventes d'un produit, et ce qui fait basculer une agence chez le concurrent.",
+    "Reedly transforme chaque retour terrain en information immédiatement partagée avec les équipes concernées. Identifiez ce qui stimule ou freine les ventes de vos produits, et les facteurs qui influencent les choix de vos agences partenaires.",
   'hero.trust1': 'Aucune saisie pour vos commerciaux',
   'hero.trust2': 'Pensé pour le tourisme B2B',
   'hero.trust3': 'Vos données restent en Europe',
 
-  'cta.title': 'Voyez ce que Reedly fait remonter du terrain.',
+  'cta.title': 'Donnez enfin de la valeur à vos remontées terrain.',
   'cta.sub':
-    "Besoins, objections, engagements, opportunités : tout ce qui remonte de vos rendez-vous, structuré et exploitable.",
+    'Reedly transforme les échanges clients en informations structurées pour mieux comprendre, décider et agir.',
 
   'demo.eyebrow': 'De la visite à vos outils',
-  'demo.title': 'Un rendez-vous enregistré,<br /><em>un compte rendu aussitôt partagé.</em>',
+  'demo.title': 'Parlez. Reedly structure.<br /><em>Vos équipes avancent.</em>',
   'demo.lead':
-    "Votre commercial enregistre son rendez-vous en agence, mains libres. Reedly en génère un compte rendu structuré et le distribue là où votre équipe travaille, sans une seule ressaisie.",
+    "Votre commercial se concentre sur l'échange. Reedly transforme automatiquement chaque rendez-vous en un compte rendu clair et structuré, puis le partage directement avec vos équipes et dans vos outils.",
   'demo.label_record': 'Enregistrement en agence',
   'demo.label_report': 'Compte rendu en 2 minutes',
 
   'hub.eyebrow': 'Une vision à 360°',
   'hub.title':
-    'Vos chiffres répondent au «&nbsp;quoi&nbsp;»<br /><em>Reedly répond au «&nbsp;pourquoi&nbsp;»</em>',
+    'Derrière chaque chiffre, il y a une raison.<br /><em>Reedly la met en lumière.</em>',
   'hub.lead':
-    "Vos tableaux de bord montrent qu'une destination baisse. Ils ne vous diront jamais pourquoi. Reedly agrège ce que vos commerciaux entendent en agence et vous rend l'explication, sur toute l'équipe, en continu.",
-  'hub.benefit1.title': 'Vue unifiée de tout le terrain',
+    'Reedly rassemble et structure les retours de vos commerciaux pour vous donner une lecture claire de ce qui influence réellement vos performances.',
+  'hub.benefit1.title': 'Une vision unifiée de tout le terrain',
   'hub.benefit1.text':
-    "Tous les comptes rendus de vos commerciaux centralisés : ce que veulent les agences, ce qui les freine, qui pousse le concurrent.",
+    'Tous les retours de vos commerciaux réunis au même endroit : attentes des agences, freins à la vente, opportunités et signaux en faveur de la concurrence.',
   'hub.benefit2.title': 'Tendances, opportunités, risques',
   'hub.benefit2.text':
-    "Reedly agrège les signaux du terrain en synthèses sur la période de votre choix. Vous voyez ce qui bouge avant que ça touche vos chiffres.",
-  'hub.benefit3.title': "L'explication derrière la baisse",
+    "Reedly agrège les signaux du terrain en synthèses sur la période de votre choix. Détectez les évolutions du terrain avant qu'elles ne se reflètent dans vos chiffres.",
+  'hub.benefit3.title': 'Décryptez les freins à la vente',
   'hub.benefit3.text':
-    "Pourquoi telle destination ne se vend plus, pourquoi une agence a lâché : l'information que vos chiffres ne donnent pas, tracée jusqu'au rendez-vous source.",
+    "Identifiez les causes d'un ralentissement des ventes, d'un stop vente ou du désengagement d'une agence.",
   'hub.max.url': 'hub.reedly.ai/max',
   'hub.max.greeting': 'Salut Sophie !',
   'hub.max.greeting_sub': "Qu'est-ce que tu veux creuser aujourd'hui ?",
@@ -111,9 +111,9 @@ const fr: Dict = {
   'hub.max.nav.directives': 'Directives',
 
   'compliance.eyebrow': 'Conformité & sécurité',
-  'compliance.title': 'Enregistrer le terrain,<br /><em>en toute conformité.</em>',
+  'compliance.title': 'Transcrire le terrain,<br /><em>en toute conformité.</em>',
   'compliance.lead':
-    'Vos commerciaux enregistrent de vraies conversations client. Voici les garanties qui encadrent chaque enregistrement, du consentement à la suppression.',
+    'Vos commerciaux transcrivent de vraies conversations client. Voici les garanties qui encadrent chaque rendez-vous, du consentement à la suppression.',
   'compliance.panel': 'Conformité RGPD',
   'compliance.item1': "Données hébergées dans l'UE",
   'compliance.item2': 'DPA disponible sur demande',
@@ -123,11 +123,11 @@ const fr: Dict = {
   'compliance.item6': 'Consentement des participants intégré au parcours',
 
   'bookdemo.eyebrow': 'Réserver une démo',
-  'bookdemo.title':
-    'En 15 minutes, voyez<br /><em>ce que vos agences vous disent vraiment.</em>',
-  'bookdemo.lead': 'Une démo cadrée sur vos destinations et vos agences.',
+  'bookdemo.title': '15 minutes pour voir<br /><em>Reedly en action.</em>',
+  'bookdemo.lead':
+    'Une démonstration adaptée à votre équipe, votre organisation et vos enjeux terrain.',
   'bookdemo.intro':
-    'Vous repartez en sachant ce que ça change pour votre équipe, dès la première semaine.',
+    "Découvrez concrètement comment Reedly peut simplifier les comptes rendus, centraliser les remontées terrain et donner à vos managers une vision plus claire de l'activité commerciale.",
   'bookdemo.role.label': 'Votre poste',
   'bookdemo.role.select': 'Choisir…',
   'bookdemo.role.director': 'Directeur / Responsable commercial',
@@ -210,28 +210,30 @@ const fr: Dict = {
     "Aux tour-opérateurs, voyagistes et réceptifs dont les commerciaux animent un réseau d'agences de voyage. Et aux directions commerciales qui veulent savoir, agence par agence, ce qui se dit vraiment sur le terrain, sans multiplier les réunions de reporting.",
   'faq.q2': "L'app fonctionne-t-elle hors connexion ?",
   'faq.a2':
-    "Oui. L'enregistrement fonctionne intégralement hors ligne : votre commercial capture sa visite même sans réseau, en agence comme sur la route. Le compte rendu, lui, a besoin d'une connexion pour faire appel à nos modèles IA. Il se génère automatiquement dès que le réseau revient.",
+    "Oui. Votre commercial mène son rendez-vous sans réseau, en agence comme sur la route : l'app tient hors ligne. La transcription et le compte rendu, eux, font appel à nos modèles IA et ont besoin d'une connexion. Ils se génèrent automatiquement dès que le réseau revient.",
   'faq.q3': 'En combien de temps le compte rendu est-il prêt ?',
   'faq.a3':
     "Moins de 2 minutes après une visite d'une heure. Votre commercial repart de l'agence avec un compte rendu déjà structuré en 11 sections, avant même de reprendre la route vers le point de vente suivant.",
   'faq.q4': 'Les données audio sont-elles conservées ?',
   'faq.a4':
-    "Non, jamais. L'audio sert uniquement à la transcription, puis il est supprimé automatiquement et définitivement dès que le compte rendu est généré. Seul le rapport structuré reste dans votre espace Reedly. C'est un principe non négociable : privacy by design.",
+    "Non, jamais. La voix n'est ni enregistrée ni conservée : elle sert uniquement à produire la retranscription, à partir de laquelle le compte rendu est généré. Seul le rapport structuré reste dans votre espace Reedly. C'est un principe non négociable : privacy by design.",
   'faq.q5': "Qu'est-ce que le Hub et qui l'utilise ?",
   'faq.a5':
     "Le Hub est l'interface web réservée aux managers et aux directions commerciales. Il réunit tous les comptes rendus de vos commerciaux, les synthèses par destination ou par région, et l'activité de chaque membre du réseau. Les commerciaux n'utilisent que l'app mobile ; le Hub est votre poste de pilotage. Il est inclus dans le plan Équipe.",
-  'faq.q6': "L'enregistrement tient-il dans un environnement bruyant ?",
+  'faq.q6': 'La transcription tient-elle dans un environnement bruyant ?',
   'faq.a6':
     "Oui. Reedly s'appuie sur des modèles entraînés sur des conditions réelles : accueil d'agence animé, comptoir, plusieurs voix en même temps. C'est pensé pour une visite en agence, pas pour un bureau silencieux.",
 
   'about.eyebrow': "Qu'est-ce que Reedly ?",
-  'about.title': "Une application mobile qui rédige les comptes rendus<br /><em>à la place de vos commerciaux.</em>",
+  'about.title': 'Le compte rendu<br /><em>ne devrait plus être une tâche.</em>',
   'about.text1':
-    "Reedly est une application mobile iOS et Android d'enregistrement vocal conçue pour les commerciaux terrain B2B. Un tap avant le rendez-vous suffit : elle capture l'échange en arrière-plan, mains libres, y compris hors connexion, puis transcrit l'audio avec plus de 95 % de précision.",
+    "Reedly est une application mobile iOS et Android conçue pour les commerciaux terrain B2B. Pendant le rendez-vous, Reedly retranscrit la conversation. Après l'échange, le commercial peut compléter son compte rendu en dictant simplement les informations essentielles.",
   'about.text2':
-    "De cette transcription, Reedly génère automatiquement un rapport commercial structuré en 11 sections (résumé exécutif, profil client, besoins, objections, engagements, prochaines étapes, opportunités, risques, recommandations) en moins de 2 minutes. L'audio est supprimé dès que le rapport est prêt : rien n'est conservé au-delà du nécessaire.",
+    "À partir de cette retranscription, Reedly génère automatiquement un rapport commercial structuré en 11 rubriques : résumé exécutif, profil client, besoins, objections, engagements, prochaines étapes, opportunités, risques, recommandations et autres informations clés du rendez-vous. Le compte rendu est disponible en moins de deux minutes.",
   'about.text3':
-    "Les rapports de toute l'équipe remontent ensuite dans le Hub, l'interface web pensée pour les managers commerciaux : vue consolidée du terrain, synthèses par territoire et suivi de l'activité, semaine après semaine.",
+    "La voix n'est ni enregistrée ni conservée : seule la retranscription est utilisée pour générer le compte rendu.",
+  'about.text4':
+    "Les rapports de toute l'équipe sont ensuite centralisés dans le Hub Reedly, l'interface web dédiée aux managers commerciaux. Ils disposent ainsi d'une vision consolidée du terrain, de synthèses par territoire et d'un suivi de l'activité commerciale, semaine après semaine.",
 };
 
 const en: Dict = {
@@ -265,35 +267,35 @@ const en: Dict = {
   'hero.kicker': 'The first field intelligence in tourism',
   'hero.title': "Why isn't this travel agency<br /><em>selling you?</em>",
   'hero.sub':
-    "Reedly turns every field report into information that's instantly shared with the relevant teams. You finally understand what makes a product's sales take off or crash, and what makes an agency switch to a competitor.",
+    "Reedly turns every field report into information that's instantly shared with the relevant teams. Identify what drives or holds back your product sales, and the factors that shape your partner agencies' choices.",
   'hero.trust1': 'No data entry for your reps',
   'hero.trust2': 'Built for tourism B2B',
   'hero.trust3': 'Your data stays in Europe',
 
-  'cta.title': 'See what Reedly surfaces from the field.',
+  'cta.title': 'Finally get real value from your field feedback.',
   'cta.sub':
-    'Needs, objections, commitments, opportunities: everything from your meetings, structured and actionable.',
+    'Reedly turns client conversations into structured information, so you can understand, decide and act.',
 
   'demo.eyebrow': 'From the visit to your tools',
-  'demo.title': 'One meeting recorded,<br /><em>a report instantly shared.</em>',
+  'demo.title': 'You talk. Reedly structures.<br /><em>Your teams move forward.</em>',
   'demo.lead':
-    "Your rep records the meeting in the agency, hands-free. Reedly turns it into a structured report and pushes it wherever your team works, with zero re-entry.",
+    'Your rep stays focused on the conversation. Reedly automatically turns every meeting into a clear, structured report, then shares it straight with your teams and inside your tools.',
   'demo.label_record': 'Recording in the agency',
   'demo.label_report': 'Report in 2 minutes',
 
   'hub.eyebrow': 'A 360° view',
-  'hub.title': 'Your numbers answer the “what”<br /><em>Reedly answers the “why”</em>',
+  'hub.title': "Behind every number, there's a reason.<br /><em>Reedly brings it to light.</em>",
   'hub.lead':
-    "Your dashboards show a destination is down. They'll never tell you why. Reedly aggregates what your reps hear in agencies and gives you the explanation, across the whole team, continuously.",
-  'hub.benefit1.title': 'One view of the whole field',
+    "Reedly gathers and structures your reps' field feedback to give you a clear read on what really drives your performance.",
+  'hub.benefit1.title': 'A unified view of the whole field',
   'hub.benefit1.text':
-    "Every rep's report in one place: what agencies want, what holds them back, who's pushing the competitor.",
+    "Every rep's field feedback in one place: what agencies expect, what blocks sales, opportunities, and signals favoring the competition.",
   'hub.benefit2.title': 'Trends, opportunities, risks',
   'hub.benefit2.text':
-    "Reedly aggregates field signals into syntheses over any period. You see what's shifting before it hits your numbers.",
-  'hub.benefit3.title': 'The why behind the drop',
+    'Reedly aggregates field signals into syntheses over any period. Spot shifts in the field before they show up in your numbers.',
+  'hub.benefit3.title': 'Decode what is blocking sales',
   'hub.benefit3.text':
-    "Why a destination stopped selling, why an agency went quiet: the insight your numbers don't give you, traced back to the source meeting.",
+    'Identify what is behind a sales slowdown, a stop-sale, or an agency disengaging.',
   'hub.max.url': 'hub.reedly.ai/max',
   'hub.max.greeting': 'Hi Sophie!',
   'hub.max.greeting_sub': 'What do you want to dig into today?',
@@ -327,9 +329,9 @@ const en: Dict = {
   'hub.max.nav.directives': 'Directives',
 
   'compliance.eyebrow': 'Compliance & security',
-  'compliance.title': 'Record the field,<br /><em>fully compliant.</em>',
+  'compliance.title': 'Transcribe the field,<br /><em>fully compliant.</em>',
   'compliance.lead':
-    'Your reps record real client conversations. Here are the guarantees around every recording, from consent to deletion.',
+    'Your reps transcribe real client conversations. Here are the guarantees around every meeting, from consent to deletion.',
   'compliance.panel': 'GDPR compliance',
   'compliance.item1': 'Data hosted in the EU',
   'compliance.item2': 'DPA available on request',
@@ -339,10 +341,11 @@ const en: Dict = {
   'compliance.item6': 'Participant consent built into the flow',
 
   'bookdemo.eyebrow': 'Book a demo',
-  'bookdemo.title':
-    'In 15 minutes, see<br /><em>what your agencies are really telling you.</em>',
-  'bookdemo.lead': 'A demo built around your destinations and your agencies.',
-  'bookdemo.intro': 'You leave knowing what it changes for your team, from week one.',
+  'bookdemo.title': '15 minutes to see<br /><em>Reedly in action.</em>',
+  'bookdemo.lead':
+    'A demo tailored to your team, your organization and your field challenges.',
+  'bookdemo.intro':
+    'See exactly how Reedly can simplify meeting reports, centralize field feedback and give your managers a clearer view of sales activity.',
   'bookdemo.role.label': 'Your role',
   'bookdemo.role.select': 'Choose…',
   'bookdemo.role.director': 'Sales director / manager',
@@ -425,28 +428,30 @@ const en: Dict = {
     "For tour operators, wholesalers and DMCs whose reps manage a network of travel agencies. And for sales leadership who want to know, agency by agency, what's really being said in the field, without piling on reporting meetings.",
   'faq.q2': 'Does the app work offline?',
   'faq.a2':
-    "Yes. Recording works entirely offline: your rep captures a visit even with no network, in the agency or on the road. The report itself needs a connection to call our AI models, and generates automatically as soon as the network is back.",
+    "Yes. Your rep runs the meeting with no network, in the agency or on the road: the app holds offline. Transcription and the report do call our AI models, so they need a connection. Both generate automatically as soon as the network is back.",
   'faq.q3': 'How fast is the report ready?',
   'faq.a3':
     'Under 2 minutes after a one-hour visit. Your rep leaves the agency with a report already structured into 11 sections, before even driving to the next point of sale.',
   'faq.q4': 'Is audio data retained?',
   'faq.a4':
-    'No, never. Audio is used only for transcription, then automatically and permanently deleted once the report is generated. Only the structured report stays in your Reedly space. This is a non-negotiable principle: privacy by design.',
+    "No, never. The voice is neither recorded nor stored: it only serves to produce the transcript, from which the report is generated. Only the structured report stays in your Reedly space. This is a non-negotiable principle: privacy by design.",
   'faq.q5': 'What is the Hub and who uses it?',
   'faq.a5':
     "The Hub is the web interface reserved for managers and sales leadership. It brings together every rep's reports, syntheses by destination or region, and each network member's activity. Reps use only the mobile app; the Hub is your control center. It's included in the Team plan.",
-  'faq.q6': 'Does recording hold up in a noisy environment?',
+  'faq.q6': 'Does transcription hold up in a noisy environment?',
   'faq.a6':
     "Yes. Reedly relies on models trained on real-world conditions: a busy agency front desk, a counter, several voices at once. It's built for an agency visit, not a quiet office.",
 
   'about.eyebrow': 'What is Reedly?',
-  'about.title': "A mobile app that writes the meeting reports<br /><em>so your reps don't have to.</em>",
+  'about.title': 'Writing the report<br /><em>should no longer be a chore.</em>',
   'about.text1':
-    "Reedly is an iOS and Android voice-recording mobile app built for B2B field sales reps. One tap before the meeting is enough: it captures the conversation in the background, hands-free, even offline, then transcribes the audio with over 95% accuracy.",
+    'Reedly is an iOS and Android mobile app built for B2B field sales reps. During the meeting, Reedly transcribes the conversation. Afterwards, the rep can complete the report by simply dictating the essential information.',
   'about.text2':
-    "From that transcript, Reedly automatically generates a structured 11-section sales report (executive summary, client profile, needs, objections, commitments, next steps, opportunities, risks, recommendations) in under 2 minutes. The audio is deleted as soon as the report is ready: nothing is kept longer than necessary.",
+    'From that transcript, Reedly automatically generates a sales report structured into 11 sections: executive summary, client profile, needs, objections, commitments, next steps, opportunities, risks, recommendations and other key information from the meeting. The report is available in under two minutes.',
   'about.text3':
-    "Every rep's reports then flow into the Hub, the web interface built for sales managers: a consolidated view of the field, syntheses by territory, and activity tracking, week after week.",
+    'The voice is neither recorded nor stored: only the transcript is used to generate the report.',
+  'about.text4':
+    "The whole team's reports are then centralized in the Reedly Hub, the web interface dedicated to sales managers. They get a consolidated view of the field, syntheses by territory, and sales activity tracking, week after week.",
 };
 
 export const dict: Record<Lang, Dict> = { fr, en };

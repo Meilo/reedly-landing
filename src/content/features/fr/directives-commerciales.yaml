@@ -85,7 +85,7 @@ faq:
   - question: "Peut-on avoir plusieurs directives actives en même temps ?"
     answer: "Oui. Vous pouvez activer plusieurs directives simultanément (ex : grille de qualification + process de découverte + lancement produit). Chaque rapport sera évalué sur l'ensemble des directives actives et affichera un score par directive."
   - question: "Les commerciaux voient-ils les directives avant le rendez-vous ?"
-    answer: "Oui. Les directives actives sont visibles dans l'application mobile Reedly avant de démarrer l'enregistrement. Le commercial sait quels checkpoints seront évalués, ce qui l'aide à structurer son rendez-vous."
+    answer: "Oui. Les directives actives sont visibles dans l'application mobile Reedly avant de démarrer le rendez-vous. Le commercial sait quels checkpoints seront évalués, ce qui l'aide à structurer son rendez-vous."
   - question: "Comment interpréter le score de conformité ?"
     answer: "Le score indique le pourcentage de checkpoints détectés dans le rapport par rapport au total défini dans la directive. Un score de 80% signifie que 4 checkpoints sur 5 ont été identifiés par l'IA dans le contenu du rendez-vous."
   - question: "Peut-on modifier une directive après activation ?"

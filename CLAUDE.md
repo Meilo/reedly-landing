@@ -76,9 +76,10 @@ Most interactive behavior (i18n toggle, FAQ accordion, pricing toggle, animation
 ## Product facts (canonical)
 From `scripts/feature-config.mjs`:
 - Mobile app (iOS + Android) for B2B field sales reps; Hub web for managers.
-- Records meetings in the background, **95%+ transcription accuracy** (Deepgram + Voxtral), generates an **11-section structured report in under 2 minutes**.
+- **Transcribes** the meeting in the background — in real time during the conversation, or the rep dictates the report right afterwards. **95%+ transcription accuracy** (Deepgram + Voxtral), then an **11-section structured report in under 2 minutes**.
 - Sections: executive summary, client profile, needs, objections, commitments, next steps, opportunities, risks, recommendations.
-- Audio is deleted after report generation.
+- **The voice is neither recorded nor stored** — only the transcript is used to generate the report. Never write copy framed as "audio is recorded then deleted"; that was the old positioning and was removed site-wide.
+- Works offline: the app holds with no network; transcription and the report generate as soon as the connection is back.
 - Audiences: commerciaux terrain B2B, directeurs commerciaux, sales managers.
 
 ## Environment
