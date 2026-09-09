@@ -108,7 +108,10 @@ img {
 
 /* ── Intro curtain ─────────────────────────────────────────────────────── */
 /* Two dark panels part on load behind the mark and the wordmark, as in the
-   canvas. Purely decorative: hidden when the visitor asks for less motion. */
+   canvas. Home page only, and only on the session's first load: the class is
+   set by an inline script in Layout.astro before the first paint, so the
+   curtain never flashes on the pages that should not have it. Purely
+   decorative, and skipped when the visitor asks for less motion. */
 
 @keyframes rd-left {
   0%,
@@ -175,8 +178,8 @@ img {
   }
 }
 
-body::before,
-body::after {
+html.has-intro body::before,
+html.has-intro body::after {
   content: '';
   position: fixed;
   top: 0;
@@ -189,17 +192,17 @@ body::after {
   backface-visibility: hidden;
 }
 
-body::before {
+html.has-intro body::before {
   left: 0;
   animation: rd-left 2.2s cubic-bezier(0.72, 0, 0.18, 1) forwards;
 }
 
-body::after {
+html.has-intro body::after {
   right: 0;
   animation: rd-right 2.2s cubic-bezier(0.72, 0, 0.18, 1) forwards;
 }
 
-html::after {
+html.has-intro::after {
   content: '';
   position: fixed;
   inset: 0;
@@ -211,7 +214,7 @@ html::after {
   animation: rd-logo 2.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 }
 
-html::before {
+html.has-intro::before {
   content: 'REEDLY';
   position: fixed;
   inset: 0;
@@ -231,10 +234,10 @@ html::before {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body::before,
-  body::after,
-  html::before,
-  html::after {
+  html.has-intro body::before,
+  html.has-intro body::after,
+  html.has-intro::before,
+  html.has-intro::after {
     display: none;
   }
 }

@@ -8,6 +8,8 @@ interface Props {
   lang?: 'fr' | 'en';
   ogType?: 'website' | 'article';
   hreflang?: { fr: string; en: string };
+  /** Play the intro curtain. Home pages only, once per session. */
+  intro?: boolean;
 }
 
 const {
@@ -17,7 +19,12 @@ const {
   lang = 'fr',
   ogType = 'website',
   hreflang,
+  intro = false,
 } = Astro.props;
+
+// Runs before the first paint so the curtain never flashes where it should
+// not appear, and only once per session.
+const INTRO_SCRIPT = `(function(){try{if(sessionStorage.getItem('reedly-intro'))return;sessionStorage.setItem('reedly-intro','1')}catch(e){}document.documentElement.classList.add('has-intro')})();`;
 
 const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const canonicalURL = new URL(pathname, 'https://www.reedly.ai');
@@ -89,6 +96,7 @@ if (isHomePage) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light" />
+    {intro && <script is:inline set:html={INTRO_SCRIPT} />}
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
