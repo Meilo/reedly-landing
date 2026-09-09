@@ -6,7 +6,7 @@ const lang = getLang(Astro.url.pathname);
 
 <section class="hero">
   <div class="inner hero__inner">
-    <div class="hero__text reveal center-mobile">
+    <div class="hero__text reveal">
       <h1 class="display display--xl" set:html={t(lang, 'hero.title')} />
       <p class="lead lead--hero">{t(lang, 'hero.sub')}</p>
       <div class="btn-row">

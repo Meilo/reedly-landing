@@ -15,7 +15,7 @@ const { title, cards } = Astro.props;
       <h2 class="display display--lg" set:html={title} />
     </div>
 
-    <div class="feature-grid feature-grid--wide reveal">
+    <div class="feature-grid feature-grid--wide reveal center-mobile">
       {cards.map((card) => (
         <article class="feature-item">
           <span class="feature-item__icon"><Icon name={card.icon} size={60} /></span>

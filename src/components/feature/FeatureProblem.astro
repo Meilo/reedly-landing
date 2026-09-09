@@ -17,7 +17,7 @@ const { title, lead, cards } = Astro.props;
       <p class="lead" set:html={lead} />
     </div>
 
-    <div class="feature-grid reveal">
+    <div class="feature-grid reveal center-mobile">
       {cards.map((card) => (
         <article class="feature-item">
           <span class="feature-item__icon"><Icon name={card.icon} size={60} /></span>
