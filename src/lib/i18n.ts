@@ -26,7 +26,7 @@ const fr: Dict = {
   'hero.title':
     'Transformez les conversations de vos commerciaux terrain en données fiables<br /><em>avec un agent&nbsp;IA.</em>',
   'hero.sub':
-    'Reedly capture chaque échange durant vos rendez-vous clients, puis le transforme en compte rendu structuré, actions commerciales et mises à jour CRM, le tout alimenté par un agent IA.',
+    'Reedly capture chaque échange durant vos rendez-vous clients, puis les transforme en compte rendu structuré, actions commerciales et mises à jour CRM, le tout alimenté par un agent IA.',
 
   'demo.title': 'Parlez. Reedly structure.<br /><em>Vos équipes avancent.</em>',
   'demo.lead':
@@ -211,7 +211,7 @@ const en: Dict = {
   'hero.title':
     'Turn your field sales conversations into trusted data<br /><em>with an AI agent.</em>',
   'hero.sub':
-    'Reedly captures every exchange during your client meetings, then turns it into a structured report, sales actions and CRM updates, all powered by an AI agent.',
+    'Reedly captures every conversation during your client meetings, then turns it into a structured report, sales actions and CRM updates, all powered by an AI agent.',
 
   'demo.title': 'You talk. Reedly structures.<br /><em>Your teams move forward.</em>',
   'demo.lead':
