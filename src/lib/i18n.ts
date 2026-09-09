@@ -24,7 +24,7 @@ const fr: Dict = {
   'cta.store_sub': 'Disponible sur',
 
   'hero.title':
-    'Transformez les conversations de vos commerciaux terrain en données fiables,<br /><em>grâce à un agent&nbsp;IA.</em>',
+    'Transformez les conversations de vos commerciaux terrain en données fiables<br /><em>avec un agent&nbsp;IA.</em>',
   'hero.sub':
     'Reedly capture chaque échange durant vos rendez-vous clients, puis le transforme en compte rendu structuré, actions commerciales et mises à jour CRM, le tout alimenté par un agent IA.',
 
