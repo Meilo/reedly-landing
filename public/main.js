@@ -191,10 +191,11 @@ document.querySelectorAll("[data-track-id]").forEach((el) => {
   if (!els.length) return;
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  function showIcons(el) {
+  function showIcons(el, instant) {
     el.querySelectorAll("[data-icon-anim]").forEach(function (icon, i) {
-      icon.style.transition =
-        "opacity .5s ease " + i * 45 + "ms, transform .5s cubic-bezier(.34,1.56,.64,1) " + i * 45 + "ms";
+      icon.style.transition = instant
+        ? "none"
+        : "opacity .5s ease " + i * 45 + "ms, transform .5s cubic-bezier(.34,1.56,.64,1) " + i * 45 + "ms";
       icon.style.opacity = "1";
       icon.style.transform = "scale(1) rotate(0deg)";
     });
@@ -215,12 +216,21 @@ document.querySelectorAll("[data-track-id]").forEach((el) => {
     function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
+        // Already scrolled past the top of the block — a fast flick outran the
+        // observer, so drop it in rather than fading a block being read.
+        var instant = entry.boundingClientRect.top < 0;
+        if (instant) entry.target.classList.add("reveal--instant");
         entry.target.classList.add("is-visible");
-        showIcons(entry.target);
+        showIcons(entry.target, instant);
         io.unobserve(entry.target);
       });
     },
-    { threshold: 0.22, rootMargin: "0px 0px -24% 0px" },
+    // The canvas fires at 22% of the block, 24% off the bottom. That was tuned
+    // on wide blocks: stacked on mobile the same blocks are 1800px tall, so 22%
+    // of them is most of a screen and the section sits blank until you have
+    // scrolled well into it. Trigger on the leading edge instead, which is
+    // height-independent: the block starts fading the moment it comes up.
+    { threshold: 0, rootMargin: "0px 0px -10% 0px" },
   );
   els.forEach(function (el) {
     io.observe(el);

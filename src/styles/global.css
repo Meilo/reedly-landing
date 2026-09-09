@@ -422,6 +422,12 @@ h3 {
     transform 0.7s var(--ease);
 }
 
+/* Set by main.js when the block was already scrolled past when the observer
+   fired. Fading it in then would draw the eye to something already read. */
+.reveal.is-visible.reveal--instant {
+  transition: none;
+}
+
 /* Icons inside a revealing block pop in one after another. */
 [data-icon-anim] {
   opacity: 0;
