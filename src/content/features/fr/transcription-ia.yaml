@@ -8,7 +8,7 @@ seo:
 hero:
   badge: "Transcription pendant ou après le RDV"
   sticky: "Transcription IA · 95%+ de précision"
-  title: "Transcription IA du RDV commercial<br /><em>en temps réel.</em>"
+  title: "Transcription IA Du Rdv commercial<br /><em>en temps réel.</em>"
   lead: "Reedly transcrit automatiquement vos échanges clients avec une précision supérieure à 95%. Le moteur IA comprend les accents régionaux, le vocabulaire technique de votre secteur et fonctionne même en environnement bruyant."
 problem:
   eyebrow: "Problème"
@@ -37,7 +37,7 @@ solution:
       text: "Vous récupérez une transcription complète, horodatée, avec identification des locuteurs. Base parfaite pour le rapport structuré généré ensuite."
 benefits:
   eyebrow: "Avantages"
-  title: "Pourquoi Reedly<br /><em>fait la différence ?</em>"
+  title: "Pourquoi reedly<br /><em>fait la différence ?</em>"
   cards:
     - title: "95%+ de précision garantie"
       text: "Modèles IA optimisés pour la parole française et le contexte commercial. <b>Taux de précision supérieur aux outils généralistes.</b>"

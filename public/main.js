@@ -185,32 +185,108 @@ document.querySelectorAll("[data-track-id]").forEach((el) => {
   });
 })();
 
-// ── Scroll reveal ──
+// ── Scroll reveal, with the icons popping in one after another ──
 (function () {
   var els = document.querySelectorAll(".reveal");
   if (!els.length) return;
-  if (
-    !("IntersectionObserver" in window) ||
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  ) {
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function showIcons(el) {
+    el.querySelectorAll("[data-icon-anim]").forEach(function (icon, i) {
+      icon.style.transition =
+        "opacity .5s ease " + i * 45 + "ms, transform .5s cubic-bezier(.34,1.56,.64,1) " + i * 45 + "ms";
+      icon.style.opacity = "1";
+      icon.style.transform = "scale(1) rotate(0deg)";
+    });
+  }
+
+  if (!("IntersectionObserver" in window) || reduced) {
     els.forEach(function (el) {
       el.classList.add("is-visible");
+      el.querySelectorAll("[data-icon-anim]").forEach(function (icon) {
+        icon.style.opacity = "1";
+        icon.style.transform = "none";
+      });
     });
     return;
   }
+
   var io = new IntersectionObserver(
     function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         entry.target.classList.add("is-visible");
+        showIcons(entry.target);
         io.unobserve(entry.target);
       });
     },
-    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+    { threshold: 0.22, rootMargin: "0px 0px -24% 0px" },
   );
   els.forEach(function (el) {
     io.observe(el);
   });
+})();
+
+// ── KPI count-up, started when the tiles themselves are on screen ──
+(function () {
+  var nodes = document.querySelectorAll("[data-count]");
+  if (!nodes.length) return;
+  if (
+    !("IntersectionObserver" in window) ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    return;
+  }
+
+  var started = false;
+  function run() {
+    if (started) return;
+    started = true;
+    nodes.forEach(function (el) {
+      var target = Number(el.dataset.count) || 0;
+      var t0 = performance.now();
+      el.textContent = "0";
+      var tick = function (t) {
+        var k = Math.min(1, (t - t0) / 1500);
+        el.textContent = String(Math.round(target * (1 - Math.pow(1 - k, 3))));
+        if (k < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  }
+
+  // Watch the tile grid rather than the (very tall) Hub section, so the numbers
+  // start counting when they are actually in view.
+  var grid = nodes[0].closest(".hub__tiles") || nodes[0].parentElement;
+  var io = new IntersectionObserver(
+    function (entries) {
+      if (entries[0].isIntersecting) {
+        run();
+        io.disconnect();
+      }
+    },
+    { threshold: 0.55 },
+  );
+  io.observe(grid);
+})();
+
+// ── Max composer: types the question, then replays it ──
+(function () {
+  var node = document.querySelector("[data-composer]");
+  if (!node) return;
+  var full = node.textContent.trim();
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  function type() {
+    var i = 0;
+    var step = function () {
+      node.textContent = full.slice(0, i);
+      if (i++ < full.length) setTimeout(step, 34);
+      else setTimeout(type, 14000);
+    };
+    step();
+  }
+  type();
 })();
 
 // ── Nav: compact pill on scroll, light ink over dark sections ──
@@ -320,7 +396,7 @@ document.querySelectorAll(".faq__item").forEach(function (item) {
   var track = document.getElementById("tm-track");
   if (!root || !track) return;
 
-  var count = parseInt(root.dataset.count || "0", 10);
+  var count = parseInt(root.dataset.slides || "0", 10);
   if (count < 2) return;
 
   var dots = Array.prototype.slice.call(

@@ -63,7 +63,7 @@ const enterpriseFeatures = Array.from({ length: 5 }, (_, i) => ({
         <ul class="plan__features">
           {teamFeatures.map((feat) => (
             <li>
-              <span class="plan__feature-icon"><Icon name={feat.icon} size={30} /></span>
+              <span class="plan__feature-icon" data-icon-anim><Icon name={feat.icon} size={30} /></span>
               {t(lang, feat.key)}
             </li>
           ))}
@@ -88,7 +88,7 @@ const enterpriseFeatures = Array.from({ length: 5 }, (_, i) => ({
         <ul class="plan__features">
           {enterpriseFeatures.map((feat) => (
             <li>
-              <span class="plan__feature-icon"><Icon name={feat.icon} size={30} /></span>
+              <span class="plan__feature-icon" data-icon-anim><Icon name={feat.icon} size={30} /></span>
               {t(lang, feat.key)}
             </li>
           ))}

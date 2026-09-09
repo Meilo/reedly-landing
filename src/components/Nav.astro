@@ -41,10 +41,20 @@ const homeHref = `/${lang}`;
           <Icon name="chevron-down" size={10} />
         </button>
         <div class="nav__lang-panel" role="menu">
-          <a class="nav__lang-item" role="menuitem" href={lang === 'fr' ? otherHref : path}>
+          <a
+            class={`nav__lang-item${lang === 'en' ? ' is-active' : ''}`}
+            role="menuitem"
+            hreflang="en"
+            href={lang === 'fr' ? otherHref : path}
+          >
             <span class="nav__flag"><FlagEn /></span>{t(lang, 'lang.en')}
           </a>
-          <a class="nav__lang-item" role="menuitem" href={lang === 'fr' ? path : otherHref}>
+          <a
+            class={`nav__lang-item${lang === 'fr' ? ' is-active' : ''}`}
+            role="menuitem"
+            hreflang="fr"
+            href={lang === 'fr' ? path : otherHref}
+          >
             <span class="nav__flag"><FlagFr /></span>{t(lang, 'lang.fr')}
           </a>
         </div>

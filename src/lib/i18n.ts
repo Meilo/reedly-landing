@@ -29,23 +29,23 @@ const fr: Dict = {
 
   'demo.title': 'Parlez. Reedly structure.<br /><em>Vos équipes avancent.</em>',
   'demo.lead':
-    "Votre commercial se concentre sur l'échange. Reedly transforme automatiquement chaque rendez-vous en un compte rendu clair et structuré, puis le partage directement avec vos équipes et dans vos outils.",
+    "Votre commercial se concentre sur l'échange. Reedly transforme automatiquement chaque rendez-vous en <b>un compte rendu clair et structuré</b>, puis le partage directement avec vos équipes et <b>dans vos outils</b>.",
   'demo.label_record': 'Transcription pendant ou après le RDV',
   'demo.label_report': 'Compte rendu en 2 minutes',
 
   'hub.title':
     'Derrière chaque chiffre, il y a une raison.<br /><em>Reedly la met en lumière.</em>',
   'hub.lead':
-    'Reedly rassemble et structure les retours de vos commerciaux pour vous donner une lecture claire de ce qui influence réellement vos performances.',
+    'Reedly <b>rassemble et structure les retours de vos commerciaux</b> pour vous donner une lecture claire de ce qui influence réellement <b>vos performances.</b>',
   'hub.benefit1.title': 'Une vision unifiée de tout le terrain',
   'hub.benefit1.text':
-    'Tous les retours de vos commerciaux réunis au même endroit : attentes des agences, freins à la vente, opportunités et signaux en faveur de la concurrence.',
+    'Tous les retours de vos commerciaux réunis au même endroit : <b>attentes des agences, freins à la vente, opportunités et signaux en faveur de la concurrence.</b>',
   'hub.benefit2.title': 'Tendances, opportunités, risques',
   'hub.benefit2.text':
-    "Reedly agrège les signaux du terrain en synthèses sur la période de votre choix. Détectez les évolutions du terrain avant qu'elles ne se reflètent dans vos chiffres.",
+    "Reedly agrège les signaux du terrain en synthèses sur la période de votre choix. <b>Détectez les évolutions du terrain</b> avant qu'elles ne se reflètent dans vos chiffres.",
   'hub.benefit3.title': 'Décryptez les freins à la vente',
   'hub.benefit3.text':
-    "Identifiez les causes d'un ralentissement des ventes, d'un stop vente ou du désengagement d'une agence.",
+    "<b>Identifiez</b> les causes d'un ralentissement des ventes, d'un stop vente ou du<b> désengagement d'une agence.</b>",
   'hub.max.url': 'hub.reedly.ai/max',
   'hub.max.greeting': 'Salut !',
   'hub.max.greeting_sub': "Qu'est-ce que tu veux creuser aujourd'hui ?",
@@ -196,7 +196,7 @@ const fr: Dict = {
   'footer.cookies': 'Politique des cookies',
   'footer.copy_short': '© {year} Copyright. Tous droits réservés.',
 
-  'lang.fr': 'Français',
+  'lang.fr': 'French',
   'lang.en': 'English',
 };
 
@@ -217,22 +217,22 @@ const en: Dict = {
 
   'demo.title': 'You talk. Reedly structures.<br /><em>Your teams move forward.</em>',
   'demo.lead':
-    'Your rep stays focused on the conversation. Reedly automatically turns every meeting into a clear, structured report, then shares it straight with your teams and inside your tools.',
+    'Your rep stays focused on the conversation. Reedly automatically turns every meeting into <b>a clear, structured report</b>, then shares it straight with your teams and <b>inside your tools</b>.',
   'demo.label_record': 'Transcription during or after the meeting',
   'demo.label_report': 'Report in 2 minutes',
 
   'hub.title': "Behind every number, there's a reason.<br /><em>Reedly brings it to light.</em>",
   'hub.lead':
-    "Reedly gathers and structures your reps' field feedback to give you a clear read on what really drives your performance.",
+    "Reedly <b>gathers and structures your reps' field feedback</b> to give you a clear read on what really drives <b>your performance.</b>",
   'hub.benefit1.title': 'A unified view of the whole field',
   'hub.benefit1.text':
-    "Every rep's field feedback in one place: what agencies expect, what blocks sales, opportunities, and signals favoring the competition.",
+    "Every rep's field feedback in one place: <b>what agencies expect, what blocks sales, opportunities, and signals favoring the competition.</b>",
   'hub.benefit2.title': 'Trends, opportunities, risks',
   'hub.benefit2.text':
-    'Reedly aggregates field signals into syntheses over any period. Spot shifts in the field before they show up in your numbers.',
+    'Reedly aggregates field signals into syntheses over any period. <b>Spot shifts in the field</b> before they show up in your numbers.',
   'hub.benefit3.title': 'Decode what is blocking sales',
   'hub.benefit3.text':
-    'Identify what is behind a sales slowdown, a stop-sale, or an agency disengaging.',
+    '<b>Identify</b> what is behind a sales slowdown, a stop-sale, or<b> an agency disengaging.</b>',
   'hub.max.url': 'hub.reedly.ai/max',
   'hub.max.greeting': 'Hi Sophie!',
   'hub.max.greeting_sub': 'What do you want to dig into today?',
@@ -383,7 +383,7 @@ const en: Dict = {
   'footer.cookies': 'Cookie policy',
   'footer.copy_short': '© {year} Copyright. All rights reserved.',
 
-  'lang.fr': 'Français',
+  'lang.fr': 'French',
   'lang.en': 'English',
 };
 

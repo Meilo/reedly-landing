@@ -106,6 +106,139 @@ img {
   }
 }
 
+/* ── Intro curtain ─────────────────────────────────────────────────────── */
+/* Two dark panels part on load behind the mark and the wordmark, as in the
+   canvas. Purely decorative: hidden when the visitor asks for less motion. */
+
+@keyframes rd-left {
+  0%,
+  44% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100.5%);
+  }
+}
+
+@keyframes rd-right {
+  0%,
+  44% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100.5%);
+  }
+}
+
+@keyframes rd-logo {
+  0% {
+    opacity: 0;
+    filter: blur(16px);
+    transform: scale(1.14);
+  }
+  20% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+  44% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+  58%,
+  100% {
+    opacity: 0;
+    filter: blur(6px);
+    transform: scale(0.99);
+  }
+}
+
+@keyframes rd-word {
+  0%,
+  10% {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  44% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  58%,
+  100% {
+    opacity: 0;
+    transform: scale(0.99);
+  }
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 50.4vw;
+  z-index: 998;
+  background: var(--ink);
+  pointer-events: none;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+body::before {
+  left: 0;
+  animation: rd-left 2.2s cubic-bezier(0.72, 0, 0.18, 1) forwards;
+}
+
+body::after {
+  right: 0;
+  animation: rd-right 2.2s cubic-bezier(0.72, 0, 0.18, 1) forwards;
+}
+
+html::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  background: url('/logo-mark.svg') no-repeat center calc(50% - 30px) / 66px 58px;
+  will-change: opacity, filter, transform;
+  backface-visibility: hidden;
+  animation: rd-logo 2.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+html::before {
+  content: 'REEDLY';
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: grid;
+  place-items: center;
+  padding-top: 60px;
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  letter-spacing: 0.16em;
+  text-indent: 0.16em;
+  color: #fff;
+  pointer-events: none;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  animation: rd-word 2.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after,
+  html::before,
+  html::after {
+    display: none;
+  }
+}
+
 /* ── Layout primitives ─────────────────────────────────────────────────── */
 
 .section {
@@ -283,6 +416,19 @@ h3 {
   transition:
     opacity 0.7s ease,
     transform 0.7s var(--ease);
+}
+
+/* Icons inside a revealing block pop in one after another. */
+[data-icon-anim] {
+  opacity: 0;
+  transform: scale(0.4) rotate(-8deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-icon-anim] {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -533,6 +679,37 @@ h3 {
   transform: translateX(4px);
   color: var(--brand);
   background: #e2e8f0;
+}
+
+.nav__lang-item.is-active {
+  color: var(--brand);
+}
+
+.nav.is-compact .nav__lang-panel {
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow:
+    0 10px 30px -18px rgba(15, 23, 42, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.nav.is-compact.is-onDark .nav__lang-panel {
+  background: rgba(15, 23, 42, 0.62);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 10px 30px -18px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.nav.is-compact.is-onDark .nav__lang-item {
+  color: #fff;
+}
+
+.nav.is-compact.is-onDark .nav__lang-item:hover {
+  color: var(--brand);
+  background: rgba(255, 255, 255, 0.28);
 }
 
 @media (max-width: 760px) {

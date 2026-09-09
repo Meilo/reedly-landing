@@ -28,7 +28,7 @@ const slides = [testimonials[testimonials.length - 1], ...testimonials, testimon
       <h2 class="display display--lg" set:html={t(lang, 'tm.title')} />
     </div>
 
-    <div class="tm__carousel reveal" id="testimonials" data-count={testimonials.length}>
+    <div class="tm__carousel reveal" id="testimonials" data-slides={testimonials.length}>
       <div class="tm__stage">
         <div class="tm__border">
           <div class="tm__viewport">

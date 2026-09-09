@@ -15,7 +15,7 @@ const benefits = [
   <div class="inner">
     <div class="reveal center-mobile">
       <h2 class="display display--lg" set:html={t(lang, 'hub.title')} />
-      <p class="lead">{t(lang, 'hub.lead')}</p>
+      <p class="lead" set:html={t(lang, 'hub.lead')} />
     </div>
 
     <div class="hub__grid reveal">
@@ -44,11 +44,11 @@ const benefits = [
             <div class="hub__tiles">
               <div class="hub__tile">
                 <div class="hub__tile-label">{t(lang, 'hub.max.kpi_team')}</div>
-                <div class="hub__tile-value">6</div>
+                <div class="hub__tile-value" data-count="6">6</div>
               </div>
               <div class="hub__tile">
                 <div class="hub__tile-label">{t(lang, 'hub.max.kpi_reports')}</div>
-                <div class="hub__tile-value">24</div>
+                <div class="hub__tile-value" data-count="24">24</div>
               </div>
               <div class="hub__tile">
                 <div class="hub__tile-title">
@@ -67,7 +67,7 @@ const benefits = [
             </div>
 
             <div class="hub__composer">
-              <span class="hub__composer-text">{t(lang, 'hub.max.composer')}</span>
+              <span class="hub__composer-text" data-composer>{t(lang, 'hub.max.composer')}</span>
               <span class="hub__composer-send" aria-hidden="true">
                 <Icon name="arrow-cta" size={18} />
               </span>
@@ -84,7 +84,7 @@ const benefits = [
             <Icon name={b.icon} size={60} />
           </span>
           <h3>{t(lang, b.title)}</h3>
-          <p>{t(lang, b.text)}</p>
+          <p set:html={t(lang, b.text)} />
         </article>
       ))}
     </div>
