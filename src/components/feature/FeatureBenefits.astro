@@ -1,32 +1,26 @@
 ---
-import FeatureIcon from './FeatureIcon.astro';
+import Icon from '@/components/Icon.astro';
 
 interface Props {
-  eyebrow?: string;
-  title?: string;
+  title: string;
   cards: { title: string; text: string; icon: string }[];
 }
-const { eyebrow, title, cards } = Astro.props;
-// Without a heading the grid reads as a continuation of the section above it,
-// so it drops the alternate band to keep the page alternating.
+
+const { title, cards } = Astro.props;
 ---
 
-<section class:list={['section', title && 'section--alt']}>
+<section class="section">
   <div class="inner">
-    {title && (
-      <div class="reveal">
-        {eyebrow && <div class="section__eyebrow">{eyebrow}</div>}
-        <h2 set:html={title} />
-      </div>
-    )}
-    <div class="features-grid">
-      {cards.map((card, i) => (
-        <article class={`feature-card reveal reveal-delay-${Math.min(i + 1, 3)}`}>
-          <div class="feature-card__icon">
-            <FeatureIcon name={card.icon} />
-          </div>
+    <div class="reveal center-mobile">
+      <h2 class="display display--lg" set:html={title} />
+    </div>
+
+    <div class="feature-grid feature-grid--wide reveal center-mobile">
+      {cards.map((card) => (
+        <article class="feature-item">
+          <span class="feature-item__icon"><Icon name={card.icon} size={60} /></span>
           <h3>{card.title}</h3>
-          <p>{card.text}</p>
+          <p set:html={card.text} />
         </article>
       ))}
     </div>

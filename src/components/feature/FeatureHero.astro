@@ -1,32 +1,49 @@
 ---
+import { t, type Lang } from '@/lib/i18n';
+
 interface Props {
-  eyebrow: string;
+  badge: string;
   title: string;
   lead: string;
-  cta_url: string;
-  lang: 'fr' | 'en';
+  image: string;
+  imageAlt: string;
+  objectPosition?: string;
+  lang: Lang;
 }
-const { eyebrow, title, lead, cta_url, lang } = Astro.props;
-const ctaLabel = lang === 'fr' ? 'Essayer gratuitement' : 'Get started free';
-const ctaHref = lang === 'en' ? 'https://hub.reedly.ai' : cta_url;
+
+const { badge, title, lead, image, imageAlt, objectPosition, lang } = Astro.props;
+const home = `/${lang}`;
 ---
 
-<section class="comp-hero">
-  <div class="inner">
-    <div class="reveal">
-      <div class="section__eyebrow">{eyebrow}</div>
-      <h1 set:html={title} />
-      <p class="comp-hero__lead">{lead}</p>
-      <div class="hero__actions">
+<section class="fhero">
+  <div class="inner fhero__inner">
+    <div class="fhero__text reveal center-mobile">
+      <h1 class="display display--xl" set:html={title} />
+      <p class="lead" set:html={lead} />
+      <div class="btn-row">
         <a
-          class="btn btn--primary btn--lg"
-          href={ctaHref}
-          data-track-id="feature_hero_cta"
+          class="btn btn--primary"
+          href={`${home}#rdv`}
+          data-track-id="feature_hero_book_demo"
+          data-track-type="demo"
+          data-track-section="feature_hero">{t(lang, 'cta.book_demo')}</a
+        >
+        <a
+          class="btn btn--ghost"
+          href={`${home}#rdv`}
+          data-track-id="feature_hero_try_free"
           data-track-type="trial"
-          data-track-section="feature_hero"
-        >{ctaLabel}</a>
+          data-track-section="feature_hero">{t(lang, 'cta.try_free')}</a
+        >
+      </div>
+    </div>
+
+    <div class="fhero__media reveal">
+      <div class="frame frame--portrait">
+        <img src={image} alt={imageAlt} width="1122" height="1402" fetchpriority="high" style={objectPosition ? `object-position:${objectPosition}` : undefined} />
+        <div class="frame__scrim" aria-hidden="true"></div>
+        <div class="frame__badge">{badge}</div>
       </div>
     </div>
   </div>
 </section>
-

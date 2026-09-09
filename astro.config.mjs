@@ -18,21 +18,19 @@ export default defineConfig({
     // and `/en/*`. See https://starlight.astro.build/manual-setup/ ("subpath").
     starlight({
       title: 'Reedly Docs',
-      description: 'Integrate with Reedly — field meeting intelligence for B2B sales teams.',
-      // The real mark. Both must be set explicitly: Starlight's favicon defaults
-      // to `/favicon.svg`, and public/ happens to contain one — a stray
-      // placeholder drawing an "R" in monospace text, not the Reedly logo. So the
-      // docs were silently serving a different icon from the rest of the domain.
+      description: 'Integrate with Reedly, the field meeting intelligence for B2B sales teams.',
+      // Starlight's favicon defaults to `/favicon.svg`, which no longer exists:
+      // set it explicitly or the docs lose the mark the rest of the domain uses.
       //
-      // logo.src points at a 64px copy rather than public/favicon.png: Starlight
-      // renders the logo through a plain <img> at its intrinsic size, so the
-      // 1023x1023 original shipped 778 KB to draw a 28px mark.
+      // logo.src stays a 64px copy: Starlight renders it through a plain <img>
+      // at its intrinsic size, and the mark is drawn at 28px.
       logo: { src: './src/assets/logo.png', alt: 'Reedly' },
       favicon: '/favicon.png',
       customCss: ['./src/styles/starlight.css'],
       // Starlight renders through its own layout, so it never inherits the font
-      // <link> from Layout.astro. Mirror it here or the docs fall back to a
-      // system font while the rest of reedly.ai is in Geist.
+      // <link> from Layout.astro. The docs are the only place Geist actually
+      // renders (`--sl-font` in starlight.css); the marketing pages are on
+      // Lanterosy + Inter and no longer request it.
       head: [
         { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
         { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true } },
@@ -55,8 +53,8 @@ export default defineConfig({
       sidebar: [{ label: 'Integrations', items: [{ label: 'Webhooks', slug: 'docs/webhooks' }] }],
       pagination: false,
       components: {
-        // reedly.ai is dark-only; these two force the docs to match instead of
-        // following the OS preference. See the files for the full reasoning.
+        // The docs keep their own dark surface (the marketing site is light-only);
+        // these two pin it instead of following the OS preference.
         ThemeProvider: './src/components/starlight/ThemeProvider.astro',
         ThemeSelect: './src/components/starlight/ThemeSelect.astro',
       },
@@ -73,8 +71,12 @@ export default defineConfig({
     mdx(),
     // Auto-generates a complete sitemap on every build (no more stale static file).
     // hreflang is emitted per-page in the <head> (Layout.astro), so a flat sitemap is fine.
+    //
+    // The root is excluded on purpose: vercel.json 301s `/` to `/en`, and a
+    // sitemap that lists a redirecting URL is reported as "Page with redirect"
+    // in Search Console. Every language half is listed under /fr and /en.
     sitemap({
-      filter: (page) => !page.includes('/api/'),
+      filter: (page) => !page.includes('/api/') && page !== 'https://www.reedly.ai/',
     }),
   ],
 });

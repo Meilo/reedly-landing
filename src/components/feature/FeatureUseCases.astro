@@ -1,30 +1,96 @@
 ---
-import FeatureIcon from './FeatureIcon.astro';
-
+// Use cases: an accordion whose selected row drives the photo beside it.
 interface Props {
-  eyebrow: string;
   title: string;
-  cards: { title: string; text: string; icon: string }[];
+  cards: { title: string; text: string }[];
+  images: { src: string; alt: string }[];
 }
-const { eyebrow, title, cards } = Astro.props;
+
+const { title, cards, images } = Astro.props;
 ---
 
-<section class="section">
+<section class="section section--white">
   <div class="inner">
-    <div class="reveal">
-      <div class="section__eyebrow">{eyebrow}</div>
-      <h2 set:html={title} />
+    <div class="reveal center-mobile">
+      <h2 class="display display--lg" set:html={title} />
     </div>
-    <div class="features-grid">
-      {cards.map((card, i) => (
-        <article class={`feature-card reveal reveal-delay-${Math.min(i + 1, 3)}`}>
-          <div class="feature-card__icon">
-            <FeatureIcon name={card.icon} />
+
+    <div class="usecases reveal" id="usecases">
+      <div class="usecases__list">
+        {cards.map((card, i) => (
+          <div class={`usecase${i === 0 ? ' is-open' : ''}`} data-index={i}>
+            <button class="usecase__head" type="button" aria-expanded={i === 0 ? 'true' : 'false'}>
+              <span class="usecase__num">{String(i + 1).padStart(2, '0')}</span>
+              <span class="usecase__title">{card.title}</span>
+            </button>
+            <div class="usecase__panel">
+              <p set:html={card.text} />
+            </div>
           </div>
-          <h3>{card.title}</h3>
-          <p>{card.text}</p>
-        </article>
-      ))}
+        ))}
+      </div>
+
+      <div class="usecases__media">
+        {cards.map((_, i) => {
+          const img = images[i % images.length];
+          return (
+            <img
+              class={`usecases__img${i === 0 ? ' is-active' : ''}`}
+              data-index={i}
+              src={img.src}
+              alt={img.alt}
+              width="1122"
+              height="1402"
+              loading="lazy"
+            />
+          );
+        })}
+        <div class="frame__scrim" aria-hidden="true"></div>
+        <div class="usecases__dots">
+          {cards.map((card, i) => (
+            <button
+              type="button"
+              class={`usecases__dot${i === 0 ? ' is-active' : ''}`}
+              data-index={i}
+              aria-label={card.title}></button>
+          ))}
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<script is:inline>
+  (function () {
+    var root = document.getElementById('usecases');
+    if (!root) return;
+    var rows = root.querySelectorAll('.usecase');
+    var imgs = root.querySelectorAll('.usecases__img');
+    var dots = root.querySelectorAll('.usecases__dot');
+
+    function select(index) {
+      rows.forEach(function (row) {
+        var on = row.dataset.index === String(index);
+        row.classList.toggle('is-open', on);
+        row.querySelector('.usecase__head').setAttribute('aria-expanded', on ? 'true' : 'false');
+      });
+      imgs.forEach(function (img) {
+        img.classList.toggle('is-active', img.dataset.index === String(index));
+      });
+      dots.forEach(function (dot) {
+        dot.classList.toggle('is-active', dot.dataset.index === String(index));
+      });
+    }
+
+    rows.forEach(function (row) {
+      row.querySelector('.usecase__head').addEventListener('click', function () {
+        select(row.dataset.index);
+      });
+    });
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        select(dot.dataset.index);
+      });
+    });
+  })();
+</script>

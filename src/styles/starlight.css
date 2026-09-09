@@ -4,12 +4,12 @@
  * Starlight ships its own layout, so it never sees `global.css` — the marketing
  * tokens are re-declared here against Starlight's own custom properties rather
  * than imported, which also keeps the two surfaces free to drift.
- * Palette mirrors src/styles/global.css: deep navy + Reedly green.
+ * Palette: deep navy + Reedly green, the same accents as the marketing site.
  */
 
 :root {
-  /* Dark-only, enforced by the ThemeProvider override — reedly.ai declares
-     `color-scheme: dark` site-wide and ships no light surface. */
+  /* Dark-only, enforced by the ThemeProvider override. The docs keep this
+     surface of their own; the marketing site is light-only. */
   color-scheme: dark;
 
   /* Reedly green. `accent` carries UI chrome, `accent-high` the text-on-dark

@@ -1,172 +1,77 @@
 ---
-// Nav, sticky navigation bar
-import { t } from '@/lib/i18n';
+// Sticky navigation. Collapses into a floating pill on scroll and flips to
+// light ink over any section flagged `data-nav-dark` (public/main.js).
+import { getLang, t } from '@/lib/i18n';
+import Icon from '@/components/Icon.astro';
+import FlagFr from '@/components/icons/FlagFr.astro';
+import FlagEn from '@/components/icons/FlagEn.astro';
 
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const lang = path.startsWith('/en') ? 'en' : 'fr';
-const isFeatures = path.includes('/features/');
-const featuresLabel = lang === 'fr' ? 'Produit' : 'Product';
-const currentSlug = path.split('/features/')[1] || '';
-const isTarifs = path.endsWith('/tarifs') || path.endsWith('/pricing');
-const loginHref = 'https://hub.reedly.ai';
-const bookHref = `/${lang}#rdv`;
+const lang = getLang(path);
 
-const features = [
-  { slugFr: 'enregistrement-vocal-rdv', slugEn: 'meeting-voice-recording', labelFr: 'Enregistrement vocal', labelEn: 'Voice Recording', descFr: 'Capturez chaque RDV en 1 tap', descEn: 'Capture every meeting in 1 tap', icon: 'M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z' },
-  { slugFr: 'transcription-ia', slugEn: 'ai-transcription', labelFr: 'Transcription IA', labelEn: 'AI Transcription', descFr: 'Transcription +95% de précision', descEn: '95%+ accuracy transcription', icon: 'M3 5h12M3 9h8M3 13h10M3 17h6' },
-  { slugFr: 'rapport-ia', slugEn: 'ai-report', labelFr: 'Rapport structuré IA', labelEn: 'AI Structured Report', descFr: 'Rapport en 11 sections en 2 min', descEn: '11-section report in 2 min', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
-  { slugFr: 'identification-interlocuteurs', slugEn: 'speaker-identification', labelFr: 'Identification des voix', labelEn: 'Speaker Identification', descFr: 'Qui a dit quoi dans le RDV', descEn: 'Who said what in the meeting', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z' },
-  { slugFr: 'syntheses-territoriales', slugEn: 'territory-syntheses', labelFr: 'Synthèses territoriales', labelEn: 'Territory Syntheses', descFr: 'Vision stratégique du terrain', descEn: 'Strategic territory overview', icon: 'M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z' },
-  { slugFr: 'hub-manager', slugEn: 'manager-hub', labelFr: 'Hub Manager', labelEn: 'Manager Hub', descFr: 'Dashboard équipe centralisé', descEn: 'Centralized team dashboard', icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 8a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zm10 0a1 1 0 011-1h4a1 1 0 011 1v6a1 1 0 01-1 1h-4a1 1 0 01-1-1v-6z' },
-  { slugFr: 'preparation-rdv', slugEn: 'meeting-preparation', labelFr: 'Préparation de RDV', labelEn: 'Meeting Preparation', descFr: 'Briefing IA avant chaque visite', descEn: 'AI briefing before each visit', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4' },
-  { slugFr: 'assistant-ia-manager', slugEn: 'ai-manager-assistant', labelFr: 'Max · Assistant IA', labelEn: 'Max · AI Assistant', descFr: 'Posez vos questions à l\'IA', descEn: 'Ask the AI your questions', icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z' },
-  { slugFr: 'portfolio-client', slugEn: 'client-portfolio', labelFr: 'Portfolio Client', labelEn: 'Client Portfolio', descFr: 'Fiches clients enrichies par l\'IA', descEn: 'AI-enriched client cards', icon: 'M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21' },
-  { slugFr: 'base-de-connaissances', slugEn: 'knowledge-base', labelFr: 'Base de connaissances', labelEn: 'Knowledge Base', descFr: 'Documents et contexte métier', descEn: 'Documents & business context', icon: 'M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25' },
-  { slugFr: 'directives-commerciales', slugEn: 'sales-directives', labelFr: 'Directives commerciales', labelEn: 'Sales Directives', descFr: 'Objectifs avec suivi IA', descEn: 'Goals with AI tracking', icon: 'M12 2a10 10 0 110 20 10 10 0 010-20zm0 4a6 6 0 100 12 6 6 0 000-12zm0 4a2 2 0 110 4 2 2 0 010-4z' },
-  { slugFr: 'integrations-crm', slugEn: 'crm-integrations', labelFr: 'Intégrations CRM', labelEn: 'CRM Integrations', descFr: 'HubSpot, Salesforce, Slack...', descEn: 'HubSpot, Salesforce, Slack...', icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1' },
-];
+interface Props {
+  /** Mirror path in the other language, for the language switcher. */
+  altHref?: string;
+}
 
+const { altHref } = Astro.props;
+const otherLang = lang === 'fr' ? 'en' : 'fr';
+const otherHref = altHref ?? `/${otherLang}`;
+const homeHref = `/${lang}`;
 ---
 
-<style is:inline>
-  /* Critical: hide the nav dropdowns before global.css loads (prevents FOUC
-     where both menus flash open on reload). Active theme icon shown immediately
-     from the data-theme-setting the Layout bootstrap already set on <html>. */
-  .nav__select-panel { position: absolute; opacity: 0; visibility: hidden; }
-  .nav__select-ico { display: none; }
-  html[data-theme-setting='light'] [data-select='theme'] .nav__select-ico--light,
-  html[data-theme-setting='dark'] [data-select='theme'] .nav__select-ico--dark,
-  html[data-theme-setting='system'] [data-select='theme'] .nav__select-ico--system { display: inline-flex; }
-  .nav__signin { font-size: 14px; color: var(--muted); transition: color .15s; white-space: nowrap; }
-  .nav__signin:hover { color: var(--text); }
-</style>
-
-<nav class="nav z1">
+<nav class="nav" id="nav">
   <div class="nav__inner">
-    <a class="logo" href={`/${lang}`} data-link-fr="/fr" data-link-en="/en">
-      <img src="/favicon.png" alt="Reedly" width="28" height="28" style="border-radius: 8px;" />
+    <a class="nav__logo" href={homeHref}>
+      <img src="/logo-mark.svg" alt="" width="20" height="20" />
       <span>REEDLY</span>
     </a>
 
-    <div class="nav__menu">
-      <div class="nav__dropdown">
-        <button class={`nav__menu-link nav__dropdown-trigger${isFeatures ? ' active' : ''}`} type="button">
-          {featuresLabel}
-          <svg class="nav__dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav__dropdown-panel">
-          <div class="nav__dropdown-list">
-            {features.map((f) => (
-              <a class={`nav__dropdown-item${currentSlug === (lang === 'fr' ? f.slugFr : f.slugEn) ? ' nav__dropdown-item--active' : ''}`} href={`/${lang}/features/${lang === 'fr' ? f.slugFr : f.slugEn}`}>
-                <svg class="nav__dropdown-item-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d={f.icon} /></svg>
-                <div>
-                  <span class="nav__dropdown-item-label">{lang === 'fr' ? f.labelFr : f.labelEn}</span>
-                  <span class="nav__dropdown-item-desc">{lang === 'fr' ? f.descFr : f.descEn}</span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-      <a class={`nav__menu-link${isTarifs ? ' active' : ''}`} href={lang === 'fr' ? '/fr/tarifs' : '/en/pricing'} data-link-fr="/fr/tarifs" data-link-en="/en/pricing">{t(lang, 'nav.pricing')}</a>
-    </div>
-
     <div class="nav__actions">
-      <!-- Appearance dropdown (theme) -->
-      <div class="nav__select" data-select="theme">
-        <button class="nav__select-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label={t(lang, 'nav.theme')}>
-          <span class="nav__select-ico nav__select-ico--light"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
-          <span class="nav__select-ico nav__select-ico--dark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
-          <span class="nav__select-ico nav__select-ico--system"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
-          <svg class="nav__select-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav__select-panel" role="menu">
-          <button class="nav__select-item theme-btn" data-theme-value="light" type="button" role="menuitem">
-            <span class="nav__select-item-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
-            <span>{t(lang, 'nav.theme_light')}</span>
-          </button>
-          <button class="nav__select-item theme-btn" data-theme-value="dark" type="button" role="menuitem">
-            <span class="nav__select-item-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
-            <span>{t(lang, 'nav.theme_dark')}</span>
-          </button>
-          <button class="nav__select-item theme-btn" data-theme-value="system" type="button" role="menuitem">
-            <span class="nav__select-item-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
-            <span>{t(lang, 'nav.theme_system')}</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Language dropdown -->
-      <div class="nav__select" data-select="lang">
-        <button class="nav__select-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label={t(lang, 'nav.language')}>
-          <span class="nav__select-current">{lang.toUpperCase()}</span>
-          <svg class="nav__select-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav__select-panel" role="menu">
-          <button class={`nav__select-item lang-btn${lang === 'en' ? ' active' : ''}`} data-lang="en" type="button" role="menuitem">English</button>
-          <button class={`nav__select-item lang-btn${lang === 'fr' ? ' active' : ''}`} data-lang="fr" type="button" role="menuitem">Français</button>
-        </div>
-      </div>
-
-      <span class="nav__sep"></span>
+      <button
+        class="nav__lang-trigger"
+        type="button"
+        id="nav-lang-trigger"
+        aria-haspopup="true"
+        aria-expanded="false"
+        aria-label={t(lang, 'nav.language')}
+      >
+        <span class={`nav__flag${lang === 'fr' ? ' nav__flag--fr' : ''}`}>
+          {lang === 'fr' ? <FlagFr /> : <FlagEn />}
+        </span>
+        <Icon name="chevron-down" size={10} />
+      </button>
 
       <a
         class="nav__signin"
-        href={loginHref}
+        href="https://hub.reedly.ai"
         data-track-id="nav_login"
         data-track-type="login"
-        data-track-section="nav"
-      >{t(lang, 'nav.login')}</a>
+        data-track-section="nav">{t(lang, 'nav.login')}</a
+      >
+
       <a
-        class="btn btn--primary btn--sm"
-        href={bookHref}
-        data-link-fr="/fr#rdv"
-        data-link-en="/en#rdv"
+        class="nav__cta"
+        href={`${homeHref}#rdv`}
         data-track-id="nav_book_demo"
         data-track-type="demo"
-        data-track-section="nav"
-      >{t(lang, 'cta.book_demo')}</a>
-    </div>
-
-    <button
-      class="nav__hamburger"
-      id="nav-toggle"
-      aria-label={t(lang, 'nav.open_menu')}
-      aria-expanded="false"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-
-  <div class="nav__mobile" id="nav-mobile" aria-hidden="true">
-    <span class={`nav__mobile-link${isFeatures ? ' active' : ''}`}>{featuresLabel}</span>
-    <div class="nav__mobile-features">
-      {features.map((f) => (
-        <a class="nav__mobile-feature" href={`/${lang}/features/${lang === 'fr' ? f.slugFr : f.slugEn}`}>
-          {lang === 'fr' ? f.labelFr : f.labelEn}
-        </a>
-      ))}
-    </div>
-    <a class={`nav__mobile-link${isTarifs ? ' active' : ''}`} href={lang === 'fr' ? '/fr/tarifs' : '/en/pricing'} data-link-fr="/fr/tarifs" data-link-en="/en/pricing">{t(lang, 'nav.pricing')}</a>
-    <div class="nav__mobile-actions">
-      <a
-        class="btn btn--ghost btn--md"
-        href={loginHref}
-        data-track-id="nav_login_mobile"
-        data-track-type="login"
-        data-track-section="nav_mobile"
-      >{t(lang, 'nav.login')}</a>
-      <a
-        class="btn btn--primary btn--md"
-        href={bookHref}
-        data-link-fr="/fr#rdv"
-        data-link-en="/en#rdv"
-        data-track-id="nav_book_demo_mobile"
-        data-track-type="demo"
-        data-track-section="nav_mobile"
-      >{t(lang, 'cta.book_demo')}</a>
+        data-track-section="nav">{t(lang, 'cta.book_demo')}</a
+      >
     </div>
   </div>
 </nav>
+
+<!--
+  Sibling of <nav>, not a descendant of the blurred pill: a backdrop-filter
+  nested inside an ancestor that already has one samples that ancestor's
+  flattened layer instead of the page, so its blur would do nothing. Its
+  position is measured from the trigger in public/main.js.
+-->
+<div class="nav__lang-panel" id="nav-lang-panel" role="menu">
+  <a class="nav__lang-item" role="menuitem" hreflang="en" href={lang === 'fr' ? otherHref : path}>
+    <span class="nav__flag"><FlagEn /></span>{t(lang, 'lang.en')}
+  </a>
+  <a class="nav__lang-item" role="menuitem" hreflang="fr" href={lang === 'fr' ? path : otherHref}>
+    <span class="nav__flag nav__flag--fr"><FlagFr /></span>{t(lang, 'lang.fr')}
+  </a>
+</div>

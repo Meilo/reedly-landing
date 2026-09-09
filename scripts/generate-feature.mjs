@@ -6,10 +6,13 @@ import config from './feature-config.mjs';
 
 const REGISTRY_PATH = path.resolve('src/data/features.yaml');
 const CONTENT_DIR = path.resolve('src/content/features');
+// Card icons available to product pages. Must stay a subset of the registry in
+// src/components/Icon.astro, which is lifted from the design canvas.
 const ICON_NAMES = [
-  'microphone', 'document', 'clock', 'users', 'brain', 'globe',
-  'building', 'flask', 'chart', 'download', 'shield', 'search',
-  'zap', 'target', 'layers', 'music', 'alert', 'shuffle', 'compass', 'book',
+  'no-notes', 'memory', 'generic-tools', 'accuracy', 'jargon', 'noise',
+  'speakers', 'secure', 'report', 'fragmented', 'no-vision', 'blind-coaching',
+  'dashboard', 'syntheses', 'stats', 'team', 'export', 'realtime',
+  'unified-view', 'trends', 'blockers',
 ];
 
 function loadRegistry() {
@@ -26,7 +29,7 @@ function loadStyleExamples() {
     .filter(Boolean);
 }
 
-function buildPrompt(featureCtx, lang, examples, relatedFeatures) {
+function buildPrompt(featureCtx, lang, examples) {
   const isEn = lang === 'en';
   const name = isEn ? featureCtx.nameEn : featureCtx.nameFr;
   const description = isEn ? featureCtx.descriptionEn : featureCtx.descriptionFr;
@@ -35,10 +38,6 @@ function buildPrompt(featureCtx, lang, examples, relatedFeatures) {
   const styleSnippets = examples
     .map((ex, i) => `--- Style example ${i + 1} ---\n${ex.slice(0, 1500)}`)
     .join('\n\n');
-
-  const relatedList = relatedFeatures
-    .map((r) => `- slug: "${r.slug}", label: "${r.label}"`)
-    .join('\n');
 
   return `You are an expert SEO content writer and product marketer for B2B SaaS tools.
 
@@ -66,12 +65,11 @@ CRITICAL RULES:
 - benefits.cards must have 4-6 items
 - use_cases.cards must have 3-4 items
 - faq must have 4-6 items answering real "People Also Ask" questions
-- All icon fields must use ONLY from this list: ${ICON_NAMES.join(', ')}
+- All icon fields (problem.cards and benefits.cards only) must use ONLY from this list: ${ICON_NAMES.join(', ')}
 - NEVER invent features that Reedly doesn't have
-- ${isEn ? 'hero.cta_url should be "/en#trial"' : 'hero.cta_url should be "/fr#trial"'}
-
-Related features to link to:
-${relatedList}
+- hero.badge is the short label laid over the hero photo; hero.sticky is the label of the sticky bottom bar
+- Titles (hero, problem, solution, benefits, use_cases) are two lines: plain first line, then <br /> and the second line wrapped in <em>
+- Card texts and section leads may bold a key phrase with <b>…</b>
 
 Output ONLY valid YAML (no markdown fences, no comments, no explanation). Start directly with "seo:".
 
@@ -82,11 +80,10 @@ seo:
   description: string
   keywords: [string, string, string]
 hero:
-  eyebrow: string
+  badge: string
+  sticky: string
   title: string
   lead: string
-  cta_label: string
-  cta_url: string
 problem:
   eyebrow: string
   title: string
@@ -115,13 +112,9 @@ use_cases:
   cards:
     - title: string
       text: string
-      icon: string
 faq:
   - question: string
-    answer: string
-related_features:
-  - slug: string
-    label: string`;
+    answer: string`;
 }
 
 async function generateFeatureContent(featureId, lang) {
@@ -134,16 +127,8 @@ async function generateFeatureContent(featureId, lang) {
 
   const examples = loadStyleExamples();
 
-  const relatedFeatures = (featureCtx.relatedIds || []).map((relId) => {
-    const rel = registry.features.find((f) => f.id === relId);
-    const relCtx = config.featureContext[relId];
-    return {
-      slug: rel.slugs[lang],
-      label: lang === 'en' ? relCtx.nameEn : relCtx.nameFr,
-    };
-  });
 
-  const prompt = buildPrompt(featureCtx, lang, examples, relatedFeatures);
+  const prompt = buildPrompt(featureCtx, lang, examples);
 
   const client = new Anthropic();
   const response = await client.messages.create({

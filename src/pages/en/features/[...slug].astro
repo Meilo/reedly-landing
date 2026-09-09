@@ -6,101 +6,88 @@ import FeatureProblem from '@/components/feature/FeatureProblem.astro';
 import FeatureSolution from '@/components/feature/FeatureSolution.astro';
 import FeatureBenefits from '@/components/feature/FeatureBenefits.astro';
 import FeatureUseCases from '@/components/feature/FeatureUseCases.astro';
+import FeatureRoles from '@/components/feature/FeatureRoles.astro';
 import FeatureFaq from '@/components/feature/FeatureFaq.astro';
-import FeatureRelated from '@/components/feature/FeatureRelated.astro';
-import FeatureVisual from '@/components/feature/FeatureVisual.astro';
+import FeatureStickyCta from '@/components/feature/FeatureStickyCta.astro';
 import FinalCta from '@/components/FinalCta.astro';
 import Footer from '@/components/Footer.astro';
 import { getAllFeatureSlugs, loadFeatureContent, findMirrorSlug, findFeatureId } from '@/lib/load-features';
+import { heroImage, rolesImage, useCaseImages } from '@/lib/feature-media';
 
 export function getStaticPaths() {
-  const slugs = getAllFeatureSlugs('en');
-  return slugs.map((slug) => ({ params: { slug } }));
+  return getAllFeatureSlugs('en').map((slug) => ({ params: { slug } }));
 }
 
 const { slug } = Astro.params;
 const data = loadFeatureContent('en', slug!);
 const mirrorSlug = findMirrorSlug('en', slug!);
 const featureId = findFeatureId('en', slug!);
-const hreflangData = {
-  fr: `/fr/features/${mirrorSlug}`,
-  en: `/en/features/${slug}`,
-};
+
+const paths = { fr: `/fr/features/${mirrorSlug}`, en: `/en/features/${slug}` };
+const hero = heroImage(featureId, 'en');
+const roles = rolesImage(featureId, 'en');
 
 const breadcrumbLD = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.reedly.ai/en" },
-    { "@type": "ListItem", "position": 2, "name": "Solution", "item": "https://www.reedly.ai/en/solution" },
-    { "@type": "ListItem", "position": 3, "name": data.hero.eyebrow },
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.reedly.ai/en' },
+    { '@type': 'ListItem', position: 2, name: data.hero.sticky },
   ],
 };
 
 const faqLD = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": data.faq.map((item) => ({
-    "@type": "Question",
-    "name": item.question,
-    "acceptedAnswer": { "@type": "Answer", "text": item.answer },
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: data.faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
   })),
 };
 ---
 
-<Layout
-  title={data.seo.title}
-  description={data.seo.description}
-  lang="en"
-  hreflang={hreflangData}
->
-  <meta slot="head" name="feature-mirror" data-link-fr={`/fr/features/${mirrorSlug}`} data-link-en={`/en/features/${slug}`} />
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbLD)} />
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqLD)} />
+<Layout title={data.seo.title} description={data.seo.description} lang="en" hreflang={paths}>
+  <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbLD)} />
+  <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(faqLD)} />
 
-  <div id="cursor-glow"></div>
+  <Nav altHref={paths.fr} />
 
-  <Nav />
-
-  <main class="z1">
+  <main>
     <FeatureHero
-      eyebrow={data.hero.eyebrow}
+      badge={data.hero.badge}
       title={data.hero.title}
       lead={data.hero.lead}
-      cta_url={data.hero.cta_url}
+      image={hero.src}
+      imageAlt={hero.alt}
+      objectPosition={hero.objectPosition}
       lang="en"
     />
-    <FeatureVisual featureId={featureId} lang="en" />
-    <FeatureProblem
-      eyebrow={data.problem.eyebrow}
-      title={data.problem.title}
-      lead={data.problem.lead}
-      cards={data.problem.cards}
-    />
-    {data.solution && (
-      <FeatureSolution
-        eyebrow={data.solution.eyebrow}
-        title={data.solution.title}
-        lead={data.solution.lead}
-        steps={data.solution.steps}
+    <FeatureProblem title={data.problem.title} lead={data.problem.lead} cards={data.problem.cards} />
+    {data.solution && <FeatureSolution title={data.solution.title} steps={data.solution.steps} />}
+    <FeatureBenefits title={data.benefits.title} cards={data.benefits.cards} />
+    {data.use_cases?.variant === 'roles' ? (
+      <FeatureRoles
+        title={data.use_cases.title}
+        image={roles.src}
+        imageAlt={roles.alt}
+        objectPosition={roles.objectPosition}
+        roles={data.use_cases.cards}
+        prevLabel="Previous role"
+        nextLabel="Next role"
       />
-    )}
-    <FeatureBenefits
-      eyebrow={data.benefits.eyebrow}
-      title={data.benefits.title}
-      cards={data.benefits.cards}
-    />
-    {data.use_cases && (
+    ) : data.use_cases ? (
       <FeatureUseCases
-        eyebrow={data.use_cases.eyebrow}
         title={data.use_cases.title}
         cards={data.use_cases.cards}
+        images={useCaseImages('en')}
       />
-    )}
+    ) : null}
     <FeatureFaq faq={data.faq} lang="en" />
-    <FeatureRelated features={data.related_features} lang="en" />
     <FinalCta />
   </main>
+
+  <FeatureStickyCta label={data.hero.sticky} lang="en" />
 
   <Footer />
 

@@ -1,109 +1,151 @@
-Now I have enough context to write a useful CLAUDE.md.
-
-```markdown
 # CLAUDE.md
 
-Reedly's bilingual (FR/EN) marketing landing site. Reedly is a B2B field-sales voice-recording iOS/Android app that auto-generates structured client meeting reports.
+Reedly's bilingual (FR/EN) marketing site. Reedly is the field intelligence platform for B2B tourism: sales reps who cover a network of travel agencies run their meeting, the mobile app transcribes it, and an 11-section structured report lands in the Manager Hub for sales leadership.
 
 ## Stack
 
-- **Astro 6** in `output: 'static'` with the `@astrojs/vercel` adapter — static-first, but a few endpoints are server-rendered via `export const prerender = false`.
+- **Astro 6** in `output: 'static'` with the `@astrojs/vercel` adapter — static-first, with a few endpoints server-rendered via `export const prerender = false`.
 - **Node 20+**, **pnpm 10** (declared in `packageManager`). Use `pnpm`, not npm.
 - **TypeScript strict** (`astro/tsconfigs/strict`) with `@/*` → `src/*` path alias.
-- **Resend** for the contact form email.
-- **@anthropic-ai/sdk** for content generation scripts (not runtime).
+- **Resend** for the booking emails.
 - **PostHog** for analytics (snippet in `src/components/PostHog.astro`).
-- **No CSS framework** — vanilla CSS in `src/styles/global.css` (+ `blog.css`). Dark theme by default via `data-theme` on `<html>`.
+- **No CSS framework** — vanilla CSS in `src/styles/global.css`.
+- **Light theme only.** There is no theme switcher and no dark palette on the marketing site; `/docs` (Starlight) keeps its own dark surface, which is unrelated.
 
 Common commands:
+
 ```bash
-pnpm dev                    # http://localhost:4321
-pnpm build                  # → dist/
+pnpm dev      # http://localhost:4321
+pnpm build    # → dist/
 pnpm preview
-pnpm generate:feature       # one feature page (interactive)
-pnpm generate:features      # all features (uses ANTHROPIC_API_KEY)
-node scripts/generate-blog.mjs   # weekly blog cron entrypoint
+pnpm test     # vitest (booking slot logic)
 ```
 
 ## Architecture
 
 ### Routing — bilingual mirror
-Every public page exists under both `/en/...` and `/fr/...`. Root `/` and `/solution` redirect to `/en` (see `vercel.json`). Trailing slashes are stripped (`trailingSlash: 'never'`).
 
-- `src/pages/index.astro` — JS-side redirect to `/fr` or `/en` based on `navigator.language`.
-- `src/pages/en/` and `src/pages/fr/` — symmetric trees: `index.astro`, `pricing.astro`/`tarifs.astro`, `comparison.astro`/`comparatif.astro`, `privacy-policy.astro`/`confidentialite.astro`, `terms-of-service.astro`/`cgu.astro`, plus `blog/` and `features/`.
-- French slugs differ from English (e.g. `pricing` ↔ `tarifs`, `comparison` ↔ `comparatif`). When adding a new page, **add both halves and add the redirect pair to `vercel.json`** if there's a non-prefixed legacy URL to preserve.
-- `vercel.json` is the source of truth for permanent redirects (legacy paths like `/blog`, `/pricing`, `/tarifs` → `/en/...` or `/fr/...`). Keep redirects there, not in Astro.
+Every public page exists under both `/en/...` and `/fr/...`. Root `/` redirects to `/en` (see `vercel.json`). Trailing slashes are stripped (`trailingSlash: 'never'`).
 
-### Content collections
+The whole site is 12 pages:
 
-**Blog** (`src/content/blog/*.md`, schema in `src/content.config.ts`):
-- One markdown file per article. Frontmatter requires `title`, `description`, `date`, `lang` (`'fr' | 'en'`), `mirror` (slug of the article in the other language), `keywords[]`, `readingTime`, `author` (`'laura' | 'ludovic'`).
-- Routed by `src/pages/{en,fr}/blog/[...slug].astro`, filtering the collection on `lang`.
-- Posts are auto-generated weekly by `.github/workflows/*.yml` → `scripts/generate-blog.mjs` (uses Anthropic API).
+| | FR | EN |
+| --- | --- | --- |
+| Home | `/fr` | `/en` |
+| AI transcription | `/fr/features/transcription-ia` | `/en/features/ai-transcription` |
+| Manager Hub | `/fr/features/hub-manager` | `/en/features/manager-hub` |
+| Legal notice | `/fr/mentions-legales` | `/en/legal-notice` |
+| Privacy | `/fr/confidentialite` | `/en/privacy-policy` |
+| Cookies | `/fr/cookies` | `/en/cookie-policy` |
+| Terms | `/fr/cgu` | `/en/terms-of-service` |
 
-**Features** (NOT an Astro content collection — loaded manually via YAML):
-- Registry: `src/data/features.yaml` maps `feature.id` → `{ slugs: { fr, en } }`. **Slugs are different per language.**
-- Content: `src/content/features/{fr,en}/{slug}.yaml` — full page structure (seo, hero, problem, solution, benefits, use_cases, faq, related_features).
-- Loader: `src/lib/load-features.ts` — `loadFeatureContent`, `getAllFeatureSlugs`, `findMirrorSlug`, `findFeatureId`.
-- Routed by `src/pages/{en,fr}/features/[...slug].astro` using `getStaticPaths` from the registry.
-- Generation: `scripts/generate-feature.mjs` + `scripts/feature-config.mjs` call Anthropic to produce a YAML file. The config in `feature-config.mjs` is the **canonical product description** — see "Product facts" below.
+Plus `/docs/*` (Starlight, English only) and the API endpoints.
 
-### Components
+There is **no blog, no pricing page, no alternatives/comparison pages** — pricing lives in the home's `#pricing` section. `vercel.json` holds 301s from every legacy path (`/blog/*`, `/tarifs`, `/pricing`, `/alternatives/*`, `/comparatif`…). Keep redirects there, not in Astro.
 
-- `src/components/*.astro` — one component per home-page section (Hero, Problem, Features, How, Demo, Proof, Integrations, Pricing, Contact, Faq, FinalCta, Footer, Nav, LegalPage, PostHog…).
-- `src/components/feature/*.astro` — section components for the feature template page.
-- `src/layouts/Layout.astro` — HTML shell, meta/OG/Twitter tags, hreflang, canonical URL, theme bootstrap, PostHog. Accepts `title`, `description`, `lang`, `hreflang`, `ogType`, `articleMeta`.
+When adding a page, **add both language halves** and the redirect pair in `vercel.json` if a legacy URL needs preserving.
+
+### Home sections
+
+`src/pages/{fr,en}/index.astro` composes, in order: `Nav`, `Hero`, `Demo`, `Hub`, `Compliance`, `Pricing`, `Testimonials`, `BookDemo`, `Faq`, `FinalCta`, `Footer`.
+
+Copy for all of these lives server-side in `src/lib/i18n.ts` (`t(lang, key)`). Nothing in `public/main.js` renders copy — it only drives behaviour.
+
+### Product (feature) pages
+
+Not an Astro content collection: loaded manually from YAML.
+
+- Registry: `src/data/features.yaml` maps `feature.id` → `{ slugs: { fr, en } }`. **Slugs differ per language.**
+- Content: `src/content/features/{fr,en}/{slug}.yaml` — `seo`, `hero`, `problem`, `solution`, `benefits`, `use_cases`, `faq`.
+- Loader: `src/lib/load-features.ts`.
+- Photography: `src/lib/feature-media.ts` maps a feature id to its hero image and supplies the four use-case photos (keyed by id so both languages show the same visuals).
+- Routed by `src/pages/{fr,en}/features/[...slug].astro` via `getStaticPaths` from the registry.
+
+`hero` carries two labels, not one: `badge` sits over the hero photo, `sticky` labels the bottom bar. `problem.cards` and `benefits.cards` carry an `icon` naming an entry in the icon registry (below). `use_cases.cards` carry no icon, and the section has two shapes, chosen by `use_cases.variant`:
+
+- default (AI transcription) — `FeatureUseCases.astro`: an accordion whose selected row swaps the photo beside it.
+- `variant: roles` (Manager Hub) — `FeatureRoles.astro`: role tabs over a darkened photo, each revealing a card with a heading, a paragraph and three bullets. Those cards also carry `heading` (two-line, with `<br />`) and `bullets`.
+
+Both pages end with `FeatureStickyCta.astro`, a bottom bar that slides in past the scroll threshold, labelled with `hero.eyebrow`.
+
+There is no "related features" section: the canvas has none, so the pages cross-link only through the footer.
+
+### Icons
+
+`src/components/Icon.astro` is the single icon registry, lifted verbatim from the design canvas (solid style, 24×24 viewBox). Paths carry no fill or size of their own: they inherit `currentColor` and the `size` prop.
+
+**Use this registry for every icon.** Don't hand-write new SVG paths in components — add the entry to `Icon.astro` instead, taken from the design canvas.
+
+The only exceptions live in `src/components/icons/` (country flags) and `Footer.astro` (App Store / Google Play / LinkedIn / Instagram marks), which are brand assets rather than UI icons.
 
 ### Interactivity
-Most interactive behavior (i18n toggle, FAQ accordion, pricing toggle, animations, ticker, cursor glow) lives in **`public/main.js`**, loaded with `<script src="/main.js" is:inline>`. Inline component scripts are rare — prefer adding to `main.js` if the behavior is global, otherwise keep it scoped in the `.astro` file.
+
+`public/main.js` (loaded with `<script src="/main.js" is:inline>`) owns the global behaviours: analytics helpers + `window.reedlyTrackEvent`, scroll reveal (`.reveal` → `.is-visible`), the nav's compact pill and its light-ink flip over `[data-nav-dark]` sections, the language dropdown, the FAQ accordion, the pricing billing toggle, and the testimonial carousel. It also mirrors the scroll threshold onto `<html class="is-scrolled">`, which is what reveals the product pages' sticky CTA.
+
+Three behaviours are component-scoped inline scripts instead, because they are local to one block: the booking flow in `BookDemo.astro`, the use-case accordion in `FeatureUseCases.astro`, and the role tabs in `FeatureRoles.astro`.
 
 ### API endpoints (server-rendered)
-- `src/pages/api/contact.ts` — `POST /api/contact`. Validates fields (special-cases `subject === 'trial'`: requires `role` + numeric `users_count`, message optional). Sends via Resend. Sets `prerender = false`.
-- `src/pages/api/notify.ts` — similar pattern.
-- Both rely on `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`.
+
+- `src/pages/api/availability.ts` and `src/pages/api/book.ts` — the native demo booking (below). Both set `prerender = false`; they are the only two.
+
+`/api/contact` and `/api/notify` were removed: the contact form and the "notify me" modal that called them went away in the redesign, leaving two unauthenticated endpoints that anyone could POST to make Resend send mail. Don't reintroduce an email endpoint without a caller.
+
+### Native demo booking
+
+The "Réserver une démo" section (`BookDemo.astro`, `#rdv`) is a self-hosted, Calendly-like flow: the qualifying form (email, role, sector, team size) reveals a 15-minute slot picker. Availability = Mon–Fri 09:00–18:00 Europe/Paris minus the host calendar's Google FreeBusy; booking creates a Google Meet event and invites the visitor. No database — the calendar is the source of truth. Pure logic (`generateSlots`, `isSlotBookable`) lives in `src/lib/booking/*` and is unit-tested with vitest; the Google client is `src/lib/booking/google.ts`; parameters are in `src/lib/booking/config.ts`.
+
+The inline script reads its UI strings from a `<script type="application/json" id="bd-i18n">` island rendered from `src/lib/i18n.ts`, so there is no second dictionary to keep in sync.
 
 ## Conventions
 
 - **Imports**: always `@/...` (e.g. `import Nav from '@/components/Nav.astro'`), not relative `../`.
 - **Astro frontmatter** uses single-quoted strings, semicolons, 2-space indent.
-- **HTML in headers**: feature/hero titles use literal `<br />` and `<em>` tags in YAML — preserved as-is by `set:html`.
-- **Bilingual symmetry is mandatory.** Any new page, redirect, feature, or blog post needs both `fr` and `en` versions. For features, also add the entry to `src/data/features.yaml` (both slugs) before generating.
-- **SEO**: every page sets `title` ≤ 60 chars including "Reedly", `description` ≤ 155 chars, canonical URL, hreflang. Feature/blog pages emit JSON-LD (`BreadcrumbList`, `FAQPage`, `Article`).
+- **Section headings** are two lines: the first plain, the second wrapped in `<em>` (rendered in slate, or green on dark sections). Titles carry literal `<br />` and `<em>` and are rendered with `set:html`.
+- **Product-page copy is the canvas copy, verbatim**, including the `<b>` around the key phrase of a card text or section lead. Those fields are rendered with `set:html`, so keep the markup in the YAML rather than stripping it.
+- **Bilingual symmetry is mandatory.** Any new page, redirect or feature needs both `fr` and `en` versions.
+- **SEO**: every page sets `title` ≤ 60 chars including "Reedly", `description` ≤ 155 chars, canonical URL, hreflang. Home and feature pages emit JSON-LD; only one `FAQPage` per page (emitted by whichever FAQ component renders).
 - **Comments**: existing code has minimal comments — don't add commentary unless non-obvious.
-- **Don't fabricate product claims.** See `MEMORY.md` → `feedback_verify_content.md`: verify against existing copy (`src/content/`, `scripts/feature-config.mjs` `product.description`) before writing marketing text.
+- **Don't fabricate product claims.** Verify against existing copy (`src/lib/i18n.ts`, `src/content/features/`) before writing marketing text.
+
+## Design system
+
+`src/styles/global.css` is the whole system, ported from the design canvas:
+
+- Surfaces `#f8fafc` (default), `#ffffff` (`.section--white`), `#0f172a` (`.section--dark`, which also flips the nav via `data-nav-dark`).
+- Ink `#0f172a` / muted `#475569` / faint `#64748b`; brand green `#16a34a`, light `#4ade80`.
+- Display font **Lanterosy** (`public/fonts/Lanterosy.ttf`, self-hosted), body font **Inter**.
+- Container 1240px, section padding `clamp(80px, 9vw, 140px)`, radius 24px.
+- Utility classes: `.section`, `.inner`, `.display` (`--xl` / `--lg`), `.lead`, `.btn` (`--primary` / `--ink` / `--ghost` / `--onDark` / `--block`), `.frame`, `.reveal`, `.center-mobile`.
 
 ## Product facts (canonical)
-From `scripts/feature-config.mjs`:
-- Mobile app (iOS + Android) for B2B field sales reps; Hub web for managers.
-- **Transcribes** the meeting in the background — in real time during the conversation, or the rep dictates the report right afterwards. **95%+ transcription accuracy** (Deepgram + Voxtral), then an **11-section structured report in under 2 minutes**.
+
+- Mobile app (iOS + Android) for B2B field sales reps; Manager Hub on the web for managers.
+- **Transcribes** the meeting in the background — in real time during the conversation, or the rep dictates the report right afterwards. **95%+ transcription accuracy**, then an **11-section structured report in under 2 minutes**.
 - Sections: executive summary, client profile, needs, objections, commitments, next steps, opportunities, risks, recommendations.
 - **The voice is neither recorded nor stored** — only the transcript is used to generate the report. Never write copy framed as "audio is recorded then deleted"; that was the old positioning and was removed site-wide.
 - Works offline: the app holds with no network; transcription and the report generate as soon as the connection is back.
-- Audiences: commerciaux terrain B2B, directeurs commerciaux, sales managers.
+- Vertical: B2B tourism — tour operators, travel wholesalers, DMC / inbound, MICE, transport, cruise, hospitality, leisure. Audiences: field sales reps covering a network of travel agencies, and the sales directors who run that network.
+- Pricing: Team at 49 €/rep/month (42 € billed annually), from 3 reps. Enterprise on quote, 16+ reps. There is no free plan, only a trial.
 
 ## Environment
 
 Required env (`.env`):
-- `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` — contact form.
+
+- `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` — contact form and booking emails.
 - `PUBLIC_POSTHOG_KEY`, `PUBLIC_POSTHOG_HOST`, `PUBLIC_POSTHOG_DEFAULTS` — analytics (the `PUBLIC_` prefix exposes them to the client).
-- `ANTHROPIC_API_KEY` — only needed for `scripts/generate-*.mjs`, not the site itself.
 - `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN`, `GOOGLE_CALENDAR_ID` (default `primary`) — native demo booking. Generate the refresh token once with `node scripts/google-oauth.mjs`.
-
-### Native demo booking
-
-The "Réserver une démo" section (`BookDemo.astro`, `#rdv`) hosts a self-hosted, Calendly-like flow: after the qualifying form it reveals a 15-min slot picker. Availability = Mon–Fri 09:00–18:00 Europe/Paris minus the host calendar's Google FreeBusy; booking creates a Google Meet event and invites the visitor. No database — the calendar is the source of truth. Pure logic (`generateSlots`, `isSlotBookable`) lives in `src/lib/booking/*` and is unit-tested with vitest (`pnpm test`); the Google client is `src/lib/booking/google.ts`; endpoints are `/api/availability` and `/api/book` (both `prerender = false`). Booking parameters are in `src/lib/booking/config.ts`.
 
 ## Deployment
 
-Deployed to Vercel. `astro.config.mjs` uses `output: 'static'` + `@astrojs/vercel` — server endpoints (contact, notify) are emitted as Vercel Functions because of `prerender = false`. Don't switch to `output: 'hybrid'` unless intentionally — current setup is what's in prod. The README has stale instructions about swapping adapters; ignore them.
+Deployed to Vercel. `astro.config.mjs` uses `output: 'static'` + `@astrojs/vercel` — the server endpoints are emitted as Vercel Functions because of `prerender = false`. Don't switch to `output: 'hybrid'` unless intentionally.
 
 ## Gotchas
 
-- The README is partly out-of-date (mentions `@astrojs/node`, lists fewer components than exist). Treat code as source of truth.
-- `vercel.json` legacy redirects: `/solutions/:slug` → `/features/:slug` — the feature pages live at `/features/...`, not `/solutions/...`. Components and links should target `/features/`.
-- When adding a feature: 1) add to `src/data/features.yaml`, 2) create both `src/content/features/fr/{slug}.yaml` and `src/content/features/en/{slug}.yaml` (or run `pnpm generate:feature`), 3) the page is generated automatically from the registry.
-- The `mirror:` field in blog frontmatter must point to the **slug of the article in the other language** — not a path. The pair is used for hreflang.
-- Icon names in feature YAMLs are constrained to the list in `scripts/generate-feature.mjs` (`ICON_NAMES`). The feature components map these strings to SVGs in `FeatureIcon.astro`.
+- The README describes the current site. CLAUDE.md stays the deeper reference; where they disagree, the code wins.
+- `vercel.json` legacy redirect `/solutions/:slug` → `/features/:slug` — the product pages live at `/features/...`, not `/solutions/...`.
 - `Layout.astro` defaults to **French** title/description if none provided — always pass `lang` and explicit `title`/`description` for English pages.
-```
+- `hero.cta_label` / `hero.cta_url` still exist in the feature YAMLs but are no longer rendered; the hero CTAs point at the home `#rdv` anchor.
+- The layout was verified against the canvas by loading each maquette in a same-origin iframe and diffing computed geometry at a 1440px viewport. If you change spacing or an icon size, re-check against the canvas rather than eyeballing it: several values there are deliberate oddities (a 70px icon tile around a 60px glyph, `min-height` on only two rows of the booking form, a 52px benefits gap against a 56px problem gap).
+- `public/` holds no dead weight any more: the four promo `.mp4`s, `favicon.svg`, `portrait-b.webp` and `integration/discord.png` were all unreferenced and are gone (recoverable from git history).
+- `.astro/` is gitignored. It used to be committed, which meant every build dirtied the tree and kept a stale schema for a `blog` collection that no longer exists.
+- The sitemap excludes `/` on purpose (`astro.config.mjs`): `vercel.json` 301s it to `/en`, and a sitemap listing a redirecting URL is a Search Console error.

@@ -2,40 +2,39 @@
 import Layout from '@/layouts/Layout.astro';
 import Nav from '@/components/Nav.astro';
 import Hero from '@/components/Hero.astro';
-// import Logos from '@/components/Logos.astro'; // hidden: re-enable once real client logos exist
+import Demo from '@/components/Demo.astro';
 import Hub from '@/components/Hub.astro';
 import Compliance from '@/components/Compliance.astro';
-import Demo from '@/components/Demo.astro';
-import BookDemo from '@/components/BookDemo.astro';
 import Pricing from '@/components/Pricing.astro';
-import About from '@/components/About.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import BookDemo from '@/components/BookDemo.astro';
+import Faq from '@/components/Faq.astro';
+import FinalCta from '@/components/FinalCta.astro';
 import Footer from '@/components/Footer.astro';
 ---
 
 <Layout
-  title="Reedly · The first field intelligence for tourism"
-  description="From every client meeting, Reedly surfaces needs, commitments, opportunities and risks into structured reports and a centralized Hub for the whole team. Free trial."
+  title="Reedly · Your field sales conversations turned into trusted data with an AI agent"
+  description="From every client meeting, Reedly surfaces needs, commitments, opportunities and risks in a structured report, centralized in the Hub. Free trial."
   lang="en"
   hreflang={{ fr: '/fr', en: '/en' }}
+  intro
 >
-  <!-- Cursor glow effect -->
-  <div id="cursor-glow"></div>
+  <Nav altHref="/fr" />
 
-  <Nav />
-
-  <main class="z1">
+  <main>
     <Hero />
     <Demo />
     <Hub />
     <Compliance />
-    {/* <Logos /> hidden until real client logos exist */}
     <Pricing />
-    <About />
+    <Testimonials />
     <BookDemo />
+    <Faq />
+    <FinalCta />
   </main>
 
   <Footer />
 
-  <!-- Main interactive JS (i18n, animations, ticker, pricing toggle, FAQ, etc.) -->
   <script src="/main.js" is:inline></script>
 </Layout>

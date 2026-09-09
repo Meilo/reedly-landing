@@ -8,7 +8,14 @@ export interface FeatureRegistry {
 
 export interface FeatureContent {
   seo: { title: string; description: string; keywords: string[] };
-  hero: { eyebrow: string; title: string; lead: string; cta_label: string; cta_url: string };
+  hero: {
+    /** Overlay label on the hero photo. */
+    badge: string;
+    /** Label carried by the sticky bottom CTA. */
+    sticky: string;
+    title: string;
+    lead: string;
+  };
   problem: {
     eyebrow: string; title: string; lead: string;
     cards: { title: string; text: string; icon: string }[];
@@ -18,15 +25,16 @@ export interface FeatureContent {
     steps: { title: string; text: string }[];
   };
   benefits: {
-    eyebrow?: string; title?: string;
+    eyebrow: string; title: string;
     cards: { title: string; text: string; icon: string }[];
   };
   use_cases?: {
     eyebrow: string; title: string;
-    cards: { title: string; text: string; icon: string }[];
+    /** 'roles' renders the tabbed panel over a photo; otherwise an accordion. */
+    variant?: 'roles';
+    cards: { title: string; heading?: string; text: string; bullets?: string[] }[];
   };
   faq: { question: string; answer: string }[];
-  related_features: { slug: string; label: string }[];
 }
 
 const DATA_DIR = path.resolve('src/data');

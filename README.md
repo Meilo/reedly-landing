@@ -1,103 +1,99 @@
 # reedly-landing
 
-Landing page marketing de Reedly — projet Astro indépendant.
+Site marketing bilingue (FR/EN) de Reedly, la plateforme d'intelligence terrain
+du tourisme B2B.
 
 ## Stack
 
-- **Astro 4** — SSG/hybrid, zéro JS inutile
-- **Resend** — envoi des emails du formulaire de contact (côté serveur)
-- Aucune dépendance CSS externe — tout est en vanilla CSS dans `src/styles/global.css`
+- **Astro 6** en `output: 'static'` avec l'adapter `@astrojs/vercel`. Le site est
+  statique ; seuls les endpoints de réservation sont rendus côté serveur
+  (`export const prerender = false`).
+- **Node 20+**, **pnpm 10** (voir `packageManager`). Utiliser `pnpm`, pas npm.
+- **TypeScript strict**, alias `@/*` vers `src/*`.
+- **Resend** pour les emails de réservation, **PostHog** pour l'analytics.
+- **Pas de framework CSS** : tout est en CSS vanilla dans `src/styles/global.css`.
+- Thème clair uniquement. `/docs` (Starlight) garde sa surface sombre, sans lien
+  avec le reste du site.
+
+```bash
+pnpm dev      # http://localhost:4321
+pnpm build    # → dist/
+pnpm preview
+pnpm test     # vitest (logique des créneaux de réservation)
+```
+
+## Pages
+
+12 pages publiques, chacune existant dans les deux langues. `/` redirige en 301
+vers `/en` (`vercel.json`), et les slashes finaux sont supprimés.
+
+|                    | FR                             | EN                              |
+| ------------------ | ------------------------------ | ------------------------------- |
+| Accueil            | `/fr`                          | `/en`                           |
+| Transcription IA   | `/fr/features/transcription-ia` | `/en/features/ai-transcription` |
+| Hub Manager        | `/fr/features/hub-manager`     | `/en/features/manager-hub`      |
+| Mentions légales   | `/fr/mentions-legales`         | `/en/legal-notice`              |
+| Confidentialité    | `/fr/confidentialite`          | `/en/privacy-policy`            |
+| Cookies            | `/fr/cookies`                  | `/en/cookie-policy`             |
+| CGU                | `/fr/cgu`                      | `/en/terms-of-service`          |
+
+Plus `/docs/*` (Starlight, anglais uniquement) et les endpoints API.
+
+Il n'y a ni blog, ni page tarifs dédiée, ni pages comparatives : les tarifs
+vivent dans la section `#pricing` de l'accueil. `vercel.json` conserve les 301
+depuis toutes les anciennes URLs.
 
 ## Structure
 
 ```
 src/
-├── components/        # Un composant Astro par section de la page
-│   ├── Nav.astro
-│   ├── Hero.astro
-│   ├── Problem.astro
-│   ├── Features.astro
-│   ├── ReportPreview.astro
-│   ├── How.astro
-│   ├── Hub.astro
-│   ├── Proof.astro
-│   ├── Pricing.astro
-│   ├── Contact.astro  ← formulaire + intégration Resend
-│   ├── Faq.astro
-│   ├── FinalCta.astro
-│   └── Footer.astro
-├── layouts/
-│   └── Layout.astro   # Shell HTML, fonts, meta
+├── components/          # Une section d'accueil par composant
+│   ├── Nav · Hero · Demo · Hub · Compliance · Pricing
+│   ├── Testimonials · BookDemo · Faq · FinalCta · Footer
+│   ├── Icon.astro       # Registre d'icônes unique (58 entrées)
+│   └── feature/         # Blocs des pages produit
+├── content/features/    # Contenu YAML des pages produit, par langue
+├── data/features.yaml   # Registre id → slugs FR/EN
+├── layouts/Layout.astro # Shell HTML : meta, canonical, hreflang, JSON-LD
+├── lib/
+│   ├── i18n.ts          # Toute la copy de l'accueil, côté serveur
+│   ├── load-features.ts · feature-media.ts
+│   └── booking/         # Créneaux, config, client Google (testé)
 ├── pages/
-│   ├── index.astro    # Page principale
-│   └── api/
-│       └── contact.ts ← endpoint POST pour le formulaire
-└── styles/
-    └── global.css     # Tous les styles
+│   ├── {fr,en}/         # Les deux moitiés du site
+│   └── api/             # availability · book (server-rendered)
+└── styles/global.css    # Tout le design system
 public/
-├── favicon.svg
-└── main.js            # JS interactif (i18n FR/EN, animations, FAQ, pricing toggle)
-```
-
-## Démarrage
-
-```bash
-# 1. Installer les dépendances
-pnpm install   # ou npm install
-
-# 2. Configurer les variables d'environnement
-cp .env.example .env
-# → Renseigner RESEND_API_KEY, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL
-
-# 3. Démarrer en dev
-pnpm dev       # http://localhost:4321
+├── main.js              # Scroll reveal, nav, langue, FAQ, tarifs, carousel
+├── images/ · app/ · integration/ · fonts/
+├── robots.txt · llms.txt
 ```
 
 ## Variables d'environnement
 
-| Variable             | Description                                     | Exemple                    |
-| -------------------- | ----------------------------------------------- | -------------------------- |
-| `RESEND_API_KEY`     | Clé API Resend (https://resend.com/api-keys)    | `re_xxxxxxxxxxxxxxxxxxxx`  |
-| `CONTACT_TO_EMAIL`   | Email qui reçoit les soumissions du formulaire  | `contact@reedly.ai`        |
-| `CONTACT_FROM_EMAIL` | Expéditeur (domaine vérifié dans Resend requis) | `noreply@reedly.ai`        |
-| `PUBLIC_POSTHOG_KEY` | Clé projet PostHog (frontend)                   | `phc_xxxxxxxxxxxxxxxxx`    |
-| `PUBLIC_POSTHOG_HOST` | Host API PostHog                                | `https://eu.i.posthog.com` |
-| `PUBLIC_POSTHOG_DEFAULTS` | Snapshot de config par défaut PostHog      | `2026-01-30`               |
+Copier `.env.example` vers `.env` et renseigner :
 
-## Build & déploiement
+| Variable                                       | Rôle                                              |
+| ---------------------------------------------- | ------------------------------------------------- |
+| `RESEND_API_KEY`                               | Emails de confirmation de réservation             |
+| `CONTACT_TO_EMAIL` / `CONTACT_FROM_EMAIL`      | Destinataire interne et expéditeur vérifié        |
+| `PUBLIC_POSTHOG_KEY` / `_HOST` / `_DEFAULTS`   | Analytics (le préfixe `PUBLIC_` expose au client) |
+| `GOOGLE_CLIENT_ID` / `_SECRET` / `_REFRESH_TOKEN` | Agenda de réservation                          |
+| `GOOGLE_CALENDAR_ID`                           | `primary` par défaut                              |
 
-```bash
-pnpm build     # Génère le build dans dist/
-pnpm preview   # Prévisualiser le build en local
-```
+Le refresh token se génère une fois : `node scripts/google-oauth.mjs`.
 
-### Vercel (recommandé pour la prod)
+## Réservation de démo
 
-Swapper l'adapter dans `astro.config.mjs` :
+La section « Réserver une démo » (`BookDemo.astro`, `#rdv`) est un tunnel
+autonome, à la Calendly : le formulaire de qualification révèle un sélecteur de
+créneaux de 15 minutes. Les disponibilités sont les créneaux du lundi au
+vendredi 09h00-18h00 Europe/Paris moins le FreeBusy de l'agenda hôte ; la
+réservation crée un événement Google Meet et invite le visiteur. Pas de base de
+données : l'agenda fait foi.
 
-```js
-import vercel from '@astrojs/vercel/serverless';
+## Déploiement
 
-export default defineConfig({
-  output: 'hybrid',
-  adapter: vercel(),
-});
-```
-
-Puis installer : `pnpm add @astrojs/vercel`
-
-### Node.js standalone (défaut)
-
-Le build actuel utilise `@astrojs/node` en mode standalone.
-Le serveur se lance avec : `node dist/server/entry.mjs`
-
-## Formulaire de contact
-
-Le formulaire (`Contact.astro`) envoie une requête `POST /api/contact`.
-L'endpoint (`src/pages/api/contact.ts`) :
-- Valide les champs requis
-- Appelle Resend pour envoyer l'email
-- Répond avec `{ success: true }` ou `{ error: "..." }`
-
-Pour tester sans clé Resend, commenter l'appel Resend dans `contact.ts`
-et retourner `{ success: true }` directement.
+Déployé sur Vercel. `astro.config.mjs` combine `output: 'static'` et
+`@astrojs/vercel` : les endpoints passant `prerender = false` sont émis comme
+Vercel Functions. Ne pas basculer sur `output: 'hybrid'` sans intention claire.

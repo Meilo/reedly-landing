@@ -1,0 +1,87 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Nav from '@/components/Nav.astro';
+import LegalPage from '@/components/LegalPage.astro';
+import Footer from '@/components/Footer.astro';
+
+const sections = [
+  {
+    id: 'definition',
+    title: "Qu'est-ce qu'un cookie ?",
+    paragraphs: [
+      "Un cookie est un petit fichier déposé sur votre terminal lors de la consultation d'un site. Il permet de reconnaître votre navigateur, de maintenir une session ouverte ou de mesurer l'usage du service.",
+      'Cette politique explique quels cookies sont utilisés sur reedly.ai et comment les contrôler.',
+    ],
+  },
+  {
+    id: 'cookies-utilises',
+    title: 'Cookies utilisés sur ce site',
+    paragraphs: ["Trois familles de cookies sont susceptibles d'être déposées :"],
+    rows: [
+      ['PostHog', "Mesure d'audience et amélioration du produit (écrans visités, fonctionnalités utilisées)", '13 mois'],
+      ['Stripe', 'Paiement et prévention de la fraude lors des abonnements', 'Session à 1 an'],
+      ['Supabase', 'Authentification et maintien de votre session connectée', 'Session à 1 an'],
+    ],
+    caption: 'Les durées indiquées sont celles communiquées par les éditeurs concernés et peuvent évoluer.',
+  },
+  {
+    id: 'consentement',
+    title: 'Votre consentement',
+    paragraphs: [
+      "Les cookies de mesure d'audience ne sont déposés qu'après votre accord, recueilli via le bandeau affiché lors de votre première visite.",
+      'Vous pouvez <b>modifier ou retirer votre consentement à tout moment</b> depuis ce même bandeau. Les cookies strictement nécessaires au fonctionnement du service (authentification, paiement) ne peuvent pas être désactivés : sans eux, le service ne fonctionne pas.',
+    ],
+  },
+  {
+    id: 'navigateur',
+    title: 'Paramétrer votre navigateur',
+    paragraphs: [
+      'Vous pouvez également configurer votre navigateur pour bloquer ou supprimer les cookies. Le blocage des cookies nécessaires peut empêcher la connexion à votre compte.',
+    ],
+    list: [
+      'Chrome : Paramètres › Confidentialité et sécurité › Cookies',
+      'Safari : Réglages › Safari › Bloquer tous les cookies',
+      'Firefox : Paramètres › Vie privée et sécurité › Cookies',
+      'Edge : Paramètres › Cookies et autorisations de site',
+    ],
+  },
+  {
+    id: 'conservation',
+    title: 'Durée de conservation',
+    paragraphs: [
+      "Les cookies de mesure d'audience sont conservés au maximum 13 mois, conformément aux recommandations de la CNIL. Passé ce délai, votre consentement est de nouveau sollicité.",
+    ],
+  },
+  {
+    id: 'donnees',
+    title: 'Cookies et données personnelles',
+    paragraphs: [
+      "Les données issues des cookies sont traitées dans les conditions décrites par la <a href=\"/fr/confidentialite\">Politique de confidentialité</a>, qui liste l'ensemble de nos sous-traitants et vos droits d'accès, de rectification et de suppression.",
+    ],
+  },
+  {
+    id: 'contact',
+    title: 'Contact',
+    paragraphs: ['Pour toute question relative aux cookies : support@reedly.ai.'],
+  },
+];
+---
+
+<Layout
+  title="Politique de cookies · Reedly"
+  description="Quels cookies sont déposés sur reedly.ai, pour quelles finalités, pour quelle durée, et comment modifier ou retirer votre consentement."
+  lang="fr"
+  hreflang={{ fr: '/fr/cookies', en: '/en/cookie-policy' }}
+>
+  <Nav altHref="/en/cookie-policy" />
+  <main>
+    <LegalPage
+      title="Politique de cookies"
+      lastUpdated="Dernière mise à jour : 9 septembre 2026"
+      sections={sections}
+      lang="fr"
+    />
+  </main>
+  <Footer />
+  <script src="/main.js" is:inline></script>
+</Layout>

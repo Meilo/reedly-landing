@@ -1,58 +1,47 @@
 ---
-// Faq section. Also emits the page's FAQPage JSON-LD, built from the same
-// Q/A pairs actually rendered below (so a page only ever gets one FAQPage,
-// and it always matches the visible content). Feature pages build their own
-// FAQPage from feature-specific content and don't render this component.
+// FAQ accordion. Also emits the page's FAQPage JSON-LD, so no other component
+// on the same page may emit one.
 import { getLang, t } from '@/lib/i18n';
+import Icon from '@/components/Icon.astro';
 
 const lang = getLang(Astro.url.pathname);
 
-const qaKeys = [
-  ['faq.q1', 'faq.a1'],
-  ['faq.q2', 'faq.a2'],
-  ['faq.q3', 'faq.a3'],
-  ['faq.q4', 'faq.a4'],
-  ['faq.q5', 'faq.a5'],
-  ['faq.q6', 'faq.a6'],
-] as const;
-
-const qa = qaKeys.map(([qKey, aKey]) => ({
-  question: t(lang, qKey),
-  answer: t(lang, aKey),
+const items = [1, 2, 3, 4, 5, 6].map((i) => ({
+  q: t(lang, `faq.q${i}`),
+  a: t(lang, `faq.a${i}`),
 }));
 
 const faqLD = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: qa.map((item) => ({
+  mainEntity: items.map((item) => ({
     '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
   })),
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(faqLD)} />
+<section class="section" id="faq">
+  <div class="inner faq__inner">
+    <h2 class="display display--lg faq__title reveal" set:html={t(lang, 'faq.title')} />
 
-<!-- ── FAQ ── -->
-      <section class="section section--alt" id="faq">
-        <div class="inner">
-          <div class="reveal">
-            <div class="section__eyebrow">{t(lang, 'faq.eyebrow')}</div>
-            <h2>{t(lang, 'faq.title')}</h2>
-          </div>
-          <div class="faq-list">
-            {qa.map((item, i) => (
-              <article class={`faq-item reveal reveal-delay-${Math.min(Math.floor(i / 2) + 1, 3)}`} aria-expanded="false">
-                <button class="faq-btn" type="button">
-                  <span>{item.question}</span>
-                  <div class="faq-btn__icon">+</div>
-                </button>
-                <div class="faq-panel">
-                  <p>{item.answer}</p>
-                </div>
-              </article>
-            ))}
+    <div class="faq__list reveal">
+      {items.map((item, i) => (
+        <div class={`faq__item${i === 0 ? ' is-open' : ''}`}>
+          <button class="faq__q" type="button" aria-expanded={i === 0 ? 'true' : 'false'}>
+            <span class="faq__q-text">{item.q}</span>
+            <span class="faq__sign" aria-hidden="true">
+              <Icon name="plus" size={14} />
+            </span>
+          </button>
+          <div class="faq__panel">
+            <p>{item.a}</p>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(faqLD)} />
