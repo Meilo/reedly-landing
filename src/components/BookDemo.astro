@@ -66,7 +66,7 @@ const strings = {
           </div>
         </div>
 
-        <div class="book__row">
+        <div class="book__row book__row--role">
           <label class="book__label" for="bd-role">{t(lang, 'bookdemo.role.label')}</label>
           <div class="book__field">
             <select id="bd-role" name="role" required>
@@ -88,7 +88,7 @@ const strings = {
           </div>
         </div>
 
-        <div class="book__row">
+        <div class="book__row book__row--team">
           <span class="book__label" id="bd-team-label">{t(lang, 'bookdemo.team.label')}</span>
           <div class="book__chips" role="group" aria-labelledby="bd-team-label">
             {teamSizes.map((size) => (
@@ -178,7 +178,7 @@ const strings = {
   }
   .book__recap {
     margin: 22px 0 0;
-    padding: 0 var(--pad);
+    padding: 0 clamp(18px, 4vw, 32px);
     font-size: 1.05rem;
     font-weight: 600;
   }

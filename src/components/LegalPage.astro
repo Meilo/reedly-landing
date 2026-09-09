@@ -2,7 +2,7 @@
 // Legal document shell: sticky table of contents beside the sections.
 // A section's body is a list of paragraphs; a paragraph may hold inline HTML.
 // Optional blocks cover the shapes the documents actually use: bullet lists,
-// the cookie table, and the sub-processor cards.
+// the cookie table, the sub-processor rows, and a highlighted note.
 import Icon from '@/components/Icon.astro';
 import type { Lang } from '@/lib/i18n';
 
@@ -18,9 +18,15 @@ export interface LegalSection {
   title: string;
   paragraphs?: string[];
   list?: string[];
-  table?: { head: string[]; rows: string[][] };
+  /** Rows of [label, description, duration]; rendered as a bordered stack. */
+  rows?: string[][];
   links?: LegalLink[];
+  /** Highlighted callout, rendered after the blocks. */
   note?: string;
+  /** Plain paragraphs rendered after the blocks. */
+  after?: string[];
+  /** Small muted caption rendered after the blocks. */
+  caption?: string;
 }
 
 interface Props {
@@ -63,11 +69,9 @@ const tocLabel = lang === 'fr' ? 'Sommaire' : 'Contents';
   <div class="inner legal-body__inner">
     <aside class="legal-toc reveal">
       <div class="legal-toc__title">{tocLabel}</div>
-      <nav>
-        {entries.map((section) => (
-          <a href={`#${section.anchor}`}>{section.title}</a>
-        ))}
-      </nav>
+      {entries.map((section) => (
+        <a href={`#${section.anchor}`}>{section.title}</a>
+      ))}
     </aside>
 
     <div class="legal-doc">
@@ -78,39 +82,45 @@ const tocLabel = lang === 'fr' ? 'Sommaire' : 'Contents';
           {section.paragraphs?.map((paragraph) => <p set:html={paragraph} />)}
 
           {section.list && (
-            <ul>
-              {section.list.map((item) => <li set:html={item} />)}
+            <ul class="legal-list">
+              {section.list.map((item) => (
+                <li>
+                  <span class="legal-list__dot" aria-hidden="true">•</span>
+                  <span set:html={item} />
+                </li>
+              ))}
             </ul>
           )}
 
-          {section.table && (
-            <div class="legal-table-wrap">
-              <table>
-                <thead>
-                  <tr>{section.table.head.map((cell) => <th>{cell}</th>)}</tr>
-                </thead>
-                <tbody>
-                  {section.table.rows.map((row) => (
-                    <tr>{row.map((cell) => <td>{cell}</td>)}</tr>
-                  ))}
-                </tbody>
-              </table>
+          {section.rows && (
+            <div class="legal-stack legal-stack--table">
+              {section.rows.map((row) => (
+                <div class="legal-stack__row">
+                  <span class="legal-stack__label">{row[0]}</span>
+                  <span class="legal-stack__desc">{row[1]}</span>
+                  {row[2] && <span class="legal-stack__meta">{row[2]}</span>}
+                </div>
+              ))}
             </div>
           )}
 
           {section.links && (
-            <div class="legal-links">
+            <div class="legal-stack">
               {section.links.map((link) => (
-                <a class="legal-link" href={link.url} target="_blank" rel="noopener noreferrer">
-                  <span class="legal-link__name">{link.name}</span>
-                  <span class="legal-link__purpose">{link.purpose}</span>
-                  <Icon name="arrow-cta" size={14} />
+                <a class="legal-stack__row" href={link.url} target="_blank" rel="noopener noreferrer">
+                  <span class="legal-stack__label">{link.name}</span>
+                  <span class="legal-stack__desc">{link.purpose}</span>
+                  <Icon name="external-link" size={15} />
                 </a>
               ))}
             </div>
           )}
 
-          {section.note && <p class="legal-note" set:html={section.note} />}
+          {section.after?.map((paragraph) => <p set:html={paragraph} />)}
+
+          {section.caption && <p class="legal-caption" set:html={section.caption} />}
+
+          {section.note && <div class="legal-note" set:html={section.note} />}
         </section>
       ))}
     </div>

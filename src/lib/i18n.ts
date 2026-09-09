@@ -116,10 +116,6 @@ const fr: Dict = {
     "Facturé à votre organisation, à la taille réelle de l'équipe qui anime votre réseau d'agences.",
   'pricing.billing.monthly': 'Mensuel',
   'pricing.billing.annual': 'Annuel (-14%)',
-  'pricing.billing.note.monthly':
-    'Prix affichés par mois. Facturation annuelle disponible avec 14 % de réduction.',
-  'pricing.billing.note.annual':
-    'Prix affichés par mois, facturés annuellement, 14 % de réduction appliquée.',
   'pricing.billing.aria': 'Facturation',
   'pricing.team.badge': 'Le plus populaire',
   'pricing.team.plan': 'Team',
@@ -307,10 +303,6 @@ const en: Dict = {
     'Billed to your organization, at the real size of the team that runs your agency network.',
   'pricing.billing.monthly': 'Monthly',
   'pricing.billing.annual': 'Yearly (-14%)',
-  'pricing.billing.note.monthly':
-    'Prices are displayed per month. Yearly billing is available with a 14% discount.',
-  'pricing.billing.note.annual':
-    'Prices are displayed per month, billed annually, with the 14% discount applied.',
   'pricing.billing.aria': 'Billing',
   'pricing.team.badge': 'Most popular',
   'pricing.team.plan': 'Team',

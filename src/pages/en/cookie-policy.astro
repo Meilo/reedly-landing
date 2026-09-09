@@ -17,15 +17,12 @@ const sections = [
     id: 'cookies-utilises',
     title: 'Cookies used on this site',
     paragraphs: ['Three families of cookies may be placed:'],
-    table: {
-      head: ['Service', 'Purpose', 'Duration'],
-      rows: [
-        ['PostHog', 'Audience measurement and product improvement (screens visited, features used)', '13 months'],
-        ['Stripe', 'Payment and fraud prevention for subscriptions', 'Session to 1 year'],
-        ['Supabase', 'Authentication and keeping you signed in', 'Session to 1 year'],
-      ],
-    },
-    note: 'The durations shown are those communicated by the relevant providers and may change.',
+    rows: [
+      ['PostHog', 'Audience measurement and product improvement (screens visited, features used)', '13 months'],
+      ['Stripe', 'Payment and fraud prevention for subscriptions', 'Session to 1 year'],
+      ['Supabase', 'Authentication and keeping you signed in', 'Session to 1 year'],
+    ],
+    caption: 'The durations shown are those communicated by the relevant providers and may change.',
   },
   {
     id: 'consentement',

@@ -80,6 +80,3 @@ faq:
     answer: "Transcription completes within the 2-minute report generation time. Voice processing and transcript creation happen simultaneously, so you get both accurate text and the structured report almost immediately after the meeting ends."
   - question: "Is the transcription secure and confidential?"
     answer: "Transcripts and reports are encrypted in transit and at rest. The voice itself is never recorded or stored, and Reedly never shares transcripts with third parties. Your client conversations remain confidential."
-related_features:
-  - slug: "manager-hub"
-    label: "Manager Hub"

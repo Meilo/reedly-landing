@@ -57,16 +57,38 @@ benefits:
       icon: "realtime"
 use_cases:
   eyebrow: "Use Cases"
-  title: "Built for field sales directors."
+  title: "Who uses<br /><em>the Manager Hub?</em>"
+  variant: "roles"
   cards:
     - title: "Multi-region sales directors"
+      heading: "Multi-region<br />sales directors"
       text: "Manage teams across multiple territories without traveling constantly. Get the same visibility into distant regions as local ones, see what's working where and why."
+      bullets:
+        - "Strategic syntheses by territory"
+        - "Areas that perform, sectors that slow down"
+        - "Priority levers to act on"
     - title: "Sales managers coaching teams"
+      heading: "Sales managers<br />coaching teams"
       text: "Review actual client conversations before 1-on-1s. Coach on real objections, successful pitches, and missed opportunities, not vague recollections or self-reported wins."
+      bullets:
+        - "Reports by rep and by period"
+        - "Recurring objections from the field"
+        - "Debriefs prepared on real cases"
     - title: "Commercial directors tracking pipeline"
+      heading: "Commercial directors<br />tracking pipeline"
       text: "Identify which prospects are advancing, which are stalling, and why, across your entire territory. Spot deal risks and opportunities before they appear in CRM stage changes."
+      bullets:
+        - "Full account history"
+        - "Every rep who has been involved"
+        - "Report export and sharing"
     - title: "Field sales leadership preparing strategy"
+      heading: "Field sales leadership<br />preparing strategy"
       text: "Build quarterly plans based on real market intelligence. Analyze hundreds of client conversations to identify product gaps, pricing objections, and competitive positioning opportunities."
+      bullets:
+        - "Consolidated sales activity"
+        - "Field trends, week after week"
+        - "No reporting to chase"
+
 faq:
   - question: "How do sales reports from field reps reach the Manager Hub?"
     answer: "When any team member generates a report using the Reedly mobile app, it automatically appears in your Manager Hub within 2 minutes. No manual upload or sync required, reports flow directly from field to dashboard as they're created."
@@ -80,6 +102,3 @@ faq:
     answer: "Yes. The sales manager dashboard includes full-text search across every report from every team member. Find all mentions of a specific competitor, objection, product, or client across your entire field intelligence history."
   - question: "Do I need separate software to manage the team?"
     answer: "No. Team management is built into Manager Hub, add members, assign territories, set permissions, and track usage from the same interface where you view reports and generate syntheses. One commercial director hub for all field sales management needs."
-related_features:
-  - slug: "ai-transcription"
-    label: "AI Transcription"

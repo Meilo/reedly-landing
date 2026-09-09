@@ -223,6 +223,7 @@ document.querySelectorAll("[data-track-id]").forEach((el) => {
     raf = null;
     var y = window.scrollY || 0;
     nav.classList.toggle("is-compact", y > 90);
+    document.documentElement.classList.toggle("is-scrolled", y > 90);
 
     // Read what sits behind the bar so the nav ink stays legible over it.
     var band = nav.getBoundingClientRect().bottom;
@@ -292,10 +293,6 @@ document.querySelectorAll(".faq__item").forEach(function (item) {
 (function () {
   var toggle = document.getElementById("billing-toggle");
   if (!toggle) return;
-  var note = document.getElementById("billing-note");
-  var noteMonthly = note ? note.textContent : "";
-  var noteAnnual = toggle.dataset.noteAnnual || "";
-
   toggle.addEventListener("click", function (e) {
     var btn = e.target.closest("button[data-billing]");
     if (!btn) return;
@@ -311,7 +308,6 @@ document.querySelectorAll(".faq__item").forEach(function (item) {
       el.textContent = annual ? String(Math.round(base * 0.86)) : String(base);
     });
 
-    if (note && noteAnnual) note.textContent = annual ? noteAnnual : noteMonthly;
     trackEvent("landing_pricing_billing_changed", {
       billing: annual ? "annual" : "monthly",
     });

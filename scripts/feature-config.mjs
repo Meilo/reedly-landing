@@ -15,7 +15,6 @@ export default {
       descriptionEn: 'Automatic conversation transcription with 95%+ accuracy. Works with accents, sector-specific vocabulary, and noisy environments. Deepgram and Voxtral models.',
       keywordsFr: ['transcription automatique réunion', 'transcription IA rendez-vous commercial', 'transcription vocale professionnelle'],
       keywordsEn: ['automatic meeting transcription', 'AI business meeting transcription', 'professional voice transcription'],
-      relatedIds: ['manager-hub'],
     },
     'manager-hub': {
       nameFr: 'Hub Manager',
@@ -24,7 +23,6 @@ export default {
       descriptionEn: 'Web interface for sales directors. Centralized dashboard with all team reports, syntheses by territory and destination, member stats, team management.',
       keywordsFr: ['tableau de bord manager commercial', 'hub directeur commercial', 'pilotage équipe vente terrain'],
       keywordsEn: ['sales manager dashboard', 'commercial director hub', 'field sales team management'],
-      relatedIds: ['ai-transcription'],
     },
   },
 

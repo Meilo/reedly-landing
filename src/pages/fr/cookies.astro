@@ -17,15 +17,12 @@ const sections = [
     id: 'cookies-utilises',
     title: 'Cookies utilisés sur ce site',
     paragraphs: ["Trois familles de cookies sont susceptibles d'être déposées :"],
-    table: {
-      head: ['Service', 'Finalité', 'Durée'],
-      rows: [
-        ['PostHog', "Mesure d'audience et amélioration du produit (écrans visités, fonctionnalités utilisées)", '13 mois'],
-        ['Stripe', 'Paiement et prévention de la fraude lors des abonnements', 'Session à 1 an'],
-        ['Supabase', 'Authentification et maintien de votre session connectée', 'Session à 1 an'],
-      ],
-    },
-    note: 'Les durées indiquées sont celles communiquées par les éditeurs concernés et peuvent évoluer.',
+    rows: [
+      ['PostHog', "Mesure d'audience et amélioration du produit (écrans visités, fonctionnalités utilisées)", '13 mois'],
+      ['Stripe', 'Paiement et prévention de la fraude lors des abonnements', 'Session à 1 an'],
+      ['Supabase', 'Authentification et maintien de votre session connectée', 'Session à 1 an'],
+    ],
+    caption: 'Les durées indiquées sont celles communiquées par les éditeurs concernés et peuvent évoluer.',
   },
   {
     id: 'consentement',

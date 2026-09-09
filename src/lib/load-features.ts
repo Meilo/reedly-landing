@@ -23,10 +23,11 @@ export interface FeatureContent {
   };
   use_cases?: {
     eyebrow: string; title: string;
-    cards: { title: string; text: string }[];
+    /** 'roles' renders the tabbed panel over a photo; otherwise an accordion. */
+    variant?: 'roles';
+    cards: { title: string; heading?: string; text: string; bullets?: string[] }[];
   };
   faq: { question: string; answer: string }[];
-  related_features: { slug: string; label: string }[];
 }
 
 const DATA_DIR = path.resolve('src/data');

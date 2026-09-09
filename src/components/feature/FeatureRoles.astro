@@ -1,0 +1,99 @@
+---
+// "Who uses it" — the Manager Hub variant: role tabs over a darkened photo,
+// each revealing a card. Cards are stacked in one grid cell and cross-faded.
+import Icon from '@/components/Icon.astro';
+
+interface Props {
+  title: string;
+  image: string;
+  imageAlt: string;
+  roles: { title: string; heading?: string; text: string; bullets?: string[] }[];
+  prevLabel: string;
+  nextLabel: string;
+}
+
+const { title, image, imageAlt, roles, prevLabel, nextLabel } = Astro.props;
+---
+
+<section class="section section--white">
+  <div class="inner">
+    <div class="reveal center-mobile">
+      <h2 class="display display--lg" set:html={title} />
+    </div>
+
+    <div class="roles reveal" id="roles">
+      <img class="roles__photo" src={image} alt={imageAlt} width="1122" height="1402" loading="lazy" />
+      <div class="roles__scrim roles__scrim--v" aria-hidden="true"></div>
+      <div class="roles__scrim roles__scrim--h" aria-hidden="true"></div>
+
+      <div class="roles__body">
+        <div class="roles__tabs">
+          {roles.map((role, i) => (
+            <button class={`roles__tab${i === 0 ? ' is-active' : ''}`} type="button" data-index={i}>
+              {role.title}
+            </button>
+          ))}
+        </div>
+
+        <div class="roles__stack">
+          {roles.map((role, i) => (
+            <div class={`roles__card${i === 0 ? ' is-active' : ''}`} data-index={i}>
+              <h3 set:html={role.heading ?? role.title} />
+              <p>{role.text}</p>
+              {role.bullets && (
+                <ul>
+                  {role.bullets.map((item) => (
+                    <li><Icon name="bullet" size={16} />{item}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div class="roles__nav">
+          <button class="roles__arrow" type="button" id="roles-prev" aria-label={prevLabel}>
+            <Icon name="arrow-left" size={20} />
+          </button>
+          <button class="roles__arrow" type="button" id="roles-next" aria-label={nextLabel}>
+            <Icon name="arrow-right" size={20} />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    var root = document.getElementById('roles');
+    if (!root) return;
+    var tabs = root.querySelectorAll('.roles__tab');
+    var cards = root.querySelectorAll('.roles__card');
+    var count = tabs.length;
+    var current = 0;
+
+    function select(i) {
+      current = ((i % count) + count) % count;
+      tabs.forEach(function (t, n) { t.classList.toggle('is-active', n === current); });
+      cards.forEach(function (c, n) { c.classList.toggle('is-active', n === current); });
+    }
+
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () { select(parseInt(t.dataset.index, 10)); });
+    });
+    document.getElementById('roles-prev').addEventListener('click', function () { select(current - 1); });
+    document.getElementById('roles-next').addEventListener('click', function () { select(current + 1); });
+
+    var startX = null;
+    var stack = root.querySelector('.roles__stack');
+    stack.addEventListener('pointerdown', function (e) { startX = e.clientX; });
+    stack.addEventListener('pointerup', function (e) {
+      if (startX === null) return;
+      var dx = e.clientX - startX;
+      startX = null;
+      if (dx > 45) select(current - 1);
+      else if (dx < -45) select(current + 1);
+    });
+  })();
+</script>

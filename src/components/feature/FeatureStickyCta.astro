@@ -1,0 +1,33 @@
+---
+// Sticky bottom CTA on the product pages. Slides in once the page is scrolled,
+// following the same threshold as the nav's compact state (public/main.js).
+import { t, type Lang } from '@/lib/i18n';
+
+interface Props {
+  label: string;
+  lang: Lang;
+}
+
+const { label, lang } = Astro.props;
+const home = `/${lang}`;
+---
+
+<div class="sticky-cta">
+  <span class="sticky-cta__label">{label}</span>
+  <span class="sticky-cta__actions">
+    <a
+      class="btn btn--primary"
+      href={`${home}#rdv`}
+      data-track-id="feature_sticky_book_demo"
+      data-track-type="demo"
+      data-track-section="sticky_cta">{t(lang, 'cta.book_demo')}</a
+    >
+    <a
+      class="btn btn--ghost"
+      href={`${home}#rdv`}
+      data-track-id="feature_sticky_try_free"
+      data-track-type="trial"
+      data-track-section="sticky_cta">{t(lang, 'cta.try_free')}</a
+    >
+  </span>
+</div>

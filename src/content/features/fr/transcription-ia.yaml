@@ -83,6 +83,3 @@ faq:
     answer: "Oui. Le moteur IA de Reedly distingue les voix et identifie automatiquement les différents interlocuteurs pendant le rendez-vous. Idéal pour les réunions à plusieurs participants côté client, où il est crucial de savoir qui a exprimé quel besoin ou objection."
   - question: "Puis-je corriger la transcription si elle contient des erreurs ?"
     answer: "Oui. Vous pouvez consulter et corriger la transcription depuis l'app mobile ou le Hub web. Toute correction améliore également la génération du rapport structuré final, qui s'appuie sur la transcription comme base de travail."
-related_features:
-  - slug: "hub-manager"
-    label: "Hub Manager"

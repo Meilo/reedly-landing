@@ -57,16 +57,38 @@ benefits:
       icon: "realtime"
 use_cases:
   eyebrow: "Cas d'usage"
-  title: "Qui utilise le Hub Manager ?"
+  title: "Qui utilise<br /><em>le Hub Manager ?</em>"
+  variant: "roles"
   cards:
     - title: "Directeurs commerciaux multi-régions"
+      heading: "Directeurs commerciaux<br />multi-régions"
       text: "Pilotez 5 à 20 commerciaux répartis sur plusieurs territoires. Identifiez en temps réel les zones qui performent, les secteurs en difficulté et les leviers d'action prioritaires."
+      bullets:
+        - "Synthèses stratégiques par territoire"
+        - "Zones qui performent, secteurs qui ralentissent"
+        - "Leviers d'action prioritaires"
     - title: "Sales managers en coaching terrain"
+      heading: "Sales managers<br />en coaching terrain"
       text: "Accédez aux rapports de vos commerciaux avant les debriefs hebdomadaires. Préparez vos entretiens avec des exemples concrets tirés des échanges clients réels."
+      bullets:
+        - "Rapports par commercial et par période"
+        - "Objections récurrentes remontées du terrain"
+        - "Debriefs préparés sur des cas réels"
     - title: "Responsables grands comptes"
+      heading: "Responsables<br />Grands Comptes"
       text: "Suivez l'ensemble des interactions avec vos comptes stratégiques, même quand plusieurs commerciaux interviennent. Gardez une vision 360° de la relation client."
+      bullets:
+        - "Historique complet du compte"
+        - "Tous les commerciaux intervenus"
+        - "Export et partage des rapports"
     - title: "Directions générales en PME/ETI"
+      heading: "Directions générales<br />en PME/ETI"
       text: "Consultez l'activité commerciale sans passer par des rapports hebdomadaires incomplets. Vision claire et immédiate de ce qui se dit sur le terrain."
+      bullets:
+        - "Activité commerciale consolidée"
+        - "Tendances du terrain, semaine après semaine"
+        - "Aucun reporting à réclamer"
+
 faq:
   - question: "Comment les rapports remontent-ils dans le Hub Manager ?"
     answer: "Chaque fois qu'un commercial génère un rapport via l'app mobile Reedly, celui-ci apparaît automatiquement dans le Hub Manager. Aucune synchronisation manuelle, tout est temps réel."
@@ -80,6 +102,3 @@ faq:
     answer: "Non. Le Hub Manager est une interface de consultation pour les managers. Les commerciaux ne reçoivent aucune notification quand vous accédez à leurs comptes-rendus."
   - question: "Combien de temps sont conservés les rapports dans le Hub ?"
     answer: "Tous les rapports sont conservés indéfiniment dans votre Hub Manager. Vous pouvez consulter l'historique complet de l'activité terrain depuis le début de votre abonnement."
-related_features:
-  - slug: "transcription-ia"
-    label: "Transcription IA"

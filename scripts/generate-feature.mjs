@@ -29,7 +29,7 @@ function loadStyleExamples() {
     .filter(Boolean);
 }
 
-function buildPrompt(featureCtx, lang, examples, relatedFeatures) {
+function buildPrompt(featureCtx, lang, examples) {
   const isEn = lang === 'en';
   const name = isEn ? featureCtx.nameEn : featureCtx.nameFr;
   const description = isEn ? featureCtx.descriptionEn : featureCtx.descriptionFr;
@@ -38,10 +38,6 @@ function buildPrompt(featureCtx, lang, examples, relatedFeatures) {
   const styleSnippets = examples
     .map((ex, i) => `--- Style example ${i + 1} ---\n${ex.slice(0, 1500)}`)
     .join('\n\n');
-
-  const relatedList = relatedFeatures
-    .map((r) => `- slug: "${r.slug}", label: "${r.label}"`)
-    .join('\n');
 
   return `You are an expert SEO content writer and product marketer for B2B SaaS tools.
 
@@ -72,9 +68,6 @@ CRITICAL RULES:
 - All icon fields (problem.cards and benefits.cards only) must use ONLY from this list: ${ICON_NAMES.join(', ')}
 - NEVER invent features that Reedly doesn't have
 - ${isEn ? 'hero.cta_url should be "/en#rdv"' : 'hero.cta_url should be "/fr#rdv"'}
-
-Related features to link to:
-${relatedList}
 
 Output ONLY valid YAML (no markdown fences, no comments, no explanation). Start directly with "seo:".
 
@@ -120,10 +113,7 @@ use_cases:
       text: string
 faq:
   - question: string
-    answer: string
-related_features:
-  - slug: string
-    label: string`;
+    answer: string`;
 }
 
 async function generateFeatureContent(featureId, lang) {
@@ -136,16 +126,8 @@ async function generateFeatureContent(featureId, lang) {
 
   const examples = loadStyleExamples();
 
-  const relatedFeatures = (featureCtx.relatedIds || []).map((relId) => {
-    const rel = registry.features.find((f) => f.id === relId);
-    const relCtx = config.featureContext[relId];
-    return {
-      slug: rel.slugs[lang],
-      label: lang === 'en' ? relCtx.nameEn : relCtx.nameFr,
-    };
-  });
 
-  const prompt = buildPrompt(featureCtx, lang, examples, relatedFeatures);
+  const prompt = buildPrompt(featureCtx, lang, examples);
 
   const client = new Anthropic();
   const response = await client.messages.create({

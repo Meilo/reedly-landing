@@ -22,7 +22,7 @@ const slides = [testimonials[testimonials.length - 1], ...testimonials, testimon
     <div class="tm__head reveal">
       <div class="tm__stars" aria-hidden="true">
         {Array.from({ length: 5 }).map(() => (
-          <Icon name="star" size={18} />
+          <Icon name="star" size={22} />
         ))}
       </div>
       <h2 class="display display--lg" set:html={t(lang, 'tm.title')} />
@@ -41,7 +41,7 @@ const slides = [testimonials[testimonials.length - 1], ...testimonials, testimon
                     <div class="tm__role">{s.role}</div>
                     <div class="tm__author-stars" aria-hidden="true">
                       {Array.from({ length: 5 }).map(() => (
-                        <Icon name="star" size={14} />
+                        <Icon name="star" size={18} />
                       ))}
                     </div>
                   </div>
@@ -52,10 +52,10 @@ const slides = [testimonials[testimonials.length - 1], ...testimonials, testimon
         </div>
 
         <button class="tm__arrow tm__arrow--prev" type="button" id="tm-prev" aria-label={t(lang, 'tm.prev')}>
-          <Icon name="arrow-left" size={18} />
+          <Icon name="arrow-left" size={30} />
         </button>
         <button class="tm__arrow tm__arrow--next" type="button" id="tm-next" aria-label={t(lang, 'tm.next')}>
-          <Icon name="arrow-right" size={18} />
+          <Icon name="arrow-right" size={30} />
         </button>
       </div>
 

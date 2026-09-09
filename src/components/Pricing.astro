@@ -29,7 +29,6 @@ const enterpriseFeatures = Array.from({ length: 5 }, (_, i) => ({
         id="billing-toggle"
         role="group"
         aria-label={t(lang, 'pricing.billing.aria')}
-        data-note-annual={t(lang, 'pricing.billing.note.annual')}
       >
         <button
           type="button"
@@ -64,7 +63,7 @@ const enterpriseFeatures = Array.from({ length: 5 }, (_, i) => ({
         <ul class="plan__features">
           {teamFeatures.map((feat) => (
             <li>
-              <Icon name={feat.icon} size={19} />
+              <span class="plan__feature-icon"><Icon name={feat.icon} size={30} /></span>
               {t(lang, feat.key)}
             </li>
           ))}
@@ -89,7 +88,7 @@ const enterpriseFeatures = Array.from({ length: 5 }, (_, i) => ({
         <ul class="plan__features">
           {enterpriseFeatures.map((feat) => (
             <li>
-              <Icon name={feat.icon} size={19} />
+              <span class="plan__feature-icon"><Icon name={feat.icon} size={30} /></span>
               {t(lang, feat.key)}
             </li>
           ))}
@@ -105,6 +104,5 @@ const enterpriseFeatures = Array.from({ length: 5 }, (_, i) => ({
       </article>
     </div>
 
-    <p class="pricing__note" id="billing-note">{t(lang, 'pricing.billing.note.monthly')}</p>
   </div>
 </section>
