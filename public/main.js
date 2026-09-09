@@ -323,24 +323,64 @@ document.querySelectorAll("[data-track-id]").forEach((el) => {
 })();
 
 // ── Language dropdown ──
+// The panel is a sibling of <nav>, so it is placed against the trigger with
+// measured fixed coordinates, and it follows the trigger while the nav pill
+// animates between its full-width and compact states.
 (function () {
-  var wrap = document.getElementById("nav-lang");
+  var nav = document.getElementById("nav");
   var trigger = document.getElementById("nav-lang-trigger");
-  if (!wrap || !trigger) return;
+  var panel = document.getElementById("nav-lang-panel");
+  if (!nav || !trigger || !panel) return;
+
+  function place() {
+    var r = trigger.getBoundingClientRect();
+    panel.style.left = r.left + "px";
+    panel.style.top = r.bottom + 16 + "px";
+    panel.classList.toggle("is-compact", nav.classList.contains("is-compact"));
+    panel.classList.toggle("is-onDark", nav.classList.contains("is-onDark"));
+  }
+
+  // The pill's own width/padding transition keeps moving the trigger after the
+  // class flips, so follow it frame by frame instead of snapping once.
+  function follow(ms) {
+    var start = performance.now();
+    var step = function () {
+      if (!panel.classList.contains("is-open")) return;
+      place();
+      if (performance.now() - start < ms) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
 
   function close() {
-    wrap.classList.remove("is-open");
+    panel.classList.remove("is-open");
     trigger.setAttribute("aria-expanded", "false");
   }
 
   trigger.addEventListener("click", function (e) {
     e.stopPropagation();
-    var open = wrap.classList.toggle("is-open");
-    trigger.setAttribute("aria-expanded", open ? "true" : "false");
+    if (panel.classList.contains("is-open")) return close();
+    place();
+    panel.classList.add("is-open");
+    trigger.setAttribute("aria-expanded", "true");
+  });
+
+  panel.addEventListener("click", function (e) {
+    e.stopPropagation();
   });
   document.addEventListener("click", close);
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") close();
+  });
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (panel.classList.contains("is-open")) follow(500);
+    },
+    { passive: true },
+  );
+  window.addEventListener("resize", function () {
+    if (panel.classList.contains("is-open")) place();
   });
 })();
 

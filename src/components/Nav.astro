@@ -28,29 +28,19 @@ const homeHref = `/${lang}`;
     </a>
 
     <div class="nav__actions">
-      <div class="nav__lang" id="nav-lang">
-        <button
-          class="nav__lang-trigger"
-          type="button"
-          id="nav-lang-trigger"
-          aria-haspopup="true"
-          aria-expanded="false"
-          aria-label={t(lang, 'nav.language')}
-        >
-          <span class={`nav__flag${lang === 'fr' ? ' nav__flag--fr' : ''}`}>
-            {lang === 'fr' ? <FlagFr /> : <FlagEn />}
-          </span>
-          <Icon name="chevron-down" size={10} />
-        </button>
-        <div class="nav__lang-panel" role="menu">
-          <a class="nav__lang-item" role="menuitem" hreflang="en" href={lang === 'fr' ? otherHref : path}>
-            <span class="nav__flag"><FlagEn /></span>{t(lang, 'lang.en')}
-          </a>
-          <a class="nav__lang-item" role="menuitem" hreflang="fr" href={lang === 'fr' ? path : otherHref}>
-            <span class="nav__flag nav__flag--fr"><FlagFr /></span>{t(lang, 'lang.fr')}
-          </a>
-        </div>
-      </div>
+      <button
+        class="nav__lang-trigger"
+        type="button"
+        id="nav-lang-trigger"
+        aria-haspopup="true"
+        aria-expanded="false"
+        aria-label={t(lang, 'nav.language')}
+      >
+        <span class={`nav__flag${lang === 'fr' ? ' nav__flag--fr' : ''}`}>
+          {lang === 'fr' ? <FlagFr /> : <FlagEn />}
+        </span>
+        <Icon name="chevron-down" size={10} />
+      </button>
 
       <a
         class="nav__signin"
@@ -70,3 +60,18 @@ const homeHref = `/${lang}`;
     </div>
   </div>
 </nav>
+
+<!--
+  Sibling of <nav>, not a descendant of the blurred pill: a backdrop-filter
+  nested inside an ancestor that already has one samples that ancestor's
+  flattened layer instead of the page, so its blur would do nothing. Its
+  position is measured from the trigger in public/main.js.
+-->
+<div class="nav__lang-panel" id="nav-lang-panel" role="menu">
+  <a class="nav__lang-item" role="menuitem" hreflang="en" href={lang === 'fr' ? otherHref : path}>
+    <span class="nav__flag"><FlagEn /></span>{t(lang, 'lang.en')}
+  </a>
+  <a class="nav__lang-item" role="menuitem" hreflang="fr" href={lang === 'fr' ? path : otherHref}>
+    <span class="nav__flag nav__flag--fr"><FlagFr /></span>{t(lang, 'lang.fr')}
+  </a>
+</div>
