@@ -23,7 +23,8 @@ const fr: Dict = {
   'footer.terms': 'CGU',
   'cta.store_sub': 'Disponible sur',
 
-  'hero.title': 'PILOTEZ VOTRE ÉQUIPE COMMERCIALE<br /><em>EN TEMPS RÉEL.</em>',
+  'hero.title':
+    'Moins de saisie, plus de rendez-vous.<br /><em>Vos commerciaux enfin à 100&nbsp;% sur le terrain.</em>',
   'hero.sub':
     "Reedly transforme chaque retour terrain en information immédiatement partagée avec les équipes concernées. Identifiez ce qui stimule ou freine les ventes de vos produits, et les facteurs qui influencent les choix de vos agences partenaires.",
 
@@ -211,7 +212,8 @@ const en: Dict = {
   'footer.terms': 'Terms',
   'cta.store_sub': 'Available on',
 
-  'hero.title': 'STEER YOUR TEAM<br /><em>IN REAL TIME.</em>',
+  'hero.title':
+    'Less data entry, more face time.<br /><em>Keep your field reps where they sell best.</em>',
   'hero.sub':
     "Reedly turns every field report into information that's instantly shared with the relevant teams. Identify what drives or holds back your product sales, and the factors that shape your partner agencies' choices.",
 
