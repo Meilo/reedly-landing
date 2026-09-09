@@ -24,7 +24,7 @@ const fr: Dict = {
   'cta.store_sub': 'Disponible sur',
 
   'hero.title':
-    'Moins de saisie, plus de rendez-vous.<br /><em>Vos commerciaux enfin à 100&nbsp;% sur le terrain.</em>',
+    'Transformez les conversations de vos commerciaux terrain en données fiables,<br /><em>grâce à un agent&nbsp;IA.</em>',
   'hero.sub':
     "Reedly transforme chaque retour terrain en information immédiatement partagée avec les équipes concernées. Identifiez ce qui stimule ou freine les ventes de vos produits, et les facteurs qui influencent les choix de vos agences partenaires.",
 
@@ -213,7 +213,7 @@ const en: Dict = {
   'cta.store_sub': 'Available on',
 
   'hero.title':
-    'Less data entry, more face time.<br /><em>Keep your field reps where they sell best.</em>',
+    'Turn your field sales conversations into trusted data<br /><em>with an AI agent.</em>',
   'hero.sub':
     "Reedly turns every field report into information that's instantly shared with the relevant teams. Identify what drives or holds back your product sales, and the factors that shape your partner agencies' choices.",
 
