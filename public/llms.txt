@@ -1,6 +1,6 @@
 # Reedly
 
-> Reedly is the first field intelligence platform for B2B tourism. Sales reps who cover a network of travel agencies run their meeting; the mobile app (iOS & Android) transcribes the conversation with 95%+ accuracy, then automatically generates a report in 11 sections: executive summary, client profile, expressed needs, objections, commitments, next steps, opportunities, risks and recommendations, in under 2 minutes. The voice is neither recorded nor stored: only the transcript is used to generate the report. Every report lands in the Manager Hub, the web interface where sales leadership reads what the field is actually saying, agency by agency.
+> Reedly is the field intelligence platform for outside sales. Reps who cover a portfolio of outlets or accounts run their meeting; the mobile app (iOS & Android) transcribes the conversation with 95%+ accuracy, then automatically generates a report in 11 sections: executive summary, client profile, expressed needs, objections, commitments, next steps, opportunities, risks and recommendations, in under 2 minutes. The voice is neither recorded nor stored: only the transcript is used to generate the report. Every report lands in the Manager Hub, the web interface where sales leadership reads what the field is actually saying, account by account.
 
 ## Pages
 
@@ -25,12 +25,12 @@
 
 ## Key Features
 - Transcription during the meeting, or dictated right after, works offline (transcription and report generate as soon as the network is back)
-- 95%+ transcription accuracy, holds up in noisy agency environments
+- 95%+ transcription accuracy, holds up in noisy environments: a busy front desk, a counter, a showroom
 - Structured report in 11 sections, generated in under 2 minutes
 - The voice is never recorded or stored: only the transcript is used
 - Speaker identification
-- Auto-enriched agency records
-- Territory and destination syntheses over any period
+- Auto-enriched client records
+- Territory and region syntheses over any period
 - Manager Hub: team reports, syntheses, member activity
 - Max: AI assistant that searches the team's field data and can draft actions, emails and follow-ups
 - CRM connectors (HubSpot, Salesforce), Slack, WhatsApp, email, PDF export
@@ -40,8 +40,8 @@
 - Enterprise: custom pricing (16+ reps), custom industry vocabulary, multi-team / multi-territory, dedicated account manager, on-site training and onboarding
 
 ## Audience
-- B2B tourism: tour operators, travel wholesalers, DMC / inbound operators, MICE, transport, cruise, hospitality, leisure and ticketing
-- Field sales reps covering a network of travel agencies
+- Any B2B team that sells face to face: travel and tourism (the first market served: tour operators, wholesalers, DMC / inbound), industry and construction, distribution and retail, services and consulting, health and medical
+- Field sales reps covering a portfolio of outlets or accounts to visit
 - Sales directors and managers running that network
 
 ## Compliance

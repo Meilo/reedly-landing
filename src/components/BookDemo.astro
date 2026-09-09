@@ -15,15 +15,15 @@ const roles = [
   ['other', 'bookdemo.role.other'],
 ] as const;
 
+// Broad categories rather than the tourism verticals they replaced: the copy
+// now speaks to any outside-sales team, and this is the field that qualifies
+// which one. The value is passed straight through to the booking email.
 const sectors = [
-  ['tour_operateur', 'bookdemo.sector.to'],
-  ['agence_voyages', 'bookdemo.sector.agency'],
-  ['receptif_dmc', 'bookdemo.sector.dmc'],
-  ['mice', 'bookdemo.sector.mice'],
-  ['transport', 'bookdemo.sector.transport'],
-  ['croisiere', 'bookdemo.sector.cruise'],
-  ['hotellerie', 'bookdemo.sector.hospitality'],
-  ['loisirs', 'bookdemo.sector.leisure'],
+  ['tourisme_voyage', 'bookdemo.sector.travel'],
+  ['industrie_btp', 'bookdemo.sector.industry'],
+  ['distribution_retail', 'bookdemo.sector.retail'],
+  ['services_conseil', 'bookdemo.sector.services'],
+  ['sante_medical', 'bookdemo.sector.health'],
   ['other', 'bookdemo.sector.other'],
 ] as const;
 
