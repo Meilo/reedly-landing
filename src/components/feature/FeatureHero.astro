@@ -2,15 +2,16 @@
 import { t, type Lang } from '@/lib/i18n';
 
 interface Props {
-  eyebrow: string;
+  badge: string;
   title: string;
   lead: string;
   image: string;
   imageAlt: string;
+  objectPosition?: string;
   lang: Lang;
 }
 
-const { eyebrow, title, lead, image, imageAlt, lang } = Astro.props;
+const { badge, title, lead, image, imageAlt, objectPosition, lang } = Astro.props;
 const home = `/${lang}`;
 ---
 
@@ -18,7 +19,7 @@ const home = `/${lang}`;
   <div class="inner fhero__inner">
     <div class="fhero__text reveal center-mobile">
       <h1 class="display display--xl" set:html={title} />
-      <p class="lead">{lead}</p>
+      <p class="lead" set:html={lead} />
       <div class="btn-row">
         <a
           class="btn btn--primary"
@@ -39,9 +40,9 @@ const home = `/${lang}`;
 
     <div class="fhero__media reveal">
       <div class="frame frame--portrait">
-        <img src={image} alt={imageAlt} width="1122" height="1402" fetchpriority="high" />
+        <img src={image} alt={imageAlt} width="1122" height="1402" fetchpriority="high" style={objectPosition ? `object-position:${objectPosition}` : undefined} />
         <div class="frame__scrim" aria-hidden="true"></div>
-        <div class="frame__badge">{eyebrow}</div>
+        <div class="frame__badge">{badge}</div>
       </div>
     </div>
   </div>

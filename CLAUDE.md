@@ -61,7 +61,7 @@ Not an Astro content collection: loaded manually from YAML.
 - Photography: `src/lib/feature-media.ts` maps a feature id to its hero image and supplies the four use-case photos (keyed by id so both languages show the same visuals).
 - Routed by `src/pages/{fr,en}/features/[...slug].astro` via `getStaticPaths` from the registry.
 
-`problem.cards` and `benefits.cards` carry an `icon` naming an entry in the icon registry (below). `use_cases.cards` carry no icon, and the section has two shapes, chosen by `use_cases.variant`:
+`hero` carries two labels, not one: `badge` sits over the hero photo, `sticky` labels the bottom bar. `problem.cards` and `benefits.cards` carry an `icon` naming an entry in the icon registry (below). `use_cases.cards` carry no icon, and the section has two shapes, chosen by `use_cases.variant`:
 
 - default (AI transcription) — `FeatureUseCases.astro`: an accordion whose selected row swaps the photo beside it.
 - `variant: roles` (Manager Hub) — `FeatureRoles.astro`: role tabs over a darkened photo, each revealing a card with a heading, a paragraph and three bullets. Those cards also carry `heading` (two-line, with `<br />`) and `bullets`.
@@ -102,6 +102,7 @@ The inline script reads its UI strings from a `<script type="application/json" i
 - **Imports**: always `@/...` (e.g. `import Nav from '@/components/Nav.astro'`), not relative `../`.
 - **Astro frontmatter** uses single-quoted strings, semicolons, 2-space indent.
 - **Section headings** are two lines: the first plain, the second wrapped in `<em>` (rendered in slate, or green on dark sections). Titles carry literal `<br />` and `<em>` and are rendered with `set:html`.
+- **Product-page copy is the canvas copy, verbatim**, including the `<b>` around the key phrase of a card text or section lead. Those fields are rendered with `set:html`, so keep the markup in the YAML rather than stripping it.
 - **Bilingual symmetry is mandatory.** Any new page, redirect or feature needs both `fr` and `en` versions.
 - **SEO**: every page sets `title` ≤ 60 chars including "Reedly", `description` ≤ 155 chars, canonical URL, hreflang. Home and feature pages emit JSON-LD; only one `FAQPage` per page (emitted by whichever FAQ component renders).
 - **Comments**: existing code has minimal comments — don't add commentary unless non-obvious.

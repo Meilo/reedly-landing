@@ -67,7 +67,9 @@ CRITICAL RULES:
 - faq must have 4-6 items answering real "People Also Ask" questions
 - All icon fields (problem.cards and benefits.cards only) must use ONLY from this list: ${ICON_NAMES.join(', ')}
 - NEVER invent features that Reedly doesn't have
-- ${isEn ? 'hero.cta_url should be "/en#rdv"' : 'hero.cta_url should be "/fr#rdv"'}
+- hero.badge is the short label laid over the hero photo; hero.sticky is the label of the sticky bottom bar
+- Titles (hero, problem, solution, benefits, use_cases) are two lines: plain first line, then <br /> and the second line wrapped in <em>
+- Card texts and section leads may bold a key phrase with <b>…</b>
 
 Output ONLY valid YAML (no markdown fences, no comments, no explanation). Start directly with "seo:".
 
@@ -78,11 +80,10 @@ seo:
   description: string
   keywords: [string, string, string]
 hero:
-  eyebrow: string
+  badge: string
+  sticky: string
   title: string
   lead: string
-  cta_label: string
-  cta_url: string
 problem:
   eyebrow: string
   title: string

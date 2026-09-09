@@ -24,7 +24,7 @@ const { title, cards, images } = Astro.props;
               <span class="usecase__title">{card.title}</span>
             </button>
             <div class="usecase__panel">
-              <p>{card.text}</p>
+              <p set:html={card.text} />
             </div>
           </div>
         ))}

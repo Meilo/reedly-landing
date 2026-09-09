@@ -14,7 +14,7 @@ const { title, lead, cards } = Astro.props;
   <div class="inner">
     <div class="reveal center-mobile">
       <h2 class="display display--lg" set:html={title} />
-      <p class="lead">{lead}</p>
+      <p class="lead" set:html={lead} />
     </div>
 
     <div class="feature-grid reveal">
@@ -22,7 +22,7 @@ const { title, lead, cards } = Astro.props;
         <article class="feature-item">
           <span class="feature-item__icon"><Icon name={card.icon} size={60} /></span>
           <h3>{card.title}</h3>
-          <p>{card.text}</p>
+          <p set:html={card.text} />
         </article>
       ))}
     </div>

@@ -39,7 +39,7 @@ const { title, image, imageAlt, roles, prevLabel, nextLabel } = Astro.props;
           {roles.map((role, i) => (
             <div class={`roles__card${i === 0 ? ' is-active' : ''}`} data-index={i}>
               <h3 set:html={role.heading ?? role.title} />
-              <p>{role.text}</p>
+              <p set:html={role.text} />
               {role.bullets && (
                 <ul>
                   {role.bullets.map((item) => (

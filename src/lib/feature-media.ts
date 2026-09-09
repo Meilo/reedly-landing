@@ -4,6 +4,8 @@ export interface FeatureImage {
   src: string;
   altFr: string;
   altEn: string;
+  /** Framing override; the canvas crops the Manager Hub portrait higher. */
+  objectPosition?: string;
 }
 
 const HERO: Record<string, FeatureImage> = {
@@ -14,8 +16,9 @@ const HERO: Record<string, FeatureImage> = {
   },
   'manager-hub': {
     src: '/images/portrait-a.webp',
-    altFr: 'Directrice commerciale',
+    altFr: 'Directeur commercial',
     altEn: 'Sales director',
+    objectPosition: '50% 20%',
   },
 };
 
@@ -46,7 +49,11 @@ const FALLBACK = HERO['ai-transcription'];
 
 export function heroImage(featureId: string, lang: 'fr' | 'en') {
   const image = HERO[featureId] ?? FALLBACK;
-  return { src: image.src, alt: lang === 'fr' ? image.altFr : image.altEn };
+  return {
+    src: image.src,
+    alt: lang === 'fr' ? image.altFr : image.altEn,
+    objectPosition: image.objectPosition,
+  };
 }
 
 export function useCaseImages(lang: 'fr' | 'en') {

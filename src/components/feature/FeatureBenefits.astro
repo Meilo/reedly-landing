@@ -20,7 +20,7 @@ const { title, cards } = Astro.props;
         <article class="feature-item">
           <span class="feature-item__icon"><Icon name={card.icon} size={60} /></span>
           <h3>{card.title}</h3>
-          <p>{card.text}</p>
+          <p set:html={card.text} />
         </article>
       ))}
     </div>

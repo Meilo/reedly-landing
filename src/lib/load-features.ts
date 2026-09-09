@@ -8,7 +8,14 @@ export interface FeatureRegistry {
 
 export interface FeatureContent {
   seo: { title: string; description: string; keywords: string[] };
-  hero: { eyebrow: string; title: string; lead: string; cta_label: string; cta_url: string };
+  hero: {
+    /** Overlay label on the hero photo. */
+    badge: string;
+    /** Label carried by the sticky bottom CTA. */
+    sticky: string;
+    title: string;
+    lead: string;
+  };
   problem: {
     eyebrow: string; title: string; lead: string;
     cards: { title: string; text: string; icon: string }[];
