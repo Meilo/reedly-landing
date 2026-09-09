@@ -2673,6 +2673,34 @@ a.legal-stack__row:hover {
     text-align: center;
   }
 
+  .center-mobile .hub__benefit {
+    align-items: center;
+  }
+
+  /* The demo head is a two-column flex row on desktop; the canvas drops the
+     lead onto its own full-width line rather than letting it keep a basis. */
+  .center-mobile.demo__head > .lead {
+    flex-basis: 100%;
+    max-width: none;
+  }
+
+  /* Same for the pricing head: the heading block and the billing toggle stack
+     and centre instead of sitting at opposite ends. */
+  .center-mobile.pricing__head {
+    justify-content: center;
+  }
+
+  /* The canvas widens the demo photo to the full row. */
+  .demo__photo {
+    flex: 1 1 100%;
+  }
+
+  /* And it drops the hub portrait: the Max window already carries the section
+     on mobile, and the photo (order: 2) lands orphaned under it. */
+  .hub__photo {
+    display: none;
+  }
+
 }
 
 /* ── Product pages: sticky CTA bar ─────────────────────────────────────── */
