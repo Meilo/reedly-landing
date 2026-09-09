@@ -1109,6 +1109,7 @@ h3 {
   height: 32px;
   border-radius: 9px;
   background: var(--brand);
+  color: #fff;
 }
 
 .hub__benefits {
