@@ -616,6 +616,9 @@ h3 {
   flex: 0 0 auto;
   overflow: hidden;
   display: inline-block;
+}
+
+.nav__flag--fr {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -679,10 +682,6 @@ h3 {
   transform: translateX(4px);
   color: var(--brand);
   background: #e2e8f0;
-}
-
-.nav__lang-item.is-active {
-  color: var(--brand);
 }
 
 .nav.is-compact .nav__lang-panel {
