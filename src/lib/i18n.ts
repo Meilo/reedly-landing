@@ -187,7 +187,6 @@ const fr: Dict = {
 
   'final.title': 'Prêt à vous lancer<em>&nbsp;?</em>',
 
-  'footer.tagline': 'La première intelligence terrain<br />du tourisme',
   'footer.col.features': 'Fonctionnalités',
   'footer.feature.transcription': 'Transcription IA',
   'footer.feature.hub': 'Hub Manager',
@@ -375,7 +374,6 @@ const en: Dict = {
 
   'final.title': 'Ready to get started<em>&nbsp;?</em>',
 
-  'footer.tagline': 'The first field intelligence<br />for tourism',
   'footer.col.features': 'Features',
   'footer.feature.transcription': 'AI Transcription',
   'footer.feature.hub': 'Manager Hub',
