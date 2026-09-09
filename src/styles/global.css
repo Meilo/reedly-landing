@@ -647,6 +647,8 @@ h3 {
 
 .phone__screen img {
   width: 100%;
+  /* Explicit, so a stale width/height attribute can never stretch the screenshot. */
+  height: auto;
   display: block;
 }
 
