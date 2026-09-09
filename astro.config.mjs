@@ -18,11 +18,9 @@ export default defineConfig({
     // and `/en/*`. See https://starlight.astro.build/manual-setup/ ("subpath").
     starlight({
       title: 'Reedly Docs',
-      description: 'Integrate with Reedly — field meeting intelligence for B2B sales teams.',
-      // The real mark. Both must be set explicitly: Starlight's favicon defaults
-      // to `/favicon.svg`, and public/ happens to contain one — a stray
-      // placeholder drawing an "R" in monospace text, not the Reedly logo. So the
-      // docs were silently serving a different icon from the rest of the domain.
+      description: 'Integrate with Reedly, the field meeting intelligence for B2B sales teams.',
+      // Starlight's favicon defaults to `/favicon.svg`, which no longer exists:
+      // set it explicitly or the docs lose the mark the rest of the domain uses.
       //
       // logo.src points at a 64px copy rather than public/favicon.png: Starlight
       // renders the logo through a plain <img> at its intrinsic size, so the
@@ -73,8 +71,12 @@ export default defineConfig({
     mdx(),
     // Auto-generates a complete sitemap on every build (no more stale static file).
     // hreflang is emitted per-page in the <head> (Layout.astro), so a flat sitemap is fine.
+    //
+    // The root is excluded on purpose: vercel.json 301s `/` to `/en`, and a
+    // sitemap that lists a redirecting URL is reported as "Page with redirect"
+    // in Search Console. Every language half is listed under /fr and /en.
     sitemap({
-      filter: (page) => !page.includes('/api/'),
+      filter: (page) => !page.includes('/api/') && page !== 'https://www.reedly.ai/',
     }),
   ],
 });

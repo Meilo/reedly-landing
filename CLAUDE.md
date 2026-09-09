@@ -7,7 +7,7 @@ Reedly's bilingual (FR/EN) marketing site. Reedly is the field intelligence plat
 - **Astro 6** in `output: 'static'` with the `@astrojs/vercel` adapter — static-first, with a few endpoints server-rendered via `export const prerender = false`.
 - **Node 20+**, **pnpm 10** (declared in `packageManager`). Use `pnpm`, not npm.
 - **TypeScript strict** (`astro/tsconfigs/strict`) with `@/*` → `src/*` path alias.
-- **Resend** for the contact form and booking emails.
+- **Resend** for the booking emails.
 - **PostHog** for analytics (snippet in `src/components/PostHog.astro`).
 - **No CSS framework** — vanilla CSS in `src/styles/global.css`.
 - **Light theme only.** There is no theme switcher and no dark palette on the marketing site; `/docs` (Starlight) keeps its own dark surface, which is unrelated.
@@ -86,10 +86,9 @@ Three behaviours are component-scoped inline scripts instead, because they are l
 
 ### API endpoints (server-rendered)
 
-- `src/pages/api/contact.ts` — `POST /api/contact`, validates and sends via Resend.
-- `src/pages/api/notify.ts` — similar pattern.
-- `src/pages/api/availability.ts` and `src/pages/api/book.ts` — the native demo booking (below).
-- All set `prerender = false`.
+- `src/pages/api/availability.ts` and `src/pages/api/book.ts` — the native demo booking (below). Both set `prerender = false`; they are the only two.
+
+`/api/contact` and `/api/notify` were removed: the contact form and the "notify me" modal that called them went away in the redesign, leaving two unauthenticated endpoints that anyone could POST to make Resend send mail. Don't reintroduce an email endpoint without a caller.
 
 ### Native demo booking
 
@@ -142,9 +141,11 @@ Deployed to Vercel. `astro.config.mjs` uses `output: 'static'` + `@astrojs/verce
 
 ## Gotchas
 
-- The README is partly out of date. Treat the code as source of truth.
+- The README describes the current site. CLAUDE.md stays the deeper reference; where they disagree, the code wins.
 - `vercel.json` legacy redirect `/solutions/:slug` → `/features/:slug` — the product pages live at `/features/...`, not `/solutions/...`.
 - `Layout.astro` defaults to **French** title/description if none provided — always pass `lang` and explicit `title`/`description` for English pages.
 - `hero.cta_label` / `hero.cta_url` still exist in the feature YAMLs but are no longer rendered; the hero CTAs point at the home `#rdv` anchor.
 - The layout was verified against the canvas by loading each maquette in a same-origin iframe and diffing computed geometry at a 1440px viewport. If you change spacing or an icon size, re-check against the canvas rather than eyeballing it: several values there are deliberate oddities (a 70px icon tile around a 60px glyph, `min-height` on only two rows of the booking form, a 52px benefits gap against a 56px problem gap).
-- `public/video/*.mp4` are left over from a removed section and are currently unreferenced.
+- `public/` holds no dead weight any more: the four promo `.mp4`s, `favicon.svg`, `portrait-b.webp` and `integration/discord.png` were all unreferenced and are gone (recoverable from git history).
+- `.astro/` is gitignored. It used to be committed, which meant every build dirtied the tree and kept a stale schema for a `blog` collection that no longer exists.
+- The sitemap excludes `/` on purpose (`astro.config.mjs`): `vercel.json` 301s it to `/en`, and a sitemap listing a redirecting URL is a Search Console error.
