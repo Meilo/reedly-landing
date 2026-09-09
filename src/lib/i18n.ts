@@ -279,7 +279,7 @@ const en: Dict = {
   'bookdemo.sector.other': 'Other sector',
   'bookdemo.email.label': 'Email',
   'bookdemo.email.ph': 'you@your-organization.com',
-  'bookdemo.submit': 'See available slots →',
+  'bookdemo.submit': 'See available slots',
   'bookdemo.cal.pickday': 'Pick a day',
   'bookdemo.cal.pickslot': 'Pick a time',
   'bookdemo.cal.tznote': 'Times shown in your timezone.',
