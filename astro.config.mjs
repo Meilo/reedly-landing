@@ -22,9 +22,8 @@ export default defineConfig({
       // Starlight's favicon defaults to `/favicon.svg`, which no longer exists:
       // set it explicitly or the docs lose the mark the rest of the domain uses.
       //
-      // logo.src points at a 64px copy rather than public/favicon.png: Starlight
-      // renders the logo through a plain <img> at its intrinsic size, so the
-      // 1023x1023 original shipped 778 KB to draw a 28px mark.
+      // logo.src stays a 64px copy: Starlight renders it through a plain <img>
+      // at its intrinsic size, and the mark is drawn at 28px.
       logo: { src: './src/assets/logo.png', alt: 'Reedly' },
       favicon: '/favicon.png',
       customCss: ['./src/styles/starlight.css'],
