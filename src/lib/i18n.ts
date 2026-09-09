@@ -211,7 +211,7 @@ const en: Dict = {
   'footer.terms': 'Terms',
   'cta.store_sub': 'Available on',
 
-  'hero.title': 'STEER YOUR SALES TEAM<br /><em>IN REAL TIME.</em>',
+  'hero.title': 'STEER YOUR TEAM<br /><em>IN REAL TIME.</em>',
   'hero.sub':
     "Reedly turns every field report into information that's instantly shared with the relevant teams. Identify what drives or holds back your product sales, and the factors that shape your partner agencies' choices.",
 
