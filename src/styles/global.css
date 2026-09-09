@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: 'Lanterosy';
-  src: url('/fonts/Lanterosy.ttf') format('truetype');
+  src: url('/fonts/Lanterosy.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
 }
@@ -34,8 +34,8 @@
   --brand-tint: #dcfce7;
 
   /* Type */
-  --display: 'Lanterosy', 'Geist', sans-serif;
-  --sans: 'Inter', 'Geist', system-ui, -apple-system, sans-serif;
+  --display: 'Lanterosy', sans-serif;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
 
   /* Metrics */
   --container: 1240px;
@@ -403,12 +403,17 @@ h3 {
 
 /* ── Scroll reveal (driven by public/main.js) ──────────────────────────── */
 
-.reveal {
+/* Everything here hangs off `.js`, set on <html> by the inline script in
+   Layout.astro and taken back off if main.js never reports in. 95% of the
+   page's text sits inside a .reveal block, so hiding them unconditionally
+   means a browser with no JS — or one where main.js 404s or throws — gets a
+   blank page. Default is visible; the animation is the enhancement. */
+.js .reveal {
   opacity: 0;
   transform: translateY(16px);
 }
 
-.reveal.is-visible {
+.js .reveal.is-visible {
   opacity: 1;
   transform: none;
   transition:
@@ -418,25 +423,23 @@ h3 {
 
 /* Set by main.js when the block was already scrolled past when the observer
    fired. Fading it in then would draw the eye to something already read. */
-.reveal.is-visible.reveal--instant {
+.js .reveal.is-visible.reveal--instant {
   transition: none;
 }
 
 /* Icons inside a revealing block pop in one after another. */
-[data-icon-anim] {
+.js [data-icon-anim] {
   opacity: 0;
   transform: scale(0.4) rotate(-8deg);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-icon-anim] {
+  .js [data-icon-anim] {
     opacity: 1;
     transform: none;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
+  .js .reveal {
     opacity: 1;
     transform: none;
   }

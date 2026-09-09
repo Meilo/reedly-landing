@@ -26,6 +26,13 @@ const {
 // not appear, and only once per session.
 const INTRO_SCRIPT = `(function(){try{if(sessionStorage.getItem('reedly-intro'))return;sessionStorage.setItem('reedly-intro','1')}catch(e){}document.documentElement.classList.add('has-intro')})();`;
 
+// Marks the document as JS-capable so global.css may hide the .reveal blocks,
+// then takes the mark back off if main.js has not reported in. Without this a
+// browser with JS off, or one where main.js 404s or throws, renders a blank
+// page: nearly all the copy lives inside a .reveal. Runs before the first
+// paint, so the blocks are never briefly visible before being hidden.
+const REVEAL_GATE = `(function(){var d=document.documentElement;d.classList.add('js');setTimeout(function(){if(!window.__reedlyReveal)d.classList.remove('js')},3000)})();`;
+
 const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const canonicalURL = new URL(pathname, 'https://www.reedly.ai');
 const ogLocale = lang === 'fr' ? 'fr_FR' : 'en_US';
@@ -96,6 +103,7 @@ if (isHomePage) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light" />
+    <script is:inline set:html={REVEAL_GATE} />
     {intro && <script is:inline set:html={INTRO_SCRIPT} />}
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -130,10 +138,10 @@ if (isHomePage) {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&family=Inter:wght@400..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap"
       rel="stylesheet"
     />
-    <link rel="preload" href="/fonts/Lanterosy.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/Lanterosy.woff2" as="font" type="font/woff2" crossorigin />
 
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

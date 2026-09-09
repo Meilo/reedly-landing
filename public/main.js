@@ -187,6 +187,11 @@ document.querySelectorAll("[data-track-id]").forEach((el) => {
 
 // ── Scroll reveal, with the icons popping in one after another ──
 (function () {
+  // Tells the inline gate in Layout.astro that this file ran, so it leaves the
+  // `js` class on <html>. Set before the early return: a page with no .reveal
+  // block still needs the gate to stand down.
+  window.__reedlyReveal = 1;
+
   var els = document.querySelectorAll(".reveal");
   if (!els.length) return;
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

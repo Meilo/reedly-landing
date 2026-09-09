@@ -28,8 +28,9 @@ export default defineConfig({
       favicon: '/favicon.png',
       customCss: ['./src/styles/starlight.css'],
       // Starlight renders through its own layout, so it never inherits the font
-      // <link> from Layout.astro. Mirror it here or the docs fall back to a
-      // system font while the rest of reedly.ai is in Geist.
+      // <link> from Layout.astro. The docs are the only place Geist actually
+      // renders (`--sl-font` in starlight.css); the marketing pages are on
+      // Lanterosy + Inter and no longer request it.
       head: [
         { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
         { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true } },
