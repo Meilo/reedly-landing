@@ -56,12 +56,19 @@ Copy for all of these lives server-side in `src/lib/i18n.ts` (`t(lang, key)`). N
 Not an Astro content collection: loaded manually from YAML.
 
 - Registry: `src/data/features.yaml` maps `feature.id` → `{ slugs: { fr, en } }`. **Slugs differ per language.**
-- Content: `src/content/features/{fr,en}/{slug}.yaml` — `seo`, `hero`, `problem`, `solution`, `benefits`, `use_cases`, `faq`, `related_features`.
+- Content: `src/content/features/{fr,en}/{slug}.yaml` — `seo`, `hero`, `problem`, `solution`, `benefits`, `use_cases`, `faq`.
 - Loader: `src/lib/load-features.ts`.
 - Photography: `src/lib/feature-media.ts` maps a feature id to its hero image and supplies the four use-case photos (keyed by id so both languages show the same visuals).
 - Routed by `src/pages/{fr,en}/features/[...slug].astro` via `getStaticPaths` from the registry.
 
-`problem.cards` and `benefits.cards` carry an `icon` naming an entry in the icon registry (below). `use_cases.cards` carry no icon — that section is an accordion driving a photo.
+`problem.cards` and `benefits.cards` carry an `icon` naming an entry in the icon registry (below). `use_cases.cards` carry no icon, and the section has two shapes, chosen by `use_cases.variant`:
+
+- default (AI transcription) — `FeatureUseCases.astro`: an accordion whose selected row swaps the photo beside it.
+- `variant: roles` (Manager Hub) — `FeatureRoles.astro`: role tabs over a darkened photo, each revealing a card with a heading, a paragraph and three bullets. Those cards also carry `heading` (two-line, with `<br />`) and `bullets`.
+
+Both pages end with `FeatureStickyCta.astro`, a bottom bar that slides in past the scroll threshold, labelled with `hero.eyebrow`.
+
+There is no "related features" section: the canvas has none, so the pages cross-link only through the footer.
 
 ### Icons
 
@@ -73,9 +80,9 @@ The only exceptions live in `src/components/icons/` (country flags) and `Footer.
 
 ### Interactivity
 
-`public/main.js` (loaded with `<script src="/main.js" is:inline>`) owns the global behaviours: analytics helpers + `window.reedlyTrackEvent`, scroll reveal (`.reveal` → `.is-visible`), the nav's compact pill and its light-ink flip over `[data-nav-dark]` sections, the language dropdown, the FAQ accordion, the pricing billing toggle, and the testimonial carousel.
+`public/main.js` (loaded with `<script src="/main.js" is:inline>`) owns the global behaviours: analytics helpers + `window.reedlyTrackEvent`, scroll reveal (`.reveal` → `.is-visible`), the nav's compact pill and its light-ink flip over `[data-nav-dark]` sections, the language dropdown, the FAQ accordion, the pricing billing toggle, and the testimonial carousel. It also mirrors the scroll threshold onto `<html class="is-scrolled">`, which is what reveals the product pages' sticky CTA.
 
-Two behaviours are component-scoped inline scripts instead, because they are local to one block: the booking flow in `BookDemo.astro` and the use-case accordion in `FeatureUseCases.astro`.
+Three behaviours are component-scoped inline scripts instead, because they are local to one block: the booking flow in `BookDemo.astro`, the use-case accordion in `FeatureUseCases.astro`, and the role tabs in `FeatureRoles.astro`.
 
 ### API endpoints (server-rendered)
 
@@ -138,4 +145,5 @@ Deployed to Vercel. `astro.config.mjs` uses `output: 'static'` + `@astrojs/verce
 - `vercel.json` legacy redirect `/solutions/:slug` → `/features/:slug` — the product pages live at `/features/...`, not `/solutions/...`.
 - `Layout.astro` defaults to **French** title/description if none provided — always pass `lang` and explicit `title`/`description` for English pages.
 - `hero.cta_label` / `hero.cta_url` still exist in the feature YAMLs but are no longer rendered; the hero CTAs point at the home `#rdv` anchor.
+- The layout was verified against the canvas by loading each maquette in a same-origin iframe and diffing computed geometry at a 1440px viewport. If you change spacing or an icon size, re-check against the canvas rather than eyeballing it: several values there are deliberate oddities (a 70px icon tile around a 60px glyph, `min-height` on only two rows of the booking form, a 52px benefits gap against a 56px problem gap).
 - `public/video/*.mp4` are left over from a removed section and are currently unreferenced.
