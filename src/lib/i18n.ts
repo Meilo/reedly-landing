@@ -131,7 +131,7 @@ const fr: Dict = {
   'pricing.team.feat8': 'Connecteurs CRM connus',
   'pricing.team.feat9': 'Assistant IA (Max)',
   'pricing.team.feat10': 'Support prioritaire',
-  'pricing.large.plan': 'Entreprise',
+  'pricing.large.plan': 'ENTREPRISE',
   'pricing.large.subtitle': '16+ commerciaux',
   'pricing.large.price': 'Sur devis',
   'pricing.large.feat1': 'Tout le plan Équipe',

@@ -27,7 +27,12 @@ const sectors = [
   ['other', 'bookdemo.sector.other'],
 ] as const;
 
-const teamSizes = ['1', '2-5', '6-15', '16+'] as const;
+const teamSizes = [
+  { value: '1', label: '1' },
+  { value: '2-5', label: '2 à 5' },
+  { value: '6-15', label: '6 à 15' },
+  { value: '16+', label: '16+' },
+] as const;
 
 const strings = {
   loading: t(lang, 'bookdemo.cal.loading'),
@@ -92,7 +97,7 @@ const strings = {
           <span class="book__label" id="bd-team-label">{t(lang, 'bookdemo.team.label')}</span>
           <div class="book__chips" role="group" aria-labelledby="bd-team-label">
             {teamSizes.map((size) => (
-              <button class="book__chip" type="button" data-size={size}>{size}</button>
+              <button class="book__chip" type="button" data-size={size.value}>{size.label}</button>
             ))}
           </div>
           <input type="hidden" id="bd-team" name="team_size" required />
