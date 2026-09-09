@@ -1,13 +1,8 @@
-// Server-side i18n dictionary for shared home/pricing components (Nav, Footer,
-// Hero, Demo, Hub, Compliance, BookDemo, Pricing, Faq, FinalCta).
-//
-// Source of truth: the FR/EN dictionaries at the top of public/main.js (`T`).
-// That client-side copy stays in place for interactive scripts (booking
-// calendar, pricing billing toggle, Hub composer typing animation) that read
-// strings dynamically via window._reedlyT. This module mirrors the *effective*
-// values (public/main.js redefines a few keys later in each dictionary; the
-// later definition wins) so server-rendered HTML matches what the client
-// would otherwise swap in.
+// Server-side i18n dictionary — the single source of copy for every shared
+// component (Nav, Footer, Hero, Demo, Hub, Compliance, Pricing, Testimonials,
+// BookDemo, Faq, FinalCta). public/main.js renders no text of its own; the one
+// script that needs strings at runtime (the booking flow) receives them through
+// a JSON island rendered from here.
 export type Lang = 'fr' | 'en';
 
 export function getLang(pathname: string): Lang {
@@ -18,53 +13,26 @@ export function getLang(pathname: string): Lang {
 type Dict = Record<string, string>;
 
 const fr: Dict = {
-  'nav.pricing': 'Tarifs',
-  'nav.theme': 'Thème',
-  'nav.theme_light': 'Clair',
-  'nav.theme_dark': 'Sombre',
-  'nav.theme_system': 'Système',
   'nav.language': 'Langue',
   'nav.login': 'Se connecter',
-  'nav.open_menu': 'Ouvrir le menu',
   'cta.book_demo': 'Réserver une démo',
 
   'footer.col.product': 'Produit',
   'footer.book_demo': 'Réserver une démo',
   'footer.pricing': 'Tarifs',
-  'footer.blog': 'Blog',
-  'footer.col.legal': 'Légal',
-  'footer.privacy': 'Confidentialité',
   'footer.terms': 'CGU',
-  'footer.contact': 'Contact',
-  'footer.copy': '© {year} Reedly. Tous droits réservés.',
-  'footer.stores.label': 'Pour vos commerciaux',
   'cta.store_sub': 'Disponible sur',
-  'notify.title': 'Bientôt disponible',
-  'notify.text':
-    "L'application n'est pas encore sur les stores. Laissez votre email pour être prévenu(e) dès sa sortie.",
-  'notify.placeholder': 'votre@email.com',
-  'notify.cta': 'Me prévenir',
 
-  'hero.kicker': 'La première intelligence terrain du tourisme',
-  'hero.title': 'Pourquoi cette agence de voyage<br /><em>ne vous vend pas ?</em>',
+  'hero.title': 'PILOTEZ VOTRE ÉQUIPE COMMERCIALE<br /><em>EN TEMPS RÉEL.</em>',
   'hero.sub':
     "Reedly transforme chaque retour terrain en information immédiatement partagée avec les équipes concernées. Identifiez ce qui stimule ou freine les ventes de vos produits, et les facteurs qui influencent les choix de vos agences partenaires.",
-  'hero.trust1': 'Aucune saisie pour vos commerciaux',
-  'hero.trust2': 'Pensé pour le tourisme B2B',
-  'hero.trust3': 'Vos données restent en Europe',
 
-  'cta.title': 'Donnez enfin de la valeur à vos remontées terrain.',
-  'cta.sub':
-    'Reedly transforme les échanges clients en informations structurées pour mieux comprendre, décider et agir.',
-
-  'demo.eyebrow': 'De la visite à vos outils',
   'demo.title': 'Parlez. Reedly structure.<br /><em>Vos équipes avancent.</em>',
   'demo.lead':
     "Votre commercial se concentre sur l'échange. Reedly transforme automatiquement chaque rendez-vous en un compte rendu clair et structuré, puis le partage directement avec vos équipes et dans vos outils.",
-  'demo.label_record': 'Enregistrement en agence',
+  'demo.label_record': 'Transcription pendant ou après le RDV',
   'demo.label_report': 'Compte rendu en 2 minutes',
 
-  'hub.eyebrow': 'Une vision à 360°',
   'hub.title':
     'Derrière chaque chiffre, il y a une raison.<br /><em>Reedly la met en lumière.</em>',
   'hub.lead':
@@ -79,42 +47,21 @@ const fr: Dict = {
   'hub.benefit3.text':
     "Identifiez les causes d'un ralentissement des ventes, d'un stop vente ou du désengagement d'une agence.",
   'hub.max.url': 'hub.reedly.ai/max',
-  'hub.max.greeting': 'Salut Sophie !',
+  'hub.max.greeting': 'Salut !',
   'hub.max.greeting_sub': "Qu'est-ce que tu veux creuser aujourd'hui ?",
   'hub.max.intro':
     "Pose une question, ou demande-moi d'agir : je fouille les données terrain de ton équipe et je peux créer des actions, emails ou relances pour toi.",
-  'hub.max.today': "Aujourd'hui",
   'hub.max.kpi_team': 'Équipe',
   'hub.max.kpi_reports': 'Comptes-rendus cette semaine',
   'hub.max.brief_label': 'Briefing matinal',
   'hub.max.brief_text': 'Opportunités et risques repérés dans les comptes-rendus d\'hier',
   'hub.max.insights_label': 'Max insights',
   'hub.max.insights_text': 'Explore les opportunités du moment',
-  'hub.max.ask_col': 'Demander à Max',
-  'hub.max.ask1': "Fais-moi le bilan de l'équipe cette semaine",
-  'hub.max.ask2': 'Quels clients sont à risque ?',
-  'hub.max.ask3': "Montre-moi les actions en retard dans l'équipe",
-  'hub.max.ask4': "Quelles opportunités ressortent des récents rendez-vous ?",
-  'hub.max.act_col': 'Agir avec Max',
-  'hub.max.act_badge': 'Max le fait pour toi',
-  'hub.max.act1': 'Rédige un email pour un client',
-  'hub.max.act2': 'Crée une action de suivi',
-  'hub.max.act3': 'Programme une relance',
-  'hub.max.act4': "Crée une directive d'équipe",
   'hub.max.composer': 'Pourquoi le Pérou se vend moins ces deux derniers mois ?',
-  'hub.max.nav.context': 'Contexte',
-  'hub.max.nav.reports': 'Comptes-rendus',
-  'hub.max.nav.syntheses': 'Synthèses',
-  'hub.max.nav.clients': 'Clients',
-  'hub.max.nav.routes': 'Tournées',
-  'hub.max.nav.actions': 'Actions',
-  'hub.max.nav.directives': 'Directives',
 
-  'compliance.eyebrow': 'Conformité & sécurité',
   'compliance.title': 'Transcrire le terrain,<br /><em>en toute conformité.</em>',
   'compliance.lead':
     'Vos commerciaux transcrivent de vraies conversations client. Voici les garanties qui encadrent chaque rendez-vous, du consentement à la suppression.',
-  'compliance.panel': 'Conformité RGPD',
   'compliance.item1': "Données hébergées dans l'UE",
   'compliance.item2': 'DPA disponible sur demande',
   'compliance.item3': 'Liste des sous-traitants publiée',
@@ -122,24 +69,16 @@ const fr: Dict = {
   'compliance.item5': 'Suppression sur demande sous 30 jours',
   'compliance.item6': 'Consentement des participants intégré au parcours',
 
-  'bookdemo.eyebrow': 'Réserver une démo',
   'bookdemo.title': '15 minutes pour voir<br /><em>Reedly en action.</em>',
   'bookdemo.lead':
     'Une démonstration adaptée à votre équipe, votre organisation et vos enjeux terrain.',
-  'bookdemo.intro':
-    "Découvrez concrètement comment Reedly peut simplifier les comptes rendus, centraliser les remontées terrain et donner à vos managers une vision plus claire de l'activité commerciale.",
-  'bookdemo.role.label': 'Votre poste',
+  'bookdemo.role.label': 'Rôle',
   'bookdemo.role.select': 'Choisir…',
   'bookdemo.role.director': 'Directeur / Responsable commercial',
   'bookdemo.role.owner': 'Dirigeant / Gérant',
   'bookdemo.role.rep': 'Commercial terrain',
   'bookdemo.role.other': 'Autre',
-  'bookdemo.team.label': "Taille de l'équipe commerciale",
-  'bookdemo.team.select': 'Choisir…',
-  'bookdemo.team.1': '1 commercial',
-  'bookdemo.team.2_5': '2 à 5',
-  'bookdemo.team.6_15': '6 à 15',
-  'bookdemo.team.16': '16+',
+  'bookdemo.team.label': "Taille de l'équipe",
   'bookdemo.sector.label': 'Secteur',
   'bookdemo.sector.select': 'Choisir…',
   'bookdemo.sector.to': 'Tour-opérateur / Voyagiste',
@@ -151,10 +90,9 @@ const fr: Dict = {
   'bookdemo.sector.hospitality': 'Hôtellerie & hébergement',
   'bookdemo.sector.leisure': 'Loisirs & billetterie',
   'bookdemo.sector.other': 'Autre secteur',
-  'bookdemo.email.label': 'Email professionnel',
+  'bookdemo.email.label': 'Email',
   'bookdemo.email.ph': 'vous@votre-organisation.fr',
-  'bookdemo.submit': 'Voir les créneaux disponibles →',
-  'bookdemo.hint': 'Aucune carte bancaire · réponse sous 24h',
+  'bookdemo.submit': 'Voir les créneaux disponibles',
   'bookdemo.cal.pickday': 'Choisissez un jour',
   'bookdemo.cal.pickslot': 'Choisissez un créneau',
   'bookdemo.cal.tznote': 'Créneaux affichés dans votre fuseau horaire.',
@@ -163,12 +101,16 @@ const fr: Dict = {
   'bookdemo.cal.note': 'Un mot sur votre besoin',
   'bookdemo.cal.confirm': 'Confirmer le rendez-vous',
   'bookdemo.cal.back_form': '← Retour',
+  'bookdemo.cal.back': '← Changer de créneau',
+  'bookdemo.cal.empty': "Aucun créneau disponible pour l'instant. Écrivez-nous et on cale ça.",
+  'bookdemo.cal.error': 'Impossible de charger les créneaux. Réessayez dans un instant.',
+  'bookdemo.cal.booking': 'Confirmation en cours…',
+  'bookdemo.cal.slot_taken': "Ce créneau vient d'être pris. Choisissez-en un autre.",
   'bookdemo.cal.success_title': "C'est réservé.",
   'bookdemo.cal.success_body':
     'Une invitation Google Agenda avec le lien Meet vient de partir sur votre email.',
   'bookdemo.cal.meet': 'Ouvrir le lien Google Meet',
 
-  'pricing.eyebrow': 'Tarifs',
   'pricing.title': 'Un prix par commercial.<br /><em>Zéro surprise.</em>',
   'pricing.lead':
     "Facturé à votre organisation, à la taille réelle de l'équipe qui anime votre réseau d'agences.",
@@ -176,10 +118,11 @@ const fr: Dict = {
   'pricing.billing.annual': 'Annuel (-14%)',
   'pricing.billing.note.monthly':
     'Prix affichés par mois. Facturation annuelle disponible avec 14 % de réduction.',
+  'pricing.billing.note.annual':
+    'Prix affichés par mois, facturés annuellement, 14 % de réduction appliquée.',
   'pricing.billing.aria': 'Facturation',
-  'pricing.note': 'Sans engagement · résiliable à tout moment',
-  'pricing.team.badge': 'Le plus choisi',
-  'pricing.team.plan': 'Équipe',
+  'pricing.team.badge': 'Le plus populaire',
+  'pricing.team.plan': 'Team',
   'pricing.team.subtitle': 'À partir de 3 commerciaux',
   'pricing.team.per': '/ commercial / mois',
   'pricing.team.feat1': 'Application iOS et Android',
@@ -192,7 +135,6 @@ const fr: Dict = {
   'pricing.team.feat8': 'Connecteurs CRM connus',
   'pricing.team.feat9': 'Assistant IA (Max)',
   'pricing.team.feat10': 'Support prioritaire',
-  'pricing.book_demo': 'Réserver une démo →',
   'pricing.large.plan': 'Entreprise',
   'pricing.large.subtitle': '16+ commerciaux',
   'pricing.large.price': 'Sur devis',
@@ -201,10 +143,9 @@ const fr: Dict = {
   'pricing.large.feat3': 'Multi-équipes / multi-secteurs',
   'pricing.large.feat4': 'Account manager dédié',
   'pricing.large.feat5': 'Formation & onboarding sur site',
-  'pricing.contact_us': 'Nous contacter →',
+  'pricing.contact_us': 'Nous contacter',
 
-  'faq.eyebrow': 'FAQ',
-  'faq.title': 'Questions fréquentes.',
+  'faq.title': 'Toutes vos questions. <em>Répondues.</em>',
   'faq.q1': 'À quels métiers du tourisme Reedly s\'adresse-t-il ?',
   'faq.a1':
     "Aux tour-opérateurs, voyagistes et réceptifs dont les commerciaux animent un réseau d'agences de voyage. Et aux directions commerciales qui veulent savoir, agence par agence, ce qui se dit vraiment sur le terrain, sans multiplier les réunions de reporting.",
@@ -224,66 +165,66 @@ const fr: Dict = {
   'faq.a6':
     "Oui. Reedly s'appuie sur des modèles entraînés sur des conditions réelles : accueil d'agence animé, comptoir, plusieurs voix en même temps. C'est pensé pour une visite en agence, pas pour un bureau silencieux.",
 
-  'about.eyebrow': "Qu'est-ce que Reedly ?",
-  'about.title': 'Le compte rendu<br /><em>ne devrait plus être une tâche.</em>',
-  'about.text1':
-    "Reedly est une application mobile iOS et Android conçue pour les commerciaux terrain B2B. Pendant le rendez-vous, Reedly retranscrit la conversation. Après l'échange, le commercial peut compléter son compte rendu en dictant simplement les informations essentielles.",
-  'about.text2':
-    "À partir de cette retranscription, Reedly génère automatiquement un rapport commercial structuré en 11 rubriques : résumé exécutif, profil client, besoins, objections, engagements, prochaines étapes, opportunités, risques, recommandations et autres informations clés du rendez-vous. Le compte rendu est disponible en moins de deux minutes.",
-  'about.text3':
-    "La voix n'est ni enregistrée ni conservée : seule la retranscription est utilisée pour générer le compte rendu.",
-  'about.text4':
-    "Les rapports de toute l'équipe sont ensuite centralisés dans le Hub Reedly, l'interface web dédiée aux managers commerciaux. Ils disposent ainsi d'une vision consolidée du terrain, de synthèses par territoire et d'un suivi de l'activité commerciale, semaine après semaine.",
+  // ── V2 landing: sections added by the design refresh ──
+  'cta.try_free': 'Essayer gratuitement',
+
+  'tm.title': 'Avec REEDLY,<br /><em>Leur quotidien est simplifié.</em>',
+  'tm.prev': 'Témoignage précédent',
+  'tm.next': 'Témoignage suivant',
+  'tm.q1':
+    "Reedly, c'est un outil pensé pour les commerciaux terrain : simple, puissant et vraiment adapté à nos besoins.",
+  'tm.n1': 'Maryam B.',
+  'tm.r1': 'Fondatrice',
+  'tm.q2':
+    "J'adore ! Je trouve ça stupéfiant dans le bon sens : ça retient bien les informations, tout est bien catégorisé et c'est un vrai gain de temps au quotidien. Totalement validé à 100 % !",
+  'tm.n2': 'Margaux P.',
+  'tm.r2': 'Commerciale TO',
+  'tm.q3':
+    "Reedly est un assistant IA conçu pour les commerciaux terrain qui leur fait gagner un temps précieux au quotidien.",
+  'tm.n3': 'Angelique C.',
+  'tm.r3': 'Commerciale TO',
+  'tm.q4':
+    "Enfin un outil qui simplifie vraiment le quotidien des commerciaux : moins d'administratif, des CRM à jour et plus de temps pour l'essentiel.",
+  'tm.n4': 'Isabelle V.',
+  'tm.r4': 'Accompagnatrice en transformation de la relation client',
+
+  'final.title': 'Prêt à vous lancer<em>&nbsp;?</em>',
+
+  'footer.tagline': 'La première intelligence terrain<br />du tourisme',
+  'footer.col.features': 'Fonctionnalités',
+  'footer.feature.transcription': 'Transcription IA',
+  'footer.feature.hub': 'Hub Manager',
+  'footer.col.social': 'Réseaux sociaux',
+  'footer.legal_notice': 'Mentions légales',
+  'footer.privacy_long': 'Politique de confidentialité',
+  'footer.cookies': 'Politique des cookies',
+  'footer.copy_short': '© {year} Copyright. Tous droits réservés.',
+
+  'lang.fr': 'Français',
+  'lang.en': 'English',
 };
 
 const en: Dict = {
-  'nav.pricing': 'Pricing',
-  'nav.theme': 'Theme',
-  'nav.theme_light': 'Light',
-  'nav.theme_dark': 'Dark',
-  'nav.theme_system': 'System',
   'nav.language': 'Language',
   'nav.login': 'Log in',
-  'nav.open_menu': 'Open menu',
   'cta.book_demo': 'Book a demo',
 
   'footer.col.product': 'Product',
   'footer.book_demo': 'Book a demo',
   'footer.pricing': 'Pricing',
-  'footer.blog': 'Blog',
-  'footer.col.legal': 'Legal',
-  'footer.privacy': 'Privacy',
   'footer.terms': 'Terms',
-  'footer.contact': 'Contact',
-  'footer.copy': '© {year} Reedly. All rights reserved.',
-  'footer.stores.label': 'For your reps',
   'cta.store_sub': 'Available on',
-  'notify.title': 'Coming soon',
-  'notify.text':
-    "The app isn't on the stores yet. Leave your email to be notified as soon as it launches.",
-  'notify.placeholder': 'your@email.com',
-  'notify.cta': 'Notify me',
 
-  'hero.kicker': 'The first field intelligence in tourism',
-  'hero.title': "Why isn't this travel agency<br /><em>selling you?</em>",
+  'hero.title': 'STEER YOUR SALES TEAM<br /><em>IN REAL TIME.</em>',
   'hero.sub':
     "Reedly turns every field report into information that's instantly shared with the relevant teams. Identify what drives or holds back your product sales, and the factors that shape your partner agencies' choices.",
-  'hero.trust1': 'No data entry for your reps',
-  'hero.trust2': 'Built for tourism B2B',
-  'hero.trust3': 'Your data stays in Europe',
 
-  'cta.title': 'Finally get real value from your field feedback.',
-  'cta.sub':
-    'Reedly turns client conversations into structured information, so you can understand, decide and act.',
-
-  'demo.eyebrow': 'From the visit to your tools',
   'demo.title': 'You talk. Reedly structures.<br /><em>Your teams move forward.</em>',
   'demo.lead':
     'Your rep stays focused on the conversation. Reedly automatically turns every meeting into a clear, structured report, then shares it straight with your teams and inside your tools.',
-  'demo.label_record': 'Recording in the agency',
+  'demo.label_record': 'Transcription during or after the meeting',
   'demo.label_report': 'Report in 2 minutes',
 
-  'hub.eyebrow': 'A 360° view',
   'hub.title': "Behind every number, there's a reason.<br /><em>Reedly brings it to light.</em>",
   'hub.lead':
     "Reedly gathers and structures your reps' field feedback to give you a clear read on what really drives your performance.",
@@ -301,38 +242,17 @@ const en: Dict = {
   'hub.max.greeting_sub': 'What do you want to dig into today?',
   'hub.max.intro':
     "Ask a question, or tell me to act: I dig through your team's field data and I can create actions, emails or follow-ups for you.",
-  'hub.max.today': 'Today',
   'hub.max.kpi_team': 'Team',
   'hub.max.kpi_reports': 'Reports this week',
   'hub.max.brief_label': 'Morning briefing',
   'hub.max.brief_text': "Opportunities and risks spotted in yesterday's reports",
   'hub.max.insights_label': 'Max insights',
   'hub.max.insights_text': 'Explore the opportunities of the moment',
-  'hub.max.ask_col': 'Ask Max',
-  'hub.max.ask1': "Give me the team's recap this week",
-  'hub.max.ask2': 'Which clients are at risk?',
-  'hub.max.ask3': "Show me the team's overdue actions",
-  'hub.max.ask4': 'What opportunities are emerging from recent meetings?',
-  'hub.max.act_col': 'Act with Max',
-  'hub.max.act_badge': 'Max does it for you',
-  'hub.max.act1': 'Draft an email for a client',
-  'hub.max.act2': 'Create a follow-up action',
-  'hub.max.act3': 'Schedule a follow-up',
-  'hub.max.act4': 'Create a team directive',
   'hub.max.composer': 'Why is Peru selling less over the past two months?',
-  'hub.max.nav.context': 'Context',
-  'hub.max.nav.reports': 'Reports',
-  'hub.max.nav.syntheses': 'Syntheses',
-  'hub.max.nav.clients': 'Clients',
-  'hub.max.nav.routes': 'Territories',
-  'hub.max.nav.actions': 'Actions',
-  'hub.max.nav.directives': 'Directives',
 
-  'compliance.eyebrow': 'Compliance & security',
   'compliance.title': 'Transcribe the field,<br /><em>fully compliant.</em>',
   'compliance.lead':
     'Your reps transcribe real client conversations. Here are the guarantees around every meeting, from consent to deletion.',
-  'compliance.panel': 'GDPR compliance',
   'compliance.item1': 'Data hosted in the EU',
   'compliance.item2': 'DPA available on request',
   'compliance.item3': 'Subprocessor list published',
@@ -340,24 +260,16 @@ const en: Dict = {
   'compliance.item5': 'Deletion on request within 30 days',
   'compliance.item6': 'Participant consent built into the flow',
 
-  'bookdemo.eyebrow': 'Book a demo',
   'bookdemo.title': '15 minutes to see<br /><em>Reedly in action.</em>',
   'bookdemo.lead':
     'A demo tailored to your team, your organization and your field challenges.',
-  'bookdemo.intro':
-    'See exactly how Reedly can simplify meeting reports, centralize field feedback and give your managers a clearer view of sales activity.',
-  'bookdemo.role.label': 'Your role',
+  'bookdemo.role.label': 'Role',
   'bookdemo.role.select': 'Choose…',
   'bookdemo.role.director': 'Sales director / manager',
   'bookdemo.role.owner': 'Owner / CEO',
   'bookdemo.role.rep': 'Field sales rep',
   'bookdemo.role.other': 'Other',
   'bookdemo.team.label': 'Sales team size',
-  'bookdemo.team.select': 'Choose…',
-  'bookdemo.team.1': '1 rep',
-  'bookdemo.team.2_5': '2 to 5',
-  'bookdemo.team.6_15': '6 to 15',
-  'bookdemo.team.16': '16+',
   'bookdemo.sector.label': 'Industry',
   'bookdemo.sector.select': 'Select…',
   'bookdemo.sector.to': 'Tour operator',
@@ -369,10 +281,9 @@ const en: Dict = {
   'bookdemo.sector.hospitality': 'Hospitality & lodging',
   'bookdemo.sector.leisure': 'Leisure & ticketing',
   'bookdemo.sector.other': 'Other sector',
-  'bookdemo.email.label': 'Work email',
+  'bookdemo.email.label': 'Email',
   'bookdemo.email.ph': 'you@your-organization.com',
   'bookdemo.submit': 'See available slots →',
-  'bookdemo.hint': 'No credit card · reply within 24h',
   'bookdemo.cal.pickday': 'Pick a day',
   'bookdemo.cal.pickslot': 'Pick a time',
   'bookdemo.cal.tznote': 'Times shown in your timezone.',
@@ -381,12 +292,16 @@ const en: Dict = {
   'bookdemo.cal.note': 'A word about your need',
   'bookdemo.cal.confirm': 'Confirm the meeting',
   'bookdemo.cal.back_form': '← Back',
+  'bookdemo.cal.back': '← Change slot',
+  'bookdemo.cal.empty': "No slots available right now. Drop us a line and we'll sort it out.",
+  'bookdemo.cal.error': 'Could not load slots. Please try again in a moment.',
+  'bookdemo.cal.booking': 'Confirming…',
+  'bookdemo.cal.slot_taken': 'That slot was just taken. Please pick another.',
   'bookdemo.cal.success_title': "You're booked.",
   'bookdemo.cal.success_body':
     'A Google Calendar invite with the Meet link is on its way to your email.',
   'bookdemo.cal.meet': 'Open the Google Meet link',
 
-  'pricing.eyebrow': 'Pricing',
   'pricing.title': 'One price per rep.<br /><em>Zero surprises.</em>',
   'pricing.lead':
     'Billed to your organization, at the real size of the team that runs your agency network.',
@@ -394,9 +309,10 @@ const en: Dict = {
   'pricing.billing.annual': 'Yearly (-14%)',
   'pricing.billing.note.monthly':
     'Prices are displayed per month. Yearly billing is available with a 14% discount.',
+  'pricing.billing.note.annual':
+    'Prices are displayed per month, billed annually, with the 14% discount applied.',
   'pricing.billing.aria': 'Billing',
-  'pricing.note': 'No commitment · cancel anytime',
-  'pricing.team.badge': 'Most chosen',
+  'pricing.team.badge': 'Most popular',
   'pricing.team.plan': 'Team',
   'pricing.team.subtitle': 'From 3 reps',
   'pricing.team.per': '/ rep / month',
@@ -410,7 +326,6 @@ const en: Dict = {
   'pricing.team.feat8': 'Connectors to major CRMs',
   'pricing.team.feat9': 'AI assistant (Max)',
   'pricing.team.feat10': 'Priority support',
-  'pricing.book_demo': 'Book a demo →',
   'pricing.large.plan': 'Enterprise',
   'pricing.large.subtitle': '16+ reps',
   'pricing.large.price': 'Custom quote',
@@ -419,10 +334,9 @@ const en: Dict = {
   'pricing.large.feat3': 'Multi-team / multi-sector',
   'pricing.large.feat4': 'Dedicated account manager',
   'pricing.large.feat5': 'On-site training & onboarding',
-  'pricing.contact_us': 'Contact us →',
+  'pricing.contact_us': 'Contact us',
 
-  'faq.eyebrow': 'FAQ',
-  'faq.title': 'Frequently asked questions.',
+  'faq.title': 'All your questions. <em>Answered.</em>',
   'faq.q1': 'Which tourism businesses is Reedly for?',
   'faq.a1':
     "For tour operators, wholesalers and DMCs whose reps manage a network of travel agencies. And for sales leadership who want to know, agency by agency, what's really being said in the field, without piling on reporting meetings.",
@@ -442,16 +356,43 @@ const en: Dict = {
   'faq.a6':
     "Yes. Reedly relies on models trained on real-world conditions: a busy agency front desk, a counter, several voices at once. It's built for an agency visit, not a quiet office.",
 
-  'about.eyebrow': 'What is Reedly?',
-  'about.title': 'Writing the report<br /><em>should no longer be a chore.</em>',
-  'about.text1':
-    'Reedly is an iOS and Android mobile app built for B2B field sales reps. During the meeting, Reedly transcribes the conversation. Afterwards, the rep can complete the report by simply dictating the essential information.',
-  'about.text2':
-    'From that transcript, Reedly automatically generates a sales report structured into 11 sections: executive summary, client profile, needs, objections, commitments, next steps, opportunities, risks, recommendations and other key information from the meeting. The report is available in under two minutes.',
-  'about.text3':
-    'The voice is neither recorded nor stored: only the transcript is used to generate the report.',
-  'about.text4':
-    "The whole team's reports are then centralized in the Reedly Hub, the web interface dedicated to sales managers. They get a consolidated view of the field, syntheses by territory, and sales activity tracking, week after week.",
+  // ── V2 landing: sections added by the design refresh ──
+  'cta.try_free': 'Try it free',
+
+  'tm.title': 'With REEDLY,<br /><em>Their day-to-day gets simpler.</em>',
+  'tm.prev': 'Previous testimonial',
+  'tm.next': 'Next testimonial',
+  'tm.q1':
+    'Reedly is a tool built for field sales reps: simple, powerful and genuinely suited to what we need.',
+  'tm.n1': 'Maryam B.',
+  'tm.r1': 'Founder',
+  'tm.q2':
+    "I love it! It's astonishing in the best way: it captures the information well, everything is neatly categorized and it saves real time every day. Fully approved, 100%!",
+  'tm.n2': 'Margaux P.',
+  'tm.r2': 'Tour operator sales rep',
+  'tm.q3':
+    'Reedly is an AI assistant designed for field sales reps that saves them precious time every day.',
+  'tm.n3': 'Angelique C.',
+  'tm.r3': 'Tour operator sales rep',
+  'tm.q4':
+    'Finally a tool that really simplifies a rep\'s day: less admin, CRMs kept up to date and more time for what matters.',
+  'tm.n4': 'Isabelle V.',
+  'tm.r4': 'Customer relationship transformation consultant',
+
+  'final.title': 'Ready to get started<em>&nbsp;?</em>',
+
+  'footer.tagline': 'The first field intelligence<br />for tourism',
+  'footer.col.features': 'Features',
+  'footer.feature.transcription': 'AI Transcription',
+  'footer.feature.hub': 'Manager Hub',
+  'footer.col.social': 'Social',
+  'footer.legal_notice': 'Legal notice',
+  'footer.privacy_long': 'Privacy policy',
+  'footer.cookies': 'Cookie policy',
+  'footer.copy_short': '© {year} Copyright. All rights reserved.',
+
+  'lang.fr': 'Français',
+  'lang.en': 'English',
 };
 
 export const dict: Record<Lang, Dict> = { fr, en };

@@ -1,1291 +1,15 @@
-// ── Translations ──
-const T = {
-  fr: {
-    "nav.solution": "Solution",
-    "nav.pricing": "Tarifs",
-    "nav.contact": "Contact",
-    "nav.login": "Se connecter",
-    "nav.theme": "Thème",
-    "nav.theme_light": "Clair",
-    "nav.theme_dark": "Sombre",
-    "nav.theme_system": "Système",
-    "nav.language": "Langue",
-    "nav.download": "Télécharger",
-    "nav.download_app": "Télécharger l'app",
-    "nav.open_menu": "Ouvrir le menu",
-    "footer.solution": "Solution",
-    "footer.pricing": "Tarifs",
-    "hero.kicker": "L'IA commerciale, enfin pour le terrain",
-    "hero.title": "L'IA transforme vos rendez-vous<br /><em>en actions commerciales.</em>",
-    "hero.sub":
-      "Les autres IA commerciales enregistrent vos appels en ligne. Reedly capte vos <strong>vrais</strong> rendez-vous, en boutique, sur site ou en face-à-face, et les transforme en <strong>rapport commercial structuré</strong>. Mains libres, même hors-ligne.",
-    "hero.cta": "Télécharger l'app",
-    "hero.cta_manager": "Commencer →",
-    "hero.trust1": "Essai 7 jours",
-    "hero.trust2": "Sans engagement",
-    "hero.trust3": "Vos données restent en Europe",
-    "trustbar.platforms": "iOS & Android",
-    "trustbar.accuracy": "Transcription +95 %",
-    "trustbar.privacy": "La voix n'est ni enregistrée ni conservée",
-    "trustbar.report": "Rapport en 11 sections · < 2 min",
-    "hero.flow.tag_rep": "Commercial",
-    "hero.flow.tag_mgr": "Manager",
-    "hero.viz.capture_label": "Visite client en cours",
-    "hero.viz.capture_meta": "Enregistrement mains libres, sur le terrain",
-    "hero.viz.pipe": "Rapport structuré · moins de 2 min",
-    "hero.viz.team": "Activité de l'équipe",
-    "hero.viz.live": "en direct",
-    "hero.definition":
-      "Reedly est une solution d'intelligence commerciale pour les équipes de vente terrain B2B. Une application mobile iOS et Android retranscrit les rendez-vous clients et génère automatiquement un rapport structuré en 11 sections en moins de 2 minutes (résumé, besoins, objections, engagements, prochaines étapes, opportunités, risques, recommandations). Les rapports de toute l'équipe remontent dans un Hub web où les managers consultent les synthèses territoriales et l'activité agrégée. La voix n'est ni enregistrée ni conservée : seule la retranscription sert à générer le rapport.",
-    "ticker.1": "Vision unifiée de toute votre équipe",
-    "ticker.2": "Synthèses stratégiques par territoire",
-    "ticker.3": "Engagements clients tracés automatiquement",
-    "ticker.4": "Hub web manager inclus",
-    "ticker.5": "Intégration CRM (HubSpot, Salesforce)",
-    "ticker.6": "Rapport structuré en 11 sections",
-    "ticker.7": "Vocabulaire B2B sectoriel intégré",
-    "ticker.8": "La voix n'est ni enregistrée ni conservée · privacy by design",
-    "problem.eyebrow": "L'angle mort de l'IA commerciale",
-    "problem.title":
-      "Le sédentaire est suréquipé.<br /><em>Le terrain, livré à lui-même.</em>",
-    "problem.lead":
-      "Depuis 5 ans, chaque appel visio d'un commercial sédentaire est enregistré, analysé, coaché, versé au CRM. Le commercial terrain, lui, ressort de son rendez-vous avec un carnet et sa mémoire. La donnée la plus riche, celle du face-à-face, se perd.",
-    "problem.card1.title": "45 minutes perdues par RDV",
-    "problem.card1.text":
-      "Rédiger un compte-rendu après chaque réunion, en voiture ou le soir. Chaque commercial y passe plus d'une heure par jour, sans générer le moindre chiffre d'affaires.",
-    "problem.card2.title": "Engagements oubliés",
-    "problem.card2.text":
-      "Ce qui n'est pas écrit dans la foulée disparaît. Les promesses clients, les objections clés, les opportunités détectées : tout s'évapore avant la prochaine réunion d'équipe.",
-    "problem.card3.title": "Le terrain, invisible",
-    "problem.card3.text":
-      "L'inside-sales est tracé à 100 %. Le terrain, zéro. Le manager ne voit rien de ce qui s'est dit en clientèle, jusqu'à ce qu'il soit trop tard.",
-    "problem.viz1.legend": "Reporting au lieu de vendre",
-    "problem.viz1.perday": "+1 h / jour",
-    "problem.viz2.t1": "Promesse client",
-    "problem.viz2.t2": "Objection clé",
-    "problem.viz2.t3": "Opportunité détectée",
-    "problem.viz3.team": "Activité de l'équipe",
-    "features.eyebrow": "Fonctionnalités",
-    "features.title": "Tout ce qu'il faut pour<br /><em>ne rien oublier.</em>",
-    "features.lead":
-      "Reedly automatise tout le compte-rendu terrain, de la parole captée en clientèle au rapport prêt à décider. Votre seule tâche : lancer Reedly avant d'entrer.",
-    "features.card1.title": "Captation terrain, mains libres",
-    "features.card1.text":
-      "Lancez Reedly avant d'entrer chez le client. L'app suit le rendez-vous en arrière-plan, mains libres, et tient même hors ligne. La transcription se fait dès le retour du réseau.",
-    "features.card2.title": "Mémoire client",
-    "features.card2.text":
-      "Chaque rapport part de l'historique du client, pas d'une page blanche. Reedly se souvient de chaque visite et briefe la suivante : une relation, pas des rendez-vous isolés.",
-    "features.card3.title": "Rapport commercial en 11 sections",
-    "features.card3.text":
-      "Résumé exécutif, profil client, besoins exprimés, objections, engagements, prochaines étapes, opportunités, risques : prêt à envoyer en 30 secondes. Structuré comme votre meilleur commercial senior.",
-    "features.card4.title": "Expert sectoriel intégré",
-    "features.card4.text":
-      "L'IA comprend le vocabulaire métier de votre secteur : TO, allotement, DMC, yield, MICE pour le tourisme, et raisonne comme un expert terrain, pas comme un généraliste. Immobilier, pharma, B2B services bientôt disponibles.",
-    "how.eyebrow": "Comment ça marche",
-    "how.title": "3 étapes<br /><em>Du terrain à votre décision.</em>",
-    "how.step1.title": "Le commercial mène son rendez-vous",
-    "how.step1.text":
-      "Un tap en fin de rendez-vous, et Reedly capture l'échange en arrière-plan. Aucune saisie, aucune interruption : c'est tout ce que vous demandez à vos commerciaux.",
-    "how.step1.tag": "iOS & Android · Arrière-plan",
-    "how.step2.title": "L'échange devient de l'information exploitable, en moins de 2 min",
-    "how.step2.text":
-      "L'IA transcrit l'échange et en tire un compte rendu structuré : besoins, objections, engagements, prochaines étapes. La voix n'est ni enregistrée ni conservée.",
-    "how.step2.tag": "Privacy by design",
-    "how.step3.title": "Vous consolidez et décidez",
-    "how.step3.text":
-      "Depuis le Hub, vous lisez chaque compte rendu, suivez les engagements, et laissez Reedly agréger tous les RDV de l'équipe en synthèses stratégiques.",
-    "how.step3.tag": "Export PDF · Synthèses · Hub",
-    "how.viz1.label": "Visite client",
-    "how.viz1.foot": "Retranscription en arrière-plan",
-    "how.viz2.badge": "Rapport structuré · 11 sections",
-    "how.viz2.s1": "Besoins exprimés",
-    "how.viz2.s2": "Objections",
-    "how.viz2.s3": "Engagements",
-    "how.viz2.s4": "Prochaines étapes",
-    "how.viz3.share": "Partager",
-    "demo.eyebrow": "En 30 secondes",
-    "demo.title": "Le parcours complet,<br /><em>d'un simple tap.</em>",
-    "demo.lead":
-      "Du rendez-vous client au rapport structuré remonté dans le Hub, découvrez l'expérience complète en quelques secondes.",
-    "integrations.eyebrow": "Intégrations",
-    "integrations.title": "Branchez Reedly à<br /><em>votre stack.</em>",
-    "integrations.lead":
-      "Vos rapports atterrissent là où votre équipe travaille déjà : canaux d'équipe, fiches CRM, alertes managers. Aucun copier-coller.",
-    "integrations.source.status": "Rapport prêt",
-    "integrations.source.note":
-      "Chaque rapport part vers vos outils, sans copier-coller.",
-    "integrations.hub.tagline": "Vos rapports, dans tous vos outils.",
-    "integrations.hub.badge": "Sans copier-coller",
-    "integrations.cat.crm": "CRM",
-    "integrations.cat.msg": "Messagerie & communauté",
-    "integrations.tag.crm": "CRM",
-    "integrations.tag.msg": "Messagerie",
-    "integrations.core.meta": "Rapports terrain",
-    "integrations.hubspot.desc":
-      "Push automatique du rapport sur la fiche contact & deal.",
-    "integrations.salesforce.desc":
-      "Sync des engagements, prochaines étapes et opportunités.",
-    "integrations.slack.desc":
-      "Notifie le canal d'équipe à chaque rapport généré.",
-    "integrations.discord.desc":
-      "Diffusion des synthèses dans vos canaux Discord.",
-    "integrations.tag.custom": "Sur mesure",
-    "integrations.custom.name": "Votre outil",
-    "integrations.custom.desc":
-      "CRM maison, dashboard interne, API privée : branchez ce que vous voulez via notre API.",
-    "integrations.custom.cta": "Discutons-en →",
-    "hub.eyebrow": "Pour les managers",
-    "hub.title": "Pilotez l'équipe depuis<br /><em>le Hub.</em>",
-    "hub.lead":
-      "Vos commerciaux génèrent leurs rapports depuis l'app mobile. Vous pilotez depuis le Hub : vue transversale, synthèses, statistiques membres, tout en un coup d'œil.",
-    "hub.benefit1.title": "Vue unifiée de toute l'équipe",
-    "hub.benefit1.text":
-      "Tous les rapports de vos commerciaux centralisés, filtrables, avec statistiques d'activité par membre.",
-    "hub.benefit2.title": "Synthèses stratégiques à la demande",
-    "hub.benefit2.text":
-      "Tendances, risques et opportunités agrégés sur la période de votre choix : semaine, mois, trimestre.",
-    "hub.benefit3.title": "Invitations membres en 1 clic",
-    "hub.benefit3.text":
-      "Invitez vos commerciaux par email. Ils acceptent depuis l'app mobile et leurs rapports remontent automatiquement.",
-    "hub.dash.title": "reedly.ai/hub · Tableau de bord",
-    "hub.dash.reports": "Rapports",
-    "hub.dash.syntheses": "Synthèses",
-    "hub.dash.members": "Membres",
-    "hub.dash.stat1": "Rapports ce mois",
-    "hub.dash.stat2": "Membres actifs",
-    "hub.dash.stat3": "Synthèses",
-    "hub.dash.r1.name": "RV Agence Riviera, M. Laurent",
-    "hub.dash.r1.meta": "Sophie D. · il y a 23 min",
-    "hub.dash.r1.badge": "Généré",
-    "hub.dash.r2.name": "Client Hôtels Premium, Mme Dubois",
-    "hub.dash.r2.meta": "Tom V. · il y a 1h",
-    "hub.dash.r2.badge": "En cours",
-    "hub.dash.r3.name": "Suivi contrat TO Barcelone",
-    "hub.dash.r3.meta": "Marc R. · il y a 3h",
-    "hub.dash.r3.badge": "Généré",
-    "proof.eyebrow": "Résultats",
-    "proof.title": "Ce que vous gagnez<br /><em>en pilotage.</em>",
-    "proof.stat1":
-      "Des engagements clients capturés et tracés. Fini les promesses oubliées",
-    "proof.stat2":
-      "Moins de temps passé en reporting par votre équipe, plus de temps en clientèle",
-    "proof.stat3":
-      "Entre la fin du rendez-vous et la remontée du rapport dans votre Hub",
-    "proof.stat4":
-      "Réunion de reporting hebdo nécessaire. La donnée terrain remonte en continu",
-    "roles.eyebrow": "Pour chaque rôle",
-    "roles.title": "Pensé pour le terrain<br /><em>comme pour le pilotage.</em>",
-    "roles.lead":
-      "Un même outil, deux promesses : du temps pour le commercial terrain, de la visibilité pour le manager.",
-    "roles.rep.role": "Commercial terrain",
-    "roles.rep.title": "Vendez. Reedly s'occupe du reste.",
-    "roles.rep.intro":
-      "Concentrez-vous sur votre client. Reedly retranscrit le rendez-vous en arrière-plan et rédige le compte-rendu à votre place.",
-    "roles.rep.b1": "Zéro saisie : le rapport en 11 sections s'écrit tout seul.",
-    "roles.rep.b2": "Plus de temps en clientèle, fini les comptes-rendus le soir.",
-    "roles.rep.b3": "Préparez chaque rendez-vous avec l'historique client à portée de main.",
-    "roles.rep.b4": "Tous vos comptes-rendus au même endroit, prêts à partager.",
-    "roles.mgr.role": "Manager commercial",
-    "roles.mgr.title": "Voyez enfin le terrain.",
-    "roles.mgr.intro":
-      "Ce qui se dit en rendez-vous remonte automatiquement dans le Hub. Vos équipes terrain ont enfin la visibilité que l'inside-sales a depuis des années.",
-    "roles.mgr.b1": "Vision temps réel de chaque rendez-vous de l'équipe.",
-    "roles.mgr.b2": "Engagements, opportunités et risques tracés automatiquement.",
-    "roles.mgr.b3": "Synthèses stratégiques par territoire, par semaine ou par mois.",
-    "roles.mgr.b4": "Coachez sur ce qui s'est vraiment dit en rendez-vous.",
-    "vsvideo.eyebrow": "Reedly vs les outils de visio",
-    "vsvideo.title":
-      "Les autres sont faits pour les appels.<br /><em>Reedly est fait pour le terrain.</em>",
-    "vsvideo.lead":
-      "La vague de l'IA commerciale est née pour la réunion en ligne. Le rendez-vous physique est resté son angle mort. C'est exactement là que Reedly commence.",
-    "vsvideo.col_others": "Les outils d'IA commerciale classiques",
-    "vsvideo.col_reedly": "Reedly",
-    "vsvideo.r1.others": "Rejoignent une visio pour prendre des notes",
-    "vsvideo.r1.reedly": "Capte le rendez-vous physique, mains libres",
-    "vsvideo.r2.others": "Ont besoin d'une connexion en continu",
-    "vsvideo.r2.reedly": "Fonctionne hors-ligne, synchronise ensuite",
-    "vsvideo.r3.others": "Rendent un transcript ou un résumé générique",
-    "vsvideo.r3.reedly": "Rend un rapport commercial en 11 sections",
-    "vsvideo.r4.others": "Chaque compte-rendu repart d'une page blanche",
-    "vsvideo.r4.reedly": "Chaque rapport part de l'historique du client",
-    "vsvideo.r5.others": "Pilotage pensé pour la revue d'appels",
-    "vsvideo.r5.reedly": "Pilotage pensé pour la couverture territoriale",
-    "vsvideo.r6.others": "Un modèle généraliste, aveugle à votre métier",
-    "vsvideo.r6.reedly": "Expert sectoriel qui comprend votre jargon",
-    "pricing.eyebrow": "Tarifs",
-    "pricing.title":
-      "Équipez votre force de vente<br /><em>avec l'IA terrain.</em>",
-    "pricing.lead":
-      "Rapports structurés illimités, vocabulaire métier, Hub manager. Déployez Reedly en moins de 10 minutes.",
-    "pricing.toggle.mobile": "Commerciaux solo",
-    "pricing.toggle.managers": "Managers / Équipes",
-    "pricing.billing.monthly": "Mensuel",
-    "pricing.billing.annual": "Annuel (-14%)",
-    "pricing.billing.note.monthly":
-      "Prix affichés par mois. Facturation annuelle disponible avec 14 % de réduction.",
-    "pricing.billing.note.annual":
-      "Mode annuel : -14 % appliqués sur tous les tarifs affichés (toujours exprimés par mois).",
-    "pricing.free.plan": "Gratuit",
-    "pricing.free.per": "€ / mois",
-    "pricing.free.limit": "1 rapport / jour",
-    "pricing.free.feat1": "1 rapport / jour",
-    "pricing.free.feat2": "15 minutes d'enregistrement par rendez-vous",
-    "pricing.free.feat3": "1 génération de rapport par jour",
-    "pricing.free.feat4": "Export PDF des rapports",
-    "pricing.free.cta": "Commencer gratuitement",
-    "pricing.managers.note":
-      "Déployez Reedly pour votre équipe en moins de 10 minutes. Annulation à tout moment.",
-    "pricing.ctaGetStarted": "Démarrer gratuitement →",
-
-    "pricing.pro.plan": "Pro",
-    "pricing.pro.subtitle": "Équipe découverte",
-    "pricing.team.badge": "Recommandé",
-    "pricing.team.plan": "Business",
-    "pricing.team.subtitle": "Force de vente structurée",
-    "pricing.enterprise.plan": "Entreprise",
-    "pricing.enterprise.subtitle": "Multi-secteurs · sur mesure",
-    "pricing.enterprise.price": "Sur devis",
-    "pricing.cap.title": "Capacités",
-    "pricing.cap.recording": "Durée par enregistrement",
-    "pricing.cap.credits": "Crédits IA / mois / user",
-    "pricing.cap.reports": "Rapports",
-    "pricing.cap.history": "Période de synthèse",
-    "pricing.cap.support": "Support",
-    "pricing.cap.recording.pro": "45 min",
-    "pricing.cap.recording.team": "1 h",
-    "pricing.cap.recording.enterprise": "2 h",
-    "pricing.cap.credits.pro": "80",
-    "pricing.cap.credits.team": "450",
-    "pricing.cap.credits.enterprise": "Sur mesure",
-    "pricing.cap.history.pro": "30 jours",
-    "pricing.cap.history.team": "90 jours",
-    "pricing.cap.history.enterprise": "Illimité",
-    "pricing.cap.support.pro": "Email",
-    "pricing.cap.support.team": "Prioritaire 24h",
-    "pricing.cap.support.enterprise": "Account manager",
-    "pricing.included.title": "Inclus",
-    "pricing.custom.title": "Sur-mesure",
-    "pricing.pro.feat1": "Rapports structurés · synthèses · Max IA",
-    "pricing.pro.feat2": "Hub web · visibilité équipe",
-    "pricing.pro.feat3": "Distinction vocale",
-    "pricing.pro.feat4": "Intégrations CRM natives (HubSpot, Salesforce)",
-    "pricing.pro.feat5": "Analyse croisée équipe",
-    "pricing.team.feat1": "Tout Pro",
-    "pricing.team.feat2": "Distinction vocale (qui parle quand)",
-    "pricing.team.feat3": "Intégrations CRM sur mesure (votre CRM)",
-    "pricing.team.feat4": "Analyse IA croisée de l'équipe entière",
-    "pricing.team.feat5": "Vocabulaire métier custom",
-    "pricing.enterprise.feat1": "Tout Business",
-    "pricing.enterprise.feat2": "Vocabulaire métier personnalisé",
-    "pricing.enterprise.feat3": "Multi-équipes / multi-secteurs",
-    "pricing.enterprise.feat4": "Account manager dédié",
-    "pricing.enterprise.feat5": "Formation & onboarding sur site",
-    "pricing.enterprise.cta": "Nous contacter →",
-
-    "pricing.tableHeader.per": "/ utilisateur / mois",
-    "pricing.tableCat.capture": "Capture & rapports",
-    "pricing.tableCat.ai": "Intelligence IA",
-    "pricing.tableCat.hub": "Pilotage & intégrations",
-    "pricing.tableCat.custom": "Personnalisation & service",
-
-    "pricing.tableRow.app": "Application mobile iOS & Android",
-    "pricing.tableRow.recording": "Enregistrement max par rendez-vous",
-    "pricing.tableRow.reports": "Rapports structurés après chaque rendez-vous",
-    "pricing.tableRow.syntheses":
-      "Synthèses stratégiques sur plusieurs rapports",
-    "pricing.tableRow.history": "Période de synthèse",
-    "pricing.tableRow.max": "Max, assistant IA",
-    "pricing.tableRow.credits": "Rapports",
-    "pricing.tableRow.diarization": "Distinction vocale (qui parle quand)",
-    "pricing.tableRow.crossTeamAi": "Analyse IA croisée de toute l'équipe",
-    "pricing.tableRow.hub": "Hub web · visibilité équipe complète",
-    "pricing.tableRow.crm": "Intégration CRM (Axonaut, HubSpot…)",
-    "pricing.tableRow.vocab": "Vocabulaire métier custom",
-    "pricing.tableRow.multiTeam": "Multi-équipes / multi-secteurs",
-    "pricing.tableRow.accountManager": "Account manager dédié",
-    "pricing.tableRow.training": "Formation et onboarding équipe",
-    "pricing.tableRow.support": "Support",
-
-    "pricing.tableVal.history.pro": "30 jours",
-    "pricing.tableVal.history.team": "90 jours",
-    "pricing.tableVal.unlimited": "Illimité",
-    "pricing.tableVal.custom": "Sur mesure",
-    "pricing.tableVal.support.pro": "Email",
-    "pricing.tableVal.support.team": "Prioritaire 24h",
-    "pricing.tableVal.support.enterprise": "Account manager",
-    "faq.eyebrow": "FAQ",
-    "faq.title": "Questions fréquentes.",
-    "faq.q1": "À quels métiers du tourisme Reedly s'adresse-t-il ?",
-    "faq.a1":
-      "Aux tour-opérateurs, voyagistes et réceptifs dont les commerciaux animent un réseau d'agences de voyage. Et aux directions commerciales qui veulent savoir, agence par agence, ce qui se dit vraiment sur le terrain, sans multiplier les réunions de reporting.",
-    "faq.q2": "L'app fonctionne-t-elle hors connexion ?",
-    "faq.a2":
-      "Oui. Votre commercial mène son rendez-vous sans réseau, en agence comme sur la route : l'app tient hors ligne. La transcription et le compte rendu, eux, font appel à nos modèles IA et ont besoin d'une connexion. Ils se génèrent automatiquement dès que le réseau revient.",
-    "faq.q3": "En combien de temps le compte rendu est-il prêt ?",
-    "faq.a3":
-      "Moins de 2 minutes après une visite d'une heure. Votre commercial repart de l'agence avec un compte rendu déjà structuré en 11 sections, avant même de reprendre la route vers le point de vente suivant.",
-    "faq.q4": "Les données audio sont-elles conservées ?",
-    "faq.a4":
-      "Non, jamais. La voix n'est ni enregistrée ni conservée : elle sert uniquement à produire la retranscription, à partir de laquelle le compte rendu est généré. Seul le rapport structuré reste dans votre espace Reedly. C'est un principe non négociable : privacy by design.",
-    "faq.q5": "Qu'est-ce que le Hub et qui l'utilise ?",
-    "faq.a5":
-      "Le Hub est l'interface web réservée aux managers et aux directions commerciales. Il réunit tous les comptes rendus de vos commerciaux, les synthèses par destination ou par région, et l'activité de chaque membre du réseau. Les commerciaux n'utilisent que l'app mobile ; le Hub est votre poste de pilotage. Il est inclus dans le plan Équipe.",
-    "faq.q6":
-      "La transcription tient-elle dans un environnement bruyant ?",
-    "faq.a6":
-      "Oui. Reedly s'appuie sur des modèles entraînés sur des conditions réelles : accueil d'agence animé, comptoir, plusieurs voix en même temps. C'est pensé pour une visite en agence, pas pour un bureau silencieux.",
-    "cta.title": "Téléchargez Reedly,<br /><em>oubliez la saisie.</em>",
-    "cta.sub":
-      "Déployez Reedly dans votre équipe en moins de 10 minutes. Premier rapport remonté dans le Hub dès le jour même.",
-    "cta.store_sub": "Disponible sur",
-    "cta.hub": "Commencer →",
-    "notify.title": "Bientôt disponible",
-    "notify.text":
-      "L'application n'est pas encore sur les stores. Laissez votre email pour être prévenu(e) dès sa sortie.",
-    "notify.placeholder": "votre@email.com",
-    "notify.cta": "Me prévenir",
-    "notify.success": "Merci ! Vous serez prévenu(e) dès la sortie.",
-    "notify.error": "Une erreur est survenue, veuillez réessayer.",
-    "android.title": "Télécharger sur Android",
-    "android.text":
-      "L'application n'est pas encore sur le Play Store, mais vous pouvez déjà l'installer. Flashez ce QR code avec votre téléphone Android pour télécharger l'APK.",
-    "footer.copy": "© {year} Reedly. Tous droits réservés.",
-    "footer.col.product": "Produit",
-    "footer.col.legal": "Légal",
-    "footer.privacy": "Confidentialité",
-    "footer.terms": "CGU",
-    "footer.contact": "Contact",
-    "report.eyebrow": "Le rapport généré",
-    "report.title": "Ce que vous recevez<br /><em>en 2 minutes.</em>",
-    "report.lead":
-      "Pas un résumé vague. Chaque rendez-vous terrain génère un document complet en 11 sections, rédigé dans le vocabulaire de votre secteur, prêt à être envoyé ou archivé.",
-    "report.mock.date": "03 mars 2026 · 14h30",
-    "report.mock.badge": "Tourisme · Paris 8e",
-    "report.mock.title": "Agence Riviera, M. Laurent",
-    "report.mock.sub": "Entretien de 48 min · Rapport généré en 1 min 42",
-    "report.mock.content":
-      "Agence active, 3e année de collaboration. Forte progression du segment MICE (+22% YoY). M. Laurent cherche à consolider l'allotement estival sur le produit Riviera Club. Opportunité de renouvellement contrat TO confirmée pour Q3.",
-    "report.s1": "Résumé exécutif",
-    "report.s2": "Profil & contexte client",
-    "report.s3": "Besoins exprimés",
-    "report.s4": "Objections & réponses",
-    "report.s5": "Produits & offres discutés",
-    "report.s6": "Concurrents mentionnés",
-    "report.s7": "Engagements mutuels",
-    "report.s8": "Prochaines étapes & échéances",
-    "report.s9": "Opportunités identifiées",
-    "report.s10": "Risques & points de vigilance",
-    "report.s11": "Recommandations stratégiques",
-    "report.action.export": "Export PDF",
-    "report.action.share": "Partager",
-    "report.privacy": "Voix jamais conservée · privacy by design",
-    "contact.eyebrow": "Contact",
-    "contact.title":
-      "Discutons de votre projet.<br /><em>On vous répond sous 24h.</em>",
-    "contact.lead":
-      "Essai, démonstration, déploiement équipe ou intégration CRM : dites-nous votre besoin, on revient vers vous rapidement.",
-    "contact.f1.title": "Essai gratuit",
-    "contact.f1.text":
-      "Testez Reedly sur vos vrais rendez-vous terrain. On active votre accès après un rapide échange.",
-    "contact.f2.title": "Démonstration live",
-    "contact.f2.text":
-      "20 minutes pour voir Reedly en action et répondre à vos questions sur votre secteur.",
-    "contact.f3.title": "Déploiement équipe & Hub",
-    "contact.f3.text":
-      "Onboarding, formation et configuration du Hub manager, calibré pour votre équipe terrain.",
-    "contact.f4.title": "Intégration CRM",
-    "contact.f4.text":
-      "HubSpot, Salesforce, Slack, Discord : Reedly se connecte à votre stack existante.",
-    "contact.label.firstname": "Prénom",
-    "contact.label.lastname": "Nom",
-    "contact.label.email": "Email professionnel",
-    "contact.label.phone": "Téléphone",
-    "contact.ph.phone": "+33 6 12 34 56 78",
-    "contact.label.company": "Société",
-    "contact.label.subject": "Sujet",
-    "contact.label.message": "Message",
-    "contact.ph.firstname": "Marie",
-    "contact.ph.lastname": "Dupont",
-    "contact.ph.email": "marie.dupont@entreprise.fr",
-    "contact.ph.company": "Tourisme Pro SAS",
-    "contact.ph.message":
-      "Décrivez votre contexte, votre équipe, vos questions…",
-    "contact.opt.select": "Choisir un sujet…",
-    "contact.opt.demo": "Demande de démo",
-    "contact.opt.team": "Déploiement équipe / Hub",
-    "contact.opt.partnership": "Partenariat & intégration",
-    "contact.opt.sector": "Nouveau secteur",
-    "contact.opt.support": "Support technique",
-    "contact.opt.other": "Autre",
-    "contact.form.submit": "Envoyer le message →",
-    "contact.form.sending": "Envoi en cours…",
-    "contact.form.success":
-      "✓ Message envoyé ! On vous répond sous 24h ouvrées.",
-    "contact.form.error":
-      "Une erreur est survenue. Veuillez réessayer ou écrire à contact@reedly.ai",
-    "hub.dash.nav": "Tableau de bord",
-    "solution.hero.eyebrow": "Solution",
-    "solution.hero.title":
-      "Vos commerciaux vendent.<br /><em>Reedly documente.</em>",
-    "solution.hero.lead":
-      "Reedly est l'agent IA qui transforme chaque rendez-vous terrain en rapport structuré en 11 sections, sans rien taper, sans rien oublier. De l'enregistrement au pilotage d'équipe, découvrez comment ça fonctionne.",
-    "solution.usecases.eyebrow": "Cas d'usage",
-    "solution.usecases.title": "Un outil. <em>Tous les secteurs terrain.</em>",
-    "solution.usecases.lead":
-      "Reedly s'adapte au vocabulaire et aux enjeux de votre industrie. L'IA ne fait pas du générique : elle raisonne avec les termes de votre métier.",
-    "solution.usecases.card1.title": "Tourisme B2B",
-    "solution.usecases.card1.text":
-      "TO, allotement, DMC, yield, MICE : Reedly maîtrise le vocabulaire du tourisme professionnel. Vos rapports de visite agence parlent la langue du secteur.",
-    "solution.usecases.card2.title": "Immobilier",
-    "solution.usecases.card2.text":
-      "Visites de biens, prospection propriétaires, mandats : capturez chaque échange terrain et retrouvez les engagements, les objections et les opportunités de chaque prospect.",
-    "solution.usecases.card3.title": "Pharma & médical",
-    "solution.usecases.card3.text":
-      "Visite médicale, suivi prescripteurs, conventions : Reedly structure les échanges complexes avec les professionnels de santé. Terminologie adaptée, conformité intégrée.",
-    "solution.usecases.card4.title": "Services B2B & industrie",
-    "solution.usecases.card4.text":
-      "Cycles de vente longs, multiples interlocuteurs, cahiers des charges techniques : Reedly capture la complexité de vos rendez-vous et la structure en actions concrètes.",
-    "tarifs.hero.eyebrow": "Tarifs",
-    "tarifs.hero.title":
-      "L'intelligence terrain du tourisme,<br /><em>pour toute votre équipe.</em>",
-    "tarifs.hero.lead":
-      "Un tarif simple, par commercial. Chaque visite en agence devient une information partagée avec les bonnes équipes. Tout est inclus, sans engagement.",
-    "tarifs.roi.eyebrow": "Retour sur investissement",
-    "tarifs.roi.title":
-      "Ce que Reedly fait gagner,<br /><em>du commercial à la direction.</em>",
-    "tarifs.roi.lead":
-      "Chaque commercial passe près de 45 minutes par jour à rédiger ses comptes rendus. Avec Reedly, c'est 2 minutes, et l'information part directement vers les bonnes équipes.",
-    "tarifs.roi.card1.title": "3h30 rendues à chaque commercial, chaque semaine",
-    "tarifs.roi.card1.text":
-      "Soit 15 heures par mois et par personne, réinvesties sur le terrain : plus de visites en agence, plus de temps pour animer votre réseau.",
-    "tarifs.roi.card2.title": "Rentabilisé dès le premier mois",
-    "tarifs.roi.card2.text":
-      "À 49 € par commercial, une seule agence réactivée ou un produit mieux vendu par le réseau suffit à couvrir l'année.",
-    "tarifs.roi.card3.title": "Plus aucun signal terrain perdu",
-    "tarifs.roi.card3.text":
-      "Ce qui fait vendre ou décrocher une agence remonte automatiquement. Votre direction le voit en temps réel, produit par produit, agence par agence.",
-    "nav.blog": "Blog",
-    "footer.blog": "Blog",
-    "blog.title": "Blog",
-    "blog.subtitle": "Guides pratiques pour les commerciaux terrain",
-    "blog.read": "Lire",
-    "blog.back": "Retour au blog",
-    "blog.cta.text":
-      "Reedly transforme vos RDV terrain en rapports structurés.",
-    "blog.cta.button": "Essayer gratuitement",
-    "blog.breadcrumb.home": "Accueil",
-    "blog.breadcrumb.blog": "Blog",
-    "blog.min_read": "min de lecture",
-    "cta.try_free": "Essayer 7 jours",
-    "contact.opt.trial": "Essai gratuit / Try for free",
-    "contact.label.role": "Rôle dans l'entreprise",
-    "contact.label.users": "Taille de l'équipe",
-    "contact.ph.users": "8",
-    "contact.role.select": "Choisir un rôle…",
-    "contact.role.sales_rep": "Commercial terrain",
-    "contact.role.sales_manager": "Responsable commercial",
-    "contact.role.head_of_sales": "Directeur commercial",
-    "contact.role.sales_ops": "Sales Ops / RevOps",
-    "contact.role.founder_ceo": "Fondateur / CEO",
-    "contact.role.other": "Autre",
-    "contact.form.success.trial":
-      "✓ Demande bien reçue ! Vous aurez une réponse très rapidement pour convenir d'une rencontre avec l'équipe.",
-
-    // ── Sales-led restructure: overrides + new keys (placeholders to finalize in copy pass) ──
-    "hero.kicker": "La première intelligence terrain du tourisme",
-    "hero.title": "Pourquoi cette agence de voyage<br /><em>ne vous vend pas ?</em>",
-    "hero.sub":
-      "Reedly transforme chaque retour terrain en information immédiatement partagée avec les équipes concernées. Identifiez ce qui stimule ou freine les ventes de vos produits, et les facteurs qui influencent les choix de vos agences partenaires.",
-    "hero.trust1": "Aucune saisie pour vos commerciaux",
-    "hero.trust2": "Pensé pour le tourisme B2B",
-    "cta.book_demo": "Réserver une démo",
-    "cta.title": "Donnez enfin de la valeur à vos remontées terrain.",
-    "cta.sub": "Reedly transforme les échanges clients en informations structurées pour mieux comprendre, décider et agir.",
-    "logos.caption": "Conçu avec des équipes commerciales du tourisme",
-    "logos.placeholder": "logo client",
-    "pricing.title": "Un prix par commercial.<br /><em>Zéro surprise.</em>",
-    "pricing.lead":
-      "Facturé à votre organisation, à la taille réelle de l'équipe qui anime votre réseau d'agences.",
-    "pricing.team.badge": "Le plus choisi",
-    "pricing.team.plan": "Équipe",
-    "pricing.team.subtitle": "À partir de 3 commerciaux",
-    "pricing.team.per": "/ commercial / mois",
-    "pricing.team.feat1": "Application iOS et Android",
-    "pricing.team.feat2": "Comptes rendus IA illimités",
-    "pricing.team.feat3": "Synthèses stratégiques périodiques",
-    "pricing.team.feat4": "Hub manager · vision 360° de l'équipe",
-    "pricing.team.feat5": "Identification des interlocuteurs",
-    "pricing.team.feat6": "Fiches agences auto-enrichies",
-    "pricing.team.feat7": "Analyse IA transversale de l'équipe",
-    "pricing.team.feat8": "Connecteurs CRM connus",
-    "pricing.team.feat9": "Assistant IA (Max)",
-    "pricing.team.feat10": "Support prioritaire",
-    "pricing.large.plan": "Entreprise",
-    "pricing.large.subtitle": "16+ commerciaux",
-    "pricing.large.price": "Sur devis",
-    "pricing.large.feat1": "Tout le plan Équipe",
-    "pricing.large.feat2": "Vocabulaire métier sur mesure",
-    "pricing.large.feat3": "Multi-équipes / multi-secteurs",
-    "pricing.large.feat4": "Account manager dédié",
-    "pricing.large.feat5": "Formation & onboarding sur site",
-    "pricing.book_demo": "Réserver une démo →",
-    "pricing.contact_us": "Nous contacter →",
-    "pricing.note": "Sans engagement · résiliable à tout moment",
-    "bookdemo.eyebrow": "Réserver une démo",
-    "bookdemo.title": "15 minutes pour voir<br /><em>Reedly en action.</em>",
-    "bookdemo.lead":
-      "Une démonstration adaptée à votre équipe, votre organisation et vos enjeux terrain.",
-    "bookdemo.intro": "Découvrez concrètement comment Reedly peut simplifier les comptes rendus, centraliser les remontées terrain et donner à vos managers une vision plus claire de l'activité commerciale.",
-    "bookdemo.role.label": "Votre poste",
-    "bookdemo.role.select": "Choisir…",
-    "bookdemo.role.director": "Directeur / Responsable commercial",
-    "bookdemo.role.owner": "Dirigeant / Gérant",
-    "bookdemo.role.rep": "Commercial terrain",
-    "bookdemo.role.other": "Autre",
-    "bookdemo.team.label": "Taille de l'équipe commerciale",
-    "bookdemo.team.select": "Choisir…",
-    "bookdemo.team.1": "1 commercial",
-    "bookdemo.team.2_5": "2 à 5",
-    "bookdemo.team.6_15": "6 à 15",
-    "bookdemo.team.16": "16+",
-    "bookdemo.sector.label": "Secteur",
-    "bookdemo.sector.select": "Choisir…",
-    "bookdemo.sector.to": "Tour-opérateur / Voyagiste",
-    "bookdemo.sector.agency": "Agence de voyages",
-    "bookdemo.sector.dmc": "Réceptif / DMC",
-    "bookdemo.sector.mice": "MICE & événementiel",
-    "bookdemo.sector.transport": "Transport & mobilité",
-    "bookdemo.sector.cruise": "Croisière",
-    "bookdemo.sector.hospitality": "Hôtellerie & hébergement",
-    "bookdemo.sector.leisure": "Loisirs & billetterie",
-    "bookdemo.sector.other": "Autre secteur",
-    "bookdemo.email.label": "Email professionnel",
-    "bookdemo.email.ph": "vous@votre-organisation.fr",
-    "bookdemo.submit": "Voir les créneaux disponibles →",
-    "bookdemo.hint": "Aucune carte bancaire · réponse sous 24h",
-    "bookdemo.cal.pickday": "Choisissez un jour",
-    "bookdemo.cal.pickslot": "Choisissez un créneau",
-    "bookdemo.cal.tznote": "Créneaux affichés dans votre fuseau horaire.",
-    "bookdemo.cal.loading": "Chargement des disponibilités…",
-    "bookdemo.cal.empty": "Aucun créneau disponible pour l'instant. Réécrivez-nous et on cale ça.",
-    "bookdemo.cal.error": "Impossible de charger les créneaux. Réessayez dans un instant.",
-    "bookdemo.cal.name": "Votre nom",
-    "bookdemo.cal.note": "Un mot sur votre besoin",
-    "bookdemo.cal.confirm": "Confirmer le rendez-vous",
-    "bookdemo.cal.booking": "Confirmation en cours…",
-    "bookdemo.cal.back": "← Changer de créneau",
-    "bookdemo.cal.back_form": "← Retour",
-    "bookdemo.cal.slot_taken": "Ce créneau vient d'être pris. Choisissez-en un autre.",
-    "bookdemo.cal.success_title": "C'est réservé.",
-    "bookdemo.cal.success_body": "Une invitation Google Agenda avec le lien Meet vient de partir sur votre email.",
-    "bookdemo.cal.meet": "Ouvrir le lien Google Meet",
-    "footer.stores.label": "Pour vos commerciaux",
-    "footer.book_demo": "Réserver une démo",
-
-    // ── Home sections retargeted to the tourism vertical ──
-    "demo.eyebrow": "De la visite à vos outils",
-    "demo.title": "Parlez. Reedly structure.<br /><em>Vos équipes avancent.</em>",
-    "demo.label_record": "Enregistrement en agence",
-    "demo.label_report": "Compte rendu en 2 minutes",
-    "demo.lead":
-      "Votre commercial se concentre sur l'échange. Reedly transforme automatiquement chaque rendez-vous en un compte rendu clair et structuré, puis le partage directement avec vos équipes et dans vos outils.",
-    "how.viz1.label": "Visite agence",
-    "hub.eyebrow": "Une vision à 360°",
-    "hub.title": "Derrière chaque chiffre, il y a une raison.<br /><em>Reedly la met en lumière.</em>",
-    "hub.lead":
-      "Reedly rassemble et structure les retours de vos commerciaux pour vous donner une lecture claire de ce qui influence réellement vos performances.",
-    "hub.benefit1.title": "Une vision unifiée de tout le terrain",
-    "hub.benefit1.text": "Tous les retours de vos commerciaux réunis au même endroit : attentes des agences, freins à la vente, opportunités et signaux en faveur de la concurrence.",
-    "hub.benefit2.title": "Tendances, opportunités, risques",
-    "hub.benefit2.text": "Reedly agrège les signaux du terrain en synthèses sur la période de votre choix. Détectez les évolutions du terrain avant qu'elles ne se reflètent dans vos chiffres.",
-    "hub.benefit3.title": "Décryptez les freins à la vente",
-    "hub.benefit3.text": "Identifiez les causes d'un ralentissement des ventes, d'un stop vente ou du désengagement d'une agence.",
-    "hub.dash.org": "Tourisme Pro",
-    "hub.max.url": "hub.reedly.ai/max",
-    "hub.max.greeting": "Salut Sophie !",
-    "hub.max.greeting_sub": "Qu'est-ce que tu veux creuser aujourd'hui ?",
-    "hub.max.intro": "Pose une question, ou demande-moi d'agir : je fouille les données terrain de ton équipe et je peux créer des actions, emails ou relances pour toi.",
-    "hub.max.today": "Aujourd'hui",
-    "hub.max.kpi_team": "Équipe",
-    "hub.max.kpi_reports": "Comptes-rendus cette semaine",
-    "hub.max.brief_label": "Briefing matinal",
-    "hub.max.brief_text": "Opportunités et risques repérés dans les comptes-rendus d'hier",
-    "hub.max.insights_label": "Max insights",
-    "hub.max.insights_text": "Explore les opportunités du moment",
-    "hub.max.ask_col": "Demander à Max",
-    "hub.max.ask1": "Fais-moi le bilan de l'équipe cette semaine",
-    "hub.max.ask2": "Quels clients sont à risque ?",
-    "hub.max.ask3": "Montre-moi les actions en retard dans l'équipe",
-    "hub.max.ask4": "Quelles opportunités ressortent des récents rendez-vous ?",
-    "hub.max.act_col": "Agir avec Max",
-    "hub.max.act_badge": "Max le fait pour toi",
-    "hub.max.act1": "Rédige un email pour un client",
-    "hub.max.act2": "Crée une action de suivi",
-    "hub.max.act3": "Programme une relance",
-    "hub.max.act4": "Crée une directive d'équipe",
-    "hub.max.composer": "Pourquoi le Pérou se vend moins ces deux derniers mois ?",
-    "compliance.eyebrow": "Conformité & sécurité",
-    "compliance.title": "Transcrire le terrain,<br /><em>en toute conformité.</em>",
-    "compliance.lead":
-      "Vos commerciaux transcrivent de vraies conversations client. Voici les garanties qui encadrent chaque rendez-vous, du consentement à la suppression.",
-    "compliance.panel": "Conformité RGPD",
-    "compliance.item1": "Données hébergées dans l'UE",
-    "compliance.item2": "DPA disponible sur demande",
-    "compliance.item3": "Liste des sous-traitants publiée",
-    "compliance.item4": "Chiffrement au repos et en transit",
-    "compliance.item5": "Suppression sur demande sous 30 jours",
-    "compliance.item6": "Consentement des participants intégré au parcours",
-  },
-  en: {
-    "nav.solution": "Solution",
-    "nav.pricing": "Pricing",
-    "nav.contact": "Contact",
-    "nav.login": "Log in",
-    "nav.theme": "Theme",
-    "nav.theme_light": "Light",
-    "nav.theme_dark": "Dark",
-    "nav.theme_system": "System",
-    "nav.language": "Language",
-    "nav.download": "Download",
-    "nav.download_app": "Download the app",
-    "nav.open_menu": "Open menu",
-    "footer.solution": "Solution",
-    "footer.pricing": "Pricing",
-    "hero.kicker": "Sales AI, finally built for the field",
-    "hero.title": "AI turns your field meetings<br /><em>into sales actions.</em>",
-    "hero.sub":
-      "Other sales AIs record your online calls. Reedly captures your <strong>real</strong> meetings, in-store, on-site or face-to-face, and turns them into a <strong>structured sales report</strong>. Hands-free, even offline.",
-    "hero.cta": "Download the app",
-    "hero.cta_manager": "Get Started →",
-    "hero.trust1": "7-day trial",
-    "hero.trust2": "No commitment",
-    "hero.trust3": "Your data stays in Europe",
-    "trustbar.platforms": "iOS & Android",
-    "trustbar.accuracy": "95%+ transcription accuracy",
-    "trustbar.privacy": "The voice is never recorded or stored",
-    "trustbar.report": "11-section report · under 2 min",
-    "hero.flow.tag_rep": "Field rep",
-    "hero.flow.tag_mgr": "Manager",
-    "hero.viz.capture_label": "Client meeting in progress",
-    "hero.viz.capture_meta": "Hands-free recording, in the field",
-    "hero.viz.pipe": "Structured report · under 2 min",
-    "hero.viz.team": "Team activity",
-    "hero.viz.live": "live",
-    "hero.definition":
-      "Reedly is a sales-intelligence solution for B2B field-sales teams. An iOS and Android mobile app transcribes client meetings and automatically generates a structured 11-section report in under 2 minutes (summary, needs, objections, commitments, next steps, opportunities, risks, recommendations). Every team member's reports flow into a web Hub where managers review territory syntheses and aggregated activity. The voice is neither recorded nor stored: only the transcript is used to generate the report.",
-    "ticker.1": "Unified view across your entire team",
-    "ticker.2": "Strategic syntheses by territory",
-    "ticker.3": "Client commitments tracked automatically",
-    "ticker.4": "Web-based Manager Hub included",
-    "ticker.5": "CRM integration (HubSpot, Salesforce)",
-    "ticker.6": "Structured report in 11 sections",
-    "ticker.7": "Integrated B2B sector vocabulary",
-    "ticker.8": "The voice is never recorded or stored · privacy by design",
-    "problem.eyebrow": "Sales AI's blind spot",
-    "problem.title": "Inside sales is over-equipped.<br /><em>The field is on its own.</em>",
-    "problem.lead":
-      "For five years, every online call from an inside rep has been recorded, analyzed, coached, synced to the CRM. The field rep walks out of the meeting with a notepad and their memory. The richest data, the face-to-face, is lost.",
-    "problem.card1.title": "45 minutes lost per meeting",
-    "problem.card1.text":
-      "Writing a report after every meeting, in the car or in the evening. Every sales rep spends over an hour a day on it, generating zero revenue.",
-    "problem.card2.title": "Forgotten commitments",
-    "problem.card2.text":
-      "What's not written down immediately disappears. Client promises, key objections, detected opportunities: everything evaporates before the next team meeting.",
-    "problem.card3.title": "The field, invisible",
-    "problem.card3.text":
-      "Inside sales is tracked 100%. The field, zero. The manager sees nothing of what was said with clients, until it's too late.",
-    "problem.viz1.legend": "Admin instead of selling",
-    "problem.viz1.perday": "+1 h / day",
-    "problem.viz2.t1": "Client promise",
-    "problem.viz2.t2": "Key objection",
-    "problem.viz2.t3": "Spotted opportunity",
-    "problem.viz3.team": "Team activity",
-    "features.eyebrow": "Features",
-    "features.title": "Everything you need<br /><em>to forget nothing.</em>",
-    "features.lead":
-      "Reedly automates the entire field report, from the words spoken with your client to a decision-ready report. Your only task: start Reedly before you walk in.",
-    "features.card1.title": "Hands-free field capture",
-    "features.card1.text":
-      "Start Reedly before you walk in to see the client. The app follows the meeting in the background, hands-free, and holds even offline. Transcription runs the moment you're back online.",
-    "features.card2.title": "Client memory",
-    "features.card2.text":
-      "Every report starts from the client's history, not a blank page. Reedly remembers every visit and briefs the next one: a relationship, not isolated meetings.",
-    "features.card3.title": "11-section sales report",
-    "features.card3.text":
-      "Executive summary, client profile, expressed needs, objections, commitments, next steps, opportunities, risks: ready to send in 30 seconds. Structured like your best senior sales rep.",
-    "features.card4.title": "Integrated sector expert",
-    "features.card4.text":
-      "The AI understands your industry's business vocabulary (TO, allotment, DMC, yield, MICE for tourism) and reasons like a field expert, not a generalist. Real estate, pharma, B2B services coming soon.",
-    "how.eyebrow": "How it works",
-    "how.title": "3 steps<br /><em>From the field to your decision.</em>",
-    "how.step1.title": "Your rep runs the meeting",
-    "how.step1.text":
-      "One tap at the end of a meeting, and Reedly captures the conversation in the background. No typing, no interruptions: that's all you ask of your reps.",
-    "how.step1.tag": "iOS & Android · Background",
-    "how.step2.title": "The conversation becomes usable intelligence, in under 2 min",
-    "how.step2.text":
-      "The AI transcribes the conversation into a structured report: needs, objections, commitments, next steps. The voice is neither recorded nor stored.",
-    "how.step2.tag": "Privacy by design",
-    "how.step3.title": "You consolidate and decide",
-    "how.step3.text":
-      "From the Hub, you read every report, track commitments, and let Reedly aggregate your whole team's meetings into strategic syntheses.",
-    "how.step3.tag": "PDF Export · Syntheses · Hub",
-    "how.viz1.label": "Client meeting",
-    "how.viz1.foot": "Transcription in the background",
-    "how.viz2.badge": "Structured report · 11 sections",
-    "how.viz2.s1": "Stated needs",
-    "how.viz2.s2": "Objections",
-    "how.viz2.s3": "Commitments",
-    "how.viz2.s4": "Next steps",
-    "how.viz3.share": "Share",
-    "demo.eyebrow": "In 30 seconds",
-    "demo.title": "The whole flow,<br /><em>from a single tap.</em>",
-    "demo.lead":
-      "From client meeting to structured report in the Hub, see the full experience in seconds.",
-    "integrations.eyebrow": "Integrations",
-    "integrations.title": "Plug Reedly into<br /><em>your stack.</em>",
-    "integrations.lead":
-      "Your reports land where your team already works: team channels, CRM records, manager alerts. Zero copy-paste.",
-    "integrations.source.status": "Report ready",
-    "integrations.source.note":
-      "Every report flows to your tools, no copy-paste.",
-    "integrations.hub.tagline": "Your reports, in every tool.",
-    "integrations.hub.badge": "Zero copy-paste",
-    "integrations.cat.crm": "CRM",
-    "integrations.cat.msg": "Messaging & community",
-    "integrations.tag.crm": "CRM",
-    "integrations.tag.msg": "Messaging",
-    "integrations.core.meta": "Field reports",
-    "integrations.hubspot.desc":
-      "Auto-push the report to the contact and deal record.",
-    "integrations.salesforce.desc":
-      "Sync commitments, next steps, and opportunities.",
-    "integrations.slack.desc":
-      "Ping your team channel every time a report is generated.",
-    "integrations.discord.desc":
-      "Broadcast syntheses to your Discord channels.",
-    "integrations.tag.custom": "Custom",
-    "integrations.custom.name": "Your tool",
-    "integrations.custom.desc":
-      "In-house CRM, internal dashboard, private API: plug in anything via our API.",
-    "integrations.custom.cta": "Let's talk →",
-    "hub.eyebrow": "For managers",
-    "hub.title": "Manage your team from<br /><em>the Hub.</em>",
-    "hub.lead":
-      "Your sales reps generate their reports from the mobile app. You manage from the Hub: cross-sectional view, syntheses, member statistics, all at a glance.",
-    "hub.benefit1.title": "Unified team view",
-    "hub.benefit1.text":
-      "All your sales reps' reports centralized, filterable, with activity statistics per member.",
-    "hub.benefit2.title": "On-demand strategic syntheses",
-    "hub.benefit2.text":
-      "Trends, risks, and opportunities aggregated over your chosen period: week, month, quarter.",
-    "hub.benefit3.title": "1-click member invitations",
-    "hub.benefit3.text":
-      "Invite your sales reps by email. They accept from the mobile app and their reports sync automatically.",
-    "hub.dash.title": "reedly.ai/hub · Dashboard",
-    "hub.dash.reports": "Reports",
-    "hub.dash.syntheses": "Syntheses",
-    "hub.dash.members": "Members",
-    "hub.dash.stat1": "Reports this month",
-    "hub.dash.stat2": "Active members",
-    "hub.dash.stat3": "Syntheses",
-    "hub.dash.r1.name": "Meeting Riviera Agency, Mr. Laurent",
-    "hub.dash.r1.meta": "Sophie D. · 23 min ago",
-    "hub.dash.r1.badge": "Generated",
-    "hub.dash.r2.name": "Client Premium Hotels, Ms. Dubois",
-    "hub.dash.r2.meta": "Tom V. · 1h ago",
-    "hub.dash.r2.badge": "Processing",
-    "hub.dash.r3.name": "Follow-up TO Barcelona contract",
-    "hub.dash.r3.meta": "Marc R. · 3h ago",
-    "hub.dash.r3.badge": "Generated",
-    "proof.eyebrow": "Results",
-    "proof.title": "What you gain<br /><em>in oversight.</em>",
-    "proof.stat1":
-      "Of client commitments captured and tracked. No more forgotten promises",
-    "proof.stat2":
-      "Less time your team spends on reporting, more time in front of clients",
-    "proof.stat3":
-      "Between the end of the meeting and the report landing in your Hub",
-    "proof.stat4":
-      "Weekly reporting meetings needed. Field data flows in continuously",
-    "roles.eyebrow": "For every role",
-    "roles.title": "Built for the field<br /><em>and for management.</em>",
-    "roles.lead":
-      "One tool, two promises: time for the field rep, visibility for the manager.",
-    "roles.rep.role": "Field rep",
-    "roles.rep.title": "Sell. Reedly handles the rest.",
-    "roles.rep.intro":
-      "Stay focused on your client. Reedly transcribes the meeting in the background and writes the report for you.",
-    "roles.rep.b1": "Zero data entry: your 11-section report writes itself.",
-    "roles.rep.b2": "More time with clients, no more reports at night.",
-    "roles.rep.b3": "Walk into every meeting with the client history at hand.",
-    "roles.rep.b4": "All your reports in one place, ready to share.",
-    "roles.mgr.role": "Sales manager",
-    "roles.mgr.title": "Finally see the field.",
-    "roles.mgr.intro":
-      "What's said in meetings flows into the Hub automatically. Field teams finally get the visibility inside sales has had for years.",
-    "roles.mgr.b1": "Real-time view of every meeting across the team.",
-    "roles.mgr.b2": "Commitments, opportunities and risks tracked automatically.",
-    "roles.mgr.b3": "Strategic syntheses by territory, by week or by month.",
-    "roles.mgr.b4": "Coach on what was actually said in the meeting.",
-    "vsvideo.eyebrow": "Reedly vs video-call tools",
-    "vsvideo.title":
-      "The others are built for calls.<br /><em>Reedly is built for the field.</em>",
-    "vsvideo.lead":
-      "The sales-AI wave was born for the online meeting. The face-to-face meeting stayed its blind spot. That's exactly where Reedly begins.",
-    "vsvideo.col_others": "Conventional sales-AI tools",
-    "vsvideo.col_reedly": "Reedly",
-    "vsvideo.r1.others": "Join a video call to take notes",
-    "vsvideo.r1.reedly": "Capture the in-person meeting, hands-free",
-    "vsvideo.r2.others": "Need a constant connection",
-    "vsvideo.r2.reedly": "Work offline, sync afterwards",
-    "vsvideo.r3.others": "Return a transcript or a generic summary",
-    "vsvideo.r3.reedly": "Return an 11-section sales report",
-    "vsvideo.r4.others": "Every report starts from a blank page",
-    "vsvideo.r4.reedly": "Every report starts from the client's history",
-    "vsvideo.r5.others": "Built to review calls",
-    "vsvideo.r5.reedly": "Built for territory coverage",
-    "vsvideo.r6.others": "A generalist model, blind to your industry",
-    "vsvideo.r6.reedly": "Sector expert that understands your jargon",
-    "pricing.eyebrow": "Pricing",
-    "pricing.title": "Equip your sales team<br /><em>with field AI.</em>",
-    "pricing.lead":
-      "Unlimited structured reports, industry vocabulary, Manager Hub. Deploy Reedly in under 10 minutes.",
-    "pricing.toggle.mobile": "Solo sales reps",
-    "pricing.toggle.managers": "Managers / Teams",
-    "pricing.billing.monthly": "Monthly",
-    "pricing.billing.annual": "Yearly (-14%)",
-    "pricing.billing.note.monthly":
-      "Prices are displayed per month. Yearly billing is available with a 14% discount.",
-    "pricing.billing.note.annual":
-      "Yearly mode: -14% applied on all displayed rates (still shown per month).",
-    "pricing.free.plan": "Free",
-    "pricing.free.per": "€ / month",
-    "pricing.free.limit": "1 report / day",
-    "pricing.free.feat1": "1 report / day",
-    "pricing.free.feat2": "15 minutes of recording per meeting",
-    "pricing.free.feat3": "1 report generated per day",
-    "pricing.free.feat4": "PDF export of reports",
-    "pricing.free.cta": "Get started for free",
-    "pricing.managers.note":
-      "Deploy Reedly for your team in under 10 minutes. Cancel anytime.",
-    "pricing.ctaGetStarted": "Get started for free →",
-
-    "pricing.pro.plan": "Pro",
-    "pricing.pro.subtitle": "Discovery team",
-    "pricing.team.badge": "Recommended",
-    "pricing.team.plan": "Business",
-    "pricing.team.subtitle": "Structured sales force",
-    "pricing.enterprise.plan": "Enterprise",
-    "pricing.enterprise.subtitle": "Multi-sector · custom-built",
-    "pricing.enterprise.price": "Custom pricing",
-    "pricing.cap.title": "Capacity",
-    "pricing.cap.recording": "Recording duration",
-    "pricing.cap.credits": "AI credits / month / user",
-    "pricing.cap.reports": "Reports",
-    "pricing.cap.history": "Synthesis period",
-    "pricing.cap.support": "Support",
-    "pricing.cap.recording.pro": "45 min",
-    "pricing.cap.recording.team": "1 h",
-    "pricing.cap.recording.enterprise": "2 h",
-    "pricing.cap.credits.pro": "80",
-    "pricing.cap.credits.team": "450",
-    "pricing.cap.credits.enterprise": "Custom",
-    "pricing.cap.history.pro": "30 days",
-    "pricing.cap.history.team": "90 days",
-    "pricing.cap.history.enterprise": "Unlimited",
-    "pricing.cap.support.pro": "Email",
-    "pricing.cap.support.team": "Priority 24h",
-    "pricing.cap.support.enterprise": "Account manager",
-    "pricing.included.title": "Included",
-    "pricing.custom.title": "Custom",
-    "pricing.pro.feat1": "Structured reports · syntheses · Max AI",
-    "pricing.pro.feat2": "Web Hub · team visibility",
-    "pricing.pro.feat3": "Speaker identification",
-    "pricing.pro.feat4": "Native CRM integrations (HubSpot, Salesforce)",
-    "pricing.pro.feat5": "Cross-team analysis",
-    "pricing.team.feat1": "Everything in Pro",
-    "pricing.team.feat2": "Speaker identification (who said what)",
-    "pricing.team.feat3": "Custom CRM integrations (your CRM)",
-    "pricing.team.feat4": "Cross-team AI analysis of the entire team",
-    "pricing.team.feat5": "Custom business vocabulary",
-    "pricing.enterprise.feat1": "Everything in Business",
-    "pricing.enterprise.feat2": "Custom business vocabulary",
-    "pricing.enterprise.feat3": "Multi-team / multi-sector",
-    "pricing.enterprise.feat4": "Dedicated account manager",
-    "pricing.enterprise.feat5": "On-site training & onboarding",
-    "pricing.enterprise.cta": "Contact us →",
-
-    "pricing.tableHeader.per": "/ user / month",
-    "pricing.tableCat.capture": "Capture & reports",
-    "pricing.tableCat.ai": "AI intelligence",
-    "pricing.tableCat.hub": "Pilotage & integrations",
-    "pricing.tableCat.custom": "Customization & service",
-
-    "pricing.tableRow.app": "iOS & Android mobile app",
-    "pricing.tableRow.recording": "Max recording per meeting",
-    "pricing.tableRow.reports": "Structured reports after every meeting",
-    "pricing.tableRow.syntheses": "Strategic syntheses across multiple reports",
-    "pricing.tableRow.history": "Synthesis period",
-    "pricing.tableRow.max": "Max, AI assistant",
-    "pricing.tableRow.credits": "Reports",
-    "pricing.tableRow.diarization": "Voice diarization (who said what)",
-    "pricing.tableRow.crossTeamAi": "Cross-team AI analysis",
-    "pricing.tableRow.hub": "Web Hub · full team visibility",
-    "pricing.tableRow.crm": "CRM integration (Axonaut, HubSpot…)",
-    "pricing.tableRow.vocab": "Custom industry vocabulary",
-    "pricing.tableRow.multiTeam": "Multi-team / multi-sector",
-    "pricing.tableRow.accountManager": "Dedicated account manager",
-    "pricing.tableRow.training": "Team training and onboarding",
-    "pricing.tableRow.support": "Support",
-
-    "pricing.tableVal.history.pro": "30 days",
-    "pricing.tableVal.history.team": "90 days",
-    "pricing.tableVal.unlimited": "Unlimited",
-    "pricing.tableVal.custom": "Custom",
-    "pricing.tableVal.support.pro": "Email",
-    "pricing.tableVal.support.team": "Priority 24h",
-    "pricing.tableVal.support.enterprise": "Account manager",
-    "faq.eyebrow": "FAQ",
-    "faq.title": "Frequently asked questions.",
-    "faq.q1": "Which tourism businesses is Reedly for?",
-    "faq.a1":
-      "For tour operators, wholesalers and DMCs whose reps manage a network of travel agencies. And for sales leadership who want to know, agency by agency, what's really being said in the field, without piling on reporting meetings.",
-    "faq.q2": "Does the app work offline?",
-    "faq.a2":
-      "Yes. Your rep runs the meeting with no network, in the agency or on the road: the app holds offline. Transcription and the report do call our AI models, so they need a connection. Both generate automatically as soon as the network is back.",
-    "faq.q3": "How fast is the report ready?",
-    "faq.a3":
-      "Under 2 minutes after a one-hour visit. Your rep leaves the agency with a report already structured into 11 sections, before even driving to the next point of sale.",
-    "faq.q4": "Is audio data retained?",
-    "faq.a4":
-      "No, never. The voice is neither recorded nor stored: it only serves to produce the transcript, from which the report is generated. Only the structured report stays in your Reedly space. This is a non-negotiable principle: privacy by design.",
-    "faq.q5": "What is the Hub and who uses it?",
-    "faq.a5":
-      "The Hub is the web interface reserved for managers and sales leadership. It brings together every rep's reports, syntheses by destination or region, and each network member's activity. Reps use only the mobile app; the Hub is your control center. It's included in the Team plan.",
-    "faq.q6": "Does transcription hold up in a noisy environment?",
-    "faq.a6":
-      "Yes. Reedly relies on models trained on real-world conditions: a busy agency front desk, a counter, several voices at once. It's built for an agency visit, not a quiet office.",
-    "cta.title": "Download Reedly,<br /><em>forget the data entry.</em>",
-    "cta.sub":
-      "Deploy Reedly to your team in under 10 minutes. First report flowing into the Hub the same day.",
-    "cta.store_sub": "Available on",
-    "cta.hub": "Get Started →",
-    "notify.title": "Coming soon",
-    "notify.text":
-      "The app isn't on the stores yet. Leave your email to be notified as soon as it launches.",
-    "notify.placeholder": "your@email.com",
-    "notify.cta": "Notify me",
-    "notify.success": "Thanks! You'll be notified when it launches.",
-    "notify.error": "Something went wrong, please try again.",
-    "android.title": "Download on Android",
-    "android.text":
-      "The app isn't on the Play Store yet, but you can already install it. Scan this QR code with your Android phone to download the APK.",
-    "footer.copy": "© {year} Reedly. All rights reserved.",
-    "footer.col.product": "Product",
-    "footer.col.legal": "Legal",
-    "footer.privacy": "Privacy",
-    "footer.terms": "Terms",
-    "footer.contact": "Contact",
-    "report.eyebrow": "The generated report",
-    "report.title": "What you get<br /><em>in 2 minutes.</em>",
-    "report.lead":
-      "Not a vague summary. Every field meeting generates a complete 11-section document, written in your industry's vocabulary, ready to send or archive.",
-    "report.mock.date": "Mar 3, 2026 · 2:30 PM",
-    "report.mock.badge": "Tourism · Paris 8e",
-    "report.mock.title": "Riviera Agency, Mr. Laurent",
-    "report.mock.sub": "48-min meeting · Report generated in 1 min 42",
-    "report.mock.content":
-      "Active agency, 3rd year of collaboration. Strong growth in the MICE segment (+22% YoY). Mr. Laurent is looking to consolidate summer allotment for the Riviera Club product. TO contract renewal opportunity confirmed for Q3.",
-    "report.s1": "Executive summary",
-    "report.s2": "Client profile & context",
-    "report.s3": "Expressed needs",
-    "report.s4": "Objections & responses",
-    "report.s5": "Products & offers discussed",
-    "report.s6": "Competitors mentioned",
-    "report.s7": "Mutual commitments",
-    "report.s8": "Next steps & deadlines",
-    "report.s9": "Identified opportunities",
-    "report.s10": "Risks & watch points",
-    "report.s11": "Strategic recommendations",
-    "report.action.export": "Export PDF",
-    "report.action.share": "Share",
-    "report.privacy": "Voice never stored · privacy by design",
-    "contact.eyebrow": "Contact",
-    "contact.title":
-      "Let's talk about your project.<br /><em>We reply within 24h.</em>",
-    "contact.lead":
-      "Trial, live demo, team rollout, or CRM integration: tell us what you need, we'll get back to you quickly.",
-    "contact.f1.title": "Free trial",
-    "contact.f1.text":
-      "Test Reedly on your real field meetings. We activate your access after a quick call.",
-    "contact.f2.title": "Live demo",
-    "contact.f2.text":
-      "20 minutes to see Reedly in action and answer questions specific to your industry.",
-    "contact.f3.title": "Team rollout & Hub",
-    "contact.f3.text":
-      "Onboarding, training and manager Hub setup, tailored to your field sales team.",
-    "contact.f4.title": "CRM integration",
-    "contact.f4.text":
-      "HubSpot, Salesforce, Slack, Discord: Reedly plugs into your existing stack.",
-    "contact.label.firstname": "First name",
-    "contact.label.lastname": "Last name",
-    "contact.label.email": "Work email",
-    "contact.label.phone": "Phone",
-    "contact.ph.phone": "+1 555 123 4567",
-    "contact.label.company": "Company",
-    "contact.label.subject": "Subject",
-    "contact.label.message": "Message",
-    "contact.ph.firstname": "John",
-    "contact.ph.lastname": "Smith",
-    "contact.ph.email": "john.smith@company.com",
-    "contact.ph.company": "Tourism Pro Ltd",
-    "contact.ph.message": "Describe your context, your team, your questions…",
-    "contact.opt.select": "Choose a subject…",
-    "contact.opt.demo": "Demo request",
-    "contact.opt.team": "Team deployment / Hub",
-    "contact.opt.partnership": "Partnership & integration",
-    "contact.opt.sector": "New sector",
-    "contact.opt.support": "Technical support",
-    "contact.opt.other": "Other",
-    "contact.form.submit": "Send message →",
-    "contact.form.sending": "Sending…",
-    "contact.form.success":
-      "✓ Message sent! We'll get back to you within 24 business hours.",
-    "contact.form.error":
-      "An error occurred. Please try again or write to contact@reedly.ai",
-    "hub.dash.nav": "Dashboard",
-    "solution.hero.eyebrow": "Solution",
-    "solution.hero.title": "Your reps sell.<br /><em>Reedly documents.</em>",
-    "solution.hero.lead":
-      "Reedly is the AI agent that transforms every field meeting into a structured report in 11 sections, nothing to type, nothing to forget. From recording to team management, see how it works.",
-    "solution.usecases.eyebrow": "Use cases",
-    "solution.usecases.title": "One tool. <em>Every field industry.</em>",
-    "solution.usecases.lead":
-      "Reedly adapts to the vocabulary and challenges of your industry. The AI doesn't do generic: it reasons with the terms of your trade.",
-    "solution.usecases.card1.title": "B2B Tourism",
-    "solution.usecases.card1.text":
-      "Tour operators, allotment, DMC, yield, MICE: Reedly masters professional tourism vocabulary. Your agency visit reports speak the industry's language.",
-    "solution.usecases.card2.title": "Real Estate",
-    "solution.usecases.card2.text":
-      "Property visits, owner prospecting, mandates: capture every field exchange and retrieve commitments, objections and opportunities for each prospect.",
-    "solution.usecases.card3.title": "Pharma & Medical",
-    "solution.usecases.card3.text":
-      "Medical visits, prescriber follow-up, conventions: Reedly structures complex exchanges with healthcare professionals. Adapted terminology, built-in compliance.",
-    "solution.usecases.card4.title": "B2B Services & Industry",
-    "solution.usecases.card4.text":
-      "Long sales cycles, multiple stakeholders, technical specs: Reedly captures the complexity of your meetings and structures it into concrete actions.",
-    "tarifs.hero.eyebrow": "Pricing",
-    "tarifs.hero.title":
-      "Field intelligence for tourism,<br /><em>across your whole team.</em>",
-    "tarifs.hero.lead":
-      "One simple price per rep. Every agency visit becomes information shared with the right teams. Everything included, no commitment.",
-    "tarifs.roi.eyebrow": "Return on investment",
-    "tarifs.roi.title": "What Reedly delivers,<br /><em>from rep to leadership.</em>",
-    "tarifs.roi.lead":
-      "Each rep spends nearly 45 minutes a day writing reports. With Reedly, it's 2 minutes, and the information flows straight to the right teams.",
-    "tarifs.roi.card1.title": "3.5 hours back per rep, every week",
-    "tarifs.roi.card1.text":
-      "That's 15 hours a month per person, reinvested in the field: more agency visits, more time to grow your network.",
-    "tarifs.roi.card2.title": "Pays for itself in the first month",
-    "tarifs.roi.card2.text":
-      "At 49 EUR per rep, a single reactivated agency or one product better sold across the network covers the year.",
-    "tarifs.roi.card3.title": "No field signal lost",
-    "tarifs.roi.card3.text":
-      "What makes an agency buy or drift away surfaces automatically. Leadership sees it in real time, product by product, agency by agency.",
-    "nav.blog": "Blog",
-    "footer.blog": "Blog",
-    "blog.title": "Blog",
-    "blog.subtitle": "Practical guides for field sales teams",
-    "blog.read": "Read",
-    "blog.back": "Back to blog",
-    "blog.cta.text":
-      "Reedly turns your field meetings into structured reports.",
-    "blog.cta.button": "Get started free",
-    "blog.breadcrumb.home": "Home",
-    "blog.breadcrumb.blog": "Blog",
-    "blog.min_read": "min read",
-    "cta.try_free": "Try 7 days free",
-    "contact.opt.trial": "Free trial / Try for free",
-    "contact.label.role": "Role at company",
-    "contact.label.users": "Team size",
-    "contact.ph.users": "8",
-    "contact.role.select": "Choose a role…",
-    "contact.role.sales_rep": "Field sales rep",
-    "contact.role.sales_manager": "Sales manager",
-    "contact.role.head_of_sales": "Head of Sales",
-    "contact.role.sales_ops": "Sales Ops / RevOps",
-    "contact.role.founder_ceo": "Founder / CEO",
-    "contact.role.other": "Other",
-    "contact.form.success.trial":
-      "✓ Request received! You'll get a response very quickly to set up a meeting with the team.",
-
-    // ── Sales-led restructure: overrides + new keys (placeholders to finalize in copy pass) ──
-    "hero.kicker": "The first field intelligence in tourism",
-    "hero.title": "Why isn't this travel agency<br /><em>selling you?</em>",
-    "hero.sub":
-      "Reedly turns every field report into information that's instantly shared with the relevant teams. Identify what drives or holds back your product sales, and the factors that shape your partner agencies' choices.",
-    "hero.trust1": "No data entry for your reps",
-    "hero.trust2": "Built for tourism B2B",
-    "cta.book_demo": "Book a demo",
-    "cta.title": "Finally get real value from your field feedback.",
-    "cta.sub": "Reedly turns client conversations into structured information, so you can understand, decide and act.",
-    "logos.caption": "Built with tourism sales teams",
-    "logos.placeholder": "client logo",
-    "pricing.title": "One price per rep.<br /><em>Zero surprises.</em>",
-    "pricing.lead":
-      "Billed to your organization, at the real size of the team that runs your agency network.",
-    "pricing.team.badge": "Most chosen",
-    "pricing.team.plan": "Team",
-    "pricing.team.subtitle": "From 3 reps",
-    "pricing.team.per": "/ rep / month",
-    "pricing.team.feat1": "iOS & Android app",
-    "pricing.team.feat2": "Unlimited AI reports",
-    "pricing.team.feat3": "Periodic strategic syntheses",
-    "pricing.team.feat4": "Manager Hub · 360° team view",
-    "pricing.team.feat5": "Speaker identification",
-    "pricing.team.feat6": "Auto-enriched agency records",
-    "pricing.team.feat7": "Cross-team AI analysis",
-    "pricing.team.feat8": "Connectors to major CRMs",
-    "pricing.team.feat9": "AI assistant (Max)",
-    "pricing.team.feat10": "Priority support",
-    "pricing.large.plan": "Enterprise",
-    "pricing.large.subtitle": "16+ reps",
-    "pricing.large.price": "Custom quote",
-    "pricing.large.feat1": "Everything in Team",
-    "pricing.large.feat2": "Custom business vocabulary",
-    "pricing.large.feat3": "Multi-team / multi-sector",
-    "pricing.large.feat4": "Dedicated account manager",
-    "pricing.large.feat5": "On-site training & onboarding",
-    "pricing.book_demo": "Book a demo →",
-    "pricing.contact_us": "Contact us →",
-    "pricing.note": "No commitment · cancel anytime",
-    "bookdemo.eyebrow": "Book a demo",
-    "bookdemo.title": "15 minutes to see<br /><em>Reedly in action.</em>",
-    "bookdemo.lead":
-      "A demo tailored to your team, your organization and your field challenges.",
-    "bookdemo.intro": "See exactly how Reedly can simplify meeting reports, centralize field feedback and give your managers a clearer view of sales activity.",
-    "bookdemo.role.label": "Your role",
-    "bookdemo.role.select": "Choose…",
-    "bookdemo.role.director": "Sales director / manager",
-    "bookdemo.role.owner": "Owner / CEO",
-    "bookdemo.role.rep": "Field sales rep",
-    "bookdemo.role.other": "Other",
-    "bookdemo.team.label": "Sales team size",
-    "bookdemo.team.select": "Choose…",
-    "bookdemo.team.1": "1 rep",
-    "bookdemo.team.2_5": "2 to 5",
-    "bookdemo.team.6_15": "6 to 15",
-    "bookdemo.team.16": "16+",
-    "bookdemo.sector.label": "Industry",
-    "bookdemo.sector.select": "Select…",
-    "bookdemo.sector.to": "Tour operator",
-    "bookdemo.sector.agency": "Travel agency",
-    "bookdemo.sector.dmc": "DMC / Inbound",
-    "bookdemo.sector.mice": "MICE & events",
-    "bookdemo.sector.transport": "Transport & mobility",
-    "bookdemo.sector.cruise": "Cruise",
-    "bookdemo.sector.hospitality": "Hospitality & lodging",
-    "bookdemo.sector.leisure": "Leisure & ticketing",
-    "bookdemo.sector.other": "Other sector",
-    "bookdemo.email.label": "Work email",
-    "bookdemo.email.ph": "you@your-organization.com",
-    "bookdemo.submit": "See available slots →",
-    "bookdemo.hint": "No credit card · reply within 24h",
-    "bookdemo.cal.pickday": "Pick a day",
-    "bookdemo.cal.pickslot": "Pick a time",
-    "bookdemo.cal.tznote": "Times shown in your timezone.",
-    "bookdemo.cal.loading": "Loading availability…",
-    "bookdemo.cal.empty": "No slots available right now. Drop us a line and we'll sort it out.",
-    "bookdemo.cal.error": "Could not load slots. Please try again in a moment.",
-    "bookdemo.cal.name": "Your name",
-    "bookdemo.cal.note": "A word about your need",
-    "bookdemo.cal.confirm": "Confirm the meeting",
-    "bookdemo.cal.booking": "Confirming…",
-    "bookdemo.cal.back": "← Change slot",
-    "bookdemo.cal.back_form": "← Back",
-    "bookdemo.cal.slot_taken": "That slot was just taken. Please pick another.",
-    "bookdemo.cal.success_title": "You're booked.",
-    "bookdemo.cal.success_body": "A Google Calendar invite with the Meet link is on its way to your email.",
-    "bookdemo.cal.meet": "Open the Google Meet link",
-    "footer.stores.label": "For your reps",
-    "footer.book_demo": "Book a demo",
-
-    // ── Home sections retargeted to the tourism vertical ──
-    "demo.eyebrow": "From the visit to your tools",
-    "demo.title": "You talk. Reedly structures.<br /><em>Your teams move forward.</em>",
-    "demo.label_record": "Recording in the agency",
-    "demo.label_report": "Report in 2 minutes",
-    "demo.lead":
-      "Your rep stays focused on the conversation. Reedly automatically turns every meeting into a clear, structured report, then shares it straight with your teams and inside your tools.",
-    "how.viz1.label": "Agency visit",
-    "hub.eyebrow": "A 360° view",
-    "hub.title": "Behind every number, there's a reason.<br /><em>Reedly brings it to light.</em>",
-    "hub.lead":
-      "Reedly gathers and structures your reps' field feedback to give you a clear read on what really drives your performance.",
-    "hub.benefit1.title": "A unified view of the whole field",
-    "hub.benefit1.text": "Every rep's field feedback in one place: what agencies expect, what blocks sales, opportunities, and signals favoring the competition.",
-    "hub.benefit2.title": "Trends, opportunities, risks",
-    "hub.benefit2.text": "Reedly aggregates field signals into syntheses over any period. Spot shifts in the field before they show up in your numbers.",
-    "hub.benefit3.title": "Decode what is blocking sales",
-    "hub.benefit3.text": "Identify what is behind a sales slowdown, a stop-sale, or an agency disengaging.",
-    "hub.dash.org": "Tourism Pro",
-    "hub.max.url": "hub.reedly.ai/max",
-    "hub.max.greeting": "Hi Sophie!",
-    "hub.max.greeting_sub": "What do you want to dig into today?",
-    "hub.max.intro": "Ask a question, or tell me to act: I dig through your team's field data and I can create actions, emails or follow-ups for you.",
-    "hub.max.today": "Today",
-    "hub.max.kpi_team": "Team",
-    "hub.max.kpi_reports": "Reports this week",
-    "hub.max.brief_label": "Morning briefing",
-    "hub.max.brief_text": "Opportunities and risks spotted in yesterday's reports",
-    "hub.max.insights_label": "Max insights",
-    "hub.max.insights_text": "Explore the opportunities of the moment",
-    "hub.max.ask_col": "Ask Max",
-    "hub.max.ask1": "Give me the team's recap this week",
-    "hub.max.ask2": "Which clients are at risk?",
-    "hub.max.ask3": "Show me the team's overdue actions",
-    "hub.max.ask4": "What opportunities are emerging from recent meetings?",
-    "hub.max.act_col": "Act with Max",
-    "hub.max.act_badge": "Max does it for you",
-    "hub.max.act1": "Draft an email for a client",
-    "hub.max.act2": "Create a follow-up action",
-    "hub.max.act3": "Schedule a follow-up",
-    "hub.max.act4": "Create a team directive",
-    "hub.max.composer": "Why is Peru selling less over the past two months?",
-    "compliance.eyebrow": "Compliance & security",
-    "compliance.title": "Transcribe the field,<br /><em>fully compliant.</em>",
-    "compliance.lead":
-      "Your reps transcribe real client conversations. Here are the guarantees around every meeting, from consent to deletion.",
-    "compliance.panel": "GDPR compliance",
-    "compliance.item1": "Data hosted in the EU",
-    "compliance.item2": "DPA available on request",
-    "compliance.item3": "Subprocessor list published",
-    "compliance.item4": "Encryption at rest and in transit",
-    "compliance.item5": "Deletion on request within 30 days",
-    "compliance.item6": "Participant consent built into the flow",
-  },
-};
-
-// Expose translations globally for component scripts
-window._reedlyT = T;
+// Reedly landing — interactive behaviours.
+// Copy lives server-side in src/lib/i18n.ts; nothing here renders text except
+// the pricing amount, so there is no client dictionary to keep in sync.
 
 // ── Analytics helpers (PostHog-ready, safe fallback) ──
 const TRACKING_SESSION_KEY = "reedly-landing-session-id";
-const TRACKING_VISITOR_KEY = "reedly-landing-visited";
 
 function getPageName() {
   var path = window.location.pathname;
   var clean = path.replace(/^\/(en|fr)\/?/, "").replace(/\/$/, "") || "home";
-  var map = {
-    home: "landing_home",
-    solution: "landing_solution",
-    pricing: "landing_pricing",
-    tarifs: "landing_pricing",
-    blog: "landing_blog_index",
-  };
-  if (clean.startsWith("blog/")) return "landing_blog_article";
-  return map[clean] || "landing_" + clean.replace(/[^a-z0-9]/g, "_");
+  if (clean === "home") return "landing_home";
+  return "landing_" + clean.replace(/[^a-z0-9]/g, "_");
 }
 
 function getOrCreateSessionId() {
@@ -1325,7 +49,6 @@ function getUtmProps() {
   };
 }
 
-// ── User journey tracking ──
 function getOrCreateVisitorId() {
   try {
     var KEY = "reedly-visitor-id";
@@ -1399,10 +122,10 @@ function getDaysSinceFirstVisit() {
   }
 }
 
-function getTrackingCommonProps() {
-  return {
+function trackEvent(eventName, props = {}) {
+  const payload = {
     page_name: getPageName(),
-    page_lang: document.documentElement.lang || "en",
+    page_lang: document.documentElement.lang || "fr",
     device_type: getDeviceType(),
     referrer_host: getReferrerHost(),
     session_id: getOrCreateSessionId(),
@@ -1412,12 +135,6 @@ function getTrackingCommonProps() {
     entry_page: getEntryPage(),
     days_since_first_visit: getDaysSinceFirstVisit(),
     ...getUtmProps(),
-  };
-}
-
-function trackEvent(eventName, props = {}) {
-  const payload = {
-    ...getTrackingCommonProps(),
     ...props,
   };
 
@@ -1433,659 +150,242 @@ function trackEvent(eventName, props = {}) {
 
 window.reedlyTrackEvent = trackEvent;
 
-const isReturningVisitor = (() => {
-  try {
-    const hasVisited = localStorage.getItem(TRACKING_VISITOR_KEY) === "1";
-    localStorage.setItem(TRACKING_VISITOR_KEY, "1");
-    return hasVisited;
-  } catch {
-    return false;
-  }
-})();
-
-trackEvent("landing_page_viewed", {
-  is_returning_visitor: isReturningVisitor,
-  initial_scroll_depth_percent: 0,
-  ...(getPageName() === "landing_blog_article"
-    ? {
-        blog_article_slug: window.location.pathname.split("/").pop(),
-      }
-    : {}),
-});
-
-// ── Pricing toggle ──
-const pricingToggle = document.getElementById("pricing-toggle");
-const pricingBillingToggle = document.getElementById("pricing-billing-toggle");
-const pricingBillingNote = document.getElementById("pricing-billing-note");
-const BILLING_DISCOUNT_RATE = 0.145;
-let billingMode = "monthly";
-if (pricingToggle) {
-  pricingToggle.addEventListener("click", (e) => {
-    const btn = e.target.closest(".pricing-toggle__btn");
-    if (!btn) return;
-    const previousPanel =
-      pricingToggle.querySelector(".pricing-toggle__btn--active")?.dataset
-        .panel || "unknown";
-    const target = btn.dataset.panel;
-    if (!target) return;
-    pricingToggle
-      .querySelectorAll(".pricing-toggle__btn")
-      .forEach((b) => b.classList.remove("pricing-toggle__btn--active"));
-    btn.classList.add("pricing-toggle__btn--active");
-    document
-      .querySelectorAll(".pricing-panel")
-      .forEach((p) => p.classList.remove("pricing-panel--active"));
-    const panel = document.getElementById("pricing-panel-" + target);
-    if (panel) {
-      panel.classList.add("pricing-panel--active");
-      panel
-        .querySelectorAll(".reveal")
-        .forEach((r) => r.classList.add("visible"));
-    }
-
-    if (target !== previousPanel) {
-      trackEvent("landing_pricing_toggled", {
-        toggle_type: "audience",
-        from_value: previousPanel,
-        to_value: target,
-        active_panel: target,
-        billing_mode: billingMode,
-      });
-    }
-  });
-}
-
-if (pricingBillingToggle) {
-  pricingBillingToggle.addEventListener("click", (e) => {
-    const btn = e.target.closest(".pricing-billing-toggle__btn");
-    if (!btn) return;
-    const target = btn.dataset.billing;
-    if (!target) return;
-    setBillingMode(target);
-  });
-}
-
-// ── i18n engine ──
-// Detect lang from URL prefix, fallback to localStorage, then "fr"
-let currentLang = (function () {
-  var p = window.location.pathname;
-  if (p.startsWith("/en")) return "en";
-  if (p.startsWith("/fr")) return "fr";
-  return localStorage.getItem("reedly-lang") || "fr";
-})();
-const currentYear = String(new Date().getFullYear());
-
-function t(lang, key) {
-  const value = T[lang]?.[key];
-  if (value === undefined) return undefined;
-  return value.replace("{year}", currentYear);
-}
-
-function formatBillingPrice(amount) {
-  const locale = currentLang === "fr" ? "fr-FR" : "en-US";
-  return new Intl.NumberFormat(locale, {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(amount);
-}
-
-function updateBillingUI() {
-  const discountMultiplier = 1 - BILLING_DISCOUNT_RATE;
-
-  document.querySelectorAll(".js-billing-price").forEach((el) => {
-    const basePrice = Number(el.dataset.basePrice);
-    if (!Number.isFinite(basePrice)) return;
-    const displayedPrice =
-      billingMode === "annual"
-        ? Math.ceil(basePrice * discountMultiplier)
-        : basePrice;
-    el.textContent = formatBillingPrice(displayedPrice);
-  });
-
-  if (pricingBillingToggle) {
-    pricingBillingToggle
-      .querySelectorAll(".pricing-billing-toggle__btn")
-      .forEach((btn) => {
-        btn.classList.toggle(
-          "pricing-billing-toggle__btn--active",
-          btn.dataset.billing === billingMode,
-        );
-      });
-  }
-
-  if (pricingBillingNote) {
-    const noteKey =
-      billingMode === "annual"
-        ? "pricing.billing.note.annual"
-        : "pricing.billing.note.monthly";
-    const note = t(currentLang, noteKey);
-    if (note !== undefined) pricingBillingNote.textContent = note;
-  }
-}
-
-function setBillingMode(mode) {
-  if (mode !== "monthly" && mode !== "annual") return;
-  const previousMode = billingMode;
-  if (previousMode === mode) {
-    updateBillingUI();
-    return;
-  }
-  billingMode = mode;
-  updateBillingUI();
-  trackEvent("landing_pricing_toggled", {
-    toggle_type: "billing",
-    from_value: previousMode,
-    to_value: mode,
-    active_panel:
-      pricingToggle?.querySelector(".pricing-toggle__btn--active")?.dataset
-        .panel || "unknown",
-    billing_mode: mode,
-  });
-}
-
-function setLang(lang) {
-  const previousLang = currentLang;
-  const hasChanged = previousLang !== lang;
-  currentLang = lang;
-  localStorage.setItem("reedly-lang", lang);
-  document.documentElement.lang = lang;
-
-  // Note: the components rendered on public pages (Nav, Footer, Hero, Demo,
-  // Hub, Compliance, BookDemo, Pricing, Faq, FinalCta) now render their text
-  // server-side in the correct language (see src/lib/i18n.ts), so the DOM no
-  // longer carries [data-i18n]/[data-i18n-html]/[data-i18n-aria-label]/
-  // [data-i18n-placeholder] attributes and the rewrite loops that used to
-  // live here have been removed. T/t()/window._reedlyT are kept: interactive
-  // scripts (booking calendar, pricing billing toggle, notify modal) still
-  // read strings from them dynamically.
-
-  document.querySelectorAll(".lang-btn").forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.lang === lang);
-  });
-
-  document
-    .querySelectorAll('[data-select="lang"] .nav__select-current')
-    .forEach((el) => {
-      el.textContent = (lang || "fr").toUpperCase();
-    });
-
-  // Update language-specific links
-  document.querySelectorAll("[data-link-fr][data-link-en]").forEach((el) => {
-    const href =
-      lang === "en"
-        ? el.getAttribute("data-link-en")
-        : el.getAttribute("data-link-fr");
-    if (href) el.setAttribute("href", href);
-  });
-
-  // Redirect to the other language prefix
-  if (hasChanged) {
-    var currentPath = window.location.pathname.replace(/\/$/, "") || "/";
-    // Determine current prefix and compute target
-    var currentPrefix = currentPath.startsWith("/en") ? "/en" : "/fr";
-    var targetPrefix = lang === "en" ? "/en" : "/fr";
-    if (currentPrefix !== targetPrefix) {
-      var pathSuffix = currentPath.substring(currentPrefix.length);
-      // Map slugs that differ between FR and EN
-      var slugMap = {
-        "/tarifs": "/pricing",
-        "/pricing": "/tarifs",
-        "/confidentialite": "/privacy-policy",
-        "/privacy-policy": "/confidentialite",
-        "/cgu": "/terms-of-service",
-        "/terms-of-service": "/cgu",
-      };
-      // Blog article mirror fallback
-      var mirrorMeta = document.querySelector('meta[name="blog-mirror"]');
-      if (mirrorMeta && pathSuffix.startsWith("/blog/")) {
-        var mirrorHref =
-          lang === "en"
-            ? mirrorMeta.getAttribute("data-link-en")
-            : mirrorMeta.getAttribute("data-link-fr");
-        if (mirrorHref) {
-          window.location.href = mirrorHref;
-          return;
-        }
-      }
-      // Feature page mirror fallback
-      var featureMirror = document.querySelector('meta[name="feature-mirror"]');
-      if (featureMirror && pathSuffix.startsWith("/features/")) {
-        var featureHref =
-          lang === "en"
-            ? featureMirror.getAttribute("data-link-en")
-            : featureMirror.getAttribute("data-link-fr");
-        if (featureHref) {
-          window.location.href = featureHref;
-          return;
-        }
-      }
-      var targetSuffix = slugMap[pathSuffix] || pathSuffix;
-      window.location.href = targetPrefix + targetSuffix + window.location.hash;
-      return;
-    }
-  }
-
-  updateBillingUI();
-
-  if (hasChanged) {
-    trackEvent("landing_language_changed", {
-      from_lang: previousLang,
-      to_lang: lang,
-    });
-  }
-}
-
-// ── Lang toggle buttons ──
-document.querySelectorAll(".lang-btn").forEach((btn) => {
-  btn.addEventListener("click", () => setLang(btn.dataset.lang));
-});
-
-// Init language
-setLang(currentLang);
-setBillingMode("monthly");
+trackEvent("landing_page_viewed");
 
 // ── CTA click tracking ──
 document.querySelectorAll("[data-track-id]").forEach((el) => {
   el.addEventListener("click", () => {
-    const href = el.getAttribute("href") || "";
-    let targetKind = "unknown";
-    if (href.startsWith("#")) targetKind = "anchor";
-    else if (href.startsWith("mailto:")) targetKind = "mailto";
-    else if (href.startsWith("http")) targetKind = "external";
-
-    // Cross-domain identity fallback: carry the PostHog distinct_id to the Hub
-    try {
-      const ph = window.posthog;
-      if (
-        href.indexOf("hub.reedly.ai") !== -1 &&
-        href.indexOf("ph_id=") === -1 &&
-        ph &&
-        typeof ph.get_distinct_id === "function"
-      ) {
-        const did = ph.get_distinct_id();
-        if (did) {
-          const sep = href.indexOf("?") === -1 ? "?" : "&";
-          el.setAttribute("href", href + sep + "ph_id=" + encodeURIComponent(did));
-        }
-      }
-    } catch (e) {}
-
     trackEvent("landing_cta_clicked", {
-      cta_id: el.dataset.trackId || "unknown",
-      cta_type: el.dataset.trackType || "unknown",
-      section_id: el.dataset.trackSection || "unknown",
-      target_kind: targetKind,
+      cta_id: el.dataset.trackId,
+      cta_type: el.dataset.trackType || "",
+      cta_section: el.dataset.trackSection || "",
+      cta_label: (el.textContent || "").trim().slice(0, 80),
     });
   });
 });
 
 // ── Section visibility tracking ──
-var TRACKABLE_SECTIONS = [
-  "problem",
-  "how",
-  "features",
-  "report-preview",
-  "hub",
-  "conformite",
-  "proof",
-  "roles",
-  "demo",
-  "pricing",
-  "contact",
-  "faq",
-  "final-cta",
-  "comparaison",
-];
-var sectionViewedSet = new Set();
-var sectionObs = new IntersectionObserver(
-  function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
+(function () {
+  var seen = {};
+  var sections = document.querySelectorAll("section[id]");
+  if (!sections.length || !("IntersectionObserver" in window)) return;
+  var io = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
         var id = entry.target.id;
-        if (!sectionViewedSet.has(id)) {
-          sectionViewedSet.add(id);
-          trackEvent("landing_section_viewed", {
-            section_id: id,
-            section_index: TRACKABLE_SECTIONS.indexOf(id),
-          });
-          sectionObs.unobserve(entry.target);
-        }
-      }
-    });
-  },
-  { threshold: 0.5 },
-);
-TRACKABLE_SECTIONS.forEach(function (id) {
-  var el = document.getElementById(id);
-  if (el) sectionObs.observe(el);
-});
-
-// ── Navigation click tracking ──
-document
-  .querySelectorAll(".nav__list a[href], .footer__links a[href]")
-  .forEach(function (link) {
-    var href = link.getAttribute("href");
-    if (href && href.startsWith("/") && !href.startsWith("/#")) {
-      link.addEventListener("click", function () {
-        trackEvent("landing_nav_clicked", {
-          nav_target: href,
-          nav_source: link.closest(".footer__links") ? "footer" : "header",
-        });
-      });
-    }
-  });
-
-// ── Cursor glow ──
-const glow = document.getElementById("cursor-glow");
-window.addEventListener("mousemove", (e) => {
-  glow.style.left = e.clientX + "px";
-  glow.style.top = e.clientY + "px";
-});
-window.addEventListener("mouseleave", () => {
-  glow.style.opacity = "0";
-});
-window.addEventListener("mouseenter", () => {
-  glow.style.opacity = "1";
-});
-
-// ── Scroll reveal (replays every time a section re-enters the viewport) ──
-const reveals = document.querySelectorAll(".reveal");
-const prefersReducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)",
-).matches;
-
-if (prefersReducedMotion) {
-  // No motion: show everything, don't observe.
-  reveals.forEach((el) => el.classList.add("visible"));
-} else {
-  // Toggle on enter AND exit so the animation re-plays on the way back.
-  const revealObs = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        entry.target.classList.toggle("visible", entry.isIntersecting);
+        if (!entry.isIntersecting || seen[id]) return;
+        seen[id] = true;
+        trackEvent("landing_section_viewed", { section_id: id });
       });
     },
-    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+    { threshold: 0.4 },
   );
-  reveals.forEach((el) => revealObs.observe(el));
-
-  // Hero is above the fold: show it on first paint to avoid a flash before
-  // the observer's first (async) callback.
-  document.querySelectorAll(".hero .reveal").forEach((el) => {
-    el.classList.add("visible");
+  sections.forEach(function (s) {
+    io.observe(s);
   });
-}
+})();
 
-// ── Phone mockup timer ──
+// ── Scroll reveal ──
 (function () {
-  const timerEl = document.querySelector(".phone__big-timer");
-  if (!timerEl) return;
-  let seconds = 5;
-  function pad(n) {
-    return n < 10 ? "0" + n : n;
+  var els = document.querySelectorAll(".reveal");
+  if (!els.length) return;
+  if (
+    !("IntersectionObserver" in window) ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    els.forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+    return;
   }
-  function format(s) {
-    return pad(Math.floor(s / 60)) + ":" + pad(s % 60);
+  var io = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        io.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+  );
+  els.forEach(function (el) {
+    io.observe(el);
+  });
+})();
+
+// ── Nav: compact pill on scroll, light ink over dark sections ──
+(function () {
+  var nav = document.getElementById("nav");
+  if (!nav) return;
+  var raf = null;
+
+  function apply() {
+    raf = null;
+    var y = window.scrollY || 0;
+    nav.classList.toggle("is-compact", y > 90);
+
+    // Read what sits behind the bar so the nav ink stays legible over it.
+    var band = nav.getBoundingClientRect().bottom;
+    var onDark = false;
+    document.querySelectorAll("[data-nav-dark]").forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < band - 6 && r.bottom > 0) onDark = true;
+    });
+    nav.classList.toggle("is-onDark", onDark);
   }
-  setInterval(function () {
-    seconds++;
-    timerEl.textContent = format(seconds);
-  }, 1000);
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (raf) return;
+      raf = requestAnimationFrame(apply);
+    },
+    { passive: true },
+  );
+  apply();
+})();
+
+// ── Language dropdown ──
+(function () {
+  var wrap = document.getElementById("nav-lang");
+  var trigger = document.getElementById("nav-lang-trigger");
+  if (!wrap || !trigger) return;
+
+  function close() {
+    wrap.classList.remove("is-open");
+    trigger.setAttribute("aria-expanded", "false");
+  }
+
+  trigger.addEventListener("click", function (e) {
+    e.stopPropagation();
+    var open = wrap.classList.toggle("is-open");
+    trigger.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  document.addEventListener("click", close);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") close();
+  });
 })();
 
 // ── FAQ accordion ──
-var faqOpenRank = 0;
-document.querySelectorAll(".faq-item").forEach((item, index) => {
-  const btn = item.querySelector(".faq-btn");
-  const panel = item.querySelector(".faq-panel");
-  btn.addEventListener("click", () => {
-    const wasOpen = item.getAttribute("aria-expanded") === "true";
-    document.querySelectorAll(".faq-item").forEach((i) => {
-      i.setAttribute("aria-expanded", "false");
-      i.querySelector(".faq-panel").style.maxHeight = "0px";
+document.querySelectorAll(".faq__item").forEach(function (item) {
+  var btn = item.querySelector(".faq__q");
+  if (!btn) return;
+  btn.addEventListener("click", function () {
+    var wasOpen = item.classList.contains("is-open");
+    item.parentElement.querySelectorAll(".faq__item").forEach(function (other) {
+      other.classList.remove("is-open");
+      var b = other.querySelector(".faq__q");
+      if (b) b.setAttribute("aria-expanded", "false");
     });
     if (!wasOpen) {
-      item.setAttribute("aria-expanded", "true");
-      panel.style.maxHeight = panel.scrollHeight + "px";
-      faqOpenRank++;
-      trackEvent("landing_faq_item_opened", {
-        faq_id: "q" + (index + 1),
-        open_rank: faqOpenRank,
+      item.classList.add("is-open");
+      btn.setAttribute("aria-expanded", "true");
+      trackEvent("landing_faq_opened", {
+        question: (item.querySelector(".faq__q-text").textContent || "").trim(),
       });
     }
   });
 });
 
-// ── Offline detection ──
-const offlineBanner = document.getElementById("offline-banner");
-if (offlineBanner) {
-  const updateOnline = () =>
-    offlineBanner.classList.toggle("show", !navigator.onLine);
-  window.addEventListener("online", updateOnline);
-  window.addEventListener("offline", updateOnline);
-  updateOnline();
-}
-
-// ── Hamburger menu ──
-const navToggle = document.getElementById("nav-toggle");
-const navMobile = document.getElementById("nav-mobile");
-navToggle.addEventListener("click", () => {
-  const open = navMobile.classList.toggle("open");
-  navToggle.classList.toggle("open", open);
-  navToggle.setAttribute("aria-expanded", String(open));
-  navMobile.setAttribute("aria-hidden", String(!open));
-});
-
-document.querySelectorAll(".nav__mobile-link").forEach((link) => {
-  link.addEventListener("click", () => {
-    navMobile.classList.remove("open");
-    navToggle.classList.remove("open");
-    navToggle.setAttribute("aria-expanded", "false");
-    navMobile.setAttribute("aria-hidden", "true");
-  });
-});
-
-// ── Nav select dropdowns (theme + language, click to open) ──
-function closeNavSelects() {
-  document.querySelectorAll(".nav__select.open").forEach((o) => {
-    o.classList.remove("open");
-    o.querySelector(".nav__select-trigger")?.setAttribute(
-      "aria-expanded",
-      "false",
-    );
-  });
-}
-document.querySelectorAll(".nav__select").forEach((sel) => {
-  const trigger = sel.querySelector(".nav__select-trigger");
-  if (!trigger) return;
-  trigger.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const willOpen = !sel.classList.contains("open");
-    closeNavSelects();
-    if (willOpen) {
-      sel.classList.add("open");
-      trigger.setAttribute("aria-expanded", "true");
-    }
-  });
-  sel.querySelectorAll(".nav__select-item").forEach((item) => {
-    item.addEventListener("click", () => {
-      sel.classList.remove("open");
-      trigger.setAttribute("aria-expanded", "false");
-    });
-  });
-});
-document.addEventListener("click", closeNavSelects);
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeNavSelects();
-});
-
-// ── Notify modal ──
-const notifyModal = document.getElementById("notify-modal");
-const notifyForm = document.getElementById("notify-form");
-const notifyEmail = document.getElementById("notify-email");
-const notifyFeedback = document.getElementById("notify-feedback");
-
-function openNotifyModal() {
-  notifyModal.classList.add("open");
-  notifyModal.setAttribute("aria-hidden", "false");
-  notifyEmail.focus();
-  trackEvent("landing_notify_modal_opened", {});
-}
-
-function closeNotifyModal() {
-  notifyModal.classList.remove("open");
-  notifyModal.setAttribute("aria-hidden", "true");
-  notifyFeedback.className = "notify-modal__feedback";
-  notifyFeedback.textContent = "";
-  notifyForm.reset();
-}
-
-document.querySelectorAll(".store-badge").forEach((badge) => {
-  if (!badge.href || badge.href.endsWith("#")) {
-    badge.addEventListener("click", (e) => {
-      e.preventDefault();
-      openNotifyModal();
-    });
-  }
-});
-
-document
-  .getElementById("notify-modal-backdrop")
-  ?.addEventListener("click", closeNotifyModal);
-document
-  .getElementById("notify-modal-close")
-  ?.addEventListener("click", closeNotifyModal);
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    if (notifyModal?.classList.contains("open")) closeNotifyModal();
-  }
-});
-
-// ── Theme toggle ──
+// ── Pricing billing toggle ──
 (function () {
-  function setTheme(setting) {
-    var prefersDark = window.matchMedia("(prefers-color-scheme:dark)").matches;
-    var resolved =
-      setting === "system" ? (prefersDark ? "dark" : "light") : setting;
-    document.documentElement.classList.add("theme-transition");
-    document.documentElement.setAttribute("data-theme", resolved);
-    document.documentElement.setAttribute("data-theme-setting", setting);
-    localStorage.setItem("theme", setting);
-    updateThemeToggle(setting);
-    setTimeout(function () {
-      document.documentElement.classList.remove("theme-transition");
-    }, 350);
-  }
+  var toggle = document.getElementById("billing-toggle");
+  if (!toggle) return;
+  var note = document.getElementById("billing-note");
+  var noteMonthly = note ? note.textContent : "";
+  var noteAnnual = toggle.dataset.noteAnnual || "";
 
-  function updateThemeToggle(setting) {
-    document.querySelectorAll(".theme-btn").forEach(function (btn) {
-      btn.classList.toggle("active", btn.dataset.themeValue === setting);
+  toggle.addEventListener("click", function (e) {
+    var btn = e.target.closest("button[data-billing]");
+    if (!btn) return;
+    var annual = btn.dataset.billing === "annual";
+
+    toggle.querySelectorAll("button").forEach(function (b) {
+      b.classList.toggle("is-active", b === btn);
     });
-  }
 
-  // Init from stored setting
-  var stored = localStorage.getItem("theme") || "dark";
-  updateThemeToggle(stored);
+    document.querySelectorAll(".js-billing-price").forEach(function (el) {
+      var base = parseFloat(el.dataset.basePrice || "0");
+      if (!base) return;
+      el.textContent = annual ? String(Math.round(base * 0.86)) : String(base);
+    });
 
-  // Click handlers
-  document.querySelectorAll(".theme-btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      setTheme(btn.dataset.themeValue);
+    if (note && noteAnnual) note.textContent = annual ? noteAnnual : noteMonthly;
+    trackEvent("landing_pricing_billing_changed", {
+      billing: annual ? "annual" : "monthly",
     });
   });
-
-  // Watch system preference changes
-  window
-    .matchMedia("(prefers-color-scheme:dark)")
-    .addEventListener("change", function (e) {
-      var setting = localStorage.getItem("theme") || "dark";
-      if (setting === "system") {
-        document.documentElement.setAttribute(
-          "data-theme",
-          e.matches ? "dark" : "light",
-        );
-      }
-    });
 })();
 
-notifyForm?.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const email = notifyEmail.value.trim();
-  if (!email) return;
+// ── Testimonial carousel ──
+(function () {
+  var root = document.getElementById("testimonials");
+  var track = document.getElementById("tm-track");
+  if (!root || !track) return;
 
-  const submitBtn = notifyForm.querySelector(".notify-modal__submit");
-  submitBtn.disabled = true;
+  var count = parseInt(root.dataset.count || "0", 10);
+  if (count < 2) return;
 
-  try {
-    const res = await fetch("/api/notify", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
+  var dots = Array.prototype.slice.call(
+    document.querySelectorAll("#tm-dots button"),
+  );
+  var pos = 1; // the track renders [last, ...real, first]; 1 is real slide 0
+  var busy = false;
+
+  function paint() {
+    track.style.transform = "translateX(-" + pos * 100 + "%)";
+    var active = ((pos - 1) % count + count) % count;
+    dots.forEach(function (d, i) {
+      d.classList.toggle("is-active", i === active);
     });
-
-    if (res.ok) {
-      notifyFeedback.textContent =
-        t(currentLang, "notify.success") || "Merci !";
-      notifyFeedback.className = "notify-modal__feedback visible success";
-      notifyForm.reset();
-      trackEvent("landing_notify_submitted", { success: true });
-      setTimeout(closeNotifyModal, 2500);
-    } else {
-      notifyFeedback.textContent = t(currentLang, "notify.error") || "Erreur";
-      notifyFeedback.className = "notify-modal__feedback visible error";
-      trackEvent("landing_notify_submitted", {
-        success: false,
-        http_status: res.status,
-      });
-    }
-  } catch {
-    notifyFeedback.textContent = t(currentLang, "notify.error") || "Erreur";
-    notifyFeedback.className = "notify-modal__feedback visible error";
-    trackEvent("landing_notify_submitted", {
-      success: false,
-      error_type: "network",
-    });
-  } finally {
-    submitBtn.disabled = false;
   }
-});
 
-// ── Blog engagement tracking ──
-if (getPageName() === "landing_blog_article") {
-  var blogSlug = window.location.pathname.split("/").pop();
+  function go(next) {
+    if (busy) return;
+    busy = true;
+    pos = next;
+    track.classList.remove("is-jumping");
+    paint();
+  }
 
-  // Scroll depth milestones
-  var scrollMilestones = [25, 50, 75, 100];
-  var firedScrollMilestones = {};
-  window.addEventListener("scroll", function () {
-    var docHeight = document.body.scrollHeight - window.innerHeight;
-    if (docHeight <= 0) return;
-    var scrollPct = Math.round((window.scrollY / docHeight) * 100);
-    scrollMilestones.forEach(function (m) {
-      if (scrollPct >= m && !firedScrollMilestones[m]) {
-        firedScrollMilestones[m] = true;
-        trackEvent("landing_blog_scroll_depth", {
-          depth_percent: m,
-          blog_article_slug: blogSlug,
-        });
-      }
+  // Landing on a clone snaps (without transition) to the matching real slide,
+  // so the motion always continues in the same direction and never bounces.
+  track.addEventListener("transitionend", function () {
+    if (pos === count + 1) pos = 1;
+    else if (pos === 0) pos = count;
+    else {
+      busy = false;
+      return;
+    }
+    track.classList.add("is-jumping");
+    paint();
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        track.classList.remove("is-jumping");
+        busy = false;
+      });
     });
   });
 
-  // Time on page milestones
-  var timeMilestones = [30, 60, 120, 300];
-  var firedTimeMilestones = {};
-  var blogStartTime = Date.now();
-  setInterval(function () {
-    var elapsed = Math.floor((Date.now() - blogStartTime) / 1000);
-    timeMilestones.forEach(function (s) {
-      if (elapsed >= s && !firedTimeMilestones[s]) {
-        firedTimeMilestones[s] = true;
-        trackEvent("landing_blog_time_on_page", {
-          seconds: s,
-          blog_article_slug: blogSlug,
-        });
-      }
-    });
-  }, 5000);
-}
+  var prev = document.getElementById("tm-prev");
+  var next = document.getElementById("tm-next");
+  if (prev) prev.addEventListener("click", function () { go(pos - 1); });
+  if (next) next.addEventListener("click", function () { go(pos + 1); });
+  dots.forEach(function (d, i) {
+    d.addEventListener("click", function () { go(i + 1); });
+  });
+
+  // Swipe
+  var startX = null;
+  track.addEventListener("pointerdown", function (e) { startX = e.clientX; });
+  track.addEventListener("pointerup", function (e) {
+    if (startX === null) return;
+    var dx = e.clientX - startX;
+    startX = null;
+    if (dx > 40) go(pos - 1);
+    else if (dx < -40) go(pos + 1);
+  });
+
+  paint();
+})();

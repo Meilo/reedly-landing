@@ -1,49 +1,57 @@
 # Reedly
 
-> Reedly is an AI agent that transforms B2B field sales meetings into structured reports in under 2 minutes. The mobile app (iOS & Android) records the meeting, transcribes audio with 95%+ accuracy, then automatically generates a report in 11 sections: executive summary, client profile, expressed needs, objections & responses, products discussed, competitors mentioned, mutual commitments, next steps, opportunities, risks, and strategic recommendations. Audio is deleted after generation (privacy by design).
+> Reedly is the first field intelligence platform for B2B tourism. Sales reps who cover a network of travel agencies run their meeting; the mobile app (iOS & Android) transcribes the conversation with 95%+ accuracy, then automatically generates a report in 11 sections: executive summary, client profile, expressed needs, objections, commitments, next steps, opportunities, risks and recommendations, in under 2 minutes. The voice is neither recorded nor stored: only the transcript is used to generate the report. Every report lands in the Manager Hub, the web interface where sales leadership reads what the field is actually saying, agency by agency.
 
 ## Pages
 
-### Product (French)
-- [Home](https://www.reedly.ai/): Product overview, social proof, pricing, FAQ
-- [Solution](https://www.reedly.ai/solution): Problem, how it works, features, report preview, Manager Hub, industry use cases
-- [Tarifs](https://www.reedly.ai/tarifs): Plans & pricing, ROI, FAQ
-- [Comparatif](https://www.reedly.ai/comparatif): Reedly vs Gong, Noota, Leexi, Modjo, Fireflies, Otter — comparison table, differentiators, price comparison
+### French
+- [Accueil](https://www.reedly.ai/fr): Positioning, product demo, Manager Hub, compliance, pricing, testimonials, demo booking, FAQ
+- [Transcription IA](https://www.reedly.ai/fr/features/transcription-ia): Real-time AI transcription of sales meetings
+- [Hub Manager](https://www.reedly.ai/fr/features/hub-manager): Manager dashboard centralizing the whole field
 
-### Product (English)
-- [Pricing](https://www.reedly.ai/pricing): Plans & pricing, ROI, FAQ
-- [Comparison](https://www.reedly.ai/comparison): Reedly vs competitors
+### English
+- [Home](https://www.reedly.ai/en): Positioning, product demo, Manager Hub, compliance, pricing, testimonials, demo booking, FAQ
+- [AI Transcription](https://www.reedly.ai/en/features/ai-transcription): Real-time AI transcription of sales meetings
+- [Manager Hub](https://www.reedly.ai/en/features/manager-hub): Manager dashboard centralizing the whole field
 
 ### Hub
-- [Manager Hub](https://hub.reedly.ai): Web dashboard for managers — centralized team reports, strategic syntheses, member statistics
+- [Manager Hub](https://hub.reedly.ai): Web dashboard for managers, centralized team reports, strategic syntheses, member statistics
 
 ### Legal
-- [Confidentialite](https://www.reedly.ai/confidentialite): Privacy policy (French)
-- [CGU](https://www.reedly.ai/cgu): Terms of service (French)
-- [Privacy Policy](https://www.reedly.ai/privacy-policy): Privacy policy (English)
-- [Terms of Service](https://www.reedly.ai/terms-of-service): Terms of service (English)
+- [Mentions légales](https://www.reedly.ai/fr/mentions-legales) / [Legal Notice](https://www.reedly.ai/en/legal-notice)
+- [Politique de confidentialité](https://www.reedly.ai/fr/confidentialite) / [Privacy Policy](https://www.reedly.ai/en/privacy-policy)
+- [Politique de cookies](https://www.reedly.ai/fr/cookies) / [Cookie Policy](https://www.reedly.ai/en/cookie-policy)
+- [CGU](https://www.reedly.ai/fr/cgu) / [Terms of Service](https://www.reedly.ai/en/terms-of-service)
 
 ## Key Features
-- One-tap recording (background mode, works offline)
-- High-fidelity transcription (95%+ accuracy, multilingual)
+- Transcription during the meeting, or dictated right after, works offline (transcription and report generate as soon as the network is back)
+- 95%+ transcription accuracy, holds up in noisy agency environments
 - Structured report in 11 sections, generated in under 2 minutes
-- Built-in industry vocabulary (sector-specific AI expert)
-- Speaker diarization (sales rep vs client distinction)
-- One-click PDF export
-- Territorial syntheses (aggregation over any period)
-- Manager Hub: team reports, syntheses, member statistics
-- Max: AI assistant (mobile + web hub)
+- The voice is never recorded or stored: only the transcript is used
+- Speaker identification
+- Auto-enriched agency records
+- Territory and destination syntheses over any period
+- Manager Hub: team reports, syntheses, member activity
+- Max: AI assistant that searches the team's field data and can draft actions, emails and follow-ups
+- CRM connectors (HubSpot, Salesforce), Slack, WhatsApp, email, PDF export
 
 ## Pricing
-- Team: 49 EUR per user per month (5 to 20 sales reps), Manager Hub included, unlimited reports, priority support
-- Enterprise: custom pricing (20+ sales reps), unlimited users, multi-team, custom vocabulary, CRM integration, dedicated account manager, team onboarding
+- Team: 49 EUR per rep per month (42 EUR billed annually), from 3 reps, Manager Hub included, unlimited AI reports, priority support
+- Enterprise: custom pricing (16+ reps), custom industry vocabulary, multi-team / multi-territory, dedicated account manager, on-site training and onboarding
 
-## Industries
-- B2B Tourism (tour operators, allotment, DMC, yield, MICE vocabulary)
-- Real Estate (property visits, owner prospecting, mandates)
-- Pharma & Medical (medical visits, prescriber follow-up, conventions)
-- B2B Services & Industry (long sales cycles, technical specs)
+## Audience
+- B2B tourism: tour operators, travel wholesalers, DMC / inbound operators, MICE, transport, cruise, hospitality, leisure and ticketing
+- Field sales reps covering a network of travel agencies
+- Sales directors and managers running that network
+
+## Compliance
+- Data hosted in the EU
+- DPA available on request
+- Sub-processor list published
+- Encryption at rest and in transit
+- Deletion on request within 30 days
+- Participant consent built into the flow
 
 ## Contact
 - Email: contact@reedly.ai
-- Response within 24 business hours
+- Book a demo: https://www.reedly.ai/en#rdv

@@ -1,94 +1,41 @@
 {
   "redirects": [
-    {
-      "source": "/",
-      "destination": "/en",
-      "permanent": true
-    },
-    {
-      "source": "/solution",
-      "destination": "/en",
-      "permanent": true
-    },
-    {
-      "source": "/fr/solution",
-      "destination": "/fr",
-      "permanent": true
-    },
-    {
-      "source": "/en/solution",
-      "destination": "/en",
-      "permanent": true
-    },
-    {
-      "source": "/fr/solutions/:slug",
-      "destination": "/fr/features/:slug",
-      "permanent": true
-    },
-    {
-      "source": "/en/solutions/:slug",
-      "destination": "/en/features/:slug",
-      "permanent": true
-    },
-    {
-      "source": "/tarifs",
-      "destination": "/en/pricing",
-      "permanent": true
-    },
-    {
-      "source": "/comparatif",
-      "destination": "/fr",
-      "permanent": true
-    },
-    {
-      "source": "/fr/comparatif",
-      "destination": "/fr",
-      "permanent": true
-    },
-    {
-      "source": "/pricing",
-      "destination": "/en/pricing",
-      "permanent": true
-    },
-    {
-      "source": "/blog",
-      "destination": "/en/blog",
-      "permanent": true
-    },
-    {
-      "source": "/blog/:slug",
-      "destination": "/en/blog/:slug",
-      "permanent": true
-    },
-    {
-      "source": "/confidentialite",
-      "destination": "/en/privacy-policy",
-      "permanent": true
-    },
-    {
-      "source": "/cgu",
-      "destination": "/en/terms-of-service",
-      "permanent": true
-    },
-    {
-      "source": "/privacy-policy",
-      "destination": "/en/privacy-policy",
-      "permanent": true
-    },
-    {
-      "source": "/terms-of-service",
-      "destination": "/en/terms-of-service",
-      "permanent": true
-    },
-    {
-      "source": "/comparison",
-      "destination": "/en",
-      "permanent": true
-    },
-    {
-      "source": "/en/comparison",
-      "destination": "/en",
-      "permanent": true
-    }
+    { "source": "/", "destination": "/en", "permanent": true },
+
+    { "source": "/solution", "destination": "/en", "permanent": true },
+    { "source": "/fr/solution", "destination": "/fr", "permanent": true },
+    { "source": "/en/solution", "destination": "/en", "permanent": true },
+    { "source": "/fr/solutions/:slug", "destination": "/fr/features/:slug", "permanent": true },
+    { "source": "/en/solutions/:slug", "destination": "/en/features/:slug", "permanent": true },
+
+    { "source": "/pricing", "destination": "/en#pricing", "permanent": true },
+    { "source": "/tarifs", "destination": "/fr#pricing", "permanent": true },
+    { "source": "/en/pricing", "destination": "/en#pricing", "permanent": true },
+    { "source": "/fr/tarifs", "destination": "/fr#pricing", "permanent": true },
+
+    { "source": "/blog", "destination": "/en", "permanent": true },
+    { "source": "/blog/:slug", "destination": "/en", "permanent": true },
+    { "source": "/en/blog", "destination": "/en", "permanent": true },
+    { "source": "/en/blog/:slug", "destination": "/en", "permanent": true },
+    { "source": "/fr/blog", "destination": "/fr", "permanent": true },
+    { "source": "/fr/blog/:slug", "destination": "/fr", "permanent": true },
+
+    { "source": "/alternatives/:slug", "destination": "/en", "permanent": true },
+    { "source": "/en/alternatives/:slug", "destination": "/en", "permanent": true },
+    { "source": "/fr/alternatives/:slug", "destination": "/fr", "permanent": true },
+
+    { "source": "/comparatif", "destination": "/fr", "permanent": true },
+    { "source": "/fr/comparatif", "destination": "/fr", "permanent": true },
+    { "source": "/comparison", "destination": "/en", "permanent": true },
+    { "source": "/en/comparison", "destination": "/en", "permanent": true },
+
+    { "source": "/confidentialite", "destination": "/fr/confidentialite", "permanent": true },
+    { "source": "/privacy-policy", "destination": "/en/privacy-policy", "permanent": true },
+    { "source": "/cgu", "destination": "/fr/cgu", "permanent": true },
+    { "source": "/terms-of-service", "destination": "/en/terms-of-service", "permanent": true },
+    { "source": "/mentions-legales", "destination": "/fr/mentions-legales", "permanent": true },
+    { "source": "/legal-notice", "destination": "/en/legal-notice", "permanent": true },
+    { "source": "/cookies", "destination": "/fr/cookies", "permanent": true },
+    { "source": "/cookie-policy", "destination": "/en/cookie-policy", "permanent": true }
   ]
 }

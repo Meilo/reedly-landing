@@ -18,12 +18,12 @@ export interface FeatureContent {
     steps: { title: string; text: string }[];
   };
   benefits: {
-    eyebrow?: string; title?: string;
+    eyebrow: string; title: string;
     cards: { title: string; text: string; icon: string }[];
   };
   use_cases?: {
     eyebrow: string; title: string;
-    cards: { title: string; text: string; icon: string }[];
+    cards: { title: string; text: string }[];
   };
   faq: { question: string; answer: string }[];
   related_features: { slug: string; label: string }[];

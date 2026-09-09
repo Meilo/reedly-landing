@@ -6,10 +6,13 @@ import config from './feature-config.mjs';
 
 const REGISTRY_PATH = path.resolve('src/data/features.yaml');
 const CONTENT_DIR = path.resolve('src/content/features');
+// Card icons available to product pages. Must stay a subset of the registry in
+// src/components/Icon.astro, which is lifted from the design canvas.
 const ICON_NAMES = [
-  'microphone', 'document', 'clock', 'users', 'brain', 'globe',
-  'building', 'flask', 'chart', 'download', 'shield', 'search',
-  'zap', 'target', 'layers', 'music', 'alert', 'shuffle', 'compass', 'book',
+  'no-notes', 'memory', 'generic-tools', 'accuracy', 'jargon', 'noise',
+  'speakers', 'secure', 'report', 'fragmented', 'no-vision', 'blind-coaching',
+  'dashboard', 'syntheses', 'stats', 'team', 'export', 'realtime',
+  'unified-view', 'trends', 'blockers',
 ];
 
 function loadRegistry() {
@@ -66,9 +69,9 @@ CRITICAL RULES:
 - benefits.cards must have 4-6 items
 - use_cases.cards must have 3-4 items
 - faq must have 4-6 items answering real "People Also Ask" questions
-- All icon fields must use ONLY from this list: ${ICON_NAMES.join(', ')}
+- All icon fields (problem.cards and benefits.cards only) must use ONLY from this list: ${ICON_NAMES.join(', ')}
 - NEVER invent features that Reedly doesn't have
-- ${isEn ? 'hero.cta_url should be "/en#trial"' : 'hero.cta_url should be "/fr#trial"'}
+- ${isEn ? 'hero.cta_url should be "/en#rdv"' : 'hero.cta_url should be "/fr#rdv"'}
 
 Related features to link to:
 ${relatedList}
@@ -115,7 +118,6 @@ use_cases:
   cards:
     - title: string
       text: string
-      icon: string
 faq:
   - question: string
     answer: string

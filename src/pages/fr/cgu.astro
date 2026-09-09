@@ -1,114 +1,145 @@
 ---
-import Footer from '@/components/Footer.astro';
-import LegalPage from '@/components/LegalPage.astro';
 import Layout from '@/layouts/Layout.astro';
+import Nav from '@/components/Nav.astro';
+import LegalPage from '@/components/LegalPage.astro';
+import Footer from '@/components/Footer.astro';
 
 const sections = [
   {
+    id: 'acceptation',
     title: 'Acceptation des conditions',
     paragraphs: [
-      "En telechargeant, installant ou utilisant l'application mobile Reedly (l'Application), vous acceptez d'etre lie par ces Conditions d'Utilisation (Conditions). Si vous n'acceptez pas ces Conditions, n'utilisez pas l'Application.",
+      "En téléchargeant, installant ou utilisant l'application mobile Reedly (l'Application), vous acceptez d'être lié par ces Conditions d'utilisation (les Conditions). Si vous n'acceptez pas ces Conditions, n'utilisez pas l'Application.",
     ],
   },
   {
+    id: 'service',
     title: 'Description du service',
     paragraphs: [
-      "Reedly est une application mobile qui permet aux professionnels d'enregistrer leurs reunions, de generer automatiquement des rapports structures grace a l'intelligence artificielle, et de creer des syntheses periodiques a partir de ces rapports.",
-      "L'Application utilise la transcription audio et l'analyse par IA pour transformer les conversations orales en documents ecrits exploitables.",
+      "Reedly est une application mobile qui permet aux professionnels d'enregistrer leurs réunions, de générer automatiquement des rapports structurés grâce à l'intelligence artificielle, et de créer des synthèses périodiques à partir de ces rapports.",
+      "L'Application utilise la transcription audio et l'analyse par IA pour transformer les conversations orales en documents écrits exploitables.",
     ],
   },
   {
+    id: 'comptes',
     title: 'Comptes utilisateurs',
-    paragraphs: [
-      "Vous devez creer un compte pour utiliser l'Application. Vous etes responsable de la confidentialite de vos identifiants.",
-      'Vous devez fournir des informations exactes et completes lors de la creation de votre compte.',
+    list: [
+      "Vous devez créer un compte pour utiliser l'Application et vous êtes responsable de la confidentialité de vos identifiants.",
+      'Vous devez fournir des informations exactes et complètes lors de la création de votre compte.',
       "Vous devez avoir au moins 13 ans pour utiliser l'Application.",
-      'Vous etes responsable de toutes les activites effectuees sous votre compte.',
+      'Vous êtes responsable de toutes les activités effectuées sous votre compte.',
     ],
   },
   {
+    id: 'usage-acceptable',
     title: 'Utilisation acceptable',
     paragraphs: [
-      "Vous acceptez d'utiliser l'Application uniquement a des fins legales et conformement a ces Conditions. Vous ne devez pas :\n\n• Enregistrer des conversations sans le consentement de tous les participants lorsque la loi l'exige\n• Utiliser l'Application pour collecter ou stocker des donnees personnelles sensibles de tiers sans leur consentement\n• Tenter d'interferer avec le bon fonctionnement de l'Application\n• Utiliser l'Application a des fins illegales ou non autorisees\n• Partager vos identifiants de connexion avec d'autres personnes",
+      "Vous acceptez d'utiliser l'Application uniquement à des fins légales et conformément à ces Conditions. Vous ne devez pas :",
+    ],
+    list: [
+      "Enregistrer des conversations sans le consentement de tous les participants lorsque la loi l'exige",
+      "Utiliser l'Application pour collecter ou stocker des données personnelles sensibles de tiers sans leur consentement",
+      "Tenter d'interférer avec le bon fonctionnement de l'Application",
+      "Utiliser l'Application à des fins illégales ou non autorisées",
+      'Partager vos identifiants de connexion avec d’autres personnes',
     ],
   },
   {
-    title: 'Propriete intellectuelle',
+    id: 'propriete',
+    title: 'Propriété intellectuelle',
     paragraphs: [
-      "L'Application et son contenu original (hors contenu genere par les utilisateurs), ses fonctionnalites et ses fonctions sont la propriete de Reedly et sont proteges par les lois internationales sur le droit d'auteur, les marques et autres droits de propriete intellectuelle.",
-      "Les modeles d'IA utilises pour la transcription et la generation de rapports sont fournis par des services tiers (Mistral) et sont soumis a leurs conditions d'utilisation respectives.",
+      "L'Application et son contenu original (hors contenu généré par les utilisateurs), ses fonctionnalités et ses fonctions sont la propriété de Reedly et sont protégés par les lois internationales sur le droit d'auteur, les marques et autres droits de propriété intellectuelle.",
+      "Les modèles d'IA utilisés pour la transcription et la génération de rapports sont fournis par des services tiers (Mistral) et sont soumis à leurs conditions d'utilisation respectives.",
     ],
   },
   {
+    id: 'contenu',
     title: 'Contenu utilisateur',
     paragraphs: [
-      "Vous conservez la propriete de tout le contenu que vous creez via l'Application, y compris les enregistrements, rapports et syntheses.",
-      "En utilisant l'Application, vous nous accordez une licence limitee pour traiter vos enregistrements audio afin de generer des transcriptions et des rapports.",
-      "Nous ne revendiquons aucun droit de propriete sur vos rapports ou syntheses generes. Vous etes libre de les exporter, partager et utiliser comme bon vous semble.",
+      "Vous conservez la propriété de tout le contenu que vous créez via l'Application, y compris les enregistrements, rapports et synthèses.",
+      "En utilisant l'Application, vous nous accordez une licence limitée pour traiter vos enregistrements audio afin de générer des transcriptions et des rapports.",
+      'Nous ne revendiquons aucun droit de propriété sur vos rapports ou synthèses générés. Vous êtes libre de les exporter, partager et utiliser comme bon vous semble.',
     ],
   },
   {
+    id: 'usage-illimite',
     title: 'Usage illimité',
     paragraphs: [
-      "Les offres Pro Team et Team Premium incluent un nombre illimité de rapports, synthèses et échanges avec l'assistant Max, dans la limite d'un usage professionnel normal et de bonne foi. Reedly se réserve le droit de limiter, suspendre ou ajuster l'offre d'un compte présentant un usage manifestement anormal, automatisé, frauduleux ou non conforme à une utilisation humaine raisonnable (ex. : enregistrements générés par script, partage de compte, volumes sans rapport avec une activité commerciale réelle). Le cas échéant, Reedly contactera le titulaire du compte pour convenir d'une offre adaptée avant toute restriction.",
+      "Les offres Pro Team et Team Premium incluent un nombre illimité de rapports, synthèses et échanges avec l'assistant Max, dans la limite d'un usage professionnel normal et de bonne foi. Reedly se réserve le droit de limiter, suspendre ou ajuster l'offre d'un compte présentant un usage manifestement anormal, automatisé, frauduleux ou non conforme à une utilisation humaine raisonnable (enregistrements générés par script, partage de compte, volumes sans rapport avec une activité commerciale réelle). Le cas échéant, Reedly contactera le titulaire du compte pour convenir d'une offre adaptée avant toute restriction.",
     ],
   },
   {
+    id: 'abonnements',
     title: 'Abonnements et paiements',
     paragraphs: [
-      "Certaines fonctionnalites de l'Application peuvent necessiter un abonnement payant. Les abonnements sont geres via l'App Store (iOS) ou le Google Play Store (Android).",
-      "Les prix sont affiches dans l'Application avant l'achat. Les abonnements se renouvellent automatiquement sauf annulation au moins 24 heures avant la fin de la periode en cours.",
-      'Les remboursements sont geres selon les politiques des stores respectifs.',
+      "Certaines fonctionnalités de l'Application peuvent nécessiter un abonnement payant. Les abonnements sont gérés via l'App Store (iOS) ou le Google Play Store (Android).",
+      "Les prix sont affichés dans l'Application avant l'achat. Les abonnements se renouvellent automatiquement sauf annulation au moins 24 heures avant la fin de la période en cours.",
+      'Les remboursements sont gérés selon les politiques des stores respectifs.',
     ],
   },
   {
+    id: 'avertissement',
     title: 'Avertissement',
     paragraphs: [
-      "L'Application est fournie 'en l'etat' et 'selon disponibilite' sans garantie d'aucune sorte.",
-      "Les rapports et syntheses generes par l'IA sont des productions automatisees et peuvent contenir des inexactitudes. Vous etes responsable de la verification de tout contenu genere avant de vous y fier pour des decisions commerciales.",
-      "Nous ne garantissons pas que la transcription ou la generation de rapports sera exempte d'erreurs ou parfaitement precise.",
+      "L'Application est fournie « en l'état » et « selon disponibilité », sans garantie d'aucune sorte.",
+      "Les rapports et synthèses générés par l'IA sont des productions automatisées et peuvent contenir des inexactitudes. Vous êtes responsable de la vérification de tout contenu généré avant de vous y fier pour des décisions commerciales.",
+      "Nous ne garantissons pas que la transcription ou la génération de rapports sera exempte d'erreurs ou parfaitement précise.",
     ],
   },
   {
-    title: 'Limitation de responsabilite',
+    id: 'responsabilite',
+    title: 'Limitation de responsabilité',
     paragraphs: [
-      "Dans la mesure maximale permise par la loi, Reedly ne sera pas responsable des dommages indirects, accessoires, speciaux, consecutifs ou punitifs resultant de votre utilisation de l'Application.",
-      "Notre responsabilite totale pour toute reclamation liee a l'utilisation de l'Application ne depassera pas le montant que vous nous avez verse au cours des 12 mois precedant la reclamation.",
+      "Dans la mesure maximale permise par la loi, Reedly ne sera pas responsable des dommages indirects, accessoires, spéciaux, consécutifs ou punitifs résultant de votre utilisation de l'Application.",
+      "Notre responsabilité totale pour toute réclamation liée à l'utilisation de l'Application ne dépassera pas le montant que vous nous avez versé au cours des 12 mois précédant la réclamation.",
     ],
   },
   {
-    title: 'Resiliation',
+    id: 'resiliation',
+    title: 'Résiliation',
     paragraphs: [
-      'Nous pouvons resilier ou suspendre votre compte a tout moment, sans preavis, pour un comportement que nous considerons comme une violation de ces Conditions ou comme nuisible aux autres utilisateurs ou a nous-memes.',
-      "Vous pouvez supprimer votre compte a tout moment via les parametres de l'Application. Apres suppression, vos donnees seront definitivement effacees sous 30 jours.",
+      'Nous pouvons résilier ou suspendre votre compte à tout moment, sans préavis, pour un comportement que nous considérons comme une violation de ces Conditions ou comme nuisible aux autres utilisateurs ou à nous-mêmes.',
+      "Vous pouvez supprimer votre compte à tout moment via les paramètres de l'Application. Après suppression, vos données seront définitivement effacées sous 30 jours.",
     ],
   },
   {
+    id: 'modifications',
     title: 'Modifications des conditions',
     paragraphs: [
-      "Nous nous reservons le droit de modifier ces Conditions a tout moment. Nous informerons les utilisateurs de tout changement significatif via l'Application ou par email.",
-      "Votre utilisation continue de l'Application apres la publication des modifications vaut acceptation des Conditions revisees.",
+      "Nous nous réservons le droit de modifier ces Conditions à tout moment. Nous informerons les utilisateurs de tout changement significatif via l'Application ou par email.",
+      "Votre utilisation continue de l'Application après la publication des modifications vaut acceptation des Conditions révisées.",
     ],
   },
   {
+    id: 'droit',
     title: 'Droit applicable',
     paragraphs: [
-      'Ces Conditions sont regies par et interpretees conformement aux lois de la France, sans egard aux dispositions relatives aux conflits de lois.',
+      'Ces Conditions sont régies par et interprétées conformément aux lois de la France, sans égard aux dispositions relatives aux conflits de lois.',
     ],
   },
   {
+    id: 'contact',
     title: 'Nous contacter',
-    paragraphs: ['Pour toute question concernant ces Conditions, contactez-nous a :\n\nsupport@reedly.ai'],
+    paragraphs: ['Pour toute question concernant ces Conditions, contactez-nous à support@reedly.ai.'],
   },
 ];
 ---
 
-<Layout title="CGU | Reedly" description="Conditions Generales d'Utilisation de Reedly" hreflang={{ fr: '/fr/cgu', en: '/en/terms-of-service' }}>
-  <LegalPage
-    title="Conditions Generales d'Utilisation"
-    lastUpdated="Derniere mise a jour : 18 fevrier 2026"
-    backHref="/fr"
-    sections={sections}
-  />
+<Layout
+  title="Conditions générales d'utilisation · Reedly"
+  description="Conditions générales d'utilisation de Reedly : compte, usage acceptable, propriété du contenu, abonnements, responsabilité et droit applicable."
+  lang="fr"
+  hreflang={{ fr: '/fr/cgu', en: '/en/terms-of-service' }}
+>
+  <Nav altHref="/en/terms-of-service" />
+  <main>
+    <LegalPage
+      title="Conditions générales d'utilisation"
+      lastUpdated="Dernière mise à jour : 18 février 2026"
+      sections={sections}
+      lang="fr"
+    />
+  </main>
   <Footer />
+  <script src="/main.js" is:inline></script>
 </Layout>

@@ -1,10 +1,12 @@
 ---
-import Footer from '@/components/Footer.astro';
-import LegalPage from '@/components/LegalPage.astro';
 import Layout from '@/layouts/Layout.astro';
+import Nav from '@/components/Nav.astro';
+import LegalPage from '@/components/LegalPage.astro';
+import Footer from '@/components/Footer.astro';
 
 const sections = [
   {
+    id: 'introduction',
     title: 'Introduction',
     paragraphs: [
       'Reedly ("we", "our", or "us") operates the Reedly mobile application (the "App"). This Privacy Policy explains how we collect, use, and protect your information when you use our App.',
@@ -12,97 +14,124 @@ const sections = [
     ],
   },
   {
-    title: 'Information We Collect',
+    id: 'informations-collectees',
+    title: 'Information we collect',
     paragraphs: [
-      'Account information: When you create an account, we collect your email address, username, and optionally your first and last name.',
-      'Profile data: Any information you choose to add to your profile, including your name and avatar.',
-      'Audio recordings: When you use the recording feature, audio is temporarily processed to generate text transcriptions and structured reports. Audio files are sent to Mistral for transcription.',
-      'Generated content: Reports and syntheses created from your recordings are stored in your account.',
-      'Usage data: We collect anonymous usage data (screens visited, features used) to improve the App via PostHog.',
-      'Device information: Device type, operating system version, and app version for compatibility and debugging.',
+      '<b>Account information</b>: when you create an account, we collect your email address, username, and optionally your first and last name.',
+      '<b>Profile data</b>: any information you choose to add to your profile, including your name and avatar.',
+      '<b>Audio recordings</b>: when you use the recording feature, audio is temporarily processed to generate transcripts and structured reports. Audio files are sent to Mistral for transcription.',
+      '<b>Generated content</b>: reports and syntheses created from your recordings are stored in your account.',
+      '<b>Usage data</b>: we collect anonymous usage data (screens visited, features used) to improve the App via PostHog.',
+      '<b>Device information</b>: device type, operating system version, and app version.',
     ],
   },
   {
-    title: 'Information We Do NOT Collect',
-    paragraphs: [
+    id: 'non-collectees',
+    title: 'Information we do not collect',
+    list: [
       'We do not collect precise location data.',
       'We do not access your contacts, calendar, or other personal data.',
       'We do not sell your personal information to third parties.',
-      'We do not store raw audio files after transcription is complete.',
+      'We do not keep raw audio files after transcription.',
     ],
   },
   {
-    title: 'How We Use Your Information',
-    paragraphs: [
-      'We use the collected information to:\n\n• Provide and maintain the App\n• Authenticate your account\n• Transcribe your meeting recordings using AI\n• Generate structured reports and syntheses\n• Send you important notifications (e.g., security alerts)\n• Improve the App based on usage patterns\n• Fix bugs and ensure stability',
+    id: 'utilisation',
+    title: 'How we use your information',
+    paragraphs: ['We use the information we collect to:'],
+    list: [
+      'Provide and maintain the App',
+      'Authenticate your account',
+      'Transcribe your meeting recordings using AI',
+      'Generate structured reports and syntheses',
+      'Send you important notifications (e.g. security alerts)',
+      'Improve the App based on how it is used',
+      'Fix bugs and ensure stability',
     ],
   },
   {
-    title: 'Third-Party Services',
     id: 'sous-traitants',
-    paragraphs: ['Our App uses the following subprocessors:'],
+    title: 'Third-party services',
+    paragraphs: ['Our App relies on the following sub-processors:'],
     links: [
       { name: 'Supabase', purpose: 'Authentication and database', url: 'https://supabase.com/privacy' },
-      { name: 'Mistral', purpose: 'Audio transcription and report generation', url: 'https://mistral.ai/terms#privacy' },
+      { name: 'Mistral', purpose: 'Audio transcription and report generation', url: 'https://mistral.ai/fr/terms#privacy' },
       { name: 'PostHog', purpose: 'Analytics', url: 'https://posthog.com/privacy' },
-      { name: 'RevenueCat', purpose: 'In-app purchases', url: 'https://www.revenuecat.com/privacy' },
-      { name: 'Stripe', purpose: 'Purchases', url: 'https://stripe.com/privacy' },
+      { name: 'Stripe', purpose: 'Payments', url: 'https://stripe.com/privacy' },
       { name: 'Sentry', purpose: 'Error tracking', url: 'https://sentry.io/privacy' },
-      { name: 'Expo', purpose: 'Build and updates', url: 'https://expo.dev/privacy' },
+      { name: 'Expo', purpose: 'Builds and updates', url: 'https://expo.dev/privacy' },
     ],
     note: 'A Data Processing Agreement (DPA) is available on request at support@reedly.ai.',
   },
   {
-    title: 'Data Storage and Security',
+    id: 'stockage',
+    title: 'Data storage and security',
     paragraphs: [
-      'Your data is stored on secure servers provided by Supabase, hosted on AWS in the European Union.',
+      'Your data is stored on secure servers provided by Supabase, hosted on AWS within the European Union.',
       'All data is encrypted in transit (TLS/SSL) and at rest.',
-      'Audio recordings are processed in real-time and are not permanently stored on our servers.',
-      'We implement industry-standard security measures to protect your data.',
+      'Audio recordings are processed in real time and are not permanently stored on our servers.',
+      'We apply security measures in line with industry standards.',
     ],
   },
   {
-    title: 'Your Rights',
+    id: 'vos-droits',
+    title: 'Your rights',
+    paragraphs: ['You have the right to:'],
+    list: [
+      'Access your personal data',
+      'Correct inaccurate data',
+      'Delete your account and the data attached to it',
+      'Export your data in a portable format',
+      'Opt out of analytics tracking',
+    ],
+    note: 'To exercise these rights, contact us at support@reedly.ai.',
+  },
+  {
+    id: 'conservation',
+    title: 'Data retention',
     paragraphs: [
-      'You have the right to:\n\n• Access your personal data\n• Correct inaccurate data\n• Delete your account and associated data\n• Export your data in a portable format\n• Opt out of analytics',
-      'To exercise these rights, contact us at support@reedly.ai.',
+      'Account data is kept for as long as your account is active.',
+      'If you delete your account, your data is permanently deleted within 30 days.',
+      'Anonymous analytics data may be kept indefinitely in aggregated form.',
     ],
   },
   {
-    title: 'Data Retention',
-    paragraphs: [
-      'Account data is retained as long as your account is active.',
-      'If you delete your account, your data is permanently removed within 30 days.',
-      'Anonymous analytics data may be retained indefinitely in aggregate form.',
-    ],
-  },
-  {
-    title: "Children's Privacy",
+    id: 'mineurs',
+    title: 'Protection of minors',
     paragraphs: [
       'Our App is not intended for children under 13. We do not knowingly collect personal information from children under 13. If you believe we have collected such data, please contact us immediately.',
     ],
   },
   {
-    title: 'Changes to This Policy',
+    id: 'modifications',
+    title: 'Changes to this policy',
     paragraphs: [
-      'We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page, updating the "Last updated" date, and sending a notification through the App for significant changes.',
+      'We may update this Privacy Policy from time to time. We will notify you of any change by publishing the new policy on this page, updating the "Last updated" date, and sending an in-app notification for significant changes.',
     ],
   },
   {
-    title: 'Contact Us',
-    paragraphs: ['If you have questions about this Privacy Policy, contact us at:\n\nsupport@reedly.ai'],
+    id: 'contact',
+    title: 'Contact us',
+    paragraphs: ['For any question about this Privacy Policy, contact us at support@reedly.ai.'],
   },
 ];
 ---
 
-<Layout title="Privacy Policy | Reedly" description="Reedly Privacy Policy" lang="en" hreflang={{ fr: '/fr/confidentialite', en: '/en/privacy-policy' }}>
-  <LegalPage
-    title="Privacy Policy"
-    lastUpdated="Last updated: February 18, 2026"
-    backLabel="← Back to homepage"
-    backHref="/en"
-    kicker="Legal information"
-    sections={sections}
-  />
-  <Footer lang="en" privacyHref="/privacy-policy" termsHref="/terms-of-service" contactHref="/#contact" />
+<Layout
+  title="Privacy Policy · Reedly"
+  description="How Reedly collects, uses and protects your data: information collected, sub-processors, EU storage, your rights and retention periods."
+  lang="en"
+  hreflang={{ fr: '/fr/confidentialite', en: '/en/privacy-policy' }}
+>
+  <Nav altHref="/fr/confidentialite" />
+  <main>
+    <LegalPage
+      title="Privacy Policy"
+      lastUpdated="Last updated: 18 February 2026"
+      sections={sections}
+      lang="en"
+    />
+  </main>
+  <Footer />
+  <script src="/main.js" is:inline></script>
 </Layout>

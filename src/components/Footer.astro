@@ -1,190 +1,162 @@
 ---
-// Footer
-import { t } from '@/lib/i18n';
+// Footer: oversized wordmark fading into the dark band, then the link columns.
+import { getLang, t } from '@/lib/i18n';
 
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const lang = path.startsWith('/en') ? 'en' : 'fr';
-const currentYear = String(new Date().getFullYear());
+const lang = getLang(path);
+const home = `/${lang}`;
+const year = String(new Date().getFullYear());
+
+const legal =
+  lang === 'fr'
+    ? {
+        notice: '/fr/mentions-legales',
+        privacy: '/fr/confidentialite',
+        cookies: '/fr/cookies',
+        terms: '/fr/cgu',
+      }
+    : {
+        notice: '/en/legal-notice',
+        privacy: '/en/privacy-policy',
+        cookies: '/en/cookie-policy',
+        terms: '/en/terms-of-service',
+      };
+
+const features =
+  lang === 'fr'
+    ? { transcription: '/fr/features/transcription-ia', hub: '/fr/features/hub-manager' }
+    : { transcription: '/en/features/ai-transcription', hub: '/en/features/manager-hub' };
 ---
 
-<footer class="footer z1">
+<footer class="footer">
+  <div class="footer__spacer" aria-hidden="true"></div>
+  <div class="footer__wordmark" aria-hidden="true">REEDLY</div>
+
   <div class="footer__inner">
     <div class="footer__brand">
-      <a class="footer__logo" href={`/${lang}`} data-link-fr="/fr" data-link-en="/en">
-        <img src="/favicon.png" alt="Reedly" width="24" height="24" style="border-radius: 6px;" />
-        <span>REEDLY</span>
+      <a class="footer__logo" href={home}>
+        <img src="/logo-mark.svg" alt="Reedly" width="26" height="26" />
+        <span set:html={t(lang, 'footer.tagline')} />
       </a>
+
+      <div class="footer__stores">
+        <a
+          class="store-badge"
+          href="https://apps.apple.com/fr/app/reedly-rapport-g%C3%A9n%C3%A9r%C3%A9-par-ia/id6760261826"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-track-id="footer_store_ios"
+          data-track-type="download"
+          data-track-section="footer"
+        >
+          <svg width="18" height="18" viewBox="0 0 814 1000" aria-hidden="true"
+            ><path
+              d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.3 133.4-316.9 264.6-316.9 70.1 0 128.4 46.4 172.1 46.4 41.8 0 107.2-49.1 183.2-49.1 29.2 0 130.4 2.6 198.3 99.2zm-234-181.5c31.1-36.9 53.1-88.1 53.1-139.3 0-7.1-.6-14.3-1.9-20.1-50.6 1.9-110.8 33.7-147.1 75.8-28.5 32.4-55.1 83.6-55.1 135.5 0 7.8 1.3 15.6 1.9 18.1 3.2.6 8.4 1.3 13.6 1.3 45.4 0 102.5-30.4 135.5-71.3z"
+            ></path></svg
+          >
+          <span class="store-badge__text">
+            <span class="store-badge__sub">{t(lang, 'cta.store_sub')}</span>
+            <span class="store-badge__name">App Store</span>
+          </span>
+        </a>
+        <a
+          class="store-badge"
+          href="https://play.google.com/store/apps/details?id=com.reedly.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-track-id="footer_store_android"
+          data-track-type="download"
+          data-track-section="footer"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M6.97395 19.9739C6.89234 20.0554 6.99001 20.1878 7.09146 20.133C9.67967 18.7329 13.174 16.8415 16.1272 15.2376C16.1862 15.2055 16.1971 15.1258 16.1492 15.0787L14.0683 13.0298C14.0292 12.9913 13.9663 12.9915 13.9275 13.0303L6.97395 19.9739Z"
+            ></path>
+            <path
+              d="M13.921 10.776C13.9601 10.8148 14.0232 10.8146 14.0621 10.7757L16.1439 8.6959C16.1912 8.64857 16.1796 8.56896 16.1207 8.53716L15.1007 7.98656C13.8742 7.32459 12.2308 6.43768 10.563 5.53787C9.31392 4.864 8.05241 4.1836 6.94227 3.58516C6.84062 3.53036 6.74247 3.66293 6.8245 3.74421L13.921 10.776Z"
+            ></path>
+            <path
+              d="M3 3.19622C3 2.9639 3.03514 2.76941 3.09628 2.6092C3.15947 2.44364 3.36802 2.43096 3.4939 2.55569L12.8585 11.8349C12.8979 11.8739 12.898 11.9376 12.8587 11.9768L3.46006 21.3475C3.3216 21.4856 3.09274 21.4522 3.04845 21.2617C3.01631 21.1235 3 20.9702 3 20.8055V3.19622Z"
+            ></path>
+            <path
+              d="M17.6882 14.3886C17.6495 14.4096 17.6016 14.4029 17.5703 14.372L15.1324 11.9723C15.0927 11.9333 15.0926 11.8694 15.132 11.8301L17.5831 9.39339C17.6145 9.36219 17.6629 9.3555 17.7018 9.37668C19.7881 10.5145 21.4155 11.398 21.9117 11.6605C21.9302 11.6703 21.9447 11.6851 21.953 11.7044C21.9983 11.8088 22.0087 11.9126 21.9933 12.0125C21.9889 12.0414 21.9701 12.0651 21.9443 12.0787C21.6589 12.2291 20.7033 12.7489 19.3724 13.4728C18.8548 13.7543 18.2906 14.0612 17.6882 14.3886Z"
+            ></path>
+          </svg>
+          <span class="store-badge__text">
+            <span class="store-badge__sub">{t(lang, 'cta.store_sub')}</span>
+            <span class="store-badge__name">Google Play</span>
+          </span>
+        </a>
+      </div>
     </div>
 
     <div class="footer__col">
       <div class="footer__col-title">{t(lang, 'footer.col.product')}</div>
-      <a href={`/${lang}#rdv`} data-link-fr="/fr#rdv" data-link-en="/en#rdv">{t(lang, 'footer.book_demo')}</a>
-      <a href={lang === 'fr' ? '/fr/tarifs' : '/en/pricing'} data-link-fr="/fr/tarifs" data-link-en="/en/pricing">{t(lang, 'footer.pricing')}</a>
-      <a href={`/${lang}/blog`} data-link-fr="/fr/blog" data-link-en="/en/blog">{t(lang, 'footer.blog')}</a>
+      <a href={`${home}#rdv`}>{t(lang, 'footer.book_demo')}</a>
+      <a href={`${home}#pricing`}>{t(lang, 'footer.pricing')}</a>
+      <a href={`${home}#faq`}>FAQ</a>
     </div>
 
     <div class="footer__col">
-      <div class="footer__col-title">{lang === 'fr' ? 'Fonctionnalités' : 'Features'}</div>
-      <a href={lang === 'fr' ? '/fr/features/enregistrement-vocal-rdv' : '/en/features/meeting-voice-recording'}>{lang === 'fr' ? 'Enregistrement vocal' : 'Voice Recording'}</a>
-      <a href={lang === 'fr' ? '/fr/features/rapport-ia' : '/en/features/ai-report'}>{lang === 'fr' ? 'Rapport structuré IA' : 'AI Report'}</a>
-      <a href={lang === 'fr' ? '/fr/features/hub-manager' : '/en/features/manager-hub'}>{lang === 'fr' ? 'Hub Manager' : 'Manager Hub'}</a>
-      <a href={lang === 'fr' ? '/fr/features/integrations-crm' : '/en/features/crm-integrations'}>{lang === 'fr' ? 'Intégrations CRM' : 'CRM Integrations'}</a>
+      <div class="footer__col-title">{t(lang, 'footer.col.features')}</div>
+      <a href={features.transcription}>{t(lang, 'footer.feature.transcription')}</a>
+      <a href={features.hub}>{t(lang, 'footer.feature.hub')}</a>
     </div>
 
     <div class="footer__col">
-      <div class="footer__col-title">{lang === 'fr' ? 'Comparatif' : 'Compare'}</div>
+      <div class="footer__col-title">{t(lang, 'footer.col.social')}</div>
       <a
-        href={lang === 'fr' ? '/fr/alternatives/noota' : '/en/alternatives/noota'}
-        data-link-fr="/fr/alternatives/noota"
-        data-link-en="/en/alternatives/noota"
-      >{lang === 'fr' ? 'Alternative à Noota' : 'Noota alternative'}</a>
+        href="https://www.linkedin.com/company/reedly/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-track-id="footer_social_linkedin"
+        data-track-type="social"
+        data-track-section="footer"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M4.75 1.875C3.57639 1.875 2.625 2.82639 2.625 4C2.625 5.1736 3.57639 6.125 4.75 6.125C5.9236 6.125 6.875 5.1736 6.875 4C6.875 2.82639 5.9236 1.875 4.75 1.875Z"
+          ></path>
+          <path
+            d="M2.75 7.875C2.68096 7.875 2.625 7.93096 2.625 8V21C2.625 21.069 2.68096 21.125 2.75 21.125H6.75C6.81904 21.125 6.875 21.069 6.875 21V8C6.875 7.93096 6.81904 7.875 6.75 7.875H2.75Z"
+          ></path>
+          <path
+            d="M9.25 7.875C9.18096 7.875 9.125 7.93096 9.125 8V21C9.125 21.069 9.18096 21.125 9.25 21.125H13.25C13.319 21.125 13.375 21.069 13.375 21V14C13.375 13.5027 13.5725 13.0258 13.9242 12.6742C14.2758 12.3225 14.7527 12.125 15.25 12.125C15.7473 12.125 16.2242 12.3225 16.5758 12.6742C16.9275 13.0258 17.125 13.5027 17.125 14V21C17.125 21.069 17.181 21.125 17.25 21.125H21.25C21.319 21.125 21.375 21.069 21.375 21V12.3802C21.375 9.9535 19.2644 8.05499 16.8498 8.2745C16.1052 8.34219 15.369 8.52731 14.6815 8.82194L13.375 9.38186V8C13.375 7.93096 13.319 7.875 13.25 7.875H9.25Z"
+          ></path>
+        </svg>LinkedIn
+      </a>
+      <a
+        href="https://www.instagram.com/reedly.ai/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-track-id="footer_social_instagram"
+        data-track-type="social"
+        data-track-section="footer"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 8.75005C10.2051 8.75005 8.75 10.2051 8.75 12C8.75 13.795 10.2051 15.25 12 15.25C13.7949 15.25 15.25 13.795 15.25 12C15.25 10.2051 13.7949 8.75005 12 8.75005Z"
+          ></path>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M6.76954 3.08151C10.2177 2.69614 13.7824 2.69614 17.2305 3.08151C19.1289 3.29369 20.6601 4.78947 20.8829 6.69452C21.2952 10.2195 21.2952 13.7806 20.8829 17.3056C20.6601 19.2106 19.1289 20.7064 17.2305 20.9186C13.7824 21.304 10.2177 21.304 6.76954 20.9186C4.87114 20.7064 3.33995 19.2106 3.11713 17.3056C2.70485 13.7806 2.70485 10.2195 3.11713 6.69452C3.33995 4.78947 4.87114 3.29369 6.76954 3.08151ZM17 6.00005C16.4477 6.00005 16 6.44776 16 7.00005C16 7.55233 16.4477 8.00005 17 8.00005C17.5523 8.00005 18 7.55233 18 7.00005C18 6.44776 17.5523 6.00005 17 6.00005ZM7.25 12C7.25 9.37669 9.37665 7.25005 12 7.25005C14.6234 7.25005 16.75 9.37669 16.75 12C16.75 14.6234 14.6234 16.75 12 16.75C9.37665 16.75 7.25 14.6234 7.25 12Z"
+          ></path>
+        </svg>Instagram
+      </a>
     </div>
-
-    <div class="footer__col">
-      <div class="footer__col-title">{t(lang, 'footer.col.legal')}</div>
-      <a href={lang === 'fr' ? '/fr/confidentialite' : '/en/privacy-policy'} data-link-fr="/fr/confidentialite" data-link-en="/en/privacy-policy">{t(lang, 'footer.privacy')}</a>
-      <a href={lang === 'fr' ? '/fr/cgu' : '/en/terms-of-service'} data-link-fr="/fr/cgu" data-link-en="/en/terms-of-service">{t(lang, 'footer.terms')}</a>
-      <a href={`/${lang}#rdv`} data-link-fr="/fr#rdv" data-link-en="/en#rdv">{t(lang, 'footer.contact')}</a>
-    </div>
-
   </div>
 
-  <!-- Bottom bar: identity + socials on the left, the reps' app (demoted) on the right -->
   <div class="footer__bottom">
-    <div class="footer__bottom-inner">
-      <div class="footer__bottom-left">
-        <div class="footer__copy">{t(lang, 'footer.copy').replace('{year}', currentYear)}</div>
-
-        <!-- Social links -->
-        <div class="footer__social">
-          <a
-            class="footer__social-link"
-            href="https://www.linkedin.com/company/reedly/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            data-track-id="footer_social_linkedin"
-            data-track-type="social"
-            data-track-section="footer"
-          >
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-              />
-            </svg>
-          </a>
-          <a
-            class="footer__social-link"
-            href="https://www.instagram.com/reedly.ai/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            data-track-id="footer_social_instagram"
-            data-track-type="social"
-            data-track-section="footer"
-          >
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
-              />
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- App stores, the reps' tool (demoted from any primary position) -->
-      <div class="footer__bottom-right">
-        <span class="footer__stores-label">{t(lang, 'footer.stores.label')}</span>
-        <div class="footer__stores-row">
-          <a
-            class="store-badge store-badge--sm"
-            href="https://apps.apple.com/fr/app/reedly-rapport-g%C3%A9n%C3%A9r%C3%A9-par-ia/id6760261826"
-            data-link-fr="https://apps.apple.com/fr/app/reedly-rapport-g%C3%A9n%C3%A9r%C3%A9-par-ia/id6760261826"
-            data-link-en="https://apps.apple.com/app/reedly-rapport-g%C3%A9n%C3%A9r%C3%A9-par-ia/id6760261826"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-store="ios"
-            data-track-id="footer_store_ios"
-            data-track-type="download"
-            data-track-section="footer"
-          >
-            <svg viewBox="0 0 814 1000" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.3 133.4-316.9 264.6-316.9 70.1 0 128.4 46.4 172.1 46.4 41.8 0 107.2-49.1 183.2-49.1 29.2 0 130.4 2.6 198.3 99.2zm-234-181.5c31.1-36.9 53.1-88.1 53.1-139.3 0-7.1-.6-14.3-1.9-20.1-50.6 1.9-110.8 33.7-147.1 75.8-28.5 32.4-55.1 83.6-55.1 135.5 0 7.8 1.3 15.6 1.9 18.1 3.2.6 8.4 1.3 13.6 1.3 45.4 0 102.5-30.4 135.5-71.3z"
-              />
-            </svg>
-            <div class="store-badge__text">
-              <span class="store-badge__sub">{t(lang, 'cta.store_sub')}</span>
-              <span class="store-badge__name">App Store</span>
-            </div>
-          </a>
-          <a
-            class="store-badge store-badge--sm"
-            href="https://play.google.com/store/apps/details?id=com.reedly.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-track-id="footer_store_android"
-            data-track-type="download"
-            data-track-section="footer"
-          >
-            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M48 59.49v393a4.33 4.33 0 007.37 3.07l232-233.5a4.33 4.33 0 000-6.14L55.37 56.42A4.33 4.33 0 0048 59.49zM400.35 256.28l-75.5 76.07-30.85-30.85c-1.57-1.57-4.12-1.57-5.69 0-1.57 1.57-1.57 4.12 0 5.69l33.7 33.7a4.02 4.02 0 005.69 0l78.35-78.93V256c0-1.96-1.57-4.12-3.53-5.69z"
-              />
-              <path
-                d="M400.35 256.28l-12.23 12.23c-1.57 1.57-4.12 1.57-5.69 0l-26.84-26.84c-1.57-1.57-1.57-4.12 0-5.69l44.76-45.13V256c0 .1 0 .19-.01.28zM260.61 285.14L55.37 452.56A4.29 4.29 0 0148 449.49V62.57z"
-              />
-            </svg>
-            <div class="store-badge__text">
-              <span class="store-badge__sub">{t(lang, 'cta.store_sub')}</span>
-              <span class="store-badge__name">Google Play</span>
-            </div>
-          </a>
-        </div>
+    <div class="footer__rule"><div></div></div>
+    <div class="footer__legal">
+      <div>{t(lang, 'footer.copy_short').replace('{year}', year)}</div>
+      <div class="footer__legal-links">
+        <a href={legal.notice}>{t(lang, 'footer.legal_notice')}</a>
+        <a href={legal.privacy}>{t(lang, 'footer.privacy_long')}</a>
+        <a href={legal.cookies}>{t(lang, 'footer.cookies')}</a>
+        <a href={legal.terms}>{t(lang, 'footer.terms')}</a>
       </div>
     </div>
   </div>
-
-  <style>
-    .footer__stores-label {
-      display: block;
-      font-family: var(--mono);
-      font-size: 0.66rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--faint);
-      margin-bottom: 10px;
-    }
-    .footer__stores-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .footer__signin {
-      color: var(--muted);
-    }
-  </style>
 </footer>
-
-<!-- ── Notify modal (dormant unless a store link is set to "#") ── -->
-<div class="notify-modal" id="notify-modal" aria-hidden="true">
-  <div class="notify-modal__backdrop" id="notify-modal-backdrop"></div>
-  <div class="notify-modal__dialog">
-    <button class="notify-modal__close" id="notify-modal-close" type="button" aria-label={lang === 'fr' ? 'Fermer' : 'Close'}>&times;</button>
-    <h3 class="notify-modal__title">{t(lang, 'notify.title')}</h3>
-    <p class="notify-modal__text">{t(lang, 'notify.text')}</p>
-    <form class="notify-modal__form" id="notify-form">
-      <input
-        class="notify-modal__input"
-        type="email"
-        id="notify-email"
-        required
-        placeholder={t(lang, 'notify.placeholder')}
-      />
-      <button class="btn btn--primary btn--md notify-modal__submit" type="submit">
-        <span>{t(lang, 'notify.cta')}</span>
-      </button>
-    </form>
-    <div class="notify-modal__feedback" id="notify-feedback"></div>
-  </div>
-</div>

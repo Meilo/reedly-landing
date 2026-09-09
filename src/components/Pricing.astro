@@ -1,168 +1,110 @@
 ---
-// Pricing section, team-seat framing (block 7), 2 plans: Équipe / Grandes équipes.
-// Monthly/annual billing toggle is wired to the shared JS in public/main.js
-// (#pricing-billing-toggle + .js-billing-price[data-base-price] -> -14% annual).
-// CTA is always "Réserver une démo" / "Nous contacter", never a self-serve subscribe.
+// Pricing. The monthly/annual toggle is wired in public/main.js: it rewrites
+// .js-billing-price from data-base-price (-14% on annual) and swaps the note.
 import { getLang, t } from '@/lib/i18n';
+import Icon from '@/components/Icon.astro';
 
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const lang = getLang(path);
-const bookHref = `/${lang}#rdv`;
+const lang = getLang(Astro.url.pathname);
 
-// Reused check icon markup.
-const check = `<svg fill="none" viewBox="0 0 12 12" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2 6l3 3 5-5" /></svg>`;
-
-const teamFeatures = [
-  'pricing.team.feat1', 'pricing.team.feat2', 'pricing.team.feat3',
-  'pricing.team.feat4', 'pricing.team.feat5', 'pricing.team.feat6',
-  'pricing.team.feat7', 'pricing.team.feat8', 'pricing.team.feat9',
-  'pricing.team.feat10',
-];
-const largeFeatures = [
-  'pricing.large.feat1', 'pricing.large.feat2', 'pricing.large.feat3',
-  'pricing.large.feat4', 'pricing.large.feat5',
-];
+const teamFeatures = Array.from({ length: 10 }, (_, i) => ({
+  key: `pricing.team.feat${i + 1}`,
+  icon: `plan-team-${i + 1}`,
+}));
+const enterpriseFeatures = Array.from({ length: 5 }, (_, i) => ({
+  key: `pricing.large.feat${i + 1}`,
+  icon: `plan-enterprise-${i + 1}`,
+}));
 ---
 
-<!-- ── Pricing ── -->
-<section class="section" id="pricing">
+<section class="section section--white" id="pricing">
   <div class="inner">
-    <div class="reveal">
-      <div class="section__eyebrow">{t(lang, 'pricing.eyebrow')}</div>
-      <h2 set:html={t(lang, 'pricing.title')} />
-      <p class="section__lead">{t(lang, 'pricing.lead')}</p>
+    <div class="pricing__head reveal">
+      <div class="center-mobile">
+        <h2 class="display display--lg" set:html={t(lang, 'pricing.title')} />
+        <p class="lead">{t(lang, 'pricing.lead')}</p>
+      </div>
 
-      <!-- Monthly / annual billing toggle (wired to shared JS) -->
-      <div class="pricing-billing-toggle" id="pricing-billing-toggle" role="tablist" aria-label={t(lang, 'pricing.billing.aria')}>
+      <div
+        class="billing-toggle"
+        id="billing-toggle"
+        role="group"
+        aria-label={t(lang, 'pricing.billing.aria')}
+        data-note-annual={t(lang, 'pricing.billing.note.annual')}
+      >
         <button
           type="button"
-          class="pricing-billing-toggle__btn pricing-billing-toggle__btn--active"
+          class="is-active"
           data-billing="monthly"
           data-track-id="pricing_billing_monthly"
-          data-track-type="toggle"
-          data-track-section="pricing">{t(lang, 'pricing.billing.monthly')}</button>
+          data-track-section="pricing">{t(lang, 'pricing.billing.monthly')}</button
+        >
         <button
           type="button"
-          class="pricing-billing-toggle__btn"
           data-billing="annual"
           data-track-id="pricing_billing_annual"
-          data-track-type="toggle"
-          data-track-section="pricing">{t(lang, 'pricing.billing.annual')}</button>
+          data-track-section="pricing">{t(lang, 'pricing.billing.annual')}</button
+        >
       </div>
     </div>
 
-    <!-- ── 2-card grid (team seats) ── -->
-    <div class="pricing-cards pricing-cards--duo reveal">
-      <!-- ── Équipe (featured) ── -->
-      <article class="pricing-card pricing-card--v2 pricing-card--featured">
-        <div class="pricing-badge">{t(lang, 'pricing.team.badge')}</div>
-        <header class="pricing-card__head">
-          <div>
-            <div class="pricing-card__name">{t(lang, 'pricing.team.plan')}</div>
-            <div class="pricing-card__subtitle">{t(lang, 'pricing.team.subtitle')}</div>
-          </div>
-          <div class="pricing-card__price-block">
-            <div class="pricing-card__price">
-              <span class="pricing-amount js-billing-price" data-base-price="49">49</span><span class="pricing-currency-inline">€</span>
-            </div>
-            <div class="pricing-card__per">{t(lang, 'pricing.team.per')}</div>
-          </div>
-        </header>
+    <div class="pricing__cards reveal">
+      <article class="plan plan--team">
+        <div class="plan__badge">{t(lang, 'pricing.team.badge')}</div>
+        <div class="plan__name">{t(lang, 'pricing.team.plan')}</div>
+        <div class="plan__meta">{t(lang, 'pricing.team.subtitle')}</div>
 
-        <div class="pricing-card__divider"></div>
+        <div class="plan__price">
+          <span class="plan__amount js-billing-price" data-base-price="49">49</span>
+          <span class="plan__currency">€</span>
+          <span class="plan__per">{t(lang, 'pricing.team.per')}</span>
+        </div>
 
-        <ul class="pricing-features">
-          {teamFeatures.map((key) => (
-            <li class="pricing-feature">
-              <span class="pricing-feature__check" set:html={check}></span>
-              <span>{t(lang, key)}</span>
+        <div class="plan__divider"></div>
+
+        <ul class="plan__features">
+          {teamFeatures.map((feat) => (
+            <li>
+              <Icon name={feat.icon} size={19} />
+              {t(lang, feat.key)}
             </li>
           ))}
         </ul>
 
         <a
-          class="btn btn--primary btn--md pricing-card__cta"
-          href={bookHref}
-          data-link-fr="/fr#rdv"
-          data-link-en="/en#rdv"
-          data-track-id="pricing_team_book_demo"
-          data-track-type="demo"
-          data-track-section="pricing">
-          {t(lang, 'pricing.book_demo')}
-        </a>
+          class="btn btn--primary btn--block plan__cta"
+          href="#rdv"
+          data-track-id="pricing_team_try_free"
+          data-track-type="trial"
+          data-track-section="pricing">{t(lang, 'cta.try_free')}</a
+        >
       </article>
 
-      <!-- ── Grandes équipes ── -->
-      <article class="pricing-card pricing-card--v2">
-        <header class="pricing-card__head">
-          <div>
-            <div class="pricing-card__name">{t(lang, 'pricing.large.plan')}</div>
-            <div class="pricing-card__subtitle">{t(lang, 'pricing.large.subtitle')}</div>
-          </div>
-          <div class="pricing-card__price-block">
-            <div class="pricing-card__price pricing-card__price--text">
-              <span>{t(lang, 'pricing.large.price')}</span>
-            </div>
-            <div class="pricing-card__per">&nbsp;</div>
-          </div>
-        </header>
+      <article class="plan plan--enterprise">
+        <div class="plan__name">{t(lang, 'pricing.large.plan')}</div>
+        <div class="plan__meta">{t(lang, 'pricing.large.subtitle')}</div>
+        <div class="plan__quote">{t(lang, 'pricing.large.price')}</div>
 
-        <div class="pricing-card__divider"></div>
+        <div class="plan__divider"></div>
 
-        <ul class="pricing-features">
-          {largeFeatures.map((key) => (
-            <li class="pricing-feature">
-              <span class="pricing-feature__check" set:html={check}></span>
-              <span>{t(lang, key)}</span>
+        <ul class="plan__features">
+          {enterpriseFeatures.map((feat) => (
+            <li>
+              <Icon name={feat.icon} size={19} />
+              {t(lang, feat.key)}
             </li>
           ))}
         </ul>
 
         <a
-          class="btn btn--ghost btn--md pricing-card__cta"
-          href={bookHref}
-          data-link-fr="/fr#rdv"
-          data-link-en="/en#rdv"
+          class="btn btn--onDark btn--block plan__cta"
+          href="#rdv"
           data-track-id="pricing_large_contact"
-          data-track-type="demo"
-          data-track-section="pricing">
-          {t(lang, 'pricing.contact_us')}
-        </a>
+          data-track-type="contact"
+          data-track-section="pricing">{t(lang, 'pricing.contact_us')}</a
+        >
       </article>
     </div>
 
-    <p class="pricing-billing-note" id="pricing-billing-note" style="margin-top:20px;text-align:center">
-      {t(lang, 'pricing.billing.note.monthly')}
-    </p>
-
-    <p class="pricing-note" style="margin-top:8px">{t(lang, 'pricing.note')}</p>
+    <p class="pricing__note" id="billing-note">{t(lang, 'pricing.billing.note.monthly')}</p>
   </div>
 </section>
-
-<style>
-  .pricing-cards--duo {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 760px;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: stretch;
-  }
-  .pricing-cards--duo .pricing-card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  .pricing-cards--duo .pricing-card__cta {
-    margin-top: auto;
-  }
-  #pricing-billing-toggle {
-    display: flex;
-    width: fit-content;
-    margin: 22px auto 0;
-  }
-  @media (max-width: 720px) {
-    .pricing-cards--duo {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

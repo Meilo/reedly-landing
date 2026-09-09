@@ -55,8 +55,8 @@ export default defineConfig({
       sidebar: [{ label: 'Integrations', items: [{ label: 'Webhooks', slug: 'docs/webhooks' }] }],
       pagination: false,
       components: {
-        // reedly.ai is dark-only; these two force the docs to match instead of
-        // following the OS preference. See the files for the full reasoning.
+        // The docs keep their own dark surface (the marketing site is light-only);
+        // these two pin it instead of following the OS preference.
         ThemeProvider: './src/components/starlight/ThemeProvider.astro',
         ThemeSelect: './src/components/starlight/ThemeSelect.astro',
       },

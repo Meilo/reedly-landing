@@ -1,0 +1,69 @@
+---
+// Testimonial carousel. The track renders [last, ...real, first] so paging past
+// either end lands on a clone, then snaps back without a visible bounce
+// (public/main.js owns the transition).
+import { getLang, t } from '@/lib/i18n';
+import Icon from '@/components/Icon.astro';
+
+const lang = getLang(Astro.url.pathname);
+
+const testimonials = [1, 2, 3, 4].map((i) => ({
+  quote: t(lang, `tm.q${i}`),
+  name: t(lang, `tm.n${i}`),
+  role: t(lang, `tm.r${i}`),
+}));
+
+// Clones on both ends make the loop seamless.
+const slides = [testimonials[testimonials.length - 1], ...testimonials, testimonials[0]];
+---
+
+<section class="section" id="temoignages">
+  <div class="inner">
+    <div class="tm__head reveal">
+      <div class="tm__stars" aria-hidden="true">
+        {Array.from({ length: 5 }).map(() => (
+          <Icon name="star" size={18} />
+        ))}
+      </div>
+      <h2 class="display display--lg" set:html={t(lang, 'tm.title')} />
+    </div>
+
+    <div class="tm__carousel reveal" id="testimonials" data-count={testimonials.length}>
+      <div class="tm__stage">
+        <div class="tm__border">
+          <div class="tm__viewport">
+            <div class="tm__track" id="tm-track" style="transform:translateX(-100%)">
+              {slides.map((s) => (
+                <div class="tm__slide">
+                  <p class="tm__quote">{s.quote}</p>
+                  <div class="tm__author">
+                    <div class="tm__name">{s.name}</div>
+                    <div class="tm__role">{s.role}</div>
+                    <div class="tm__author-stars" aria-hidden="true">
+                      {Array.from({ length: 5 }).map(() => (
+                        <Icon name="star" size={14} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <button class="tm__arrow tm__arrow--prev" type="button" id="tm-prev" aria-label={t(lang, 'tm.prev')}>
+          <Icon name="arrow-left" size={18} />
+        </button>
+        <button class="tm__arrow tm__arrow--next" type="button" id="tm-next" aria-label={t(lang, 'tm.next')}>
+          <Icon name="arrow-right" size={18} />
+        </button>
+      </div>
+
+      <div class="tm__dots" id="tm-dots">
+        {testimonials.map((_, i) => (
+          <button type="button" class={i === 0 ? 'is-active' : ''} data-index={i} aria-label={`${i + 1}`}></button>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,96 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Nav from '@/components/Nav.astro';
+import LegalPage from '@/components/LegalPage.astro';
+import Footer from '@/components/Footer.astro';
+
+const sections = [
+  {
+    id: 'editeur',
+    title: 'Site publisher',
+    paragraphs: ['The reedly.ai website and the Reedly application are published by <b>LEL Studio</b>.'],
+    list: [
+      'Registered office: 4 passage Saint-Jacques, 83210 Solliès-Pont, France',
+      'SIREN: 852 099 191',
+      'EU VAT number: FR34852099191',
+      'Email: support@reedly.ai',
+      'Phone: +33 6 01 14 75 68',
+    ],
+  },
+  {
+    id: 'publication',
+    title: 'Publication director',
+    paragraphs: ['The publication director is <b>Ludovic E.</b>, reachable at support@reedly.ai.'],
+  },
+  {
+    id: 'hebergement',
+    title: 'Hosting',
+    paragraphs: [
+      'The website is hosted by <b>Vercel Inc.</b>, 340 S Lemon Ave #4133, Walnut, CA 91789, United States — vercel.com.',
+      "Reedly's application data is hosted by <b>Supabase</b> on AWS infrastructure located in the European Union.",
+    ],
+  },
+  {
+    id: 'propriete',
+    title: 'Intellectual property',
+    paragraphs: [
+      'Every element of the website and the application, the Reedly brand, logo, copy, interfaces, illustrations and code, is protected by intellectual property law and remains the exclusive property of LEL Studio.',
+      'Any reproduction, representation, adaptation or exploitation, in whole or in part, without prior written permission is prohibited.',
+    ],
+  },
+  {
+    id: 'responsabilite',
+    title: 'Liability',
+    paragraphs: [
+      'LEL Studio works to keep the published information accurate and current, without guaranteeing that it is free of errors or omissions.',
+      'The site may contain links to third-party sites, over whose content LEL Studio exercises no control and accepts no liability.',
+    ],
+  },
+  {
+    id: 'donnees',
+    title: 'Personal data',
+    paragraphs: [
+      'Personal data processing is described in the <a href="/en/privacy-policy">Privacy Policy</a>, which sets out the data collected, its purposes, the sub-processors and your rights.',
+      'For any request about your data: support@reedly.ai. A Data Processing Agreement (DPA) is available on request.',
+    ],
+  },
+  {
+    id: 'cookies',
+    title: 'Cookies',
+    paragraphs: [
+      'The use of cookies and trackers is detailed in the <a href="/en/cookie-policy">Cookie Policy</a>. You can withdraw your consent at any time from the cookie banner.',
+    ],
+  },
+  {
+    id: 'droit',
+    title: 'Governing law',
+    paragraphs: [
+      'This legal notice is governed by French law. In the event of a dispute, and failing an amicable resolution, the French courts have sole jurisdiction.',
+    ],
+  },
+  {
+    id: 'contact',
+    title: 'Contact',
+    paragraphs: ['For any question about the website or the application: support@reedly.ai.'],
+  },
+];
+---
+
+<Layout
+  title="Legal Notice · Reedly"
+  description="Publisher, publication director, hosting, intellectual property and governing law for the reedly.ai website and the Reedly application."
+  lang="en"
+  hreflang={{ fr: '/fr/mentions-legales', en: '/en/legal-notice' }}
+>
+  <Nav altHref="/fr/mentions-legales" />
+  <main>
+    <LegalPage
+      title="Legal Notice"
+      lastUpdated="Last updated: 9 September 2026"
+      sections={sections}
+      lang="en"
+    />
+  </main>
+  <Footer />
+  <script src="/main.js" is:inline></script>
+</Layout>

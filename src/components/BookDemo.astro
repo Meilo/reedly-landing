@@ -1,73 +1,61 @@
 ---
-// Book a demo (block 6), qualifying form + calendar embed placeholder.
-// Front-only for now: no POST, the submit reveals a calendar placeholder to wire
-// to Cal.com / Calendly later.
+import Icon from '@/components/Icon.astro';
+// Book a demo: qualifying form, then the native slot picker.
+// Availability comes from /api/availability (Google FreeBusy minus booked
+// slots); /api/book creates the Meet event. The inline script below reads its
+// UI strings from the JSON island so it never needs a second dictionary.
 import { getLang, t } from '@/lib/i18n';
 
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const lang = getLang(path);
+const lang = getLang(Astro.url.pathname);
+
+const roles = [
+  ['head_of_sales', 'bookdemo.role.director'],
+  ['founder_ceo', 'bookdemo.role.owner'],
+  ['sales_rep', 'bookdemo.role.rep'],
+  ['other', 'bookdemo.role.other'],
+] as const;
+
+const sectors = [
+  ['tour_operateur', 'bookdemo.sector.to'],
+  ['agence_voyages', 'bookdemo.sector.agency'],
+  ['receptif_dmc', 'bookdemo.sector.dmc'],
+  ['mice', 'bookdemo.sector.mice'],
+  ['transport', 'bookdemo.sector.transport'],
+  ['croisiere', 'bookdemo.sector.cruise'],
+  ['hotellerie', 'bookdemo.sector.hospitality'],
+  ['loisirs', 'bookdemo.sector.leisure'],
+  ['other', 'bookdemo.sector.other'],
+] as const;
+
+const teamSizes = ['1', '2-5', '6-15', '16+'] as const;
+
+const strings = {
+  loading: t(lang, 'bookdemo.cal.loading'),
+  empty: t(lang, 'bookdemo.cal.empty'),
+  error: t(lang, 'bookdemo.cal.error'),
+  slot_taken: t(lang, 'bookdemo.cal.slot_taken'),
+  booking: t(lang, 'bookdemo.cal.booking'),
+  confirm: t(lang, 'bookdemo.cal.confirm'),
+  back: t(lang, 'bookdemo.cal.back'),
+  back_form: t(lang, 'bookdemo.cal.back_form'),
+  pickday: t(lang, 'bookdemo.cal.pickday'),
+  pickslot: t(lang, 'bookdemo.cal.pickslot'),
+};
 ---
 
-<!-- ── Book a demo ── -->
-<section class="section section--alt" id="rdv">
-  <div class="inner">
-    <div class="reveal">
-      <div class="section__eyebrow">{t(lang, 'bookdemo.eyebrow')}</div>
-      <h2 set:html={t(lang, 'bookdemo.title')} />
-      <p class="section__lead">{t(lang, 'bookdemo.lead')}</p>
+<section class="section section--white" id="rdv">
+  <div class="inner book__inner">
+    <div class="book__head reveal center-mobile">
+      <h2 class="display display--lg" set:html={t(lang, 'bookdemo.title')} />
+      <p class="lead">{t(lang, 'bookdemo.lead')}</p>
     </div>
 
-    <div class="contact__grid">
-      <!-- Left: value / reassurance -->
-      <div class="bookdemo__intro reveal">
-        <p class="bookdemo__text">{t(lang, 'bookdemo.intro')}</p>
-      </div>
-
-      <!-- Right: qualifying form -->
-      <div class="contact__form-card reveal">
-        <form id="bookdemo-form" novalidate>
-          <div class="form__field">
-            <label class="form__label" for="bd-role">{t(lang, 'bookdemo.role.label')}</label>
-            <select class="form__select" id="bd-role" name="role" required>
-              <option value="" disabled selected>{t(lang, 'bookdemo.role.select')}</option>
-              <option value="head_of_sales">{t(lang, 'bookdemo.role.director')}</option>
-              <option value="founder_ceo">{t(lang, 'bookdemo.role.owner')}</option>
-              <option value="sales_rep">{t(lang, 'bookdemo.role.rep')}</option>
-              <option value="other">{t(lang, 'bookdemo.role.other')}</option>
-            </select>
-          </div>
-
-          <div class="form__field">
-            <label class="form__label" for="bd-team">{t(lang, 'bookdemo.team.label')}</label>
-            <select class="form__select" id="bd-team" name="team_size" required>
-              <option value="" disabled selected>{t(lang, 'bookdemo.team.select')}</option>
-              <option value="1">{t(lang, 'bookdemo.team.1')}</option>
-              <option value="2-5">{t(lang, 'bookdemo.team.2_5')}</option>
-              <option value="6-15">{t(lang, 'bookdemo.team.6_15')}</option>
-              <option value="16+">{t(lang, 'bookdemo.team.16')}</option>
-            </select>
-          </div>
-
-          <div class="form__field">
-            <label class="form__label" for="bd-sector">{t(lang, 'bookdemo.sector.label')}</label>
-            <select class="form__select" id="bd-sector" name="sector">
-              <option value="" disabled selected>{t(lang, 'bookdemo.sector.select')}</option>
-              <option value="tour_operateur">{t(lang, 'bookdemo.sector.to')}</option>
-              <option value="agence_voyages">{t(lang, 'bookdemo.sector.agency')}</option>
-              <option value="receptif_dmc">{t(lang, 'bookdemo.sector.dmc')}</option>
-              <option value="mice">{t(lang, 'bookdemo.sector.mice')}</option>
-              <option value="transport">{t(lang, 'bookdemo.sector.transport')}</option>
-              <option value="croisiere">{t(lang, 'bookdemo.sector.cruise')}</option>
-              <option value="hotellerie">{t(lang, 'bookdemo.sector.hospitality')}</option>
-              <option value="loisirs">{t(lang, 'bookdemo.sector.leisure')}</option>
-              <option value="other">{t(lang, 'bookdemo.sector.other')}</option>
-            </select>
-          </div>
-
-          <div class="form__field">
-            <label class="form__label" for="bd-email">{t(lang, 'bookdemo.email.label')}</label>
+    <div class="book__card reveal">
+      <form id="bookdemo-form" novalidate>
+        <div class="book__row">
+          <label class="book__label" for="bd-email">{t(lang, 'bookdemo.email.label')}</label>
+          <div class="book__field">
             <input
-              class="form__input"
               type="email"
               id="bd-email"
               name="email"
@@ -76,237 +64,249 @@ const lang = getLang(path);
               autocomplete="email"
             />
           </div>
+        </div>
 
+        <div class="book__row">
+          <label class="book__label" for="bd-role">{t(lang, 'bookdemo.role.label')}</label>
+          <div class="book__field">
+            <select id="bd-role" name="role" required>
+              <option value="" disabled selected>{t(lang, 'bookdemo.role.select')}</option>
+              {roles.map(([value, key]) => <option value={value}>{t(lang, key)}</option>)}
+            </select>
+            <span class="book__chevron"><Icon name="chevron-down" size={14} /></span>
+          </div>
+        </div>
+
+        <div class="book__row">
+          <label class="book__label" for="bd-sector">{t(lang, 'bookdemo.sector.label')}</label>
+          <div class="book__field">
+            <select id="bd-sector" name="sector">
+              <option value="" disabled selected>{t(lang, 'bookdemo.sector.select')}</option>
+              {sectors.map(([value, key]) => <option value={value}>{t(lang, key)}</option>)}
+            </select>
+            <span class="book__chevron"><Icon name="chevron-down" size={14} /></span>
+          </div>
+        </div>
+
+        <div class="book__row">
+          <span class="book__label" id="bd-team-label">{t(lang, 'bookdemo.team.label')}</span>
+          <div class="book__chips" role="group" aria-labelledby="bd-team-label">
+            {teamSizes.map((size) => (
+              <button class="book__chip" type="button" data-size={size}>{size}</button>
+            ))}
+          </div>
+          <input type="hidden" id="bd-team" name="team_size" required />
+        </div>
+
+        <div class="book__submit">
           <button
-            class="btn btn--primary form__submit"
+            class="btn btn--ink btn--block"
             type="submit"
-            id="bd-submit"
             data-track-id="bookdemo_submit"
             data-track-type="demo"
             data-track-section="bookdemo"
           >
             {t(lang, 'bookdemo.submit')}
+            <Icon name="arrow-cta" size={16} />
           </button>
+        </div>
+      </form>
 
-          <div class="bookdemo__hint">{t(lang, 'bookdemo.hint')}</div>
+      <!-- Native slot picker, revealed after the qualifying step. -->
+      <div class="book__slots" id="bookdemo-calendar" hidden>
+        <button type="button" class="back-link" id="cal-back-top">{t(lang, 'bookdemo.cal.back_form')}</button>
+        <p class="book__feedback" id="cal-tznote">{t(lang, 'bookdemo.cal.tznote')}</p>
+        <p class="book__feedback" id="cal-status">{t(lang, 'bookdemo.cal.loading')}</p>
+
+        <div id="cal-grid" hidden>
+          <div class="book__days" id="cal-days"></div>
+          <div class="book__times" id="cal-slots"></div>
+        </div>
+
+        <form id="cal-confirm" hidden novalidate>
+          <p class="book__recap" id="cal-recap"></p>
+          <div class="book__row">
+            <label class="book__label" for="cal-name">{t(lang, 'bookdemo.cal.name')}</label>
+            <div class="book__field">
+              <input type="text" id="cal-name" name="name" required autocomplete="name" />
+            </div>
+          </div>
+          <div class="book__row">
+            <label class="book__label" for="cal-note">{t(lang, 'bookdemo.cal.note')}</label>
+            <div class="book__field">
+              <input type="text" id="cal-note" name="note" required />
+            </div>
+          </div>
+          <input
+            type="text"
+            id="cal-hp"
+            name="company_website"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+            style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"
+          />
+          <div class="book__submit">
+            <button class="btn btn--primary btn--block" type="submit" id="cal-submit"
+              >{t(lang, 'bookdemo.cal.confirm')}</button
+            >
+            <p class="book__feedback book__feedback--error" id="cal-confirm-err" hidden></p>
+          </div>
         </form>
 
-        <!-- Native booking calendar, revealed after the qualifying step. -->
-        <div class="bookdemo__calendar" id="bookdemo-calendar" hidden>
-          <button type="button" class="bookdemo__cal-back bookdemo__cal-back--top" id="cal-back-top">{t(lang, 'bookdemo.cal.back_form')}</button>
-          <p class="bookdemo__cal-tznote" id="cal-tznote">{t(lang, 'bookdemo.cal.tznote')}</p>
-
-          <div class="bookdemo__cal-status" id="cal-status">{t(lang, 'bookdemo.cal.loading')}</div>
-
-          <div class="bookdemo__cal-grid" id="cal-grid" hidden>
-            <div class="bookdemo__cal-col">
-              <div class="bookdemo__cal-label">{t(lang, 'bookdemo.cal.pickday')}</div>
-              <div class="bookdemo__cal-days" id="cal-days"></div>
-            </div>
-            <div class="bookdemo__cal-col">
-              <div class="bookdemo__cal-label">{t(lang, 'bookdemo.cal.pickslot')}</div>
-              <div class="bookdemo__cal-slots" id="cal-slots"></div>
-            </div>
-          </div>
-
-          <form class="bookdemo__cal-confirm" id="cal-confirm" hidden novalidate>
-            <div class="bookdemo__cal-recap" id="cal-recap"></div>
-            <input type="text" class="form__input" id="cal-name" name="name" required
-              placeholder={t(lang, 'bookdemo.cal.name')} autocomplete="name" />
-            <textarea class="form__textarea bookdemo__cal-note" id="cal-note" name="note" rows="3" required
-              placeholder={t(lang, 'bookdemo.cal.note')}></textarea>
-            <input type="text" id="cal-hp" name="company_website" tabindex="-1" autocomplete="off"
-              aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
-            <div class="bookdemo__cal-actions">
-              <button type="submit" class="btn btn--primary btn--md" id="cal-submit">{t(lang, 'bookdemo.cal.confirm')}</button>
-            </div>
-            <div class="bookdemo__cal-err" id="cal-confirm-err" hidden></div>
-          </form>
-
-          <div class="bookdemo__cal-success" id="cal-success" hidden>
-            <div class="bookdemo__cal-success-icon">✓</div>
-            <h3>{t(lang, 'bookdemo.cal.success_title')}</h3>
-            <p id="cal-success-when"></p>
-            <p>{t(lang, 'bookdemo.cal.success_body')}</p>
-            <a class="btn btn--primary btn--md" id="cal-meet" href="#" target="_blank" rel="noopener">{t(lang, 'bookdemo.cal.meet')}</a>
-          </div>
+        <div id="cal-success" hidden>
+          <p class="book__recap">{t(lang, 'bookdemo.cal.success_title')}</p>
+          <p class="book__feedback" id="cal-success-when"></p>
+          <p class="book__feedback">{t(lang, 'bookdemo.cal.success_body')}</p>
+          <a class="btn btn--primary" id="cal-meet" href="#" target="_blank" rel="noopener"
+            >{t(lang, 'bookdemo.cal.meet')}</a
+          >
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<script type="application/json" id="bd-i18n" is:inline set:html={JSON.stringify(strings)} />
+
 <style>
-  .bookdemo__intro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .book__chevron {
+    position: absolute;
+    right: 0;
+    pointer-events: none;
+    color: var(--faint);
   }
-  .bookdemo__text {
-    color: var(--muted);
-    font-size: 1rem;
-    line-height: 1.7;
-    margin: 0 0 18px;
-  }
-  /* lift the global 22ch cap so "ce que vos agences vous disent vraiment."
-     stays on one line (wraps only on small phones) */
-  #rdv h2 { max-width: none; }
-  .bookdemo__hint {
-    text-align: center;
-    font-size: 0.78rem;
-    color: var(--muted);
-    margin-top: 12px;
-  }
-  .bookdemo__calendar {
-    margin-top: 20px;
-  }
-  /* Ensure the [hidden] attribute wins over the explicit display rules below. */
-  .bookdemo__calendar [hidden] { display: none !important; }
-  .bookdemo__cal-back--top { display: inline-block; margin-bottom: 8px; }
-  .bookdemo__cal-tznote { font-size: 0.78rem; color: var(--muted); margin: 0 0 14px; }
-  .bookdemo__cal-status { padding: 28px; text-align: center; color: var(--muted); font-family: var(--mono); font-size: 0.85rem; }
-  .bookdemo__cal-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 18px; }
-  @media (max-width: 640px) { .bookdemo__cal-grid { grid-template-columns: 1fr; } }
-  .bookdemo__cal-label { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px; }
-  .bookdemo__cal-days { display: flex; flex-direction: column; gap: 6px; max-height: 320px; overflow-y: auto; padding-right: 4px; }
-  .bookdemo__cal-slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)); gap: 8px; align-content: start; max-height: 320px; overflow-y: auto; padding-right: 4px; }
-  /* Day/slot buttons are created in JS, so they miss Astro's scope attribute.
-     Anchor to the scoped container and target the dynamic children with :global(). */
-  .bookdemo__calendar :global(.bookdemo__cal-day),
-  .bookdemo__calendar :global(.bookdemo__cal-slot) {
-    padding: 10px 12px;
-    border: 1px solid var(--border);
-    border-radius: 9px;
-    background: rgba(255, 255, 255, 0.025);
-    color: var(--text);
-    font-size: 0.9rem;
-    font-family: var(--sans);
-    cursor: pointer;
-    text-align: center;
-    transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, transform 0.1s ease;
-  }
-  .bookdemo__calendar :global(.bookdemo__cal-day) { text-align: left; }
-  .bookdemo__calendar :global(.bookdemo__cal-slot) {
-    font-family: var(--mono);
-    font-variant-numeric: tabular-nums;
-    letter-spacing: 0.02em;
-    color: var(--green);
-  }
-  .bookdemo__calendar :global(.bookdemo__cal-day):hover,
-  .bookdemo__calendar :global(.bookdemo__cal-slot):hover {
-    border-color: var(--green);
-    background: rgba(34, 197, 94, 0.1);
-    color: var(--text);
-  }
-  .bookdemo__calendar :global(.bookdemo__cal-slot):hover { color: var(--green); }
-  .bookdemo__calendar :global(.bookdemo__cal-day):active,
-  .bookdemo__calendar :global(.bookdemo__cal-slot):active { transform: translateY(1px); }
-  .bookdemo__calendar :global(.bookdemo__cal-day):focus-visible,
-  .bookdemo__calendar :global(.bookdemo__cal-slot):focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
-  .bookdemo__calendar :global(.bookdemo__cal-day[aria-selected="true"]) {
-    border-color: var(--green);
-    background: rgba(34, 197, 94, 0.14);
-    color: var(--text);
+  .book__recap {
+    margin: 22px 0 0;
+    padding: 0 var(--pad);
+    font-size: 1.05rem;
     font-weight: 600;
   }
-  .bookdemo__cal-days::-webkit-scrollbar, .bookdemo__cal-slots::-webkit-scrollbar { width: 6px; }
-  .bookdemo__cal-days::-webkit-scrollbar-thumb, .bookdemo__cal-slots::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-  .bookdemo__cal-confirm { display: flex; flex-direction: column; gap: 12px; }
-  .bookdemo__cal-note { min-height: 78px; }
-  .bookdemo__cal-recap { font-size: 1.05rem; color: var(--text); font-weight: 600; }
-  .bookdemo__cal-recap::first-letter { text-transform: uppercase; }
-  .bookdemo__cal-actions { display: flex; gap: 12px; justify-content: flex-end; align-items: center; flex-wrap: wrap; margin-top: 4px; }
-  .bookdemo__cal-back { background: none; border: none; padding: 6px 2px; color: var(--muted); font-size: 0.88rem; font-family: var(--sans); cursor: pointer; transition: color 0.15s ease; }
-  .bookdemo__cal-back:hover { color: var(--text); }
-  .bookdemo__cal-back:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
-  .bookdemo__cal-err { color: var(--red); font-size: 0.85rem; }
-  .bookdemo__cal-success { text-align: center; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-  .bookdemo__cal-success-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(34,197,94,0.15); color: var(--green); display: grid; place-items: center; font-size: 1.4rem; }
+  .book__recap::first-letter {
+    text-transform: uppercase;
+  }
+  #cal-success {
+    padding-bottom: 8px;
+    text-align: center;
+  }
+  #bookdemo-calendar[hidden],
+  #bookdemo-calendar [hidden] {
+    display: none !important;
+  }
 </style>
 
 <script is:inline>
   (function () {
-    var form = document.getElementById("bookdemo-form");
-    var calendar = document.getElementById("bookdemo-calendar");
+    var form = document.getElementById('bookdemo-form');
+    var calendar = document.getElementById('bookdemo-calendar');
     if (!form || !calendar) return;
 
-    var lang = location.pathname.indexOf("/en") === 0 ? "en" : "fr";
-    var locale = lang === "fr" ? "fr-FR" : "en-US";
+    var lang = location.pathname.indexOf('/en') === 0 ? 'en' : 'fr';
+    var locale = lang === 'fr' ? 'fr-FR' : 'en-US';
+    var S = {};
+    try {
+      S = JSON.parse(document.getElementById('bd-i18n').textContent);
+    } catch (e) {}
     function tr(key) {
-      try { return (window._reedlyT && window._reedlyT[lang] && window._reedlyT[lang][key]) || key; }
-      catch (e) { return key; }
+      return S[key] || key;
     }
 
-    var statusEl = document.getElementById("cal-status");
-    var gridEl = document.getElementById("cal-grid");
-    var daysEl = document.getElementById("cal-days");
-    var slotsEl = document.getElementById("cal-slots");
-    var confirmEl = document.getElementById("cal-confirm");
-    var recapEl = document.getElementById("cal-recap");
-    var successEl = document.getElementById("cal-success");
-    var confirmErr = document.getElementById("cal-confirm-err");
-    var backTopEl = document.getElementById("cal-back-top");
-    var tznoteEl = document.getElementById("cal-tznote");
-    var backMode = "form";
+    var statusEl = document.getElementById('cal-status');
+    var gridEl = document.getElementById('cal-grid');
+    var daysEl = document.getElementById('cal-days');
+    var slotsEl = document.getElementById('cal-slots');
+    var confirmEl = document.getElementById('cal-confirm');
+    var recapEl = document.getElementById('cal-recap');
+    var successEl = document.getElementById('cal-success');
+    var confirmErr = document.getElementById('cal-confirm-err');
+    var backTopEl = document.getElementById('cal-back-top');
+    var tznoteEl = document.getElementById('cal-tznote');
+    var teamInput = document.getElementById('bd-team');
+    var backMode = 'form';
     var selectedSlot = null;
 
-    function show(el) { el.removeAttribute("hidden"); }
-    function hide(el) { el.setAttribute("hidden", ""); }
+    function show(el) { el.removeAttribute('hidden'); }
+    function hide(el) { el.setAttribute('hidden', ''); }
+
+    // Team size is a chip group, so it feeds the hidden input the form validates.
+    form.querySelectorAll('.book__chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        form.querySelectorAll('.book__chip').forEach(function (c) {
+          c.classList.remove('is-active');
+        });
+        chip.classList.add('is-active');
+        teamInput.value = chip.dataset.size;
+      });
+    });
 
     // One top-of-panel back control whose label + action adapt to the step.
     function setBack(mode) {
       backMode = mode;
-      backTopEl.textContent = tr(mode === "grid" ? "bookdemo.cal.back" : "bookdemo.cal.back_form");
+      backTopEl.textContent = tr(mode === 'grid' ? 'back' : 'back_form');
       show(backTopEl);
     }
 
-    form.addEventListener("submit", function (e) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.reportValidity()) return;
       hide(form);
       show(calendar);
-      setBack("form");
+      setBack('form');
       show(tznoteEl);
-      calendar.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      calendar.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       loadAvailability();
       try {
-        if (typeof window.reedlyTrackEvent === "function") {
-          window.reedlyTrackEvent("landing_bookdemo_qualified", {
-            role: (document.getElementById("bd-role") || {}).value || "",
-            team_size: (document.getElementById("bd-team") || {}).value || "",
+        if (typeof window.reedlyTrackEvent === 'function') {
+          window.reedlyTrackEvent('landing_bookdemo_qualified', {
+            role: (document.getElementById('bd-role') || {}).value || '',
+            team_size: teamInput.value || '',
           });
         }
       } catch (err) {}
     });
 
     function loadAvailability() {
-      show(statusEl); statusEl.textContent = tr("bookdemo.cal.loading");
-      hide(gridEl); hide(confirmEl); hide(successEl);
-      fetch("/api/availability")
-        .then(function (r) { if (!r.ok) throw new Error("http"); return r.json(); })
+      show(statusEl);
+      statusEl.textContent = tr('loading');
+      hide(gridEl);
+      hide(confirmEl);
+      hide(successEl);
+      fetch('/api/availability')
+        .then(function (r) {
+          if (!r.ok) throw new Error('http');
+          return r.json();
+        })
         .then(function (data) {
           if (!data.days || data.days.length === 0) {
-            statusEl.textContent = tr("bookdemo.cal.empty");
+            statusEl.textContent = tr('empty');
             return;
           }
-          hide(statusEl); show(gridEl);
+          hide(statusEl);
+          show(gridEl);
           renderDays(data.days);
         })
-        .catch(function () { statusEl.textContent = tr("bookdemo.cal.error"); });
+        .catch(function () {
+          statusEl.textContent = tr('error');
+        });
     }
 
     function renderDays(days) {
-      daysEl.innerHTML = ""; slotsEl.innerHTML = "";
-      var dayFmt = new Intl.DateTimeFormat(locale, { weekday: "long", day: "numeric", month: "long" });
+      daysEl.innerHTML = '';
+      slotsEl.innerHTML = '';
+      var dayFmt = new Intl.DateTimeFormat(locale, { weekday: 'short', day: 'numeric', month: 'short' });
       days.forEach(function (day, i) {
-        var btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "bookdemo__cal-day";
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'book__day' + (i === 0 ? ' is-active' : '');
         btn.textContent = dayFmt.format(new Date(day.slots[0]));
-        btn.setAttribute("aria-selected", i === 0 ? "true" : "false");
-        btn.addEventListener("click", function () {
-          Array.prototype.forEach.call(daysEl.children, function (c) { c.setAttribute("aria-selected", "false"); });
-          btn.setAttribute("aria-selected", "true");
+        btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+        btn.addEventListener('click', function () {
+          Array.prototype.forEach.call(daysEl.children, function (c) {
+            c.setAttribute('aria-selected', 'false');
+            c.classList.remove('is-active');
+          });
+          btn.setAttribute('aria-selected', 'true');
+          btn.classList.add('is-active');
           renderSlots(day.slots);
         });
         daysEl.appendChild(btn);
@@ -315,14 +315,16 @@ const lang = getLang(path);
     }
 
     function renderSlots(slots) {
-      slotsEl.innerHTML = "";
-      var timeFmt = new Intl.DateTimeFormat(locale, { hour: "2-digit", minute: "2-digit" });
+      slotsEl.innerHTML = '';
+      var timeFmt = new Intl.DateTimeFormat(locale, { hour: '2-digit', minute: '2-digit' });
       slots.forEach(function (iso) {
-        var btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "bookdemo__cal-slot";
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'book__time';
         btn.textContent = timeFmt.format(new Date(iso));
-        btn.addEventListener("click", function () { openConfirm(iso); });
+        btn.addEventListener('click', function () {
+          openConfirm(iso);
+        });
         slotsEl.appendChild(btn);
       });
     }
@@ -330,75 +332,115 @@ const lang = getLang(path);
     function openConfirm(iso) {
       selectedSlot = iso;
       var fmt = new Intl.DateTimeFormat(locale, {
-        weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit",
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        hour: '2-digit',
+        minute: '2-digit',
       });
       recapEl.textContent = fmt.format(new Date(iso));
-      hide(confirmErr); confirmErr.textContent = "";
-      hide(gridEl); hide(tznoteEl); setBack("grid"); show(confirmEl);
-      var emailField = document.getElementById("bd-email");
-      confirmEl.dataset.email = emailField ? emailField.value : "";
+      hide(confirmErr);
+      confirmErr.textContent = '';
+      hide(gridEl);
+      hide(tznoteEl);
+      setBack('grid');
+      show(confirmEl);
+      var emailField = document.getElementById('bd-email');
+      confirmEl.dataset.email = emailField ? emailField.value : '';
     }
 
-    backTopEl.addEventListener("click", function () {
-      if (backMode === "grid") {
-        hide(confirmEl); show(tznoteEl); show(gridEl); setBack("form");
+    backTopEl.addEventListener('click', function () {
+      if (backMode === 'grid') {
+        hide(confirmEl);
+        show(tznoteEl);
+        show(gridEl);
+        setBack('form');
       } else {
-        hide(calendar); show(form);
-        form.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        hide(calendar);
+        show(form);
+        form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     });
 
-    confirmEl.addEventListener("submit", function (e) {
+    confirmEl.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!confirmEl.reportValidity()) return;
-      var submitBtn = document.getElementById("cal-submit");
-      var name = document.getElementById("cal-name").value.trim();
-      submitBtn.disabled = true; submitBtn.textContent = tr("bookdemo.cal.booking");
+      var submitBtn = document.getElementById('cal-submit');
+      var name = document.getElementById('cal-name').value.trim();
+      submitBtn.disabled = true;
+      submitBtn.textContent = tr('booking');
       hide(confirmErr);
 
-      fetch("/api/book", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      fetch('/api/book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           start: selectedSlot,
-          email: confirmEl.dataset.email || "",
+          email: confirmEl.dataset.email || '',
           name: name,
-          note: document.getElementById("cal-note").value.trim(),
-          company_website: document.getElementById("cal-hp").value,
-          role: (document.getElementById("bd-role") || {}).value || "",
-          team_size: (document.getElementById("bd-team") || {}).value || "",
-          sector: (document.getElementById("bd-sector") || {}).value || "",
+          note: document.getElementById('cal-note').value.trim(),
+          company_website: document.getElementById('cal-hp').value,
+          role: (document.getElementById('bd-role') || {}).value || '',
+          team_size: teamInput.value || '',
+          sector: (document.getElementById('bd-sector') || {}).value || '',
         }),
       })
-        .then(function (r) { return r.json().then(function (b) { return { ok: r.ok, status: r.status, body: b }; }); })
+        .then(function (r) {
+          return r.json().then(function (b) {
+            return { ok: r.ok, status: r.status, body: b };
+          });
+        })
         .then(function (res) {
-          submitBtn.disabled = false; submitBtn.textContent = tr("bookdemo.cal.confirm");
+          submitBtn.disabled = false;
+          submitBtn.textContent = tr('confirm');
           if (res.ok) {
             showSuccess(res.body);
           } else if (res.status === 409) {
-            show(confirmErr); confirmErr.textContent = tr("bookdemo.cal.slot_taken");
-            hide(confirmEl); show(tznoteEl); show(gridEl); setBack("form"); loadAvailability();
+            show(confirmErr);
+            confirmErr.textContent = tr('slot_taken');
+            hide(confirmEl);
+            show(tznoteEl);
+            show(gridEl);
+            setBack('form');
+            loadAvailability();
           } else {
-            show(confirmErr); confirmErr.textContent = tr("bookdemo.cal.error");
+            show(confirmErr);
+            confirmErr.textContent = tr('error');
           }
         })
         .catch(function () {
-          submitBtn.disabled = false; submitBtn.textContent = tr("bookdemo.cal.confirm");
-          show(confirmErr); confirmErr.textContent = tr("bookdemo.cal.error");
+          submitBtn.disabled = false;
+          submitBtn.textContent = tr('confirm');
+          show(confirmErr);
+          confirmErr.textContent = tr('error');
         });
     });
 
     function showSuccess(body) {
-      hide(confirmEl); hide(gridEl); hide(statusEl); hide(tznoteEl); hide(backTopEl); show(successEl);
+      hide(confirmEl);
+      hide(gridEl);
+      hide(statusEl);
+      hide(tznoteEl);
+      hide(backTopEl);
+      show(successEl);
       var fmt = new Intl.DateTimeFormat(locale, {
-        weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit",
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        hour: '2-digit',
+        minute: '2-digit',
       });
-      document.getElementById("cal-success-when").textContent = fmt.format(new Date(body.start));
-      var meet = document.getElementById("cal-meet");
-      if (body.meetLink) { meet.href = body.meetLink; show(meet); } else { hide(meet); }
+      document.getElementById('cal-success-when').textContent = fmt.format(new Date(body.start));
+      var meet = document.getElementById('cal-meet');
+      if (body.meetLink) {
+        meet.href = body.meetLink;
+        show(meet);
+      } else {
+        hide(meet);
+      }
       try {
-        if (typeof window.reedlyTrackEvent === "function") {
-          window.reedlyTrackEvent("landing_bookdemo_booked", { start: body.start });
+        if (typeof window.reedlyTrackEvent === 'function') {
+          window.reedlyTrackEvent('landing_bookdemo_booked', { start: body.start });
         }
       } catch (err) {}
     }

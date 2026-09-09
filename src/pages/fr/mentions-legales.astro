@@ -1,0 +1,96 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Nav from '@/components/Nav.astro';
+import LegalPage from '@/components/LegalPage.astro';
+import Footer from '@/components/Footer.astro';
+
+const sections = [
+  {
+    id: 'editeur',
+    title: 'Éditeur du site',
+    paragraphs: ["Le site reedly.ai et l'application Reedly sont édités par <b>LEL Studio</b>."],
+    list: [
+      'Siège social : 4 passage Saint-Jacques, 83210 Solliès-Pont, France',
+      'SIREN : 852 099 191',
+      'Numéro de TVA intracommunautaire : FR34852099191',
+      'Email : support@reedly.ai',
+      'Téléphone : +33 6 01 14 75 68',
+    ],
+  },
+  {
+    id: 'publication',
+    title: 'Directeur de la publication',
+    paragraphs: ['Le directeur de la publication est <b>Ludovic E.</b>, joignable à support@reedly.ai.'],
+  },
+  {
+    id: 'hebergement',
+    title: 'Hébergement',
+    paragraphs: [
+      'Le site est hébergé par <b>Vercel Inc.</b>, 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis — vercel.com.',
+      "Les données applicatives de Reedly sont hébergées par <b>Supabase</b> sur une infrastructure AWS située dans l'Union européenne.",
+    ],
+  },
+  {
+    id: 'propriete',
+    title: 'Propriété intellectuelle',
+    paragraphs: [
+      "L'ensemble des éléments du site et de l'application, marque Reedly, logo, textes, interfaces, illustrations, code, est protégé par le droit de la propriété intellectuelle et demeure la propriété exclusive de LEL Studio.",
+      'Toute reproduction, représentation, adaptation ou exploitation, totale ou partielle, sans autorisation écrite préalable est interdite.',
+    ],
+  },
+  {
+    id: 'responsabilite',
+    title: 'Responsabilité',
+    paragraphs: [
+      "LEL Studio s'efforce de maintenir les informations publiées exactes et à jour, sans garantir qu'elles soient exemptes d'erreurs ou d'omissions.",
+      "Le site peut contenir des liens vers des sites tiers, sur le contenu desquels LEL Studio n'exerce aucun contrôle et n'engage aucune responsabilité.",
+    ],
+  },
+  {
+    id: 'donnees',
+    title: 'Données personnelles',
+    paragraphs: [
+      'Le traitement des données personnelles est décrit dans la <a href="/fr/confidentialite">Politique de confidentialité</a>, qui précise les données collectées, leurs finalités, les sous-traitants et vos droits.',
+      'Pour toute demande relative à vos données : support@reedly.ai. Un accord de traitement des données (DPA) est disponible sur demande.',
+    ],
+  },
+  {
+    id: 'cookies',
+    title: 'Cookies',
+    paragraphs: [
+      "L'usage des cookies et traceurs est détaillé dans la <a href=\"/fr/cookies\">Politique de cookies</a>. Vous pouvez retirer votre consentement à tout moment depuis le bandeau de gestion des cookies.",
+    ],
+  },
+  {
+    id: 'droit',
+    title: 'Droit applicable',
+    paragraphs: [
+      'Les présentes mentions légales sont régies par le droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux français sont seuls compétents.',
+    ],
+  },
+  {
+    id: 'contact',
+    title: 'Contact',
+    paragraphs: ["Pour toute question concernant le site ou l'application : support@reedly.ai."],
+  },
+];
+---
+
+<Layout
+  title="Mentions légales · Reedly"
+  description="Éditeur, directeur de la publication, hébergement, propriété intellectuelle et droit applicable du site reedly.ai et de l'application Reedly."
+  lang="fr"
+  hreflang={{ fr: '/fr/mentions-legales', en: '/en/legal-notice' }}
+>
+  <Nav altHref="/en/legal-notice" />
+  <main>
+    <LegalPage
+      title="Mentions légales"
+      lastUpdated="Dernière mise à jour : 9 septembre 2026"
+      sections={sections}
+      lang="fr"
+    />
+  </main>
+  <Footer />
+  <script src="/main.js" is:inline></script>
+</Layout>

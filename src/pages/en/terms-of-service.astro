@@ -1,16 +1,19 @@
 ---
-import Footer from '@/components/Footer.astro';
-import LegalPage from '@/components/LegalPage.astro';
 import Layout from '@/layouts/Layout.astro';
+import Nav from '@/components/Nav.astro';
+import LegalPage from '@/components/LegalPage.astro';
+import Footer from '@/components/Footer.astro';
 
 const sections = [
   {
+    id: 'acceptation',
     title: 'Acceptance of Terms',
     paragraphs: [
       'By downloading, installing, or using the Reedly mobile application (the "App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.',
     ],
   },
   {
+    id: 'service',
     title: 'Description of Service',
     paragraphs: [
       'Reedly is a mobile application that allows business professionals to record meetings, automatically generate structured reports using artificial intelligence, and create periodic syntheses from those reports.',
@@ -18,8 +21,9 @@ const sections = [
     ],
   },
   {
+    id: 'comptes',
     title: 'User Accounts',
-    paragraphs: [
+    list: [
       'You must create an account to use the App. You are responsible for maintaining the confidentiality of your account credentials.',
       'You must provide accurate and complete information when creating your account.',
       'You must be at least 13 years old to use the App.',
@@ -27,12 +31,21 @@ const sections = [
     ],
   },
   {
+    id: 'usage-acceptable',
     title: 'Acceptable Use',
     paragraphs: [
-      'You agree to use the App only for lawful purposes and in accordance with these Terms. You must not:\n\n• Record conversations without the consent of all participants where required by law\n• Use the App to collect or store sensitive personal data about third parties without their consent\n• Attempt to interfere with the proper functioning of the App\n• Use the App for any illegal or unauthorized purpose\n• Share your account credentials with others',
+      'You agree to use the App only for lawful purposes and in accordance with these Terms. You must not:',
+    ],
+    list: [
+      'Record conversations without the consent of all participants where required by law',
+      'Use the App to collect or store sensitive personal data about third parties without their consent',
+      'Attempt to interfere with the proper functioning of the App',
+      'Use the App for any illegal or unauthorized purpose',
+      'Share your account credentials with others',
     ],
   },
   {
+    id: 'propriete',
     title: 'Intellectual Property',
     paragraphs: [
       'The App and its original content (excluding user-generated content), features, and functionality are owned by Reedly and are protected by international copyright, trademark, and other intellectual property laws.',
@@ -40,6 +53,7 @@ const sections = [
     ],
   },
   {
+    id: 'contenu',
     title: 'User Content',
     paragraphs: [
       'You retain ownership of all content you create through the App, including recordings, reports, and syntheses.',
@@ -48,12 +62,14 @@ const sections = [
     ],
   },
   {
+    id: 'usage-illimite',
     title: 'Unlimited usage',
     paragraphs: [
       'The Pro Team and Team Premium plans include unlimited reports, syntheses and Max assistant interactions, subject to normal, good-faith professional use. Reedly reserves the right to limit, suspend or adjust the plan of any account showing manifestly abnormal, automated, fraudulent or non-human usage (e.g. script-generated recordings, account sharing, volumes unrelated to genuine sales activity). Where applicable, Reedly will contact the account holder to agree on a suitable plan before applying any restriction.',
     ],
   },
   {
+    id: 'abonnements',
     title: 'Subscriptions and Payments',
     paragraphs: [
       'Some features of the App may require a paid subscription. Subscriptions are managed through the App Store (iOS) or Google Play Store (Android).',
@@ -62,6 +78,7 @@ const sections = [
     ],
   },
   {
+    id: 'avertissement',
     title: 'Disclaimer',
     paragraphs: [
       'The App is provided "as is" and "as available" without warranties of any kind.',
@@ -70,6 +87,7 @@ const sections = [
     ],
   },
   {
+    id: 'responsabilite',
     title: 'Limitation of Liability',
     paragraphs: [
       'To the maximum extent permitted by law, Reedly shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the App.',
@@ -77,6 +95,7 @@ const sections = [
     ],
   },
   {
+    id: 'resiliation',
     title: 'Termination',
     paragraphs: [
       'We may terminate or suspend your account at any time, without prior notice, for conduct that we believe violates these Terms or is harmful to other users or us.',
@@ -84,6 +103,7 @@ const sections = [
     ],
   },
   {
+    id: 'modifications',
     title: 'Changes to Terms',
     paragraphs: [
       'We reserve the right to modify these Terms at any time. We will notify users of material changes through the App or by email.',
@@ -91,26 +111,35 @@ const sections = [
     ],
   },
   {
+    id: 'droit',
     title: 'Governing Law',
     paragraphs: [
       'These Terms shall be governed by and construed in accordance with the laws of France, without regard to its conflict of law provisions.',
     ],
   },
   {
+    id: 'contact',
     title: 'Contact Us',
-    paragraphs: ['If you have questions about these Terms, contact us at:\n\nsupport@reedly.ai'],
+    paragraphs: ['For any question about these Terms, contact us at support@reedly.ai.'],
   },
 ];
 ---
 
-<Layout title="Terms of Service | Reedly" description="Reedly Terms of Service" lang="en" hreflang={{ fr: '/fr/cgu', en: '/en/terms-of-service' }}>
-  <LegalPage
-    title="Terms of Service"
-    lastUpdated="Last updated: February 18, 2026"
-    backLabel="← Back to homepage"
-    backHref="/en"
-    kicker="Legal information"
-    sections={sections}
-  />
-  <Footer lang="en" privacyHref="/privacy-policy" termsHref="/terms-of-service" contactHref="/#contact" />
+<Layout
+  title="Terms of Service · Reedly"
+  description="Reedly's terms of service: account, acceptable use, content ownership, subscriptions, liability and governing law."
+  lang="en"
+  hreflang={{ fr: '/fr/cgu', en: '/en/terms-of-service' }}
+>
+  <Nav altHref="/fr/cgu" />
+  <main>
+    <LegalPage
+      title="Terms of Service"
+      lastUpdated="Last updated: 18 February 2026"
+      sections={sections}
+      lang="en"
+    />
+  </main>
+  <Footer />
+  <script src="/main.js" is:inline></script>
 </Layout>
