@@ -22,6 +22,17 @@ const HERO: Record<string, FeatureImage> = {
   },
 };
 
+// Backdrop of the "who uses it" role panel. The canvas does not reuse the hero
+// photo here.
+const ROLES: Record<string, FeatureImage> = {
+  'manager-hub': {
+    src: '/images/rep-transcribing.webp',
+    altFr: 'Directrice commerciale dans son bureau',
+    altEn: 'Sales director in her office',
+    objectPosition: '70% 18%',
+  },
+};
+
 const USE_CASES: FeatureImage[] = [
   {
     src: '/images/field-rep.webp',
@@ -49,6 +60,15 @@ const FALLBACK = HERO['ai-transcription'];
 
 export function heroImage(featureId: string, lang: 'fr' | 'en') {
   const image = HERO[featureId] ?? FALLBACK;
+  return {
+    src: image.src,
+    alt: lang === 'fr' ? image.altFr : image.altEn,
+    objectPosition: image.objectPosition,
+  };
+}
+
+export function rolesImage(featureId: string, lang: 'fr' | 'en') {
+  const image = ROLES[featureId] ?? HERO[featureId] ?? FALLBACK;
   return {
     src: image.src,
     alt: lang === 'fr' ? image.altFr : image.altEn,

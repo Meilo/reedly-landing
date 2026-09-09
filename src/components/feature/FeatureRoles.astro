@@ -7,12 +7,13 @@ interface Props {
   title: string;
   image: string;
   imageAlt: string;
+  objectPosition?: string;
   roles: { title: string; heading?: string; text: string; bullets?: string[] }[];
   prevLabel: string;
   nextLabel: string;
 }
 
-const { title, image, imageAlt, roles, prevLabel, nextLabel } = Astro.props;
+const { title, image, imageAlt, objectPosition, roles, prevLabel, nextLabel } = Astro.props;
 ---
 
 <section class="section section--white">
@@ -22,7 +23,15 @@ const { title, image, imageAlt, roles, prevLabel, nextLabel } = Astro.props;
     </div>
 
     <div class="roles reveal" id="roles">
-      <img class="roles__photo" src={image} alt={imageAlt} width="1122" height="1402" loading="lazy" />
+      <img
+        class="roles__photo"
+        src={image}
+        alt={imageAlt}
+        width="1122"
+        height="1402"
+        loading="lazy"
+        style={objectPosition ? `object-position:${objectPosition}` : undefined}
+      />
       <div class="roles__scrim roles__scrim--v" aria-hidden="true"></div>
       <div class="roles__scrim roles__scrim--h" aria-hidden="true"></div>
 

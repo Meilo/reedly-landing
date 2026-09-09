@@ -12,7 +12,7 @@ import FeatureStickyCta from '@/components/feature/FeatureStickyCta.astro';
 import FinalCta from '@/components/FinalCta.astro';
 import Footer from '@/components/Footer.astro';
 import { getAllFeatureSlugs, loadFeatureContent, findMirrorSlug, findFeatureId } from '@/lib/load-features';
-import { heroImage, useCaseImages } from '@/lib/feature-media';
+import { heroImage, rolesImage, useCaseImages } from '@/lib/feature-media';
 
 export function getStaticPaths() {
   return getAllFeatureSlugs('fr').map((slug) => ({ params: { slug } }));
@@ -25,6 +25,7 @@ const featureId = findFeatureId('fr', slug!);
 
 const paths = { fr: `/fr/features/${slug}`, en: `/en/features/${mirrorSlug}` };
 const hero = heroImage(featureId, 'fr');
+const roles = rolesImage(featureId, 'fr');
 
 const breadcrumbLD = {
   '@context': 'https://schema.org',
@@ -68,8 +69,9 @@ const faqLD = {
     {data.use_cases?.variant === 'roles' ? (
       <FeatureRoles
         title={data.use_cases.title}
-        image={hero.src}
-        imageAlt={hero.alt}
+        image={roles.src}
+        imageAlt={roles.alt}
+        objectPosition={roles.objectPosition}
         roles={data.use_cases.cards}
         prevLabel="Rôle précédent"
         nextLabel="Rôle suivant"
