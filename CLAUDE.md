@@ -51,6 +51,19 @@ When adding a page, **add both language halves** and the redirect pair in `verce
 
 Copy for all of these lives server-side in `src/lib/i18n.ts` (`t(lang, key)`). Nothing in `public/main.js` renders copy — it only drives behaviour.
 
+### Phone mockups
+
+The two app screens in `Demo` are **markup, not screenshots** (`src/components/app/`): `PhoneReport.astro`, `PhoneRecord.astro` and the shared `StatusBar.astro`, all fed from `i18n.ts` (`app.*`), so the phone speaks the page's language. `report-light.webp` / `record-light.webp` are gone.
+
+They were traced pixel by pixel off those captures in a **390 × 845 design frame** (the recording screen crops to 390 × 760: the capture's empty bottom made the phone read as too long a slab). `.appui` is a CSS container (`container-type: inline-size`) that defines `--u: 0.25641cqw` — one design pixel — and every size in the block is `calc(var(--u) * N)`, including the `size` prop of `AppIcon`. So the screens scale with the phone shell and nothing is a fixed number of CSS pixels. Keep it that way: an absolute `px` anywhere inside `.appui` breaks at the size the phone actually renders (~252px wide).
+
+Two calibrations are load-bearing:
+
+- The body font sizes (`15.14` / `14.6`) sit in a narrow window where Inter reproduces the capture's exact line breaks. Nudging them re-wraps the cards.
+- `(3‑4 jours)` / `(3‑4 days)` use a **non-breaking hyphen** (U+2011); a plain `-` lets the line break after it and desyncs the wrap.
+
+Inter is loaded `wght@200..700` (not `400..700`) for the recording screen's thin timer.
+
 ### Product (feature) pages
 
 Not an Astro content collection: loaded manually from YAML.
@@ -76,7 +89,7 @@ There is no "related features" section: the canvas has none, so the pages cross-
 
 **Use this registry for every icon.** Don't hand-write new SVG paths in components — add the entry to `Icon.astro` instead, taken from the design canvas.
 
-The only exceptions live in `src/components/icons/` (country flags) and `Footer.astro` (App Store / Google Play / LinkedIn / Instagram marks), which are brand assets rather than UI icons.
+The only exceptions live in `src/components/icons/` (country flags), `Footer.astro` (App Store / Google Play / LinkedIn / Instagram marks) and `src/components/app/AppIcon.astro` — the first two are brand assets rather than UI icons, the last is the *product's* own UI (outline strokes, iOS status-bar marks) drawn inside the phone mockups, not the marketing layout.
 
 ### Interactivity
 
@@ -126,6 +139,7 @@ The inline script reads its UI strings from a `<script type="application/json" i
 - Works offline: the app holds with no network; transcription and the report generate as soon as the connection is back.
 - Vertical: B2B tourism — tour operators, travel wholesalers, DMC / inbound, MICE, transport, cruise, hospitality, leisure. Audiences: field sales reps covering a network of travel agencies, and the sales directors who run that network.
 - Pricing: Team at 49 €/rep/month (42 € billed annually), from 3 reps. Enterprise on quote, 16+ reps. There is no free plan, only a trial.
+- The dollar price is at **parity** with the euro one: $49 / $42, not an FX conversion. The pricing section carries a EUR/USD toggle beside the monthly/annual one (`data-price-eur` / `data-price-usd` on `.js-price`); euro is the default on `/fr`, dollar on `/en`.
 
 ## Environment
 
@@ -146,6 +160,6 @@ Deployed to Vercel. `astro.config.mjs` uses `output: 'static'` + `@astrojs/verce
 - `Layout.astro` defaults to **French** title/description if none provided — always pass `lang` and explicit `title`/`description` for English pages.
 - `hero.cta_label` / `hero.cta_url` still exist in the feature YAMLs but are no longer rendered; the hero CTAs point at the home `#rdv` anchor.
 - The layout was verified against the canvas by loading each maquette in a same-origin iframe and diffing computed geometry at a 1440px viewport. If you change spacing or an icon size, re-check against the canvas rather than eyeballing it: several values there are deliberate oddities (a 70px icon tile around a 60px glyph, `min-height` on only two rows of the booking form, a 52px benefits gap against a 56px problem gap).
-- `public/` holds no dead weight any more: the four promo `.mp4`s, `favicon.svg`, `portrait-b.webp` and `integration/discord.png` were all unreferenced and are gone (recoverable from git history).
+- `public/` holds no dead weight any more: the four promo `.mp4`s, `favicon.svg`, `portrait-b.webp`, `integration/discord.png` and the two `app/*-light.webp` app screenshots were all unreferenced and are gone (recoverable from git history).
 - `.astro/` is gitignored. It used to be committed, which meant every build dirtied the tree and kept a stale schema for a `blog` collection that no longer exists.
 - The sitemap excludes `/` on purpose (`astro.config.mjs`): `vercel.json` 301s it to `/en`, and a sitemap listing a redirecting URL is a Search Console error.

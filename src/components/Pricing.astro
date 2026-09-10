@@ -1,10 +1,14 @@
 ---
-// Pricing. The monthly/annual toggle is wired in public/main.js: it rewrites
-// .js-billing-price from data-base-price (-14% on annual) and swaps the note.
+// Pricing. Both toggles are wired in public/main.js: it rewrites .js-price
+// from data-price-eur / data-price-usd (-14% on annual) and swaps the symbol.
 import { getLang, t } from '@/lib/i18n';
 import Icon from '@/components/Icon.astro';
 
 const lang = getLang(Astro.url.pathname);
+
+// Euro is the reference on the French page, dollar on the English one. Rendered
+// server-side so the right currency is painted on first frame, with no flash.
+const currency = lang === 'en' ? 'usd' : 'eur';
 
 const teamFeatures = Array.from({ length: 10 }, (_, i) => ({
   key: `pricing.team.feat${i + 1}`,
@@ -24,25 +28,49 @@ const enterpriseFeatures = Array.from({ length: 5 }, (_, i) => ({
         <p class="lead">{t(lang, 'pricing.lead')}</p>
       </div>
 
-      <div
-        class="billing-toggle"
-        id="billing-toggle"
-        role="group"
-        aria-label={t(lang, 'pricing.billing.aria')}
-      >
-        <button
-          type="button"
-          class="is-active"
-          data-billing="monthly"
-          data-track-id="pricing_billing_monthly"
-          data-track-section="pricing">{t(lang, 'pricing.billing.monthly')}</button
+      <div class="pricing__toggles">
+        <div
+          class="billing-toggle"
+          id="currency-toggle"
+          role="group"
+          aria-label={t(lang, 'pricing.currency.aria')}
         >
-        <button
-          type="button"
-          data-billing="annual"
-          data-track-id="pricing_billing_annual"
-          data-track-section="pricing">{t(lang, 'pricing.billing.annual')}</button
+          <button
+            type="button"
+            class={currency === 'eur' ? 'is-active' : undefined}
+            data-currency="eur"
+            data-track-id="pricing_currency_eur"
+            data-track-section="pricing">{t(lang, 'pricing.currency.eur')}</button
+          >
+          <button
+            type="button"
+            class={currency === 'usd' ? 'is-active' : undefined}
+            data-currency="usd"
+            data-track-id="pricing_currency_usd"
+            data-track-section="pricing">{t(lang, 'pricing.currency.usd')}</button
+          >
+        </div>
+
+        <div
+          class="billing-toggle"
+          id="billing-toggle"
+          role="group"
+          aria-label={t(lang, 'pricing.billing.aria')}
         >
+          <button
+            type="button"
+            class="is-active"
+            data-billing="monthly"
+            data-track-id="pricing_billing_monthly"
+            data-track-section="pricing">{t(lang, 'pricing.billing.monthly')}</button
+          >
+          <button
+            type="button"
+            data-billing="annual"
+            data-track-id="pricing_billing_annual"
+            data-track-section="pricing">{t(lang, 'pricing.billing.annual')}</button
+          >
+        </div>
       </div>
     </div>
 
@@ -53,8 +81,18 @@ const enterpriseFeatures = Array.from({ length: 5 }, (_, i) => ({
         <div class="plan__meta">{t(lang, 'pricing.team.subtitle')}</div>
 
         <div class="plan__price">
-          <span class="plan__amount js-billing-price" data-base-price="49">49</span>
-          <span class="plan__currency">€</span>
+          <span class="plan__figure"
+            ><span
+              class="plan__currency plan__currency--pre js-currency"
+              data-currency="usd"
+              hidden={currency !== 'usd'}>$</span
+            ><span class="plan__amount js-price" data-price-eur="49" data-price-usd="49">49</span
+            ><span
+              class="plan__currency plan__currency--post js-currency"
+              data-currency="eur"
+              hidden={currency !== 'eur'}>€</span
+            ></span
+          >
           <span class="plan__per">{t(lang, 'pricing.team.per')}</span>
         </div>
 

@@ -828,13 +828,6 @@ h3 {
   background: #000;
 }
 
-.phone__screen img {
-  width: 100%;
-  /* Explicit, so a stale width/height attribute can never stretch the screenshot. */
-  height: auto;
-  display: block;
-}
-
 .phone--sm {
   width: 80%;
   padding: 6px 6px 0;
@@ -844,6 +837,408 @@ h3 {
 
 .phone--sm .phone__screen {
   border-radius: 26px 26px 0 0;
+}
+
+/* ── App screen mockups ────────────────────────────────────────────────────
+   The two phone screens in the Demo section are reproduced in markup rather
+   than shipped as screenshots, so their copy follows the page language.
+
+   Every value below is authored in the 390 × 845 design frame of the original
+   captures; `--u` is one of those pixels expressed against the container width,
+   so the whole screen scales with the phone shell without a media query. */
+
+.appui {
+  container-type: inline-size;
+  position: relative;
+  aspect-ratio: 390 / 845;
+  overflow: hidden;
+  background: #f8fafc;
+  /* 1u = 1px once the screen is 390px wide. */
+  --u: 0.25641cqw;
+  --app-ink: #0f172a;
+  --app-muted: #475569;
+  --app-line: #e8ebee;
+  --app-green: #4ca155;
+  color: var(--app-ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.35;
+  /* The app paints a faint 30u grid behind everything. */
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.014) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.014) 1px, transparent 1px);
+  background-size: calc(var(--u) * 29.7) calc(var(--u) * 29.7);
+}
+
+/* ── Status bar ── */
+
+.appui__status {
+  position: absolute;
+  top: calc(var(--u) * 18);
+  left: calc(var(--u) * 39.9);
+  right: calc(var(--u) * 32.9);
+  height: calc(var(--u) * 22);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.appui__status-left,
+.appui__status-right {
+  display: flex;
+  align-items: center;
+}
+
+.appui__status-left {
+  gap: calc(var(--u) * 3.8);
+}
+
+.appui__status-right {
+  gap: calc(var(--u) * 7.6);
+}
+
+.appui__clock {
+  font-size: calc(var(--u) * 17.9);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: calc(var(--u) * -0.3);
+}
+
+.appui__battery {
+  position: relative;
+  width: calc(var(--u) * 25.1);
+  height: calc(var(--u) * 13.9);
+  margin-right: calc(var(--u) * 2.2);
+  border-radius: calc(var(--u) * 4);
+  background: var(--app-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.appui__battery b {
+  font-size: calc(var(--u) * 9.5);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: calc(var(--u) * -0.2);
+}
+
+/* The nub on the positive terminal. */
+.appui__battery::after {
+  content: '';
+  position: absolute;
+  left: calc(100% + var(--u) * 1.3);
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(var(--u) * 1.3);
+  height: calc(var(--u) * 3.4);
+  border-radius: 0 calc(var(--u) * 2) calc(var(--u) * 2) 0;
+  background: rgba(15, 23, 42, 0.32);
+}
+
+.appui__island {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--u) * -6.7);
+  transform: translateX(-50%);
+  width: calc(var(--u) * 123.5);
+  height: calc(var(--u) * 36.4);
+  border-radius: calc(var(--u) * 18.2);
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: calc(var(--u) * 37.3);
+}
+
+.appui__island i {
+  width: calc(var(--u) * 4.8);
+  height: calc(var(--u) * 4.8);
+  border-radius: 50%;
+  background: #f97316;
+}
+
+/* ── Report screen ── */
+
+.rep__head {
+  position: absolute;
+  top: calc(var(--u) * 73.7);
+  left: calc(var(--u) * 19.4);
+  right: calc(var(--u) * 16);
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 14.9);
+}
+
+.rep__title {
+  font-size: calc(var(--u) * 26);
+  font-weight: 700;
+  letter-spacing: calc(var(--u) * -0.2);
+}
+
+.rep__edit {
+  margin-left: auto;
+  margin-right: calc(var(--u) * 1);
+  color: var(--app-green);
+  display: flex;
+}
+
+.rep__summary {
+  position: absolute;
+  top: calc(var(--u) * 136);
+  left: calc(var(--u) * 16.5);
+  right: calc(var(--u) * 16.5);
+  min-height: calc(var(--u) * 281);
+  padding: calc(var(--u) * 20) calc(var(--u) * 20) calc(var(--u) * 18.5);
+  border-radius: calc(var(--u) * 11.3);
+  background: var(--app-green);
+  color: #fff;
+}
+
+.rep__summary > svg {
+  display: block;
+}
+
+.rep__summary-label {
+  margin: calc(var(--u) * 9.1) 0 calc(var(--u) * 7.1);
+  font-size: calc(var(--u) * 12.2);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: calc(var(--u) * 0.9);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.rep__summary-text {
+  margin: 0;
+  font-size: calc(var(--u) * 15.14);
+  line-height: calc(var(--u) * 23.85);
+  color: #fff;
+}
+
+.rep__card {
+  position: absolute;
+  left: calc(var(--u) * 16.5);
+  right: calc(var(--u) * 16.5);
+  padding: calc(var(--u) * 12.9) calc(var(--u) * 15);
+  border: 1px solid var(--app-line);
+  border-radius: calc(var(--u) * 10.5);
+  background: #fff;
+}
+
+.rep__card--profile {
+  top: calc(var(--u) * 429.5);
+  height: calc(var(--u) * 114.3);
+}
+
+.rep__card--context {
+  top: calc(var(--u) * 556);
+  bottom: calc(var(--u) * -40);
+  padding-top: calc(var(--u) * 14.7);
+  overflow: hidden;
+}
+
+.rep__card-head {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 7.5);
+  margin: 0;
+  font-size: calc(var(--u) * 14.5);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: calc(var(--u) * -0.2);
+}
+
+.rep__card-head svg {
+  color: var(--app-green);
+  flex: none;
+}
+
+.rep__row {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 9);
+  margin-top: calc(var(--u) * 13.3);
+  padding-top: calc(var(--u) * 7.4);
+  border-top: 1px solid #ededed;
+  font-size: calc(var(--u) * 13.2);
+  line-height: 1.35;
+}
+
+.rep__row-label {
+  font-weight: 600;
+  color: var(--app-muted);
+}
+
+.rep__row-value {
+  color: var(--app-ink);
+}
+
+.rep__badge {
+  margin-left: auto;
+  padding: calc(var(--u) * 3.3) calc(var(--u) * 8.6);
+  border-radius: calc(var(--u) * 7);
+  background: #fdf8ec;
+  color: #c08a35;
+  font-size: calc(var(--u) * 11.5);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.rep__context {
+  margin: calc(var(--u) * 11) 0 0;
+  font-size: calc(var(--u) * 14.6);
+  line-height: calc(var(--u) * 21.8);
+}
+
+.rep__actions {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(var(--u) * 101);
+  padding: calc(var(--u) * 17.9) calc(var(--u) * 16) 0;
+  display: flex;
+  gap: calc(var(--u) * 7.3);
+  background: #fff;
+}
+
+/* Softens the cut where the context card runs under the action bar. */
+.rep__actions::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: calc(var(--u) * 18);
+  background: linear-gradient(rgba(255, 255, 255, 0), #fff);
+}
+
+.rep__btn {
+  flex: 1;
+  height: calc(var(--u) * 35.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--u) * 8);
+  border: 1px solid var(--app-line);
+  border-radius: calc(var(--u) * 9.5);
+  background: #fff;
+  font-size: calc(var(--u) * 13.5);
+  font-weight: 600;
+}
+
+.rep__btn--primary {
+  border-color: var(--app-green);
+  background: var(--app-green);
+  color: #fff;
+}
+
+/* ── Recording screen ── */
+
+/* The capture's bottom 85 units are empty, which made the phone read as an
+   implausibly long slab beside the report. Cropping them keeps every control
+   in frame and gives the shell a phone-like stance. */
+.appui--record {
+  aspect-ratio: 390 / 760;
+}
+
+.rec__head {
+  position: absolute;
+  top: calc(var(--u) * 72.4);
+  left: calc(var(--u) * 17.2);
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 11.1);
+}
+
+.rec__title {
+  font-size: calc(var(--u) * 26);
+  font-weight: 700;
+  letter-spacing: calc(var(--u) * -0.2);
+}
+
+.rec__status {
+  position: absolute;
+  top: calc(var(--u) * 279.2);
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  font-size: calc(var(--u) * 15.5);
+  line-height: 1.35;
+  color: #334155;
+}
+
+.rec__timer {
+  position: absolute;
+  top: calc(var(--u) * 322);
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  font-size: calc(var(--u) * 62.6);
+  font-weight: 200;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  letter-spacing: calc(var(--u) * -1);
+  color: #1e293b;
+}
+
+.rec__wave {
+  position: absolute;
+  top: calc(var(--u) * 440.7);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(var(--u) * 197.2);
+  height: calc(var(--u) * 30.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rec__wave i {
+  width: calc(var(--u) * 2.93);
+  border-radius: calc(var(--u) * 1.5);
+}
+
+.rec__controls {
+  position: absolute;
+  top: calc(var(--u) * 640.3);
+  left: calc(var(--u) * 64);
+  right: calc(var(--u) * 64);
+  height: calc(var(--u) * 96.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rec__side {
+  width: calc(var(--u) * 55);
+  height: calc(var(--u) * 55);
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e293b;
+}
+
+.rec__stop {
+  width: calc(var(--u) * 96.2);
+  height: calc(var(--u) * 96.2);
+  border-radius: 50%;
+  background: #e0514d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rec__stop i {
+  width: calc(var(--u) * 24.2);
+  height: calc(var(--u) * 23.4);
+  border-radius: calc(var(--u) * 5);
+  background: #fff;
 }
 
 /* ── Demo section ──────────────────────────────────────────────────────── */
@@ -1224,6 +1619,14 @@ h3 {
   justify-content: space-between;
 }
 
+/* The currency and billing controls sit side by side, and wrap together when
+   the head column gets too narrow. */
+.pricing__toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .billing-toggle {
   display: flex;
   padding: 4px;
@@ -1325,9 +1728,24 @@ h3 {
   letter-spacing: -0.03em;
 }
 
+/* Amount and symbol are one unit: the symbol leads with no gap in dollars and
+   trails after a space in euros, so the pair can't be spaced by .plan__price. */
+.plan__figure {
+  display: flex;
+  align-items: flex-end;
+}
+
 .plan__currency {
   font-size: 1.4rem;
   line-height: 1.6;
+}
+
+.plan__currency--pre {
+  margin-right: 2px;
+}
+
+.plan__currency--post {
+  margin-left: 10px;
 }
 
 .plan__per {
@@ -2640,9 +3058,14 @@ a.legal-stack__row:hover {
     max-width: none;
   }
 
-  /* Same for the pricing head: the heading block and the billing toggle stack
-     and centre instead of sitting at opposite ends. */
+  /* Same for the pricing head: the heading block and the toggles stack and
+     centre instead of sitting at opposite ends. Once the two controls wrap onto
+     their own lines the group spans the row, so it has to centre them itself. */
   .center-mobile.pricing__head {
+    justify-content: center;
+  }
+
+  .center-mobile .pricing__toggles {
     justify-content: center;
   }
 

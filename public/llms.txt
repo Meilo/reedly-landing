@@ -36,7 +36,7 @@
 - CRM connectors (HubSpot, Salesforce), Slack, WhatsApp, email, PDF export
 
 ## Pricing
-- Team: 49 EUR per rep per month (42 EUR billed annually), from 3 reps, Manager Hub included, unlimited AI reports, priority support
+- Team: 49 EUR or 49 USD per rep per month (42 billed annually), from 3 reps, Manager Hub included, unlimited AI reports, priority support
 - Enterprise: custom pricing (16+ reps), custom industry vocabulary, multi-team / multi-territory, dedicated account manager, on-site training and onboarding
 
 ## Audience
