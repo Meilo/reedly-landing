@@ -1,0 +1,48 @@
+---
+import AppIcon from '@/components/app/AppIcon.astro';
+import StatusBar from '@/components/app/StatusBar.astro';
+import { t, type Lang } from '@/lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+// The waveform, traced bar by bar off the app's own render: height in design
+// units, and the colour it fades through from the oldest sample to the newest.
+const bars = [
+  [22.1, '#bedec3'], [21.2, '#b6dec5'], [22.5, '#b8dcc0'], [23.4, '#b1dabc'],
+  [23.4, '#b1dcc0'], [22.1, '#acd5ba'], [23.0, '#abd7b8'], [23.4, '#a7d3b6'],
+  [27.3, '#a2d3ae'], [25.1, '#9fd0ae'], [19.9, '#9acdac'], [20.4, '#98cca4'],
+  [21.2, '#9acca2'], [22.1, '#91c9a4'], [19.5, '#8ec69f'], [22.5, '#8cc89b'],
+  [21.7, '#8cc598'], [22.1, '#87c695'], [18.2, '#80c18f'], [19.9, '#80c18f'],
+  [22.1, '#7fbe8d'], [21.7, '#7dc08e'], [19.5, '#74bf86'], [22.1, '#73bb89'],
+  [22.1, '#73b984'], [18.2, '#6eb884'], [20.8, '#67b57b'], [25.1, '#6fb97c'],
+  [23.8, '#67af7c'], [22.5, '#64b477'], [19.1, '#5eaf6b'], [22.5, '#62ae70'],
+  [21.7, '#62a96d'], [24.3, '#5dae6a'], [24.7, '#58a166'], [24.7, '#5ea866'],
+  [19.9, '#539b59'], [21.7, '#4ea95a'], [29.5, '#489957'], [29.0, '#58955e'],
+];
+---
+
+<div class="appui appui--record" role="img" aria-label={t(lang, 'app.record.alt')}>
+  <StatusBar time={t(lang, 'app.status.time_record')} battery={79} island />
+
+  <header class="rec__head">
+    <AppIcon name="close" size={25} />
+    <span class="rec__title">{t(lang, 'app.record.title')}</span>
+  </header>
+
+  <p class="rec__status">{t(lang, 'app.record.status')}</p>
+  <p class="rec__timer">{t(lang, 'app.record.timer')}</p>
+
+  <div class="rec__wave" aria-hidden="true">
+    {bars.map(([h, color]) => <i style={`height:calc(var(--u) * ${h});background:${color}`} />)}
+  </div>
+
+  <div class="rec__controls" aria-hidden="true">
+    <span class="rec__side"><AppIcon name="pause" size={28} /></span>
+    <span class="rec__stop"><i></i></span>
+    <span class="rec__side"><AppIcon name="bookmark" size={28} /></span>
+  </div>
+</div>

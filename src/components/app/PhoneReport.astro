@@ -1,0 +1,58 @@
+---
+import AppIcon from '@/components/app/AppIcon.astro';
+import StatusBar from '@/components/app/StatusBar.astro';
+import { t, type Lang } from '@/lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<div class="appui appui--report" role="img" aria-label={t(lang, 'app.report.alt')}>
+  <StatusBar time={t(lang, 'app.status.time_report')} battery={80} />
+
+  <header class="rep__head">
+    <AppIcon name="chevron-left" size={19} />
+    <span class="rep__title">{t(lang, 'app.report.title')}</span>
+    <span class="rep__edit"><AppIcon name="compose" size={20} /></span>
+  </header>
+
+  <div class="rep__summary">
+    <AppIcon name="sparkles" size={19} />
+    <p class="rep__summary-label">{t(lang, 'app.report.summary_label')}</p>
+    <p class="rep__summary-text">{t(lang, 'app.report.summary')}</p>
+  </div>
+
+  <section class="rep__card rep__card--profile">
+    <h3 class="rep__card-head">
+      <AppIcon name="building" size={18} />
+      {t(lang, 'app.report.profile_title')}
+    </h3>
+    <div class="rep__row">
+      <span class="rep__row-label">{t(lang, 'app.report.profile_label')}</span>
+      <span class="rep__row-value">{t(lang, 'app.report.profile_value')}</span>
+      <span class="rep__badge">{t(lang, 'app.report.profile_badge')}</span>
+    </div>
+  </section>
+
+  <section class="rep__card rep__card--context">
+    <h3 class="rep__card-head">
+      <AppIcon name="trending-up" size={18} />
+      {t(lang, 'app.report.context_title')}
+    </h3>
+    <p class="rep__context">{t(lang, 'app.report.context')}</p>
+  </section>
+
+  <div class="rep__actions">
+    <span class="rep__btn rep__btn--primary">
+      <AppIcon name="upload-cloud" size={17} />
+      {t(lang, 'app.report.publish')}
+    </span>
+    <span class="rep__btn">
+      <AppIcon name="share" size={18} />
+      {t(lang, 'app.report.share')}
+    </span>
+  </div>
+</div>

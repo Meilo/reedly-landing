@@ -1,0 +1,86 @@
+---
+// Glyph set for the phone mockups in the Demo section only.
+//
+// Deliberately separate from `@/components/Icon.astro`: that registry is the
+// site's own icon system (solid, 24×24, lifted from the design canvas), while
+// these are the *product's* UI glyphs — outline strokes and iOS status-bar
+// marks that belong to the picture of the app, not to the marketing layout.
+interface Props {
+  name: string;
+  /** Glyph height in design units, i.e. pixels of the 390-wide screen frame. */
+  size?: number;
+}
+
+const { name, size = 24 } = Astro.props;
+
+type Glyph = { d: string; box?: [number, number]; fill?: boolean; sw?: number };
+
+const icons: Record<string, Glyph> = {
+  'chevron-left': { d: '<path d="M16.4 1.5 7.6 12l8.8 10.5" />' },
+  close: { d: '<path d="M6 6l12 12M18 6 6 18" />' },
+  compose: {
+    d: '<path d="M13 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7" /><path d="M18.4 2.6a1.98 1.98 0 0 1 2.8 2.8L13.6 13l-3.5.7.7-3.5 7.6-7.6Z" />',
+  },
+  building: {
+    d: '<path d="M4 21V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v15" /><path d="M14 10h4a2 2 0 0 1 2 2v9" /><path d="M2.5 21h19" /><path d="M7.5 8h3M7.5 12h3M7.5 16h3M17 14h.01M17 17.5h.01" />',
+  },
+  'trending-up': { d: '<path d="M3 16.5 9 10l4 4 8-8" /><path d="M15.5 6H21v5.5" />' },
+  'upload-cloud': {
+    d: '<path d="M6.5 17.5a4.5 4.5 0 0 1 .7-8.95 6 6 0 0 1 11.5 1.7 3.9 3.9 0 0 1-.7 7.25" /><path d="M12 21v-9" /><path d="m9 14.5 3-3 3 3" />',
+  },
+  share: {
+    d: '<path d="M12 15.5V3" /><path d="m8.5 6.5 3.5-3.5 3.5 3.5" /><path d="M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1" />',
+  },
+  pause: {
+    fill: true,
+    d: '<rect x="7" y="4" width="3.4" height="16" rx="1.7" /><rect x="13.6" y="4" width="3.4" height="16" rx="1.7" />',
+  },
+  bookmark: {
+    d: '<path d="M6.9 2.7h10.2a.9.9 0 0 1 .9.9v17.7L12 16.6 6 21.3V3.6a.9.9 0 0 1 .9-.9Z" />',
+  },
+  'bell-off': {
+    fill: true,
+    d: '<path d="M12 2.4c-3.5 0-6 2.8-6 6.2 0 4.3-.9 6.1-1.9 7.2-.4.4-.1 1.1.5 1.1h14.8c.6 0 .9-.7.5-1.1-1-1.1-1.9-2.9-1.9-7.2 0-3.4-2.5-6.2-6-6.2Z" /><path d="M9.7 18.6a2.5 2.5 0 0 0 4.6 0Z" /><path d="M3.6 2.2 2 3.8 20.4 22.2 22 20.6 3.6 2.2Z" fill="#f8fafc" /><path d="M4.4 3 3.2 4.2l17.2 17.2 1.2-1.2L4.4 3Z" />',
+  },
+  sparkles: {
+    fill: true,
+    d: '<path d="M15 0 17.4 8.1 24 10.6 17.4 13.1 15 21.2 12.6 13.1 6 10.6 12.6 8.1 15 0Z" /><path d="M5.4 11.4 7 16.4 12 18 7 19.6 5.4 24 3.8 19.6 0 18l3.8-1.6 1.6-5Z" />',
+  },
+  // One bar of signal: the rest of the ladder is greyed out, as on the capture.
+  cellular: {
+    box: [19.55, 12.1],
+    fill: true,
+    d: '<rect x="0" y="7.3" width="3.5" height="4.8" rx="1.2" /><rect x="5.35" y="5.2" width="3.5" height="6.9" rx="1.2" opacity=".23" /><rect x="10.7" y="2.6" width="3.5" height="9.5" rx="1.2" opacity=".23" /><rect x="16.05" y="0" width="3.5" height="12.1" rx="1.2" opacity=".23" />',
+  },
+  wifi: {
+    box: [16.9, 12.2],
+    sw: 2.3,
+    d: '<path d="M1.15 3.9a10.6 10.6 0 0 1 14.6 0" /><path d="M4.3 7.6a6.2 6.2 0 0 1 8.3 0" /><path d="M8.45 11h.01" />',
+  },
+};
+
+const icon = icons[name];
+const [bw, bh] = icon?.box ?? [24, 24];
+// Sizes are design units, so the glyph scales with the screen rather than
+// staying a fixed number of CSS pixels.
+const style = `width:calc(var(--u) * ${(size * bw) / bh});height:calc(var(--u) * ${size})`;
+---
+
+{
+  icon &&
+    (icon.fill ? (
+      <svg viewBox={`0 0 ${bw} ${bh}`} style={style} fill="currentColor" aria-hidden="true" set:html={icon.d} />
+    ) : (
+      <svg
+        viewBox={`0 0 ${bw} ${bh}`}
+        style={style}
+        fill="none"
+        stroke="currentColor"
+        stroke-width={icon.sw ?? 1.9}
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+        set:html={icon.d}
+      />
+    ))
+}

@@ -1,6 +1,7 @@
 // Reedly landing — interactive behaviours.
 // Copy lives server-side in src/lib/i18n.ts; nothing here renders text except
-// the pricing amount, so there is no client dictionary to keep in sync.
+// the pricing amount and its currency symbol, so there is no client dictionary
+// to keep in sync.
 
 // ── Analytics helpers (PostHog-ready, safe fallback) ──
 const TRACKING_SESSION_KEY = "reedly-landing-session-id";
@@ -420,29 +421,55 @@ document.querySelectorAll(".faq__item").forEach(function (item) {
   });
 });
 
-// ── Pricing billing toggle ──
+// ── Pricing toggles: billing period and currency ──
+// Two independent segmented controls feeding one render, so switching either
+// keeps the other's choice. The server paints the initial state.
 (function () {
-  var toggle = document.getElementById("billing-toggle");
-  if (!toggle) return;
-  toggle.addEventListener("click", function (e) {
-    var btn = e.target.closest("button[data-billing]");
-    if (!btn) return;
-    var annual = btn.dataset.billing === "annual";
+  var billing = document.getElementById("billing-toggle");
+  var currency = document.getElementById("currency-toggle");
+  if (!billing && !currency) return;
 
-    toggle.querySelectorAll("button").forEach(function (b) {
-      b.classList.toggle("is-active", b === btn);
-    });
+  function activeValue(toggle, attr, fallback) {
+    var btn = toggle && toggle.querySelector("button.is-active");
+    return btn ? btn.dataset[attr] : fallback;
+  }
 
-    document.querySelectorAll(".js-billing-price").forEach(function (el) {
-      var base = parseFloat(el.dataset.basePrice || "0");
+  function render() {
+    var annual = activeValue(billing, "billing", "monthly") === "annual";
+    var code = activeValue(currency, "currency", "eur");
+
+    document.querySelectorAll(".js-price").forEach(function (el) {
+      var base = parseFloat(el.dataset[code === "usd" ? "priceUsd" : "priceEur"] || "0");
       if (!base) return;
-      el.textContent = annual ? String(Math.round(base * 0.86)) : String(base);
+      el.textContent = String(Math.round(annual ? base * 0.86 : base));
     });
 
-    trackEvent("landing_pricing_billing_changed", {
-      billing: annual ? "annual" : "monthly",
+    // Symbol and its side differ per currency ($49 vs 49 €), so each is its own
+    // element and only the matching one is shown.
+    document.querySelectorAll(".js-currency").forEach(function (el) {
+      el.hidden = el.dataset.currency !== code;
     });
-  });
+  }
+
+  function wire(toggle, attr, event, key) {
+    if (!toggle) return;
+    toggle.addEventListener("click", function (e) {
+      var btn = e.target.closest("button[data-" + attr + "]");
+      if (!btn || btn.classList.contains("is-active")) return;
+
+      toggle.querySelectorAll("button").forEach(function (b) {
+        b.classList.toggle("is-active", b === btn);
+      });
+      render();
+
+      var payload = {};
+      payload[key] = btn.dataset[attr];
+      trackEvent(event, payload);
+    });
+  }
+
+  wire(billing, "billing", "landing_pricing_billing_changed", "billing");
+  wire(currency, "currency", "landing_pricing_currency_changed", "currency");
 })();
 
 // ── Testimonial carousel ──

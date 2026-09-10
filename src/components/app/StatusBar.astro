@@ -1,0 +1,24 @@
+---
+import AppIcon from '@/components/app/AppIcon.astro';
+
+interface Props {
+  time: string;
+  battery: number;
+  island?: boolean;
+}
+
+const { time, battery, island = false } = Astro.props;
+---
+
+<div class="appui__status" aria-hidden="true">
+  <div class="appui__status-left">
+    <span class="appui__clock">{time}</span>
+    <AppIcon name="bell-off" size={18} />
+  </div>
+  {island && <span class="appui__island"><i></i></span>}
+  <div class="appui__status-right">
+    <AppIcon name="cellular" size={12.1} />
+    <AppIcon name="wifi" size={12.2} />
+    <span class="appui__battery"><b>{battery}</b></span>
+  </div>
+</div>
