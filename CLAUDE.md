@@ -62,7 +62,7 @@ Two calibrations are load-bearing:
 - The body font sizes (`15.14` / `14.6`) sit in a narrow window where Inter reproduces the capture's exact line breaks. Nudging them re-wraps the cards.
 - `(3‑4 jours)` / `(3‑4 days)` use a **non-breaking hyphen** (U+2011); a plain `-` lets the line break after it and desyncs the wrap.
 
-Inter is loaded `wght@200..700` (not `400..700`) for the recording screen's thin timer.
+Inter is loaded `wght@200..800`: `200` for the recording screen's thin timer, `800` for the buttons' uppercase labels.
 
 ### Product (feature) pages
 
@@ -129,6 +129,7 @@ The inline script reads its UI strings from a `<script type="application/json" i
 - Display font **Lanterosy** (`public/fonts/Lanterosy.ttf`, self-hosted), body font **Inter**.
 - Container 1240px, section padding `clamp(80px, 9vw, 140px)`, radius 24px.
 - Utility classes: `.section`, `.inner`, `.display` (`--xl` / `--lg`), `.lead`, `.btn` (`--primary` / `--ink` / `--ghost` / `--onDark` / `--block`), `.frame`, `.reveal`, `.center-mobile`.
+- **Buttons are in relief**, as in the canvas: a 2px contour and a hard bottom edge one shade darker than the fill (4px on `.btn`, 3px on the compact `.nav__cta` / `.store-badge` / `.hub__composer-send`), with no blur anywhere. Labels are uppercase, `800`, `.06em`. Hover sinks the button 2px and shortens the edge to match; `:active` takes the last 2px and the button sits flush. Each variant only sets `--btn-edge` (and `--btn-inset`, the ink variant's top highlight) — the hover and press geometry is written once on `.btn`. Don't add a hover colour: the press *is* the feedback.
 
 ## Product facts (canonical)
 
