@@ -19,6 +19,8 @@
   --surface-2: #f1f5f9;
   --surface-3: #eef2f6;
   --ink: #0f172a;
+  --ink-raised: #1b2231; /* dark button fill */
+  --ink-edge: #04070f; /* its bottom edge */
 
   /* Ink */
   --text: #0f172a;
@@ -26,6 +28,7 @@
   --faint: #64748b;
   --line: rgba(148, 163, 184, 0.28);
   --line-soft: rgba(148, 163, 184, 0.18);
+  --line-edge: #cbd5e1; /* contour + bottom edge of the light buttons */
 
   /* Brand */
   --brand: #16a34a;
@@ -321,44 +324,71 @@ h3 {
   color: rgba(255, 255, 255, 0.66);
 }
 
-/* ── Buttons ───────────────────────────────────────────────────────────── */
+/* ── Buttons ───────────────────────────────────────────────────── */
+
+/* Relief buttons, as in the canvas: a 2px contour and a hard 4px bottom edge
+   (3px on the compact sizes) one shade darker than the fill, with no blur.
+   Pressing shortens the edge instead of moving a shadow — hover sinks the
+   button 2px, :active takes the last 2px and the edge with it. The edge colour
+   travels in --btn-edge so hover/active are written once; --btn-inset is the
+   ink variant's top highlight, inert (transparent) everywhere else. */
 
 .btn {
+  --btn-edge: transparent;
+  --btn-inset: 0 0 0 0 transparent;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 15px 26px;
-  border: 0;
-  border-radius: var(--radius-sm);
+  padding: 16px 26px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 4px 0 0 var(--btn-edge),
+    var(--btn-inset);
   font: inherit;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   cursor: pointer;
   transition:
-    transform 0.22s var(--ease),
-    box-shadow 0.22s ease,
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
     background 0.18s ease,
-    color 0.18s ease;
+    border-color 0.18s ease;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px -14px rgba(15, 23, 42, 0.45);
+  transform: translateY(2px);
+  box-shadow:
+    0 2px 0 0 var(--btn-edge),
+    var(--btn-inset);
+}
+
+.btn:active {
+  transform: translateY(4px);
+  box-shadow:
+    0 0 0 0 var(--btn-edge),
+    var(--btn-inset);
 }
 
 .btn--primary {
+  --btn-edge: var(--brand-dark);
+  border-color: var(--brand-dark);
   background: var(--brand);
   color: #fff;
 }
 
 .btn--primary:hover {
-  background: var(--brand-dark);
   color: #fff;
 }
 
 .btn--ink {
-  background: var(--ink);
+  --btn-edge: var(--ink-edge);
+  --btn-inset: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-color: var(--ink-edge);
+  background: var(--ink-raised);
   color: #fff;
 }
 
@@ -367,8 +397,9 @@ h3 {
 }
 
 .btn--ghost {
-  padding: 15px 22px;
-  border: 1px solid rgba(148, 163, 184, 0.35);
+  --btn-edge: var(--line-edge);
+  padding: 16px 22px;
+  border-color: var(--line-edge);
   background: var(--surface);
   color: var(--text);
 }
@@ -378,7 +409,9 @@ h3 {
 }
 
 .btn--onDark {
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  --btn-edge: rgba(255, 255, 255, 0.3);
+  padding: 16px 22px;
+  border-color: rgba(255, 255, 255, 0.3);
   background: transparent;
   color: #fff;
 }
@@ -390,7 +423,7 @@ h3 {
 .btn--block {
   display: flex;
   width: 100%;
-  padding: 15px;
+  padding: 16px 15px;
 }
 
 .btn-row {
@@ -546,30 +579,53 @@ h3 {
   opacity: 1;
 }
 
+/* Same relief as .btn one size down: 11px radius, a 3px edge, and 2px of
+   travel so the button is flush by :active. */
 .nav__cta {
+  --btn-edge: var(--ink-edge);
+  --btn-inset: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  padding: 10px 17px;
-  border-radius: var(--radius-sm);
-  background: var(--ink);
+  padding: 11px 17px;
+  border: 2px solid var(--ink-edge);
+  border-radius: 11px;
+  background: var(--ink-raised);
+  box-shadow:
+    0 3px 0 0 var(--btn-edge),
+    var(--btn-inset);
   color: #fff;
-  font-size: 13.5px;
-  font-weight: 600;
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   transition:
-    transform 0.22s var(--ease),
-    box-shadow 0.22s ease,
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
     background 0.3s ease,
+    border-color 0.3s ease,
     color 0.3s ease;
 }
 
 .nav__cta:hover {
   color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px -14px rgba(15, 23, 42, 0.45);
+  transform: translateY(2px);
+  box-shadow:
+    0 1px 0 0 var(--btn-edge),
+    var(--btn-inset);
+}
+
+.nav__cta:active {
+  transform: translateY(3px);
+  box-shadow:
+    0 0 0 0 var(--btn-edge),
+    var(--btn-inset);
 }
 
 .nav.is-onDark .nav__cta {
+  --btn-edge: var(--line-edge);
+  --btn-inset: 0 0 0 0 transparent;
+  border-color: var(--line-edge);
   background: #fff;
   color: var(--ink);
 }
@@ -730,8 +786,8 @@ h3 {
   }
 
   .nav__cta {
-    padding: 9px 13px;
-    font-size: 12.5px;
+    padding: 10px 13px;
+    font-size: 11.5px;
   }
 }
 
@@ -1505,8 +1561,10 @@ h3 {
   display: grid;
   place-items: center;
   width: 32px;
-  height: 32px;
-  border-radius: 9px;
+  height: 30px;
+  border: 2px solid var(--brand-dark);
+  border-radius: 10px;
+  box-shadow: 0 3px 0 0 var(--brand-dark);
   background: var(--brand);
   color: #fff;
 }
@@ -2381,20 +2439,34 @@ h3 {
   flex-wrap: wrap;
 }
 
+/* The relief treatment again, at the store-badge size. The canvas takes the
+   label to ink on hover, which is unreadable over the footer's dark floor, so
+   the badge brightens to white instead and only the press is borrowed. */
 .store-badge {
   display: flex;
   align-items: center;
   gap: 9px;
-  padding: 9px 14px;
-  border: 1px solid rgba(148, 163, 184, 0.3);
+  padding: 10px 14px;
+  border: 2px solid var(--line-edge);
   border-radius: 12px;
+  box-shadow: 0 3px 0 0 var(--line-edge);
   color: rgba(255, 255, 255, 0.66);
-  transition: border-color 0.2s ease;
+  font-weight: 700;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
+    color 0.2s ease;
 }
 
 .store-badge:hover {
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 0 var(--line-edge);
+}
+
+.store-badge:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 0 var(--line-edge);
 }
 
 .store-badge svg {
