@@ -1,6 +1,14 @@
 ---
 import '@/styles/global.css';
 import PostHog from '@/components/PostHog.astro';
+import {
+  organization,
+  website,
+  softwareApplication,
+  webPage,
+  breadcrumbList,
+  type Crumb,
+} from '@/lib/schema';
 
 interface Props {
   title?: string;
@@ -12,6 +20,10 @@ interface Props {
   intro?: boolean;
   /** Keep the page out of the index and drop its canonical (the 404). */
   noindex?: boolean;
+  /** Trail above the page. The last crumb is the page itself and carries no link. */
+  breadcrumb?: Crumb[];
+  /** ISO date, mirrored into the page's JSON-LD. Legal pages. */
+  dateModified?: string;
 }
 
 const {
@@ -23,6 +35,8 @@ const {
   hreflang,
   intro = false,
   noindex = false,
+  breadcrumb,
+  dateModified,
 } = Astro.props;
 
 // Runs before the first paint so the curtain never flashes where it should
@@ -41,63 +55,32 @@ const canonicalURL = new URL(pathname, 'https://www.reedly.ai');
 const ogLocale = lang === 'fr' ? 'fr_FR' : 'en_US';
 const ogLocaleAlt = lang === 'fr' ? 'en_US' : 'fr_FR';
 
-// Organization/WebSite only make sense once per site: homepages only.
-// SoftwareApplication (with the real, single "Team" offer) rides along, since
-// pricing now lives in the home's #pricing section. FAQPage is emitted by the
-// component that actually renders the FAQ (Faq.astro for the home, feature
-// pages for their own), never here, so a page never carries more than one.
+// One graph per page, all nodes cross-referenced by `@id`. Organization and
+// WebSite ride on every page so each one is self-describing; SoftwareApplication
+// joins where the product is the subject, and carries its prices only on the
+// home, the one page that shows them. FAQPage is emitted by the component that
+// actually renders the FAQ, never here, so a page never carries more than one.
 const isHomePage = pathname === '/' || pathname === '/fr' || pathname === '/en';
+const isFeaturePage = pathname.includes('/features/');
+const aboutProduct = isHomePage || isFeaturePage;
 
-const graph: Record<string, unknown>[] = [];
-
-if (isHomePage) {
-  graph.push({
-    '@type': 'Organization',
-    name: 'Reedly',
-    url: 'https://www.reedly.ai',
-    logo: 'https://www.reedly.ai/logo-512.png',
-    sameAs: [
-      'https://www.linkedin.com/company/reedly/',
-      'https://www.instagram.com/reedly.ai/',
-      'https://apps.apple.com/fr/app/reedly-compte-rendu-client-ia/id6760261826',
-      'https://play.google.com/store/apps/details?id=com.reedly.app',
-      'https://github.com/reedlyio',
-    ],
-    contactPoint: {
-      '@type': 'ContactPoint',
-      email: 'contact@reedly.ai',
-      contactType: 'customer service',
-    },
-  });
-  graph.push({
-    '@type': 'WebSite',
-    name: 'Reedly',
-    url: 'https://www.reedly.ai',
-    alternateName: ['Reedly AI', 'reedly.ai'],
-  });
-  graph.push({
-    '@type': 'SoftwareApplication',
-    name: 'Reedly',
-    applicationCategory: 'BusinessApplication',
-    operatingSystem: 'iOS, Android',
-    description:
-      lang === 'fr'
-        ? "L'agent IA qui transforme vos rendez-vous terrain en rapports structurés en moins de 2 minutes."
-        : 'The AI agent that turns your field meetings into structured reports in under 2 minutes.',
-    url: 'https://www.reedly.ai',
-    offers: {
-      '@type': 'Offer',
-      name: lang === 'fr' ? 'Équipe' : 'Team',
-      priceCurrency: 'EUR',
-      priceSpecification: {
-        '@type': 'UnitPriceSpecification',
-        price: '49',
-        priceCurrency: 'EUR',
-        unitText: lang === 'fr' ? 'par commercial par mois' : 'per rep per month',
-      },
-    },
-  });
-}
+const graph: Record<string, unknown>[] = noindex
+  ? []
+  : [
+      organization(),
+      website(lang),
+      webPage({
+        url: canonicalURL.href,
+        name: title,
+        description,
+        lang,
+        dateModified,
+        hasBreadcrumb: Boolean(breadcrumb?.length),
+        about: aboutProduct,
+      }),
+      ...(aboutProduct ? [softwareApplication(lang, isHomePage)] : []),
+      ...(breadcrumb?.length ? [breadcrumbList(canonicalURL.href, breadcrumb)] : []),
+    ];
 ---
 
 <!doctype html>

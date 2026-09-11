@@ -118,7 +118,10 @@ The inline script reads its UI strings from a `<script type="application/json" i
 - **Section headings** are two lines: the first plain, the second wrapped in `<em>` (rendered in slate, or green on dark sections). Titles carry literal `<br />` and `<em>` and are rendered with `set:html`.
 - **Product-page copy is the canvas copy, verbatim**, including the `<b>` around the key phrase of a card text or section lead. Those fields are rendered with `set:html`, so keep the markup in the YAML rather than stripping it.
 - **Bilingual symmetry is mandatory.** Any new page, redirect or feature needs both `fr` and `en` versions.
-- **SEO**: every page sets `title` ≤ 60 chars including "Reedly", `description` ≤ 155 chars, canonical URL, hreflang. Home and feature pages emit JSON-LD; only one `FAQPage` per page (emitted by whichever FAQ component renders).
+- **SEO**: every page sets `title` ≤ 60 chars including "Reedly", `description` ≤ 155 chars, canonical URL, hreflang.
+- **Structured data** lives in `src/lib/schema.ts`, never inline in a page. `Layout.astro` emits one `@graph` per indexable page: `Organization` + `WebSite` + `WebPage` everywhere, `SoftwareApplication` where the product is the subject (home and feature pages), `BreadcrumbList` when a page passes the `breadcrumb` prop. Every node carries a stable `@id` (`/#organization`, `/#website`, `/#software`, `<canonical>#webpage`) so the nodes cross-reference instead of being re-declared anonymously. The `noindex` pages (the 404) emit none.
+  - Prices ride on `SoftwareApplication` **only on the home**, the one page that shows them, in the page's default currency (EUR on `/fr`, USD on `/en`, at parity). Enterprise is on quote, so it is not an `Offer`.
+  - `FAQPage` stays with the component that renders the FAQ (`Faq.astro`, or the feature page), so a page never carries two. Build it with `faqPage()`, which links it back to the page's `WebPage`.
 - **Comments**: existing code has minimal comments — don't add commentary unless non-obvious.
 - **Don't fabricate product claims.** Verify against existing copy (`src/lib/i18n.ts`, `src/content/features/`) before writing marketing text.
 

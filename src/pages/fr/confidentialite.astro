@@ -117,6 +117,11 @@ const sections = [
     ],
   },
 ];
+
+const breadcrumb = [
+  { name: 'Accueil', path: '/fr' },
+  { name: 'Politique de confidentialité' },
+];
 ---
 
 <Layout
@@ -124,6 +129,8 @@ const sections = [
   description="Comment Reedly collecte, utilise et protège vos données : données collectées, sous-traitants, hébergement dans l'UE, conservation et vos droits."
   lang="fr"
   hreflang={{ fr: '/fr/confidentialite', en: '/en/privacy-policy' }}
+  breadcrumb={breadcrumb}
+  dateModified="2026-02-18"
 >
   <Nav altHref="/en/privacy-policy" />
   <main>

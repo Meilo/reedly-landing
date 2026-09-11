@@ -123,6 +123,11 @@ const sections = [
     paragraphs: ['Pour toute question concernant ces Conditions, contactez-nous à support@reedly.ai.'],
   },
 ];
+
+const breadcrumb = [
+  { name: 'Accueil', path: '/fr' },
+  { name: 'CGU' },
+];
 ---
 
 <Layout
@@ -130,6 +135,8 @@ const sections = [
   description="Conditions générales d'utilisation de Reedly : compte, usage acceptable, propriété du contenu, abonnements, responsabilité et droit applicable."
   lang="fr"
   hreflang={{ fr: '/fr/cgu', en: '/en/terms-of-service' }}
+  breadcrumb={breadcrumb}
+  dateModified="2026-02-18"
 >
   <Nav altHref="/en/terms-of-service" />
   <main>
