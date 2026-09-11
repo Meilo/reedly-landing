@@ -1,20 +1,23 @@
 ---
 // Sticky navigation. Collapses into a floating pill on scroll and flips to
 // light ink over any section flagged `data-nav-dark` (public/main.js).
-import { getLang, t } from '@/lib/i18n';
+import { getLang, t, type Lang } from '@/lib/i18n';
 import Icon from '@/components/Icon.astro';
 import FlagFr from '@/components/icons/FlagFr.astro';
 import FlagEn from '@/components/icons/FlagEn.astro';
 
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const lang = getLang(path);
 
 interface Props {
   /** Mirror path in the other language, for the language switcher. */
   altHref?: string;
+  /** Overrides the language read from the URL (the 404 has no prefix to trust). */
+  lang?: Lang;
+  /** The current language's entry in the switcher. Defaults to this page. */
+  selfHref?: string;
 }
 
-const { altHref } = Astro.props;
+const { altHref, lang = getLang(path), selfHref = path } = Astro.props;
 const otherLang = lang === 'fr' ? 'en' : 'fr';
 const otherHref = altHref ?? `/${otherLang}`;
 const homeHref = `/${lang}`;
@@ -68,10 +71,10 @@ const homeHref = `/${lang}`;
   position is measured from the trigger in public/main.js.
 -->
 <div class="nav__lang-panel" id="nav-lang-panel" role="menu">
-  <a class="nav__lang-item" role="menuitem" hreflang="en" href={lang === 'fr' ? otherHref : path}>
+  <a class="nav__lang-item" role="menuitem" hreflang="en" href={lang === 'fr' ? otherHref : selfHref}>
     <span class="nav__flag"><FlagEn /></span>{t(lang, 'lang.en')}
   </a>
-  <a class="nav__lang-item" role="menuitem" hreflang="fr" href={lang === 'fr' ? path : otherHref}>
+  <a class="nav__lang-item" role="menuitem" hreflang="fr" href={lang === 'fr' ? selfHref : otherHref}>
     <span class="nav__flag nav__flag--fr"><FlagFr /></span>{t(lang, 'lang.fr')}
   </a>
 </div>

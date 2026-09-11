@@ -219,6 +219,19 @@ const fr: Dict = {
   'footer.cookies': 'Politique des cookies',
   'footer.copy_short': '© {year} Copyright. Tous droits réservés.',
 
+  '404.meta_title': 'Page introuvable · Reedly',
+  '404.meta_description':
+    "Cette adresse ne mène plus nulle part. Retrouvez Reedly, l'agent IA des commerciaux terrain du tourisme B2B, depuis la page d'accueil.",
+  '404.title': "Cette page a changé d'adresse<br /><em>ou n'a jamais existé.</em>",
+  '404.lead':
+    "Le site Reedly a été refait et certains anciens liens ne mènent plus nulle part. L'essentiel reste à un clic.",
+  '404.home': "Retour à l'accueil",
+  '404.next': 'Où aller ensuite',
+  '404.link.transcription': 'Le rendez-vous transcrit, le compte rendu structuré en 11 sections.',
+  '404.link.hub': "Les comptes rendus de toute l'équipe, au même endroit.",
+  '404.link.pricing': '49 € par commercial et par mois, dès 3 commerciaux.',
+  '404.link.faq': "Les réponses aux questions qu'on nous pose le plus.",
+
   'lang.fr': 'French',
   'lang.en': 'English',
 };
@@ -428,6 +441,19 @@ const en: Dict = {
   'footer.privacy_long': 'Privacy policy',
   'footer.cookies': 'Cookie policy',
   'footer.copy_short': '© {year} Copyright. All rights reserved.',
+
+  '404.meta_title': 'Page not found · Reedly',
+  '404.meta_description':
+    'This address no longer leads anywhere. Find Reedly, the AI agent for B2B tourism field sales reps, from the home page.',
+  '404.title': 'This page has moved<br /><em>or never existed.</em>',
+  '404.lead':
+    'The Reedly site has been rebuilt and some old links no longer lead anywhere. Everything that matters is one click away.',
+  '404.home': 'Back to home',
+  '404.next': 'Where to next',
+  '404.link.transcription': 'The meeting transcribed, the report structured in 11 sections.',
+  '404.link.hub': "The whole team's reports, in one place.",
+  '404.link.pricing': '$49 per rep per month, from 3 reps.',
+  '404.link.faq': 'Answers to the questions we hear most.',
 
   'lang.fr': 'French',
   'lang.en': 'English',

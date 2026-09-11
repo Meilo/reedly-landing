@@ -43,6 +43,8 @@ Plus `/docs/*` (Starlight, English only) and the API endpoints.
 
 There is **no blog, no pricing page, no alternatives/comparison pages** — pricing lives in the home's `#pricing` section. `vercel.json` holds 301s from every legacy path (`/blog/*`, `/tarifs`, `/pricing`, `/alternatives/*`, `/comparatif`…). Keep redirects there, not in Astro.
 
+**404.** `src/pages/404.astro` is the one server-rendered page (`prerender = false`): a prerendered `404.html` is a single file for every wrong URL, so it could not answer `/fr/...` in French and `/en/...` in English. Its language comes from the path prefix, else `Accept-Language`, else English, and is passed down to `Nav` / `Footer` through their `lang` prop. It is `noindex` with no canonical (`Layout`'s `noindex` prop) and fires a `page_not_found` PostHog event carrying the path and referrer, which is how to find the next broken inbound link. Starlight's own 404 stays disabled in `astro.config.mjs`. The ten product pages dropped in the redesign (`rapport-ia`, `syntheses-territoriales`, `integrations-crm`…) are 301'd in `vercel.json` to the closer of the two surviving ones, so they no longer land on it.
+
 When adding a page, **add both language halves** and the redirect pair in `vercel.json` if a legacy URL needs preserving.
 
 ### Home sections
