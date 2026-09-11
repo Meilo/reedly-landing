@@ -74,6 +74,11 @@ const sections = [
     paragraphs: ["Pour toute question concernant le site ou l'application : support@reedly.ai."],
   },
 ];
+
+const breadcrumb = [
+  { name: 'Accueil', path: '/fr' },
+  { name: 'Mentions légales' },
+];
 ---
 
 <Layout
@@ -81,6 +86,8 @@ const sections = [
   description="Éditeur, directeur de la publication, hébergement, propriété intellectuelle et droit applicable du site reedly.ai et de l'application Reedly."
   lang="fr"
   hreflang={{ fr: '/fr/mentions-legales', en: '/en/legal-notice' }}
+  breadcrumb={breadcrumb}
+  dateModified="2026-09-09"
 >
   <Nav altHref="/en/legal-notice" />
   <main>

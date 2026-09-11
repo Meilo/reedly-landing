@@ -65,6 +65,11 @@ const sections = [
     paragraphs: ['For any question about cookies: support@reedly.ai.'],
   },
 ];
+
+const breadcrumb = [
+  { name: 'Home', path: '/en' },
+  { name: 'Cookie policy' },
+];
 ---
 
 <Layout
@@ -72,6 +77,8 @@ const sections = [
   description="Which cookies are placed on reedly.ai, for what purpose, for how long, and how to change or withdraw your consent."
   lang="en"
   hreflang={{ fr: '/fr/cookies', en: '/en/cookie-policy' }}
+  breadcrumb={breadcrumb}
+  dateModified="2026-09-09"
 >
   <Nav altHref="/fr/cookies" />
   <main>

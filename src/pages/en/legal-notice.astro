@@ -74,6 +74,11 @@ const sections = [
     paragraphs: ['For any question about the website or the application: support@reedly.ai.'],
   },
 ];
+
+const breadcrumb = [
+  { name: 'Home', path: '/en' },
+  { name: 'Legal notice' },
+];
 ---
 
 <Layout
@@ -81,6 +86,8 @@ const sections = [
   description="Publisher, publication director, hosting, intellectual property and governing law for the reedly.ai website and the Reedly application."
   lang="en"
   hreflang={{ fr: '/fr/mentions-legales', en: '/en/legal-notice' }}
+  breadcrumb={breadcrumb}
+  dateModified="2026-09-09"
 >
   <Nav altHref="/fr/mentions-legales" />
   <main>

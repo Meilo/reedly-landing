@@ -3,23 +3,18 @@
 // on the same page may emit one.
 import { getLang, t } from '@/lib/i18n';
 import Icon from '@/components/Icon.astro';
+import { faqPage } from '@/lib/schema';
 
 const lang = getLang(Astro.url.pathname);
+const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const canonical = new URL(pathname, 'https://www.reedly.ai').href;
 
 const items = [1, 2, 3, 4, 5, 6].map((i) => ({
   q: t(lang, `faq.q${i}`),
   a: t(lang, `faq.a${i}`),
 }));
 
-const faqLD = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: items.map((item) => ({
-    '@type': 'Question',
-    name: item.q,
-    acceptedAnswer: { '@type': 'Answer', text: item.a },
-  })),
-};
+const faqLD = faqPage(canonical, lang, items);
 ---
 
 <section class="section" id="faq">

@@ -12,6 +12,7 @@ import FeatureStickyCta from '@/components/feature/FeatureStickyCta.astro';
 import FinalCta from '@/components/FinalCta.astro';
 import Footer from '@/components/Footer.astro';
 import { getAllFeatureSlugs, loadFeatureContent, findMirrorSlug, findFeatureId } from '@/lib/load-features';
+import { faqPage } from '@/lib/schema';
 import { heroImage, rolesImage, useCaseImages } from '@/lib/feature-media';
 
 export function getStaticPaths() {
@@ -27,28 +28,26 @@ const paths = { fr: `/fr/features/${slug}`, en: `/en/features/${mirrorSlug}` };
 const hero = heroImage(featureId, 'fr');
 const roles = rolesImage(featureId, 'fr');
 
-const breadcrumbLD = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.reedly.ai/fr' },
-    { '@type': 'ListItem', position: 2, name: data.hero.sticky },
-  ],
-};
+const breadcrumb = [
+  { name: 'Accueil', path: '/fr' },
+  { name: data.hero.sticky },
+];
 
-const faqLD = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: data.faq.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: { '@type': 'Answer', text: item.answer },
-  })),
-};
+const canonical = `https://www.reedly.ai${paths.fr}`;
+const faqLD = faqPage(
+  canonical,
+  'fr',
+  data.faq.map((item) => ({ q: item.question, a: item.answer })),
+);
 ---
 
-<Layout title={data.seo.title} description={data.seo.description} lang="fr" hreflang={paths}>
-  <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbLD)} />
+<Layout
+  title={data.seo.title}
+  description={data.seo.description}
+  lang="fr"
+  hreflang={paths}
+  breadcrumb={breadcrumb}
+>
   <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(faqLD)} />
 
   <Nav altHref={paths.en} />
