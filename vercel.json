@@ -8,6 +8,13 @@
     { "source": "/fr/solutions/:slug", "destination": "/fr/features/:slug", "permanent": true },
     { "source": "/en/solutions/:slug", "destination": "/en/features/:slug", "permanent": true },
 
+    { "source": "/fr/features/:slug(enregistrement-vocal-rdv|rapport-ia|identification-interlocuteurs)", "destination": "/fr/features/transcription-ia", "permanent": true },
+    { "source": "/en/features/:slug(meeting-voice-recording|ai-report|speaker-identification)", "destination": "/en/features/ai-transcription", "permanent": true },
+    { "source": "/fr/features/:slug(syntheses-territoriales|assistant-ia-manager|portfolio-client|base-de-connaissances|directives-commerciales|integrations-crm)", "destination": "/fr/features/hub-manager", "permanent": true },
+    { "source": "/en/features/:slug(territory-syntheses|ai-manager-assistant|client-portfolio|knowledge-base|sales-directives|crm-integrations)", "destination": "/en/features/manager-hub", "permanent": true },
+    { "source": "/fr/features/preparation-rdv", "destination": "/fr", "permanent": true },
+    { "source": "/en/features/meeting-preparation", "destination": "/en", "permanent": true },
+
     { "source": "/pricing", "destination": "/en#pricing", "permanent": true },
     { "source": "/tarifs", "destination": "/fr#pricing", "permanent": true },
     { "source": "/en/pricing", "destination": "/en#pricing", "permanent": true },

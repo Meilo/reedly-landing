@@ -42,9 +42,9 @@ export default defineConfig({
           },
         },
       ],
-      // Starlight injects a site-wide `/404` route. The marketing site has no 404
-      // of its own, so leaving this on would serve a docs-styled page for every
-      // wrong URL on reedly.ai — not just under /docs.
+      // Starlight injects a site-wide `/404` route, which would collide with the
+      // marketing site's own (src/pages/404.astro) and serve a docs-styled page
+      // for every wrong URL on reedly.ai, not just under /docs.
       disable404Route: true,
       // English-only. The marketing site keeps its own /fr + /en split, which is
       // unrelated to Starlight's i18n.

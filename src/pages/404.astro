@@ -1,0 +1,92 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Nav from '@/components/Nav.astro';
+import Footer from '@/components/Footer.astro';
+import Icon from '@/components/Icon.astro';
+import { t, type Lang } from '@/lib/i18n';
+
+// Rendered on demand: a prerendered 404.html is one file served for every wrong
+// URL, so it could not answer /fr/... in French and /en/... in English.
+export const prerender = false;
+
+const prefix = Astro.url.pathname.match(/^\/(fr|en)(\/|$)/)?.[1] as Lang | undefined;
+const accept = Astro.request.headers.get('accept-language') ?? '';
+const lang: Lang = prefix ?? (/^fr\b/i.test(accept) ? 'fr' : 'en');
+const other: Lang = lang === 'fr' ? 'en' : 'fr';
+const home = `/${lang}`;
+
+const links = [
+  {
+    href: lang === 'fr' ? '/fr/features/transcription-ia' : '/en/features/ai-transcription',
+    title: t(lang, 'footer.feature.transcription'),
+    desc: t(lang, '404.link.transcription'),
+  },
+  {
+    href: lang === 'fr' ? '/fr/features/hub-manager' : '/en/features/manager-hub',
+    title: t(lang, 'footer.feature.hub'),
+    desc: t(lang, '404.link.hub'),
+  },
+  { href: `${home}#pricing`, title: t(lang, 'footer.pricing'), desc: t(lang, '404.link.pricing') },
+  { href: `${home}#faq`, title: 'FAQ', desc: t(lang, '404.link.faq') },
+];
+---
+
+<Layout
+  title={t(lang, '404.meta_title')}
+  description={t(lang, '404.meta_description')}
+  lang={lang}
+  noindex
+>
+  <Nav lang={lang} selfHref={home} altHref={`/${other}`} />
+  <main>
+    <section class="notfound">
+      <div class="inner notfound__inner">
+        <div class="notfound__text reveal center-mobile">
+          <div class="notfound__code" aria-hidden="true">404</div>
+          <h1 class="display display--lg" set:html={t(lang, '404.title')} />
+          <p class="lead">{t(lang, '404.lead')}</p>
+          <div class="btn-row">
+            <a
+              class="btn btn--primary"
+              href={home}
+              data-track-id="404_home"
+              data-track-type="navigation"
+              data-track-section="404">{t(lang, '404.home')}</a
+            >
+            <a
+              class="btn btn--ghost"
+              href={`${home}#rdv`}
+              data-track-id="404_book_demo"
+              data-track-type="demo"
+              data-track-section="404">{t(lang, 'cta.book_demo')}</a
+            >
+          </div>
+        </div>
+
+        <div class="notfound__next reveal">
+          <p class="notfound__next-title">{t(lang, '404.next')}</p>
+          <div class="notfound__links">
+            {links.map((link) => (
+              <a class="notfound__link" href={link.href}>
+                <span class="notfound__link-text">
+                  <span class="notfound__link-title">{link.title}</span>
+                  <span class="notfound__link-desc">{link.desc}</span>
+                </span>
+                <Icon name="arrow-cta" size={20} />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer lang={lang} />
+  <script src="/main.js" is:inline></script>
+  <script is:inline>
+    window.reedlyTrackEvent &&
+      window.reedlyTrackEvent('page_not_found', {
+        path: location.pathname,
+        referrer: document.referrer,
+      });
+  </script>
+</Layout>
