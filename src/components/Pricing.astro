@@ -76,8 +76,10 @@ const enterpriseFeatures = Array.from({ length: 5 }, (_, i) => ({
 
     <div class="pricing__cards reveal">
       <article class="plan plan--team">
-        <div class="plan__badge">{t(lang, 'pricing.team.badge')}</div>
-        <div class="plan__name">{t(lang, 'pricing.team.plan')}</div>
+        <div class="plan__title">
+          <div class="plan__name">{t(lang, 'pricing.team.plan')}</div>
+          <div class="plan__badge">{t(lang, 'pricing.team.badge')}</div>
+        </div>
         <div class="plan__meta">{t(lang, 'pricing.team.subtitle')}</div>
 
         <div class="plan__price">
@@ -96,17 +98,6 @@ const enterpriseFeatures = Array.from({ length: 5 }, (_, i) => ({
           <span class="plan__per">{t(lang, 'pricing.team.per')}</span>
         </div>
 
-        <div class="plan__divider"></div>
-
-        <ul class="plan__features">
-          {teamFeatures.map((feat) => (
-            <li>
-              <span class="plan__feature-icon" data-icon-anim><Icon name={feat.icon} size={30} /></span>
-              {t(lang, feat.key)}
-            </li>
-          ))}
-        </ul>
-
         <a
           class="btn btn--primary btn--block plan__cta"
           href="https://hub.reedly.ai/"
@@ -114,6 +105,17 @@ const enterpriseFeatures = Array.from({ length: 5 }, (_, i) => ({
           data-track-type="trial"
           data-track-section="pricing">{t(lang, 'cta.try_free')}</a
         >
+
+        <div class="plan__divider"></div>
+
+        <ul class="plan__features">
+          {teamFeatures.map((feat) => (
+            <li>
+              <span class="plan__feature-icon" data-icon-anim><Icon name={feat.icon} size={18} /></span>
+              {t(lang, feat.key)}
+            </li>
+          ))}
+        </ul>
       </article>
 
       <article class="plan plan--enterprise">
@@ -121,26 +123,25 @@ const enterpriseFeatures = Array.from({ length: 5 }, (_, i) => ({
         <div class="plan__meta">{t(lang, 'pricing.large.subtitle')}</div>
         <div class="plan__quote">{t(lang, 'pricing.large.price')}</div>
 
+        <a
+          class="btn btn--onDark btn--block plan__cta"
+          href={`/${lang}/demo`}
+          data-track-id="pricing_large_contact"
+          data-track-type="contact"
+          data-track-section="pricing">{t(lang, 'pricing.contact_us')}</a
+        >
+
         <div class="plan__divider"></div>
 
         <ul class="plan__features">
           {enterpriseFeatures.map((feat) => (
             <li>
-              <span class="plan__feature-icon" data-icon-anim><Icon name={feat.icon} size={30} /></span>
+              <span class="plan__feature-icon" data-icon-anim><Icon name={feat.icon} size={18} /></span>
               {t(lang, feat.key)}
             </li>
           ))}
         </ul>
-
-        <a
-          class="btn btn--onDark btn--block plan__cta"
-          href="#rdv"
-          data-track-id="pricing_large_contact"
-          data-track-type="contact"
-          data-track-section="pricing">{t(lang, 'pricing.contact_us')}</a
-        >
       </article>
     </div>
-
   </div>
 </section>

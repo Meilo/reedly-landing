@@ -21,6 +21,7 @@ const { altHref, lang = getLang(path), selfHref = path } = Astro.props;
 const otherLang = lang === 'fr' ? 'en' : 'fr';
 const otherHref = altHref ?? `/${otherLang}`;
 const homeHref = `/${lang}`;
+const demoHref = `/${lang}/demo`;
 ---
 
 <nav class="nav" id="nav">
@@ -55,7 +56,8 @@ const homeHref = `/${lang}`;
 
       <a
         class="nav__cta"
-        href={`${homeHref}#rdv`}
+        href={demoHref}
+        aria-current={path === demoHref ? 'page' : undefined}
         data-track-id="nav_book_demo"
         data-track-type="demo"
         data-track-section="nav">{t(lang, 'cta.book_demo')}</a

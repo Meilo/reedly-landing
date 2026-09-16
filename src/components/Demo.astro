@@ -31,8 +31,6 @@ const integrations = [
           height="1402"
           loading="lazy"
         />
-        <div class="frame__scrim" aria-hidden="true"></div>
-        <div class="frame__badge">{t(lang, 'demo.label_record')}</div>
       </div>
 
       <div class="demo__panels">
@@ -46,19 +44,23 @@ const integrations = [
         </div>
 
         <div class="demo__col">
-          <div class="demo__integrations">
-            <div class="demo__integrations-grid">
-              {integrations.map((i) => (
-                <img src={i.src} alt={i.alt} width="32" height="32" loading="lazy" />
-              ))}
-            </div>
-          </div>
-
           <div class="demo__record">
+            <span class="demo__chip demo__chip--light">{t(lang, 'demo.label_record')}</span>
             <div class="phone phone--sm">
               <div class="phone__screen">
                 <PhoneRecord lang={lang} />
               </div>
+            </div>
+          </div>
+
+          <div class="demo__integrations">
+            <span class="demo__chip demo__chip--light">{t(lang, 'demo.label_tools')}</span>
+            <div class="demo__integrations-grid">
+              {integrations.map((i) => (
+                <span class="demo__logo">
+                  <img src={i.src} alt={i.alt} width="28" height="28" loading="lazy" />
+                </span>
+              ))}
             </div>
           </div>
         </div>

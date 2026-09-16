@@ -7,7 +7,6 @@ import Hub from '@/components/Hub.astro';
 import Compliance from '@/components/Compliance.astro';
 import Pricing from '@/components/Pricing.astro';
 import Testimonials from '@/components/Testimonials.astro';
-import BookDemo from '@/components/BookDemo.astro';
 import Faq from '@/components/Faq.astro';
 import FinalCta from '@/components/FinalCta.astro';
 import Footer from '@/components/Footer.astro';
@@ -20,6 +19,8 @@ import Footer from '@/components/Footer.astro';
   hreflang={{ fr: '/fr', en: '/en' }}
   intro
 >
+  <!-- The booking block moved to its own page; old #rdv links still land there. -->
+  <script is:inline>if (location.hash === '#rdv') location.replace('/en/demo');</script>
   <Nav altHref="/fr" />
 
   <main>
@@ -29,8 +30,7 @@ import Footer from '@/components/Footer.astro';
     <Compliance />
     <Pricing />
     <Testimonials />
-    <BookDemo />
-    <Faq />
+    <Faq white />
     <FinalCta />
   </main>
 
