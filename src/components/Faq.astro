@@ -5,6 +5,12 @@ import { getLang, t } from '@/lib/i18n';
 import Icon from '@/components/Icon.astro';
 import { faqPage } from '@/lib/schema';
 
+interface Props {
+  /** White surface, for pages where the section above already sits on the default one. */
+  white?: boolean;
+}
+
+const { white = false } = Astro.props;
 const lang = getLang(Astro.url.pathname);
 const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const canonical = new URL(pathname, 'https://www.reedly.ai').href;
@@ -17,7 +23,7 @@ const items = [1, 2, 3, 4, 5, 6].map((i) => ({
 const faqLD = faqPage(canonical, lang, items);
 ---
 
-<section class="section" id="faq">
+<section class:list={['section', white && 'section--white']} id="faq">
   <div class="inner faq__inner">
     <h2 class="display display--lg faq__title reveal" set:html={t(lang, 'faq.title')} />
 

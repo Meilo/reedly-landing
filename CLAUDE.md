@@ -29,11 +29,12 @@ pnpm test     # vitest (booking slot logic)
 
 Every public page exists under both `/en/...` and `/fr/...`. Root `/` redirects to `/en` (see `vercel.json`). Trailing slashes are stripped (`trailingSlash: 'never'`).
 
-The whole site is 12 pages:
+The whole site is 14 pages:
 
 | | FR | EN |
 | --- | --- | --- |
 | Home | `/fr` | `/en` |
+| Book a demo | `/fr/demo` | `/en/demo` |
 | AI transcription | `/fr/features/transcription-ia` | `/en/features/ai-transcription` |
 | Manager Hub | `/fr/features/hub-manager` | `/en/features/manager-hub` |
 | Legal notice | `/fr/mentions-legales` | `/en/legal-notice` |
@@ -51,7 +52,9 @@ When adding a page, **add both language halves** and the redirect pair in `verce
 
 ### Home sections
 
-`src/pages/{fr,en}/index.astro` composes, in order: `Nav`, `Hero`, `Demo`, `Hub`, `Compliance`, `Pricing`, `Testimonials`, `BookDemo`, `Faq`, `FinalCta`, `Footer`.
+`src/pages/{fr,en}/index.astro` composes, in order: `Nav`, `Hero`, `Demo`, `Hub`, `Compliance`, `Pricing`, `Testimonials`, `Faq`, `FinalCta`, `Footer`.
+
+The booking block is not on the home any more: it lives on `/fr/demo` · `/en/demo`, and every "book a demo" CTA (nav, hero, pricing, final CTA, footer, product pages, 404) links there. An inline script on each home still sends a legacy `#rdv` URL to the demo page, since a fragment cannot be redirected server-side.
 
 Copy for all of these lives server-side in `src/lib/i18n.ts` (`t(lang, key)`). Nothing in `public/main.js` renders copy — it only drives behaviour.
 
@@ -97,7 +100,7 @@ The only exceptions live in `src/components/icons/` (country flags), `Footer.ast
 
 ### Interactivity
 
-`public/main.js` (loaded with `<script src="/main.js" is:inline>`) owns the global behaviours: analytics helpers + `window.reedlyTrackEvent`, scroll reveal (`.reveal` → `.is-visible`), the nav's compact pill and its light-ink flip over `[data-nav-dark]` sections, the language dropdown, the FAQ accordion, the pricing billing toggle, and the testimonial carousel. It also mirrors the scroll threshold onto `<html class="is-scrolled">`, which is what reveals the product pages' sticky CTA.
+`public/main.js` (loaded with `<script src="/main.js" is:inline>`) owns the global behaviours: analytics helpers + `window.reedlyTrackEvent`, scroll reveal (`.reveal` → `.is-visible`), the nav's compact pill and its light-ink flip over `[data-nav-dark]` sections, the language dropdown, the FAQ accordion, and the pricing billing toggle. It also mirrors the scroll threshold onto `<html class="is-scrolled">`, which is what reveals the product pages' sticky CTA.
 
 Three behaviours are component-scoped inline scripts instead, because they are local to one block: the booking flow in `BookDemo.astro`, the use-case accordion in `FeatureUseCases.astro`, and the role tabs in `FeatureRoles.astro`.
 
@@ -109,7 +112,7 @@ Three behaviours are component-scoped inline scripts instead, because they are l
 
 ### Native demo booking
 
-The "Réserver une démo" section (`BookDemo.astro`, `#rdv`) is a self-hosted, Calendly-like flow: the qualifying form (email, role, sector, team size) reveals a 15-minute slot picker. Availability = Mon–Fri 09:00–18:00 Europe/Paris minus the host calendar's Google FreeBusy; booking creates a Google Meet event and invites the visitor. No database — the calendar is the source of truth. Pure logic (`generateSlots`, `isSlotBookable`) lives in `src/lib/booking/*` and is unit-tested with vitest; the Google client is `src/lib/booking/google.ts`; parameters are in `src/lib/booking/config.ts`.
+The demo page (`src/pages/{fr,en}/demo.astro`) opens on `BookDemo.astro` (the page's h1; what the demo covers, pinned over a photo, beside the form card), then `Testimonials` and `Faq` (which brings its own `FAQPage` JSON-LD) as reassurance. The flow is a self-hosted, Calendly-like flow: the qualifying form (email, role, sector, team size) reveals a 15-minute slot picker. Availability = Mon–Fri 09:00–18:00 Europe/Paris minus the host calendar's Google FreeBusy; booking creates a Google Meet event and invites the visitor. No database — the calendar is the source of truth. Pure logic (`generateSlots`, `isSlotBookable`) lives in `src/lib/booking/*` and is unit-tested with vitest; the Google client is `src/lib/booking/google.ts`; parameters are in `src/lib/booking/config.ts`.
 
 The inline script reads its UI strings from a `<script type="application/json" id="bd-i18n">` island rendered from `src/lib/i18n.ts`, so there is no second dictionary to keep in sync.
 
@@ -169,8 +172,8 @@ Deployed to Vercel. `astro.config.mjs` uses `output: 'static'` + `@astrojs/verce
 - `docs/positioning/2026-07-07-positionnement-concurrence.md` is research, not strategy, and it is stale: it states 29 €/user/month against the live 49 €, a Pro/Business/Enterprise structure that no longer exists, and the removed "audio deleted after the report" framing. Don't take copy from it.
 - `vercel.json` legacy redirect `/solutions/:slug` → `/features/:slug` — the product pages live at `/features/...`, not `/solutions/...`.
 - `Layout.astro` defaults to **French** title/description if none provided — always pass `lang` and explicit `title`/`description` for English pages.
-- `hero.cta_label` / `hero.cta_url` still exist in the feature YAMLs but are no longer rendered; the hero CTAs point at the home `#rdv` anchor.
-- The layout was verified against the canvas by loading each maquette in a same-origin iframe and diffing computed geometry at a 1440px viewport. If you change spacing or an icon size, re-check against the canvas rather than eyeballing it: several values there are deliberate oddities (a 70px icon tile around a 60px glyph, `min-height` on only two rows of the booking form, a 52px benefits gap against a 56px problem gap).
+- `hero.cta_label` / `hero.cta_url` still exist in the feature YAMLs but are no longer rendered; the hero CTAs point at the `/{lang}/demo` page.
+- The layout was verified against the canvas by loading each maquette in a same-origin iframe and diffing computed geometry at a 1440px viewport. If you change spacing or an icon size, re-check against the canvas rather than eyeballing it.
 - `public/` holds no dead weight any more: the four promo `.mp4`s, `favicon.svg`, `portrait-b.webp`, `integration/discord.png` and the two `app/*-light.webp` app screenshots were all unreferenced and are gone (recoverable from git history).
 - `.astro/` is gitignored. It used to be committed, which meant every build dirtied the tree and kept a stale schema for a `blog` collection that no longer exists.
 - The sitemap excludes `/` on purpose (`astro.config.mjs`): `vercel.json` 301s it to `/en`, and a sitemap listing a redirecting URL is a Search Console error.

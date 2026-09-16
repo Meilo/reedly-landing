@@ -10,7 +10,7 @@ const lang = getLang(Astro.url.pathname);
     <div class="btn-row">
       <a
         class="btn btn--primary"
-        href="#rdv"
+        href={`/${lang}/demo`}
         data-track-id="final_book_demo"
         data-track-type="demo"
         data-track-section="final_cta">{t(lang, 'cta.book_demo')}</a

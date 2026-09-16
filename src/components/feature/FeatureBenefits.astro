@@ -10,19 +10,19 @@ const { title, cards } = Astro.props;
 ---
 
 <section class="section">
-  <div class="inner">
-    <div class="reveal center-mobile">
+  <div class="inner benefits">
+    <div class="benefits__head reveal center-mobile">
       <h2 class="display display--lg" set:html={title} />
     </div>
 
-    <div class="feature-grid feature-grid--wide reveal center-mobile">
+    <ul class="benefits__list reveal">
       {cards.map((card) => (
-        <article class="feature-item">
-          <span class="feature-item__icon"><Icon name={card.icon} size={60} /></span>
+        <li>
+          <span class="benefits__icon"><Icon name={card.icon} size={30} /></span>
           <h3>{card.title}</h3>
           <p set:html={card.text} />
-        </article>
+        </li>
       ))}
-    </div>
+    </ul>
   </div>
 </section>

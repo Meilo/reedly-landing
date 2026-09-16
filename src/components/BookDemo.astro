@@ -1,12 +1,21 @@
 ---
 import Icon from '@/components/Icon.astro';
-// Book a demo: qualifying form, then the native slot picker.
+// Book a demo, the top of /fr/demo and /en/demo: what the demo covers beside
+// the qualifying form, then the native slot picker in the same card.
 // Availability comes from /api/availability (Google FreeBusy minus booked
 // slots); /api/book creates the Meet event. The inline script below reads its
 // UI strings from the JSON island so it never needs a second dictionary.
 import { getLang, t } from '@/lib/i18n';
 
 const lang = getLang(Astro.url.pathname);
+
+const agenda = [
+  { icon: 'realtime', key: 'bookpage.agenda1' },
+  { icon: 'report', key: 'bookpage.agenda2' },
+  { icon: 'memory', key: 'bookpage.agenda3' },
+  { icon: 'dashboard', key: 'bookpage.agenda4' },
+  { icon: 'export', key: 'bookpage.agenda5' },
+];
 
 const roles = [
   ['head_of_sales', 'bookdemo.role.director'],
@@ -29,8 +38,8 @@ const sectors = [
 
 const teamSizes = [
   { value: '1', label: '1' },
-  { value: '2-5', label: '2 à 5' },
-  { value: '6-15', label: '6 à 15' },
+  { value: '2-5', label: lang === 'fr' ? '2 à 5' : '2 to 5' },
+  { value: '6-15', label: lang === 'fr' ? '6 à 15' : '6 to 15' },
   { value: '16+', label: '16+' },
 ] as const;
 
@@ -48,124 +57,169 @@ const strings = {
 };
 ---
 
-<section class="section section--white" id="rdv">
-  <div class="inner book__inner">
-    <div class="book__head reveal center-mobile">
-      <h2 class="display display--lg" set:html={t(lang, 'bookdemo.title')} />
+<section class="section book" id="rdv">
+  <div class="inner book__grid">
+    <div class="book__intro reveal center-mobile">
+      <h1 class="display display--lg" set:html={t(lang, 'bookdemo.title')} />
       <p class="lead">{t(lang, 'bookdemo.lead')}</p>
+
+      <div class="book__media">
+        <div class="frame book__photo">
+          <img
+            src="/images/rep-listening.webp"
+            alt={t(lang, 'bookpage.photo_alt')}
+            width="1122"
+            height="1402"
+            loading="lazy"
+          />
+        </div>
+        <div class="book__agenda">
+          <p class="book__agenda-title">{t(lang, 'bookpage.agenda_title')}</p>
+          <ul>
+            {agenda.map((item) => (
+              <li>
+                <span class="book__agenda-icon"><Icon name={item.icon} size={20} /></span>
+                {t(lang, item.key)}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="book__card reveal">
-      <form id="bookdemo-form" novalidate>
-        <div class="book__row">
-          <label class="book__label" for="bd-email">{t(lang, 'bookdemo.email.label')}</label>
-          <div class="book__field">
-            <input
-              type="email"
-              id="bd-email"
-              name="email"
-              placeholder={t(lang, 'bookdemo.email.ph')}
-              required
-              autocomplete="email"
-            />
+      <div class="book__body">
+        <div id="bookdemo-step">
+          <div class="book__card-head">
+            <p class="book__card-title">{t(lang, 'bookpage.card_title')}</p>
+            <p class="book__card-sub">{t(lang, 'bookpage.card_sub')}</p>
           </div>
-        </div>
 
-        <div class="book__row book__row--role">
-          <label class="book__label" for="bd-role">{t(lang, 'bookdemo.role.label')}</label>
-          <div class="book__field">
-            <select id="bd-role" name="role" required>
-              <option value="" disabled selected>{t(lang, 'bookdemo.role.select')}</option>
-              {roles.map(([value, key]) => <option value={value}>{t(lang, key)}</option>)}
-            </select>
-            <span class="book__chevron"><Icon name="chevron-down" size={14} /></span>
-          </div>
-        </div>
-
-        <div class="book__row">
-          <label class="book__label" for="bd-sector">{t(lang, 'bookdemo.sector.label')}</label>
-          <div class="book__field">
-            <select id="bd-sector" name="sector">
-              <option value="" disabled selected>{t(lang, 'bookdemo.sector.select')}</option>
-              {sectors.map(([value, key]) => <option value={value}>{t(lang, key)}</option>)}
-            </select>
-            <span class="book__chevron"><Icon name="chevron-down" size={14} /></span>
-          </div>
-        </div>
-
-        <div class="book__row book__row--team">
-          <span class="book__label" id="bd-team-label">{t(lang, 'bookdemo.team.label')}</span>
-          <div class="book__chips" role="group" aria-labelledby="bd-team-label">
-            {teamSizes.map((size) => (
-              <button class="book__chip" type="button" data-size={size.value}>{size.label}</button>
-            ))}
-          </div>
-          <input type="hidden" id="bd-team" name="team_size" required />
-        </div>
-
-        <div class="book__submit">
-          <button
-            class="btn btn--ink btn--block"
-            type="submit"
-            data-track-id="bookdemo_submit"
-            data-track-type="demo"
-            data-track-section="bookdemo"
-          >
-            {t(lang, 'bookdemo.submit')}
-            <Icon name="arrow-cta" size={16} />
-          </button>
-        </div>
-      </form>
-
-      <!-- Native slot picker, revealed after the qualifying step. -->
-      <div class="book__slots" id="bookdemo-calendar" hidden>
-        <button type="button" class="back-link" id="cal-back-top">{t(lang, 'bookdemo.cal.back_form')}</button>
-        <p class="book__feedback" id="cal-tznote">{t(lang, 'bookdemo.cal.tznote')}</p>
-        <p class="book__feedback" id="cal-status">{t(lang, 'bookdemo.cal.loading')}</p>
-
-        <div id="cal-grid" hidden>
-          <div class="book__days" id="cal-days"></div>
-          <div class="book__times" id="cal-slots"></div>
-        </div>
-
-        <form id="cal-confirm" hidden novalidate>
-          <p class="book__recap" id="cal-recap"></p>
-          <div class="book__row">
-            <label class="book__label" for="cal-name">{t(lang, 'bookdemo.cal.name')}</label>
-            <div class="book__field">
-              <input type="text" id="cal-name" name="name" required autocomplete="name" />
+          <form id="bookdemo-form" class="book__form" novalidate>
+            <div>
+              <label class="book__label" for="bd-email">{t(lang, 'bookdemo.email.label')}</label>
+              <div class="book__control">
+                <input
+                  type="email"
+                  id="bd-email"
+                  name="email"
+                  placeholder={t(lang, 'bookdemo.email.ph')}
+                  required
+                  autocomplete="email"
+                />
+              </div>
             </div>
-          </div>
-          <div class="book__row">
-            <label class="book__label" for="cal-note">{t(lang, 'bookdemo.cal.note')}</label>
-            <div class="book__field">
-              <input type="text" id="cal-note" name="note" required />
+
+            <div class="book__pair">
+              <div>
+                <label class="book__label" for="bd-role">{t(lang, 'bookdemo.role.label')}</label>
+                <div class="book__control">
+                  <select id="bd-role" name="role" required>
+                    <option value="" disabled selected>{t(lang, 'bookdemo.role.select')}</option>
+                    {roles.map(([value, key]) => <option value={value}>{t(lang, key)}</option>)}
+                  </select>
+                  <span class="book__chevron"><Icon name="chevron-down" size={14} /></span>
+                </div>
+              </div>
+
+              <div>
+                <label class="book__label" for="bd-sector">{t(lang, 'bookdemo.sector.label')}</label>
+                <div class="book__control">
+                  <select id="bd-sector" name="sector">
+                    <option value="" disabled selected>{t(lang, 'bookdemo.sector.select')}</option>
+                    {sectors.map(([value, key]) => <option value={value}>{t(lang, key)}</option>)}
+                  </select>
+                  <span class="book__chevron"><Icon name="chevron-down" size={14} /></span>
+                </div>
+              </div>
             </div>
-          </div>
-          <input
-            type="text"
-            id="cal-hp"
-            name="company_website"
-            tabindex="-1"
-            autocomplete="off"
-            aria-hidden="true"
-            style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"
-          />
-          <div class="book__submit">
-            <button class="btn btn--primary btn--block" type="submit" id="cal-submit"
-              >{t(lang, 'bookdemo.cal.confirm')}</button
+
+            <div>
+              <span class="book__label" id="bd-team-label">{t(lang, 'bookdemo.team.label')}</span>
+              <div class="book__chips" role="group" aria-labelledby="bd-team-label">
+                {teamSizes.map((size) => (
+                  <button class="book__chip" type="button" data-size={size.value}>{size.label}</button>
+                ))}
+              </div>
+              <input type="hidden" id="bd-team" name="team_size" required />
+            </div>
+
+            <button
+              class="btn btn--ink btn--block book__go"
+              type="submit"
+              data-track-id="bookdemo_submit"
+              data-track-type="demo"
+              data-track-section="bookdemo"
             >
-            <p class="book__feedback book__feedback--error" id="cal-confirm-err" hidden></p>
-          </div>
-        </form>
+              {t(lang, 'bookdemo.submit')}
+              <Icon name="arrow-cta" size={16} />
+            </button>
+          </form>
+        </div>
 
-        <div id="cal-success" hidden>
-          <p class="book__recap">{t(lang, 'bookdemo.cal.success_title')}</p>
-          <p class="book__feedback" id="cal-success-when"></p>
-          <p class="book__feedback">{t(lang, 'bookdemo.cal.success_body')}</p>
-          <a class="btn btn--primary" id="cal-meet" href="#" target="_blank" rel="noopener"
-            >{t(lang, 'bookdemo.cal.meet')}</a
-          >
+        <!-- Native slot picker, revealed after the qualifying step. -->
+        <div class="book__slots" id="bookdemo-calendar" hidden>
+          <div class="book__slots-head">
+            <button type="button" class="back-link" id="cal-back-top">
+              <Icon name="arrow-back" size={14} />
+              <span id="cal-back-label">{t(lang, 'bookdemo.cal.back_form')}</span>
+            </button>
+            <p class="book__slots-title" id="cal-title">{t(lang, 'bookdemo.cal.pickslot')}</p>
+            <p class="book__feedback book__slots-tz" id="cal-tznote">{t(lang, 'bookdemo.cal.tznote')}</p>
+          </div>
+
+          <p class="book__feedback" id="cal-status" role="status" hidden>{t(lang, 'bookdemo.cal.loading')}</p>
+
+          <div class="book__picker book__picker--loading" id="cal-skeleton" aria-hidden="true">
+            <div class="book__days">{Array.from({ length: 5 }).map(() => <i />)}</div>
+            <div class="book__times">{Array.from({ length: 12 }).map(() => <i />)}</div>
+          </div>
+
+          <div class="book__picker" id="cal-grid" hidden>
+            <div class="book__days" id="cal-days" role="tablist" aria-label={t(lang, 'bookdemo.cal.pickday')}></div>
+            <div class="book__times" id="cal-slots"></div>
+          </div>
+
+          <form id="cal-confirm" class="book__form book__form--confirm" hidden novalidate>
+            <p class="book__recap" id="cal-recap"></p>
+            <div>
+              <label class="book__label" for="cal-name">{t(lang, 'bookdemo.cal.name')}</label>
+              <div class="book__control">
+                <input type="text" id="cal-name" name="name" required autocomplete="name" />
+              </div>
+            </div>
+            <div>
+              <label class="book__label" for="cal-note">{t(lang, 'bookdemo.cal.note')}</label>
+              <div class="book__control">
+                <input type="text" id="cal-note" name="note" required />
+              </div>
+            </div>
+            <input
+              type="text"
+              id="cal-hp"
+              name="company_website"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+              style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"
+            />
+            <div>
+              <button class="btn btn--primary btn--block book__go" type="submit" id="cal-submit"
+                >{t(lang, 'bookdemo.cal.confirm')}</button
+              >
+              <p class="book__feedback book__feedback--error" id="cal-confirm-err" hidden></p>
+            </div>
+          </form>
+
+          <div id="cal-success" hidden>
+            <span class="book__done" aria-hidden="true"></span>
+            <p class="book__done-title">{t(lang, 'bookdemo.cal.success_title')}</p>
+            <p class="book__feedback" id="cal-success-when"></p>
+            <p class="book__feedback">{t(lang, 'bookdemo.cal.success_body')}</p>
+            <a class="btn btn--primary" id="cal-meet" href="#" target="_blank" rel="noopener"
+              >{t(lang, 'bookdemo.cal.meet')}</a
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -177,22 +231,29 @@ const strings = {
 <style>
   .book__chevron {
     position: absolute;
-    right: 0;
+    right: 14px;
     pointer-events: none;
     color: var(--faint);
   }
   .book__recap {
-    margin: 22px 0 0;
-    padding: 0 clamp(18px, 4vw, 32px);
-    font-size: 1.05rem;
+    margin: 0;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: var(--brand-tint);
+    color: var(--brand-dark);
+    font-size: 1rem;
     font-weight: 600;
   }
-  .book__recap::first-letter {
+  .book__recap::first-letter,
+  #cal-success-when::first-letter {
     text-transform: uppercase;
   }
   #cal-success {
-    padding-bottom: 8px;
+    padding: 8px 0 4px;
     text-align: center;
+  }
+  #cal-success .btn {
+    margin-top: 22px;
   }
   #bookdemo-calendar[hidden],
   #bookdemo-calendar [hidden] {
@@ -216,7 +277,11 @@ const strings = {
       return S[key] || key;
     }
 
+    var card = form.closest('.book__card');
+    var body = card.querySelector('.book__body');
+    var formStep = document.getElementById('bookdemo-step');
     var statusEl = document.getElementById('cal-status');
+    var skeletonEl = document.getElementById('cal-skeleton');
     var gridEl = document.getElementById('cal-grid');
     var daysEl = document.getElementById('cal-days');
     var slotsEl = document.getElementById('cal-slots');
@@ -225,13 +290,48 @@ const strings = {
     var successEl = document.getElementById('cal-success');
     var confirmErr = document.getElementById('cal-confirm-err');
     var backTopEl = document.getElementById('cal-back-top');
+    var backLabelEl = document.getElementById('cal-back-label');
+    var titleEl = document.getElementById('cal-title');
     var tznoteEl = document.getElementById('cal-tznote');
     var teamInput = document.getElementById('bd-team');
     var backMode = 'form';
     var selectedSlot = null;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var ease = 'cubic-bezier(0.16, 1, 0.3, 1)';
 
     function show(el) { el.removeAttribute('hidden'); }
     function hide(el) { el.setAttribute('hidden', ''); }
+
+    // Every step change goes through here: the card's outline morphs to the
+    // new step's height while its content cross-fades.
+    // Without View Transitions the content simply fades in.
+    function morph(update) {
+      if (!reduced && document.startViewTransition) {
+        // A transition can be skipped (hidden tab, a newer step already
+        // started); the update has run by then, so the rejection is noise.
+        var vt = document.startViewTransition(update);
+        vt.ready.catch(function () {});
+        vt.finished.catch(function () {});
+        return;
+      }
+      update();
+      if (!reduced && body.animate) {
+        body.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220, easing: 'ease-out' });
+      }
+    }
+
+    function cascade(els, step) {
+      if (reduced) return;
+      Array.prototype.forEach.call(els, function (el, i) {
+        el.animate(
+          [
+            { opacity: 0, transform: 'translateY(6px) scale(0.98)' },
+            { opacity: 1, transform: 'none' },
+          ],
+          { duration: 320, delay: Math.min(i * step, 260), easing: ease, fill: 'backwards' }
+        );
+      });
+    }
 
     // Team size is a chip group, so it feeds the hidden input the form validates.
     form.querySelectorAll('.book__chip').forEach(function (chip) {
@@ -247,18 +347,27 @@ const strings = {
     // One top-of-panel back control whose label + action adapt to the step.
     function setBack(mode) {
       backMode = mode;
-      backTopEl.textContent = tr(mode === 'grid' ? 'back' : 'back_form');
+      backLabelEl.textContent = tr(mode === 'grid' ? 'back' : 'back_form');
       show(backTopEl);
+    }
+
+    function showPicker() {
+      hide(confirmEl);
+      show(titleEl);
+      show(tznoteEl);
+      setBack('form');
     }
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.reportValidity()) return;
-      hide(form);
-      show(calendar);
-      setBack('form');
-      show(tznoteEl);
-      calendar.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      morph(function () {
+        hide(formStep);
+        show(calendar);
+        showPicker();
+        startLoading();
+      });
+      card.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'nearest' });
       loadAvailability();
       try {
         if (typeof window.reedlyTrackEvent === 'function') {
@@ -270,42 +379,54 @@ const strings = {
       } catch (err) {}
     });
 
-    function loadAvailability() {
-      show(statusEl);
-      statusEl.textContent = tr('loading');
+    function startLoading(message) {
       hide(gridEl);
-      hide(confirmEl);
       hide(successEl);
+      show(skeletonEl);
+      if (message) {
+        statusEl.textContent = message;
+        show(statusEl);
+      } else {
+        hide(statusEl);
+      }
+    }
+
+    function loadAvailability(message) {
+      startLoading(message);
       fetch('/api/availability')
         .then(function (r) {
           if (!r.ok) throw new Error('http');
           return r.json();
         })
         .then(function (data) {
+          hide(skeletonEl);
           if (!data.days || data.days.length === 0) {
             statusEl.textContent = tr('empty');
+            show(statusEl);
             return;
           }
-          hide(statusEl);
           show(gridEl);
           renderDays(data.days);
         })
         .catch(function () {
+          hide(skeletonEl);
           statusEl.textContent = tr('error');
+          show(statusEl);
         });
     }
 
     function renderDays(days) {
       daysEl.innerHTML = '';
-      slotsEl.innerHTML = '';
       var dayFmt = new Intl.DateTimeFormat(locale, { weekday: 'short', day: 'numeric', month: 'short' });
       days.forEach(function (day, i) {
         var btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'book__day' + (i === 0 ? ' is-active' : '');
+        btn.setAttribute('role', 'tab');
         btn.textContent = dayFmt.format(new Date(day.slots[0]));
         btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
         btn.addEventListener('click', function () {
+          if (btn.classList.contains('is-active')) return;
           Array.prototype.forEach.call(daysEl.children, function (c) {
             c.setAttribute('aria-selected', 'false');
             c.classList.remove('is-active');
@@ -316,6 +437,7 @@ const strings = {
         });
         daysEl.appendChild(btn);
       });
+      cascade(daysEl.children, 30);
       renderSlots(days[0].slots);
     }
 
@@ -328,10 +450,18 @@ const strings = {
         btn.className = 'book__time';
         btn.textContent = timeFmt.format(new Date(iso));
         btn.addEventListener('click', function () {
-          openConfirm(iso);
+          Array.prototype.forEach.call(slotsEl.children, function (c) {
+            c.classList.remove('is-active');
+          });
+          btn.classList.add('is-active');
+          // Let the pick register before the card narrows to the confirmation.
+          setTimeout(function () {
+            openConfirm(iso);
+          }, reduced ? 0 : 160);
         });
         slotsEl.appendChild(btn);
       });
+      cascade(slotsEl.children, 16);
     }
 
     function openConfirm(iso) {
@@ -343,27 +473,40 @@ const strings = {
         hour: '2-digit',
         minute: '2-digit',
       });
-      recapEl.textContent = fmt.format(new Date(iso));
-      hide(confirmErr);
-      confirmErr.textContent = '';
-      hide(gridEl);
-      hide(tznoteEl);
-      setBack('grid');
-      show(confirmEl);
       var emailField = document.getElementById('bd-email');
       confirmEl.dataset.email = emailField ? emailField.value : '';
+      morph(function () {
+        recapEl.textContent = fmt.format(new Date(iso));
+        hide(confirmErr);
+        confirmErr.textContent = '';
+        hide(gridEl);
+        hide(statusEl);
+        hide(titleEl);
+        hide(tznoteEl);
+        setBack('grid');
+        show(confirmEl);
+      });
+      setTimeout(function () {
+        var nameField = document.getElementById('cal-name');
+        if (nameField) nameField.focus({ preventScroll: true });
+      }, reduced ? 0 : 520);
     }
 
     backTopEl.addEventListener('click', function () {
       if (backMode === 'grid') {
-        hide(confirmEl);
-        show(tznoteEl);
-        show(gridEl);
-        setBack('form');
+        morph(function () {
+          showPicker();
+          show(gridEl);
+          Array.prototype.forEach.call(slotsEl.children, function (c) {
+            c.classList.remove('is-active');
+          });
+        });
       } else {
-        hide(calendar);
-        show(form);
-        form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        morph(function () {
+          hide(calendar);
+          show(formStep);
+        });
+        card.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'nearest' });
       }
     });
 
@@ -401,13 +544,12 @@ const strings = {
           if (res.ok) {
             showSuccess(res.body);
           } else if (res.status === 409) {
-            show(confirmErr);
-            confirmErr.textContent = tr('slot_taken');
-            hide(confirmEl);
-            show(tznoteEl);
-            show(gridEl);
-            setBack('form');
-            loadAvailability();
+            // The slot went while the visitor was typing: back to the picker,
+            // with the reason shown there rather than inside the hidden form.
+            morph(function () {
+              showPicker();
+            });
+            loadAvailability(tr('slot_taken'));
           } else {
             show(confirmErr);
             confirmErr.textContent = tr('error');
@@ -422,12 +564,6 @@ const strings = {
     });
 
     function showSuccess(body) {
-      hide(confirmEl);
-      hide(gridEl);
-      hide(statusEl);
-      hide(tznoteEl);
-      hide(backTopEl);
-      show(successEl);
       var fmt = new Intl.DateTimeFormat(locale, {
         weekday: 'long',
         day: 'numeric',
@@ -435,14 +571,23 @@ const strings = {
         hour: '2-digit',
         minute: '2-digit',
       });
-      document.getElementById('cal-success-when').textContent = fmt.format(new Date(body.start));
-      var meet = document.getElementById('cal-meet');
-      if (body.meetLink) {
-        meet.href = body.meetLink;
-        show(meet);
-      } else {
-        hide(meet);
-      }
+      morph(function () {
+        hide(confirmEl);
+        hide(gridEl);
+        hide(statusEl);
+        hide(titleEl);
+        hide(tznoteEl);
+        hide(backTopEl);
+        show(successEl);
+        document.getElementById('cal-success-when').textContent = fmt.format(new Date(body.start));
+        var meet = document.getElementById('cal-meet');
+        if (body.meetLink) {
+          meet.href = body.meetLink;
+          show(meet);
+        } else {
+          hide(meet);
+        }
+      });
       try {
         if (typeof window.reedlyTrackEvent === 'function') {
           window.reedlyTrackEvent('landing_bookdemo_booked', { start: body.start });

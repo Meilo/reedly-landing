@@ -29,12 +29,13 @@ pnpm test     # vitest (logique des créneaux de réservation)
 
 ## Pages
 
-12 pages publiques, chacune existant dans les deux langues. `/` redirige en 301
+14 pages publiques, chacune existant dans les deux langues. `/` redirige en 301
 vers `/en` (`vercel.json`), et les slashes finaux sont supprimés.
 
 |                    | FR                             | EN                              |
 | ------------------ | ------------------------------ | ------------------------------- |
 | Accueil            | `/fr`                          | `/en`                           |
+| Réserver une démo  | `/fr/demo`                     | `/en/demo`                      |
 | Transcription IA   | `/fr/features/transcription-ia` | `/en/features/ai-transcription` |
 | Hub Manager        | `/fr/features/hub-manager`     | `/en/features/manager-hub`      |
 | Mentions légales   | `/fr/mentions-legales`         | `/en/legal-notice`              |
@@ -54,7 +55,8 @@ depuis toutes les anciennes URLs.
 src/
 ├── components/          # Une section d'accueil par composant
 │   ├── Nav · Hero · Demo · Hub · Compliance · Pricing
-│   ├── Testimonials · BookDemo · Faq · FinalCta · Footer
+│   ├── Testimonials · Faq · FinalCta · Footer
+│   ├── BookDemo.astro   # Tunnel de réservation, sur la page /demo
 │   ├── Icon.astro       # Registre d'icônes unique (58 entrées)
 │   └── feature/         # Blocs des pages produit
 ├── content/features/    # Contenu YAML des pages produit, par langue
@@ -69,7 +71,7 @@ src/
 │   └── api/             # availability · book (server-rendered)
 └── styles/global.css    # Tout le design system
 public/
-├── main.js              # Scroll reveal, nav, langue, FAQ, tarifs, carousel
+├── main.js              # Scroll reveal, nav, langue, FAQ, tarifs
 ├── images/ · app/ · integration/ · fonts/
 ├── robots.txt · llms.txt
 ```
@@ -90,7 +92,7 @@ Le refresh token se génère une fois : `node scripts/google-oauth.mjs`.
 
 ## Réservation de démo
 
-La section « Réserver une démo » (`BookDemo.astro`, `#rdv`) est un tunnel
+La page « Réserver une démo » (`/fr/demo` · `/en/demo`, composant `BookDemo.astro`) est un tunnel
 autonome, à la Calendly : le formulaire de qualification révèle un sélecteur de
 créneaux de 15 minutes. Les disponibilités sont les créneaux du lundi au
 vendredi 09h00-18h00 Europe/Paris moins le FreeBusy de l'agenda hôte ; la

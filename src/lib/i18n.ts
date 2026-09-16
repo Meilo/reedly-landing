@@ -33,6 +33,7 @@ const fr: Dict = {
     "Votre commercial se concentre sur l'échange. Reedly transforme automatiquement chaque rendez-vous en <b>un compte rendu clair et structuré</b>, puis le partage directement avec vos équipes et <b>dans vos outils</b>.",
   'demo.label_record': 'Transcription pendant ou après le RDV',
   'demo.label_report': 'Compte rendu en 2 minutes',
+  'demo.label_tools': 'Partagé dans vos outils',
 
   // Copy shown inside the phone mockups (src/components/app/*). Reproduces a
   // real Reedly report and recording screen, so it stays product-accurate.
@@ -93,6 +94,20 @@ const fr: Dict = {
   'compliance.item5': 'Suppression sur demande sous 30 jours',
   'compliance.item6': 'Consentement des participants intégré au parcours',
 
+  'bookpage.meta_title': 'Réserver une démo · Reedly',
+  'bookpage.meta_description':
+    "Réservez 15 minutes avec l'équipe Reedly : une démonstration adaptée à votre équipe terrain, en visio Google Meet, au créneau de votre choix.",
+  'bookpage.home': 'Accueil',
+  'bookpage.photo_alt': "Commercial à l'écoute d'un client",
+  'bookpage.agenda_title': 'En 15 minutes, vous verrez :',
+  'bookpage.agenda1': 'La transcription, pendant ou après le rendez-vous',
+  'bookpage.agenda2': 'Le compte rendu structuré en 11 sections',
+  'bookpage.agenda3': "La mémoire client, d'une visite à l'autre",
+  'bookpage.agenda4': "Le Hub manager et l'assistant Max",
+  'bookpage.agenda5': 'Les connecteurs HubSpot, Salesforce et Slack',
+  'bookpage.card_title': "Quatre questions pour préparer l'échange",
+  'bookpage.card_sub': 'Ensuite, vous choisissez votre créneau.',
+
   'bookdemo.title': '15 minutes pour voir<br /><em>Reedly en action.</em>',
   'bookdemo.lead':
     'Une démonstration adaptée à votre équipe, votre organisation et vos enjeux terrain.',
@@ -121,8 +136,8 @@ const fr: Dict = {
   'bookdemo.cal.name': 'Votre nom',
   'bookdemo.cal.note': 'Un mot sur votre besoin',
   'bookdemo.cal.confirm': 'Confirmer le rendez-vous',
-  'bookdemo.cal.back_form': '← Retour',
-  'bookdemo.cal.back': '← Changer de créneau',
+  'bookdemo.cal.back_form': 'Retour',
+  'bookdemo.cal.back': 'Changer de créneau',
   'bookdemo.cal.empty': "Aucun créneau disponible pour l'instant. Écrivez-nous et on cale ça.",
   'bookdemo.cal.error': 'Impossible de charger les créneaux. Réessayez dans un instant.',
   'bookdemo.cal.booking': 'Confirmation en cours…',
@@ -189,8 +204,6 @@ const fr: Dict = {
   'cta.try_free': 'Essayer gratuitement',
 
   'tm.title': 'Avec REEDLY,<br /><em>Leur quotidien est simplifié.</em>',
-  'tm.prev': 'Témoignage précédent',
-  'tm.next': 'Témoignage suivant',
   'tm.q1':
     "Reedly, c'est un outil pensé pour les commerciaux terrain : simple, puissant et vraiment adapté à nos besoins.",
   'tm.n1': 'Maryam B.',
@@ -257,6 +270,7 @@ const en: Dict = {
     'Your rep stays focused on the conversation. Reedly automatically turns every meeting into <b>a clear, structured report</b>, then shares it straight with your teams and <b>inside your tools</b>.',
   'demo.label_record': 'Transcription during or after the meeting',
   'demo.label_report': 'Report in 2 minutes',
+  'demo.label_tools': 'Shared to your tools',
 
   // Copy shown inside the phone mockups (src/components/app/*). Reproduces a
   // real Reedly report and recording screen, so it stays product-accurate.
@@ -316,6 +330,20 @@ const en: Dict = {
   'compliance.item5': 'Deletion on request within 30 days',
   'compliance.item6': 'Participant consent built into the flow',
 
+  'bookpage.meta_title': 'Book a demo · Reedly',
+  'bookpage.meta_description':
+    'Book 15 minutes with the Reedly team: a demo tailored to your field sales team, over Google Meet, at the time that suits you.',
+  'bookpage.home': 'Home',
+  'bookpage.photo_alt': 'Sales rep listening to a client',
+  'bookpage.agenda_title': "In 15 minutes, you'll see:",
+  'bookpage.agenda1': 'Transcription, during or after the meeting',
+  'bookpage.agenda2': 'The structured 11-section report',
+  'bookpage.agenda3': 'Client memory, from one visit to the next',
+  'bookpage.agenda4': 'The Manager Hub and the Max assistant',
+  'bookpage.agenda5': 'The HubSpot, Salesforce and Slack connectors',
+  'bookpage.card_title': 'Four questions to prepare the call',
+  'bookpage.card_sub': 'Then you pick your slot.',
+
   'bookdemo.title': '15 minutes to see<br /><em>Reedly in action.</em>',
   'bookdemo.lead':
     'A demo tailored to your team, your organization and your field challenges.',
@@ -344,8 +372,8 @@ const en: Dict = {
   'bookdemo.cal.name': 'Your name',
   'bookdemo.cal.note': 'A word about your need',
   'bookdemo.cal.confirm': 'Confirm the meeting',
-  'bookdemo.cal.back_form': '← Back',
-  'bookdemo.cal.back': '← Change slot',
+  'bookdemo.cal.back_form': 'Back',
+  'bookdemo.cal.back': 'Change slot',
   'bookdemo.cal.empty': "No slots available right now. Drop us a line and we'll sort it out.",
   'bookdemo.cal.error': 'Could not load slots. Please try again in a moment.',
   'bookdemo.cal.booking': 'Confirming…',
@@ -412,8 +440,6 @@ const en: Dict = {
   'cta.try_free': 'Try it free',
 
   'tm.title': 'With REEDLY,<br /><em>Their day-to-day gets simpler.</em>',
-  'tm.prev': 'Previous testimonial',
-  'tm.next': 'Next testimonial',
   'tm.q1':
     'Reedly is a tool built for field sales reps: simple, powerful and genuinely suited to what we need.',
   'tm.n1': 'Maryam B.',

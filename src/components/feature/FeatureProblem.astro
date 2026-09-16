@@ -10,21 +10,21 @@ interface Props {
 const { title, lead, cards } = Astro.props;
 ---
 
-<section class="section section--white">
-  <div class="inner">
+<section class="section problem">
+  <div class="inner problem__inner">
     <div class="reveal center-mobile">
       <h2 class="display display--lg" set:html={title} />
       <p class="lead" set:html={lead} />
     </div>
 
-    <div class="feature-grid reveal center-mobile">
+    <ul class="problem__pile reveal">
       {cards.map((card) => (
-        <article class="feature-item">
-          <span class="feature-item__icon"><Icon name={card.icon} size={60} /></span>
+        <li>
+          <Icon name={card.icon} size={44} />
           <h3>{card.title}</h3>
           <p set:html={card.text} />
-        </article>
+        </li>
       ))}
-    </div>
+    </ul>
   </div>
 </section>
