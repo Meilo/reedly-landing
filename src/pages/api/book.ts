@@ -42,7 +42,7 @@ async function notifyTeam(p: BookPayload, startIso: string, meetLink: string): P
     await new Resend(apiKey).emails.send({
       from: `Reedly Booking <${from}>`,
       to: [to],
-      replyTo: p.email,
+      reply_to: p.email,
       subject: `[Reedly] Démo réservée, ${p.name}`,
       html: `<div style="font-family:sans-serif">
         <h2 style="color:#16a34a">Nouveau créneau réservé</h2>
