@@ -15,3 +15,7 @@ node_modules/
 
 # Tool scratch output
 .playwright-mcp/
+
+# Impeccable live-mode session journals. The two config.json files are shared
+# project settings and stay tracked; the session state under live/ is scratch.
+.impeccable/live/sessions/

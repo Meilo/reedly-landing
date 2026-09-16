@@ -1,7 +1,12 @@
 # reedly-landing
 
 Site marketing bilingue (FR/EN) de Reedly, la plateforme d'intelligence terrain
-du tourisme B2B.
+des équipes commerciales qui visitent un portefeuille de comptes, tous secteurs
+confondus : tourisme, industrie et BTP, distribution, services, santé.
+
+La vérité produit durable (audience, positionnement, ce qui est livré, ce qui
+peut être affirmé) vit dans [PRODUCT.md](PRODUCT.md). `CLAUDE.md` reste la
+référence technique détaillée.
 
 ## Stack
 

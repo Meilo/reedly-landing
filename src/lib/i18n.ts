@@ -221,7 +221,7 @@ const fr: Dict = {
 
   '404.meta_title': 'Page introuvable · Reedly',
   '404.meta_description':
-    "Cette adresse ne mène plus nulle part. Retrouvez Reedly, l'agent IA des commerciaux terrain du tourisme B2B, depuis la page d'accueil.",
+    "Cette adresse ne mène plus nulle part. Retrouvez Reedly, l'agent IA des commerciaux terrain, depuis la page d'accueil.",
   '404.title': "Cette page a changé d'adresse<br /><em>ou n'a jamais existé.</em>",
   '404.lead':
     "Le site Reedly a été refait et certains anciens liens ne mènent plus nulle part. L'essentiel reste à un clic.",
@@ -444,7 +444,7 @@ const en: Dict = {
 
   '404.meta_title': 'Page not found · Reedly',
   '404.meta_description':
-    'This address no longer leads anywhere. Find Reedly, the AI agent for B2B tourism field sales reps, from the home page.',
+    'This address no longer leads anywhere. Find Reedly, the AI agent for field sales reps, from the home page.',
   '404.title': 'This page has moved<br /><em>or never existed.</em>',
   '404.lead':
     'The Reedly site has been rebuilt and some old links no longer lead anywhere. Everything that matters is one click away.',

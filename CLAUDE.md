@@ -1,6 +1,8 @@
 # CLAUDE.md
 
-Reedly's bilingual (FR/EN) marketing site. Reedly is the field intelligence platform for B2B tourism: sales reps who cover a network of travel agencies run their meeting, the mobile app transcribes it, and an 11-section structured report lands in the Manager Hub for sales leadership.
+Reedly's bilingual (FR/EN) marketing site. Reedly is the field intelligence platform for field sales: reps who cover a portfolio of accounts run their meeting, the mobile app transcribes it, and an 11-section structured report lands in the Manager Hub for sales leadership.
+
+Durable product truth lives in [PRODUCT.md](PRODUCT.md) — audience, positioning, what is shipped, what may be claimed. Read it before writing any marketing copy.
 
 ## Stack
 
@@ -139,11 +141,13 @@ The inline script reads its UI strings from a `<script type="application/json" i
 ## Product facts (canonical)
 
 - Mobile app (iOS + Android) for B2B field sales reps; Manager Hub on the web for managers.
-- **Transcribes** the meeting in the background — in real time during the conversation, or the rep dictates the report right afterwards. **95%+ transcription accuracy**, then an **11-section structured report in under 2 minutes**.
+- **Transcribes** the meeting in the background — in real time during the conversation, or the rep dictates the report right afterwards. **95%+ transcription accuracy**, then an **11-section structured report in under 2 minutes**. Both figures are official but **not measured**: leave the existing instances alone, don't put them on new surfaces, don't build a proof section on them, don't derive new numbers from them.
 - Sections: executive summary, client profile, needs, objections, commitments, next steps, opportunities, risks, recommendations.
 - **The voice is neither recorded nor stored** — only the transcript is used to generate the report. Never write copy framed as "audio is recorded then deleted"; that was the old positioning and was removed site-wide.
 - Works offline: the app holds with no network; transcription and the report generate as soon as the connection is back.
-- Vertical: B2B tourism — tour operators, travel wholesalers, DMC / inbound, MICE, transport, cruise, hospitality, leisure. Audiences: field sales reps covering a network of travel agencies, and the sales directors who run that network.
+- **Sector-agnostic.** Reedly is for any field sales team visiting a portfolio of accounts: tourism, industry & construction, retail, services, health. That list is the demo form's sector picker and the FAQ's answer, and it is the canonical scope. B2B tourism is where the first customers are, not a positioning — tourism examples in the copy (the Horizon Voyage report, the "Commerciale TO" testimonials) are illustrations, not a market boundary. Audiences: field sales reps covering a portfolio of accounts, and the sales directors who run that network.
+- **Client memory across visits**: each report starts from the account's history rather than a blank page, and briefs the next visit. This is the lead differentiator, ahead of the "built for the field, not for video calls" framing.
+- Also shipped: **Max**, the conversational assistant in the Hub (`hub.reedly.ai/max`); **CRM connectors** (HubSpot, Salesforce, Slack); **periodic and territorial syntheses** for managers.
 - Pricing: Team at 49 €/rep/month (42 € billed annually), from 3 reps. Enterprise on quote, 16+ reps. There is no free plan, only a trial.
 - The dollar price is at **parity** with the euro one: $49 / $42, not an FX conversion. The pricing section carries a EUR/USD toggle beside the monthly/annual one (`data-price-eur` / `data-price-usd` on `.js-price`); euro is the default on `/fr`, dollar on `/en`.
 
@@ -161,7 +165,8 @@ Deployed to Vercel. `astro.config.mjs` uses `output: 'static'` + `@astrojs/verce
 
 ## Gotchas
 
-- The README describes the current site. CLAUDE.md stays the deeper reference; where they disagree, the code wins.
+- The README describes the current site. CLAUDE.md stays the deeper reference; where they disagree, the code wins. On product truth — who Reedly is for, what is shipped, what may be claimed — PRODUCT.md wins over both.
+- `docs/positioning/2026-07-07-positionnement-concurrence.md` is research, not strategy, and it is stale: it states 29 €/user/month against the live 49 €, a Pro/Business/Enterprise structure that no longer exists, and the removed "audio deleted after the report" framing. Don't take copy from it.
 - `vercel.json` legacy redirect `/solutions/:slug` → `/features/:slug` — the product pages live at `/features/...`, not `/solutions/...`.
 - `Layout.astro` defaults to **French** title/description if none provided — always pass `lang` and explicit `title`/`description` for English pages.
 - `hero.cta_label` / `hero.cta_url` still exist in the feature YAMLs but are no longer rendered; the hero CTAs point at the home `#rdv` anchor.
