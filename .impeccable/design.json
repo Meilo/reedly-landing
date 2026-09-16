@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-16T08:04:27.912Z",
+  "generatedAt": "2026-09-16T10:17:57.000Z",
   "title": "Design System: Reedly",
   "extensions": {
     "colorMeta": {
@@ -232,9 +232,9 @@
         "displayName": "Label",
         "purpose": "Libellés de boutons, capitales 800 à 0.06em. Jamais en Lanterosy."
       },
-      "eyebrow": {
-        "displayName": "Eyebrow",
-        "purpose": "Surtitre en pastille au-dessus d'un titre de section, en Vert Signal."
+      "title": {
+        "displayName": "Title",
+        "purpose": "Intitulés en Inter 700 à l'intérieur des blocs : bénéfices, problèmes, en-tête et étapes de la carte de réservation."
       }
     },
     "shadows": [
@@ -255,8 +255,8 @@
       },
       {
         "name": "app-window",
-        "value": "0 0 0 1px rgba(15,23,42,0.05), 0 40px 80px -50px rgba(15,23,42,0.45)",
-        "purpose": "Fenêtre du Hub : un filet de contour plus une ombre profonde."
+        "value": "0 0 0 1px rgba(255,255,255,0.08), 0 40px 80px -40px rgba(0,0,0,0.7)",
+        "purpose": "Fenêtre du Hub posée sur son plateau encre : un filet clair plus une ombre profonde."
       },
       {
         "name": "nav-glass",
@@ -267,6 +267,21 @@
         "name": "phone-shell",
         "value": "0 -2px 0 rgba(255,255,255,0.14) inset, 0 -30px 60px -30px rgba(0,0,0,0.6)",
         "purpose": "Coque de téléphone : liseré interne en haut, ombre remontante par le bas."
+      },
+      {
+        "name": "note",
+        "value": "0 0 0 1px rgba(148,163,184,0.18), 0 18px 36px -24px rgba(15,23,42,0.4)",
+        "purpose": "Fiches de la pile des problèmes. Au survol de la pile : 0 0 0 1px #cbd5e1, 0 10px 24px -20px rgba(15,23,42,0.35)."
+      },
+      {
+        "name": "agenda-card",
+        "value": "0 0 0 1px rgba(148,163,184,0.18), 0 24px 48px -28px rgba(15,23,42,0.45)",
+        "purpose": "Carte « En 15 minutes, vous verrez » qui chevauche la photo de la page démo."
+      },
+      {
+        "name": "field-focus",
+        "value": "0 0 0 3px rgba(22,163,74,0.16)",
+        "purpose": "Halo de focus des champs du formulaire de réservation, avec le contour passé en Vert Signal."
       }
     ],
     "motion": [
@@ -282,11 +297,40 @@
       },
       {
         "name": "tint",
-        "value": "0.16s / 0.18s ease",
-        "purpose": "Bascule de fond et de couleur des chips et des boutons."
+        "value": "0.16s à 0.2s ease",
+        "purpose": "Bascule de fond, de contour et de couleur des chips, jours, créneaux et champs."
+      },
+      {
+        "name": "step-morph",
+        "value": "0.52s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Transition de vue entre les étapes de la carte de réservation : la boîte change de hauteur sans s'étirer."
+      },
+      {
+        "name": "step-content",
+        "value": "sortie 0.16s ease-in (fondu + flou 4px), entrée 0.36s cubic-bezier(0.16, 1, 0.3, 1) après 0.14s",
+        "purpose": "Contenu de la carte de réservation pendant le changement d'étape. Fondu de 220ms sans View Transitions."
+      },
+      {
+        "name": "cascade",
+        "value": "320ms cubic-bezier(0.16, 1, 0.3, 1), pas 30ms (jours) / 16ms (heures), plafond 260ms",
+        "purpose": "Apparition des jours et des créneaux."
+      },
+      {
+        "name": "shimmer",
+        "value": "1.4s ease-in-out infinite",
+        "purpose": "Tuiles de chargement du sélecteur de créneaux. Coupé avec prefers-reduced-motion."
+      },
+      {
+        "name": "pile-settle",
+        "value": "0.5s var(--ease)",
+        "purpose": "Les fiches de problèmes se redressent au survol de la pile."
       }
     ],
     "breakpoints": [
+      {
+        "name": "xl",
+        "value": "960px"
+      },
       {
         "name": "lg",
         "value": "900px"
@@ -298,6 +342,14 @@
       {
         "name": "sm",
         "value": "720px"
+      },
+      {
+        "name": "xs",
+        "value": "640px"
+      },
+      {
+        "name": "xxs",
+        "value": "520px"
       }
     ]
   },
@@ -335,41 +387,57 @@
       "css": ".ds-nav-cta{display:inline-flex;align-items:center;white-space:nowrap;padding:11px 17px;border:2px solid var(--ink-edge,#04070f);border-radius:11px;background:var(--ink-raised,#1b2231);box-shadow:0 3px 0 0 var(--ink-edge,#04070f),inset 0 1px 0 rgba(255,255,255,0.1);color:#fff;text-decoration:none;font-family:var(--sans,Inter,system-ui,sans-serif);font-size:12.5px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;transition:transform .1s ease,box-shadow .1s ease;}.ds-nav-cta:hover{transform:translateY(1px);box-shadow:0 2px 0 0 var(--ink-edge,#04070f),inset 0 1px 0 rgba(255,255,255,0.1);}.ds-nav-cta:active{transform:translateY(3px);box-shadow:0 0 0 0 var(--ink-edge,#04070f),inset 0 1px 0 rgba(255,255,255,0.1);}"
     },
     {
-      "name": "Eyebrow",
-      "kind": "chip",
-      "refersTo": "eyebrow",
-      "description": "Surtitre en pastille au-dessus d'un titre de section. Le seul autre endroit où le Vert Signal apparaît en texte.",
-      "html": "<span class=\"ds-eyebrow\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 2l2.6 6.6L21 9.8l-4.8 4.3 1.4 6.6L12 17.4 6.4 20.7l1.4-6.6L3 9.8l6.4-1.2z\"/></svg>Transcription IA</span>",
-      "css": ".ds-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;border:1px solid var(--line,rgba(148,163,184,0.28));background:var(--surface,#fff);font-family:var(--sans,Inter,system-ui,sans-serif);font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--brand,#16a34a);}"
-    },
-    {
       "name": "Chip",
       "kind": "chip",
       "refersTo": "chip",
-      "description": "Sélecteur compact du formulaire de réservation. L'état actif bascule en Ardoise Nuit pleine.",
-      "html": "<div class=\"ds-chip-row\"><button class=\"ds-chip\">3-5</button><button class=\"ds-chip ds-chip--active\">6-15</button><button class=\"ds-chip\">16+</button></div>",
-      "css": ".ds-chip-row{display:flex;gap:4px;}.ds-chip{padding:7px 11px;white-space:nowrap;border:0;border-radius:8px;font-family:var(--sans,Inter,system-ui,sans-serif);font-size:0.88rem;font-weight:500;cursor:pointer;background:transparent;color:var(--faint,#64748b);transition:background .16s,color .16s;}.ds-chip:hover{background:var(--surface-2,#f1f5f9);}.ds-chip--active{background:var(--ink,#0f172a);color:#fff;}.ds-chip:focus-visible{outline:2px solid var(--brand,#16a34a);outline-offset:3px;}"
+      "description": "Sélecteur en pastille du formulaire de réservation (taille d'équipe). L'état actif bascule en Ardoise Nuit pleine.",
+      "html": "<div class=\"ds-chip-row\"><button class=\"ds-chip\">1</button><button class=\"ds-chip\">2 à 5</button><button class=\"ds-chip ds-chip--active\">6 à 15</button><button class=\"ds-chip\">16+</button></div>",
+      "css": ".ds-chip-row{display:flex;flex-wrap:wrap;gap:8px;}.ds-chip{padding:10px 18px;white-space:nowrap;border:1px solid var(--line-edge,#cbd5e1);border-radius:999px;font-family:var(--sans,Inter,system-ui,sans-serif);font-size:0.9rem;font-weight:500;cursor:pointer;background:var(--surface,#fff);color:var(--ink,#0f172a);transition:background .2s ease,border-color .2s ease,color .2s ease;}.ds-chip:hover{border-color:var(--ink,#0f172a);}.ds-chip--active{background:var(--ink,#0f172a);border-color:var(--ink,#0f172a);color:#fff;}.ds-chip:focus-visible{outline:2px solid var(--brand,#16a34a);outline-offset:3px;}"
     },
     {
-      "name": "Field Row",
+      "name": "Field",
       "kind": "input",
-      "refersTo": "card-floating",
-      "description": "Le champ n'a pas de boîte : une bande horizontale, un label de 110px à gauche, un contrôle nu à droite. Le focus est porté par la règle globale :focus-visible.",
-      "html": "<div class=\"ds-field-row\"><span class=\"ds-field-label\">Email</span><input class=\"ds-field-input\" type=\"email\" placeholder=\"vous@votre-organisation.fr\" /></div>",
-      "css": ".ds-field-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px;padding:22px clamp(18px,4vw,32px);border-top:1px solid rgba(148,163,184,0.14);background:var(--surface,#fff);}.ds-field-label{flex:0 0 110px;font-family:var(--sans,Inter,system-ui,sans-serif);font-size:0.82rem;color:var(--faint,#64748b);}.ds-field-input{flex:1 1 280px;min-width:min(280px,100%);width:100%;border:0;background:transparent;color:var(--ink,#0f172a);font-family:var(--sans,Inter,system-ui,sans-serif);font-size:1.02rem;outline:none;padding:0;}.ds-field-input::placeholder{color:var(--faint,#64748b);opacity:.7;}.ds-field-input:focus-visible{outline:2px solid var(--brand,#16a34a);outline-offset:3px;border-radius:4px;}"
+      "refersTo": "field",
+      "description": "Champ en boîte, label au-dessus. Le focus passe le contour en Vert Signal avec un halo léger.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Email</span><input class=\"ds-field-input\" type=\"email\" placeholder=\"vous@votre-organisation.fr\" /></label>",
+      "css": ".ds-field{display:block;max-width:360px;font-family:var(--sans,Inter,system-ui,sans-serif);}.ds-field-label{display:block;margin-bottom:8px;font-size:0.82rem;font-weight:600;color:var(--ink,#0f172a);}.ds-field-input{width:100%;height:48px;padding:0 14px;border:1px solid var(--line-edge,#cbd5e1);border-radius:12px;background:var(--surface,#fff);color:var(--ink,#0f172a);font:inherit;font-size:0.97rem;outline:none;transition:border-color .2s ease,box-shadow .2s ease;}.ds-field-input::placeholder{color:var(--faint,#64748b);}.ds-field-input:hover{border-color:#94a3b8;}.ds-field-input:focus{border-color:var(--brand,#16a34a);box-shadow:0 0 0 3px rgba(22,163,74,0.16);}"
+    },
+    {
+      "name": "Badge",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "Pastille Vert Halo posée à côté d'un nom (« Le plus populaire »), jamais en surplomb.",
+      "html": "<div class=\"ds-plan-title\"><span class=\"ds-plan-name\">Team</span><span class=\"ds-badge\">Le plus populaire</span></div>",
+      "css": ".ds-plan-title{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;}.ds-plan-name{font-family:var(--display,'Lanterosy',sans-serif);font-size:2.25rem;color:var(--ink,#0f172a);}.ds-badge{padding:6px 11px;border-radius:999px;background:var(--brand-tint,#dcfce7);color:var(--brand-dark,#15803d);font-family:var(--sans,Inter,system-ui,sans-serif);font-size:11px;font-weight:700;letter-spacing:0.04em;}"
     },
     {
       "name": "Floating Card",
       "kind": "card",
       "refersTo": "card-floating",
-      "description": "Le seul registre d'ombre atmosphérique du système, réservé à ce qui flotte vraiment au-dessus de la page.",
-      "html": "<div class=\"ds-card\"><div class=\"ds-card-row\">Réserver une démo</div><div class=\"ds-card-row ds-card-row--muted\">15 minutes, en visio</div></div>",
-      "css": ".ds-card{border-radius:22px;background:var(--surface,#fff);overflow:hidden;border:1px solid var(--line-soft,rgba(148,163,184,0.18));box-shadow:0 2px 4px rgba(15,23,42,0.04),0 18px 32px -18px rgba(15,23,42,0.16),0 48px 90px -50px rgba(15,23,42,0.42);font-family:var(--sans,Inter,system-ui,sans-serif);}.ds-card-row{padding:22px clamp(18px,4vw,32px);border-top:1px solid rgba(148,163,184,0.14);color:var(--ink,#0f172a);font-size:1.02rem;}.ds-card-row:first-child{border-top:0;}.ds-card-row--muted{color:var(--faint,#64748b);font-size:0.82rem;}"
+      "description": "La carte de réservation : l'ombre atmosphérique la plus haute du système. Elle change d'étape en ne changeant que de hauteur.",
+      "html": "<div class=\"ds-card\"><p class=\"ds-card-title\">Quatre questions pour préparer l'échange</p><p class=\"ds-card-sub\">Ensuite, vous choisissez votre créneau.</p></div>",
+      "css": ".ds-card{max-width:420px;padding:28px 30px;border-radius:22px;background:var(--surface,#fff);border:1px solid var(--line-soft,rgba(148,163,184,0.18));box-shadow:0 2px 4px rgba(15,23,42,0.04),0 18px 32px -18px rgba(15,23,42,0.16),0 48px 90px -50px rgba(15,23,42,0.42);font-family:var(--sans,Inter,system-ui,sans-serif);}.ds-card-title{margin:0;font-size:1.12rem;font-weight:700;letter-spacing:-0.01em;color:var(--ink,#0f172a);}.ds-card-sub{margin:4px 0 0;font-size:0.9rem;color:var(--faint,#64748b);}"
+    },
+    {
+      "name": "Hairline List",
+      "kind": "custom",
+      "refersTo": "icon-tile",
+      "description": "La forme par défaut d'une énumération : rangées séparées par un filet, tuile d'icône à gauche du titre, pas de carte autour.",
+      "html": "<ul class=\"ds-hl\"><li><span class=\"ds-hl-icon\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M4 5h16v2H4zM4 11h10v2H4zM4 17h16v2H4z\"/></svg></span><h3>Une vision unifiée du terrain</h3><p>Tous les retours de vos commerciaux réunis au même endroit.</p></li><li><span class=\"ds-hl-icon\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M3 17l6-6 4 4 8-8v3l-8 8-4-4-6 6z\"/></svg></span><h3>Tendances, opportunités, risques</h3><p>Des synthèses sur la période de votre choix.</p></li></ul>",
+      "css": ".ds-hl{max-width:440px;margin:0;padding:0;list-style:none;font-family:var(--sans,Inter,system-ui,sans-serif);}.ds-hl li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:8px 16px;padding:22px 0;border-top:1px solid var(--line-edge,#cbd5e1);}.ds-hl-icon{grid-row:span 2;display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--surface,#fff);box-shadow:inset 0 0 0 1px var(--line-soft,rgba(148,163,184,0.18));color:var(--ink,#0f172a);}.ds-hl h3{margin:0;align-self:center;font-size:1.04rem;font-weight:700;letter-spacing:-0.01em;color:var(--ink,#0f172a);}.ds-hl p{margin:0;font-size:0.93rem;line-height:1.65;color:var(--muted,#475569);}"
+    },
+    {
+      "name": "Note Pile",
+      "kind": "custom",
+      "refersTo": "card-note",
+      "description": "Les problèmes des pages produit : des fiches posées de travers qui se redressent ensemble au survol.",
+      "html": "<ul class=\"ds-pile\"><li><strong>Reporting fragmenté</strong><span>Les comptes rendus arrivent par mail, Slack ou pas du tout.</span></li><li><strong>Aucune vision du territoire</strong><span>Aucun outil ne dit quelles objections reviennent.</span></li><li><strong>Coaching à l'aveugle</strong><span>On coache sur des chiffres, pas sur les échanges.</span></li></ul>",
+      "css": ".ds-pile{display:grid;gap:14px;max-width:420px;margin:0;padding:12px 24px;list-style:none;font-family:var(--sans,Inter,system-ui,sans-serif);}.ds-pile li{display:grid;gap:6px;padding:22px 24px;border-radius:18px;background:var(--surface,#fff);box-shadow:0 0 0 1px var(--line-soft,rgba(148,163,184,0.18)),0 18px 36px -24px rgba(15,23,42,0.4);transition:transform .5s cubic-bezier(0.22,1,0.36,1),box-shadow .5s cubic-bezier(0.22,1,0.36,1);}.ds-pile li:nth-child(1){transform:rotate(-1.6deg) translateX(-10px);}.ds-pile li:nth-child(2){transform:rotate(1.2deg) translateX(22px);}.ds-pile li:nth-child(3){transform:rotate(-0.6deg) translateX(4px);}.ds-pile:hover li{transform:none;box-shadow:0 0 0 1px var(--line-edge,#cbd5e1),0 10px 24px -20px rgba(15,23,42,0.35);}.ds-pile strong{font-size:1.04rem;color:var(--ink,#0f172a);}.ds-pile span{font-size:0.92rem;line-height:1.6;color:var(--muted,#475569);}@media (prefers-reduced-motion:reduce){.ds-pile li{transition:none;}}"
     }
   ],
   "narrative": {
     "northStar": "L'instrument qu'on enfonce",
-    "overview": "L'interface de Reedly est un outil muni de vraies commandes. Chaque bouton est un objet physique : deux pixels de contour, une arête dure d'une teinte plus sombre sous la semelle, et aucun flou nulle part. Au survol il s'enfonce de 2px et son arête raccourcit d'autant ; à la pression il prend les 2px restants et se retrouve à fleur de surface. L'enfoncement est le retour d'information. Rien d'autre ne bouge, aucune couleur ne change.\n\nAutour de ces commandes, le décor se tait. Le site vit sur un champ d'ardoise froide, presque blanc, avec quatre surfaces neutres qui s'empilent sans une seule ombre, et un unique vert qui n'apparaît que là où il faut agir ou valider. La typographie oppose un display à fort caractère, Lanterosy, à un Inter de labeur, et chaque titre se casse en deux lignes dont la seconde passe en retrait de ton. Les photos sont de vrais commerciaux dans de vrais rendez-vous, jamais des illustrations.\n\nLe système est fluide avant d'être responsive : soixante-trois clamp() contre trois breakpoints. La page respire en continu entre le téléphone et le grand écran au lieu de sauter d'un palier à l'autre. C'est cohérent avec le produit, qui est utilisé debout, sur la route, dans une agence bruyante, autant que derrière un bureau.",
+    "overview": "L'interface de Reedly est un outil muni de vraies commandes. Chaque bouton est un objet physique : deux pixels de contour, une arête dure d'une teinte plus sombre sous la semelle, et aucun flou nulle part. Au survol il s'enfonce de 2px et son arête raccourcit d'autant ; à la pression il prend les 2px restants et se retrouve à fleur de surface. L'enfoncement est le retour d'information. Rien d'autre ne bouge, aucune couleur ne change.\n\nAutour de ces commandes, le décor se tait. Le site vit sur un champ d'ardoise froide, presque blanc, avec quatre surfaces neutres qui s'empilent sans une seule ombre, et un unique vert qui n'apparaît que là où il faut agir ou valider. La typographie oppose un display à fort caractère, Lanterosy, à un Inter de labeur, et chaque titre se casse en deux lignes dont la seconde passe en retrait de ton. Les photos sont de vrais commerciaux dans de vrais rendez-vous, jamais des illustrations.\n\nLe système est fluide avant d'être responsive : soixante-quatorze clamp() contre six breakpoints. La page respire en continu entre le téléphone et le grand écran au lieu de sauter d'un palier à l'autre. C'est cohérent avec le produit, qui est utilisé debout, sur la route, dans une agence bruyante, autant que derrière un bureau.",
     "keyCharacteristics": [
       "Commandes en relief, arête dure, zéro flou, l'enfoncement comme unique retour",
       "Thème clair unique, quatre surfaces neutres empilées sans ombre",
@@ -396,12 +464,12 @@
       },
       {
         "name": "La règle de Lanterosy",
-        "body": "Lanterosy ne descend jamais sous le niveau des titres. Pas de bouton, pas de label, pas de paragraphe. Elle n'a qu'une graisse et n'est pas dessinée pour le petit corps.",
+        "body": "Lanterosy ne descend jamais sous le niveau des titres. Pas de bouton, pas de label, pas de paragraphe. Elle n'a qu'une graisse et n'est pas dessinée pour le petit corps. Les noms mis en avant comptent comme des titres : noms de plans, auteurs de témoignages, « C'est réservé. ».",
         "section": "typography"
       },
       {
         "name": "La règle du fluide d’abord",
-        "body": "On met à l'échelle avec clamp() et des grilles auto-fit. Un breakpoint de largeur est un dernier recours, réservé aux cas où la mise en page doit réellement se réordonner.",
+        "body": "On met à l'échelle avec clamp() et des grilles auto-fit. Un breakpoint de largeur est un dernier recours, réservé aux cas où la mise en page doit réellement se réordonner. Le rapport actuel, soixante-quatorze clamp() pour six breakpoints, est la cible.",
         "section": "layout"
       },
       {
@@ -421,7 +489,7 @@
       },
       {
         "name": "La règle de l’arête franche",
-        "body": "Les angles sont arrondis, jamais les arêtes. Un bouton enfoncé montre une tranche nette d'une teinte plus sombre. Aucun dégradé, aucun biseau, aucune lumière simulée, à l'exception du liseré interne d'un pixel sur les boutons encre.",
+        "body": "Les angles sont arrondis, jamais les arêtes. Un bouton enfoncé montre une tranche nette d'une teinte plus sombre. Aucun dégradé, aucun biseau, aucune lumière simulée sur une commande, à l'exception du liseré interne d'un pixel sur les boutons encre.",
         "section": "shapes"
       }
     ],
@@ -431,7 +499,9 @@
       "Do donner à toute nouvelle commande une arête (--btn-edge) et laisser la géométrie de survol et de pression à .btn.",
       "Do mettre à l'échelle avec clamp() et des grilles auto-fit avant d'envisager un breakpoint.",
       "Do distinguer deux zones de page par leur surface tonale, parmi les quatre disponibles.",
-      "Do utiliser de la photographie documentaire de vrais commerciaux en rendez-vous, cadrée depuis src/lib/feature-media.ts."
+      "Do utiliser de la photographie documentaire de vrais commerciaux en rendez-vous, cadrée depuis src/lib/feature-media.ts.",
+      "Do énumérer en listes à filets, et réserver le panneau ou la carte aux objets qui en ont besoin.",
+      "Do montrer tout le contenu d'une section d'emblée : les témoignages ont quitté le carrousel pour une vedette et une ligne."
     ],
     "donts": [
       "Don't ajouter une couleur de survol à un bouton. L'enfoncement est le retour d'information, et c'est le seul.",
@@ -440,7 +510,10 @@
       "Don't introduire de variable de thème, de prefers-color-scheme ou de palette sombre sur le site marketing.",
       "Don't utiliser Lanterosy ailleurs que dans un titre.",
       "Don't écrire de px absolus à l'intérieur de .appui, ni toucher aux corps 15.14 / 14.6 des maquettes de téléphone.",
-      "Don't reprendre l'imagerie de la catégorie : dégradés violets, illustrations 3D, captures en perspective, grilles de visages en visio, formes d'onde audio."
+      "Don't reprendre l'imagerie de la catégorie : dégradés violets, illustrations 3D, captures en perspective, grilles de visages en visio, formes d'onde audio.",
+      "Don't revenir aux grilles de cartes identiques icône + titre + texte : .feature-grid a été retirée au profit des listes à filets et de la pile de fiches.",
+      "Don't élargir la carte de réservation ni déplacer la colonne de gauche quand on change d'étape. Seule la hauteur de la carte bouge, et elle suit son contenu.",
+      "Don't poser de surtitre (eyebrow) au-dessus d'un titre de section : le titre en deux lignes porte seul la hiérarchie."
     ]
   }
 }

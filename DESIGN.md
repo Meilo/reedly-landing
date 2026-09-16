@@ -42,12 +42,12 @@ typography:
     fontWeight: 800
     lineHeight: 1
     letterSpacing: "0.06em"
-  eyebrow:
+  title:
     fontFamily: "Inter, system-ui, -apple-system, sans-serif"
-    fontSize: "12px"
-    fontWeight: 600
-    lineHeight: 1
-    letterSpacing: "0.04em"
+    fontSize: "1.04rem"
+    fontWeight: 700
+    lineHeight: 1.3
+    letterSpacing: "-0.01em"
 rounded:
   sm: "10px"
   md: "14px"
@@ -88,27 +88,42 @@ components:
     typography: "{typography.label}"
     rounded: "11px"
     padding: "11px 17px"
-  eyebrow:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.brand}"
-    typography: "{typography.eyebrow}"
-    rounded: "{rounded.pill}"
-    padding: "6px 12px"
   card-floating:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.ink}"
     rounded: "22px"
-    padding: "22px clamp(18px, 4vw, 32px)"
+    padding: "22px clamp(22px, 3vw, 32px)"
+  card-note:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.ink}"
+    rounded: "18px"
+    padding: "24px 26px"
+  field:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.ink}"
+    rounded: "12px"
+    padding: "0 14px"
+    height: "48px"
   chip:
-    backgroundColor: "transparent"
-    textColor: "{colors.faint}"
-    rounded: "8px"
-    padding: "7px 11px"
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
+    padding: "10px 18px"
   chip-active:
     backgroundColor: "{colors.ink}"
     textColor: "#ffffff"
-    rounded: "8px"
-    padding: "7px 11px"
+    rounded: "{rounded.pill}"
+    padding: "10px 18px"
+  badge:
+    backgroundColor: "{colors.brand-tint}"
+    textColor: "{colors.brand-dark}"
+    rounded: "{rounded.pill}"
+    padding: "6px 11px"
+  icon-tile:
+    backgroundColor: "{colors.brand-tint}"
+    textColor: "{colors.brand-dark}"
+    rounded: "{rounded.sm}"
+    size: "36px"
 ---
 
 # Design System: Reedly
@@ -121,7 +136,7 @@ L'interface de Reedly est un outil muni de vraies commandes. Chaque bouton est u
 
 Autour de ces commandes, le décor se tait. Le site vit sur un champ d'ardoise froide, presque blanc, avec quatre surfaces neutres qui s'empilent sans une seule ombre, et un unique vert qui n'apparaît que là où il faut agir ou valider. La typographie oppose un display à fort caractère, Lanterosy, à un Inter de labeur, et chaque titre se casse en deux lignes dont la seconde passe en retrait de ton. Les photos sont de vrais commerciaux dans de vrais rendez-vous, jamais des illustrations.
 
-Le système est fluide avant d'être responsive : soixante-trois `clamp()` contre trois breakpoints. La page respire en continu entre le téléphone et le grand écran au lieu de sauter d'un palier à l'autre. C'est cohérent avec le produit, qui est utilisé debout, sur la route, dans une agence bruyante, autant que derrière un bureau.
+Le système est fluide avant d'être responsive : soixante-quatorze `clamp()` contre six breakpoints. La page respire en continu entre le téléphone et le grand écran au lieu de sauter d'un palier à l'autre. C'est cohérent avec le produit, qui est utilisé debout, sur la route, dans une agence bruyante, autant que derrière un bureau.
 
 Ce que ce monde refuse, explicitement : le SaaS B2B générique (dégradés violets, illustrations 3D flottantes, captures en perspective, glassmorphism décoratif), le tableau de bord sombre « data » (le thème clair unique est un choix, pas un manque), et l'imagerie d'outil de visio (pas de grille de visages, pas de forme d'onde audio). Reedly est né pour le rendez-vous physique et son apparence doit le dire.
 
@@ -136,18 +151,18 @@ Ce que ce monde refuse, explicitement : le SaaS B2B générique (dégradés viol
 
 ## Colors
 
-Un champ d'ardoise froide presque monochrome, traversé par un seul vert. La palette est bâtie pour que ce vert reste rare : sur une page donnée il ne porte que les boutons d'action, les eyebrows et les marques de validation.
+Un champ d'ardoise froide presque monochrome, traversé par un seul vert. La palette est bâtie pour que ce vert reste rare : sur une page donnée il ne porte que les boutons d'action, les icônes de liste et les marques de validation.
 
 ### Primary
 
-- **Vert Signal** (`{colors.brand}`) : la seule couleur vive du système. Fond des boutons primaires, texte des eyebrows, coches des listes de fonctionnalités, liens. C'est un voyant qui s'allume, pas une couleur de marque à étaler.
+- **Vert Signal** (`{colors.brand}`) : la seule couleur vive du système. Fond des boutons primaires, icônes des listes de fonctionnalités, créneau choisi dans la réservation, liens. C'est un voyant qui s'allume, pas une couleur de marque à étaler.
 - **Vert Enfoncé** (`{colors.brand-dark}`) : l'arête sous le bouton primaire et sa couleur de lien au survol. C'est littéralement la profondeur du vert, la tranche qu'on voit parce que le bouton dépasse de la page.
-- **Vert Veilleuse** (`{colors.brand-light}`) : le vert des sections sombres, sur `<em>` des titres et sur les eyebrows. Le Vert Signal ne tient pas le contraste sur l'Ardoise Nuit ; celui-ci prend le relais.
-- **Vert Halo** (`{colors.brand-tint}`) : fond de sélection de texte et pastilles très discrètes. Jamais un fond de bloc.
+- **Vert Veilleuse** (`{colors.brand-light}`) : le vert des sections sombres, sur `<em>` des titres et sur les icônes posées sur fond encre. Le Vert Signal ne tient pas le contraste sur l'Ardoise Nuit ; celui-ci prend le relais.
+- **Vert Halo** (`{colors.brand-tint}`) : le fond des tuiles d'icône (bénéfices du Hub, fonctionnalités des plans, agenda de la démo), du badge « Le plus populaire », de l'encadré qui récapitule le créneau choisi et du disque de confirmation. Toujours un petit objet, jamais le fond d'une section.
 
 ### Neutral
 
-- **Ardoise Nuit** (`{colors.ink}`) : le texte courant et le fond des sections sombres. Même valeur des deux côtés, ce qui fait que les sections sombres sont l'exact négatif des claires.
+- **Ardoise Nuit** (`{colors.ink}`) : le texte courant et le fond des sections sombres. Même valeur des deux côtés, ce qui fait que les sections sombres sont l'exact négatif des claires. Elle sert aussi de scène à l'intérieur d'une section claire : la fenêtre du Hub est posée sur un plateau encre.
 - **Ardoise Bombée** (`{colors.ink-raised}`) : le remplissage des boutons encre, un cran plus clair que l'Ardoise Nuit pour que le bouton se détache du texte qui l'entoure.
 - **Arête Noire** (`{colors.ink-edge}`) : la tranche sous les boutons encre, et leur contour.
 - **Papier Froid** (`{colors.bg}`) : le fond par défaut de toute section.
@@ -173,16 +188,16 @@ Un champ d'ardoise froide presque monochrome, traversé par un seul vert. La pal
 ### Hierarchy
 
 - **Display** (400, `clamp(2.1rem, 8.5vw, 4.6rem)`, interligne 1.02, `text-wrap: balance`) : le titre de hero, un par page. L'équilibrage n'est appliqué qu'ici ; sur un `h2` il déplacerait les césures voulues.
-- **Headline** (400, `clamp(1.6rem, 5.5vw, 3.3rem)`, interligne 1.14) : les titres de section.
+- **Headline** (400, `clamp(1.6rem, 5.5vw, 3.3rem)`, interligne 1.14) : les titres de section, et le `h1` de la page démo, qui laisse la place au formulaire.
 - **Body** (400, `1.02rem`, interligne 1.65, `max-width: 52ch`) : les chapôs et le corps de texte. La variante hero monte à `1.08rem` avec un interligne de 1.6.
+- **Title** (700, `1.04rem` à `1.12rem`, `letter-spacing: -0.01em`) : les intitulés en Inter à l'intérieur des blocs (bénéfices, problèmes, en-tête de la carte de réservation, titre du sélecteur de créneaux).
 - **Label** (800, `15px`, `letter-spacing: 0.06em`, capitales) : les libellés de boutons. La variante compacte de la nav descend à `12.5px` sans rien changer d'autre.
-- **Eyebrow** (600, `12px`, `letter-spacing: 0.04em`, capitales) : les surtitres en pastille au-dessus des titres de section.
 
 ### Named Rules
 
 **La règle des deux lignes.** Tout titre de section se casse en deux lignes avec un `<br />` littéral, la seconde enveloppée dans `<em>`. Ce `<em>` n'est pas de l'italique : il est neutralisé en `font-style: normal` et passe en Ardoise Claire sur fond clair, en Vert Veilleuse sur fond sombre. Un titre d'une seule ligne casse le rythme de la page entière.
 
-**La règle de Lanterosy.** Lanterosy ne descend jamais sous le niveau des titres. Pas de bouton, pas de label, pas de paragraphe. Elle n'a qu'une graisse et n'est pas dessinée pour le petit corps.
+**La règle de Lanterosy.** Lanterosy ne descend jamais sous le niveau des titres. Pas de bouton, pas de label, pas de paragraphe. Elle n'a qu'une graisse et n'est pas dessinée pour le petit corps. Les noms mis en avant comptent comme des titres : noms de plans, auteurs de témoignages (`1.25rem` au plus bas), « C'est réservé. » à la confirmation.
 
 ## Layout
 
@@ -190,13 +205,19 @@ Un conteneur de `1240px` maximum, centré, avec une gouttière fluide (`clamp(16
 
 Les grilles internes sont presque toutes en `repeat(auto-fit, minmax(min(100%, Xpx), 1fr))`, avec un `min(100%, …)` qui garantit qu'une colonne ne dépasse jamais son parent sur petit écran. La réorganisation se fait donc par la grille elle-même, pas par des règles de largeur.
 
-Trois breakpoints seulement dans tout le système : `900px`, `760px` et `720px`, et chacun ne sert qu'à réordonner une mise en page qui ne pouvait pas se résoudre en fluide.
+Six breakpoints dans tout le système : `960px`, `900px`, `760px`, `720px`, `640px` et `520px`, et chacun ne sert qu'à réordonner une mise en page qui ne pouvait pas se résoudre en fluide (passer deux colonnes en une, empiler une paire de champs).
+
+Trois compositions reviennent :
+
+- **Deux colonnes égales**, titre et visuel d'un côté, objet de l'autre (page démo, problèmes des pages produit). Sur la page démo, la colonne de gauche ne bouge jamais : la carte de réservation garde sa largeur à chaque étape et ne change que de hauteur.
+- **Titre collant**, `4fr / 8fr` : le titre reste à `top: 120px` pendant que la liste défile à côté (bénéfices des pages produit). Il se décolle sous `960px`.
+- **Vedette puis ligne** : un élément en grand, puis ses pairs sur une ligne de trois colonnes séparées par des filets (témoignages).
 
 Les maquettes de téléphone de la section Demo utilisent un registre à part : un conteneur en `container-type: inline-size` définit `--u: 0.25641cqw`, c'est-à-dire un pixel de la maquette d'origine en 390px de large, et chaque dimension du bloc est un `calc(var(--u) * N)`. L'écran est donc redimensionné avec sa coque, jamais en pixels CSS fixes.
 
 ### Named Rules
 
-**La règle du fluide d'abord.** On met à l'échelle avec `clamp()` et des grilles `auto-fit`. Un breakpoint de largeur est un dernier recours, réservé aux cas où la mise en page doit réellement se réordonner. Le rapport actuel, soixante-trois `clamp()` pour trois breakpoints, est la cible et non un accident.
+**La règle du fluide d'abord.** On met à l'échelle avec `clamp()` et des grilles `auto-fit`. Un breakpoint de largeur est un dernier recours, réservé aux cas où la mise en page doit réellement se réordonner. Le rapport actuel, soixante-quatorze `clamp()` pour six breakpoints, est la cible et non un accident.
 
 **La règle du pixel de maquette.** À l'intérieur de `.appui`, aucune valeur en `px` absolus. Tout passe par `--u`, y compris la prop `size` des icônes. Un `px` posé là casse au format où le téléphone est réellement rendu, autour de 252px de large.
 
@@ -205,15 +226,17 @@ Les maquettes de téléphone de la section Demo utilisent un registre à part : 
 Le système utilise trois registres de profondeur distincts, chacun avec un rôle assigné. Ce n'est pas une inconsistance : c'est la doctrine.
 
 1. **L'arête dure, pour les commandes.** Un `box-shadow` à décalage vertical et flou nul, d'une teinte plus sombre que le remplissage. Le bouton n'a pas d'ombre portée, il a une tranche. C'est ce qui le rend enfonçable.
-2. **L'ombre atmosphérique, pour ce qui flotte.** Des ombres multi-couches à grand flou et étalement négatif, réservées aux rares éléments réellement détachés de la page : la carte de réservation, la fenêtre du Hub, la barre de nav compacte.
-3. **L'empilement tonal plat, pour les sections.** Papier Froid, Blanc Pur, Gris Atelier, Gris Cadre. Aucune ombre entre deux zones de page : la profondeur vient du ton.
+2. **L'ombre atmosphérique, pour ce qui flotte.** Des ombres multi-couches à grand flou et étalement négatif, réservées aux éléments réellement détachés de la page : la carte de réservation, la fenêtre du Hub, la barre de nav compacte, et les fiches posées (la pile des problèmes, la carte d'agenda sur la photo de la page démo).
+3. **L'empilement tonal plat, pour les sections.** Papier Froid, Blanc Pur, Gris Atelier, Gris Cadre. Aucune ombre entre deux zones de page : la profondeur vient du ton. Un plateau Ardoise Nuit peut porter un objet clair à l'intérieur d'une section claire (la fenêtre du Hub) ; c'est encore du ton, pas de l'ombre.
 
 ### Shadow Vocabulary
 
 - **Arête de commande** (`0 4px 0 0 <teinte sombre>`) : sous tout `.btn`. Passe à `0 2px` au survol, à `0` à la pression.
 - **Arête compacte** (`0 3px 0 0 <teinte sombre>`) : la même chose en plus court, pour `.nav__cta`, `.store-badge` et `.hub__composer-send`.
 - **Carte flottante** (`0 2px 4px rgba(15,23,42,.04), 0 18px 32px -18px rgba(15,23,42,.16), 0 48px 90px -50px rgba(15,23,42,.42)`) : la carte de réservation. Trois couches, du contact au halo lointain.
-- **Fenêtre applicative** (`0 0 0 1px rgba(15,23,42,.05), 0 40px 80px -50px rgba(15,23,42,.45)`) : la fenêtre du Hub, un filet de contour plus une ombre profonde.
+- **Fenêtre applicative** (`0 0 0 1px rgba(255,255,255,.08), 0 40px 80px -40px rgba(0,0,0,.7)`) : la fenêtre du Hub sur son plateau encre, un filet clair plus une ombre profonde.
+- **Fiche posée** (`0 0 0 1px <Filet Doux>, 0 18px 36px -24px rgba(15,23,42,.4)`) : les fiches de la pile des problèmes. Au survol de la pile, elle se resserre en `0 0 0 1px <Arête Claire>, 0 10px 24px -20px rgba(15,23,42,.35)` pendant que les fiches se redressent.
+- **Carte d'agenda** (`0 0 0 1px <Filet Doux>, 0 24px 48px -28px rgba(15,23,42,.45)`) : la carte « En 15 minutes, vous verrez » qui chevauche le bas de la photo de la page démo.
 - **Verre de nav** (`0 10px 30px -18px rgba(15,23,42,.28), inset 0 1px 0 rgba(255,255,255,.7)`) : la nav compacte, avec `backdrop-filter: blur(18px) saturate(180%)`.
 
 ### Named Rules
@@ -224,15 +247,17 @@ Le système utilise trois registres de profondeur distincts, chacun avec un rôl
 
 ## Shapes
 
-Trois rayons et une pastille. `24px` pour les grands blocs (cadres photo, cartes de plan, fenêtres), `14px` pour les commandes et les blocs moyens, `10px` pour les petits éléments, `999px` pour les eyebrows et les pastilles. La carte de réservation fait exception à `22px`, valeur reprise telle quelle de la maquette.
+Trois rayons et une pastille. `24px` pour les grands blocs (cadres photo, cartes de plan, fenêtres, panneaux de bénéfices), `14px` pour les commandes et les blocs moyens, `10px` pour les petits éléments et les tuiles d'icône, `999px` pour les chips, le badge et les pilules d'intégration. Hors échelle, et assumés : `22px` pour la carte de réservation, `18px` pour les fiches posées, `12px` pour les champs, les jours et les créneaux, `34px` pour l'anneau des témoignages.
 
 Les bordures sont systématiquement d'un pixel en gris-bleu translucide, sauf sur les boutons où elles montent à deux pixels opaques, parce qu'elles participent au volume plutôt qu'à la séparation. Les cadres photo découpent en `overflow: hidden` et zooment leur image de 4% au survol sur `0.7s`.
 
 La coque de téléphone est la seule géométrie asymétrique du système : `38px` en haut, zéro en bas, parce qu'elle sort du cadre par le bas.
 
+Deux formes ont leur propre registre. Le témoignage en vedette est cerné d'un anneau de 2px en dégradé `135deg` du Vert Veilleuse au Vert Signal puis à l'Ardoise Nuit, le seul dégradé décoratif du site. Les trois fiches de problèmes sont posées de travers (`-1.6deg`, `1.2deg`, `-0.6deg`, décalées de quelques pixels) et se redressent ensemble au survol ; elles restent droites sous `900px` et sans transition avec `prefers-reduced-motion`.
+
 ### Named Rules
 
-**La règle de l'arête franche.** Les angles sont arrondis, jamais les arêtes. Un bouton enfoncé montre une tranche nette d'une teinte plus sombre. Aucun dégradé, aucun biseau, aucune lumière simulée, à l'exception du liseré interne d'un pixel sur les boutons encre.
+**La règle de l'arête franche.** Les angles sont arrondis, jamais les arêtes. Un bouton enfoncé montre une tranche nette d'une teinte plus sombre. Aucun dégradé, aucun biseau, aucune lumière simulée sur une commande, à l'exception du liseré interne d'un pixel sur les boutons encre.
 
 ## Components
 
@@ -250,8 +275,17 @@ Le caractère d'ensemble : **robuste et lisible**. Tout est dimensionné pour ê
 
 ### Chips
 
-- **Style:** angles `8px`, rembourrage `7px 11px`, `0.88rem` en graisse 500, fond transparent et texte Ardoise Claire au repos.
-- **State:** l'état actif bascule en fond Ardoise Nuit et texte blanc. Transition de `0.16s` sur le fond et la couleur. Utilisé pour la taille d'équipe du formulaire de réservation.
+- **Style:** pastille (`999px`), rembourrage `10px 18px`, `0.9rem` en graisse 500, fond Blanc Pur, contour d'un pixel en Arête Claire, texte Ardoise Nuit.
+- **State:** le survol fonce le contour en Ardoise Nuit ; l'état actif bascule en fond et contour Ardoise Nuit, texte blanc. Transition de `0.2s`. Utilisé pour la taille d'équipe du formulaire de réservation. Les jours du sélecteur de créneaux suivent la même logique en rectangle `12px`.
+
+### Badges et étiquettes
+
+- **Badge** (« Le plus populaire ») : pastille Vert Halo, texte Vert Enfoncé, `11px` en 700, posée à côté du nom du plan et non plus en surplomb de la carte.
+- **Étiquette de bloc** : sur la section Demo de l'accueil, chaque bloc porte une étiquette en haut à gauche (`12px`, 600) précédée d'un point de 7px ; blanche sur la carte encre, Blanc Pur à contour Arête Claire sur les tuiles grises, avec un point Vert Veilleuse ou Vert Signal selon le fond.
+
+### Tuiles d'icône
+
+Carré Vert Halo, icône Vert Enfoncé : `36px` dans les listes (agenda de la démo), `28px` pour les fonctionnalités des plans, `56px` pour les bénéfices du Hub. Sur fond encre, le fond passe à `rgba(74,222,128,.14)` et l'icône en Vert Veilleuse. Dans les listes neutres (bénéfices des pages produit), la tuile est Blanc Pur avec un filet et l'icône reste en Ardoise Nuit.
 
 ### Cards / Containers
 
@@ -259,20 +293,40 @@ Le caractère d'ensemble : **robuste et lisible**. Tout est dimensionné pour ê
 - **Background:** Blanc Pur sur les sections claires, Gris Cadre pour les cadres qui reçoivent une image ou une démo.
 - **Shadow Strategy:** aucune ombre par défaut. Seules la carte de réservation et la fenêtre du Hub reçoivent le registre atmosphérique (voir Elevation & Depth).
 - **Border:** un pixel en Filet Doux quand la carte est sur fond blanc et a besoin de se délimiter.
-- **Internal Padding:** `clamp(26px, 3vw, 38px)` pour les cartes de plan, `22px clamp(18px, 4vw, 32px)` par rangée de formulaire.
+- **Internal Padding:** `clamp(26px, 3vw, 38px)` pour les cartes de plan, `clamp(24px, 3vw, 40px)` pour les cellules de panneau, `22px clamp(22px, 3vw, 32px)` pour le formulaire de réservation.
+- **Cartes de plan:** nom et badge sur une ligne, puis le prix, puis le bouton, puis un filet et les fonctionnalités en tuiles. L'action vient avant le détail.
+- **Panneaux à filets:** plusieurs cellules Blanc Pur séparées par un `gap: 1px` sur fond Filet Doux, dans un seul cadre `24px` (bénéfices du Hub). Sur fond encre, les filets passent en blanc à 10%.
 
 ### Inputs / Fields
 
-Les champs n'ont pas de boîte. Chaque rangée du formulaire est une bande horizontale séparée de la précédente par un filet à 14% d'opacité : à gauche un label de `110px` en `0.82rem` Ardoise Claire, à droite le contrôle lui-même, sans bordure, sans fond, sans `outline`, en `1.02rem`, qui hérite de la police du document. Les `select` perdent leur `appearance` native.
+Chaque champ est une boîte : label au-dessus (`0.82rem`, 600, Ardoise Nuit, `8px` de marge), puis le contrôle en `48px` de haut, fond Blanc Pur, contour d'un pixel en Arête Claire, angles `12px`, rembourrage horizontal `14px`, texte `0.97rem`. Les `select` perdent leur `appearance` native et portent un chevron à `14px` du bord droit. Deux champs courts (rôle, secteur) se partagent une ligne et s'empilent sous `520px`.
 
-- **Focus:** il n'y a pas de style de focus par champ. La règle globale `:focus-visible` pose un contour de 2px en Vert Signal à 3px de décalage, sur tout élément focusable du site.
-- **Densité:** deux rangées seulement portent un `min-height` (`74px` pour le rôle, `73px` pour la taille d'équipe), parce que leur contrôle est plus court que leur label. C'est une valeur reprise de la maquette, pas une règle générale.
+- **Focus:** le contour passe en Vert Signal avec un halo `0 0 0 3px rgba(22,163,74,.16)`, en `0.2s`. La règle globale `:focus-visible` reste valable pour tout le reste du site.
+- **Placeholder:** Ardoise Claire.
 
 ### Navigation
 
 Barre collante en haut de page, fond transparent au repos. Au-delà du seuil de défilement elle se contracte : largeur ramenée à `1000px`, angles `14px`, fond blanc à 45% avec `backdrop-filter: blur(18px) saturate(180%)`, liseré interne blanc et ombre douce. La transition dure `0.4s` sur la courbe maison.
 
 Au-dessus d'une section marquée `data-nav-dark`, l'encre de la nav bascule en blanc. Son CTA reprend la recette des boutons encre en format compact : `11px 17px`, angles `11px`, arête de 3px, label à `12.5px`.
+
+### Listes en filets
+
+La forme par défaut d'une énumération. Des éléments séparés par un filet d'un pixel en Arête Claire, sans carte autour : colonnes séparées par des filets verticaux (témoignages secondaires), ou rangées séparées par des filets horizontaux (bénéfices des pages produit, en deux colonnes, avec une tuile d'icône `44px` à gauche du titre). Sous leur breakpoint, les filets verticaux deviennent horizontaux.
+
+### Témoignage en vedette
+
+Un avis en grand dans un panneau Ardoise Nuit cerné de l'anneau en dégradé : citation en Inter 500 jusqu'à `2.3rem`, limitée à `30ch`, `text-wrap: balance` ; nom en Lanterosy, rôle en blanc à 62% et cinq étoiles Vert Veilleuse alignés en bas à droite. Les autres avis suivent en ligne de trois, en filets.
+
+### Carte de réservation (signature)
+
+La carte de la page démo change d'étape sans jamais changer de largeur ni pousser la colonne voisine.
+
+- **Formulaire :** en-tête (titre et sous-titre), quatre champs, chips de taille d'équipe, bouton encre pleine largeur.
+- **Créneaux :** lien retour, titre, mention du fuseau, puis les jours en ligne défilante et les heures en grille de trois colonnes, bornée à `320px` de haut avec défilement interne. Le créneau choisi passe en Vert Signal avec un `scale(1.04)`.
+- **Confirmation :** le créneau dans un encadré Vert Halo, puis nom, besoin et bouton primaire.
+- **Réservé :** un disque Vert Halo de `64px` qui se pose, puis une coche tracée à l'intérieur, et le titre en Lanterosy.
+- **Transitions :** chaque changement d'étape est une transition de vue de `0.52s` sur `cubic-bezier(0.16, 1, 0.3, 1)`. La boîte de la carte est dessinée sur le groupe de transition, donc elle change de hauteur sans s'étirer, pendant que le contenu sort en `0.16s` (fondu et flou de 4px) et entre en `0.36s` avec `0.14s` de retard. Pendant le chargement, des tuiles grises miroitantes tiennent la forme exacte du sélecteur. Jours et heures apparaissent en cascade (`320ms`, pas de `30ms` puis `16ms`, plafonné à `260ms`). Sans transitions de vue, le contenu apparaît en fondu de `220ms` ; avec `prefers-reduced-motion`, tout change sans mouvement et la coche est déjà tracée.
 
 ### Phone mockups (signature)
 
@@ -288,6 +342,8 @@ Les deux écrans d'application de la section Demo sont du balisage, pas des capt
 - **Do** mettre à l'échelle avec `clamp()` et des grilles `auto-fit` avant d'envisager un breakpoint.
 - **Do** distinguer deux zones de page par leur surface tonale, parmi les quatre disponibles.
 - **Do** utiliser de la photographie documentaire de vrais commerciaux en rendez-vous, cadrée depuis `src/lib/feature-media.ts`.
+- **Do** énumérer en listes à filets, et réserver le panneau ou la carte aux objets qui en ont besoin.
+- **Do** montrer tout le contenu d'une section d'emblée : les témoignages ont quitté le carrousel pour une vedette et une ligne.
 
 ### Don't:
 
@@ -298,3 +354,6 @@ Les deux écrans d'application de la section Demo sont du balisage, pas des capt
 - **Don't** utiliser Lanterosy ailleurs que dans un titre.
 - **Don't** écrire de `px` absolus à l'intérieur de `.appui`, ni toucher aux corps `15.14` / `14.6` des maquettes de téléphone.
 - **Don't** reprendre l'imagerie de la catégorie : dégradés violets, illustrations 3D, captures en perspective, grilles de visages en visio, formes d'onde audio.
+- **Don't** revenir aux grilles de cartes identiques icône + titre + texte : `.feature-grid` a été retirée au profit des listes à filets et de la pile de fiches.
+- **Don't** élargir la carte de réservation ni déplacer la colonne de gauche quand on change d'étape. Seule la hauteur de la carte bouge, et elle suit son contenu.
+- **Don't** poser de surtitre (eyebrow) au-dessus d'un titre de section : le titre en deux lignes porte seul la hiérarchie.
