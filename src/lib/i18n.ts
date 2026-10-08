@@ -28,6 +28,14 @@ const fr: Dict = {
   'hero.sub':
     'Reedly capture chaque échange durant vos rendez-vous clients, puis les transforme en compte rendu structuré, actions commerciales et mises à jour CRM, le tout alimenté par un agent IA.',
 
+  // Not shown on the page: the VideoObject description.
+  'video.description':
+    "En moins d'une minute, les deux côtés de Reedly : l'app que votre commercial lance en rendez-vous, puis le Hub où vous lisez ce qui s'y est dit.",
+  'video.label': 'Présentation de Reedly en vidéo',
+  'video.play': 'Regarder avec le son',
+  'video.replay': 'Revoir la vidéo',
+  'video.captions': 'Français',
+
   'demo.title': 'Parlez. Reedly structure.<br /><em>Vos équipes avancent.</em>',
   'demo.lead':
     "Votre commercial se concentre sur l'échange. Reedly transforme automatiquement chaque rendez-vous en <b>un compte rendu clair et structuré</b>, puis le partage directement avec vos équipes et <b>dans vos outils</b>.",
@@ -264,6 +272,14 @@ const en: Dict = {
     'Turn your field sales conversations into trusted data<br /><em>with an AI agent.</em>',
   'hero.sub':
     'Reedly captures every conversation during your client meetings, then turns it into a structured report, sales actions and CRM updates, all powered by an AI agent.',
+
+  // Not shown on the page: the VideoObject description.
+  'video.description':
+    'In under a minute, both sides of Reedly: the app your rep starts in the meeting, then the Hub where you read what was said.',
+  'video.label': 'Reedly product video',
+  'video.play': 'Watch with sound',
+  'video.replay': 'Watch again',
+  'video.captions': 'English',
 
   'demo.title': 'You talk. Reedly structures.<br /><em>Your teams move forward.</em>',
   'demo.lead':

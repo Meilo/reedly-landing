@@ -226,7 +226,7 @@ Les maquettes de téléphone de la section Demo utilisent un registre à part : 
 Le système utilise trois registres de profondeur distincts, chacun avec un rôle assigné. Ce n'est pas une inconsistance : c'est la doctrine.
 
 1. **L'arête dure, pour les commandes.** Un `box-shadow` à décalage vertical et flou nul, d'une teinte plus sombre que le remplissage. Le bouton n'a pas d'ombre portée, il a une tranche. C'est ce qui le rend enfonçable.
-2. **L'ombre atmosphérique, pour ce qui flotte.** Des ombres multi-couches à grand flou et étalement négatif, réservées aux éléments réellement détachés de la page : la carte de réservation, la fenêtre du Hub, la barre de nav compacte, et les fiches posées (la pile des problèmes, la carte d'agenda sur la photo de la page démo).
+2. **L'ombre atmosphérique, pour ce qui flotte.** Des ombres multi-couches à grand flou et étalement négatif, réservées aux éléments réellement détachés de la page : la carte de réservation, la fenêtre du Hub et le cadre de la vidéo, la barre de nav compacte, et les fiches posées (la pile des problèmes, la carte d'agenda sur la photo de la page démo).
 3. **L'empilement tonal plat, pour les sections.** Papier Froid, Blanc Pur, Gris Atelier, Gris Cadre. Aucune ombre entre deux zones de page : la profondeur vient du ton. Un plateau Ardoise Nuit peut porter un objet clair à l'intérieur d'une section claire (la fenêtre du Hub) ; c'est encore du ton, pas de l'ombre.
 
 ### Shadow Vocabulary
@@ -331,6 +331,14 @@ La carte de la page démo change d'étape sans jamais changer de largeur ni pous
 ### Phone mockups (signature)
 
 Les deux écrans d'application de la section Demo sont du balisage, pas des captures. Coque en dégradé `145deg` de `#454a55` à `#0c0e12`, arrondie à `38px` en haut seulement, avec un liseré interne clair et une ombre remontante. À l'intérieur, tout est exprimé en `--u` (voir Layout). Deux calibrages sont porteurs : les corps de texte à `15.14` et `14.6` reproduisent exactement les césures de la maquette d'origine, et les mentions `(3‑4 jours)` / `(3‑4 days)` utilisent un trait d'union insécable (U+2011) sans quoi la ligne casse après le tiret.
+
+### Lecteur vidéo (signature)
+
+Le film produit a sa propre bande Ardoise Nuit, entre le hero en Papier Froid et la section Demo en Blanc Pur : une salle de projection, où les scènes sombres du film se fondent dans la bande et les claires s'allument comme un écran. Le cadre est un `16 / 9` en `24px`, fond Ardoise Nuit, porté par l'ombre de la Fenêtre applicative (filet blanc à 9 %, ombre profonde), comme la fenêtre du Hub.
+
+- **Commande :** un seul bouton fantôme en relief, en bas à gauche du film, avec une icône (lecture sur l'affiche, haut-parleur pendant l'aperçu muet) et la durée en chiffres tabulaires derrière un filet. Survoler n'importe où sur le film enfonce ce bouton, comme s'il était survolé lui-même. Sous `520px`, le libellé ne reste que pour les lecteurs d'écran.
+- **Mouvement :** le défilement fait grandir le cadre de `scale(0.9)` à sa taille (timeline de vue, `entry 0%` à `cover 42%`). C'est le seul mouvement de la section ; sans timeline de défilement, le `.reveal` habituel prend le relais.
+- **Fin :** le dernier plan est assombri (Ardoise Nuit à 84 %, flou de `14px`) et deux vrais boutons remplacent ceux dessinés dans le film : primaire « Réserver une démo », `onDark` « Revoir la vidéo ».
 
 ## Do's and Don'ts
 

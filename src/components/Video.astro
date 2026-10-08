@@ -1,0 +1,179 @@
+---
+// The product film, right under the hero. One render per language, both cut
+// from the HyperFrames project in ../reedly-videos (see CLAUDE.md). Emits its
+// own VideoObject JSON-LD, the way Faq emits FAQPage.
+import Icon from '@/components/Icon.astro';
+import { getLang, t } from '@/lib/i18n';
+import { videoObject } from '@/lib/schema';
+
+const lang = getLang(Astro.url.pathname);
+const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const canonical = new URL(pathname, 'https://www.reedly.ai').href;
+
+// Durations of the renders, in seconds.
+const seconds = { fr: 45, en: 47 }[lang];
+const clock = `0:${String(seconds).padStart(2, '0')}`;
+const path = `/video/reedly-${lang}`;
+
+const videoLD = videoObject({
+  url: canonical,
+  lang,
+  name: t(lang, 'video.label'),
+  description: t(lang, 'video.description'),
+  path,
+  seconds,
+  uploadDate: '2026-10-08',
+});
+---
+
+<section class="section section--dark video" id="video" aria-label={t(lang, 'video.label')} data-nav-dark>
+  <div class="inner">
+    <!-- Native controls until the script takes over, so the film still plays without JS. -->
+    <div class="video__frame reveal" id="video-frame" data-state="native" data-lang={lang}>
+      <video
+        class="video__media"
+        controls
+        playsinline
+        preload="none"
+        poster={`${path}.webp`}
+        width="1920"
+        height="1080"
+        aria-label={`${t(lang, 'video.label')} (${clock})`}
+      >
+        <source src={`${path}-720.mp4`} type="video/mp4" media="(max-width: 760px)" />
+        <source src={`${path}.mp4`} type="video/mp4" />
+        <track kind="captions" src={`${path}.vtt`} srclang={lang} label={t(lang, 'video.captions')} />
+      </video>
+
+      <button class="btn btn--ghost video__play" type="button" data-video-play>
+        <span class="video__icon video__icon--play"><Icon name="play" size={18} /></span>
+        <span class="video__icon video__icon--sound"><Icon name="noise" size={20} /></span>
+        <span class="video__play-label">{t(lang, 'video.play')}</span>
+        <span class="video__play-time">{clock}</span>
+      </button>
+
+      <div class="video__end">
+        <a
+          class="btn btn--primary"
+          href={`/${lang}/demo`}
+          data-track-id="video_book_demo"
+          data-track-type="demo"
+          data-track-section="video">{t(lang, 'cta.book_demo')}</a
+        >
+        <button class="btn btn--onDark" type="button" data-video-replay>
+          <Icon name="play" size={16} />
+          {t(lang, 'video.replay')}
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(videoLD)} />
+
+<script is:inline>
+  (function () {
+    // States: idle (poster) → preview (muted loop while on screen) → watching
+    // (sound, native controls, from the start) → ended (real CTAs over the
+    // end card, whose drawn buttons are not clickable).
+    var frame = document.getElementById('video-frame');
+    if (!frame) return;
+    var video = frame.querySelector('video');
+    var replay = frame.querySelector('[data-video-replay]');
+
+    function state() {
+      return frame.dataset.state;
+    }
+
+    function set(next) {
+      frame.dataset.state = next;
+    }
+
+    function track(name, props) {
+      if (window.reedlyTrackEvent) {
+        props = props || {};
+        props.video_lang = frame.dataset.lang;
+        window.reedlyTrackEvent(name, props);
+      }
+    }
+
+    video.controls = false;
+    set('idle');
+
+    function watch(source) {
+      set('watching');
+      video.loop = false;
+      video.muted = false;
+      video.controls = true;
+      video.currentTime = 0;
+      var p = video.play();
+      if (p) p.catch(function () {});
+      video.focus({ preventScroll: true });
+      track('landing_video_played', { video_source: source });
+    }
+
+    frame.addEventListener('click', function (e) {
+      var s = state();
+      if (s !== 'idle' && s !== 'preview') return;
+      watch(e.target.closest('[data-video-play]') ? 'button' : 'frame');
+    });
+
+    replay.addEventListener('click', function () {
+      watch('replay');
+    });
+
+    video.addEventListener('ended', function () {
+      if (state() !== 'watching') return;
+      var hadFocus = document.activeElement === video;
+      if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen();
+      if (video.webkitDisplayingFullscreen && video.webkitExitFullscreen) video.webkitExitFullscreen();
+      video.controls = false;
+      set('ended');
+      if (hadFocus) replay.focus({ preventScroll: true });
+      track('landing_video_completed');
+    });
+
+    // The muted preview: skipped when the visitor asks for less motion or less
+    // data, and paused whenever the frame leaves the screen.
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var saveData = navigator.connection && navigator.connection.saveData;
+    if (reduced || saveData || !('IntersectionObserver' in window)) return;
+
+    // Property and attribute both: older iOS only autoplays with the attribute.
+    video.muted = true;
+    video.setAttribute('muted', '');
+    video.loop = true;
+
+    var inView = false;
+
+    // Also re-run when the tab comes back: Chrome aborts a muted play() in a
+    // hidden tab, and a rejected preview would otherwise wait for the next
+    // threshold crossing.
+    function preview() {
+      var s = state();
+      if (s !== 'idle' && s !== 'preview') return;
+      if (!inView || document.hidden) {
+        video.pause();
+        return;
+      }
+      var p = video.play();
+      if (p)
+        p.then(function () {
+          if (state() === 'idle') set('preview');
+        }).catch(function () {});
+    }
+
+    new IntersectionObserver(
+      function (entries) {
+        var entry = entries[entries.length - 1];
+        if (entry.intersectionRatio >= 0.4) inView = true;
+        else if (!entry.isIntersecting) inView = false;
+        else return;
+        preview();
+      },
+      { threshold: [0, 0.4] },
+    ).observe(frame);
+
+    document.addEventListener('visibilitychange', preview);
+  })();
+</script>

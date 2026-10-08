@@ -52,11 +52,19 @@ When adding a page, **add both language halves** and the redirect pair in `verce
 
 ### Home sections
 
-`src/pages/{fr,en}/index.astro` composes, in order: `Nav`, `Hero`, `Demo`, `Hub`, `Compliance`, `Pricing`, `Testimonials`, `Faq`, `FinalCta`, `Footer`.
+`src/pages/{fr,en}/index.astro` composes, in order: `Nav`, `Hero`, `Video`, `Demo`, `Hub`, `Compliance`, `Pricing`, `Testimonials`, `Faq`, `FinalCta`, `Footer`.
 
 The booking block is not on the home any more: it lives on `/fr/demo` · `/en/demo`, and every "book a demo" CTA (nav, hero, pricing, final CTA, footer, product pages, 404) links there. An inline script on each home still sends a legacy `#rdv` URL to the demo page, since a fragment cannot be redirected server-side.
 
 Copy for all of these lives server-side in `src/lib/i18n.ts` (`t(lang, key)`). Nothing in `public/main.js` renders copy — it only drives behaviour.
+
+### Product video
+
+`Video.astro` plays the product film right under the hero, one render per language, from `public/video/`: `reedly-{fr,en}.mp4` (1080p), `reedly-{fr,en}-720.mp4` (chosen by `<source media>` under 760px), the `.webp` poster (the frame at 3.5 s) and `.vtt` captions. The films are made in the HyperFrames project at `../reedly-videos` (its README has the rebuild steps). A new render is re-encoded with `ffmpeg -c:v libx264 -preset slow -crf 23 -movflags +faststart` (`+faststart` is what lets it start before the whole file is down); then update the durations and `uploadDate` in `Video.astro`.
+
+It sits in its own ink band (`section section--dark`, `data-nav-dark`) between the grey hero and the white Demo section, the frame carrying the Hub window's shadow. Behaviour: a muted loop while at least 40% of it is on screen (skipped under reduced motion or Save-Data); a click anywhere restarts it from the top with sound and native controls; at the end, real CTAs replace the end card's drawn buttons, which are not clickable. Without JS it is a plain `<video controls>`. It emits its own `VideoObject` (`videoObject()` in `schema.ts`) and the `landing_video_played` / `landing_video_completed` events (`tracking-plan.md`).
+
+The captions were generated from the voice-over's word timings (`reedly-promo/assets/vo/vo-*.words.json`, offset by the voice's 0.6 s start), with the brand name fixed by hand: whisper hears "Ridley" and "Readly".
 
 ### Phone mockups
 
