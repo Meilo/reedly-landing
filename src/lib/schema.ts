@@ -239,6 +239,37 @@ export function webPage(input: WebPageInput): Node {
   };
 }
 
+export interface VideoInput {
+  /** Canonical URL of the page that plays it. */
+  url: string;
+  lang: Lang;
+  name: string;
+  description: string;
+  /** Published path without extension: `<path>.mp4` and `<path>.webp` exist. */
+  path: string;
+  seconds: number;
+  uploadDate: string;
+}
+
+/** Emitted by the component that plays the video, like the FAQ. */
+export function videoObject(input: VideoInput): Node {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    '@id': `${input.url}#video`,
+    name: input.name,
+    description: input.description,
+    thumbnailUrl: `${SITE}${input.path}.webp`,
+    contentUrl: `${SITE}${input.path}.mp4`,
+    uploadDate: input.uploadDate,
+    duration: `PT${input.seconds}S`,
+    inLanguage: input.lang,
+    publisher: ref(ORG_ID),
+    about: ref(APP_ID),
+    isPartOf: ref(`${input.url}#webpage`),
+  };
+}
+
 /** Emitted by whichever FAQ component renders, never by the layout. */
 export function faqPage(url: string, lang: Lang, items: { q: string; a: string }[]): Node {
   return {

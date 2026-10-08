@@ -54,10 +54,10 @@ depuis toutes les anciennes URLs.
 ```
 src/
 ├── components/          # Une section d'accueil par composant
-│   ├── Nav · Hero · Demo · Hub · Compliance · Pricing
+│   ├── Nav · Hero · Video · Demo · Hub · Compliance · Pricing
 │   ├── Testimonials · Faq · FinalCta · Footer
 │   ├── BookDemo.astro   # Tunnel de réservation, sur la page /demo
-│   ├── Icon.astro       # Registre d'icônes unique (58 entrées)
+│   ├── Icon.astro       # Registre d'icônes unique (59 entrées)
 │   └── feature/         # Blocs des pages produit
 ├── content/features/    # Contenu YAML des pages produit, par langue
 ├── data/features.yaml   # Registre id → slugs FR/EN

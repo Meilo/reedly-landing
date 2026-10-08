@@ -156,6 +156,20 @@ Mesurer l'efficacite de la landing sur 4 axes:
   - `seconds`: `30` | `60` | `120` | `300`
   - `blog_article_slug`: slug de l'article
 
+### 16) `landing_video_played`
+- **Quand**: lancement de la video produit avec le son (le premier apercu muet ne compte pas)
+- **Ou**: `src/components/Video.astro` (script inline)
+- **Props specifiques**:
+  - `video_source`: `button` (bouton sur la video) | `frame` (clic ailleurs sur la video) | `replay` (bouton de fin)
+  - `video_lang`: `fr` | `en`
+
+### 17) `landing_video_completed`
+- **Quand**: la video lancee avec le son va jusqu'au bout
+- **Ou**: `src/components/Video.astro` (script inline)
+- **Props specifiques**:
+  - `video_lang`: `fr` | `en`
+- **Note**: le bouton « Réserver une démo » de l'ecran de fin remonte en `landing_cta_clicked` avec `cta_id=video_book_demo`
+
 ## KPIs a suivre
 
 - `landing_to_contact_submit_rate` = `landing_contact_form_submitted` / `landing_page_viewed`

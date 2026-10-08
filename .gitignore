@@ -19,3 +19,5 @@ node_modules/
 # Impeccable live-mode session journals. The two config.json files are shared
 # project settings and stay tracked; the session state under live/ is scratch.
 .impeccable/live/sessions/
+.impeccable/live/accept-receipts/
+.impeccable/live/roots.json
